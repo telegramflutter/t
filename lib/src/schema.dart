@@ -43,9 +43,14 @@ class Error extends ErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc4b9f9bb.
     buffer.writeInt32(0xc4b9f9bb);
+
+    // Write fields.
     buffer.writeInt32(code);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -74,7 +79,10 @@ class InputPeerEmpty extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7f3b18ea.
     buffer.writeInt32(0x7f3b18ea);
+
+    // Finished serialization.
   }
 }
 
@@ -97,7 +105,10 @@ class InputPeerSelf extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7da07ec9.
     buffer.writeInt32(0x7da07ec9);
+
+    // Finished serialization.
   }
 }
 
@@ -132,8 +143,13 @@ class InputPeerChat extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35a95cb9.
     buffer.writeInt32(0x35a95cb9);
+
+    // Write fields.
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -176,9 +192,14 @@ class InputPeerUser extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdde8a54c.
     buffer.writeInt32(0xdde8a54c);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -221,9 +242,14 @@ class InputPeerChannel extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x27bcbbfc.
     buffer.writeInt32(0x27bcbbfc);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -272,10 +298,15 @@ class InputPeerUserFromMessage extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa87b0a1c.
     buffer.writeInt32(0xa87b0a1c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -324,10 +355,15 @@ class InputPeerChannelFromMessage extends InputPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd2a0840.
     buffer.writeInt32(0xbd2a0840);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt64(channelId);
+
+    // Finished serialization.
   }
 }
 
@@ -356,7 +392,10 @@ class InputUserEmpty extends InputUserBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb98886cf.
     buffer.writeInt32(0xb98886cf);
+
+    // Finished serialization.
   }
 }
 
@@ -379,7 +418,10 @@ class InputUserSelf extends InputUserBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf7c1b13f.
     buffer.writeInt32(0xf7c1b13f);
+
+    // Finished serialization.
   }
 }
 
@@ -422,9 +464,14 @@ class InputUser extends InputUserBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf21158c6.
     buffer.writeInt32(0xf21158c6);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -473,10 +520,15 @@ class InputUserFromMessage extends InputUserBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1da448e2.
     buffer.writeInt32(0x1da448e2);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -535,11 +587,16 @@ class InputPhoneContact extends InputContactBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf392b7f4.
     buffer.writeInt32(0xf392b7f4);
+
+    // Write fields.
     buffer.writeInt64(clientId);
     buffer.writeString(phone);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
+
+    // Finished serialization.
   }
 }
 
@@ -600,11 +657,16 @@ class InputFile extends InputFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf52ff27f.
     buffer.writeInt32(0xf52ff27f);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(parts);
     buffer.writeString(name);
     buffer.writeString(md5Checksum);
+
+    // Finished serialization.
   }
 }
 
@@ -653,10 +715,15 @@ class InputFileBig extends InputFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa4f0bb5.
     buffer.writeInt32(0xfa4f0bb5);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(parts);
     buffer.writeString(name);
+
+    // Finished serialization.
   }
 }
 
@@ -685,7 +752,10 @@ class InputMediaEmpty extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9664f57f.
     buffer.writeInt32(0x9664f57f);
+
+    // Finished serialization.
   }
 }
 
@@ -751,7 +821,10 @@ class InputMediaUploadedPhoto extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e287d04.
     buffer.writeInt32(0x1e287d04);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(file);
     final localStickersCopy = stickers;
@@ -762,6 +835,8 @@ class InputMediaUploadedPhoto extends InputMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -818,13 +893,18 @@ class InputMediaPhoto extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb3ba0635.
     buffer.writeInt32(0xb3ba0635);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     final localTtlSecondsCopy = ttlSeconds;
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -857,8 +937,13 @@ class InputMediaGeoPoint extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf9c44144.
     buffer.writeInt32(0xf9c44144);
+
+    // Write fields.
     buffer.writeObject(geoPoint);
+
+    // Finished serialization.
   }
 }
 
@@ -909,11 +994,16 @@ class InputMediaContact extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf8ab7dfb.
     buffer.writeInt32(0xf8ab7dfb);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
     buffer.writeString(vcard);
+
+    // Finished serialization.
   }
 }
 
@@ -1013,7 +1103,10 @@ class InputMediaUploadedDocument extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5b38c6c1.
     buffer.writeInt32(0x5b38c6c1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(file);
     final localThumbCopy = thumb;
@@ -1030,6 +1123,8 @@ class InputMediaUploadedDocument extends InputMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1094,7 +1189,10 @@ class InputMediaDocument extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x33473058.
     buffer.writeInt32(0x33473058);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     final localTtlSecondsCopy = ttlSeconds;
@@ -1105,6 +1203,8 @@ class InputMediaDocument extends InputMediaBase {
     if (localQueryCopy != null) {
       buffer.writeString(localQueryCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1167,13 +1267,18 @@ class InputMediaVenue extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc13d1c11.
     buffer.writeInt32(0xc13d1c11);
+
+    // Write fields.
     buffer.writeObject(geoPoint);
     buffer.writeString(title);
     buffer.writeString(address);
     buffer.writeString(provider);
     buffer.writeString(venueId);
     buffer.writeString(venueType);
+
+    // Finished serialization.
   }
 }
 
@@ -1230,13 +1335,18 @@ class InputMediaPhotoExternal extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe5bbfe1a.
     buffer.writeInt32(0xe5bbfe1a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(url);
     final localTtlSecondsCopy = ttlSeconds;
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1293,13 +1403,18 @@ class InputMediaDocumentExternal extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfb52dc99.
     buffer.writeInt32(0xfb52dc99);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(url);
     final localTtlSecondsCopy = ttlSeconds;
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1332,8 +1447,13 @@ class InputMediaGame extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd33f43f3.
     buffer.writeInt32(0xd33f43f3);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -1431,7 +1551,10 @@ class InputMediaInvoice extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8eb5a6d5.
     buffer.writeInt32(0x8eb5a6d5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeString(description);
@@ -1451,6 +1574,8 @@ class InputMediaInvoice extends InputMediaBase {
     if (localExtendedMediaCopy != null) {
       buffer.writeObject(localExtendedMediaCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1524,7 +1649,10 @@ class InputMediaGeoLive extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x971fa843.
     buffer.writeInt32(0x971fa843);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geoPoint);
     final localHeadingCopy = heading;
@@ -1539,6 +1667,8 @@ class InputMediaGeoLive extends InputMediaBase {
     if (localProximityNotificationRadiusCopy != null) {
       buffer.writeInt32(localProximityNotificationRadiusCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1606,7 +1736,10 @@ class InputMediaPoll extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0f94e5f1.
     buffer.writeInt32(0x0f94e5f1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(poll);
     final localCorrectAnswersCopy = correctAnswers;
@@ -1621,6 +1754,8 @@ class InputMediaPoll extends InputMediaBase {
     if (localSolutionEntitiesCopy != null) {
       buffer.writeVectorObject(localSolutionEntitiesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1653,8 +1788,13 @@ class InputMediaDice extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe66fbf7b.
     buffer.writeInt32(0xe66fbf7b);
+
+    // Write fields.
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -1695,9 +1835,14 @@ class InputMediaStory extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x89fdd778.
     buffer.writeInt32(0x89fdd778);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -1760,9 +1905,14 @@ class InputMediaWebPage extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc21b8849.
     buffer.writeInt32(0xc21b8849);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -1791,7 +1941,10 @@ class InputChatPhotoEmpty extends InputChatPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1ca48f57.
     buffer.writeInt32(0x1ca48f57);
+
+    // Finished serialization.
   }
 }
 
@@ -1860,7 +2013,10 @@ class InputChatUploadedPhoto extends InputChatPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbdcdaec0.
     buffer.writeInt32(0xbdcdaec0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFileCopy = file;
     if (localFileCopy != null) {
@@ -1878,6 +2034,8 @@ class InputChatUploadedPhoto extends InputChatPhotoBase {
     if (localVideoEmojiMarkupCopy != null) {
       buffer.writeObject(localVideoEmojiMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -1910,8 +2068,13 @@ class InputChatPhoto extends InputChatPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8953ad37.
     buffer.writeInt32(0x8953ad37);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -1940,7 +2103,10 @@ class InputGeoPointEmpty extends InputGeoPointBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe4c123d6.
     buffer.writeInt32(0xe4c123d6);
+
+    // Finished serialization.
   }
 }
 
@@ -1996,7 +2162,10 @@ class InputGeoPoint extends InputGeoPointBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x48222faf.
     buffer.writeInt32(0x48222faf);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDouble(lat);
     buffer.writeDouble(long);
@@ -2004,6 +2173,8 @@ class InputGeoPoint extends InputGeoPointBase {
     if (localAccuracyRadiusCopy != null) {
       buffer.writeInt32(localAccuracyRadiusCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -2032,7 +2203,10 @@ class InputPhotoEmpty extends InputPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1cd7bf0d.
     buffer.writeInt32(0x1cd7bf0d);
+
+    // Finished serialization.
   }
 }
 
@@ -2081,10 +2255,15 @@ class InputPhoto extends InputPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3bb3b94a.
     buffer.writeInt32(0x3bb3b94a);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeBytes(fileReference);
+
+    // Finished serialization.
   }
 }
 
@@ -2147,11 +2326,16 @@ class InputFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdfdaabe1.
     buffer.writeInt32(0xdfdaabe1);
+
+    // Write fields.
     buffer.writeInt64(volumeId);
     buffer.writeInt32(localId);
     buffer.writeInt64(secret);
     buffer.writeBytes(fileReference);
+
+    // Finished serialization.
   }
 }
 
@@ -2194,9 +2378,14 @@ class InputEncryptedFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf5235d55.
     buffer.writeInt32(0xf5235d55);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -2251,11 +2440,16 @@ class InputDocumentFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbad07584.
     buffer.writeInt32(0xbad07584);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeBytes(fileReference);
     buffer.writeString(thumbSize);
+
+    // Finished serialization.
   }
 }
 
@@ -2298,9 +2492,14 @@ class InputSecureFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcbc7ee28.
     buffer.writeInt32(0xcbc7ee28);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -2323,7 +2522,10 @@ class InputTakeoutFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x29be5899.
     buffer.writeInt32(0x29be5899);
+
+    // Finished serialization.
   }
 }
 
@@ -2378,11 +2580,16 @@ class InputPhotoFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x40181ffe.
     buffer.writeInt32(0x40181ffe);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeBytes(fileReference);
     buffer.writeString(thumbSize);
+
+    // Finished serialization.
   }
 }
 
@@ -2455,13 +2662,18 @@ class InputPhotoLegacyFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd83466f3.
     buffer.writeInt32(0xd83466f3);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeBytes(fileReference);
     buffer.writeInt64(volumeId);
     buffer.writeInt32(localId);
     buffer.writeInt64(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -2518,10 +2730,15 @@ class InputPeerPhotoFileLocation extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x37257e99.
     buffer.writeInt32(0x37257e99);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt64(photoId);
+
+    // Finished serialization.
   }
 }
 
@@ -2562,9 +2779,14 @@ class InputStickerSetThumb extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9d84f3db.
     buffer.writeInt32(0x9d84f3db);
+
+    // Write fields.
     buffer.writeObject(stickerset);
     buffer.writeInt32(thumbVersion);
+
+    // Finished serialization.
   }
 }
 
@@ -2637,7 +2859,10 @@ class InputGroupCallStream extends InputFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0598a92a.
     buffer.writeInt32(0x0598a92a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
     buffer.writeInt64(timeMs);
@@ -2650,6 +2875,8 @@ class InputGroupCallStream extends InputFileLocationBase {
     if (localVideoQualityCopy != null) {
       buffer.writeInt32(localVideoQualityCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -2690,8 +2917,13 @@ class PeerUser extends PeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x59511722.
     buffer.writeInt32(0x59511722);
+
+    // Write fields.
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -2726,8 +2958,13 @@ class PeerChat extends PeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x36c6019a.
     buffer.writeInt32(0x36c6019a);
+
+    // Write fields.
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -2762,8 +2999,13 @@ class PeerChannel extends PeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa2a5371e.
     buffer.writeInt32(0xa2a5371e);
+
+    // Write fields.
     buffer.writeInt64(channelId);
+
+    // Finished serialization.
   }
 }
 
@@ -2792,7 +3034,10 @@ class StorageFileUnknown extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaa963b05.
     buffer.writeInt32(0xaa963b05);
+
+    // Finished serialization.
   }
 }
 
@@ -2815,7 +3060,10 @@ class StorageFilePartial extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x40bc6f52.
     buffer.writeInt32(0x40bc6f52);
+
+    // Finished serialization.
   }
 }
 
@@ -2838,7 +3086,10 @@ class StorageFileJpeg extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x007efe0e.
     buffer.writeInt32(0x007efe0e);
+
+    // Finished serialization.
   }
 }
 
@@ -2861,7 +3112,10 @@ class StorageFileGif extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcae1aadf.
     buffer.writeInt32(0xcae1aadf);
+
+    // Finished serialization.
   }
 }
 
@@ -2884,7 +3138,10 @@ class StorageFilePng extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a4f63c0.
     buffer.writeInt32(0x0a4f63c0);
+
+    // Finished serialization.
   }
 }
 
@@ -2907,7 +3164,10 @@ class StorageFilePdf extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xae1e508d.
     buffer.writeInt32(0xae1e508d);
+
+    // Finished serialization.
   }
 }
 
@@ -2930,7 +3190,10 @@ class StorageFileMp3 extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x528a0677.
     buffer.writeInt32(0x528a0677);
+
+    // Finished serialization.
   }
 }
 
@@ -2953,7 +3216,10 @@ class StorageFileMov extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4b09ebbc.
     buffer.writeInt32(0x4b09ebbc);
+
+    // Finished serialization.
   }
 }
 
@@ -2976,7 +3242,10 @@ class StorageFileMp4 extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb3cea0e4.
     buffer.writeInt32(0xb3cea0e4);
+
+    // Finished serialization.
   }
 }
 
@@ -2999,7 +3268,10 @@ class StorageFileWebp extends StorageFileTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1081464c.
     buffer.writeInt32(0x1081464c);
+
+    // Finished serialization.
   }
 }
 
@@ -3040,8 +3312,13 @@ class UserEmpty extends UserBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd3bc4b7a.
     buffer.writeInt32(0xd3bc4b7a);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -3382,7 +3659,10 @@ class User extends UserBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x215c4438.
     buffer.writeInt32(0x215c4438);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(flags2);
     buffer.writeInt64(id);
@@ -3450,6 +3730,8 @@ class User extends UserBase {
     if (localProfileColorCopy != null) {
       buffer.writeObject(localProfileColorCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -3478,7 +3760,10 @@ class UserProfilePhotoEmpty extends UserProfilePhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4f11bae1.
     buffer.writeInt32(0x4f11bae1);
+
+    // Finished serialization.
   }
 }
 
@@ -3552,7 +3837,10 @@ class UserProfilePhoto extends UserProfilePhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x82d1f706.
     buffer.writeInt32(0x82d1f706);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(photoId);
     final localStrippedThumbCopy = strippedThumb;
@@ -3560,6 +3848,8 @@ class UserProfilePhoto extends UserProfilePhotoBase {
       buffer.writeBytes(localStrippedThumbCopy);
     }
     buffer.writeInt32(dcId);
+
+    // Finished serialization.
   }
 }
 
@@ -3588,7 +3878,10 @@ class UserStatusEmpty extends UserStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x09d05049.
     buffer.writeInt32(0x09d05049);
+
+    // Finished serialization.
   }
 }
 
@@ -3623,8 +3916,13 @@ class UserStatusOnline extends UserStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xedb93949.
     buffer.writeInt32(0xedb93949);
+
+    // Write fields.
     buffer.writeInt32(expires);
+
+    // Finished serialization.
   }
 }
 
@@ -3659,8 +3957,13 @@ class UserStatusOffline extends UserStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x008c703f.
     buffer.writeInt32(0x008c703f);
+
+    // Write fields.
     buffer.writeInt32(wasOnline);
+
+    // Finished serialization.
   }
 }
 
@@ -3683,7 +3986,10 @@ class UserStatusRecently extends UserStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe26f42f1.
     buffer.writeInt32(0xe26f42f1);
+
+    // Finished serialization.
   }
 }
 
@@ -3706,7 +4012,10 @@ class UserStatusLastWeek extends UserStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x07bf09fc.
     buffer.writeInt32(0x07bf09fc);
+
+    // Finished serialization.
   }
 }
 
@@ -3729,7 +4038,10 @@ class UserStatusLastMonth extends UserStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77ebc742.
     buffer.writeInt32(0x77ebc742);
+
+    // Finished serialization.
   }
 }
 
@@ -3770,8 +4082,13 @@ class ChatEmpty extends ChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x29562865.
     buffer.writeInt32(0x29562865);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -3919,7 +4236,10 @@ class Chat extends ChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x41cbf256.
     buffer.writeInt32(0x41cbf256);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeString(title);
@@ -3939,6 +4259,8 @@ class Chat extends ChatBase {
     if (localDefaultBannedRightsCopy != null) {
       buffer.writeObject(localDefaultBannedRightsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -3979,9 +4301,14 @@ class ChatForbidden extends ChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6592a1a7.
     buffer.writeInt32(0x6592a1a7);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -4327,7 +4654,10 @@ class Channel extends ChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0aadfc8f.
     buffer.writeInt32(0x0aadfc8f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(flags2);
     buffer.writeInt64(id);
@@ -4386,6 +4716,8 @@ class Channel extends ChatBase {
     if (localLevelCopy != null) {
       buffer.writeInt32(localLevelCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -4465,7 +4797,10 @@ class ChannelForbidden extends ChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x17d493d5.
     buffer.writeInt32(0x17d493d5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -4474,6 +4809,8 @@ class ChannelForbidden extends ChatBase {
     if (localUntilDateCopy != null) {
       buffer.writeDateTime(localUntilDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -4666,7 +5003,10 @@ class ChatFull extends ChatFullBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc9d31138.
     buffer.writeInt32(0xc9d31138);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeString(about);
@@ -4720,6 +5060,8 @@ class ChatFull extends ChatFullBase {
     if (localAvailableReactionsCopy != null) {
       buffer.writeObject(localAvailableReactionsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -5164,7 +5506,10 @@ class ChannelFull extends ChatFullBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0f2bcb6f.
     buffer.writeInt32(0x0f2bcb6f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(flags2);
     buffer.writeInt64(id);
@@ -5288,6 +5633,8 @@ class ChannelFull extends ChatFullBase {
     if (localWallpaperCopy != null) {
       buffer.writeObject(localWallpaperCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -5342,10 +5689,15 @@ class ChatParticipant extends ChatParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc02d4007.
     buffer.writeInt32(0xc02d4007);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -5380,8 +5732,13 @@ class ChatParticipantCreator extends ChatParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe46bcee4.
     buffer.writeInt32(0xe46bcee4);
+
+    // Write fields.
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -5430,10 +5787,15 @@ class ChatParticipantAdmin extends ChatParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa0933f5b.
     buffer.writeInt32(0xa0933f5b);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -5493,13 +5855,18 @@ class ChatParticipantsForbidden extends ChatParticipantsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8763d3e1.
     buffer.writeInt32(0x8763d3e1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(chatId);
     final localSelfParticipantCopy = selfParticipant;
     if (localSelfParticipantCopy != null) {
       buffer.writeObject(localSelfParticipantCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -5548,10 +5915,15 @@ class ChatParticipants extends ChatParticipantsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3cbc93f8.
     buffer.writeInt32(0x3cbc93f8);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeVectorObject(participants);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -5580,7 +5952,10 @@ class ChatPhotoEmpty extends ChatPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x37c1011c.
     buffer.writeInt32(0x37c1011c);
+
+    // Finished serialization.
   }
 }
 
@@ -5647,7 +6022,10 @@ class ChatPhoto extends ChatPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1c6e1c11.
     buffer.writeInt32(0x1c6e1c11);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(photoId);
     final localStrippedThumbCopy = strippedThumb;
@@ -5655,6 +6033,8 @@ class ChatPhoto extends ChatPhotoBase {
       buffer.writeBytes(localStrippedThumbCopy);
     }
     buffer.writeInt32(dcId);
+
+    // Finished serialization.
   }
 }
 
@@ -5712,13 +6092,18 @@ class MessageEmpty extends MessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x90a6ca84.
     buffer.writeInt32(0x90a6ca84);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     final localPeerIdCopy = peerId;
     if (localPeerIdCopy != null) {
       buffer.writeObject(localPeerIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6002,7 +6387,10 @@ class Message extends MessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x76bec211.
     buffer.writeInt32(0x76bec211);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     final localFromIdCopy = fromId;
@@ -6076,6 +6464,8 @@ class Message extends MessageBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6204,7 +6594,10 @@ class MessageService extends MessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2b085862.
     buffer.writeInt32(0x2b085862);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     final localFromIdCopy = fromId;
@@ -6222,6 +6615,8 @@ class MessageService extends MessageBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6250,7 +6645,10 @@ class MessageMediaEmpty extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3ded6320.
     buffer.writeInt32(0x3ded6320);
+
+    // Finished serialization.
   }
 }
 
@@ -6309,7 +6707,10 @@ class MessageMediaPhoto extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x695150d7.
     buffer.writeInt32(0x695150d7);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPhotoCopy = photo;
     if (localPhotoCopy != null) {
@@ -6319,6 +6720,8 @@ class MessageMediaPhoto extends MessageMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6351,8 +6754,13 @@ class MessageMediaGeo extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56e0d474.
     buffer.writeInt32(0x56e0d474);
+
+    // Write fields.
     buffer.writeObject(geo);
+
+    // Finished serialization.
   }
 }
 
@@ -6411,12 +6819,17 @@ class MessageMediaContact extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x70322949.
     buffer.writeInt32(0x70322949);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
     buffer.writeString(vcard);
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -6439,7 +6852,10 @@ class MessageMediaUnsupported extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9f84f49e.
     buffer.writeInt32(0x9f84f49e);
+
+    // Finished serialization.
   }
 }
 
@@ -6536,7 +6952,10 @@ class MessageMediaDocument extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4cf4d72d.
     buffer.writeInt32(0x4cf4d72d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localDocumentCopy = document;
     if (localDocumentCopy != null) {
@@ -6550,6 +6969,8 @@ class MessageMediaDocument extends MessageMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6619,9 +7040,14 @@ class MessageMediaWebPage extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xddf10c3b.
     buffer.writeInt32(0xddf10c3b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(webpage);
+
+    // Finished serialization.
   }
 }
 
@@ -6684,13 +7110,18 @@ class MessageMediaVenue extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2ec0533f.
     buffer.writeInt32(0x2ec0533f);
+
+    // Write fields.
     buffer.writeObject(geo);
     buffer.writeString(title);
     buffer.writeString(address);
     buffer.writeString(provider);
     buffer.writeString(venueId);
     buffer.writeString(venueType);
+
+    // Finished serialization.
   }
 }
 
@@ -6723,8 +7154,13 @@ class MessageMediaGame extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfdb19008.
     buffer.writeInt32(0xfdb19008);
+
+    // Write fields.
     buffer.writeObject(game);
+
+    // Finished serialization.
   }
 }
 
@@ -6832,7 +7268,10 @@ class MessageMediaInvoice extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf6a548d3.
     buffer.writeInt32(0xf6a548d3);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeString(description);
@@ -6851,6 +7290,8 @@ class MessageMediaInvoice extends MessageMediaBase {
     if (localExtendedMediaCopy != null) {
       buffer.writeObject(localExtendedMediaCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6917,7 +7358,10 @@ class MessageMediaGeoLive extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb940c666.
     buffer.writeInt32(0xb940c666);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geo);
     final localHeadingCopy = heading;
@@ -6929,6 +7373,8 @@ class MessageMediaGeoLive extends MessageMediaBase {
     if (localProximityNotificationRadiusCopy != null) {
       buffer.writeInt32(localProximityNotificationRadiusCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -6967,9 +7413,14 @@ class MessageMediaPoll extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4bd6e798.
     buffer.writeInt32(0x4bd6e798);
+
+    // Write fields.
     buffer.writeObject(poll);
     buffer.writeObject(results);
+
+    // Finished serialization.
   }
 }
 
@@ -7010,9 +7461,14 @@ class MessageMediaDice extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3f7ee58b.
     buffer.writeInt32(0x3f7ee58b);
+
+    // Write fields.
     buffer.writeInt32(value);
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -7077,7 +7533,10 @@ class MessageMediaStory extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x68cb6283.
     buffer.writeInt32(0x68cb6283);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -7085,6 +7544,8 @@ class MessageMediaStory extends MessageMediaBase {
     if (localStoryCopy != null) {
       buffer.writeObject(localStoryCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -7180,7 +7641,10 @@ class MessageMediaGiveaway extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdaad85b0.
     buffer.writeInt32(0xdaad85b0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorInt64(channels);
     final localCountriesIso2Copy = countriesIso2;
@@ -7194,6 +7658,8 @@ class MessageMediaGiveaway extends MessageMediaBase {
     buffer.writeInt32(quantity);
     buffer.writeInt32(months);
     buffer.writeDateTime(untilDate);
+
+    // Finished serialization.
   }
 }
 
@@ -7313,7 +7779,10 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc6991068.
     buffer.writeInt32(0xc6991068);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     final localAdditionalPeersCountCopy = additionalPeersCount;
@@ -7330,6 +7799,8 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
       buffer.writeString(localPrizeDescriptionCopy);
     }
     buffer.writeDateTime(untilDate);
+
+    // Finished serialization.
   }
 }
 
@@ -7358,7 +7829,10 @@ class MessageActionEmpty extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6aef7b0.
     buffer.writeInt32(0xb6aef7b0);
+
+    // Finished serialization.
   }
 }
 
@@ -7397,9 +7871,14 @@ class MessageActionChatCreate extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd47cbad.
     buffer.writeInt32(0xbd47cbad);
+
+    // Write fields.
     buffer.writeString(title);
     buffer.writeVectorInt64(users);
+
+    // Finished serialization.
   }
 }
 
@@ -7432,8 +7911,13 @@ class MessageActionChatEditTitle extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb5a1ce5a.
     buffer.writeInt32(0xb5a1ce5a);
+
+    // Write fields.
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -7466,8 +7950,13 @@ class MessageActionChatEditPhoto extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7fcb13a8.
     buffer.writeInt32(0x7fcb13a8);
+
+    // Write fields.
     buffer.writeObject(photo);
+
+    // Finished serialization.
   }
 }
 
@@ -7490,7 +7979,10 @@ class MessageActionChatDeletePhoto extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x95e3fbef.
     buffer.writeInt32(0x95e3fbef);
+
+    // Finished serialization.
   }
 }
 
@@ -7523,8 +8015,13 @@ class MessageActionChatAddUser extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15cefd00.
     buffer.writeInt32(0x15cefd00);
+
+    // Write fields.
     buffer.writeVectorInt64(users);
+
+    // Finished serialization.
   }
 }
 
@@ -7559,8 +8056,13 @@ class MessageActionChatDeleteUser extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa43f30cc.
     buffer.writeInt32(0xa43f30cc);
+
+    // Write fields.
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -7595,8 +8097,13 @@ class MessageActionChatJoinedByLink extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x031224c3.
     buffer.writeInt32(0x031224c3);
+
+    // Write fields.
     buffer.writeInt64(inviterId);
+
+    // Finished serialization.
   }
 }
 
@@ -7629,8 +8136,13 @@ class MessageActionChannelCreate extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x95d2ac92.
     buffer.writeInt32(0x95d2ac92);
+
+    // Write fields.
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -7665,8 +8177,13 @@ class MessageActionChatMigrateTo extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe1037f92.
     buffer.writeInt32(0xe1037f92);
+
+    // Write fields.
     buffer.writeInt64(channelId);
+
+    // Finished serialization.
   }
 }
 
@@ -7707,9 +8224,14 @@ class MessageActionChannelMigrateFrom extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea3948e9.
     buffer.writeInt32(0xea3948e9);
+
+    // Write fields.
     buffer.writeString(title);
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -7732,7 +8254,10 @@ class MessageActionPinMessage extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x94bd38ed.
     buffer.writeInt32(0x94bd38ed);
+
+    // Finished serialization.
   }
 }
 
@@ -7755,7 +8280,10 @@ class MessageActionHistoryClear extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9fbab604.
     buffer.writeInt32(0x9fbab604);
+
+    // Finished serialization.
   }
 }
 
@@ -7798,9 +8326,14 @@ class MessageActionGameScore extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x92a72876.
     buffer.writeInt32(0x92a72876);
+
+    // Write fields.
     buffer.writeInt64(gameId);
     buffer.writeInt32(score);
+
+    // Finished serialization.
   }
 }
 
@@ -7894,7 +8427,10 @@ class MessageActionPaymentSentMe extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8f31b327.
     buffer.writeInt32(0x8f31b327);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(currency);
     buffer.writeInt64(totalAmount);
@@ -7908,6 +8444,8 @@ class MessageActionPaymentSentMe extends MessageActionBase {
       buffer.writeString(localShippingOptionIdCopy);
     }
     buffer.writeObject(charge);
+
+    // Finished serialization.
   }
 }
 
@@ -7979,7 +8517,10 @@ class MessageActionPaymentSent extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x96163f56.
     buffer.writeInt32(0x96163f56);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(currency);
     buffer.writeInt64(totalAmount);
@@ -7987,6 +8528,8 @@ class MessageActionPaymentSent extends MessageActionBase {
     if (localInvoiceSlugCopy != null) {
       buffer.writeString(localInvoiceSlugCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8055,7 +8598,10 @@ class MessageActionPhoneCall extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x80e11a7f.
     buffer.writeInt32(0x80e11a7f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(callId);
     final localReasonCopy = reason;
@@ -8066,6 +8612,8 @@ class MessageActionPhoneCall extends MessageActionBase {
     if (localDurationCopy != null) {
       buffer.writeInt32(localDurationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8088,7 +8636,10 @@ class MessageActionScreenshotTaken extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4792929b.
     buffer.writeInt32(0x4792929b);
+
+    // Finished serialization.
   }
 }
 
@@ -8121,8 +8672,13 @@ class MessageActionCustomAction extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfae69f56.
     buffer.writeInt32(0xfae69f56);
+
+    // Write fields.
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -8188,7 +8744,10 @@ class MessageActionBotAllowed extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc516d679.
     buffer.writeInt32(0xc516d679);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localDomainCopy = domain;
     if (localDomainCopy != null) {
@@ -8198,6 +8757,8 @@ class MessageActionBotAllowed extends MessageActionBase {
     if (localAppCopy != null) {
       buffer.writeObject(localAppCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8236,9 +8797,14 @@ class MessageActionSecureValuesSentMe extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b287353.
     buffer.writeInt32(0x1b287353);
+
+    // Write fields.
     buffer.writeVectorObject(values);
     buffer.writeObject(credentials);
+
+    // Finished serialization.
   }
 }
 
@@ -8271,8 +8837,13 @@ class MessageActionSecureValuesSent extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd95c6154.
     buffer.writeInt32(0xd95c6154);
+
+    // Write fields.
     buffer.writeVectorObject(types);
+
+    // Finished serialization.
   }
 }
 
@@ -8295,7 +8866,10 @@ class MessageActionContactSignUp extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3f25f76.
     buffer.writeInt32(0xf3f25f76);
+
+    // Finished serialization.
   }
 }
 
@@ -8342,10 +8916,15 @@ class MessageActionGeoProximityReached extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x98e0d697.
     buffer.writeInt32(0x98e0d697);
+
+    // Write fields.
     buffer.writeObject(fromId);
     buffer.writeObject(toId);
     buffer.writeInt32(distance);
+
+    // Finished serialization.
   }
 }
 
@@ -8395,13 +8974,18 @@ class MessageActionGroupCall extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a0d7f42.
     buffer.writeInt32(0x7a0d7f42);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
     final localDurationCopy = duration;
     if (localDurationCopy != null) {
       buffer.writeInt32(localDurationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8440,9 +9024,14 @@ class MessageActionInviteToGroupCall extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x502f92f7.
     buffer.writeInt32(0x502f92f7);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeVectorInt64(users);
+
+    // Finished serialization.
   }
 }
 
@@ -8494,13 +9083,18 @@ class MessageActionSetMessagesTTL extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c134d7b.
     buffer.writeInt32(0x3c134d7b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(period);
     final localAutoSettingFromCopy = autoSettingFrom;
     if (localAutoSettingFromCopy != null) {
       buffer.writeInt64(localAutoSettingFromCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8539,9 +9133,14 @@ class MessageActionGroupCallScheduled extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb3a07661.
     buffer.writeInt32(0xb3a07661);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeDateTime(scheduleDate);
+
+    // Finished serialization.
   }
 }
 
@@ -8574,8 +9173,13 @@ class MessageActionSetChatTheme extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaa786345.
     buffer.writeInt32(0xaa786345);
+
+    // Write fields.
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -8598,7 +9202,10 @@ class MessageActionChatJoinedByRequest extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xebbca3cb.
     buffer.writeInt32(0xebbca3cb);
+
+    // Finished serialization.
   }
 }
 
@@ -8637,9 +9244,14 @@ class MessageActionWebViewDataSentMe extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x47dd8079.
     buffer.writeInt32(0x47dd8079);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(data);
+
+    // Finished serialization.
   }
 }
 
@@ -8672,8 +9284,13 @@ class MessageActionWebViewDataSent extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4c38cb5.
     buffer.writeInt32(0xb4c38cb5);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -8746,7 +9363,10 @@ class MessageActionGiftPremium extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc83d6aec.
     buffer.writeInt32(0xc83d6aec);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(currency);
     buffer.writeInt64(amount);
@@ -8759,6 +9379,8 @@ class MessageActionGiftPremium extends MessageActionBase {
     if (localCryptoAmountCopy != null) {
       buffer.writeInt64(localCryptoAmountCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8816,7 +9438,10 @@ class MessageActionTopicCreate extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0d999256.
     buffer.writeInt32(0x0d999256);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeInt32(iconColor);
@@ -8824,6 +9449,8 @@ class MessageActionTopicCreate extends MessageActionBase {
     if (localIconEmojiIdCopy != null) {
       buffer.writeInt64(localIconEmojiIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8889,7 +9516,10 @@ class MessageActionTopicEdit extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc0944820.
     buffer.writeInt32(0xc0944820);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localTitleCopy = title;
     if (localTitleCopy != null) {
@@ -8899,6 +9529,8 @@ class MessageActionTopicEdit extends MessageActionBase {
     if (localIconEmojiIdCopy != null) {
       buffer.writeInt64(localIconEmojiIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -8931,8 +9563,13 @@ class MessageActionSuggestProfilePhoto extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57de635e.
     buffer.writeInt32(0x57de635e);
+
+    // Write fields.
     buffer.writeObject(photo);
+
+    // Finished serialization.
   }
 }
 
@@ -8973,9 +9610,14 @@ class MessageActionRequestedPeer extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x31518e9b.
     buffer.writeInt32(0x31518e9b);
+
+    // Write fields.
     buffer.writeInt32(buttonId);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -9031,9 +9673,14 @@ class MessageActionSetChatWallPaper extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5060a3f4.
     buffer.writeInt32(0x5060a3f4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(wallpaper);
+
+    // Finished serialization.
   }
 }
 
@@ -9135,7 +9782,10 @@ class MessageActionGiftCode extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x678c2e09.
     buffer.writeInt32(0x678c2e09);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBoostPeerCopy = boostPeer;
     if (localBoostPeerCopy != null) {
@@ -9159,6 +9809,8 @@ class MessageActionGiftCode extends MessageActionBase {
     if (localCryptoAmountCopy != null) {
       buffer.writeInt64(localCryptoAmountCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -9181,7 +9833,10 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x332ba9ed.
     buffer.writeInt32(0x332ba9ed);
+
+    // Finished serialization.
   }
 }
 
@@ -9224,9 +9879,14 @@ class MessageActionGiveawayResults extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2a9fadc5.
     buffer.writeInt32(0x2a9fadc5);
+
+    // Write fields.
     buffer.writeInt32(winnersCount);
     buffer.writeInt32(unclaimedCount);
+
+    // Finished serialization.
   }
 }
 
@@ -9382,7 +10042,10 @@ class Dialog extends DialogBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd58a08c6.
     buffer.writeInt32(0xd58a08c6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(topMessage);
@@ -9408,6 +10071,8 @@ class Dialog extends DialogBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -9502,7 +10167,10 @@ class DialogFolder extends DialogBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x71bd134c.
     buffer.writeInt32(0x71bd134c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(folder);
     buffer.writeObject(peer);
@@ -9511,6 +10179,8 @@ class DialogFolder extends DialogBase {
     buffer.writeInt32(unreadUnmutedPeersCount);
     buffer.writeInt32(unreadMutedMessagesCount);
     buffer.writeInt32(unreadUnmutedMessagesCount);
+
+    // Finished serialization.
   }
 }
 
@@ -9551,8 +10221,13 @@ class PhotoEmpty extends PhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2331b22d.
     buffer.writeInt32(0x2331b22d);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -9646,7 +10321,10 @@ class Photo extends PhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfb197a65.
     buffer.writeInt32(0xfb197a65);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -9658,6 +10336,8 @@ class Photo extends PhotoBase {
       buffer.writeVectorObject(localVideoSizesCopy);
     }
     buffer.writeInt32(dcId);
+
+    // Finished serialization.
   }
 }
 
@@ -9696,8 +10376,13 @@ class PhotoSizeEmpty extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0e17e23c.
     buffer.writeInt32(0x0e17e23c);
+
+    // Write fields.
     buffer.writeString(type);
+
+    // Finished serialization.
   }
 }
 
@@ -9754,11 +10439,16 @@ class PhotoSize extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x75c78e60.
     buffer.writeInt32(0x75c78e60);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeInt32(size);
+
+    // Finished serialization.
   }
 }
 
@@ -9813,11 +10503,16 @@ class PhotoCachedSize extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x021e1ad6.
     buffer.writeInt32(0x021e1ad6);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -9856,9 +10551,14 @@ class PhotoStrippedSize extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe0b0bc2e.
     buffer.writeInt32(0xe0b0bc2e);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -9913,11 +10613,16 @@ class PhotoSizeProgressive extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa3efb95.
     buffer.writeInt32(0xfa3efb95);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeVectorInt32(sizes);
+
+    // Finished serialization.
   }
 }
 
@@ -9956,9 +10661,14 @@ class PhotoPathSize extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd8214d41.
     buffer.writeInt32(0xd8214d41);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -9987,7 +10697,10 @@ class GeoPointEmpty extends GeoPointBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1117dd5f.
     buffer.writeInt32(0x1117dd5f);
+
+    // Finished serialization.
   }
 }
 
@@ -10051,7 +10764,10 @@ class GeoPoint extends GeoPointBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb2a2f663.
     buffer.writeInt32(0xb2a2f663);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDouble(long);
     buffer.writeDouble(lat);
@@ -10060,6 +10776,8 @@ class GeoPoint extends GeoPointBase {
     if (localAccuracyRadiusCopy != null) {
       buffer.writeInt32(localAccuracyRadiusCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -10130,7 +10848,10 @@ class AuthSentCode extends AuthSentCodeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5e002502.
     buffer.writeInt32(0x5e002502);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(type);
     buffer.writeString(phoneCodeHash);
@@ -10142,6 +10863,8 @@ class AuthSentCode extends AuthSentCodeBase {
     if (localTimeoutCopy != null) {
       buffer.writeInt32(localTimeoutCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -10174,8 +10897,13 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2390fe44.
     buffer.writeInt32(0x2390fe44);
+
+    // Write fields.
     buffer.writeObject(authorization);
+
+    // Finished serialization.
   }
 }
 
@@ -10254,7 +10982,10 @@ class AuthAuthorization extends AuthAuthorizationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2ea2c0d4.
     buffer.writeInt32(0x2ea2c0d4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localOtherwiseReloginDaysCopy = otherwiseReloginDays;
     if (localOtherwiseReloginDaysCopy != null) {
@@ -10269,6 +11000,8 @@ class AuthAuthorization extends AuthAuthorizationBase {
       buffer.writeBytes(localFutureAuthTokenCopy);
     }
     buffer.writeObject(user);
+
+    // Finished serialization.
   }
 }
 
@@ -10314,12 +11047,17 @@ class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x44747e9a.
     buffer.writeInt32(0x44747e9a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localTermsOfServiceCopy = termsOfService;
     if (localTermsOfServiceCopy != null) {
       buffer.writeObject(localTermsOfServiceCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -10366,9 +11104,14 @@ class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb434e2b8.
     buffer.writeInt32(0xb434e2b8);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -10407,8 +11150,13 @@ class InputNotifyPeer extends InputNotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb8bc5b0c.
     buffer.writeInt32(0xb8bc5b0c);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -10431,7 +11179,10 @@ class InputNotifyUsers extends InputNotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x193b4417.
     buffer.writeInt32(0x193b4417);
+
+    // Finished serialization.
   }
 }
 
@@ -10454,7 +11205,10 @@ class InputNotifyChats extends InputNotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4a95e84e.
     buffer.writeInt32(0x4a95e84e);
+
+    // Finished serialization.
   }
 }
 
@@ -10477,7 +11231,10 @@ class InputNotifyBroadcasts extends InputNotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb1db7c7e.
     buffer.writeInt32(0xb1db7c7e);
+
+    // Finished serialization.
   }
 }
 
@@ -10518,9 +11275,14 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5c467992.
     buffer.writeInt32(0x5c467992);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(topMsgId);
+
+    // Finished serialization.
   }
 }
 
@@ -10617,7 +11379,10 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcacb6ae2.
     buffer.writeInt32(0xcacb6ae2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localMuteUntilCopy = muteUntil;
     if (localMuteUntilCopy != null) {
@@ -10631,6 +11396,8 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
     if (localStoriesSoundCopy != null) {
       buffer.writeObject(localStoriesSoundCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -10767,7 +11534,10 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x99622c0c.
     buffer.writeInt32(0x99622c0c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localMuteUntilCopy = muteUntil;
     if (localMuteUntilCopy != null) {
@@ -10797,6 +11567,8 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
     if (localStoriesOtherSoundCopy != null) {
       buffer.writeObject(localStoriesOtherSoundCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -10926,7 +11698,10 @@ class PeerSettings extends PeerSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa518110d.
     buffer.writeInt32(0xa518110d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localGeoDistanceCopy = geoDistance;
     if (localGeoDistanceCopy != null) {
@@ -10940,6 +11715,8 @@ class PeerSettings extends PeerSettingsBase {
     if (localRequestChatDateCopy != null) {
       buffer.writeDateTime(localRequestChatDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -11046,7 +11823,10 @@ class WallPaper extends WallPaperBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa437c3ed.
     buffer.writeInt32(0xa437c3ed);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(flags);
     buffer.writeInt64(accessHash);
@@ -11056,6 +11836,8 @@ class WallPaper extends WallPaperBase {
     if (localSettingsCopy != null) {
       buffer.writeObject(localSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -11122,13 +11904,18 @@ class WallPaperNoFile extends WallPaperBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe0804116.
     buffer.writeInt32(0xe0804116);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(flags);
     final localSettingsCopy = settings;
     if (localSettingsCopy != null) {
       buffer.writeObject(localSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -11157,7 +11944,10 @@ class InputReportReasonSpam extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x58dbcab8.
     buffer.writeInt32(0x58dbcab8);
+
+    // Finished serialization.
   }
 }
 
@@ -11180,7 +11970,10 @@ class InputReportReasonViolence extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e22c78d.
     buffer.writeInt32(0x1e22c78d);
+
+    // Finished serialization.
   }
 }
 
@@ -11203,7 +11996,10 @@ class InputReportReasonPornography extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2e59d922.
     buffer.writeInt32(0x2e59d922);
+
+    // Finished serialization.
   }
 }
 
@@ -11226,7 +12022,10 @@ class InputReportReasonChildAbuse extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xadf44ee3.
     buffer.writeInt32(0xadf44ee3);
+
+    // Finished serialization.
   }
 }
 
@@ -11249,7 +12048,10 @@ class InputReportReasonOther extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc1e4a2b1.
     buffer.writeInt32(0xc1e4a2b1);
+
+    // Finished serialization.
   }
 }
 
@@ -11272,7 +12074,10 @@ class InputReportReasonCopyright extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9b89f93a.
     buffer.writeInt32(0x9b89f93a);
+
+    // Finished serialization.
   }
 }
 
@@ -11295,7 +12100,10 @@ class InputReportReasonGeoIrrelevant extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdbd4feed.
     buffer.writeInt32(0xdbd4feed);
+
+    // Finished serialization.
   }
 }
 
@@ -11318,7 +12126,10 @@ class InputReportReasonFake extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf5ddd6e7.
     buffer.writeInt32(0xf5ddd6e7);
+
+    // Finished serialization.
   }
 }
 
@@ -11341,7 +12152,10 @@ class InputReportReasonIllegalDrugs extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a8eb2be.
     buffer.writeInt32(0x0a8eb2be);
+
+    // Finished serialization.
   }
 }
 
@@ -11364,7 +12178,10 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9ec7863d.
     buffer.writeInt32(0x9ec7863d);
+
+    // Finished serialization.
   }
 }
 
@@ -11643,7 +12460,10 @@ class UserFull extends UserFullBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb9b12c6c.
     buffer.writeInt32(0xb9b12c6c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     final localAboutCopy = about;
@@ -11709,6 +12529,8 @@ class UserFull extends UserFullBase {
     if (localStoriesCopy != null) {
       buffer.writeObject(localStoriesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -11755,9 +12577,14 @@ class Contact extends ContactBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x145ade0b.
     buffer.writeInt32(0x145ade0b);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeBool(mutual);
+
+    // Finished serialization.
   }
 }
 
@@ -11806,9 +12633,14 @@ class ImportedContact extends ImportedContactBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc13e3c50.
     buffer.writeInt32(0xc13e3c50);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt64(clientId);
+
+    // Finished serialization.
   }
 }
 
@@ -11855,9 +12687,14 @@ class ContactStatus extends ContactStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x16d9703b.
     buffer.writeInt32(0x16d9703b);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeObject(status);
+
+    // Finished serialization.
   }
 }
 
@@ -11886,7 +12723,10 @@ class ContactsContactsNotModified extends ContactsContactsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb74ba9d2.
     buffer.writeInt32(0xb74ba9d2);
+
+    // Finished serialization.
   }
 }
 
@@ -11933,10 +12773,15 @@ class ContactsContacts extends ContactsContactsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeae87e42.
     buffer.writeInt32(0xeae87e42);
+
+    // Write fields.
     buffer.writeVectorObject(contacts);
     buffer.writeInt32(savedCount);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -11993,11 +12838,16 @@ class ContactsImportedContacts extends ContactsImportedContactsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77d01c3b.
     buffer.writeInt32(0x77d01c3b);
+
+    // Write fields.
     buffer.writeVectorObject(imported);
     buffer.writeVectorObject(popularInvites);
     buffer.writeVectorInt64(retryContacts);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12048,10 +12898,15 @@ class ContactsBlocked extends ContactsBlockedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0ade1591.
     buffer.writeInt32(0x0ade1591);
+
+    // Write fields.
     buffer.writeVectorObject(blocked);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12104,11 +12959,16 @@ class ContactsBlockedSlice extends ContactsBlockedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe1664194.
     buffer.writeInt32(0xe1664194);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(blocked);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12165,11 +13025,16 @@ class MessagesDialogs extends MessagesDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15ba6c40.
     buffer.writeInt32(0x15ba6c40);
+
+    // Write fields.
     buffer.writeVectorObject(dialogs);
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12228,12 +13093,17 @@ class MessagesDialogsSlice extends MessagesDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x71e094f3.
     buffer.writeInt32(0x71e094f3);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(dialogs);
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12268,8 +13138,13 @@ class MessagesDialogsNotModified extends MessagesDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf0e3e596.
     buffer.writeInt32(0xf0e3e596);
+
+    // Write fields.
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -12320,10 +13195,15 @@ class MessagesMessages extends MessagesMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c718e87.
     buffer.writeInt32(0x8c718e87);
+
+    // Write fields.
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12408,7 +13288,10 @@ class MessagesMessagesSlice extends MessagesMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3a54685e.
     buffer.writeInt32(0x3a54685e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     final localNextRateCopy = nextRate;
@@ -12422,6 +13305,8 @@ class MessagesMessagesSlice extends MessagesMessagesBase {
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12512,7 +13397,10 @@ class MessagesChannelMessages extends MessagesMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc776ba4e.
     buffer.writeInt32(0xc776ba4e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(pts);
     buffer.writeInt32(count);
@@ -12524,6 +13412,8 @@ class MessagesChannelMessages extends MessagesMessagesBase {
     buffer.writeVectorObject(topics);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12558,8 +13448,13 @@ class MessagesMessagesNotModified extends MessagesMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74535f21.
     buffer.writeInt32(0x74535f21);
+
+    // Write fields.
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -12598,8 +13493,13 @@ class MessagesChats extends MessagesChatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64ff9fd5.
     buffer.writeInt32(0x64ff9fd5);
+
+    // Write fields.
     buffer.writeVectorObject(chats);
+
+    // Finished serialization.
   }
 }
 
@@ -12640,9 +13540,14 @@ class MessagesChatsSlice extends MessagesChatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9cd81144.
     buffer.writeInt32(0x9cd81144);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(chats);
+
+    // Finished serialization.
   }
 }
 
@@ -12693,10 +13598,15 @@ class MessagesChatFull extends MessagesChatFullBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe5d7d19c.
     buffer.writeInt32(0xe5d7d19c);
+
+    // Write fields.
     buffer.writeObject(fullChat);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -12753,10 +13663,15 @@ class MessagesAffectedHistory extends MessagesAffectedHistoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb45c69d1.
     buffer.writeInt32(0xb45c69d1);
+
+    // Write fields.
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
     buffer.writeInt32(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -12785,7 +13700,10 @@ class InputMessagesFilterEmpty extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57e2f66c.
     buffer.writeInt32(0x57e2f66c);
+
+    // Finished serialization.
   }
 }
 
@@ -12808,7 +13726,10 @@ class InputMessagesFilterPhotos extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9609a51c.
     buffer.writeInt32(0x9609a51c);
+
+    // Finished serialization.
   }
 }
 
@@ -12831,7 +13752,10 @@ class InputMessagesFilterVideo extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9fc00e65.
     buffer.writeInt32(0x9fc00e65);
+
+    // Finished serialization.
   }
 }
 
@@ -12854,7 +13778,10 @@ class InputMessagesFilterPhotoVideo extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56e9f0e4.
     buffer.writeInt32(0x56e9f0e4);
+
+    // Finished serialization.
   }
 }
 
@@ -12877,7 +13804,10 @@ class InputMessagesFilterDocument extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9eddf188.
     buffer.writeInt32(0x9eddf188);
+
+    // Finished serialization.
   }
 }
 
@@ -12900,7 +13830,10 @@ class InputMessagesFilterUrl extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7ef0dd87.
     buffer.writeInt32(0x7ef0dd87);
+
+    // Finished serialization.
   }
 }
 
@@ -12923,7 +13856,10 @@ class InputMessagesFilterGif extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xffc86587.
     buffer.writeInt32(0xffc86587);
+
+    // Finished serialization.
   }
 }
 
@@ -12946,7 +13882,10 @@ class InputMessagesFilterVoice extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x50f5c392.
     buffer.writeInt32(0x50f5c392);
+
+    // Finished serialization.
   }
 }
 
@@ -12969,7 +13908,10 @@ class InputMessagesFilterMusic extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3751b49e.
     buffer.writeInt32(0x3751b49e);
+
+    // Finished serialization.
   }
 }
 
@@ -12992,7 +13934,10 @@ class InputMessagesFilterChatPhotos extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3a20ecb8.
     buffer.writeInt32(0x3a20ecb8);
+
+    // Finished serialization.
   }
 }
 
@@ -13035,8 +13980,13 @@ class InputMessagesFilterPhoneCalls extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x80c99768.
     buffer.writeInt32(0x80c99768);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -13059,7 +14009,10 @@ class InputMessagesFilterRoundVoice extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a7c17a4.
     buffer.writeInt32(0x7a7c17a4);
+
+    // Finished serialization.
   }
 }
 
@@ -13082,7 +14035,10 @@ class InputMessagesFilterRoundVideo extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb549da53.
     buffer.writeInt32(0xb549da53);
+
+    // Finished serialization.
   }
 }
 
@@ -13105,7 +14061,10 @@ class InputMessagesFilterMyMentions extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc1f8e69a.
     buffer.writeInt32(0xc1f8e69a);
+
+    // Finished serialization.
   }
 }
 
@@ -13128,7 +14087,10 @@ class InputMessagesFilterGeo extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe7026d0d.
     buffer.writeInt32(0xe7026d0d);
+
+    // Finished serialization.
   }
 }
 
@@ -13151,7 +14113,10 @@ class InputMessagesFilterContacts extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe062db83.
     buffer.writeInt32(0xe062db83);
+
+    // Finished serialization.
   }
 }
 
@@ -13174,7 +14139,10 @@ class InputMessagesFilterPinned extends MessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1bb00451.
     buffer.writeInt32(0x1bb00451);
+
+    // Finished serialization.
   }
 }
 
@@ -13229,10 +14197,15 @@ class UpdateNewMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1f2b0afd.
     buffer.writeInt32(0x1f2b0afd);
+
+    // Write fields.
     buffer.writeObject(message);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -13275,9 +14248,14 @@ class UpdateMessageID extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4e90bfd6.
     buffer.writeInt32(0x4e90bfd6);
+
+    // Write fields.
     buffer.writeInt32(id);
     buffer.writeInt64(randomId);
+
+    // Finished serialization.
   }
 }
 
@@ -13326,10 +14304,15 @@ class UpdateDeleteMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa20db0e5.
     buffer.writeInt32(0xa20db0e5);
+
+    // Write fields.
     buffer.writeVectorInt32(messages);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -13370,9 +14353,14 @@ class UpdateUserTyping extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc01e857f.
     buffer.writeInt32(0xc01e857f);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -13419,10 +14407,15 @@ class UpdateChatUserTyping extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x83487af0.
     buffer.writeInt32(0x83487af0);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeObject(fromId);
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -13455,8 +14448,13 @@ class UpdateChatParticipants extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x07761198.
     buffer.writeInt32(0x07761198);
+
+    // Write fields.
     buffer.writeObject(participants);
+
+    // Finished serialization.
   }
 }
 
@@ -13497,9 +14495,14 @@ class UpdateUserStatus extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe5bdf8de.
     buffer.writeInt32(0xe5bdf8de);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeObject(status);
+
+    // Finished serialization.
   }
 }
 
@@ -13552,11 +14555,16 @@ class UpdateUserName extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa7848924.
     buffer.writeInt32(0xa7848924);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
     buffer.writeVectorObject(usernames);
+
+    // Finished serialization.
   }
 }
 
@@ -13628,7 +14636,10 @@ class UpdateNewAuthorization extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8951abef.
     buffer.writeInt32(0x8951abef);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(hash);
     final localDateCopy = date;
@@ -13643,6 +14654,8 @@ class UpdateNewAuthorization extends UpdateBase {
     if (localLocationCopy != null) {
       buffer.writeString(localLocationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -13683,9 +14696,14 @@ class UpdateNewEncryptedMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x12bcbd9a.
     buffer.writeInt32(0x12bcbd9a);
+
+    // Write fields.
     buffer.writeObject(message);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -13720,8 +14738,13 @@ class UpdateEncryptedChatTyping extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1710f156.
     buffer.writeInt32(0x1710f156);
+
+    // Write fields.
     buffer.writeInt32(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -13760,9 +14783,14 @@ class UpdateEncryption extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4a2e88d.
     buffer.writeInt32(0xb4a2e88d);
+
+    // Write fields.
     buffer.writeObject(chat);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -13809,10 +14837,15 @@ class UpdateEncryptedMessagesRead extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x38fe25b7.
     buffer.writeInt32(0x38fe25b7);
+
+    // Write fields.
     buffer.writeInt32(chatId);
     buffer.writeDateTime(maxDate);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -13877,12 +14910,17 @@ class UpdateChatParticipantAdd extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dda5451.
     buffer.writeInt32(0x3dda5451);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -13933,10 +14971,15 @@ class UpdateChatParticipantDelete extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe32f3d77.
     buffer.writeInt32(0xe32f3d77);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeInt64(userId);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -13969,8 +15012,13 @@ class UpdateDcOptions extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8e5e9873.
     buffer.writeInt32(0x8e5e9873);
+
+    // Write fields.
     buffer.writeVectorObject(dcOptions);
+
+    // Finished serialization.
   }
 }
 
@@ -14009,9 +15057,14 @@ class UpdateNotifySettings extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbec268ef.
     buffer.writeInt32(0xbec268ef);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(notifySettings);
+
+    // Finished serialization.
   }
 }
 
@@ -14093,7 +15146,10 @@ class UpdateServiceNotification extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xebe46819.
     buffer.writeInt32(0xebe46819);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localInboxDateCopy = inboxDate;
     if (localInboxDateCopy != null) {
@@ -14103,6 +15159,8 @@ class UpdateServiceNotification extends UpdateBase {
     buffer.writeString(message);
     buffer.writeObject(media);
     buffer.writeVectorObject(entities);
+
+    // Finished serialization.
   }
 }
 
@@ -14141,9 +15199,14 @@ class UpdatePrivacy extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xee3b272a.
     buffer.writeInt32(0xee3b272a);
+
+    // Write fields.
     buffer.writeObject(key);
     buffer.writeVectorObject(rules);
+
+    // Finished serialization.
   }
 }
 
@@ -14184,9 +15247,14 @@ class UpdateUserPhone extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x05492a13.
     buffer.writeInt32(0x05492a13);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeString(phone);
+
+    // Finished serialization.
   }
 }
 
@@ -14268,7 +15336,10 @@ class UpdateReadHistoryInbox extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9c974fdf.
     buffer.writeInt32(0x9c974fdf);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
@@ -14279,6 +15350,8 @@ class UpdateReadHistoryInbox extends UpdateBase {
     buffer.writeInt32(stillUnreadCount);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -14335,11 +15408,16 @@ class UpdateReadHistoryOutbox extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2f2f21bf.
     buffer.writeInt32(0x2f2f21bf);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(maxId);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -14388,10 +15466,15 @@ class UpdateWebPage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7f891213.
     buffer.writeInt32(0x7f891213);
+
+    // Write fields.
     buffer.writeObject(webpage);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -14457,7 +15540,10 @@ class UpdateReadMessagesContents extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf8227181.
     buffer.writeInt32(0xf8227181);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorInt32(messages);
     buffer.writeInt32(pts);
@@ -14466,6 +15552,8 @@ class UpdateReadMessagesContents extends UpdateBase {
     if (localDateCopy != null) {
       buffer.writeDateTime(localDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -14517,13 +15605,18 @@ class UpdateChannelTooLong extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x108d941f.
     buffer.writeInt32(0x108d941f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     final localPtsCopy = pts;
     if (localPtsCopy != null) {
       buffer.writeInt32(localPtsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -14558,8 +15651,13 @@ class UpdateChannel extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x635b4c09.
     buffer.writeInt32(0x635b4c09);
+
+    // Write fields.
     buffer.writeInt64(channelId);
+
+    // Finished serialization.
   }
 }
 
@@ -14608,10 +15706,15 @@ class UpdateNewChannelMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x62ba04d9.
     buffer.writeInt32(0x62ba04d9);
+
+    // Write fields.
     buffer.writeObject(message);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -14687,7 +15790,10 @@ class UpdateReadChannelInbox extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x922e6e10.
     buffer.writeInt32(0x922e6e10);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
@@ -14697,6 +15803,8 @@ class UpdateReadChannelInbox extends UpdateBase {
     buffer.writeInt32(maxId);
     buffer.writeInt32(stillUnreadCount);
     buffer.writeInt32(pts);
+
+    // Finished serialization.
   }
 }
 
@@ -14753,11 +15861,16 @@ class UpdateDeleteChannelMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc32d5b12.
     buffer.writeInt32(0xc32d5b12);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeVectorInt32(messages);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -14808,10 +15921,15 @@ class UpdateChannelMessageViews extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf226ac08.
     buffer.writeInt32(0xf226ac08);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt32(id);
     buffer.writeInt32(views);
+
+    // Finished serialization.
   }
 }
 
@@ -14868,11 +15986,16 @@ class UpdateChatParticipantAdmin extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd7ca61a2.
     buffer.writeInt32(0xd7ca61a2);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeInt64(userId);
     buffer.writeBool(isAdmin);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -14905,8 +16028,13 @@ class UpdateNewStickerSet extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x688a30aa.
     buffer.writeInt32(0x688a30aa);
+
+    // Write fields.
     buffer.writeObject(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -14962,9 +16090,14 @@ class UpdateStickerSetsOrder extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0bb2d201.
     buffer.writeInt32(0x0bb2d201);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorInt64(order);
+
+    // Finished serialization.
   }
 }
 
@@ -15014,8 +16147,13 @@ class UpdateStickerSets extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x31c24808.
     buffer.writeInt32(0x31c24808);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -15038,7 +16176,10 @@ class UpdateSavedGifs extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9375341e.
     buffer.writeInt32(0x9375341e);
+
+    // Finished serialization.
   }
 }
 
@@ -15120,7 +16261,10 @@ class UpdateBotInlineQuery extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x496f379c.
     buffer.writeInt32(0x496f379c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     buffer.writeInt64(userId);
@@ -15134,6 +16278,8 @@ class UpdateBotInlineQuery extends UpdateBase {
       buffer.writeObject(localPeerTypeCopy);
     }
     buffer.writeString(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -15207,7 +16353,10 @@ class UpdateBotInlineSend extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x12f12a07.
     buffer.writeInt32(0x12f12a07);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeString(query);
@@ -15220,6 +16369,8 @@ class UpdateBotInlineSend extends UpdateBase {
     if (localMsgIdCopy != null) {
       buffer.writeObject(localMsgIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -15268,10 +16419,15 @@ class UpdateEditChannelMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b3f4df7.
     buffer.writeInt32(0x1b3f4df7);
+
+    // Write fields.
     buffer.writeObject(message);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -15361,7 +16517,10 @@ class UpdateBotCallbackQuery extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb9cfc48d.
     buffer.writeInt32(0xb9cfc48d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     buffer.writeInt64(userId);
@@ -15376,6 +16535,8 @@ class UpdateBotCallbackQuery extends UpdateBase {
     if (localGameShortNameCopy != null) {
       buffer.writeString(localGameShortNameCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -15424,10 +16585,15 @@ class UpdateEditMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe40370a3.
     buffer.writeInt32(0xe40370a3);
+
+    // Write fields.
     buffer.writeObject(message);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -15509,7 +16675,10 @@ class UpdateInlineBotCallbackQuery extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x691e9052.
     buffer.writeInt32(0x691e9052);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     buffer.writeInt64(userId);
@@ -15523,6 +16692,8 @@ class UpdateInlineBotCallbackQuery extends UpdateBase {
     if (localGameShortNameCopy != null) {
       buffer.writeString(localGameShortNameCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -15565,9 +16736,14 @@ class UpdateReadChannelOutbox extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb75f99a9.
     buffer.writeInt32(0xb75f99a9);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -15623,7 +16799,10 @@ class UpdateDraftMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b49ec6d.
     buffer.writeInt32(0x1b49ec6d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
@@ -15631,6 +16810,8 @@ class UpdateDraftMessage extends UpdateBase {
       buffer.writeInt32(localTopMsgIdCopy);
     }
     buffer.writeObject(draft);
+
+    // Finished serialization.
   }
 }
 
@@ -15653,7 +16834,10 @@ class UpdateReadFeaturedStickers extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x571d2742.
     buffer.writeInt32(0x571d2742);
+
+    // Finished serialization.
   }
 }
 
@@ -15676,7 +16860,10 @@ class UpdateRecentStickers extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a422c20.
     buffer.writeInt32(0x9a422c20);
+
+    // Finished serialization.
   }
 }
 
@@ -15699,7 +16886,10 @@ class UpdateConfig extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa229dd06.
     buffer.writeInt32(0xa229dd06);
+
+    // Finished serialization.
   }
 }
 
@@ -15722,7 +16912,10 @@ class UpdatePtsChanged extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3354678f.
     buffer.writeInt32(0x3354678f);
+
+    // Finished serialization.
   }
 }
 
@@ -15779,11 +16972,16 @@ class UpdateChannelWebPage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2f2ba99f.
     buffer.writeInt32(0x2f2ba99f);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeObject(webpage);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -15840,13 +17038,18 @@ class UpdateDialogPinned extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6e6fe51c.
     buffer.writeInt32(0x6e6fe51c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
       buffer.writeInt32(localFolderIdCopy);
     }
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -15899,7 +17102,10 @@ class UpdatePinnedDialogs extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa0f3ca2.
     buffer.writeInt32(0xfa0f3ca2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
@@ -15909,6 +17115,8 @@ class UpdatePinnedDialogs extends UpdateBase {
     if (localOrderCopy != null) {
       buffer.writeVectorObject(localOrderCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -15941,8 +17149,13 @@ class UpdateBotWebhookJSON extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8317c0c3.
     buffer.writeInt32(0x8317c0c3);
+
+    // Write fields.
     buffer.writeObject(data);
+
+    // Finished serialization.
   }
 }
 
@@ -15991,10 +17204,15 @@ class UpdateBotWebhookJSONQuery extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9b9240a6.
     buffer.writeInt32(0x9b9240a6);
+
+    // Write fields.
     buffer.writeInt64(queryId);
     buffer.writeObject(data);
     buffer.writeInt32(timeout);
+
+    // Finished serialization.
   }
 }
 
@@ -16049,11 +17267,16 @@ class UpdateBotShippingQuery extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb5aefd7d.
     buffer.writeInt32(0xb5aefd7d);
+
+    // Write fields.
     buffer.writeInt64(queryId);
     buffer.writeInt64(userId);
     buffer.writeBytes(payload);
     buffer.writeObject(shippingAddress);
+
+    // Finished serialization.
   }
 }
 
@@ -16143,7 +17366,10 @@ class UpdateBotPrecheckoutQuery extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8caa9a96.
     buffer.writeInt32(0x8caa9a96);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     buffer.writeInt64(userId);
@@ -16158,6 +17384,8 @@ class UpdateBotPrecheckoutQuery extends UpdateBase {
     }
     buffer.writeString(currency);
     buffer.writeInt64(totalAmount);
+
+    // Finished serialization.
   }
 }
 
@@ -16190,8 +17418,13 @@ class UpdatePhoneCall extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xab0f6b1e.
     buffer.writeInt32(0xab0f6b1e);
+
+    // Write fields.
     buffer.writeObject(phoneCall);
+
+    // Finished serialization.
   }
 }
 
@@ -16224,8 +17457,13 @@ class UpdateLangPackTooLong extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x46560264.
     buffer.writeInt32(0x46560264);
+
+    // Write fields.
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -16258,8 +17496,13 @@ class UpdateLangPack extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56022f4d.
     buffer.writeInt32(0x56022f4d);
+
+    // Write fields.
     buffer.writeObject(difference);
+
+    // Finished serialization.
   }
 }
 
@@ -16282,7 +17525,10 @@ class UpdateFavedStickers extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe511996d.
     buffer.writeInt32(0xe511996d);
+
+    // Finished serialization.
   }
 }
 
@@ -16340,7 +17586,10 @@ class UpdateChannelReadMessagesContents extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea29055d.
     buffer.writeInt32(0xea29055d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     final localTopMsgIdCopy = topMsgId;
@@ -16348,6 +17597,8 @@ class UpdateChannelReadMessagesContents extends UpdateBase {
       buffer.writeInt32(localTopMsgIdCopy);
     }
     buffer.writeVectorInt32(messages);
+
+    // Finished serialization.
   }
 }
 
@@ -16370,7 +17621,10 @@ class UpdateContactsReset extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7084a7be.
     buffer.writeInt32(0x7084a7be);
+
+    // Finished serialization.
   }
 }
 
@@ -16413,9 +17667,14 @@ class UpdateChannelAvailableMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb23fc698.
     buffer.writeInt32(0xb23fc698);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt32(availableMinId);
+
+    // Finished serialization.
   }
 }
 
@@ -16464,9 +17723,14 @@ class UpdateDialogUnreadMark extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe16459c3.
     buffer.writeInt32(0xe16459c3);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -16524,7 +17788,10 @@ class UpdateMessagePoll extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaca1657b.
     buffer.writeInt32(0xaca1657b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(pollId);
     final localPollCopy = poll;
@@ -16532,6 +17799,8 @@ class UpdateMessagePoll extends UpdateBase {
       buffer.writeObject(localPollCopy);
     }
     buffer.writeObject(results);
+
+    // Finished serialization.
   }
 }
 
@@ -16578,10 +17847,15 @@ class UpdateChatDefaultBannedRights extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x54c01850.
     buffer.writeInt32(0x54c01850);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(defaultBannedRights);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -16630,10 +17904,15 @@ class UpdateFolderPeers extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x19360dc0.
     buffer.writeInt32(0x19360dc0);
+
+    // Write fields.
     buffer.writeVectorObject(folderPeers);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -16672,9 +17951,14 @@ class UpdatePeerSettings extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a7e7366.
     buffer.writeInt32(0x6a7e7366);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -16707,8 +17991,13 @@ class UpdatePeerLocated extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4afcfb0.
     buffer.writeInt32(0xb4afcfb0);
+
+    // Write fields.
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -16741,8 +18030,13 @@ class UpdateNewScheduledMessage extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x39a51dfb.
     buffer.writeInt32(0x39a51dfb);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -16781,9 +18075,14 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x90866cee.
     buffer.writeInt32(0x90866cee);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(messages);
+
+    // Finished serialization.
   }
 }
 
@@ -16816,8 +18115,13 @@ class UpdateTheme extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8216fba3.
     buffer.writeInt32(0x8216fba3);
+
+    // Write fields.
     buffer.writeObject(theme);
+
+    // Finished serialization.
   }
 }
 
@@ -16858,9 +18162,14 @@ class UpdateGeoLiveViewed extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x871fb939.
     buffer.writeInt32(0x871fb939);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -16883,7 +18192,10 @@ class UpdateLoginToken extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x564fe691.
     buffer.writeInt32(0x564fe691);
+
+    // Finished serialization.
   }
 }
 
@@ -16938,11 +18250,16 @@ class UpdateMessagePollVote extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x24f40e77.
     buffer.writeInt32(0x24f40e77);
+
+    // Write fields.
     buffer.writeInt64(pollId);
     buffer.writeObject(peer);
     buffer.writeVectorBytes(options);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -16995,13 +18312,18 @@ class UpdateDialogFilter extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x26ffde7d.
     buffer.writeInt32(0x26ffde7d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     final localFilterCopy = filter;
     if (localFilterCopy != null) {
       buffer.writeObject(localFilterCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -17034,8 +18356,13 @@ class UpdateDialogFilterOrder extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa5d72105.
     buffer.writeInt32(0xa5d72105);
+
+    // Write fields.
     buffer.writeVectorInt32(order);
+
+    // Finished serialization.
   }
 }
 
@@ -17058,7 +18385,10 @@ class UpdateDialogFilters extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3504914f.
     buffer.writeInt32(0x3504914f);
+
+    // Finished serialization.
   }
 }
 
@@ -17099,9 +18429,14 @@ class UpdatePhoneCallSignalingData extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2661bf09.
     buffer.writeInt32(0x2661bf09);
+
+    // Write fields.
     buffer.writeInt64(phoneCallId);
     buffer.writeBytes(data);
+
+    // Finished serialization.
   }
 }
 
@@ -17152,10 +18487,15 @@ class UpdateChannelMessageForwards extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd29a27f4.
     buffer.writeInt32(0xd29a27f4);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt32(id);
     buffer.writeInt32(forwards);
+
+    // Finished serialization.
   }
 }
 
@@ -17230,7 +18570,10 @@ class UpdateReadChannelDiscussionInbox extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd6b19546.
     buffer.writeInt32(0xd6b19546);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     buffer.writeInt32(topMsgId);
@@ -17243,6 +18586,8 @@ class UpdateReadChannelDiscussionInbox extends UpdateBase {
     if (localBroadcastPostCopy != null) {
       buffer.writeInt32(localBroadcastPostCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -17293,10 +18638,15 @@ class UpdateReadChannelDiscussionOutbox extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x695c9e7c.
     buffer.writeInt32(0x695c9e7c);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt32(topMsgId);
     buffer.writeInt32(readMaxId);
+
+    // Finished serialization.
   }
 }
 
@@ -17352,9 +18702,14 @@ class UpdatePeerBlocked extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xebe07752.
     buffer.writeInt32(0xebe07752);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peerId);
+
+    // Finished serialization.
   }
 }
 
@@ -17418,7 +18773,10 @@ class UpdateChannelUserTyping extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c88c923.
     buffer.writeInt32(0x8c88c923);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     final localTopMsgIdCopy = topMsgId;
@@ -17427,6 +18785,8 @@ class UpdateChannelUserTyping extends UpdateBase {
     }
     buffer.writeObject(fromId);
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -17497,12 +18857,17 @@ class UpdatePinnedMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed85eab5.
     buffer.writeInt32(0xed85eab5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeVectorInt32(messages);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -17575,12 +18940,17 @@ class UpdatePinnedChannelMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5bb98608.
     buffer.writeInt32(0x5bb98608);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     buffer.writeVectorInt32(messages);
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -17615,8 +18985,13 @@ class UpdateChat extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf89a6a4e.
     buffer.writeInt32(0xf89a6a4e);
+
+    // Write fields.
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -17663,10 +19038,15 @@ class UpdateGroupCallParticipants extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf2ebdb4e.
     buffer.writeInt32(0xf2ebdb4e);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeVectorObject(participants);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -17707,9 +19087,14 @@ class UpdateGroupCall extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x14b24500.
     buffer.writeInt32(0x14b24500);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -17759,13 +19144,18 @@ class UpdatePeerHistoryTTL extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb9bb9a5.
     buffer.writeInt32(0xbb9bb9a5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTtlPeriodCopy = ttlPeriod;
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -17868,7 +19258,10 @@ class UpdateChatParticipant extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd087663a.
     buffer.writeInt32(0xd087663a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(chatId);
     buffer.writeDateTime(date);
@@ -17887,6 +19280,8 @@ class UpdateChatParticipant extends UpdateBase {
       buffer.writeObject(localInviteCopy);
     }
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -17996,7 +19391,10 @@ class UpdateChannelParticipant extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x985d3abb.
     buffer.writeInt32(0x985d3abb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     buffer.writeDateTime(date);
@@ -18015,6 +19413,8 @@ class UpdateChannelParticipant extends UpdateBase {
       buffer.writeObject(localInviteCopy);
     }
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -18069,11 +19469,16 @@ class UpdateBotStopped extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc4870a49.
     buffer.writeInt32(0xc4870a49);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeDateTime(date);
     buffer.writeBool(stopped);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -18122,9 +19527,14 @@ class UpdateGroupCallConnection extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0b783982.
     buffer.writeInt32(0x0b783982);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(params);
+
+    // Finished serialization.
   }
 }
 
@@ -18171,10 +19581,15 @@ class UpdateBotCommands extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4d712f2e.
     buffer.writeInt32(0x4d712f2e);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt64(botId);
     buffer.writeVectorObject(commands);
+
+    // Finished serialization.
   }
 }
 
@@ -18221,10 +19636,15 @@ class UpdatePendingJoinRequests extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7063c3db.
     buffer.writeInt32(0x7063c3db);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(requestsPending);
     buffer.writeVectorInt64(recentRequesters);
+
+    // Finished serialization.
   }
 }
 
@@ -18291,13 +19711,18 @@ class UpdateBotChatInviteRequester extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x11dfa986.
     buffer.writeInt32(0x11dfa986);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeDateTime(date);
     buffer.writeInt64(userId);
     buffer.writeString(about);
     buffer.writeObject(invite);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -18361,7 +19786,10 @@ class UpdateMessageReactions extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5e1b3cb8.
     buffer.writeInt32(0x5e1b3cb8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
@@ -18370,6 +19798,8 @@ class UpdateMessageReactions extends UpdateBase {
       buffer.writeInt32(localTopMsgIdCopy);
     }
     buffer.writeObject(reactions);
+
+    // Finished serialization.
   }
 }
 
@@ -18392,7 +19822,10 @@ class UpdateAttachMenuBots extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x17b7a20b.
     buffer.writeInt32(0x17b7a20b);
+
+    // Finished serialization.
   }
 }
 
@@ -18427,8 +19860,13 @@ class UpdateWebViewResultSent extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1592b79d.
     buffer.writeInt32(0x1592b79d);
+
+    // Write fields.
     buffer.writeInt64(queryId);
+
+    // Finished serialization.
   }
 }
 
@@ -18469,9 +19907,14 @@ class UpdateBotMenuButton extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x14b85813.
     buffer.writeInt32(0x14b85813);
+
+    // Write fields.
     buffer.writeInt64(botId);
     buffer.writeObject(button);
+
+    // Finished serialization.
   }
 }
 
@@ -18494,7 +19937,10 @@ class UpdateSavedRingtones extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74d8be99.
     buffer.writeInt32(0x74d8be99);
+
+    // Finished serialization.
   }
 }
 
@@ -18565,12 +20011,17 @@ class UpdateTranscribedAudio extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0084cd5a.
     buffer.writeInt32(0x0084cd5a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt64(transcriptionId);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -18593,7 +20044,10 @@ class UpdateReadFeaturedEmojiStickers extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfb4c496c.
     buffer.writeInt32(0xfb4c496c);
+
+    // Finished serialization.
   }
 }
 
@@ -18634,9 +20088,14 @@ class UpdateUserEmojiStatus extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x28373599.
     buffer.writeInt32(0x28373599);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeObject(emojiStatus);
+
+    // Finished serialization.
   }
 }
 
@@ -18659,7 +20118,10 @@ class UpdateRecentEmojiStatuses extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x30f443db.
     buffer.writeInt32(0x30f443db);
+
+    // Finished serialization.
   }
 }
 
@@ -18682,7 +20144,10 @@ class UpdateRecentReactions extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6f7863f4.
     buffer.writeInt32(0x6f7863f4);
+
+    // Finished serialization.
   }
 }
 
@@ -18740,9 +20205,14 @@ class UpdateMoveStickerSetToTop extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x86fccf85.
     buffer.writeInt32(0x86fccf85);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -18789,10 +20259,15 @@ class UpdateMessageExtendedMedia extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5a73a98c.
     buffer.writeInt32(0x5a73a98c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeObject(extendedMedia);
+
+    // Finished serialization.
   }
 }
 
@@ -18851,10 +20326,15 @@ class UpdateChannelPinnedTopic extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x192efbe3.
     buffer.writeInt32(0x192efbe3);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     buffer.writeInt32(topicId);
+
+    // Finished serialization.
   }
 }
 
@@ -18906,13 +20386,18 @@ class UpdateChannelPinnedTopics extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfe198602.
     buffer.writeInt32(0xfe198602);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(channelId);
     final localOrderCopy = order;
     if (localOrderCopy != null) {
       buffer.writeVectorInt32(localOrderCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -18947,8 +20432,13 @@ class UpdateUser extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x20529438.
     buffer.writeInt32(0x20529438);
+
+    // Write fields.
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -18971,7 +20461,10 @@ class UpdateAutoSaveSettings extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xec05b097.
     buffer.writeInt32(0xec05b097);
+
+    // Finished serialization.
   }
 }
 
@@ -19006,8 +20499,13 @@ class UpdateGroupInvitePrivacyForbidden extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xccf08ad6.
     buffer.writeInt32(0xccf08ad6);
+
+    // Write fields.
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -19046,9 +20544,14 @@ class UpdateStory extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x75b3b798.
     buffer.writeInt32(0x75b3b798);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(story);
+
+    // Finished serialization.
   }
 }
 
@@ -19089,9 +20592,14 @@ class UpdateReadStories extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf74e932b.
     buffer.writeInt32(0xf74e932b);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -19134,9 +20642,14 @@ class UpdateStoryID extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1bf335b9.
     buffer.writeInt32(0x1bf335b9);
+
+    // Write fields.
     buffer.writeInt32(id);
     buffer.writeInt64(randomId);
+
+    // Finished serialization.
   }
 }
 
@@ -19169,8 +20682,13 @@ class UpdateStoriesStealthMode extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2c084dc1.
     buffer.writeInt32(0x2c084dc1);
+
+    // Write fields.
     buffer.writeObject(stealthMode);
+
+    // Finished serialization.
   }
 }
 
@@ -19217,10 +20735,15 @@ class UpdateSentStoryReaction extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7d627683.
     buffer.writeInt32(0x7d627683);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(storyId);
     buffer.writeObject(reaction);
+
+    // Finished serialization.
   }
 }
 
@@ -19267,10 +20790,15 @@ class UpdateBotChatBoost extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x904dd49c.
     buffer.writeInt32(0x904dd49c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(boost);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -19311,9 +20839,14 @@ class UpdateChannelViewForumAsMessages extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x07b68920.
     buffer.writeInt32(0x07b68920);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -19371,13 +20904,18 @@ class UpdatePeerWallpaper extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xae3f101d.
     buffer.writeInt32(0xae3f101d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localWallpaperCopy = wallpaper;
     if (localWallpaperCopy != null) {
       buffer.writeObject(localWallpaperCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -19450,7 +20988,10 @@ class UpdateBotMessageReaction extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xac21d3ce.
     buffer.writeInt32(0xac21d3ce);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeDateTime(date);
@@ -19458,6 +20999,8 @@ class UpdateBotMessageReaction extends UpdateBase {
     buffer.writeVectorObject(oldReactions);
     buffer.writeVectorObject(newReactions);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -19518,12 +21061,17 @@ class UpdateBotMessageReactions extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x09cb7759.
     buffer.writeInt32(0x09cb7759);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeDateTime(date);
     buffer.writeVectorObject(reactions);
     buffer.writeInt32(qts);
+
+    // Finished serialization.
   }
 }
 
@@ -19572,9 +21120,14 @@ class UpdateSavedDialogPinned extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaeaf9e74.
     buffer.writeInt32(0xaeaf9e74);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -19619,12 +21172,17 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x686c85a6.
     buffer.writeInt32(0x686c85a6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localOrderCopy = order;
     if (localOrderCopy != null) {
       buffer.writeVectorObject(localOrderCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -19695,12 +21253,17 @@ class UpdatesState extends UpdatesStateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa56c2a3e.
     buffer.writeInt32(0xa56c2a3e);
+
+    // Write fields.
     buffer.writeInt32(pts);
     buffer.writeInt32(qts);
     buffer.writeDateTime(date);
     buffer.writeInt32(seq);
     buffer.writeInt32(unreadCount);
+
+    // Finished serialization.
   }
 }
 
@@ -19747,9 +21310,14 @@ class UpdatesDifferenceEmpty extends UpdatesDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5d75a138.
     buffer.writeInt32(0x5d75a138);
+
+    // Write fields.
     buffer.writeDateTime(date);
     buffer.writeInt32(seq);
+
+    // Finished serialization.
   }
 }
 
@@ -19813,13 +21381,18 @@ class UpdatesDifference extends UpdatesDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x00f49ca0.
     buffer.writeInt32(0x00f49ca0);
+
+    // Write fields.
     buffer.writeVectorObject(newMessages);
     buffer.writeVectorObject(newEncryptedMessages);
     buffer.writeVectorObject(otherUpdates);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
     buffer.writeObject(state);
+
+    // Finished serialization.
   }
 }
 
@@ -19883,13 +21456,18 @@ class UpdatesDifferenceSlice extends UpdatesDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa8fb1981.
     buffer.writeInt32(0xa8fb1981);
+
+    // Write fields.
     buffer.writeVectorObject(newMessages);
     buffer.writeVectorObject(newEncryptedMessages);
     buffer.writeVectorObject(otherUpdates);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
     buffer.writeObject(intermediateState);
+
+    // Finished serialization.
   }
 }
 
@@ -19924,8 +21502,13 @@ class UpdatesDifferenceTooLong extends UpdatesDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4afe8f6d.
     buffer.writeInt32(0x4afe8f6d);
+
+    // Write fields.
     buffer.writeInt32(pts);
+
+    // Finished serialization.
   }
 }
 
@@ -19954,7 +21537,10 @@ class UpdatesTooLong extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe317af7e.
     buffer.writeInt32(0xe317af7e);
+
+    // Finished serialization.
   }
 }
 
@@ -20105,7 +21691,10 @@ class UpdateShortMessage extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x313bc7f8.
     buffer.writeInt32(0x313bc7f8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeInt64(userId);
@@ -20133,6 +21722,8 @@ class UpdateShortMessage extends UpdatesBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -20291,7 +21882,10 @@ class UpdateShortChatMessage extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4d6deea5.
     buffer.writeInt32(0x4d6deea5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeInt64(fromId);
@@ -20320,6 +21914,8 @@ class UpdateShortChatMessage extends UpdatesBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -20358,9 +21954,14 @@ class UpdateShort extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x78d4dec1.
     buffer.writeInt32(0x78d4dec1);
+
+    // Write fields.
     buffer.writeObject(update);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -20427,13 +22028,18 @@ class UpdatesCombined extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x725b04c3.
     buffer.writeInt32(0x725b04c3);
+
+    // Write fields.
     buffer.writeVectorObject(updates);
     buffer.writeVectorObject(users);
     buffer.writeVectorObject(chats);
     buffer.writeDateTime(date);
     buffer.writeInt32(seqStart);
     buffer.writeInt32(seq);
+
+    // Finished serialization.
   }
 }
 
@@ -20492,12 +22098,17 @@ class Updates extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74ae4240.
     buffer.writeInt32(0x74ae4240);
+
+    // Write fields.
     buffer.writeVectorObject(updates);
     buffer.writeVectorObject(users);
     buffer.writeVectorObject(chats);
     buffer.writeDateTime(date);
     buffer.writeInt32(seq);
+
+    // Finished serialization.
   }
 }
 
@@ -20596,7 +22207,10 @@ class UpdateShortSentMessage extends UpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9015e101.
     buffer.writeInt32(0x9015e101);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeInt32(pts);
@@ -20614,6 +22228,8 @@ class UpdateShortSentMessage extends UpdatesBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -20658,9 +22274,14 @@ class PhotosPhotos extends PhotosPhotosBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8dca6aa5.
     buffer.writeInt32(0x8dca6aa5);
+
+    // Write fields.
     buffer.writeVectorObject(photos);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -20707,10 +22328,15 @@ class PhotosPhotosSlice extends PhotosPhotosBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15051f54.
     buffer.writeInt32(0x15051f54);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(photos);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -20755,9 +22381,14 @@ class PhotosPhoto extends PhotosPhotoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x20212ca8.
     buffer.writeInt32(0x20212ca8);
+
+    // Write fields.
     buffer.writeObject(photo);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -20810,10 +22441,15 @@ class UploadFile extends UploadFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x096a18d5.
     buffer.writeInt32(0x096a18d5);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeInt32(mtime);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -20872,12 +22508,17 @@ class UploadFileCdnRedirect extends UploadFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf18cda44.
     buffer.writeInt32(0xf18cda44);
+
+    // Write fields.
     buffer.writeInt32(dcId);
     buffer.writeBytes(fileToken);
     buffer.writeBytes(encryptionKey);
     buffer.writeBytes(encryptionIv);
     buffer.writeVectorObject(fileHashes);
+
+    // Finished serialization.
   }
 }
 
@@ -20991,7 +22632,10 @@ class DcOption extends DcOptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x18b7a10d.
     buffer.writeInt32(0x18b7a10d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeString(ipAddress);
@@ -21000,6 +22644,8 @@ class DcOption extends DcOptionBase {
     if (localSecretCopy != null) {
       buffer.writeBytes(localSecretCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -21410,7 +23056,10 @@ class Config extends ConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcc1a241e.
     buffer.writeInt32(0xcc1a241e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(date);
     buffer.writeInt32(expires);
@@ -21487,6 +23136,8 @@ class Config extends ConfigBase {
     if (localAutologinTokenCopy != null) {
       buffer.writeString(localAutologinTokenCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -21541,10 +23192,15 @@ class NearestDc extends NearestDcBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8e1a1775.
     buffer.writeInt32(0x8e1a1775);
+
+    // Write fields.
     buffer.writeString(country);
     buffer.writeInt32(thisDc);
     buffer.writeInt32(nearestDc);
+
+    // Finished serialization.
   }
 }
 
@@ -21645,7 +23301,10 @@ class HelpAppUpdate extends HelpAppUpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xccbbce30.
     buffer.writeInt32(0xccbbce30);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeString(version);
@@ -21663,6 +23322,8 @@ class HelpAppUpdate extends HelpAppUpdateBase {
     if (localStickerCopy != null) {
       buffer.writeObject(localStickerCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -21685,7 +23346,10 @@ class HelpNoAppUpdate extends HelpAppUpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc45a6536.
     buffer.writeInt32(0xc45a6536);
+
+    // Finished serialization.
   }
 }
 
@@ -21724,8 +23388,13 @@ class HelpInviteText extends HelpInviteTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x18cb9f78.
     buffer.writeInt32(0x18cb9f78);
+
+    // Write fields.
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -21766,8 +23435,13 @@ class EncryptedChatEmpty extends EncryptedChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xab7ec0a0.
     buffer.writeInt32(0xab7ec0a0);
+
+    // Write fields.
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -21832,12 +23506,17 @@ class EncryptedChatWaiting extends EncryptedChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x66b25953.
     buffer.writeInt32(0x66b25953);
+
+    // Write fields.
     buffer.writeInt32(id);
     buffer.writeInt64(accessHash);
     buffer.writeDateTime(date);
     buffer.writeInt64(adminId);
     buffer.writeInt64(participantId);
+
+    // Finished serialization.
   }
 }
 
@@ -21925,7 +23604,10 @@ class EncryptedChatRequested extends EncryptedChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x48f1d94c.
     buffer.writeInt32(0x48f1d94c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
@@ -21937,6 +23619,8 @@ class EncryptedChatRequested extends EncryptedChatBase {
     buffer.writeInt64(adminId);
     buffer.writeInt64(participantId);
     buffer.writeBytes(gA);
+
+    // Finished serialization.
   }
 }
 
@@ -22015,7 +23699,10 @@ class EncryptedChat extends EncryptedChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x61f0d4c7.
     buffer.writeInt32(0x61f0d4c7);
+
+    // Write fields.
     buffer.writeInt32(id);
     buffer.writeInt64(accessHash);
     buffer.writeDateTime(date);
@@ -22023,6 +23710,8 @@ class EncryptedChat extends EncryptedChatBase {
     buffer.writeInt64(participantId);
     buffer.writeBytes(gAOrB);
     buffer.writeInt64(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -22073,9 +23762,14 @@ class EncryptedChatDiscarded extends EncryptedChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e1c7c45.
     buffer.writeInt32(0x1e1c7c45);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -22124,9 +23818,14 @@ class InputEncryptedChat extends InputEncryptedChatBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf141b5e1.
     buffer.writeInt32(0xf141b5e1);
+
+    // Write fields.
     buffer.writeInt32(chatId);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -22155,7 +23854,10 @@ class EncryptedFileEmpty extends EncryptedFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc21f497e.
     buffer.writeInt32(0xc21f497e);
+
+    // Finished serialization.
   }
 }
 
@@ -22222,12 +23924,17 @@ class EncryptedFile extends EncryptedFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa8008cd8.
     buffer.writeInt32(0xa8008cd8);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeInt64(size);
     buffer.writeInt32(dcId);
     buffer.writeInt32(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -22256,7 +23963,10 @@ class InputEncryptedFileEmpty extends InputEncryptedFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1837c364.
     buffer.writeInt32(0x1837c364);
+
+    // Finished serialization.
   }
 }
 
@@ -22313,11 +24023,16 @@ class InputEncryptedFileUploaded extends InputEncryptedFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64bd0306.
     buffer.writeInt32(0x64bd0306);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(parts);
     buffer.writeString(md5Checksum);
     buffer.writeInt32(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -22360,9 +24075,14 @@ class InputEncryptedFile extends InputEncryptedFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5a17b5e5.
     buffer.writeInt32(0x5a17b5e5);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -22413,10 +24133,15 @@ class InputEncryptedFileBigUploaded extends InputEncryptedFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2dc173c8.
     buffer.writeInt32(0x2dc173c8);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(parts);
     buffer.writeInt32(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -22483,12 +24208,17 @@ class EncryptedMessage extends EncryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed18c118.
     buffer.writeInt32(0xed18c118);
+
+    // Write fields.
     buffer.writeInt64(randomId);
     buffer.writeInt32(chatId);
     buffer.writeDateTime(date);
     buffer.writeBytes(bytes);
     buffer.writeObject(file);
+
+    // Finished serialization.
   }
 }
 
@@ -22543,11 +24273,16 @@ class EncryptedMessageService extends EncryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x23734b06.
     buffer.writeInt32(0x23734b06);
+
+    // Write fields.
     buffer.writeInt64(randomId);
     buffer.writeInt32(chatId);
     buffer.writeDateTime(date);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -22586,8 +24321,13 @@ class MessagesDhConfigNotModified extends MessagesDhConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc0e24635.
     buffer.writeInt32(0xc0e24635);
+
+    // Write fields.
     buffer.writeBytes(random);
+
+    // Finished serialization.
   }
 }
 
@@ -22642,11 +24382,16 @@ class MessagesDhConfig extends MessagesDhConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2c221edd.
     buffer.writeInt32(0x2c221edd);
+
+    // Write fields.
     buffer.writeInt32(g);
     buffer.writeBytes(p);
     buffer.writeInt32(version);
     buffer.writeBytes(random);
+
+    // Finished serialization.
   }
 }
 
@@ -22685,8 +24430,13 @@ class MessagesSentEncryptedMessage extends MessagesSentEncryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x560f8935.
     buffer.writeInt32(0x560f8935);
+
+    // Write fields.
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -22725,9 +24475,14 @@ class MessagesSentEncryptedFile extends MessagesSentEncryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9493ff32.
     buffer.writeInt32(0x9493ff32);
+
+    // Write fields.
     buffer.writeDateTime(date);
     buffer.writeObject(file);
+
+    // Finished serialization.
   }
 }
 
@@ -22756,7 +24511,10 @@ class InputDocumentEmpty extends InputDocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x72f0eaae.
     buffer.writeInt32(0x72f0eaae);
+
+    // Finished serialization.
   }
 }
 
@@ -22805,10 +24563,15 @@ class InputDocument extends InputDocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1abfb575.
     buffer.writeInt32(0x1abfb575);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeBytes(fileReference);
+
+    // Finished serialization.
   }
 }
 
@@ -22849,8 +24612,13 @@ class DocumentEmpty extends DocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x36f8c871.
     buffer.writeInt32(0x36f8c871);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -22960,7 +24728,10 @@ class Document extends DocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8fd4c4d8.
     buffer.writeInt32(0x8fd4c4d8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -22978,6 +24749,8 @@ class Document extends DocumentBase {
     }
     buffer.writeInt32(dcId);
     buffer.writeVectorObject(attributes);
+
+    // Finished serialization.
   }
 }
 
@@ -23022,9 +24795,14 @@ class HelpSupport extends HelpSupportBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x17c6b5f6.
     buffer.writeInt32(0x17c6b5f6);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeObject(user);
+
+    // Finished serialization.
   }
 }
 
@@ -23063,8 +24841,13 @@ class NotifyPeer extends NotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9fd40bd8.
     buffer.writeInt32(0x9fd40bd8);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -23087,7 +24870,10 @@ class NotifyUsers extends NotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4c83b4c.
     buffer.writeInt32(0xb4c83b4c);
+
+    // Finished serialization.
   }
 }
 
@@ -23110,7 +24896,10 @@ class NotifyChats extends NotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc007cec3.
     buffer.writeInt32(0xc007cec3);
+
+    // Finished serialization.
   }
 }
 
@@ -23133,7 +24922,10 @@ class NotifyBroadcasts extends NotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd612e8ef.
     buffer.writeInt32(0xd612e8ef);
+
+    // Finished serialization.
   }
 }
 
@@ -23174,9 +24966,14 @@ class NotifyForumTopic extends NotifyPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x226e6308.
     buffer.writeInt32(0x226e6308);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(topMsgId);
+
+    // Finished serialization.
   }
 }
 
@@ -23205,7 +25002,10 @@ class SendMessageTypingAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x16bf744e.
     buffer.writeInt32(0x16bf744e);
+
+    // Finished serialization.
   }
 }
 
@@ -23228,7 +25028,10 @@ class SendMessageCancelAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfd5ec8f5.
     buffer.writeInt32(0xfd5ec8f5);
+
+    // Finished serialization.
   }
 }
 
@@ -23251,7 +25054,10 @@ class SendMessageRecordVideoAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa187d66f.
     buffer.writeInt32(0xa187d66f);
+
+    // Finished serialization.
   }
 }
 
@@ -23286,8 +25092,13 @@ class SendMessageUploadVideoAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe9763aec.
     buffer.writeInt32(0xe9763aec);
+
+    // Write fields.
     buffer.writeInt32(progress);
+
+    // Finished serialization.
   }
 }
 
@@ -23310,7 +25121,10 @@ class SendMessageRecordAudioAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd52f73f7.
     buffer.writeInt32(0xd52f73f7);
+
+    // Finished serialization.
   }
 }
 
@@ -23345,8 +25159,13 @@ class SendMessageUploadAudioAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf351d7ab.
     buffer.writeInt32(0xf351d7ab);
+
+    // Write fields.
     buffer.writeInt32(progress);
+
+    // Finished serialization.
   }
 }
 
@@ -23381,8 +25200,13 @@ class SendMessageUploadPhotoAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd1d34a26.
     buffer.writeInt32(0xd1d34a26);
+
+    // Write fields.
     buffer.writeInt32(progress);
+
+    // Finished serialization.
   }
 }
 
@@ -23417,8 +25241,13 @@ class SendMessageUploadDocumentAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaa0cd9e4.
     buffer.writeInt32(0xaa0cd9e4);
+
+    // Write fields.
     buffer.writeInt32(progress);
+
+    // Finished serialization.
   }
 }
 
@@ -23441,7 +25270,10 @@ class SendMessageGeoLocationAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x176f8ba1.
     buffer.writeInt32(0x176f8ba1);
+
+    // Finished serialization.
   }
 }
 
@@ -23464,7 +25296,10 @@ class SendMessageChooseContactAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x628cbc6f.
     buffer.writeInt32(0x628cbc6f);
+
+    // Finished serialization.
   }
 }
 
@@ -23487,7 +25322,10 @@ class SendMessageGamePlayAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdd6a8f48.
     buffer.writeInt32(0xdd6a8f48);
+
+    // Finished serialization.
   }
 }
 
@@ -23510,7 +25348,10 @@ class SendMessageRecordRoundAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x88f27fbc.
     buffer.writeInt32(0x88f27fbc);
+
+    // Finished serialization.
   }
 }
 
@@ -23545,8 +25386,13 @@ class SendMessageUploadRoundAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x243e1c66.
     buffer.writeInt32(0x243e1c66);
+
+    // Write fields.
     buffer.writeInt32(progress);
+
+    // Finished serialization.
   }
 }
 
@@ -23569,7 +25415,10 @@ class SpeakingInGroupCallAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd92c2285.
     buffer.writeInt32(0xd92c2285);
+
+    // Finished serialization.
   }
 }
 
@@ -23604,8 +25453,13 @@ class SendMessageHistoryImportAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdbda9246.
     buffer.writeInt32(0xdbda9246);
+
+    // Write fields.
     buffer.writeInt32(progress);
+
+    // Finished serialization.
   }
 }
 
@@ -23628,7 +25482,10 @@ class SendMessageChooseStickerAction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb05ac6b1.
     buffer.writeInt32(0xb05ac6b1);
+
+    // Finished serialization.
   }
 }
 
@@ -23675,10 +25532,15 @@ class SendMessageEmojiInteraction extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x25972bcb.
     buffer.writeInt32(0x25972bcb);
+
+    // Write fields.
     buffer.writeString(emoticon);
     buffer.writeInt32(msgId);
     buffer.writeObject(interaction);
+
+    // Finished serialization.
   }
 }
 
@@ -23711,8 +25573,13 @@ class SendMessageEmojiInteractionSeen extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb665902e.
     buffer.writeInt32(0xb665902e);
+
+    // Write fields.
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -23769,11 +25636,16 @@ class ContactsFound extends ContactsFoundBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb3134d9d.
     buffer.writeInt32(0xb3134d9d);
+
+    // Write fields.
     buffer.writeVectorObject(myResults);
     buffer.writeVectorObject(results);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -23802,7 +25674,10 @@ class InputPrivacyKeyStatusTimestamp extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4f96cb18.
     buffer.writeInt32(0x4f96cb18);
+
+    // Finished serialization.
   }
 }
 
@@ -23825,7 +25700,10 @@ class InputPrivacyKeyChatInvite extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbdfb0426.
     buffer.writeInt32(0xbdfb0426);
+
+    // Finished serialization.
   }
 }
 
@@ -23848,7 +25726,10 @@ class InputPrivacyKeyPhoneCall extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfabadc5f.
     buffer.writeInt32(0xfabadc5f);
+
+    // Finished serialization.
   }
 }
 
@@ -23871,7 +25752,10 @@ class InputPrivacyKeyPhoneP2P extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb9e70d2.
     buffer.writeInt32(0xdb9e70d2);
+
+    // Finished serialization.
   }
 }
 
@@ -23894,7 +25778,10 @@ class InputPrivacyKeyForwards extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa4dd4c08.
     buffer.writeInt32(0xa4dd4c08);
+
+    // Finished serialization.
   }
 }
 
@@ -23917,7 +25804,10 @@ class InputPrivacyKeyProfilePhoto extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5719bacc.
     buffer.writeInt32(0x5719bacc);
+
+    // Finished serialization.
   }
 }
 
@@ -23940,7 +25830,10 @@ class InputPrivacyKeyPhoneNumber extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0352dafa.
     buffer.writeInt32(0x0352dafa);
+
+    // Finished serialization.
   }
 }
 
@@ -23963,7 +25856,10 @@ class InputPrivacyKeyAddedByPhone extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd1219bdd.
     buffer.writeInt32(0xd1219bdd);
+
+    // Finished serialization.
   }
 }
 
@@ -23986,7 +25882,10 @@ class InputPrivacyKeyVoiceMessages extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaee69d68.
     buffer.writeInt32(0xaee69d68);
+
+    // Finished serialization.
   }
 }
 
@@ -24009,7 +25908,10 @@ class InputPrivacyKeyAbout extends InputPrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3823cc40.
     buffer.writeInt32(0x3823cc40);
+
+    // Finished serialization.
   }
 }
 
@@ -24038,7 +25940,10 @@ class PrivacyKeyStatusTimestamp extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbc2eab30.
     buffer.writeInt32(0xbc2eab30);
+
+    // Finished serialization.
   }
 }
 
@@ -24061,7 +25966,10 @@ class PrivacyKeyChatInvite extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x500e6dfa.
     buffer.writeInt32(0x500e6dfa);
+
+    // Finished serialization.
   }
 }
 
@@ -24084,7 +25992,10 @@ class PrivacyKeyPhoneCall extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3d662b7b.
     buffer.writeInt32(0x3d662b7b);
+
+    // Finished serialization.
   }
 }
 
@@ -24107,7 +26018,10 @@ class PrivacyKeyPhoneP2P extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x39491cc8.
     buffer.writeInt32(0x39491cc8);
+
+    // Finished serialization.
   }
 }
 
@@ -24130,7 +26044,10 @@ class PrivacyKeyForwards extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x69ec56a3.
     buffer.writeInt32(0x69ec56a3);
+
+    // Finished serialization.
   }
 }
 
@@ -24153,7 +26070,10 @@ class PrivacyKeyProfilePhoto extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x96151fed.
     buffer.writeInt32(0x96151fed);
+
+    // Finished serialization.
   }
 }
 
@@ -24176,7 +26096,10 @@ class PrivacyKeyPhoneNumber extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd19ae46d.
     buffer.writeInt32(0xd19ae46d);
+
+    // Finished serialization.
   }
 }
 
@@ -24199,7 +26122,10 @@ class PrivacyKeyAddedByPhone extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x42ffd42b.
     buffer.writeInt32(0x42ffd42b);
+
+    // Finished serialization.
   }
 }
 
@@ -24222,7 +26148,10 @@ class PrivacyKeyVoiceMessages extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0697f414.
     buffer.writeInt32(0x0697f414);
+
+    // Finished serialization.
   }
 }
 
@@ -24245,7 +26174,10 @@ class PrivacyKeyAbout extends PrivacyKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa486b761.
     buffer.writeInt32(0xa486b761);
+
+    // Finished serialization.
   }
 }
 
@@ -24274,7 +26206,10 @@ class InputPrivacyValueAllowContacts extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0d09e07b.
     buffer.writeInt32(0x0d09e07b);
+
+    // Finished serialization.
   }
 }
 
@@ -24297,7 +26232,10 @@ class InputPrivacyValueAllowAll extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x184b35ce.
     buffer.writeInt32(0x184b35ce);
+
+    // Finished serialization.
   }
 }
 
@@ -24330,8 +26268,13 @@ class InputPrivacyValueAllowUsers extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x131cc67f.
     buffer.writeInt32(0x131cc67f);
+
+    // Write fields.
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -24354,7 +26297,10 @@ class InputPrivacyValueDisallowContacts extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0ba52007.
     buffer.writeInt32(0x0ba52007);
+
+    // Finished serialization.
   }
 }
 
@@ -24377,7 +26323,10 @@ class InputPrivacyValueDisallowAll extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd66b66c9.
     buffer.writeInt32(0xd66b66c9);
+
+    // Finished serialization.
   }
 }
 
@@ -24410,8 +26359,13 @@ class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x90110467.
     buffer.writeInt32(0x90110467);
+
+    // Write fields.
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -24445,8 +26399,13 @@ class InputPrivacyValueAllowChatParticipants extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x840649cf.
     buffer.writeInt32(0x840649cf);
+
+    // Write fields.
     buffer.writeVectorInt64(chats);
+
+    // Finished serialization.
   }
 }
 
@@ -24480,8 +26439,13 @@ class InputPrivacyValueDisallowChatParticipants extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe94f0f86.
     buffer.writeInt32(0xe94f0f86);
+
+    // Write fields.
     buffer.writeVectorInt64(chats);
+
+    // Finished serialization.
   }
 }
 
@@ -24504,7 +26468,10 @@ class InputPrivacyValueAllowCloseFriends extends InputPrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2f453e49.
     buffer.writeInt32(0x2f453e49);
+
+    // Finished serialization.
   }
 }
 
@@ -24533,7 +26500,10 @@ class PrivacyValueAllowContacts extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfffe1bac.
     buffer.writeInt32(0xfffe1bac);
+
+    // Finished serialization.
   }
 }
 
@@ -24556,7 +26526,10 @@ class PrivacyValueAllowAll extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x65427b82.
     buffer.writeInt32(0x65427b82);
+
+    // Finished serialization.
   }
 }
 
@@ -24589,8 +26562,13 @@ class PrivacyValueAllowUsers extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb8905fb2.
     buffer.writeInt32(0xb8905fb2);
+
+    // Write fields.
     buffer.writeVectorInt64(users);
+
+    // Finished serialization.
   }
 }
 
@@ -24613,7 +26591,10 @@ class PrivacyValueDisallowContacts extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf888fa1a.
     buffer.writeInt32(0xf888fa1a);
+
+    // Finished serialization.
   }
 }
 
@@ -24636,7 +26617,10 @@ class PrivacyValueDisallowAll extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8b73e763.
     buffer.writeInt32(0x8b73e763);
+
+    // Finished serialization.
   }
 }
 
@@ -24669,8 +26653,13 @@ class PrivacyValueDisallowUsers extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe4621141.
     buffer.writeInt32(0xe4621141);
+
+    // Write fields.
     buffer.writeVectorInt64(users);
+
+    // Finished serialization.
   }
 }
 
@@ -24703,8 +26692,13 @@ class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6b134e8e.
     buffer.writeInt32(0x6b134e8e);
+
+    // Write fields.
     buffer.writeVectorInt64(chats);
+
+    // Finished serialization.
   }
 }
 
@@ -24738,8 +26732,13 @@ class PrivacyValueDisallowChatParticipants extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x41c87565.
     buffer.writeInt32(0x41c87565);
+
+    // Write fields.
     buffer.writeVectorInt64(chats);
+
+    // Finished serialization.
   }
 }
 
@@ -24762,7 +26761,10 @@ class PrivacyValueAllowCloseFriends extends PrivacyRuleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf7e8d89b.
     buffer.writeInt32(0xf7e8d89b);
+
+    // Finished serialization.
   }
 }
 
@@ -24813,10 +26815,15 @@ class AccountPrivacyRules extends AccountPrivacyRulesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x50a04e45.
     buffer.writeInt32(0x50a04e45);
+
+    // Write fields.
     buffer.writeVectorObject(rules);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -24857,8 +26864,13 @@ class AccountDaysTTL extends AccountDaysTTLBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb8d0afdf.
     buffer.writeInt32(0xb8d0afdf);
+
+    // Write fields.
     buffer.writeInt32(days);
+
+    // Finished serialization.
   }
 }
 
@@ -24907,9 +26919,14 @@ class DocumentAttributeImageSize extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c37c15c.
     buffer.writeInt32(0x6c37c15c);
+
+    // Write fields.
     buffer.writeInt32(w);
     buffer.writeInt32(h);
+
+    // Finished serialization.
   }
 }
 
@@ -24932,7 +26949,10 @@ class DocumentAttributeAnimated extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x11b58939.
     buffer.writeInt32(0x11b58939);
+
+    // Finished serialization.
   }
 }
 
@@ -24996,7 +27016,10 @@ class DocumentAttributeSticker extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6319d612.
     buffer.writeInt32(0x6319d612);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(alt);
     buffer.writeObject(stickerset);
@@ -25004,6 +27027,8 @@ class DocumentAttributeSticker extends DocumentAttributeBase {
     if (localMaskCoordsCopy != null) {
       buffer.writeObject(localMaskCoordsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -25091,7 +27116,10 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd38ff1c2.
     buffer.writeInt32(0xd38ff1c2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDouble(duration);
     buffer.writeInt32(w);
@@ -25100,6 +27128,8 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
     if (localPreloadPrefixSizeCopy != null) {
       buffer.writeInt32(localPreloadPrefixSizeCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -25174,7 +27204,10 @@ class DocumentAttributeAudio extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9852f9c6.
     buffer.writeInt32(0x9852f9c6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(duration);
     final localTitleCopy = title;
@@ -25189,6 +27222,8 @@ class DocumentAttributeAudio extends DocumentAttributeBase {
     if (localWaveformCopy != null) {
       buffer.writeBytes(localWaveformCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -25221,8 +27256,13 @@ class DocumentAttributeFilename extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15590068.
     buffer.writeInt32(0x15590068);
+
+    // Write fields.
     buffer.writeString(fileName);
+
+    // Finished serialization.
   }
 }
 
@@ -25245,7 +27285,10 @@ class DocumentAttributeHasStickers extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9801d2f7.
     buffer.writeInt32(0x9801d2f7);
+
+    // Finished serialization.
   }
 }
 
@@ -25307,10 +27350,15 @@ class DocumentAttributeCustomEmoji extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfd149899.
     buffer.writeInt32(0xfd149899);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(alt);
     buffer.writeObject(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -25339,7 +27387,10 @@ class MessagesStickersNotModified extends MessagesStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf1749a22.
     buffer.writeInt32(0xf1749a22);
+
+    // Finished serialization.
   }
 }
 
@@ -25380,9 +27431,14 @@ class MessagesStickers extends MessagesStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x30a6ec7e.
     buffer.writeInt32(0x30a6ec7e);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(stickers);
+
+    // Finished serialization.
   }
 }
 
@@ -25427,9 +27483,14 @@ class StickerPack extends StickerPackBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x12b299d4.
     buffer.writeInt32(0x12b299d4);
+
+    // Write fields.
     buffer.writeString(emoticon);
     buffer.writeVectorInt64(documents);
+
+    // Finished serialization.
   }
 }
 
@@ -25458,7 +27519,10 @@ class MessagesAllStickersNotModified extends MessagesAllStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe86602c3.
     buffer.writeInt32(0xe86602c3);
+
+    // Finished serialization.
   }
 }
 
@@ -25499,9 +27563,14 @@ class MessagesAllStickers extends MessagesAllStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcdbbcebb.
     buffer.writeInt32(0xcdbbcebb);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(sets);
+
+    // Finished serialization.
   }
 }
 
@@ -25550,9 +27619,14 @@ class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x84d19185.
     buffer.writeInt32(0x84d19185);
+
+    // Write fields.
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
+
+    // Finished serialization.
   }
 }
 
@@ -25610,13 +27684,18 @@ class WebPageEmpty extends WebPageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x211a1788.
     buffer.writeInt32(0x211a1788);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     final localUrlCopy = url;
     if (localUrlCopy != null) {
       buffer.writeString(localUrlCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -25674,7 +27753,10 @@ class WebPagePending extends WebPageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb0d13e47.
     buffer.writeInt32(0xb0d13e47);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     final localUrlCopy = url;
@@ -25682,6 +27764,8 @@ class WebPagePending extends WebPageBase {
       buffer.writeString(localUrlCopy);
     }
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -25866,7 +27950,10 @@ class WebPage extends WebPageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe89c45b2.
     buffer.writeInt32(0xe89c45b2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeString(url);
@@ -25928,6 +28015,8 @@ class WebPage extends WebPageBase {
     if (localAttributesCopy != null) {
       buffer.writeVectorObject(localAttributesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -25971,12 +28060,17 @@ class WebPageNotModified extends WebPageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7311ca11.
     buffer.writeInt32(0x7311ca11);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localCachedPageViewsCopy = cachedPageViews;
     if (localCachedPageViewsCopy != null) {
       buffer.writeInt32(localCachedPageViewsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -26136,7 +28230,10 @@ class Authorization extends AuthorizationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xad01d61d.
     buffer.writeInt32(0xad01d61d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(hash);
     buffer.writeString(deviceModel);
@@ -26150,6 +28247,8 @@ class Authorization extends AuthorizationBase {
     buffer.writeString(ip);
     buffer.writeString(country);
     buffer.writeString(region);
+
+    // Finished serialization.
   }
 }
 
@@ -26196,9 +28295,14 @@ class AccountAuthorizations extends AccountAuthorizationsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4bff8ea0.
     buffer.writeInt32(0x4bff8ea0);
+
+    // Write fields.
     buffer.writeInt32(authorizationTtlDays);
     buffer.writeVectorObject(authorizations);
+
+    // Finished serialization.
   }
 }
 
@@ -26336,7 +28440,10 @@ class AccountPassword extends AccountPasswordBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x957b50fb.
     buffer.writeInt32(0x957b50fb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localCurrentAlgoCopy = currentAlgo;
     if (localCurrentAlgoCopy != null) {
@@ -26369,6 +28476,8 @@ class AccountPassword extends AccountPasswordBase {
     if (localLoginEmailPatternCopy != null) {
       buffer.writeString(localLoginEmailPatternCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -26428,7 +28537,10 @@ class AccountPasswordSettings extends AccountPasswordSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a5c33e5.
     buffer.writeInt32(0x9a5c33e5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localEmailCopy = email;
     if (localEmailCopy != null) {
@@ -26438,6 +28550,8 @@ class AccountPasswordSettings extends AccountPasswordSettingsBase {
     if (localSecureSettingsCopy != null) {
       buffer.writeObject(localSecureSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -26520,7 +28634,10 @@ class AccountPasswordInputSettings extends AccountPasswordInputSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc23727c9.
     buffer.writeInt32(0xc23727c9);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localNewAlgoCopy = newAlgo;
     if (localNewAlgoCopy != null) {
@@ -26542,6 +28659,8 @@ class AccountPasswordInputSettings extends AccountPasswordInputSettingsBase {
     if (localNewSecureSettingsCopy != null) {
       buffer.writeObject(localNewSecureSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -26580,8 +28699,13 @@ class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x137948a5.
     buffer.writeInt32(0x137948a5);
+
+    // Write fields.
     buffer.writeString(emailPattern);
+
+    // Finished serialization.
   }
 }
 
@@ -26630,9 +28754,14 @@ class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa384b779.
     buffer.writeInt32(0xa384b779);
+
+    // Write fields.
     buffer.writeInt32(id);
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -26763,7 +28892,10 @@ class ChatInviteExported extends ExportedChatInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0ab4a819.
     buffer.writeInt32(0x0ab4a819);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(link);
     buffer.writeInt64(adminId);
@@ -26792,6 +28924,8 @@ class ChatInviteExported extends ExportedChatInviteBase {
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -26814,7 +28948,10 @@ class ChatInvitePublicJoinRequests extends ExportedChatInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed107ab7.
     buffer.writeInt32(0xed107ab7);
+
+    // Finished serialization.
   }
 }
 
@@ -26853,8 +28990,13 @@ class ChatInviteAlready extends ChatInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5a686d7c.
     buffer.writeInt32(0x5a686d7c);
+
+    // Write fields.
     buffer.writeObject(chat);
+
+    // Finished serialization.
   }
 }
 
@@ -26991,7 +29133,10 @@ class ChatInvite extends ChatInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcde0ec40.
     buffer.writeInt32(0xcde0ec40);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     final localAboutCopy = about;
@@ -27005,6 +29150,8 @@ class ChatInvite extends ChatInviteBase {
       buffer.writeVectorObject(localParticipantsCopy);
     }
     buffer.writeInt32(color);
+
+    // Finished serialization.
   }
 }
 
@@ -27045,9 +29192,14 @@ class ChatInvitePeek extends ChatInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x61695cb0.
     buffer.writeInt32(0x61695cb0);
+
+    // Write fields.
     buffer.writeObject(chat);
     buffer.writeInt32(expires);
+
+    // Finished serialization.
   }
 }
 
@@ -27076,7 +29228,10 @@ class InputStickerSetEmpty extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xffb62b95.
     buffer.writeInt32(0xffb62b95);
+
+    // Finished serialization.
   }
 }
 
@@ -27119,9 +29274,14 @@ class InputStickerSetID extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9de7a269.
     buffer.writeInt32(0x9de7a269);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -27154,8 +29314,13 @@ class InputStickerSetShortName extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x861cc8a0.
     buffer.writeInt32(0x861cc8a0);
+
+    // Write fields.
     buffer.writeString(shortName);
+
+    // Finished serialization.
   }
 }
 
@@ -27178,7 +29343,10 @@ class InputStickerSetAnimatedEmoji extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x028703c8.
     buffer.writeInt32(0x028703c8);
+
+    // Finished serialization.
   }
 }
 
@@ -27211,8 +29379,13 @@ class InputStickerSetDice extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe67f520e.
     buffer.writeInt32(0xe67f520e);
+
+    // Write fields.
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -27236,7 +29409,10 @@ class InputStickerSetAnimatedEmojiAnimations extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0cde3739.
     buffer.writeInt32(0x0cde3739);
+
+    // Finished serialization.
   }
 }
 
@@ -27259,7 +29435,10 @@ class InputStickerSetPremiumGifts extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc88b3b02.
     buffer.writeInt32(0xc88b3b02);
+
+    // Finished serialization.
   }
 }
 
@@ -27283,7 +29462,10 @@ class InputStickerSetEmojiGenericAnimations extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x04c4d4ce.
     buffer.writeInt32(0x04c4d4ce);
+
+    // Finished serialization.
   }
 }
 
@@ -27306,7 +29488,10 @@ class InputStickerSetEmojiDefaultStatuses extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x29d0f5ee.
     buffer.writeInt32(0x29d0f5ee);
+
+    // Finished serialization.
   }
 }
 
@@ -27330,7 +29515,10 @@ class InputStickerSetEmojiDefaultTopicIcons extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x44c1f8e9.
     buffer.writeInt32(0x44c1f8e9);
+
+    // Finished serialization.
   }
 }
 
@@ -27354,7 +29542,10 @@ class InputStickerSetEmojiChannelDefaultStatuses extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x49748553.
     buffer.writeInt32(0x49748553);
+
+    // Finished serialization.
   }
 }
 
@@ -27535,7 +29726,10 @@ class StickerSet extends StickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2dd14edc.
     buffer.writeInt32(0x2dd14edc);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localInstalledDateCopy = installedDate;
     if (localInstalledDateCopy != null) {
@@ -27563,6 +29757,8 @@ class StickerSet extends StickerSetBase {
     }
     buffer.writeInt32(count);
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -27619,11 +29815,16 @@ class MessagesStickerSet extends MessagesStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6e153f16.
     buffer.writeInt32(0x6e153f16);
+
+    // Write fields.
     buffer.writeObject(set);
     buffer.writeVectorObject(packs);
     buffer.writeVectorObject(keywords);
     buffer.writeVectorObject(documents);
+
+    // Finished serialization.
   }
 }
 
@@ -27646,7 +29847,10 @@ class MessagesStickerSetNotModified extends MessagesStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd3f924eb.
     buffer.writeInt32(0xd3f924eb);
+
+    // Finished serialization.
   }
 }
 
@@ -27691,9 +29895,14 @@ class BotCommand extends BotCommandBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc27ac8c7.
     buffer.writeInt32(0xc27ac8c7);
+
+    // Write fields.
     buffer.writeString(command);
     buffer.writeString(description);
+
+    // Finished serialization.
   }
 }
 
@@ -27788,7 +29997,10 @@ class BotInfo extends BotInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8f300b57.
     buffer.writeInt32(0x8f300b57);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localUserIdCopy = userId;
     if (localUserIdCopy != null) {
@@ -27814,6 +30026,8 @@ class BotInfo extends BotInfoBase {
     if (localMenuButtonCopy != null) {
       buffer.writeObject(localMenuButtonCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -27852,8 +30066,13 @@ class KeyboardButton extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa2fa4880.
     buffer.writeInt32(0xa2fa4880);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -27892,9 +30111,14 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x258aff05.
     buffer.writeInt32(0x258aff05);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -27949,10 +30173,15 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35bbdb6b.
     buffer.writeInt32(0x35bbdb6b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(text);
     buffer.writeBytes(data);
+
+    // Finished serialization.
   }
 }
 
@@ -27985,8 +30214,13 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb16a6c29.
     buffer.writeInt32(0xb16a6c29);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -28019,8 +30253,13 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfc796b3f.
     buffer.writeInt32(0xfc796b3f);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -28085,7 +30324,10 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x93b9fbb5.
     buffer.writeInt32(0x93b9fbb5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(text);
     buffer.writeString(query);
@@ -28093,6 +30335,8 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
     if (localPeerTypesCopy != null) {
       buffer.writeVectorObject(localPeerTypesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -28125,8 +30369,13 @@ class KeyboardButtonGame extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x50f41ccf.
     buffer.writeInt32(0x50f41ccf);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -28159,8 +30408,13 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xafd93fbb.
     buffer.writeInt32(0xafd93fbb);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -28224,7 +30478,10 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x10b78d29.
     buffer.writeInt32(0x10b78d29);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(text);
     final localFwdTextCopy = fwdText;
@@ -28233,6 +30490,8 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
     }
     buffer.writeString(url);
     buffer.writeInt32(buttonId);
+
+    // Finished serialization.
   }
 }
 
@@ -28301,7 +30560,10 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd02e7fd4.
     buffer.writeInt32(0xd02e7fd4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(text);
     final localFwdTextCopy = fwdText;
@@ -28310,6 +30572,8 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
     }
     buffer.writeString(url);
     buffer.writeObject(bot);
+
+    // Finished serialization.
   }
 }
 
@@ -28358,9 +30622,14 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbbc7515d.
     buffer.writeInt32(0xbbc7515d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -28399,9 +30668,14 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe988037b.
     buffer.writeInt32(0xe988037b);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -28442,9 +30716,14 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x308660c1.
     buffer.writeInt32(0x308660c1);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -28483,9 +30762,14 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x13767230.
     buffer.writeInt32(0x13767230);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -28524,9 +30808,14 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa0c0505c.
     buffer.writeInt32(0xa0c0505c);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -28581,11 +30870,16 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x53d7bfd8.
     buffer.writeInt32(0x53d7bfd8);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeInt32(buttonId);
     buffer.writeObject(peerType);
     buffer.writeInt32(maxQuantity);
+
+    // Finished serialization.
   }
 }
 
@@ -28624,8 +30918,13 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77608b83.
     buffer.writeInt32(0x77608b83);
+
+    // Write fields.
     buffer.writeVectorObject(buttons);
+
+    // Finished serialization.
   }
 }
 
@@ -28674,8 +30973,13 @@ class ReplyKeyboardHide extends ReplyMarkupBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa03e5b85.
     buffer.writeInt32(0xa03e5b85);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -28733,12 +31037,17 @@ class ReplyKeyboardForceReply extends ReplyMarkupBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x86b40b08.
     buffer.writeInt32(0x86b40b08);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPlaceholderCopy = placeholder;
     if (localPlaceholderCopy != null) {
       buffer.writeString(localPlaceholderCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -28816,13 +31125,18 @@ class ReplyKeyboardMarkup extends ReplyMarkupBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x85dd99d1.
     buffer.writeInt32(0x85dd99d1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(rows);
     final localPlaceholderCopy = placeholder;
     if (localPlaceholderCopy != null) {
       buffer.writeString(localPlaceholderCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -28855,8 +31169,13 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x48a30254.
     buffer.writeInt32(0x48a30254);
+
+    // Write fields.
     buffer.writeVectorObject(rows);
+
+    // Finished serialization.
   }
 }
 
@@ -28905,9 +31224,14 @@ class MessageEntityUnknown extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb92ba95.
     buffer.writeInt32(0xbb92ba95);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -28950,9 +31274,14 @@ class MessageEntityMention extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa04579d.
     buffer.writeInt32(0xfa04579d);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -28995,9 +31324,14 @@ class MessageEntityHashtag extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6f635b0d.
     buffer.writeInt32(0x6f635b0d);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29040,9 +31374,14 @@ class MessageEntityBotCommand extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6cef8ac7.
     buffer.writeInt32(0x6cef8ac7);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29085,9 +31424,14 @@ class MessageEntityUrl extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6ed02538.
     buffer.writeInt32(0x6ed02538);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29130,9 +31474,14 @@ class MessageEntityEmail extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64e475c2.
     buffer.writeInt32(0x64e475c2);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29175,9 +31524,14 @@ class MessageEntityBold extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd610bc9.
     buffer.writeInt32(0xbd610bc9);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29220,9 +31574,14 @@ class MessageEntityItalic extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x826f8b60.
     buffer.writeInt32(0x826f8b60);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29265,9 +31624,14 @@ class MessageEntityCode extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x28a20571.
     buffer.writeInt32(0x28a20571);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29316,10 +31680,15 @@ class MessageEntityPre extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73924be0.
     buffer.writeInt32(0x73924be0);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeString(language);
+
+    // Finished serialization.
   }
 }
 
@@ -29368,10 +31737,15 @@ class MessageEntityTextUrl extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x76a6d327.
     buffer.writeInt32(0x76a6d327);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -29422,10 +31796,15 @@ class MessageEntityMentionName extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdc7b1140.
     buffer.writeInt32(0xdc7b1140);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -29474,10 +31853,15 @@ class InputMessageEntityMentionName extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x208e68c9.
     buffer.writeInt32(0x208e68c9);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -29520,9 +31904,14 @@ class MessageEntityPhone extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9b69e34b.
     buffer.writeInt32(0x9b69e34b);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29565,9 +31954,14 @@ class MessageEntityCashtag extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4c4e743f.
     buffer.writeInt32(0x4c4e743f);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29610,9 +32004,14 @@ class MessageEntityUnderline extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9c4e7e8b.
     buffer.writeInt32(0x9c4e7e8b);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29655,9 +32054,14 @@ class MessageEntityStrike extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbf0693d4.
     buffer.writeInt32(0xbf0693d4);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29700,9 +32104,14 @@ class MessageEntityBankCard extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x761e6af4.
     buffer.writeInt32(0x761e6af4);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29745,9 +32154,14 @@ class MessageEntitySpoiler extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x32ca960f.
     buffer.writeInt32(0x32ca960f);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29798,10 +32212,15 @@ class MessageEntityCustomEmoji extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc8cf05f8.
     buffer.writeInt32(0xc8cf05f8);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeInt64(documentId);
+
+    // Finished serialization.
   }
 }
 
@@ -29844,9 +32263,14 @@ class MessageEntityBlockquote extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x020df5d0.
     buffer.writeInt32(0x020df5d0);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -29875,7 +32299,10 @@ class InputChannelEmpty extends InputChannelBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xee8c1e86.
     buffer.writeInt32(0xee8c1e86);
+
+    // Finished serialization.
   }
 }
 
@@ -29918,9 +32345,14 @@ class InputChannel extends InputChannelBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf35aec28.
     buffer.writeInt32(0xf35aec28);
+
+    // Write fields.
     buffer.writeInt64(channelId);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -29969,10 +32401,15 @@ class InputChannelFromMessage extends InputChannelBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5b934f9d.
     buffer.writeInt32(0x5b934f9d);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt64(channelId);
+
+    // Finished serialization.
   }
 }
 
@@ -30023,10 +32460,15 @@ class ContactsResolvedPeer extends ContactsResolvedPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7f077ad9.
     buffer.writeInt32(0x7f077ad9);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -30075,9 +32517,14 @@ class MessageRange extends MessageRangeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0ae30253.
     buffer.writeInt32(0x0ae30253);
+
+    // Write fields.
     buffer.writeInt32(minId);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -30142,13 +32589,18 @@ class UpdatesChannelDifferenceEmpty extends UpdatesChannelDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3e11affb.
     buffer.writeInt32(0x3e11affb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(pts);
     final localTimeoutCopy = timeout;
     if (localTimeoutCopy != null) {
       buffer.writeInt32(localTimeoutCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -30223,7 +32675,10 @@ class UpdatesChannelDifferenceTooLong extends UpdatesChannelDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa4bcc6fe.
     buffer.writeInt32(0xa4bcc6fe);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localTimeoutCopy = timeout;
     if (localTimeoutCopy != null) {
@@ -30233,6 +32688,8 @@ class UpdatesChannelDifferenceTooLong extends UpdatesChannelDifferenceBase {
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -30315,7 +32772,10 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2064674e.
     buffer.writeInt32(0x2064674e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(pts);
     final localTimeoutCopy = timeout;
@@ -30326,6 +32786,8 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
     buffer.writeVectorObject(otherUpdates);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -30354,7 +32816,10 @@ class ChannelMessagesFilterEmpty extends ChannelMessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x94d42ee7.
     buffer.writeInt32(0x94d42ee7);
+
+    // Finished serialization.
   }
 }
 
@@ -30403,9 +32868,14 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcd77d957.
     buffer.writeInt32(0xcd77d957);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(ranges);
+
+    // Finished serialization.
   }
 }
 
@@ -30452,9 +32922,14 @@ class ChannelParticipant extends ChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc00c07c0.
     buffer.writeInt32(0xc00c07c0);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -30519,11 +32994,16 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35a8bfa7.
     buffer.writeInt32(0x35a8bfa7);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -30581,7 +33061,10 @@ class ChannelParticipantCreator extends ChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2fe601d3.
     buffer.writeInt32(0x2fe601d3);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeObject(adminRights);
@@ -30589,6 +33072,8 @@ class ChannelParticipantCreator extends ChannelParticipantBase {
     if (localRankCopy != null) {
       buffer.writeString(localRankCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -30681,7 +33166,10 @@ class ChannelParticipantAdmin extends ChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x34c3bb53.
     buffer.writeInt32(0x34c3bb53);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     final localInviterIdCopy = inviterId;
@@ -30695,6 +33183,8 @@ class ChannelParticipantAdmin extends ChannelParticipantBase {
     if (localRankCopy != null) {
       buffer.writeString(localRankCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -30763,12 +33253,17 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6df8014e.
     buffer.writeInt32(0x6df8014e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt64(kickedBy);
     buffer.writeDateTime(date);
     buffer.writeObject(bannedRights);
+
+    // Finished serialization.
   }
 }
 
@@ -30801,8 +33296,13 @@ class ChannelParticipantLeft extends ChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b03f006.
     buffer.writeInt32(0x1b03f006);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -30831,7 +33331,10 @@ class ChannelParticipantsRecent extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xde3f3c79.
     buffer.writeInt32(0xde3f3c79);
+
+    // Finished serialization.
   }
 }
 
@@ -30854,7 +33357,10 @@ class ChannelParticipantsAdmins extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4608969.
     buffer.writeInt32(0xb4608969);
+
+    // Finished serialization.
   }
 }
 
@@ -30887,8 +33393,13 @@ class ChannelParticipantsKicked extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa3b54985.
     buffer.writeInt32(0xa3b54985);
+
+    // Write fields.
     buffer.writeString(q);
+
+    // Finished serialization.
   }
 }
 
@@ -30911,7 +33422,10 @@ class ChannelParticipantsBots extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb0d1865b.
     buffer.writeInt32(0xb0d1865b);
+
+    // Finished serialization.
   }
 }
 
@@ -30944,8 +33458,13 @@ class ChannelParticipantsBanned extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1427a5e1.
     buffer.writeInt32(0x1427a5e1);
+
+    // Write fields.
     buffer.writeString(q);
+
+    // Finished serialization.
   }
 }
 
@@ -30978,8 +33497,13 @@ class ChannelParticipantsSearch extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0656ac4b.
     buffer.writeInt32(0x0656ac4b);
+
+    // Write fields.
     buffer.writeString(q);
+
+    // Finished serialization.
   }
 }
 
@@ -31012,8 +33536,13 @@ class ChannelParticipantsContacts extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb6ae88d.
     buffer.writeInt32(0xbb6ae88d);
+
+    // Write fields.
     buffer.writeString(q);
+
+    // Finished serialization.
   }
 }
 
@@ -31065,7 +33594,10 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe04b5ceb.
     buffer.writeInt32(0xe04b5ceb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localQCopy = q;
     if (localQCopy != null) {
@@ -31075,6 +33607,8 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
     if (localTopMsgIdCopy != null) {
       buffer.writeInt32(localTopMsgIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31133,11 +33667,16 @@ class ChannelsChannelParticipants extends ChannelsChannelParticipantsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9ab0feaf.
     buffer.writeInt32(0x9ab0feaf);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(participants);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -31162,7 +33701,10 @@ class ChannelsChannelParticipantsNotModified
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf0173fe9.
     buffer.writeInt32(0xf0173fe9);
+
+    // Finished serialization.
   }
 }
 
@@ -31213,10 +33755,15 @@ class ChannelsChannelParticipant extends ChannelsChannelParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdfb80317.
     buffer.writeInt32(0xdfb80317);
+
+    // Write fields.
     buffer.writeObject(participant);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -31291,7 +33838,10 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x780a0310.
     buffer.writeInt32(0x780a0310);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     buffer.writeString(text);
@@ -31300,6 +33850,8 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
     if (localMinAgeConfirmCopy != null) {
       buffer.writeInt32(localMinAgeConfirmCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31328,7 +33880,10 @@ class MessagesSavedGifsNotModified extends MessagesSavedGifsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe8025ca2.
     buffer.writeInt32(0xe8025ca2);
+
+    // Finished serialization.
   }
 }
 
@@ -31369,9 +33924,14 @@ class MessagesSavedGifs extends MessagesSavedGifsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x84a02a0d.
     buffer.writeInt32(0x84a02a0d);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(gifs);
+
+    // Finished serialization.
   }
 }
 
@@ -31444,7 +34004,10 @@ class InputBotInlineMessageMediaAuto extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3380c786.
     buffer.writeInt32(0x3380c786);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
@@ -31455,6 +34018,8 @@ class InputBotInlineMessageMediaAuto extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31528,7 +34093,10 @@ class InputBotInlineMessageText extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dcd7a87.
     buffer.writeInt32(0x3dcd7a87);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
@@ -31539,6 +34107,8 @@ class InputBotInlineMessageText extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31614,7 +34184,10 @@ class InputBotInlineMessageMediaGeo extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x96929a85.
     buffer.writeInt32(0x96929a85);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geoPoint);
     final localHeadingCopy = heading;
@@ -31633,6 +34206,8 @@ class InputBotInlineMessageMediaGeo extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31713,7 +34288,10 @@ class InputBotInlineMessageMediaVenue extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x417bbf11.
     buffer.writeInt32(0x417bbf11);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geoPoint);
     buffer.writeString(title);
@@ -31725,6 +34303,8 @@ class InputBotInlineMessageMediaVenue extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31793,7 +34373,10 @@ class InputBotInlineMessageMediaContact extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa6edbffd.
     buffer.writeInt32(0xa6edbffd);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(firstName);
@@ -31803,6 +34386,8 @@ class InputBotInlineMessageMediaContact extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31847,12 +34432,17 @@ class InputBotInlineMessageGame extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4b425864.
     buffer.writeInt32(0x4b425864);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localReplyMarkupCopy = replyMarkup;
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -31942,7 +34532,10 @@ class InputBotInlineMessageMediaInvoice extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd7e78225.
     buffer.writeInt32(0xd7e78225);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeString(description);
@@ -31958,6 +34551,8 @@ class InputBotInlineMessageMediaInvoice extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32051,7 +34646,10 @@ class InputBotInlineMessageMediaWebPage extends InputBotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbddcc510.
     buffer.writeInt32(0xbddcc510);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
@@ -32063,6 +34661,8 @@ class InputBotInlineMessageMediaWebPage extends InputBotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32164,7 +34764,10 @@ class InputBotInlineResult extends InputBotInlineResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x88bf9319.
     buffer.writeInt32(0x88bf9319);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(id);
     buffer.writeString(type);
@@ -32189,6 +34792,8 @@ class InputBotInlineResult extends InputBotInlineResultBase {
       buffer.writeObject(localContentCopy);
     }
     buffer.writeObject(sendMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -32239,11 +34844,16 @@ class InputBotInlineResultPhoto extends InputBotInlineResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa8d864a7.
     buffer.writeInt32(0xa8d864a7);
+
+    // Write fields.
     buffer.writeString(id);
     buffer.writeString(type);
     buffer.writeObject(photo);
     buffer.writeObject(sendMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -32319,7 +34929,10 @@ class InputBotInlineResultDocument extends InputBotInlineResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfff8fdc4.
     buffer.writeInt32(0xfff8fdc4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(id);
     buffer.writeString(type);
@@ -32333,6 +34946,8 @@ class InputBotInlineResultDocument extends InputBotInlineResultBase {
     }
     buffer.writeObject(document);
     buffer.writeObject(sendMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -32377,10 +34992,15 @@ class InputBotInlineResultGame extends InputBotInlineResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4fa417f2.
     buffer.writeInt32(0x4fa417f2);
+
+    // Write fields.
     buffer.writeString(id);
     buffer.writeString(shortName);
     buffer.writeObject(sendMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -32453,7 +35073,10 @@ class BotInlineMessageMediaAuto extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x764cf810.
     buffer.writeInt32(0x764cf810);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
@@ -32464,6 +35087,8 @@ class BotInlineMessageMediaAuto extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32537,7 +35162,10 @@ class BotInlineMessageText extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c7f65e2.
     buffer.writeInt32(0x8c7f65e2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
@@ -32548,6 +35176,8 @@ class BotInlineMessageText extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32623,7 +35253,10 @@ class BotInlineMessageMediaGeo extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x051846fd.
     buffer.writeInt32(0x051846fd);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geo);
     final localHeadingCopy = heading;
@@ -32642,6 +35275,8 @@ class BotInlineMessageMediaGeo extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32722,7 +35357,10 @@ class BotInlineMessageMediaVenue extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8a86659c.
     buffer.writeInt32(0x8a86659c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geo);
     buffer.writeString(title);
@@ -32734,6 +35372,8 @@ class BotInlineMessageMediaVenue extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32802,7 +35442,10 @@ class BotInlineMessageMediaContact extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x18d1cdc2.
     buffer.writeInt32(0x18d1cdc2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(firstName);
@@ -32812,6 +35455,8 @@ class BotInlineMessageMediaContact extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -32904,7 +35549,10 @@ class BotInlineMessageMediaInvoice extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x354a9b09.
     buffer.writeInt32(0x354a9b09);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeString(description);
@@ -32918,6 +35566,8 @@ class BotInlineMessageMediaInvoice extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -33018,7 +35668,10 @@ class BotInlineMessageMediaWebPage extends BotInlineMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x809ad9a6.
     buffer.writeInt32(0x809ad9a6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
@@ -33030,6 +35683,8 @@ class BotInlineMessageMediaWebPage extends BotInlineMessageBase {
     if (localReplyMarkupCopy != null) {
       buffer.writeObject(localReplyMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -33130,7 +35785,10 @@ class BotInlineResult extends BotInlineResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x11965f3a.
     buffer.writeInt32(0x11965f3a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(id);
     buffer.writeString(type);
@@ -33155,6 +35813,8 @@ class BotInlineResult extends BotInlineResultBase {
       buffer.writeObject(localContentCopy);
     }
     buffer.writeObject(sendMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -33241,7 +35901,10 @@ class BotInlineMediaResult extends BotInlineResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x17db940b.
     buffer.writeInt32(0x17db940b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(id);
     buffer.writeString(type);
@@ -33262,6 +35925,8 @@ class BotInlineMediaResult extends BotInlineResultBase {
       buffer.writeString(localDescriptionCopy);
     }
     buffer.writeObject(sendMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -33365,7 +36030,10 @@ class MessagesBotResults extends MessagesBotResultsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe021f2f6.
     buffer.writeInt32(0xe021f2f6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     final localNextOffsetCopy = nextOffset;
@@ -33383,6 +36051,8 @@ class MessagesBotResults extends MessagesBotResultsBase {
     buffer.writeVectorObject(results);
     buffer.writeInt32(cacheTime);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -33427,9 +36097,14 @@ class ExportedMessageLink extends ExportedMessageLinkBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5dab1af4.
     buffer.writeInt32(0x5dab1af4);
+
+    // Write fields.
     buffer.writeString(link);
     buffer.writeString(html);
+
+    // Finished serialization.
   }
 }
 
@@ -33572,7 +36247,10 @@ class MessageFwdHeader extends MessageFwdHeaderBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4e4df4bb.
     buffer.writeInt32(0x4e4df4bb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFromIdCopy = fromId;
     if (localFromIdCopy != null) {
@@ -33615,6 +36293,8 @@ class MessageFwdHeader extends MessageFwdHeaderBase {
     if (localPsaTypeCopy != null) {
       buffer.writeString(localPsaTypeCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -33643,7 +36323,10 @@ class AuthCodeTypeSms extends AuthCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x72a3158c.
     buffer.writeInt32(0x72a3158c);
+
+    // Finished serialization.
   }
 }
 
@@ -33666,7 +36349,10 @@ class AuthCodeTypeCall extends AuthCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x741cd3e3.
     buffer.writeInt32(0x741cd3e3);
+
+    // Finished serialization.
   }
 }
 
@@ -33689,7 +36375,10 @@ class AuthCodeTypeFlashCall extends AuthCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x226ccefb.
     buffer.writeInt32(0x226ccefb);
+
+    // Finished serialization.
   }
 }
 
@@ -33712,7 +36401,10 @@ class AuthCodeTypeMissedCall extends AuthCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd61ad6ee.
     buffer.writeInt32(0xd61ad6ee);
+
+    // Finished serialization.
   }
 }
 
@@ -33735,7 +36427,10 @@ class AuthCodeTypeFragmentSms extends AuthCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x06ed998c.
     buffer.writeInt32(0x06ed998c);
+
+    // Finished serialization.
   }
 }
 
@@ -33776,8 +36471,13 @@ class AuthSentCodeTypeApp extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dbb5986.
     buffer.writeInt32(0x3dbb5986);
+
+    // Write fields.
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -33812,8 +36512,13 @@ class AuthSentCodeTypeSms extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc000bba2.
     buffer.writeInt32(0xc000bba2);
+
+    // Write fields.
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -33848,8 +36553,13 @@ class AuthSentCodeTypeCall extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5353e5a7.
     buffer.writeInt32(0x5353e5a7);
+
+    // Write fields.
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -33882,8 +36592,13 @@ class AuthSentCodeTypeFlashCall extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xab03c6d9.
     buffer.writeInt32(0xab03c6d9);
+
+    // Write fields.
     buffer.writeString(pattern);
+
+    // Finished serialization.
   }
 }
 
@@ -33924,9 +36639,14 @@ class AuthSentCodeTypeMissedCall extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x82006484.
     buffer.writeInt32(0x82006484);
+
+    // Write fields.
     buffer.writeString(prefix);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -34008,7 +36728,10 @@ class AuthSentCodeTypeEmailCode extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf450f59b.
     buffer.writeInt32(0xf450f59b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(emailPattern);
     buffer.writeInt32(length);
@@ -34020,6 +36743,8 @@ class AuthSentCodeTypeEmailCode extends AuthSentCodeTypeBase {
     if (localResetPendingDateCopy != null) {
       buffer.writeDateTime(localResetPendingDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -34069,8 +36794,13 @@ class AuthSentCodeTypeSetUpEmailRequired extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa5491dea.
     buffer.writeInt32(0xa5491dea);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -34111,9 +36841,14 @@ class AuthSentCodeTypeFragmentSms extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd9565c39.
     buffer.writeInt32(0xd9565c39);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -34180,7 +36915,10 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe57b1432.
     buffer.writeInt32(0xe57b1432);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localNonceCopy = nonce;
     if (localNonceCopy != null) {
@@ -34195,6 +36933,8 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
       buffer.writeInt32(localPushTimeoutCopy);
     }
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -34281,7 +37021,10 @@ class MessagesBotCallbackAnswer extends MessagesBotCallbackAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x36585ea4.
     buffer.writeInt32(0x36585ea4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localMessageCopy = message;
     if (localMessageCopy != null) {
@@ -34292,6 +37035,8 @@ class MessagesBotCallbackAnswer extends MessagesBotCallbackAnswerBase {
       buffer.writeString(localUrlCopy);
     }
     buffer.writeInt32(cacheTime);
+
+    // Finished serialization.
   }
 }
 
@@ -34340,8 +37085,13 @@ class MessagesMessageEditData extends MessagesMessageEditDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x26b5dde6.
     buffer.writeInt32(0x26b5dde6);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -34398,10 +37148,15 @@ class InputBotInlineMessageID extends InputBotInlineMessageIDBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x890c3d89.
     buffer.writeInt32(0x890c3d89);
+
+    // Write fields.
     buffer.writeInt32(dcId);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -34460,11 +37215,16 @@ class InputBotInlineMessageID64 extends InputBotInlineMessageIDBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6d915d7.
     buffer.writeInt32(0xb6d915d7);
+
+    // Write fields.
     buffer.writeInt32(dcId);
     buffer.writeInt64(ownerId);
     buffer.writeInt32(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -34509,9 +37269,14 @@ class InlineBotSwitchPM extends InlineBotSwitchPMBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c20629f.
     buffer.writeInt32(0x3c20629f);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(startParam);
+
+    // Finished serialization.
   }
 }
 
@@ -34574,12 +37339,17 @@ class MessagesPeerDialogs extends MessagesPeerDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3371c354.
     buffer.writeInt32(0x3371c354);
+
+    // Write fields.
     buffer.writeVectorObject(dialogs);
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
     buffer.writeObject(state);
+
+    // Finished serialization.
   }
 }
 
@@ -34624,9 +37394,14 @@ class TopPeer extends TopPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xedcdc05b.
     buffer.writeInt32(0xedcdc05b);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeDouble(rating);
+
+    // Finished serialization.
   }
 }
 
@@ -34655,7 +37430,10 @@ class TopPeerCategoryBotsPM extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xab661b5b.
     buffer.writeInt32(0xab661b5b);
+
+    // Finished serialization.
   }
 }
 
@@ -34678,7 +37456,10 @@ class TopPeerCategoryBotsInline extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x148677e2.
     buffer.writeInt32(0x148677e2);
+
+    // Finished serialization.
   }
 }
 
@@ -34701,7 +37482,10 @@ class TopPeerCategoryCorrespondents extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0637b7ed.
     buffer.writeInt32(0x0637b7ed);
+
+    // Finished serialization.
   }
 }
 
@@ -34724,7 +37508,10 @@ class TopPeerCategoryGroups extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd17a14a.
     buffer.writeInt32(0xbd17a14a);
+
+    // Finished serialization.
   }
 }
 
@@ -34747,7 +37534,10 @@ class TopPeerCategoryChannels extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x161d9628.
     buffer.writeInt32(0x161d9628);
+
+    // Finished serialization.
   }
 }
 
@@ -34770,7 +37560,10 @@ class TopPeerCategoryPhoneCalls extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e76a78c.
     buffer.writeInt32(0x1e76a78c);
+
+    // Finished serialization.
   }
 }
 
@@ -34793,7 +37586,10 @@ class TopPeerCategoryForwardUsers extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa8406ca9.
     buffer.writeInt32(0xa8406ca9);
+
+    // Finished serialization.
   }
 }
 
@@ -34816,7 +37612,10 @@ class TopPeerCategoryForwardChats extends TopPeerCategoryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfbeec0f0.
     buffer.writeInt32(0xfbeec0f0);
+
+    // Finished serialization.
   }
 }
 
@@ -34869,10 +37668,15 @@ class TopPeerCategoryPeers extends TopPeerCategoryPeersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfb834291.
     buffer.writeInt32(0xfb834291);
+
+    // Write fields.
     buffer.writeObject(category);
     buffer.writeInt32(count);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -34901,7 +37705,10 @@ class ContactsTopPeersNotModified extends ContactsTopPeersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xde266ef5.
     buffer.writeInt32(0xde266ef5);
+
+    // Finished serialization.
   }
 }
 
@@ -34946,10 +37753,15 @@ class ContactsTopPeers extends ContactsTopPeersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x70b772a8.
     buffer.writeInt32(0x70b772a8);
+
+    // Write fields.
     buffer.writeVectorObject(categories);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -34972,7 +37784,10 @@ class ContactsTopPeersDisabled extends ContactsTopPeersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb52c939d.
     buffer.writeInt32(0xb52c939d);
+
+    // Finished serialization.
   }
 }
 
@@ -35022,12 +37837,17 @@ class DraftMessageEmpty extends DraftMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b0c841a.
     buffer.writeInt32(0x1b0c841a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localDateCopy = date;
     if (localDateCopy != null) {
       buffer.writeDateTime(localDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -35115,7 +37935,10 @@ class DraftMessage extends DraftMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3fccf7ef.
     buffer.writeInt32(0x3fccf7ef);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localReplyToCopy = replyTo;
     if (localReplyToCopy != null) {
@@ -35131,6 +37954,8 @@ class DraftMessage extends DraftMessageBase {
       buffer.writeObject(localMediaCopy);
     }
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -35171,8 +37996,13 @@ class MessagesFeaturedStickersNotModified extends MessagesFeaturedStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc6dc0c66.
     buffer.writeInt32(0xc6dc0c66);
+
+    // Write fields.
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -35243,12 +38073,17 @@ class MessagesFeaturedStickers extends MessagesFeaturedStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbe382906.
     buffer.writeInt32(0xbe382906);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(hash);
     buffer.writeInt32(count);
     buffer.writeVectorObject(sets);
     buffer.writeVectorInt64(unread);
+
+    // Finished serialization.
   }
 }
 
@@ -35277,7 +38112,10 @@ class MessagesRecentStickersNotModified extends MessagesRecentStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0b17f890.
     buffer.writeInt32(0x0b17f890);
+
+    // Finished serialization.
   }
 }
 
@@ -35330,11 +38168,16 @@ class MessagesRecentStickers extends MessagesRecentStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x88d37c56.
     buffer.writeInt32(0x88d37c56);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(packs);
     buffer.writeVectorObject(stickers);
     buffer.writeVectorInt32(dates);
+
+    // Finished serialization.
   }
 }
 
@@ -35381,9 +38224,14 @@ class MessagesArchivedStickers extends MessagesArchivedStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4fcba9c8.
     buffer.writeInt32(0x4fcba9c8);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(sets);
+
+    // Finished serialization.
   }
 }
 
@@ -35414,7 +38262,10 @@ class MessagesStickerSetInstallResultSuccess
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x38641628.
     buffer.writeInt32(0x38641628);
+
+    // Finished serialization.
   }
 }
 
@@ -35449,8 +38300,13 @@ class MessagesStickerSetInstallResultArchive
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35e410a8.
     buffer.writeInt32(0x35e410a8);
+
+    // Write fields.
     buffer.writeVectorObject(sets);
+
+    // Finished serialization.
   }
 }
 
@@ -35495,9 +38351,14 @@ class StickerSetCovered extends StickerSetCoveredBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6410a5d2.
     buffer.writeInt32(0x6410a5d2);
+
+    // Write fields.
     buffer.writeObject(set);
     buffer.writeObject(cover);
+
+    // Finished serialization.
   }
 }
 
@@ -35536,9 +38397,14 @@ class StickerSetMultiCovered extends StickerSetCoveredBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3407e51b.
     buffer.writeInt32(0x3407e51b);
+
+    // Write fields.
     buffer.writeObject(set);
     buffer.writeVectorObject(covers);
+
+    // Finished serialization.
   }
 }
 
@@ -35589,11 +38455,16 @@ class StickerSetFullCovered extends StickerSetCoveredBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x40d13c0e.
     buffer.writeInt32(0x40d13c0e);
+
+    // Write fields.
     buffer.writeObject(set);
     buffer.writeVectorObject(packs);
     buffer.writeVectorObject(keywords);
     buffer.writeVectorObject(documents);
+
+    // Finished serialization.
   }
 }
 
@@ -35626,8 +38497,13 @@ class StickerSetNoCovered extends StickerSetCoveredBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77b15d1c.
     buffer.writeInt32(0x77b15d1c);
+
+    // Write fields.
     buffer.writeObject(set);
+
+    // Finished serialization.
   }
 }
 
@@ -35686,11 +38562,16 @@ class MaskCoords extends MaskCoordsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaed6dbb2.
     buffer.writeInt32(0xaed6dbb2);
+
+    // Write fields.
     buffer.writeInt32(n);
     buffer.writeDouble(x);
     buffer.writeDouble(y);
     buffer.writeDouble(zoom);
+
+    // Finished serialization.
   }
 }
 
@@ -35729,8 +38610,13 @@ class InputStickeredMediaPhoto extends InputStickeredMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4a992157.
     buffer.writeInt32(0x4a992157);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -35763,8 +38649,13 @@ class InputStickeredMediaDocument extends InputStickeredMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0438865b.
     buffer.writeInt32(0x0438865b);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -35855,7 +38746,10 @@ class Game extends GameBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbdf9653b.
     buffer.writeInt32(0xbdf9653b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -35867,6 +38761,8 @@ class Game extends GameBase {
     if (localDocumentCopy != null) {
       buffer.writeObject(localDocumentCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -35915,9 +38811,14 @@ class InputGameID extends InputGameBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x032c3e77.
     buffer.writeInt32(0x032c3e77);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -35956,9 +38857,14 @@ class InputGameShortName extends InputGameBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc331e80a.
     buffer.writeInt32(0xc331e80a);
+
+    // Write fields.
     buffer.writeObject(botId);
     buffer.writeString(shortName);
+
+    // Finished serialization.
   }
 }
 
@@ -36015,10 +38921,15 @@ class HighScore extends HighScoreBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73a379eb.
     buffer.writeInt32(0x73a379eb);
+
+    // Write fields.
     buffer.writeInt32(pos);
     buffer.writeInt64(userId);
     buffer.writeInt32(score);
+
+    // Finished serialization.
   }
 }
 
@@ -36063,9 +38974,14 @@ class MessagesHighScores extends MessagesHighScoresBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a3bfd99.
     buffer.writeInt32(0x9a3bfd99);
+
+    // Write fields.
     buffer.writeVectorObject(scores);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -36094,7 +39010,10 @@ class TextEmpty extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdc3d824f.
     buffer.writeInt32(0xdc3d824f);
+
+    // Finished serialization.
   }
 }
 
@@ -36127,8 +39046,13 @@ class TextPlain extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x744694e0.
     buffer.writeInt32(0x744694e0);
+
+    // Write fields.
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36161,8 +39085,13 @@ class TextBold extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6724abc4.
     buffer.writeInt32(0x6724abc4);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36195,8 +39124,13 @@ class TextItalic extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd912a59c.
     buffer.writeInt32(0xd912a59c);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36229,8 +39163,13 @@ class TextUnderline extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc12622c4.
     buffer.writeInt32(0xc12622c4);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36263,8 +39202,13 @@ class TextStrike extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9bf8bb95.
     buffer.writeInt32(0x9bf8bb95);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36297,8 +39241,13 @@ class TextFixed extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c3f19b9.
     buffer.writeInt32(0x6c3f19b9);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36345,10 +39294,15 @@ class TextUrl extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c2884c1.
     buffer.writeInt32(0x3c2884c1);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeString(url);
     buffer.writeInt64(webpageId);
+
+    // Finished serialization.
   }
 }
 
@@ -36387,9 +39341,14 @@ class TextEmail extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xde5a0dd6.
     buffer.writeInt32(0xde5a0dd6);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeString(email);
+
+    // Finished serialization.
   }
 }
 
@@ -36422,8 +39381,13 @@ class TextConcat extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7e6260d7.
     buffer.writeInt32(0x7e6260d7);
+
+    // Write fields.
     buffer.writeVectorObject(texts);
+
+    // Finished serialization.
   }
 }
 
@@ -36456,8 +39420,13 @@ class TextSubscript extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed6a8504.
     buffer.writeInt32(0xed6a8504);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36490,8 +39459,13 @@ class TextSuperscript extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc7fb5e01.
     buffer.writeInt32(0xc7fb5e01);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36524,8 +39498,13 @@ class TextMarked extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x034b8621.
     buffer.writeInt32(0x034b8621);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36564,9 +39543,14 @@ class TextPhone extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1ccb966a.
     buffer.writeInt32(0x1ccb966a);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeString(phone);
+
+    // Finished serialization.
   }
 }
 
@@ -36617,10 +39601,15 @@ class TextImage extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x081ccf4f.
     buffer.writeInt32(0x081ccf4f);
+
+    // Write fields.
     buffer.writeInt64(documentId);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
+
+    // Finished serialization.
   }
 }
 
@@ -36659,9 +39648,14 @@ class TextAnchor extends RichTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35553762.
     buffer.writeInt32(0x35553762);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeString(name);
+
+    // Finished serialization.
   }
 }
 
@@ -36690,7 +39684,10 @@ class PageBlockUnsupported extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x13567e8a.
     buffer.writeInt32(0x13567e8a);
+
+    // Finished serialization.
   }
 }
 
@@ -36723,8 +39720,13 @@ class PageBlockTitle extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x70abc3fd.
     buffer.writeInt32(0x70abc3fd);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36757,8 +39759,13 @@ class PageBlockSubtitle extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ffa9a1f.
     buffer.writeInt32(0x8ffa9a1f);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36797,9 +39804,14 @@ class PageBlockAuthorDate extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbaafe5e0.
     buffer.writeInt32(0xbaafe5e0);
+
+    // Write fields.
     buffer.writeObject(author);
     buffer.writeDateTime(publishedDate);
+
+    // Finished serialization.
   }
 }
 
@@ -36832,8 +39844,13 @@ class PageBlockHeader extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbfd064ec.
     buffer.writeInt32(0xbfd064ec);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36866,8 +39883,13 @@ class PageBlockSubheader extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf12bb6e1.
     buffer.writeInt32(0xf12bb6e1);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36900,8 +39922,13 @@ class PageBlockParagraph extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x467a0766.
     buffer.writeInt32(0x467a0766);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36940,9 +39967,14 @@ class PageBlockPreformatted extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc070d93e.
     buffer.writeInt32(0xc070d93e);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeString(language);
+
+    // Finished serialization.
   }
 }
 
@@ -36975,8 +40007,13 @@ class PageBlockFooter extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x48870999.
     buffer.writeInt32(0x48870999);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -36999,7 +40036,10 @@ class PageBlockDivider extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb20b188.
     buffer.writeInt32(0xdb20b188);
+
+    // Finished serialization.
   }
 }
 
@@ -37032,8 +40072,13 @@ class PageBlockAnchor extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xce0d37b0.
     buffer.writeInt32(0xce0d37b0);
+
+    // Write fields.
     buffer.writeString(name);
+
+    // Finished serialization.
   }
 }
 
@@ -37066,8 +40111,13 @@ class PageBlockList extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe4e88011.
     buffer.writeInt32(0xe4e88011);
+
+    // Write fields.
     buffer.writeVectorObject(items);
+
+    // Finished serialization.
   }
 }
 
@@ -37106,9 +40156,14 @@ class PageBlockBlockquote extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x263d7c26.
     buffer.writeInt32(0x263d7c26);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37147,9 +40202,14 @@ class PageBlockPullquote extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4f4456d3.
     buffer.writeInt32(0x4f4456d3);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37214,7 +40274,10 @@ class PageBlockPhoto extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1759c560.
     buffer.writeInt32(0x1759c560);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(photoId);
     buffer.writeObject(caption);
@@ -37226,6 +40289,8 @@ class PageBlockPhoto extends PageBlockBase {
     if (localWebpageIdCopy != null) {
       buffer.writeInt64(localWebpageIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -37289,10 +40354,15 @@ class PageBlockVideo extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7c8fe7b6.
     buffer.writeInt32(0x7c8fe7b6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(videoId);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37325,8 +40395,13 @@ class PageBlockCover extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x39f23300.
     buffer.writeInt32(0x39f23300);
+
+    // Write fields.
     buffer.writeObject(cover);
+
+    // Finished serialization.
   }
 }
 
@@ -37421,7 +40496,10 @@ class PageBlockEmbed extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa8718dc5.
     buffer.writeInt32(0xa8718dc5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localUrlCopy = url;
     if (localUrlCopy != null) {
@@ -37444,6 +40522,8 @@ class PageBlockEmbed extends PageBlockBase {
       buffer.writeInt32(localHCopy);
     }
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37516,7 +40596,10 @@ class PageBlockEmbedPost extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf259a80b.
     buffer.writeInt32(0xf259a80b);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt64(webpageId);
     buffer.writeInt64(authorPhotoId);
@@ -37524,6 +40607,8 @@ class PageBlockEmbedPost extends PageBlockBase {
     buffer.writeDateTime(date);
     buffer.writeVectorObject(blocks);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37562,9 +40647,14 @@ class PageBlockCollage extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x65a0fa4d.
     buffer.writeInt32(0x65a0fa4d);
+
+    // Write fields.
     buffer.writeVectorObject(items);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37603,9 +40693,14 @@ class PageBlockSlideshow extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x031f9590.
     buffer.writeInt32(0x031f9590);
+
+    // Write fields.
     buffer.writeVectorObject(items);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37638,8 +40733,13 @@ class PageBlockChannel extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xef1751b5.
     buffer.writeInt32(0xef1751b5);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -37680,9 +40780,14 @@ class PageBlockAudio extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x804361ea.
     buffer.writeInt32(0x804361ea);
+
+    // Write fields.
     buffer.writeInt64(audioId);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -37715,8 +40820,13 @@ class PageBlockKicker extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e148390.
     buffer.writeInt32(0x1e148390);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -37778,10 +40888,15 @@ class PageBlockTable extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbf4dea82.
     buffer.writeInt32(0xbf4dea82);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(title);
     buffer.writeVectorObject(rows);
+
+    // Finished serialization.
   }
 }
 
@@ -37814,8 +40929,13 @@ class PageBlockOrderedList extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a8ae1e1.
     buffer.writeInt32(0x9a8ae1e1);
+
+    // Write fields.
     buffer.writeVectorObject(items);
+
+    // Finished serialization.
   }
 }
 
@@ -37870,10 +40990,15 @@ class PageBlockDetails extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x76768bed.
     buffer.writeInt32(0x76768bed);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(blocks);
     buffer.writeObject(title);
+
+    // Finished serialization.
   }
 }
 
@@ -37912,9 +41037,14 @@ class PageBlockRelatedArticles extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x16115a96.
     buffer.writeInt32(0x16115a96);
+
+    // Write fields.
     buffer.writeObject(title);
     buffer.writeVectorObject(articles);
+
+    // Finished serialization.
   }
 }
 
@@ -37977,12 +41107,17 @@ class PageBlockMap extends PageBlockBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa44f3ef6.
     buffer.writeInt32(0xa44f3ef6);
+
+    // Write fields.
     buffer.writeObject(geo);
     buffer.writeInt32(zoom);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeObject(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -38011,7 +41146,10 @@ class PhoneCallDiscardReasonMissed extends PhoneCallDiscardReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x85e42301.
     buffer.writeInt32(0x85e42301);
+
+    // Finished serialization.
   }
 }
 
@@ -38034,7 +41172,10 @@ class PhoneCallDiscardReasonDisconnect extends PhoneCallDiscardReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe095c1a0.
     buffer.writeInt32(0xe095c1a0);
+
+    // Finished serialization.
   }
 }
 
@@ -38057,7 +41198,10 @@ class PhoneCallDiscardReasonHangup extends PhoneCallDiscardReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57adc690.
     buffer.writeInt32(0x57adc690);
+
+    // Finished serialization.
   }
 }
 
@@ -38080,7 +41224,10 @@ class PhoneCallDiscardReasonBusy extends PhoneCallDiscardReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfaf7e8c9.
     buffer.writeInt32(0xfaf7e8c9);
+
+    // Finished serialization.
   }
 }
 
@@ -38119,8 +41266,13 @@ class DataJSON extends DataJSONBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7d748d04.
     buffer.writeInt32(0x7d748d04);
+
+    // Write fields.
     buffer.writeString(data);
+
+    // Finished serialization.
   }
 }
 
@@ -38167,9 +41319,14 @@ class LabeledPrice extends LabeledPriceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcb296bf8.
     buffer.writeInt32(0xcb296bf8);
+
+    // Write fields.
     buffer.writeString(label);
     buffer.writeInt64(amount);
+
+    // Finished serialization.
   }
 }
 
@@ -38310,7 +41467,10 @@ class Invoice extends InvoiceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5db95a15.
     buffer.writeInt32(0x5db95a15);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(currency);
     buffer.writeVectorObject(prices);
@@ -38326,6 +41486,8 @@ class Invoice extends InvoiceBase {
     if (localTermsUrlCopy != null) {
       buffer.writeString(localTermsUrlCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -38370,9 +41532,14 @@ class PaymentCharge extends PaymentChargeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea02c27e.
     buffer.writeInt32(0xea02c27e);
+
+    // Write fields.
     buffer.writeString(id);
     buffer.writeString(providerChargeId);
+
+    // Finished serialization.
   }
 }
 
@@ -38441,13 +41608,18 @@ class PostAddress extends PostAddressBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e8caaeb.
     buffer.writeInt32(0x1e8caaeb);
+
+    // Write fields.
     buffer.writeString(streetLine1);
     buffer.writeString(streetLine2);
     buffer.writeString(city);
     buffer.writeString(state);
     buffer.writeString(countryIso2);
     buffer.writeString(postCode);
+
+    // Finished serialization.
   }
 }
 
@@ -38522,7 +41694,10 @@ class PaymentRequestedInfo extends PaymentRequestedInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x909c3f94.
     buffer.writeInt32(0x909c3f94);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localNameCopy = name;
     if (localNameCopy != null) {
@@ -38540,6 +41715,8 @@ class PaymentRequestedInfo extends PaymentRequestedInfoBase {
     if (localShippingAddressCopy != null) {
       buffer.writeObject(localShippingAddressCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -38584,9 +41761,14 @@ class PaymentSavedCredentialsCard extends PaymentSavedCredentialsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcdc27a1f.
     buffer.writeInt32(0xcdc27a1f);
+
+    // Write fields.
     buffer.writeString(id);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -38653,12 +41835,17 @@ class WebDocument extends WebDocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1c570ed1.
     buffer.writeInt32(0x1c570ed1);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt64(accessHash);
     buffer.writeInt32(size);
     buffer.writeString(mimeType);
     buffer.writeVectorObject(attributes);
+
+    // Finished serialization.
   }
 }
 
@@ -38711,11 +41898,16 @@ class WebDocumentNoProxy extends WebDocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf9c8bcc6.
     buffer.writeInt32(0xf9c8bcc6);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt32(size);
     buffer.writeString(mimeType);
     buffer.writeVectorObject(attributes);
+
+    // Finished serialization.
   }
 }
 
@@ -38774,11 +41966,16 @@ class InputWebDocument extends InputWebDocumentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9bed434d.
     buffer.writeInt32(0x9bed434d);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt32(size);
     buffer.writeString(mimeType);
     buffer.writeVectorObject(attributes);
+
+    // Finished serialization.
   }
 }
 
@@ -38825,9 +42022,14 @@ class InputWebFileLocation extends InputWebFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc239d686.
     buffer.writeInt32(0xc239d686);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -38900,13 +42102,18 @@ class InputWebFileGeoPointLocation extends InputWebFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9f2221c9.
     buffer.writeInt32(0x9f2221c9);
+
+    // Write fields.
     buffer.writeObject(geoPoint);
     buffer.writeInt64(accessHash);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeInt32(zoom);
     buffer.writeInt32(scale);
+
+    // Finished serialization.
   }
 }
 
@@ -38973,7 +42180,10 @@ class InputWebFileAudioAlbumThumbLocation extends InputWebFileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf46fe924.
     buffer.writeInt32(0xf46fe924);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localDocumentCopy = document;
     if (localDocumentCopy != null) {
@@ -38987,6 +42197,8 @@ class InputWebFileAudioAlbumThumbLocation extends InputWebFileLocationBase {
     if (localPerformerCopy != null) {
       buffer.writeString(localPerformerCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -39053,12 +42265,17 @@ class UploadWebFile extends UploadWebFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x21e753bc.
     buffer.writeInt32(0x21e753bc);
+
+    // Write fields.
     buffer.writeInt32(size);
     buffer.writeString(mimeType);
     buffer.writeObject(fileType);
     buffer.writeInt32(mtime);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -39222,7 +42439,10 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa0058751.
     buffer.writeInt32(0xa0058751);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(formId);
     buffer.writeInt64(botId);
@@ -39256,6 +42476,8 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
       buffer.writeVectorObject(localSavedCredentialsCopy);
     }
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -39316,7 +42538,10 @@ class PaymentsValidatedRequestedInfo
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd1451883.
     buffer.writeInt32(0xd1451883);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localIdCopy = id;
     if (localIdCopy != null) {
@@ -39326,6 +42551,8 @@ class PaymentsValidatedRequestedInfo
     if (localShippingOptionsCopy != null) {
       buffer.writeVectorObject(localShippingOptionsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -39364,8 +42591,13 @@ class PaymentsPaymentResult extends PaymentsPaymentResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4e5f810d.
     buffer.writeInt32(0x4e5f810d);
+
+    // Write fields.
     buffer.writeObject(updates);
+
+    // Finished serialization.
   }
 }
 
@@ -39398,8 +42630,13 @@ class PaymentsPaymentVerificationNeeded extends PaymentsPaymentResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd8411139.
     buffer.writeInt32(0xd8411139);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -39541,7 +42778,10 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x70c4fe03.
     buffer.writeInt32(0x70c4fe03);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(date);
     buffer.writeInt64(botId);
@@ -39569,6 +42809,8 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
     buffer.writeInt64(totalAmount);
     buffer.writeString(credentialsTitle);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -39627,12 +42869,17 @@ class PaymentsSavedInfo extends PaymentsSavedInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfb8fe43c.
     buffer.writeInt32(0xfb8fe43c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localSavedInfoCopy = savedInfo;
     if (localSavedInfoCopy != null) {
       buffer.writeObject(localSavedInfoCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -39677,9 +42924,14 @@ class InputPaymentCredentialsSaved extends InputPaymentCredentialsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc10eb2cf.
     buffer.writeInt32(0xc10eb2cf);
+
+    // Write fields.
     buffer.writeString(id);
     buffer.writeBytes(tmpPassword);
+
+    // Finished serialization.
   }
 }
 
@@ -39728,9 +42980,14 @@ class InputPaymentCredentials extends InputPaymentCredentialsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3417d728.
     buffer.writeInt32(0x3417d728);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(data);
+
+    // Finished serialization.
   }
 }
 
@@ -39763,8 +43020,13 @@ class InputPaymentCredentialsApplePay extends InputPaymentCredentialsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0aa1c39f.
     buffer.writeInt32(0x0aa1c39f);
+
+    // Write fields.
     buffer.writeObject(paymentData);
+
+    // Finished serialization.
   }
 }
 
@@ -39797,8 +43059,13 @@ class InputPaymentCredentialsGooglePay extends InputPaymentCredentialsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ac32801.
     buffer.writeInt32(0x8ac32801);
+
+    // Write fields.
     buffer.writeObject(paymentToken);
+
+    // Finished serialization.
   }
 }
 
@@ -39845,9 +43112,14 @@ class AccountTmpPassword extends AccountTmpPasswordBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb64fd34.
     buffer.writeInt32(0xdb64fd34);
+
+    // Write fields.
     buffer.writeBytes(tmpPassword);
     buffer.writeInt32(validUntil);
+
+    // Finished serialization.
   }
 }
 
@@ -39898,10 +43170,15 @@ class ShippingOption extends ShippingOptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6213cdf.
     buffer.writeInt32(0xb6213cdf);
+
+    // Write fields.
     buffer.writeString(id);
     buffer.writeString(title);
     buffer.writeVectorObject(prices);
+
+    // Finished serialization.
   }
 }
 
@@ -39972,7 +43249,10 @@ class InputStickerSetItem extends InputStickerSetItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x32da9e9c.
     buffer.writeInt32(0x32da9e9c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(document);
     buffer.writeString(emoji);
@@ -39984,6 +43264,8 @@ class InputStickerSetItem extends InputStickerSetItemBase {
     if (localKeywordsCopy != null) {
       buffer.writeString(localKeywordsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -40032,9 +43314,14 @@ class InputPhoneCall extends InputPhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e36fded.
     buffer.writeInt32(0x1e36fded);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -40075,8 +43362,13 @@ class PhoneCallEmpty extends PhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5366c915.
     buffer.writeInt32(0x5366c915);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -40171,7 +43463,10 @@ class PhoneCallWaiting extends PhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc5226f17.
     buffer.writeInt32(0xc5226f17);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -40183,6 +43478,8 @@ class PhoneCallWaiting extends PhoneCallBase {
     if (localReceiveDateCopy != null) {
       buffer.writeDateTime(localReceiveDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -40275,7 +43572,10 @@ class PhoneCallRequested extends PhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x14b0ed0c.
     buffer.writeInt32(0x14b0ed0c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -40284,6 +43584,8 @@ class PhoneCallRequested extends PhoneCallBase {
     buffer.writeInt64(participantId);
     buffer.writeBytes(gAHash);
     buffer.writeObject(protocol);
+
+    // Finished serialization.
   }
 }
 
@@ -40376,7 +43678,10 @@ class PhoneCallAccepted extends PhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3660c311.
     buffer.writeInt32(0x3660c311);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -40385,6 +43690,8 @@ class PhoneCallAccepted extends PhoneCallBase {
     buffer.writeInt64(participantId);
     buffer.writeBytes(gB);
     buffer.writeObject(protocol);
+
+    // Finished serialization.
   }
 }
 
@@ -40504,7 +43811,10 @@ class PhoneCall extends PhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x967f7c67.
     buffer.writeInt32(0x967f7c67);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -40516,6 +43826,8 @@ class PhoneCall extends PhoneCallBase {
     buffer.writeObject(protocol);
     buffer.writeVectorObject(connections);
     buffer.writeDateTime(startDate);
+
+    // Finished serialization.
   }
 }
 
@@ -40598,7 +43910,10 @@ class PhoneCallDiscarded extends PhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x50ca4de1.
     buffer.writeInt32(0x50ca4de1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     final localReasonCopy = reason;
@@ -40609,6 +43924,8 @@ class PhoneCallDiscarded extends PhoneCallBase {
     if (localDurationCopy != null) {
       buffer.writeInt32(localDurationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -40691,13 +44008,18 @@ class PhoneConnection extends PhoneConnectionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9cc123c7.
     buffer.writeInt32(0x9cc123c7);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeString(ip);
     buffer.writeString(ipv6);
     buffer.writeInt32(port);
     buffer.writeBytes(peerTag);
+
+    // Finished serialization.
   }
 }
 
@@ -40787,7 +44109,10 @@ class PhoneConnectionWebrtc extends PhoneConnectionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x635fe375.
     buffer.writeInt32(0x635fe375);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeString(ip);
@@ -40795,6 +44120,8 @@ class PhoneConnectionWebrtc extends PhoneConnectionBase {
     buffer.writeInt32(port);
     buffer.writeString(username);
     buffer.writeString(password);
+
+    // Finished serialization.
   }
 }
 
@@ -40872,11 +44199,16 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfc878fc8.
     buffer.writeInt32(0xfc878fc8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(minLayer);
     buffer.writeInt32(maxLayer);
     buffer.writeVectorString(libraryVersions);
+
+    // Finished serialization.
   }
 }
 
@@ -40921,9 +44253,14 @@ class PhonePhoneCall extends PhonePhoneCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xec82e140.
     buffer.writeInt32(0xec82e140);
+
+    // Write fields.
     buffer.writeObject(phoneCall);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -40962,8 +44299,13 @@ class UploadCdnFileReuploadNeeded extends UploadCdnFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeea8e46e.
     buffer.writeInt32(0xeea8e46e);
+
+    // Write fields.
     buffer.writeBytes(requestToken);
+
+    // Finished serialization.
   }
 }
 
@@ -40996,8 +44338,13 @@ class UploadCdnFile extends UploadCdnFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa99fca4f.
     buffer.writeInt32(0xa99fca4f);
+
+    // Write fields.
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -41044,9 +44391,14 @@ class CdnPublicKey extends CdnPublicKeyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc982eaba.
     buffer.writeInt32(0xc982eaba);
+
+    // Write fields.
     buffer.writeInt32(dcId);
     buffer.writeString(publicKey);
+
+    // Finished serialization.
   }
 }
 
@@ -41085,8 +44437,13 @@ class CdnConfig extends CdnConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5725e40a.
     buffer.writeInt32(0x5725e40a);
+
+    // Write fields.
     buffer.writeVectorObject(publicKeys);
+
+    // Finished serialization.
   }
 }
 
@@ -41131,9 +44488,14 @@ class LangPackString extends LangPackStringBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcad181f6.
     buffer.writeInt32(0xcad181f6);
+
+    // Write fields.
     buffer.writeString(key);
     buffer.writeString(value);
+
+    // Finished serialization.
   }
 }
 
@@ -41221,7 +44583,10 @@ class LangPackStringPluralized extends LangPackStringBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c47ac9f.
     buffer.writeInt32(0x6c47ac9f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(key);
     final localZeroValueCopy = zeroValue;
@@ -41245,6 +44610,8 @@ class LangPackStringPluralized extends LangPackStringBase {
       buffer.writeString(localManyValueCopy);
     }
     buffer.writeString(otherValue);
+
+    // Finished serialization.
   }
 }
 
@@ -41277,8 +44644,13 @@ class LangPackStringDeleted extends LangPackStringBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2979eeb2.
     buffer.writeInt32(0x2979eeb2);
+
+    // Write fields.
     buffer.writeString(key);
+
+    // Finished serialization.
   }
 }
 
@@ -41339,11 +44711,16 @@ class LangPackDifference extends LangPackDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf385c1f6.
     buffer.writeInt32(0xf385c1f6);
+
+    // Write fields.
     buffer.writeString(langCode);
     buffer.writeInt32(fromVersion);
     buffer.writeInt32(version);
     buffer.writeVectorObject(strings);
+
+    // Finished serialization.
   }
 }
 
@@ -41460,7 +44837,10 @@ class LangPackLanguage extends LangPackLanguageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeeca5ce3.
     buffer.writeInt32(0xeeca5ce3);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(name);
     buffer.writeString(nativeName);
@@ -41473,6 +44853,8 @@ class LangPackLanguage extends LangPackLanguageBase {
     buffer.writeInt32(stringsCount);
     buffer.writeInt32(translatedCount);
     buffer.writeString(translationsUrl);
+
+    // Finished serialization.
   }
 }
 
@@ -41519,9 +44901,14 @@ class ChannelAdminLogEventActionChangeTitle
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe6dfb825.
     buffer.writeInt32(0xe6dfb825);
+
+    // Write fields.
     buffer.writeString(prevValue);
     buffer.writeString(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -41562,9 +44949,14 @@ class ChannelAdminLogEventActionChangeAbout
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x55188a2e.
     buffer.writeInt32(0x55188a2e);
+
+    // Write fields.
     buffer.writeString(prevValue);
     buffer.writeString(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -41605,9 +44997,14 @@ class ChannelAdminLogEventActionChangeUsername
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a4afc38.
     buffer.writeInt32(0x6a4afc38);
+
+    // Write fields.
     buffer.writeString(prevValue);
     buffer.writeString(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -41648,9 +45045,14 @@ class ChannelAdminLogEventActionChangePhoto
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x434bd2af.
     buffer.writeInt32(0x434bd2af);
+
+    // Write fields.
     buffer.writeObject(prevPhoto);
     buffer.writeObject(newPhoto);
+
+    // Finished serialization.
   }
 }
 
@@ -41685,8 +45087,13 @@ class ChannelAdminLogEventActionToggleInvites
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b7907ae.
     buffer.writeInt32(0x1b7907ae);
+
+    // Write fields.
     buffer.writeBool(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -41721,8 +45128,13 @@ class ChannelAdminLogEventActionToggleSignatures
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x26ae0971.
     buffer.writeInt32(0x26ae0971);
+
+    // Write fields.
     buffer.writeBool(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -41757,8 +45169,13 @@ class ChannelAdminLogEventActionUpdatePinned
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe9e82c18.
     buffer.writeInt32(0xe9e82c18);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -41799,9 +45216,14 @@ class ChannelAdminLogEventActionEditMessage
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x709b2405.
     buffer.writeInt32(0x709b2405);
+
+    // Write fields.
     buffer.writeObject(prevMessage);
     buffer.writeObject(newMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -41836,8 +45258,13 @@ class ChannelAdminLogEventActionDeleteMessage
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x42e047bb.
     buffer.writeInt32(0x42e047bb);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -41862,7 +45289,10 @@ class ChannelAdminLogEventActionParticipantJoin
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x183040d3.
     buffer.writeInt32(0x183040d3);
+
+    // Finished serialization.
   }
 }
 
@@ -41887,7 +45317,10 @@ class ChannelAdminLogEventActionParticipantLeave
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf89777f2.
     buffer.writeInt32(0xf89777f2);
+
+    // Finished serialization.
   }
 }
 
@@ -41922,8 +45355,13 @@ class ChannelAdminLogEventActionParticipantInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe31c34d8.
     buffer.writeInt32(0xe31c34d8);
+
+    // Write fields.
     buffer.writeObject(participant);
+
+    // Finished serialization.
   }
 }
 
@@ -41964,9 +45402,14 @@ class ChannelAdminLogEventActionParticipantToggleBan
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe6d83d7e.
     buffer.writeInt32(0xe6d83d7e);
+
+    // Write fields.
     buffer.writeObject(prevParticipant);
     buffer.writeObject(newParticipant);
+
+    // Finished serialization.
   }
 }
 
@@ -42007,9 +45450,14 @@ class ChannelAdminLogEventActionParticipantToggleAdmin
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd5676710.
     buffer.writeInt32(0xd5676710);
+
+    // Write fields.
     buffer.writeObject(prevParticipant);
     buffer.writeObject(newParticipant);
+
+    // Finished serialization.
   }
 }
 
@@ -42050,9 +45498,14 @@ class ChannelAdminLogEventActionChangeStickerSet
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb1c3caa7.
     buffer.writeInt32(0xb1c3caa7);
+
+    // Write fields.
     buffer.writeObject(prevStickerset);
     buffer.writeObject(newStickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -42087,8 +45540,13 @@ class ChannelAdminLogEventActionTogglePreHistoryHidden
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5f5c95f1.
     buffer.writeInt32(0x5f5c95f1);
+
+    // Write fields.
     buffer.writeBool(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42129,9 +45587,14 @@ class ChannelAdminLogEventActionDefaultBannedRights
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2df5fc0a.
     buffer.writeInt32(0x2df5fc0a);
+
+    // Write fields.
     buffer.writeObject(prevBannedRights);
     buffer.writeObject(newBannedRights);
+
+    // Finished serialization.
   }
 }
 
@@ -42165,8 +45628,13 @@ class ChannelAdminLogEventActionStopPoll
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8f079643.
     buffer.writeInt32(0x8f079643);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -42211,9 +45679,14 @@ class ChannelAdminLogEventActionChangeLinkedChat
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x050c7ac8.
     buffer.writeInt32(0x050c7ac8);
+
+    // Write fields.
     buffer.writeInt64(prevValue);
     buffer.writeInt64(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42254,9 +45727,14 @@ class ChannelAdminLogEventActionChangeLocation
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0e6b76ae.
     buffer.writeInt32(0x0e6b76ae);
+
+    // Write fields.
     buffer.writeObject(prevValue);
     buffer.writeObject(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42301,9 +45779,14 @@ class ChannelAdminLogEventActionToggleSlowMode
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x53909779.
     buffer.writeInt32(0x53909779);
+
+    // Write fields.
     buffer.writeInt32(prevValue);
     buffer.writeInt32(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42338,8 +45821,13 @@ class ChannelAdminLogEventActionStartGroupCall
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x23209745.
     buffer.writeInt32(0x23209745);
+
+    // Write fields.
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -42374,8 +45862,13 @@ class ChannelAdminLogEventActionDiscardGroupCall
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb9f9140.
     buffer.writeInt32(0xdb9f9140);
+
+    // Write fields.
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -42410,8 +45903,13 @@ class ChannelAdminLogEventActionParticipantMute
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf92424d2.
     buffer.writeInt32(0xf92424d2);
+
+    // Write fields.
     buffer.writeObject(participant);
+
+    // Finished serialization.
   }
 }
 
@@ -42446,8 +45944,13 @@ class ChannelAdminLogEventActionParticipantUnmute
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe64429c0.
     buffer.writeInt32(0xe64429c0);
+
+    // Write fields.
     buffer.writeObject(participant);
+
+    // Finished serialization.
   }
 }
 
@@ -42482,8 +45985,13 @@ class ChannelAdminLogEventActionToggleGroupCallSetting
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56d6a247.
     buffer.writeInt32(0x56d6a247);
+
+    // Write fields.
     buffer.writeBool(joinMuted);
+
+    // Finished serialization.
   }
 }
 
@@ -42534,9 +46042,14 @@ class ChannelAdminLogEventActionParticipantJoinByInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfe9fc158.
     buffer.writeInt32(0xfe9fc158);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(invite);
+
+    // Finished serialization.
   }
 }
 
@@ -42571,8 +46084,13 @@ class ChannelAdminLogEventActionExportedInviteDelete
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5a50fca4.
     buffer.writeInt32(0x5a50fca4);
+
+    // Write fields.
     buffer.writeObject(invite);
+
+    // Finished serialization.
   }
 }
 
@@ -42607,8 +46125,13 @@ class ChannelAdminLogEventActionExportedInviteRevoke
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x410a134e.
     buffer.writeInt32(0x410a134e);
+
+    // Write fields.
     buffer.writeObject(invite);
+
+    // Finished serialization.
   }
 }
 
@@ -42649,9 +46172,14 @@ class ChannelAdminLogEventActionExportedInviteEdit
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe90ebb59.
     buffer.writeInt32(0xe90ebb59);
+
+    // Write fields.
     buffer.writeObject(prevInvite);
     buffer.writeObject(newInvite);
+
+    // Finished serialization.
   }
 }
 
@@ -42686,8 +46214,13 @@ class ChannelAdminLogEventActionParticipantVolume
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3e7f6847.
     buffer.writeInt32(0x3e7f6847);
+
+    // Write fields.
     buffer.writeObject(participant);
+
+    // Finished serialization.
   }
 }
 
@@ -42732,9 +46265,14 @@ class ChannelAdminLogEventActionChangeHistoryTTL
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6e941a38.
     buffer.writeInt32(0x6e941a38);
+
+    // Write fields.
     buffer.writeInt32(prevValue);
     buffer.writeInt32(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42777,9 +46315,14 @@ class ChannelAdminLogEventActionParticipantJoinByRequest
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xafb6144a.
     buffer.writeInt32(0xafb6144a);
+
+    // Write fields.
     buffer.writeObject(invite);
     buffer.writeInt64(approvedBy);
+
+    // Finished serialization.
   }
 }
 
@@ -42814,8 +46357,13 @@ class ChannelAdminLogEventActionToggleNoForwards
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcb2ac766.
     buffer.writeInt32(0xcb2ac766);
+
+    // Write fields.
     buffer.writeBool(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42850,8 +46398,13 @@ class ChannelAdminLogEventActionSendMessage
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x278f2868.
     buffer.writeInt32(0x278f2868);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -42892,9 +46445,14 @@ class ChannelAdminLogEventActionChangeAvailableReactions
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbe4e0ef8.
     buffer.writeInt32(0xbe4e0ef8);
+
+    // Write fields.
     buffer.writeObject(prevValue);
     buffer.writeObject(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42935,9 +46493,14 @@ class ChannelAdminLogEventActionChangeUsernames
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf04fb3a9.
     buffer.writeInt32(0xf04fb3a9);
+
+    // Write fields.
     buffer.writeVectorString(prevValue);
     buffer.writeVectorString(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -42972,8 +46535,13 @@ class ChannelAdminLogEventActionToggleForum
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x02cc6383.
     buffer.writeInt32(0x02cc6383);
+
+    // Write fields.
     buffer.writeBool(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -43008,8 +46576,13 @@ class ChannelAdminLogEventActionCreateTopic
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x58707d28.
     buffer.writeInt32(0x58707d28);
+
+    // Write fields.
     buffer.writeObject(topic);
+
+    // Finished serialization.
   }
 }
 
@@ -43049,9 +46622,14 @@ class ChannelAdminLogEventActionEditTopic
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf06fe208.
     buffer.writeInt32(0xf06fe208);
+
+    // Write fields.
     buffer.writeObject(prevTopic);
     buffer.writeObject(newTopic);
+
+    // Finished serialization.
   }
 }
 
@@ -43086,8 +46664,13 @@ class ChannelAdminLogEventActionDeleteTopic
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xae168909.
     buffer.writeInt32(0xae168909);
+
+    // Write fields.
     buffer.writeObject(topic);
+
+    // Finished serialization.
   }
 }
 
@@ -43142,7 +46725,10 @@ class ChannelAdminLogEventActionPinTopic
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5d8d353b.
     buffer.writeInt32(0x5d8d353b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPrevTopicCopy = prevTopic;
     if (localPrevTopicCopy != null) {
@@ -43152,6 +46738,8 @@ class ChannelAdminLogEventActionPinTopic
     if (localNewTopicCopy != null) {
       buffer.writeObject(localNewTopicCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -43186,8 +46774,13 @@ class ChannelAdminLogEventActionToggleAntiSpam
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64f36dfc.
     buffer.writeInt32(0x64f36dfc);
+
+    // Write fields.
     buffer.writeBool(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -43228,9 +46821,14 @@ class ChannelAdminLogEventActionChangePeerColor
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5796e780.
     buffer.writeInt32(0x5796e780);
+
+    // Write fields.
     buffer.writeObject(prevValue);
     buffer.writeObject(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -43271,9 +46869,14 @@ class ChannelAdminLogEventActionChangeProfilePeerColor
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5e477b25.
     buffer.writeInt32(0x5e477b25);
+
+    // Write fields.
     buffer.writeObject(prevValue);
     buffer.writeObject(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -43314,9 +46917,14 @@ class ChannelAdminLogEventActionChangeWallpaper
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x31bb5d52.
     buffer.writeInt32(0x31bb5d52);
+
+    // Write fields.
     buffer.writeObject(prevValue);
     buffer.writeObject(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -43357,9 +46965,14 @@ class ChannelAdminLogEventActionChangeEmojiStatus
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3ea9feb1.
     buffer.writeInt32(0x3ea9feb1);
+
+    // Write fields.
     buffer.writeObject(prevValue);
     buffer.writeObject(newValue);
+
+    // Finished serialization.
   }
 }
 
@@ -43420,11 +47033,16 @@ class ChannelAdminLogEvent extends ChannelAdminLogEventBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1fad68cd.
     buffer.writeInt32(0x1fad68cd);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeDateTime(date);
     buffer.writeInt64(userId);
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -43475,10 +47093,15 @@ class ChannelsAdminLogResults extends ChannelsAdminLogResultsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed8af74d.
     buffer.writeInt32(0xed8af74d);
+
+    // Write fields.
     buffer.writeVectorObject(events);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -43646,8 +47269,13 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea107ae4.
     buffer.writeInt32(0xea107ae4);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -43696,9 +47324,14 @@ class PopularContact extends PopularContactBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5ce14175.
     buffer.writeInt32(0x5ce14175);
+
+    // Write fields.
     buffer.writeInt64(clientId);
     buffer.writeInt32(importers);
+
+    // Finished serialization.
   }
 }
 
@@ -43727,7 +47360,10 @@ class MessagesFavedStickersNotModified extends MessagesFavedStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9e8fa6d3.
     buffer.writeInt32(0x9e8fa6d3);
+
+    // Finished serialization.
   }
 }
 
@@ -43774,10 +47410,15 @@ class MessagesFavedStickers extends MessagesFavedStickersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2cb51097.
     buffer.writeInt32(0x2cb51097);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(packs);
     buffer.writeVectorObject(stickers);
+
+    // Finished serialization.
   }
 }
 
@@ -43816,8 +47457,13 @@ class RecentMeUrlUnknown extends RecentMeUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x46e1d13d.
     buffer.writeInt32(0x46e1d13d);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -43858,9 +47504,14 @@ class RecentMeUrlUser extends RecentMeUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb92c09e2.
     buffer.writeInt32(0xb92c09e2);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt64(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -43901,9 +47552,14 @@ class RecentMeUrlChat extends RecentMeUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb2da71d2.
     buffer.writeInt32(0xb2da71d2);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -43942,9 +47598,14 @@ class RecentMeUrlChatInvite extends RecentMeUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeb49081d.
     buffer.writeInt32(0xeb49081d);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeObject(chatInvite);
+
+    // Finished serialization.
   }
 }
 
@@ -43983,9 +47644,14 @@ class RecentMeUrlStickerSet extends RecentMeUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbc0a57dc.
     buffer.writeInt32(0xbc0a57dc);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeObject(set);
+
+    // Finished serialization.
   }
 }
 
@@ -44036,10 +47702,15 @@ class HelpRecentMeUrls extends HelpRecentMeUrlsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0e0310d7.
     buffer.writeInt32(0x0e0310d7);
+
+    // Write fields.
     buffer.writeVectorObject(urls);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -44110,7 +47781,10 @@ class InputSingleMedia extends InputSingleMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1cc6e91f.
     buffer.writeInt32(0x1cc6e91f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(media);
     buffer.writeInt64(randomId);
@@ -44119,6 +47793,8 @@ class InputSingleMedia extends InputSingleMediaBase {
     if (localEntitiesCopy != null) {
       buffer.writeVectorObject(localEntitiesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -44209,7 +47885,10 @@ class WebAuthorization extends WebAuthorizationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa6f8f452.
     buffer.writeInt32(0xa6f8f452);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeInt64(botId);
     buffer.writeString(domain);
@@ -44219,6 +47898,8 @@ class WebAuthorization extends WebAuthorizationBase {
     buffer.writeDateTime(dateActive);
     buffer.writeString(ip);
     buffer.writeString(region);
+
+    // Finished serialization.
   }
 }
 
@@ -44263,9 +47944,14 @@ class AccountWebAuthorizations extends AccountWebAuthorizationsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed56c9fc.
     buffer.writeInt32(0xed56c9fc);
+
+    // Write fields.
     buffer.writeVectorObject(authorizations);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -44306,8 +47992,13 @@ class InputMessageID extends InputMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa676a322.
     buffer.writeInt32(0xa676a322);
+
+    // Write fields.
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -44342,8 +48033,13 @@ class InputMessageReplyTo extends InputMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbad88395.
     buffer.writeInt32(0xbad88395);
+
+    // Write fields.
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -44366,7 +48062,10 @@ class InputMessagePinned extends InputMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x86872538.
     buffer.writeInt32(0x86872538);
+
+    // Finished serialization.
   }
 }
 
@@ -44409,9 +48108,14 @@ class InputMessageCallbackQuery extends InputMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xacfa1a7e.
     buffer.writeInt32(0xacfa1a7e);
+
+    // Write fields.
     buffer.writeInt32(id);
     buffer.writeInt64(queryId);
+
+    // Finished serialization.
   }
 }
 
@@ -44450,8 +48154,13 @@ class InputDialogPeer extends InputDialogPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfcaafeb7.
     buffer.writeInt32(0xfcaafeb7);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -44486,8 +48195,13 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64600527.
     buffer.writeInt32(0x64600527);
+
+    // Write fields.
     buffer.writeInt32(folderId);
+
+    // Finished serialization.
   }
 }
 
@@ -44526,8 +48240,13 @@ class DialogPeer extends DialogPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe56dbf05.
     buffer.writeInt32(0xe56dbf05);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -44562,8 +48281,13 @@ class DialogPeerFolder extends DialogPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x514519e2.
     buffer.writeInt32(0x514519e2);
+
+    // Write fields.
     buffer.writeInt32(folderId);
+
+    // Finished serialization.
   }
 }
 
@@ -44592,7 +48316,10 @@ class MessagesFoundStickerSetsNotModified extends MessagesFoundStickerSetsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0d54b65d.
     buffer.writeInt32(0x0d54b65d);
+
+    // Finished serialization.
   }
 }
 
@@ -44633,9 +48360,14 @@ class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8af09dd2.
     buffer.writeInt32(0x8af09dd2);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(sets);
+
+    // Finished serialization.
   }
 }
 
@@ -44690,10 +48422,15 @@ class FileHash extends FileHashBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf39b035c.
     buffer.writeInt32(0xf39b035c);
+
+    // Write fields.
     buffer.writeInt64(offset);
     buffer.writeInt32(limit);
     buffer.writeBytes(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -44740,9 +48477,14 @@ class InputClientProxy extends InputClientProxyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x75588b3f.
     buffer.writeInt32(0x75588b3f);
+
+    // Write fields.
     buffer.writeString(address);
     buffer.writeInt32(port);
+
+    // Finished serialization.
   }
 }
 
@@ -44783,8 +48525,13 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe3309f7f.
     buffer.writeInt32(0xe3309f7f);
+
+    // Write fields.
     buffer.writeInt32(expires);
+
+    // Finished serialization.
   }
 }
 
@@ -44825,9 +48572,14 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x28ecf961.
     buffer.writeInt32(0x28ecf961);
+
+    // Write fields.
     buffer.writeInt32(expires);
     buffer.writeObject(termsOfService);
+
+    // Finished serialization.
   }
 }
 
@@ -44894,12 +48646,17 @@ class InputSecureFileUploaded extends InputSecureFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3334b0f0.
     buffer.writeInt32(0x3334b0f0);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(parts);
     buffer.writeString(md5Checksum);
     buffer.writeBytes(fileHash);
     buffer.writeBytes(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -44942,9 +48699,14 @@ class InputSecureFile extends InputSecureFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5367e5be.
     buffer.writeInt32(0x5367e5be);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -44973,7 +48735,10 @@ class SecureFileEmpty extends SecureFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64199744.
     buffer.writeInt32(0x64199744);
+
+    // Finished serialization.
   }
 }
 
@@ -45050,7 +48815,10 @@ class SecureFile extends SecureFileBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7d09c27e.
     buffer.writeInt32(0x7d09c27e);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeInt64(size);
@@ -45058,6 +48826,8 @@ class SecureFile extends SecureFileBase {
     buffer.writeDateTime(date);
     buffer.writeBytes(fileHash);
     buffer.writeBytes(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -45108,10 +48878,15 @@ class SecureData extends SecureDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8aeabec3.
     buffer.writeInt32(0x8aeabec3);
+
+    // Write fields.
     buffer.writeBytes(data);
     buffer.writeBytes(dataHash);
     buffer.writeBytes(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -45150,8 +48925,13 @@ class SecurePlainPhone extends SecurePlainDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7d6099dd.
     buffer.writeInt32(0x7d6099dd);
+
+    // Write fields.
     buffer.writeString(phone);
+
+    // Finished serialization.
   }
 }
 
@@ -45184,8 +48964,13 @@ class SecurePlainEmail extends SecurePlainDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x21ec5a5f.
     buffer.writeInt32(0x21ec5a5f);
+
+    // Write fields.
     buffer.writeString(email);
+
+    // Finished serialization.
   }
 }
 
@@ -45214,7 +48999,10 @@ class SecureValueTypePersonalDetails extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9d2a81e3.
     buffer.writeInt32(0x9d2a81e3);
+
+    // Finished serialization.
   }
 }
 
@@ -45237,7 +49025,10 @@ class SecureValueTypePassport extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dac6a00.
     buffer.writeInt32(0x3dac6a00);
+
+    // Finished serialization.
   }
 }
 
@@ -45260,7 +49051,10 @@ class SecureValueTypeDriverLicense extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x06e425c4.
     buffer.writeInt32(0x06e425c4);
+
+    // Finished serialization.
   }
 }
 
@@ -45283,7 +49077,10 @@ class SecureValueTypeIdentityCard extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa0d0744b.
     buffer.writeInt32(0xa0d0744b);
+
+    // Finished serialization.
   }
 }
 
@@ -45306,7 +49103,10 @@ class SecureValueTypeInternalPassport extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x99a48f23.
     buffer.writeInt32(0x99a48f23);
+
+    // Finished serialization.
   }
 }
 
@@ -45329,7 +49129,10 @@ class SecureValueTypeAddress extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcbe31e26.
     buffer.writeInt32(0xcbe31e26);
+
+    // Finished serialization.
   }
 }
 
@@ -45352,7 +49155,10 @@ class SecureValueTypeUtilityBill extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfc36954e.
     buffer.writeInt32(0xfc36954e);
+
+    // Finished serialization.
   }
 }
 
@@ -45375,7 +49181,10 @@ class SecureValueTypeBankStatement extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x89137c0d.
     buffer.writeInt32(0x89137c0d);
+
+    // Finished serialization.
   }
 }
 
@@ -45398,7 +49207,10 @@ class SecureValueTypeRentalAgreement extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8b883488.
     buffer.writeInt32(0x8b883488);
+
+    // Finished serialization.
   }
 }
 
@@ -45421,7 +49233,10 @@ class SecureValueTypePassportRegistration extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x99e3806a.
     buffer.writeInt32(0x99e3806a);
+
+    // Finished serialization.
   }
 }
 
@@ -45445,7 +49260,10 @@ class SecureValueTypeTemporaryRegistration extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea02ec33.
     buffer.writeInt32(0xea02ec33);
+
+    // Finished serialization.
   }
 }
 
@@ -45468,7 +49286,10 @@ class SecureValueTypePhone extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb320aadb.
     buffer.writeInt32(0xb320aadb);
+
+    // Finished serialization.
   }
 }
 
@@ -45491,7 +49312,10 @@ class SecureValueTypeEmail extends SecureValueTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8e3ca7ee.
     buffer.writeInt32(0x8e3ca7ee);
+
+    // Finished serialization.
   }
 }
 
@@ -45607,7 +49431,10 @@ class SecureValue extends SecureValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x187fa0ca.
     buffer.writeInt32(0x187fa0ca);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(type);
     final localDataCopy = data;
@@ -45639,6 +49466,8 @@ class SecureValue extends SecureValueBase {
       buffer.writeObject(localPlainDataCopy);
     }
     buffer.writeBytes(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -45749,7 +49578,10 @@ class InputSecureValue extends InputSecureValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb21d0a7.
     buffer.writeInt32(0xdb21d0a7);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(type);
     final localDataCopy = data;
@@ -45780,6 +49612,8 @@ class InputSecureValue extends InputSecureValueBase {
     if (localPlainDataCopy != null) {
       buffer.writeObject(localPlainDataCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -45824,9 +49658,14 @@ class SecureValueHash extends SecureValueHashBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed1ecdb0.
     buffer.writeInt32(0xed1ecdb0);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -45883,11 +49722,16 @@ class SecureValueErrorData extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe8a40bd9.
     buffer.writeInt32(0xe8a40bd9);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(dataHash);
     buffer.writeString(field);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -45932,10 +49776,15 @@ class SecureValueErrorFrontSide extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x00be3dfa.
     buffer.writeInt32(0x00be3dfa);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -45980,10 +49829,15 @@ class SecureValueErrorReverseSide extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x868a2aa5.
     buffer.writeInt32(0x868a2aa5);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46028,10 +49882,15 @@ class SecureValueErrorSelfie extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe537ced6.
     buffer.writeInt32(0xe537ced6);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46076,10 +49935,15 @@ class SecureValueErrorFile extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a700873.
     buffer.writeInt32(0x7a700873);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46124,10 +49988,15 @@ class SecureValueErrorFiles extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x666220e9.
     buffer.writeInt32(0x666220e9);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeVectorBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46172,10 +50041,15 @@ class SecureValueError extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x869d758f.
     buffer.writeInt32(0x869d758f);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(hash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46220,10 +50094,15 @@ class SecureValueErrorTranslationFile extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa1144770.
     buffer.writeInt32(0xa1144770);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46268,10 +50147,15 @@ class SecureValueErrorTranslationFiles extends SecureValueErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x34636dd8.
     buffer.writeInt32(0x34636dd8);
+
+    // Write fields.
     buffer.writeObject(type);
     buffer.writeVectorBytes(fileHash);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -46322,10 +50206,15 @@ class SecureCredentialsEncrypted extends SecureCredentialsEncryptedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x33f0ea47.
     buffer.writeInt32(0x33f0ea47);
+
+    // Write fields.
     buffer.writeBytes(data);
     buffer.writeBytes(hash);
     buffer.writeBytes(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -46400,7 +50289,10 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xad2e1cd8.
     buffer.writeInt32(0xad2e1cd8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(requiredTypes);
     buffer.writeVectorObject(values);
@@ -46410,6 +50302,8 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
     if (localPrivacyPolicyUrlCopy != null) {
       buffer.writeString(localPrivacyPolicyUrlCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -46456,9 +50350,14 @@ class AccountSentEmailCode extends AccountSentEmailCodeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x811f854f.
     buffer.writeInt32(0x811f854f);
+
+    // Write fields.
     buffer.writeString(emailPattern);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -46487,7 +50386,10 @@ class HelpDeepLinkInfoEmpty extends HelpDeepLinkInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x66afa166.
     buffer.writeInt32(0x66afa166);
+
+    // Finished serialization.
   }
 }
 
@@ -46545,13 +50447,18 @@ class HelpDeepLinkInfo extends HelpDeepLinkInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a4ee832.
     buffer.writeInt32(0x6a4ee832);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
     if (localEntitiesCopy != null) {
       buffer.writeVectorObject(localEntitiesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -46608,11 +50515,16 @@ class SavedPhoneContact extends SavedContactBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1142bd56.
     buffer.writeInt32(0x1142bd56);
+
+    // Write fields.
     buffer.writeString(phone);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -46653,8 +50565,13 @@ class AccountTakeout extends AccountTakeoutBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4dba4501.
     buffer.writeInt32(0x4dba4501);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -46683,7 +50600,10 @@ class PasswordKdfAlgoUnknown extends PasswordKdfAlgoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd45ab096.
     buffer.writeInt32(0xd45ab096);
+
+    // Finished serialization.
   }
 }
 
@@ -46739,11 +50659,16 @@ class PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3a912d4a.
     buffer.writeInt32(0x3a912d4a);
+
+    // Write fields.
     buffer.writeBytes(salt1);
     buffer.writeBytes(salt2);
     buffer.writeInt32(g);
     buffer.writeBytes(p);
+
+    // Finished serialization.
   }
 }
 
@@ -46772,7 +50697,10 @@ class SecurePasswordKdfAlgoUnknown extends SecurePasswordKdfAlgoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x004a8537.
     buffer.writeInt32(0x004a8537);
+
+    // Finished serialization.
   }
 }
 
@@ -46807,8 +50735,13 @@ class SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbbf2dda0.
     buffer.writeInt32(0xbbf2dda0);
+
+    // Write fields.
     buffer.writeBytes(salt);
+
+    // Finished serialization.
   }
 }
 
@@ -46841,8 +50774,13 @@ class SecurePasswordKdfAlgoSHA512 extends SecurePasswordKdfAlgoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x86471d92.
     buffer.writeInt32(0x86471d92);
+
+    // Write fields.
     buffer.writeBytes(salt);
+
+    // Finished serialization.
   }
 }
 
@@ -46895,10 +50833,15 @@ class SecureSecretSettings extends SecureSecretSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1527bcac.
     buffer.writeInt32(0x1527bcac);
+
+    // Write fields.
     buffer.writeObject(secureAlgo);
     buffer.writeBytes(secureSecret);
     buffer.writeInt64(secureSecretId);
+
+    // Finished serialization.
   }
 }
 
@@ -46927,7 +50870,10 @@ class InputCheckPasswordEmpty extends InputCheckPasswordSRPBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9880f658.
     buffer.writeInt32(0x9880f658);
+
+    // Finished serialization.
   }
 }
 
@@ -46974,10 +50920,15 @@ class InputCheckPasswordSRP extends InputCheckPasswordSRPBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd27ff082.
     buffer.writeInt32(0xd27ff082);
+
+    // Write fields.
     buffer.writeInt64(srpId);
     buffer.writeBytes(a);
     buffer.writeBytes(m1);
+
+    // Finished serialization.
   }
 }
 
@@ -47046,9 +50997,14 @@ class SecureRequiredType extends SecureRequiredTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x829d99da.
     buffer.writeInt32(0x829d99da);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(type);
+
+    // Finished serialization.
   }
 }
 
@@ -47081,8 +51037,13 @@ class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x027477b4.
     buffer.writeInt32(0x027477b4);
+
+    // Write fields.
     buffer.writeVectorObject(types);
+
+    // Finished serialization.
   }
 }
 
@@ -47111,7 +51072,10 @@ class HelpPassportConfigNotModified extends HelpPassportConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbfb9f457.
     buffer.writeInt32(0xbfb9f457);
+
+    // Finished serialization.
   }
 }
 
@@ -47152,9 +51116,14 @@ class HelpPassportConfig extends HelpPassportConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa098d6af.
     buffer.writeInt32(0xa098d6af);
+
+    // Write fields.
     buffer.writeInt32(hash);
     buffer.writeObject(countriesLangs);
+
+    // Finished serialization.
   }
 }
 
@@ -47213,11 +51182,16 @@ class InputAppEvent extends InputAppEventBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1d1b1245.
     buffer.writeInt32(0x1d1b1245);
+
+    // Write fields.
     buffer.writeDouble(time);
     buffer.writeString(type);
     buffer.writeInt64(peer);
     buffer.writeObject(data);
+
+    // Finished serialization.
   }
 }
 
@@ -47262,9 +51236,14 @@ class JsonObjectValue extends JSONObjectValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc0de1bd9.
     buffer.writeInt32(0xc0de1bd9);
+
+    // Write fields.
     buffer.writeString(key);
     buffer.writeObject(value);
+
+    // Finished serialization.
   }
 }
 
@@ -47293,7 +51272,10 @@ class JsonNull extends JSONValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3f6d7b68.
     buffer.writeInt32(0x3f6d7b68);
+
+    // Finished serialization.
   }
 }
 
@@ -47326,8 +51308,13 @@ class JsonBool extends JSONValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc7345e6a.
     buffer.writeInt32(0xc7345e6a);
+
+    // Write fields.
     buffer.writeBool(value);
+
+    // Finished serialization.
   }
 }
 
@@ -47360,8 +51347,13 @@ class JsonNumber extends JSONValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2be0dfa4.
     buffer.writeInt32(0x2be0dfa4);
+
+    // Write fields.
     buffer.writeDouble(value);
+
+    // Finished serialization.
   }
 }
 
@@ -47394,8 +51386,13 @@ class JsonString extends JSONValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb71e767a.
     buffer.writeInt32(0xb71e767a);
+
+    // Write fields.
     buffer.writeString(value);
+
+    // Finished serialization.
   }
 }
 
@@ -47428,8 +51425,13 @@ class JsonArray extends JSONValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf7444763.
     buffer.writeInt32(0xf7444763);
+
+    // Write fields.
     buffer.writeVectorObject(value);
+
+    // Finished serialization.
   }
 }
 
@@ -47462,8 +51464,13 @@ class JsonObject extends JSONValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x99c1d49d.
     buffer.writeInt32(0x99c1d49d);
+
+    // Write fields.
     buffer.writeVectorObject(value);
+
+    // Finished serialization.
   }
 }
 
@@ -47564,7 +51571,10 @@ class PageTableCell extends PageTableCellBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x34566b6a.
     buffer.writeInt32(0x34566b6a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localTextCopy = text;
     if (localTextCopy != null) {
@@ -47578,6 +51588,8 @@ class PageTableCell extends PageTableCellBase {
     if (localRowspanCopy != null) {
       buffer.writeInt32(localRowspanCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -47616,8 +51628,13 @@ class PageTableRow extends PageTableRowBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe0c0c5e5.
     buffer.writeInt32(0xe0c0c5e5);
+
+    // Write fields.
     buffer.writeVectorObject(cells);
+
+    // Finished serialization.
   }
 }
 
@@ -47662,9 +51679,14 @@ class PageCaption extends PageCaptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6f747657.
     buffer.writeInt32(0x6f747657);
+
+    // Write fields.
     buffer.writeObject(text);
     buffer.writeObject(credit);
+
+    // Finished serialization.
   }
 }
 
@@ -47703,8 +51725,13 @@ class PageListItemText extends PageListItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb92fb6cd.
     buffer.writeInt32(0xb92fb6cd);
+
+    // Write fields.
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -47737,8 +51764,13 @@ class PageListItemBlocks extends PageListItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x25e073fc.
     buffer.writeInt32(0x25e073fc);
+
+    // Write fields.
     buffer.writeVectorObject(blocks);
+
+    // Finished serialization.
   }
 }
 
@@ -47783,9 +51815,14 @@ class PageListOrderedItemText extends PageListOrderedItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5e068047.
     buffer.writeInt32(0x5e068047);
+
+    // Write fields.
     buffer.writeString(num);
     buffer.writeObject(text);
+
+    // Finished serialization.
   }
 }
 
@@ -47824,9 +51861,14 @@ class PageListOrderedItemBlocks extends PageListOrderedItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x98dd8936.
     buffer.writeInt32(0x98dd8936);
+
+    // Write fields.
     buffer.writeString(num);
     buffer.writeVectorObject(blocks);
+
+    // Finished serialization.
   }
 }
 
@@ -47922,7 +51964,10 @@ class PageRelatedArticle extends PageRelatedArticleBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb390dc08.
     buffer.writeInt32(0xb390dc08);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(url);
     buffer.writeInt64(webpageId);
@@ -47946,6 +51991,8 @@ class PageRelatedArticle extends PageRelatedArticleBase {
     if (localPublishedDateCopy != null) {
       buffer.writeDateTime(localPublishedDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -48040,7 +52087,10 @@ class Page extends PageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x98657f0d.
     buffer.writeInt32(0x98657f0d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(url);
     buffer.writeVectorObject(blocks);
@@ -48050,6 +52100,8 @@ class Page extends PageBase {
     if (localViewsCopy != null) {
       buffer.writeInt32(localViewsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -48088,8 +52140,13 @@ class HelpSupportName extends HelpSupportNameBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c05f1c9.
     buffer.writeInt32(0x8c05f1c9);
+
+    // Write fields.
     buffer.writeString(name);
+
+    // Finished serialization.
   }
 }
 
@@ -48118,7 +52175,10 @@ class HelpUserInfoEmpty extends HelpUserInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3ae2eed.
     buffer.writeInt32(0xf3ae2eed);
+
+    // Finished serialization.
   }
 }
 
@@ -48169,11 +52229,16 @@ class HelpUserInfo extends HelpUserInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x01eb3758.
     buffer.writeInt32(0x01eb3758);
+
+    // Write fields.
     buffer.writeString(message);
     buffer.writeVectorObject(entities);
     buffer.writeString(author);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -48218,9 +52283,14 @@ class PollAnswer extends PollAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6ca9c2e9.
     buffer.writeInt32(0x6ca9c2e9);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeBytes(option);
+
+    // Finished serialization.
   }
 }
 
@@ -48326,7 +52396,10 @@ class Poll extends PollBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x86e18161.
     buffer.writeInt32(0x86e18161);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(flags);
     buffer.writeString(question);
@@ -48339,6 +52412,8 @@ class Poll extends PollBase {
     if (localCloseDateCopy != null) {
       buffer.writeDateTime(localCloseDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -48408,10 +52483,15 @@ class PollAnswerVoters extends PollAnswerVotersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3b6ddad2.
     buffer.writeInt32(0x3b6ddad2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeBytes(option);
     buffer.writeInt32(voters);
+
+    // Finished serialization.
   }
 }
 
@@ -48504,7 +52584,10 @@ class PollResults extends PollResultsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7adf2420.
     buffer.writeInt32(0x7adf2420);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localResultsCopy = results;
     if (localResultsCopy != null) {
@@ -48526,6 +52609,8 @@ class PollResults extends PollResultsBase {
     if (localSolutionEntitiesCopy != null) {
       buffer.writeVectorObject(localSolutionEntitiesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -48566,8 +52651,13 @@ class ChatOnlines extends ChatOnlinesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf041e250.
     buffer.writeInt32(0xf041e250);
+
+    // Write fields.
     buffer.writeInt32(onlines);
+
+    // Finished serialization.
   }
 }
 
@@ -48606,8 +52696,13 @@ class StatsURL extends StatsURLBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x47a971e0.
     buffer.writeInt32(0x47a971e0);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -48754,8 +52849,13 @@ class ChatAdminRights extends ChatAdminRightsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5fb224d5.
     buffer.writeInt32(0x5fb224d5);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -48943,9 +53043,14 @@ class ChatBannedRights extends ChatBannedRightsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9f120418.
     buffer.writeInt32(0x9f120418);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(untilDate);
+
+    // Finished serialization.
   }
 }
 
@@ -48994,9 +53099,14 @@ class InputWallPaper extends InputWallPaperBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe630b979.
     buffer.writeInt32(0xe630b979);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -49029,8 +53139,13 @@ class InputWallPaperSlug extends InputWallPaperBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x72091c80.
     buffer.writeInt32(0x72091c80);
+
+    // Write fields.
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -49065,8 +53180,13 @@ class InputWallPaperNoFile extends InputWallPaperBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x967a462e.
     buffer.writeInt32(0x967a462e);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -49095,7 +53215,10 @@ class AccountWallPapersNotModified extends AccountWallPapersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1c199183.
     buffer.writeInt32(0x1c199183);
+
+    // Finished serialization.
   }
 }
 
@@ -49136,9 +53259,14 @@ class AccountWallPapers extends AccountWallPapersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcdc3858c.
     buffer.writeInt32(0xcdc3858c);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(wallpapers);
+
+    // Finished serialization.
   }
 }
 
@@ -49237,7 +53365,10 @@ class CodeSettings extends CodeSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xad253d78.
     buffer.writeInt32(0xad253d78);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localLogoutTokensCopy = logoutTokens;
     if (localLogoutTokensCopy != null) {
@@ -49247,6 +53378,8 @@ class CodeSettings extends CodeSettingsBase {
     if (localTokenCopy != null) {
       buffer.writeString(localTokenCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -49360,7 +53493,10 @@ class WallPaperSettings extends WallPaperSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x372efcd0.
     buffer.writeInt32(0x372efcd0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBackgroundColorCopy = backgroundColor;
     if (localBackgroundColorCopy != null) {
@@ -49390,6 +53526,8 @@ class WallPaperSettings extends WallPaperSettingsBase {
     if (localEmoticonCopy != null) {
       buffer.writeString(localEmoticonCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -49514,7 +53652,10 @@ class AutoDownloadSettings extends AutoDownloadSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbaa57628.
     buffer.writeInt32(0xbaa57628);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(photoSizeMax);
     buffer.writeInt64(videoSizeMax);
@@ -49522,6 +53663,8 @@ class AutoDownloadSettings extends AutoDownloadSettingsBase {
     buffer.writeInt32(videoUploadMaxbitrate);
     buffer.writeInt32(smallQueueActiveOperationsMax);
     buffer.writeInt32(largeQueueActiveOperationsMax);
+
+    // Finished serialization.
   }
 }
 
@@ -49572,10 +53715,15 @@ class AccountAutoDownloadSettings extends AccountAutoDownloadSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x63cacf26.
     buffer.writeInt32(0x63cacf26);
+
+    // Write fields.
     buffer.writeObject(low);
     buffer.writeObject(medium);
     buffer.writeObject(high);
+
+    // Finished serialization.
   }
 }
 
@@ -49620,9 +53768,14 @@ class EmojiKeyword extends EmojiKeywordBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd5b3b9f9.
     buffer.writeInt32(0xd5b3b9f9);
+
+    // Write fields.
     buffer.writeString(keyword);
     buffer.writeVectorString(emoticons);
+
+    // Finished serialization.
   }
 }
 
@@ -49661,9 +53814,14 @@ class EmojiKeywordDeleted extends EmojiKeywordBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x236df622.
     buffer.writeInt32(0x236df622);
+
+    // Write fields.
     buffer.writeString(keyword);
     buffer.writeVectorString(emoticons);
+
+    // Finished serialization.
   }
 }
 
@@ -49724,11 +53882,16 @@ class EmojiKeywordsDifference extends EmojiKeywordsDifferenceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5cc761bd.
     buffer.writeInt32(0x5cc761bd);
+
+    // Write fields.
     buffer.writeString(langCode);
     buffer.writeInt32(fromVersion);
     buffer.writeInt32(version);
     buffer.writeVectorObject(keywords);
+
+    // Finished serialization.
   }
 }
 
@@ -49767,8 +53930,13 @@ class EmojiURL extends EmojiURLBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa575739d.
     buffer.writeInt32(0xa575739d);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -49807,8 +53975,13 @@ class EmojiLanguage extends EmojiLanguageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb3fb5361.
     buffer.writeInt32(0xb3fb5361);
+
+    // Write fields.
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -49893,7 +54066,10 @@ class Folder extends FolderBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xff544e65.
     buffer.writeInt32(0xff544e65);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeString(title);
@@ -49901,6 +54077,8 @@ class Folder extends FolderBase {
     if (localPhotoCopy != null) {
       buffer.writeObject(localPhotoCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -49947,9 +54125,14 @@ class InputFolderPeer extends InputFolderPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfbd2c296.
     buffer.writeInt32(0xfbd2c296);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(folderId);
+
+    // Finished serialization.
   }
 }
 
@@ -49996,9 +54179,14 @@ class FolderPeer extends FolderPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe9baa668.
     buffer.writeInt32(0xe9baa668);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(folderId);
+
+    // Finished serialization.
   }
 }
 
@@ -50061,10 +54249,15 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe844ebff.
     buffer.writeInt32(0xe844ebff);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(filter);
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -50125,10 +54318,15 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x92d33a0e.
     buffer.writeInt32(0x92d33a0e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(bot);
     buffer.writeString(domain);
+
+    // Finished serialization.
   }
 }
 
@@ -50161,8 +54359,13 @@ class UrlAuthResultAccepted extends UrlAuthResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8f8c0e4e.
     buffer.writeInt32(0x8f8c0e4e);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -50185,7 +54388,10 @@ class UrlAuthResultDefault extends UrlAuthResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa9d6db1f.
     buffer.writeInt32(0xa9d6db1f);
+
+    // Finished serialization.
   }
 }
 
@@ -50214,7 +54420,10 @@ class ChannelLocationEmpty extends ChannelLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbfb5ad8b.
     buffer.writeInt32(0xbfb5ad8b);
+
+    // Finished serialization.
   }
 }
 
@@ -50253,9 +54462,14 @@ class ChannelLocation extends ChannelLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x209b82db.
     buffer.writeInt32(0x209b82db);
+
+    // Write fields.
     buffer.writeObject(geoPoint);
     buffer.writeString(address);
+
+    // Finished serialization.
   }
 }
 
@@ -50310,10 +54524,15 @@ class PeerLocated extends PeerLocatedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xca461b5d.
     buffer.writeInt32(0xca461b5d);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(expires);
     buffer.writeInt32(distance);
+
+    // Finished serialization.
   }
 }
 
@@ -50348,8 +54567,13 @@ class PeerSelfLocated extends PeerLocatedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf8ec284b.
     buffer.writeInt32(0xf8ec284b);
+
+    // Write fields.
     buffer.writeInt32(expires);
+
+    // Finished serialization.
   }
 }
 
@@ -50400,10 +54624,15 @@ class RestrictionReason extends RestrictionReasonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd072acb4.
     buffer.writeInt32(0xd072acb4);
+
+    // Write fields.
     buffer.writeString(platform);
     buffer.writeString(reason);
     buffer.writeString(text);
+
+    // Finished serialization.
   }
 }
 
@@ -50452,9 +54681,14 @@ class InputTheme extends InputThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c5693e9.
     buffer.writeInt32(0x3c5693e9);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -50487,8 +54721,13 @@ class InputThemeSlug extends InputThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf5890df1.
     buffer.writeInt32(0xf5890df1);
+
+    // Write fields.
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -50613,7 +54852,10 @@ class Theme extends ThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa00e67d6.
     buffer.writeInt32(0xa00e67d6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -50635,6 +54877,8 @@ class Theme extends ThemeBase {
     if (localInstallsCountCopy != null) {
       buffer.writeInt32(localInstallsCountCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -50663,7 +54907,10 @@ class AccountThemesNotModified extends AccountThemesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf41eb622.
     buffer.writeInt32(0xf41eb622);
+
+    // Finished serialization.
   }
 }
 
@@ -50704,9 +54951,14 @@ class AccountThemes extends AccountThemesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a3d8c6d.
     buffer.writeInt32(0x9a3d8c6d);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(themes);
+
+    // Finished serialization.
   }
 }
 
@@ -50753,9 +55005,14 @@ class AuthLoginToken extends AuthLoginTokenBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x629f1980.
     buffer.writeInt32(0x629f1980);
+
+    // Write fields.
     buffer.writeInt32(expires);
     buffer.writeBytes(token);
+
+    // Finished serialization.
   }
 }
 
@@ -50796,9 +55053,14 @@ class AuthLoginTokenMigrateTo extends AuthLoginTokenBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x068e9916.
     buffer.writeInt32(0x068e9916);
+
+    // Write fields.
     buffer.writeInt32(dcId);
     buffer.writeBytes(token);
+
+    // Finished serialization.
   }
 }
 
@@ -50831,8 +55093,13 @@ class AuthLoginTokenSuccess extends AuthLoginTokenBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x390d5c5e.
     buffer.writeInt32(0x390d5c5e);
+
+    // Write fields.
     buffer.writeObject(authorization);
+
+    // Finished serialization.
   }
 }
 
@@ -50888,8 +55155,13 @@ class AccountContentSettings extends AccountContentSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57e28221.
     buffer.writeInt32(0x57e28221);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -50940,10 +55212,15 @@ class MessagesInactiveChats extends MessagesInactiveChatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa927fec5.
     buffer.writeInt32(0xa927fec5);
+
+    // Write fields.
     buffer.writeVectorInt32(dates);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -50972,7 +55249,10 @@ class BaseThemeClassic extends BaseThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc3a12462.
     buffer.writeInt32(0xc3a12462);
+
+    // Finished serialization.
   }
 }
 
@@ -50995,7 +55275,10 @@ class BaseThemeDay extends BaseThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfbd81688.
     buffer.writeInt32(0xfbd81688);
+
+    // Finished serialization.
   }
 }
 
@@ -51018,7 +55301,10 @@ class BaseThemeNight extends BaseThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb7b31ea8.
     buffer.writeInt32(0xb7b31ea8);
+
+    // Finished serialization.
   }
 }
 
@@ -51041,7 +55327,10 @@ class BaseThemeTinted extends BaseThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6d5f77ee.
     buffer.writeInt32(0x6d5f77ee);
+
+    // Finished serialization.
   }
 }
 
@@ -51064,7 +55353,10 @@ class BaseThemeArctic extends BaseThemeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5b11125a.
     buffer.writeInt32(0x5b11125a);
+
+    // Finished serialization.
   }
 }
 
@@ -51163,7 +55455,10 @@ class InputThemeSettings extends InputThemeSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8fde504f.
     buffer.writeInt32(0x8fde504f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(baseTheme);
     buffer.writeInt32(accentColor);
@@ -51183,6 +55478,8 @@ class InputThemeSettings extends InputThemeSettingsBase {
     if (localWallpaperSettingsCopy != null) {
       buffer.writeObject(localWallpaperSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -51272,7 +55569,10 @@ class ThemeSettings extends ThemeSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa58b6d4.
     buffer.writeInt32(0xfa58b6d4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(baseTheme);
     buffer.writeInt32(accentColor);
@@ -51288,6 +55588,8 @@ class ThemeSettings extends ThemeSettingsBase {
     if (localWallpaperCopy != null) {
       buffer.writeObject(localWallpaperCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -51347,7 +55649,10 @@ class WebPageAttributeTheme extends WebPageAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x54b56617.
     buffer.writeInt32(0x54b56617);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localDocumentsCopy = documents;
     if (localDocumentsCopy != null) {
@@ -51357,6 +55662,8 @@ class WebPageAttributeTheme extends WebPageAttributeBase {
     if (localSettingsCopy != null) {
       buffer.writeObject(localSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -51414,7 +55721,10 @@ class WebPageAttributeStory extends WebPageAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2e94c3e7.
     buffer.writeInt32(0x2e94c3e7);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -51422,6 +55732,8 @@ class WebPageAttributeStory extends WebPageAttributeBase {
     if (localStoryCopy != null) {
       buffer.writeObject(localStoryCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -51497,7 +55809,10 @@ class MessagesVotesList extends MessagesVotesListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4899484e.
     buffer.writeInt32(0x4899484e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(votes);
@@ -51507,6 +55822,8 @@ class MessagesVotesList extends MessagesVotesListBase {
     if (localNextOffsetCopy != null) {
       buffer.writeString(localNextOffsetCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -51551,9 +55868,14 @@ class BankCardOpenUrl extends BankCardOpenUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf568028a.
     buffer.writeInt32(0xf568028a);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeString(name);
+
+    // Finished serialization.
   }
 }
 
@@ -51598,9 +55920,14 @@ class PaymentsBankCardData extends PaymentsBankCardDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3e24e573.
     buffer.writeInt32(0x3e24e573);
+
+    // Write fields.
     buffer.writeString(title);
     buffer.writeVectorObject(openUrls);
+
+    // Finished serialization.
   }
 }
 
@@ -51738,7 +56065,10 @@ class DialogFilter extends DialogFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7438f7e8.
     buffer.writeInt32(0x7438f7e8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeString(title);
@@ -51749,6 +56079,8 @@ class DialogFilter extends DialogFilterBase {
     buffer.writeVectorObject(pinnedPeers);
     buffer.writeVectorObject(includePeers);
     buffer.writeVectorObject(excludePeers);
+
+    // Finished serialization.
   }
 }
 
@@ -51771,7 +56103,10 @@ class DialogFilterDefault extends DialogFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x363293ae.
     buffer.writeInt32(0x363293ae);
+
+    // Finished serialization.
   }
 }
 
@@ -51848,7 +56183,10 @@ class DialogFilterChatlist extends DialogFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd64a04a8.
     buffer.writeInt32(0xd64a04a8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeString(title);
@@ -51858,6 +56196,8 @@ class DialogFilterChatlist extends DialogFilterBase {
     }
     buffer.writeVectorObject(pinnedPeers);
     buffer.writeVectorObject(includePeers);
+
+    // Finished serialization.
   }
 }
 
@@ -51902,9 +56242,14 @@ class DialogFilterSuggested extends DialogFilterSuggestedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77744d4a.
     buffer.writeInt32(0x77744d4a);
+
+    // Write fields.
     buffer.writeObject(filter);
     buffer.writeString(description);
+
+    // Finished serialization.
   }
 }
 
@@ -51949,9 +56294,14 @@ class StatsDateRangeDays extends StatsDateRangeDaysBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb637edaf.
     buffer.writeInt32(0xb637edaf);
+
+    // Write fields.
     buffer.writeDateTime(minDate);
     buffer.writeDateTime(maxDate);
+
+    // Finished serialization.
   }
 }
 
@@ -51996,9 +56346,14 @@ class StatsAbsValueAndPrev extends StatsAbsValueAndPrevBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcb43acde.
     buffer.writeInt32(0xcb43acde);
+
+    // Write fields.
     buffer.writeDouble(current);
     buffer.writeDouble(previous);
+
+    // Finished serialization.
   }
 }
 
@@ -52043,9 +56398,14 @@ class StatsPercentValue extends StatsPercentValueBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcbce2fe0.
     buffer.writeInt32(0xcbce2fe0);
+
+    // Write fields.
     buffer.writeDouble(part);
     buffer.writeDouble(total);
+
+    // Finished serialization.
   }
 }
 
@@ -52084,8 +56444,13 @@ class StatsGraphAsync extends StatsGraphBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4a27eb2d.
     buffer.writeInt32(0x4a27eb2d);
+
+    // Write fields.
     buffer.writeString(token);
+
+    // Finished serialization.
   }
 }
 
@@ -52118,8 +56483,13 @@ class StatsGraphError extends StatsGraphBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbedc9822.
     buffer.writeInt32(0xbedc9822);
+
+    // Write fields.
     buffer.writeString(error);
+
+    // Finished serialization.
   }
 }
 
@@ -52169,13 +56539,18 @@ class StatsGraph extends StatsGraphBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ea464b6.
     buffer.writeInt32(0x8ea464b6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(json);
     final localZoomTokenCopy = zoomToken;
     if (localZoomTokenCopy != null) {
       buffer.writeString(localZoomTokenCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -52341,7 +56716,10 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x396ca5fc.
     buffer.writeInt32(0x396ca5fc);
+
+    // Write fields.
     buffer.writeObject(period);
     buffer.writeObject(followers);
     buffer.writeObject(viewsPerPost);
@@ -52364,6 +56742,8 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
     buffer.writeObject(storyInteractionsGraph);
     buffer.writeObject(storyReactionsByEmotionGraph);
     buffer.writeVectorObject(recentPostsInteractions);
+
+    // Finished serialization.
   }
 }
 
@@ -52404,8 +56784,13 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x98f6ac75.
     buffer.writeInt32(0x98f6ac75);
+
+    // Write fields.
     buffer.writeInt32(expires);
+
+    // Finished serialization.
   }
 }
 
@@ -52490,7 +56875,10 @@ class HelpPromoData extends HelpPromoDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c39793f.
     buffer.writeInt32(0x8c39793f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(expires);
     buffer.writeObject(peer);
@@ -52504,6 +56892,8 @@ class HelpPromoData extends HelpPromoDataBase {
     if (localPsaMessageCopy != null) {
       buffer.writeString(localPsaMessageCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -52583,7 +56973,10 @@ class VideoSize extends VideoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xde33b094.
     buffer.writeInt32(0xde33b094);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(type);
     buffer.writeInt32(w);
@@ -52593,6 +56986,8 @@ class VideoSize extends VideoSizeBase {
     if (localVideoStartTsCopy != null) {
       buffer.writeDouble(localVideoStartTsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -52633,9 +57028,14 @@ class VideoSizeEmojiMarkup extends VideoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf85c413c.
     buffer.writeInt32(0xf85c413c);
+
+    // Write fields.
     buffer.writeInt64(emojiId);
     buffer.writeVectorInt32(backgroundColors);
+
+    // Finished serialization.
   }
 }
 
@@ -52682,10 +57082,15 @@ class VideoSizeStickerMarkup extends VideoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0da082fe.
     buffer.writeInt32(0x0da082fe);
+
+    // Write fields.
     buffer.writeObject(stickerset);
     buffer.writeInt64(stickerId);
     buffer.writeVectorInt32(backgroundColors);
+
+    // Finished serialization.
   }
 }
 
@@ -52742,10 +57147,15 @@ class StatsGroupTopPoster extends StatsGroupTopPosterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9d04af9b.
     buffer.writeInt32(0x9d04af9b);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt32(messages);
     buffer.writeInt32(avgChars);
+
+    // Finished serialization.
   }
 }
 
@@ -52810,11 +57220,16 @@ class StatsGroupTopAdmin extends StatsGroupTopAdminBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd7584c87.
     buffer.writeInt32(0xd7584c87);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt32(deleted);
     buffer.writeInt32(kicked);
     buffer.writeInt32(banned);
+
+    // Finished serialization.
   }
 }
 
@@ -52863,9 +57278,14 @@ class StatsGroupTopInviter extends StatsGroupTopInviterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x535f779d.
     buffer.writeInt32(0x535f779d);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt32(invitations);
+
+    // Finished serialization.
   }
 }
 
@@ -53000,7 +57420,10 @@ class StatsMegagroupStats extends StatsMegagroupStatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xef7ff916.
     buffer.writeInt32(0xef7ff916);
+
+    // Write fields.
     buffer.writeObject(period);
     buffer.writeObject(members);
     buffer.writeObject(messages);
@@ -53018,6 +57441,8 @@ class StatsMegagroupStats extends StatsMegagroupStatsBase {
     buffer.writeVectorObject(topAdmins);
     buffer.writeVectorObject(topInviters);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -53080,8 +57505,13 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x734c4ccb.
     buffer.writeInt32(0x734c4ccb);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -53145,7 +57575,10 @@ class HelpCountryCode extends HelpCountryCodeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4203c5ef.
     buffer.writeInt32(0x4203c5ef);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(countryCode);
     final localPrefixesCopy = prefixes;
@@ -53156,6 +57589,8 @@ class HelpCountryCode extends HelpCountryCodeBase {
     if (localPatternsCopy != null) {
       buffer.writeVectorString(localPatternsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -53230,7 +57665,10 @@ class HelpCountry extends HelpCountryBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc3878e23.
     buffer.writeInt32(0xc3878e23);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(iso2);
     buffer.writeString(defaultName);
@@ -53239,6 +57677,8 @@ class HelpCountry extends HelpCountryBase {
       buffer.writeString(localNameCopy);
     }
     buffer.writeVectorObject(countryCodes);
+
+    // Finished serialization.
   }
 }
 
@@ -53267,7 +57707,10 @@ class HelpCountriesListNotModified extends HelpCountriesListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x93cc1f32.
     buffer.writeInt32(0x93cc1f32);
+
+    // Finished serialization.
   }
 }
 
@@ -53308,9 +57751,14 @@ class HelpCountriesList extends HelpCountriesListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x87d0759e.
     buffer.writeInt32(0x87d0759e);
+
+    // Write fields.
     buffer.writeVectorObject(countries);
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -53377,7 +57825,10 @@ class MessageViews extends MessageViewsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x455b853d.
     buffer.writeInt32(0x455b853d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localViewsCopy = views;
     if (localViewsCopy != null) {
@@ -53391,6 +57842,8 @@ class MessageViews extends MessageViewsBase {
     if (localRepliesCopy != null) {
       buffer.writeObject(localRepliesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -53441,10 +57894,15 @@ class MessagesMessageViews extends MessagesMessageViewsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6c4f543.
     buffer.writeInt32(0xb6c4f543);
+
+    // Write fields.
     buffer.writeVectorObject(views);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -53536,7 +57994,10 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa6341782.
     buffer.writeInt32(0xa6341782);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(messages);
     final localMaxIdCopy = maxId;
@@ -53554,6 +58015,8 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
     buffer.writeInt32(unreadCount);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -53685,7 +58148,10 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xafbc09db.
     buffer.writeInt32(0xafbc09db);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localReplyToMsgIdCopy = replyToMsgId;
     if (localReplyToMsgIdCopy != null) {
@@ -53719,6 +58185,8 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
     if (localQuoteOffsetCopy != null) {
       buffer.writeInt32(localQuoteOffsetCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -53761,9 +58229,14 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9c98bfc1.
     buffer.writeInt32(0x9c98bfc1);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeInt32(storyId);
+
+    // Finished serialization.
   }
 }
 
@@ -53860,7 +58333,10 @@ class MessageReplies extends MessageRepliesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x83d60fc2.
     buffer.writeInt32(0x83d60fc2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(replies);
     buffer.writeInt32(repliesPts);
@@ -53880,6 +58356,8 @@ class MessageReplies extends MessageRepliesBase {
     if (localReadMaxIdCopy != null) {
       buffer.writeInt32(localReadMaxIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -53924,9 +58402,14 @@ class PeerBlocked extends PeerBlockedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe8fd8014.
     buffer.writeInt32(0xe8fd8014);
+
+    // Write fields.
     buffer.writeObject(peerId);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -53971,9 +58454,14 @@ class StatsMessageStats extends StatsMessageStatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7fe91c14.
     buffer.writeInt32(0x7fe91c14);
+
+    // Write fields.
     buffer.writeObject(viewsGraph);
     buffer.writeObject(reactionsByEmotionGraph);
+
+    // Finished serialization.
   }
 }
 
@@ -54030,10 +58518,15 @@ class GroupCallDiscarded extends GroupCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7780bcb4.
     buffer.writeInt32(0x7780bcb4);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeInt32(duration);
+
+    // Finished serialization.
   }
 }
 
@@ -54207,7 +58700,10 @@ class GroupCall extends GroupCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd597650c.
     buffer.writeInt32(0xd597650c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -54234,6 +58730,8 @@ class GroupCall extends GroupCallBase {
     }
     buffer.writeInt32(unmutedVideoLimit);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -54282,9 +58780,14 @@ class InputGroupCall extends InputGroupCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd8aa840f.
     buffer.writeInt32(0xd8aa840f);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -54468,7 +58971,10 @@ class GroupCallParticipant extends GroupCallParticipantBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeba636fe.
     buffer.writeInt32(0xeba636fe);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeDateTime(date);
@@ -54497,6 +59003,8 @@ class GroupCallParticipant extends GroupCallParticipantBase {
     if (localPresentationCopy != null) {
       buffer.writeObject(localPresentationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -54559,12 +59067,17 @@ class PhoneGroupCall extends PhoneGroupCallBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9e727aad.
     buffer.writeInt32(0x9e727aad);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeVectorObject(participants);
     buffer.writeString(participantsNextOffset);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -54637,13 +59150,18 @@ class PhoneGroupParticipants extends PhoneGroupParticipantsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf47751b6.
     buffer.writeInt32(0xf47751b6);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(participants);
     buffer.writeString(nextOffset);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
     buffer.writeInt32(version);
+
+    // Finished serialization.
   }
 }
 
@@ -54672,7 +59190,10 @@ class InlineQueryPeerTypeSameBotPM extends InlineQueryPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3081ed9d.
     buffer.writeInt32(0x3081ed9d);
+
+    // Finished serialization.
   }
 }
 
@@ -54695,7 +59216,10 @@ class InlineQueryPeerTypePM extends InlineQueryPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x833c0fac.
     buffer.writeInt32(0x833c0fac);
+
+    // Finished serialization.
   }
 }
 
@@ -54718,7 +59242,10 @@ class InlineQueryPeerTypeChat extends InlineQueryPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd766c50a.
     buffer.writeInt32(0xd766c50a);
+
+    // Finished serialization.
   }
 }
 
@@ -54741,7 +59268,10 @@ class InlineQueryPeerTypeMegagroup extends InlineQueryPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5ec4be43.
     buffer.writeInt32(0x5ec4be43);
+
+    // Finished serialization.
   }
 }
 
@@ -54764,7 +59294,10 @@ class InlineQueryPeerTypeBroadcast extends InlineQueryPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6334ee9a.
     buffer.writeInt32(0x6334ee9a);
+
+    // Finished serialization.
   }
 }
 
@@ -54787,7 +59320,10 @@ class InlineQueryPeerTypeBotPM extends InlineQueryPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0e3b2d0c.
     buffer.writeInt32(0x0e3b2d0c);
+
+    // Finished serialization.
   }
 }
 
@@ -54828,8 +59364,13 @@ class MessagesHistoryImport extends MessagesHistoryImportBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1662af0b.
     buffer.writeInt32(0x1662af0b);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -54893,12 +59434,17 @@ class MessagesHistoryImportParsed extends MessagesHistoryImportParsedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5e0fb7b9.
     buffer.writeInt32(0x5e0fb7b9);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localTitleCopy = title;
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -54961,11 +59507,16 @@ class MessagesAffectedFoundMessages extends MessagesAffectedFoundMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xef8d3e6c.
     buffer.writeInt32(0xef8d3e6c);
+
+    // Write fields.
     buffer.writeInt32(pts);
     buffer.writeInt32(ptsCount);
     buffer.writeInt32(offset);
     buffer.writeVectorInt32(messages);
+
+    // Finished serialization.
   }
 }
 
@@ -55051,7 +59602,10 @@ class ChatInviteImporter extends ChatInviteImporterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c5adfd9.
     buffer.writeInt32(0x8c5adfd9);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeDateTime(date);
@@ -55063,6 +59617,8 @@ class ChatInviteImporter extends ChatInviteImporterBase {
     if (localApprovedByCopy != null) {
       buffer.writeInt64(localApprovedByCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -55115,10 +59671,15 @@ class MessagesExportedChatInvites extends MessagesExportedChatInvitesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbdc62dcc.
     buffer.writeInt32(0xbdc62dcc);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(invites);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -55163,9 +59724,14 @@ class MessagesExportedChatInvite extends MessagesExportedChatInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1871be50.
     buffer.writeInt32(0x1871be50);
+
+    // Write fields.
     buffer.writeObject(invite);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -55211,10 +59777,15 @@ class MessagesExportedChatInviteReplaced
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x222600ef.
     buffer.writeInt32(0x222600ef);
+
+    // Write fields.
     buffer.writeObject(invite);
     buffer.writeObject(newInvite);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -55267,10 +59838,15 @@ class MessagesChatInviteImporters extends MessagesChatInviteImportersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x81b6b00a.
     buffer.writeInt32(0x81b6b00a);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(importers);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -55327,10 +59903,15 @@ class ChatAdminWithInvites extends ChatAdminWithInvitesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf2ecef23.
     buffer.writeInt32(0xf2ecef23);
+
+    // Write fields.
     buffer.writeInt64(adminId);
     buffer.writeInt32(invitesCount);
     buffer.writeInt32(revokedInvitesCount);
+
+    // Finished serialization.
   }
 }
 
@@ -55375,9 +59956,14 @@ class MessagesChatAdminsWithInvites extends MessagesChatAdminsWithInvitesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb69b72d7.
     buffer.writeInt32(0xb69b72d7);
+
+    // Write fields.
     buffer.writeVectorObject(admins);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -55417,8 +60003,13 @@ class MessagesCheckedHistoryImportPeer
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa24de717.
     buffer.writeInt32(0xa24de717);
+
+    // Write fields.
     buffer.writeString(confirmText);
+
+    // Finished serialization.
   }
 }
 
@@ -55469,10 +60060,15 @@ class PhoneJoinAsPeers extends PhoneJoinAsPeersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xafe5623f.
     buffer.writeInt32(0xafe5623f);
+
+    // Write fields.
     buffer.writeVectorObject(peers);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -55511,8 +60107,13 @@ class PhoneExportedGroupCallInvite extends PhoneExportedGroupCallInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x204bd158.
     buffer.writeInt32(0x204bd158);
+
+    // Write fields.
     buffer.writeString(link);
+
+    // Finished serialization.
   }
 }
 
@@ -55559,9 +60160,14 @@ class GroupCallParticipantVideoSourceGroup
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdcb118b7.
     buffer.writeInt32(0xdcb118b7);
+
+    // Write fields.
     buffer.writeString(semantics);
     buffer.writeVectorInt32(sources);
+
+    // Finished serialization.
   }
 }
 
@@ -55631,7 +60237,10 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x67753ac8.
     buffer.writeInt32(0x67753ac8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(endpoint);
     buffer.writeVectorObject(sourceGroups);
@@ -55639,6 +60248,8 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
     if (localAudioSourceCopy != null) {
       buffer.writeInt32(localAudioSourceCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -55677,8 +60288,13 @@ class StickersSuggestedShortName extends StickersSuggestedShortNameBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x85fea03f.
     buffer.writeInt32(0x85fea03f);
+
+    // Write fields.
     buffer.writeString(shortName);
+
+    // Finished serialization.
   }
 }
 
@@ -55707,7 +60323,10 @@ class BotCommandScopeDefault extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2f6cb2ab.
     buffer.writeInt32(0x2f6cb2ab);
+
+    // Finished serialization.
   }
 }
 
@@ -55730,7 +60349,10 @@ class BotCommandScopeUsers extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c4f04d8.
     buffer.writeInt32(0x3c4f04d8);
+
+    // Finished serialization.
   }
 }
 
@@ -55753,7 +60375,10 @@ class BotCommandScopeChats extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6fe1a881.
     buffer.writeInt32(0x6fe1a881);
+
+    // Finished serialization.
   }
 }
 
@@ -55776,7 +60401,10 @@ class BotCommandScopeChatAdmins extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb9aa606a.
     buffer.writeInt32(0xb9aa606a);
+
+    // Finished serialization.
   }
 }
 
@@ -55809,8 +60437,13 @@ class BotCommandScopePeer extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb9d897d.
     buffer.writeInt32(0xdb9d897d);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -55843,8 +60476,13 @@ class BotCommandScopePeerAdmins extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3fd863d1.
     buffer.writeInt32(0x3fd863d1);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -55883,9 +60521,14 @@ class BotCommandScopePeerUser extends BotCommandScopeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a1321f3.
     buffer.writeInt32(0x0a1321f3);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -55924,8 +60567,13 @@ class AccountResetPasswordFailedWait extends AccountResetPasswordResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe3779861.
     buffer.writeInt32(0xe3779861);
+
+    // Write fields.
     buffer.writeDateTime(retryDate);
+
+    // Finished serialization.
   }
 }
 
@@ -55958,8 +60606,13 @@ class AccountResetPasswordRequestedWait extends AccountResetPasswordResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe9effc7d.
     buffer.writeInt32(0xe9effc7d);
+
+    // Write fields.
     buffer.writeDateTime(untilDate);
+
+    // Finished serialization.
   }
 }
 
@@ -55982,7 +60635,10 @@ class AccountResetPasswordOk extends AccountResetPasswordResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe926d63e.
     buffer.writeInt32(0xe926d63e);
+
+    // Finished serialization.
   }
 }
 
@@ -56140,7 +60796,10 @@ class SponsoredMessage extends SponsoredMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xed5383f7.
     buffer.writeInt32(0xed5383f7);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeBytes(randomId);
     final localFromIdCopy = fromId;
@@ -56188,6 +60847,8 @@ class SponsoredMessage extends SponsoredMessageBase {
     if (localAdditionalInfoCopy != null) {
       buffer.writeString(localAdditionalInfoCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -56255,7 +60916,10 @@ class MessagesSponsoredMessages extends MessagesSponsoredMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc9ee1d87.
     buffer.writeInt32(0xc9ee1d87);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPostsBetweenCopy = postsBetween;
     if (localPostsBetweenCopy != null) {
@@ -56264,6 +60928,8 @@ class MessagesSponsoredMessages extends MessagesSponsoredMessagesBase {
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -56286,7 +60952,10 @@ class MessagesSponsoredMessagesEmpty extends MessagesSponsoredMessagesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1839490f.
     buffer.writeInt32(0x1839490f);
+
+    // Finished serialization.
   }
 }
 
@@ -56349,11 +61018,16 @@ class SearchResultsCalendarPeriod extends SearchResultsCalendarPeriodBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc9b0539f.
     buffer.writeInt32(0xc9b0539f);
+
+    // Write fields.
     buffer.writeDateTime(date);
     buffer.writeInt32(minMsgId);
     buffer.writeInt32(maxMsgId);
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -56456,7 +61130,10 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x147ee23c.
     buffer.writeInt32(0x147ee23c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeDateTime(minDate);
@@ -56469,6 +61146,8 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -56523,10 +61202,15 @@ class SearchResultPosition extends SearchResultsPositionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7f648b67.
     buffer.writeInt32(0x7f648b67);
+
+    // Write fields.
     buffer.writeInt32(msgId);
     buffer.writeDateTime(date);
     buffer.writeInt32(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -56574,9 +61258,14 @@ class MessagesSearchResultsPositions
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x53b22baf.
     buffer.writeInt32(0x53b22baf);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(positions);
+
+    // Finished serialization.
   }
 }
 
@@ -56627,10 +61316,15 @@ class ChannelsSendAsPeers extends ChannelsSendAsPeersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf496b0c6.
     buffer.writeInt32(0xf496b0c6);
+
+    // Write fields.
     buffer.writeVectorObject(peers);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -56681,10 +61375,15 @@ class UsersUserFull extends UsersUserFullBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3b6d152e.
     buffer.writeInt32(0x3b6d152e);
+
+    // Write fields.
     buffer.writeObject(fullUser);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -56735,10 +61434,15 @@ class MessagesPeerSettings extends MessagesPeerSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6880b94d.
     buffer.writeInt32(0x6880b94d);
+
+    // Write fields.
     buffer.writeObject(settings);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -56788,12 +61492,17 @@ class AuthLoggedOut extends AuthLoggedOutBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc3a2835f.
     buffer.writeInt32(0xc3a2835f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFutureAuthTokenCopy = futureAuthToken;
     if (localFutureAuthTokenCopy != null) {
       buffer.writeBytes(localFutureAuthTokenCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -56857,7 +61566,10 @@ class ReactionCount extends ReactionCountBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa3d1cb80.
     buffer.writeInt32(0xa3d1cb80);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localChosenOrderCopy = chosenOrder;
     if (localChosenOrderCopy != null) {
@@ -56865,6 +61577,8 @@ class ReactionCount extends ReactionCountBase {
     }
     buffer.writeObject(reaction);
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -56936,13 +61650,18 @@ class MessageReactions extends MessageReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4f2b9479.
     buffer.writeInt32(0x4f2b9479);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(results);
     final localRecentReactionsCopy = recentReactions;
     if (localRecentReactionsCopy != null) {
       buffer.writeVectorObject(localRecentReactionsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -57018,7 +61737,10 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x31bd492d.
     buffer.writeInt32(0x31bd492d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(reactions);
@@ -57028,6 +61750,8 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
     if (localNextOffsetCopy != null) {
       buffer.writeString(localNextOffsetCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -57142,7 +61866,10 @@ class AvailableReaction extends AvailableReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc077ec01.
     buffer.writeInt32(0xc077ec01);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(reaction);
     buffer.writeString(title);
@@ -57159,6 +61886,8 @@ class AvailableReaction extends AvailableReactionBase {
     if (localCenterIconCopy != null) {
       buffer.writeObject(localCenterIconCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -57189,7 +61918,10 @@ class MessagesAvailableReactionsNotModified
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9f071957.
     buffer.writeInt32(0x9f071957);
+
+    // Finished serialization.
   }
 }
 
@@ -57230,9 +61962,14 @@ class MessagesAvailableReactions extends MessagesAvailableReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x768e3aad.
     buffer.writeInt32(0x768e3aad);
+
+    // Write fields.
     buffer.writeInt32(hash);
     buffer.writeVectorObject(reactions);
+
+    // Finished serialization.
   }
 }
 
@@ -57313,11 +62050,16 @@ class MessagePeerReaction extends MessagePeerReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c79b63c.
     buffer.writeInt32(0x8c79b63c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peerId);
     buffer.writeDateTime(date);
     buffer.writeObject(reaction);
+
+    // Finished serialization.
   }
 }
 
@@ -57374,10 +62116,15 @@ class GroupCallStreamChannel extends GroupCallStreamChannelBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x80eb48af.
     buffer.writeInt32(0x80eb48af);
+
+    // Write fields.
     buffer.writeInt32(channel);
     buffer.writeInt32(scale);
     buffer.writeInt64(lastTimestampMs);
+
+    // Finished serialization.
   }
 }
 
@@ -57416,8 +62163,13 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd0e482b2.
     buffer.writeInt32(0xd0e482b2);
+
+    // Write fields.
     buffer.writeVectorObject(channels);
+
+    // Finished serialization.
   }
 }
 
@@ -57462,9 +62214,14 @@ class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2dbf3432.
     buffer.writeInt32(0x2dbf3432);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeString(key);
+
+    // Finished serialization.
   }
 }
 
@@ -57511,9 +62268,14 @@ class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4576f3f0.
     buffer.writeInt32(0x4576f3f0);
+
+    // Write fields.
     buffer.writeString(name);
     buffer.writeInt32(color);
+
+    // Finished serialization.
   }
 }
 
@@ -57577,7 +62339,10 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb2a7386b.
     buffer.writeInt32(0xb2a7386b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(name);
     buffer.writeObject(icon);
@@ -57585,6 +62350,8 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
     if (localColorsCopy != null) {
       buffer.writeVectorObject(localColorsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -57697,7 +62464,10 @@ class AttachMenuBot extends AttachMenuBotBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd90d8dfe.
     buffer.writeInt32(0xd90d8dfe);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(botId);
     buffer.writeString(shortName);
@@ -57706,6 +62476,8 @@ class AttachMenuBot extends AttachMenuBotBase {
       buffer.writeVectorObject(localPeerTypesCopy);
     }
     buffer.writeVectorObject(icons);
+
+    // Finished serialization.
   }
 }
 
@@ -57734,7 +62506,10 @@ class AttachMenuBotsNotModified extends AttachMenuBotsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf1d88a5c.
     buffer.writeInt32(0xf1d88a5c);
+
+    // Finished serialization.
   }
 }
 
@@ -57781,10 +62556,15 @@ class AttachMenuBots extends AttachMenuBotsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c4301c0.
     buffer.writeInt32(0x3c4301c0);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(bots);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -57829,9 +62609,14 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x93bf667f.
     buffer.writeInt32(0x93bf667f);
+
+    // Write fields.
     buffer.writeObject(bot);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -57878,9 +62663,14 @@ class WebViewResultUrl extends WebViewResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0c14557c.
     buffer.writeInt32(0x0c14557c);
+
+    // Write fields.
     buffer.writeInt64(queryId);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -57919,8 +62709,13 @@ class SimpleWebViewResultUrl extends SimpleWebViewResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x882f76bb.
     buffer.writeInt32(0x882f76bb);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -57972,12 +62767,17 @@ class WebViewMessageSent extends WebViewMessageSentBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0c94511c.
     buffer.writeInt32(0x0c94511c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localMsgIdCopy = msgId;
     if (localMsgIdCopy != null) {
       buffer.writeObject(localMsgIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -58006,7 +62806,10 @@ class BotMenuButtonDefault extends BotMenuButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7533a588.
     buffer.writeInt32(0x7533a588);
+
+    // Finished serialization.
   }
 }
 
@@ -58029,7 +62832,10 @@ class BotMenuButtonCommands extends BotMenuButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4258c205.
     buffer.writeInt32(0x4258c205);
+
+    // Finished serialization.
   }
 }
 
@@ -58068,9 +62874,14 @@ class BotMenuButton extends BotMenuButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc7b57ce6.
     buffer.writeInt32(0xc7b57ce6);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -58099,7 +62910,10 @@ class AccountSavedRingtonesNotModified extends AccountSavedRingtonesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfbf6e8b1.
     buffer.writeInt32(0xfbf6e8b1);
+
+    // Finished serialization.
   }
 }
 
@@ -58140,9 +62954,14 @@ class AccountSavedRingtones extends AccountSavedRingtonesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc1e92cc5.
     buffer.writeInt32(0xc1e92cc5);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(ringtones);
+
+    // Finished serialization.
   }
 }
 
@@ -58171,7 +62990,10 @@ class NotificationSoundDefault extends NotificationSoundBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x97e8bebe.
     buffer.writeInt32(0x97e8bebe);
+
+    // Finished serialization.
   }
 }
 
@@ -58194,7 +63016,10 @@ class NotificationSoundNone extends NotificationSoundBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6f0c34df.
     buffer.writeInt32(0x6f0c34df);
+
+    // Finished serialization.
   }
 }
 
@@ -58233,9 +63058,14 @@ class NotificationSoundLocal extends NotificationSoundBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x830b9ae4.
     buffer.writeInt32(0x830b9ae4);
+
+    // Write fields.
     buffer.writeString(title);
     buffer.writeString(data);
+
+    // Finished serialization.
   }
 }
 
@@ -58270,8 +63100,13 @@ class NotificationSoundRingtone extends NotificationSoundBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xff6c8049.
     buffer.writeInt32(0xff6c8049);
+
+    // Write fields.
     buffer.writeInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -58300,7 +63135,10 @@ class AccountSavedRingtone extends AccountSavedRingtoneBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb7263f6d.
     buffer.writeInt32(0xb7263f6d);
+
+    // Finished serialization.
   }
 }
 
@@ -58333,8 +63171,13 @@ class AccountSavedRingtoneConverted extends AccountSavedRingtoneBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1f307eb7.
     buffer.writeInt32(0x1f307eb7);
+
+    // Write fields.
     buffer.writeObject(document);
+
+    // Finished serialization.
   }
 }
 
@@ -58363,7 +63206,10 @@ class AttachMenuPeerTypeSameBotPM extends AttachMenuPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7d6be90e.
     buffer.writeInt32(0x7d6be90e);
+
+    // Finished serialization.
   }
 }
 
@@ -58386,7 +63232,10 @@ class AttachMenuPeerTypeBotPM extends AttachMenuPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc32bfa1a.
     buffer.writeInt32(0xc32bfa1a);
+
+    // Finished serialization.
   }
 }
 
@@ -58409,7 +63258,10 @@ class AttachMenuPeerTypePM extends AttachMenuPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf146d31f.
     buffer.writeInt32(0xf146d31f);
+
+    // Finished serialization.
   }
 }
 
@@ -58432,7 +63284,10 @@ class AttachMenuPeerTypeChat extends AttachMenuPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0509113f.
     buffer.writeInt32(0x0509113f);
+
+    // Finished serialization.
   }
 }
 
@@ -58455,7 +63310,10 @@ class AttachMenuPeerTypeBroadcast extends AttachMenuPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7bfbdefc.
     buffer.writeInt32(0x7bfbdefc);
+
+    // Finished serialization.
   }
 }
 
@@ -58502,9 +63360,14 @@ class InputInvoiceMessage extends InputInvoiceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc5b56859.
     buffer.writeInt32(0xc5b56859);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -58537,8 +63400,13 @@ class InputInvoiceSlug extends InputInvoiceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc326caef.
     buffer.writeInt32(0xc326caef);
+
+    // Write fields.
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -58577,9 +63445,14 @@ class InputInvoicePremiumGiftCode extends InputInvoiceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x98986c0d.
     buffer.writeInt32(0x98986c0d);
+
+    // Write fields.
     buffer.writeObject(purpose);
     buffer.writeObject(option);
+
+    // Finished serialization.
   }
 }
 
@@ -58618,8 +63491,13 @@ class PaymentsExportedInvoice extends PaymentsExportedInvoiceBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaed0cbd9.
     buffer.writeInt32(0xaed0cbd9);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -58698,7 +63576,10 @@ class MessagesTranscribedAudio extends MessagesTranscribedAudioBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcfb9d957.
     buffer.writeInt32(0xcfb9d957);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(transcriptionId);
     buffer.writeString(text);
@@ -58710,6 +63591,8 @@ class MessagesTranscribedAudio extends MessagesTranscribedAudioBase {
     if (localTrialRemainsUntilDateCopy != null) {
       buffer.writeDateTime(localTrialRemainsUntilDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -58779,13 +63662,18 @@ class HelpPremiumPromo extends HelpPremiumPromoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5334759c.
     buffer.writeInt32(0x5334759c);
+
+    // Write fields.
     buffer.writeString(statusText);
     buffer.writeVectorObject(statusEntities);
     buffer.writeVectorString(videoSections);
     buffer.writeVectorObject(videos);
     buffer.writeVectorObject(periodOptions);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -58843,8 +63731,13 @@ class InputStorePaymentPremiumSubscription
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa6751e66.
     buffer.writeInt32(0xa6751e66);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -58891,10 +63784,15 @@ class InputStorePaymentGiftPremium extends InputStorePaymentPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x616f7fe8.
     buffer.writeInt32(0x616f7fe8);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeString(currency);
     buffer.writeInt64(amount);
+
+    // Finished serialization.
   }
 }
 
@@ -58959,7 +63857,10 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa3805f3f.
     buffer.writeInt32(0xa3805f3f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(users);
     final localBoostPeerCopy = boostPeer;
@@ -58968,6 +63869,8 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
     }
     buffer.writeString(currency);
     buffer.writeInt64(amount);
+
+    // Finished serialization.
   }
 }
 
@@ -59079,7 +63982,10 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x160544ca.
     buffer.writeInt32(0x160544ca);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(boostPeer);
     final localAdditionalPeersCopy = additionalPeers;
@@ -59098,6 +64004,8 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
     buffer.writeDateTime(untilDate);
     buffer.writeString(currency);
     buffer.writeInt64(amount);
+
+    // Finished serialization.
   }
 }
 
@@ -59175,7 +64083,10 @@ class PremiumGiftOption extends PremiumGiftOptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74c34319.
     buffer.writeInt32(0x74c34319);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(months);
     buffer.writeString(currency);
@@ -59185,6 +64096,8 @@ class PremiumGiftOption extends PremiumGiftOptionBase {
     if (localStoreProductCopy != null) {
       buffer.writeString(localStoreProductCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -59229,9 +64142,14 @@ class PaymentFormMethod extends PaymentFormMethodBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x88f8f21b.
     buffer.writeInt32(0x88f8f21b);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -59260,7 +64178,10 @@ class EmojiStatusEmpty extends EmojiStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2de11aae.
     buffer.writeInt32(0x2de11aae);
+
+    // Finished serialization.
   }
 }
 
@@ -59295,8 +64216,13 @@ class EmojiStatus extends EmojiStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x929b619d.
     buffer.writeInt32(0x929b619d);
+
+    // Write fields.
     buffer.writeInt64(documentId);
+
+    // Finished serialization.
   }
 }
 
@@ -59339,9 +64265,14 @@ class EmojiStatusUntil extends EmojiStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa30a8c7.
     buffer.writeInt32(0xfa30a8c7);
+
+    // Write fields.
     buffer.writeInt64(documentId);
     buffer.writeInt32(until);
+
+    // Finished serialization.
   }
 }
 
@@ -59370,7 +64301,10 @@ class AccountEmojiStatusesNotModified extends AccountEmojiStatusesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd08ce645.
     buffer.writeInt32(0xd08ce645);
+
+    // Finished serialization.
   }
 }
 
@@ -59411,9 +64345,14 @@ class AccountEmojiStatuses extends AccountEmojiStatusesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x90c467d1.
     buffer.writeInt32(0x90c467d1);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(statuses);
+
+    // Finished serialization.
   }
 }
 
@@ -59442,7 +64381,10 @@ class ReactionEmpty extends ReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x79f5d419.
     buffer.writeInt32(0x79f5d419);
+
+    // Finished serialization.
   }
 }
 
@@ -59475,8 +64417,13 @@ class ReactionEmoji extends ReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b2286b8.
     buffer.writeInt32(0x1b2286b8);
+
+    // Write fields.
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -59511,8 +64458,13 @@ class ReactionCustomEmoji extends ReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8935fc73.
     buffer.writeInt32(0x8935fc73);
+
+    // Write fields.
     buffer.writeInt64(documentId);
+
+    // Finished serialization.
   }
 }
 
@@ -59541,7 +64493,10 @@ class ChatReactionsNone extends ChatReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeafc32bc.
     buffer.writeInt32(0xeafc32bc);
+
+    // Finished serialization.
   }
 }
 
@@ -59584,8 +64539,13 @@ class ChatReactionsAll extends ChatReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x52928bca.
     buffer.writeInt32(0x52928bca);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -59618,8 +64578,13 @@ class ChatReactionsSome extends ChatReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x661d4037.
     buffer.writeInt32(0x661d4037);
+
+    // Write fields.
     buffer.writeVectorObject(reactions);
+
+    // Finished serialization.
   }
 }
 
@@ -59648,7 +64613,10 @@ class MessagesReactionsNotModified extends MessagesReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb06fdbdf.
     buffer.writeInt32(0xb06fdbdf);
+
+    // Finished serialization.
   }
 }
 
@@ -59689,9 +64657,14 @@ class MessagesReactions extends MessagesReactionsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeafdf716.
     buffer.writeInt32(0xeafdf716);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorObject(reactions);
+
+    // Finished serialization.
   }
 }
 
@@ -59736,9 +64709,14 @@ class EmailVerifyPurposeLoginSetup extends EmailVerifyPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4345be73.
     buffer.writeInt32(0x4345be73);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
+
+    // Finished serialization.
   }
 }
 
@@ -59761,7 +64739,10 @@ class EmailVerifyPurposeLoginChange extends EmailVerifyPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x527d22eb.
     buffer.writeInt32(0x527d22eb);
+
+    // Finished serialization.
   }
 }
 
@@ -59784,7 +64765,10 @@ class EmailVerifyPurposePassport extends EmailVerifyPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbbf51685.
     buffer.writeInt32(0xbbf51685);
+
+    // Finished serialization.
   }
 }
 
@@ -59823,8 +64807,13 @@ class EmailVerificationCode extends EmailVerificationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x922e55a9.
     buffer.writeInt32(0x922e55a9);
+
+    // Write fields.
     buffer.writeString(code);
+
+    // Finished serialization.
   }
 }
 
@@ -59857,8 +64846,13 @@ class EmailVerificationGoogle extends EmailVerificationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb909ec2.
     buffer.writeInt32(0xdb909ec2);
+
+    // Write fields.
     buffer.writeString(token);
+
+    // Finished serialization.
   }
 }
 
@@ -59891,8 +64885,13 @@ class EmailVerificationApple extends EmailVerificationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x96d074fd.
     buffer.writeInt32(0x96d074fd);
+
+    // Write fields.
     buffer.writeString(token);
+
+    // Finished serialization.
   }
 }
 
@@ -59931,8 +64930,13 @@ class AccountEmailVerified extends AccountEmailVerifiedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2b96cd1b.
     buffer.writeInt32(0x2b96cd1b);
+
+    // Write fields.
     buffer.writeString(email);
+
+    // Finished serialization.
   }
 }
 
@@ -59971,9 +64975,14 @@ class AccountEmailVerifiedLogin extends AccountEmailVerifiedBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe1bb0d61.
     buffer.writeInt32(0xe1bb0d61);
+
+    // Write fields.
     buffer.writeString(email);
     buffer.writeObject(sentCode);
+
+    // Finished serialization.
   }
 }
 
@@ -60073,7 +65082,10 @@ class PremiumSubscriptionOption extends PremiumSubscriptionOptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5f2d1df2.
     buffer.writeInt32(0x5f2d1df2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localTransactionCopy = transaction;
     if (localTransactionCopy != null) {
@@ -60087,6 +65099,8 @@ class PremiumSubscriptionOption extends PremiumSubscriptionOptionBase {
     if (localStoreProductCopy != null) {
       buffer.writeString(localStoreProductCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -60141,9 +65155,14 @@ class SendAsPeer extends SendAsPeerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb81c7034.
     buffer.writeInt32(0xb81c7034);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -60216,7 +65235,10 @@ class MessageExtendedMediaPreview extends MessageExtendedMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xad628cc8.
     buffer.writeInt32(0xad628cc8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localWCopy = w;
     if (localWCopy != null) {
@@ -60234,6 +65256,8 @@ class MessageExtendedMediaPreview extends MessageExtendedMediaBase {
     if (localVideoDurationCopy != null) {
       buffer.writeInt32(localVideoDurationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -60266,8 +65290,13 @@ class MessageExtendedMedia extends MessageExtendedMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xee479c64.
     buffer.writeInt32(0xee479c64);
+
+    // Write fields.
     buffer.writeObject(media);
+
+    // Finished serialization.
   }
 }
 
@@ -60314,9 +65343,14 @@ class StickerKeyword extends StickerKeywordBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfcfeb29c.
     buffer.writeInt32(0xfcfeb29c);
+
+    // Write fields.
     buffer.writeInt64(documentId);
     buffer.writeVectorString(keyword);
+
+    // Finished serialization.
   }
 }
 
@@ -60378,9 +65412,14 @@ class Username extends UsernameBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4073647.
     buffer.writeInt32(0xb4073647);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(username);
+
+    // Finished serialization.
   }
 }
 
@@ -60421,8 +65460,13 @@ class ForumTopicDeleted extends ForumTopicBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x023f109b.
     buffer.writeInt32(0x023f109b);
+
+    // Write fields.
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -60598,7 +65642,10 @@ class ForumTopic extends ForumTopicBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x71701da9.
     buffer.writeInt32(0x71701da9);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeDateTime(date);
@@ -60620,6 +65667,8 @@ class ForumTopic extends ForumTopicBase {
     if (localDraftCopy != null) {
       buffer.writeObject(localDraftCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -60708,7 +65757,10 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x367617d3.
     buffer.writeInt32(0x367617d3);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(topics);
@@ -60716,6 +65768,8 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
     buffer.writeInt32(pts);
+
+    // Finished serialization.
   }
 }
 
@@ -60756,8 +65810,13 @@ class DefaultHistoryTTL extends DefaultHistoryTTLBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x43b46b20.
     buffer.writeInt32(0x43b46b20);
+
+    // Write fields.
     buffer.writeInt32(period);
+
+    // Finished serialization.
   }
 }
 
@@ -60804,9 +65863,14 @@ class ExportedContactToken extends ExportedContactTokenBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x41bf109b.
     buffer.writeInt32(0x41bf109b);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt32(expires);
+
+    // Finished serialization.
   }
 }
 
@@ -60862,8 +65926,13 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5f3b8a00.
     buffer.writeInt32(0x5f3b8a00);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -60947,7 +66016,10 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc9f06e1b.
     buffer.writeInt32(0xc9f06e1b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localUserAdminRightsCopy = userAdminRights;
     if (localUserAdminRightsCopy != null) {
@@ -60957,6 +66029,8 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
     if (localBotAdminRightsCopy != null) {
       buffer.writeObject(localBotAdminRightsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -61026,7 +66100,10 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x339bef6c.
     buffer.writeInt32(0x339bef6c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localUserAdminRightsCopy = userAdminRights;
     if (localUserAdminRightsCopy != null) {
@@ -61036,6 +66113,8 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
     if (localBotAdminRightsCopy != null) {
       buffer.writeObject(localBotAdminRightsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -61064,7 +66143,10 @@ class EmojiListNotModified extends EmojiListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x481eadfa.
     buffer.writeInt32(0x481eadfa);
+
+    // Finished serialization.
   }
 }
 
@@ -61105,9 +66187,14 @@ class EmojiList extends EmojiListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a1e11d1.
     buffer.writeInt32(0x7a1e11d1);
+
+    // Write fields.
     buffer.writeInt64(hash);
     buffer.writeVectorInt64(documentId);
+
+    // Finished serialization.
   }
 }
 
@@ -61160,10 +66247,15 @@ class EmojiGroup extends EmojiGroupBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a9abda9.
     buffer.writeInt32(0x7a9abda9);
+
+    // Write fields.
     buffer.writeString(title);
     buffer.writeInt64(iconEmojiId);
     buffer.writeVectorString(emoticons);
+
+    // Finished serialization.
   }
 }
 
@@ -61192,7 +66284,10 @@ class MessagesEmojiGroupsNotModified extends MessagesEmojiGroupsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6fb4ad87.
     buffer.writeInt32(0x6fb4ad87);
+
+    // Finished serialization.
   }
 }
 
@@ -61233,9 +66328,14 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x881fb94b.
     buffer.writeInt32(0x881fb94b);
+
+    // Write fields.
     buffer.writeInt32(hash);
     buffer.writeVectorObject(groups);
+
+    // Finished serialization.
   }
 }
 
@@ -61280,9 +66380,14 @@ class TextWithEntities extends TextWithEntitiesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x751f3146.
     buffer.writeInt32(0x751f3146);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeVectorObject(entities);
+
+    // Finished serialization.
   }
 }
 
@@ -61321,8 +66426,13 @@ class MessagesTranslateResult extends MessagesTranslatedTextBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x33db32f8.
     buffer.writeInt32(0x33db32f8);
+
+    // Write fields.
     buffer.writeVectorObject(result);
+
+    // Finished serialization.
   }
 }
 
@@ -61386,12 +66496,17 @@ class AutoSaveSettings extends AutoSaveSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc84834ce.
     buffer.writeInt32(0xc84834ce);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localVideoMaxSizeCopy = videoMaxSize;
     if (localVideoMaxSizeCopy != null) {
       buffer.writeInt64(localVideoMaxSizeCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -61436,9 +66551,14 @@ class AutoSaveException extends AutoSaveExceptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x81602d47.
     buffer.writeInt32(0x81602d47);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -61507,13 +66627,18 @@ class AccountAutoSaveSettings extends AccountAutoSaveSettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4c3e069d.
     buffer.writeInt32(0x4c3e069d);
+
+    // Write fields.
     buffer.writeObject(usersSettings);
     buffer.writeObject(chatsSettings);
     buffer.writeObject(broadcastsSettings);
     buffer.writeVectorObject(exceptions);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -61542,7 +66667,10 @@ class HelpAppConfigNotModified extends HelpAppConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7cde641d.
     buffer.writeInt32(0x7cde641d);
+
+    // Finished serialization.
   }
 }
 
@@ -61583,9 +66711,14 @@ class HelpAppConfig extends HelpAppConfigBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdd18782e.
     buffer.writeInt32(0xdd18782e);
+
+    // Write fields.
     buffer.writeInt32(hash);
     buffer.writeObject(config);
+
+    // Finished serialization.
   }
 }
 
@@ -61634,9 +66767,14 @@ class InputBotAppID extends InputBotAppBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa920bd7a.
     buffer.writeInt32(0xa920bd7a);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
+
+    // Finished serialization.
   }
 }
 
@@ -61675,9 +66813,14 @@ class InputBotAppShortName extends InputBotAppBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x908c0407.
     buffer.writeInt32(0x908c0407);
+
+    // Write fields.
     buffer.writeObject(botId);
     buffer.writeString(shortName);
+
+    // Finished serialization.
   }
 }
 
@@ -61706,7 +66849,10 @@ class BotAppNotModified extends BotAppBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5da674b7.
     buffer.writeInt32(0x5da674b7);
+
+    // Finished serialization.
   }
 }
 
@@ -61799,7 +66945,10 @@ class BotApp extends BotAppBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x95fcd1d6.
     buffer.writeInt32(0x95fcd1d6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
@@ -61812,6 +66961,8 @@ class BotApp extends BotAppBase {
       buffer.writeObject(localDocumentCopy);
     }
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -61880,9 +67031,14 @@ class MessagesBotApp extends MessagesBotAppBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeb50adf5.
     buffer.writeInt32(0xeb50adf5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(app);
+
+    // Finished serialization.
   }
 }
 
@@ -61921,8 +67077,13 @@ class AppWebViewResultUrl extends AppWebViewResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3c1b4f0d.
     buffer.writeInt32(0x3c1b4f0d);
+
+    // Write fields.
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -61967,9 +67128,14 @@ class InlineBotWebView extends InlineBotWebViewBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb57295d5.
     buffer.writeInt32(0xb57295d5);
+
+    // Write fields.
     buffer.writeString(text);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -62016,9 +67182,14 @@ class ReadParticipantDate extends ReadParticipantDateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4a4ff172.
     buffer.writeInt32(0x4a4ff172);
+
+    // Write fields.
     buffer.writeInt64(userId);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -62059,8 +67230,13 @@ class InputChatlistDialogFilter extends InputChatlistBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3e0da33.
     buffer.writeInt32(0xf3e0da33);
+
+    // Write fields.
     buffer.writeInt32(filterId);
+
+    // Finished serialization.
   }
 }
 
@@ -62084,7 +67260,7 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
   /// Deserialize.
   factory ExportedChatlistInvite.deserialize(BinaryReader reader) {
     // Read [ExportedChatlistInvite] fields.
-    final _ = reader.readInt32(); // flags;
+    final _ = reader.readInt32(); // flags
     final title = reader.readString();
     final url = reader.readString();
     final peers = reader.readVectorObject<PeerBase>();
@@ -62119,11 +67295,16 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0c5181ac.
     buffer.writeInt32(0x0c5181ac);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeString(url);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -62169,9 +67350,14 @@ class ChatlistsExportedChatlistInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x10e6e3a6.
     buffer.writeInt32(0x10e6e3a6);
+
+    // Write fields.
     buffer.writeObject(filter);
     buffer.writeObject(invite);
+
+    // Finished serialization.
   }
 }
 
@@ -62222,10 +67408,15 @@ class ChatlistsExportedInvites extends ChatlistsExportedInvitesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x10ab6dc7.
     buffer.writeInt32(0x10ab6dc7);
+
+    // Write fields.
     buffer.writeVectorObject(invites);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -62290,12 +67481,17 @@ class ChatlistsChatlistInviteAlready extends ChatlistsChatlistInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa87f659.
     buffer.writeInt32(0xfa87f659);
+
+    // Write fields.
     buffer.writeInt32(filterId);
     buffer.writeVectorObject(missingPeers);
     buffer.writeVectorObject(alreadyPeers);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -62363,7 +67559,10 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1dcd839d.
     buffer.writeInt32(0x1dcd839d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     final localEmoticonCopy = emoticon;
@@ -62373,6 +67572,8 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
     buffer.writeVectorObject(peers);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -62423,10 +67624,15 @@ class ChatlistsChatlistUpdates extends ChatlistsChatlistUpdatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x93bd878d.
     buffer.writeInt32(0x93bd878d);
+
+    // Write fields.
     buffer.writeVectorObject(missingPeers);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -62477,10 +67683,15 @@ class BotsBotInfo extends BotsBotInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe8a775b0.
     buffer.writeInt32(0xe8a775b0);
+
+    // Write fields.
     buffer.writeString(name);
     buffer.writeString(about);
     buffer.writeString(description);
+
+    // Finished serialization.
   }
 }
 
@@ -62531,10 +67742,15 @@ class MessagePeerVote extends MessagePeerVoteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6cc2d5c.
     buffer.writeInt32(0xb6cc2d5c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBytes(option);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -62573,9 +67789,14 @@ class MessagePeerVoteInputOption extends MessagePeerVoteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74cda504.
     buffer.writeInt32(0x74cda504);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -62620,10 +67841,15 @@ class MessagePeerVoteMultiple extends MessagePeerVoteBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4628f6e6.
     buffer.writeInt32(0x4628f6e6);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorBytes(options);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -62685,7 +67911,10 @@ class SponsoredWebPage extends SponsoredWebPageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3db8ec63.
     buffer.writeInt32(0x3db8ec63);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(url);
     buffer.writeString(siteName);
@@ -62693,6 +67922,8 @@ class SponsoredWebPage extends SponsoredWebPageBase {
     if (localPhotoCopy != null) {
       buffer.writeObject(localPhotoCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -62783,7 +68014,10 @@ class StoryViews extends StoryViewsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8d595cd6.
     buffer.writeInt32(0x8d595cd6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(viewsCount);
     final localForwardsCountCopy = forwardsCount;
@@ -62802,6 +68036,8 @@ class StoryViews extends StoryViewsBase {
     if (localRecentViewersCopy != null) {
       buffer.writeVectorInt64(localRecentViewersCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -62842,8 +68078,13 @@ class StoryItemDeleted extends StoryItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x51e6ee4f.
     buffer.writeInt32(0x51e6ee4f);
+
+    // Write fields.
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -62906,11 +68147,16 @@ class StoryItemSkipped extends StoryItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xffadc913.
     buffer.writeInt32(0xffadc913);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeDateTime(date);
     buffer.writeDateTime(expireDate);
+
+    // Finished serialization.
   }
 }
 
@@ -63096,7 +68342,10 @@ class StoryItem extends StoryItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaf6365a1.
     buffer.writeInt32(0xaf6365a1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeDateTime(date);
@@ -63130,6 +68379,8 @@ class StoryItem extends StoryItemBase {
     if (localSentReactionCopy != null) {
       buffer.writeObject(localSentReactionCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -63182,10 +68433,15 @@ class StoriesAllStoriesNotModified extends StoriesAllStoriesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1158fe3e.
     buffer.writeInt32(0x1158fe3e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(state);
     buffer.writeObject(stealthMode);
+
+    // Finished serialization.
   }
 }
 
@@ -63266,7 +68522,10 @@ class StoriesAllStories extends StoriesAllStoriesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6efc5e81.
     buffer.writeInt32(0x6efc5e81);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeString(state);
@@ -63274,6 +68533,8 @@ class StoriesAllStories extends StoriesAllStoriesBase {
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
     buffer.writeObject(stealthMode);
+
+    // Finished serialization.
   }
 }
 
@@ -63332,11 +68593,16 @@ class StoriesStories extends StoriesStoriesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5dd8c3c8.
     buffer.writeInt32(0x5dd8c3c8);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(stories);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -63415,7 +68681,10 @@ class StoryView extends StoryViewBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb0bdeac5.
     buffer.writeInt32(0xb0bdeac5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeDateTime(date);
@@ -63423,6 +68692,8 @@ class StoryView extends StoryViewBase {
     if (localReactionCopy != null) {
       buffer.writeObject(localReactionCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -63478,9 +68749,14 @@ class StoryViewPublicForward extends StoryViewBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9083670b.
     buffer.writeInt32(0x9083670b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -63542,10 +68818,15 @@ class StoryViewPublicRepost extends StoryViewBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd74cf49.
     buffer.writeInt32(0xbd74cf49);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peerId);
     buffer.writeObject(story);
+
+    // Finished serialization.
   }
 }
 
@@ -63645,7 +68926,10 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x59d78fc5.
     buffer.writeInt32(0x59d78fc5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeInt32(viewsCount);
@@ -63658,6 +68942,8 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
     if (localNextOffsetCopy != null) {
       buffer.writeString(localNextOffsetCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -63702,9 +68988,14 @@ class StoriesStoryViews extends StoriesStoryViewsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xde9eed1d.
     buffer.writeInt32(0xde9eed1d);
+
+    // Write fields.
     buffer.writeVectorObject(views);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -63797,7 +69088,10 @@ class InputReplyToMessage extends InputReplyToBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x22c0f6d5.
     buffer.writeInt32(0x22c0f6d5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(replyToMsgId);
     final localTopMsgIdCopy = topMsgId;
@@ -63820,6 +69114,8 @@ class InputReplyToMessage extends InputReplyToBase {
     if (localQuoteOffsetCopy != null) {
       buffer.writeInt32(localQuoteOffsetCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -63860,9 +69156,14 @@ class InputReplyToStory extends InputReplyToBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15b0f283.
     buffer.writeInt32(0x15b0f283);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeInt32(storyId);
+
+    // Finished serialization.
   }
 }
 
@@ -63901,8 +69202,13 @@ class ExportedStoryLink extends ExportedStoryLinkBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3fc9053b.
     buffer.writeInt32(0x3fc9053b);
+
+    // Write fields.
     buffer.writeString(link);
+
+    // Finished serialization.
   }
 }
 
@@ -63962,7 +69268,10 @@ class StoriesStealthMode extends StoriesStealthModeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x712e27fd.
     buffer.writeInt32(0x712e27fd);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localActiveUntilDateCopy = activeUntilDate;
     if (localActiveUntilDateCopy != null) {
@@ -63972,6 +69281,8 @@ class StoriesStealthMode extends StoriesStealthModeBase {
     if (localCooldownUntilDateCopy != null) {
       buffer.writeDateTime(localCooldownUntilDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -64034,12 +69345,17 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x03d1ea4e.
     buffer.writeInt32(0x03d1ea4e);
+
+    // Write fields.
     buffer.writeDouble(x);
     buffer.writeDouble(y);
     buffer.writeDouble(w);
     buffer.writeDouble(h);
     buffer.writeDouble(rotation);
+
+    // Finished serialization.
   }
 }
 
@@ -64114,7 +69430,10 @@ class MediaAreaVenue extends MediaAreaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbe82db9c.
     buffer.writeInt32(0xbe82db9c);
+
+    // Write fields.
     buffer.writeObject(coordinates);
     buffer.writeObject(geo);
     buffer.writeString(title);
@@ -64122,6 +69441,8 @@ class MediaAreaVenue extends MediaAreaBase {
     buffer.writeString(provider);
     buffer.writeString(venueId);
     buffer.writeString(venueType);
+
+    // Finished serialization.
   }
 }
 
@@ -64168,10 +69489,15 @@ class InputMediaAreaVenue extends MediaAreaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb282217f.
     buffer.writeInt32(0xb282217f);
+
+    // Write fields.
     buffer.writeObject(coordinates);
     buffer.writeInt64(queryId);
     buffer.writeString(resultId);
+
+    // Finished serialization.
   }
 }
 
@@ -64210,9 +69536,14 @@ class MediaAreaGeoPoint extends MediaAreaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdf8b3b22.
     buffer.writeInt32(0xdf8b3b22);
+
+    // Write fields.
     buffer.writeObject(coordinates);
     buffer.writeObject(geo);
+
+    // Finished serialization.
   }
 }
 
@@ -64274,10 +69605,15 @@ class MediaAreaSuggestedReaction extends MediaAreaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x14455871.
     buffer.writeInt32(0x14455871);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(coordinates);
     buffer.writeObject(reaction);
+
+    // Finished serialization.
   }
 }
 
@@ -64326,10 +69662,15 @@ class MediaAreaChannelPost extends MediaAreaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x770416af.
     buffer.writeInt32(0x770416af);
+
+    // Write fields.
     buffer.writeObject(coordinates);
     buffer.writeInt64(channelId);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -64376,10 +69717,15 @@ class InputMediaAreaChannelPost extends MediaAreaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2271f2bf.
     buffer.writeInt32(0x2271f2bf);
+
+    // Write fields.
     buffer.writeObject(coordinates);
     buffer.writeObject(channel);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -64441,7 +69787,10 @@ class PeerStories extends PeerStoriesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a35e999.
     buffer.writeInt32(0x9a35e999);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localMaxReadIdCopy = maxReadId;
@@ -64449,6 +69798,8 @@ class PeerStories extends PeerStoriesBase {
       buffer.writeInt32(localMaxReadIdCopy);
     }
     buffer.writeVectorObject(stories);
+
+    // Finished serialization.
   }
 }
 
@@ -64499,10 +69850,15 @@ class StoriesPeerStories extends StoriesPeerStoriesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcae68768.
     buffer.writeInt32(0xcae68768);
+
+    // Write fields.
     buffer.writeObject(stories);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -64553,10 +69909,15 @@ class MessagesWebPage extends MessagesWebPageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfd5e12bd.
     buffer.writeInt32(0xfd5e12bd);
+
+    // Write fields.
     buffer.writeObject(webpage);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -64644,7 +70005,10 @@ class PremiumGiftCodeOption extends PremiumGiftCodeOptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x257e962b.
     buffer.writeInt32(0x257e962b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(users);
     buffer.writeInt32(months);
@@ -64658,6 +70022,8 @@ class PremiumGiftCodeOption extends PremiumGiftCodeOptionBase {
     }
     buffer.writeString(currency);
     buffer.writeInt64(amount);
+
+    // Finished serialization.
   }
 }
 
@@ -64764,7 +70130,10 @@ class PaymentsCheckedGiftCode extends PaymentsCheckedGiftCodeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x284a1096.
     buffer.writeInt32(0x284a1096);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFromIdCopy = fromId;
     if (localFromIdCopy != null) {
@@ -64786,6 +70155,8 @@ class PaymentsCheckedGiftCode extends PaymentsCheckedGiftCodeBase {
     }
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -64874,7 +70245,10 @@ class PaymentsGiveawayInfo extends PaymentsGiveawayInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4367daa0.
     buffer.writeInt32(0x4367daa0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(startDate);
     final localJoinedTooEarlyDateCopy = joinedTooEarlyDate;
@@ -64889,6 +70263,8 @@ class PaymentsGiveawayInfo extends PaymentsGiveawayInfoBase {
     if (localDisallowedCountryCopy != null) {
       buffer.writeString(localDisallowedCountryCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -64973,7 +70349,10 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x00cd5570.
     buffer.writeInt32(0x00cd5570);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(startDate);
     final localGiftCodeSlugCopy = giftCodeSlug;
@@ -64983,6 +70362,8 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
     buffer.writeDateTime(finishDate);
     buffer.writeInt32(winnersCount);
     buffer.writeInt32(activatedCount);
+
+    // Finished serialization.
   }
 }
 
@@ -65045,11 +70426,16 @@ class PrepaidGiveaway extends PrepaidGiveawayBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb2539d54.
     buffer.writeInt32(0xb2539d54);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(months);
     buffer.writeInt32(quantity);
     buffer.writeDateTime(date);
+
+    // Finished serialization.
   }
 }
 
@@ -65163,7 +70549,10 @@ class Boost extends BoostBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2a1c8c71.
     buffer.writeInt32(0x2a1c8c71);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(id);
     final localUserIdCopy = userId;
@@ -65184,6 +70573,8 @@ class Boost extends BoostBase {
     if (localMultiplierCopy != null) {
       buffer.writeInt32(localMultiplierCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -65253,7 +70644,10 @@ class PremiumBoostsList extends PremiumBoostsListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x86f8613c.
     buffer.writeInt32(0x86f8613c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(boosts);
@@ -65262,6 +70656,8 @@ class PremiumBoostsList extends PremiumBoostsListBase {
       buffer.writeString(localNextOffsetCopy);
     }
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -65342,7 +70738,10 @@ class MyBoost extends MyBoostBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc448415c.
     buffer.writeInt32(0xc448415c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(slot);
     final localPeerCopy = peer;
@@ -65355,6 +70754,8 @@ class MyBoost extends MyBoostBase {
     if (localCooldownUntilDateCopy != null) {
       buffer.writeDateTime(localCooldownUntilDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -65405,10 +70806,15 @@ class PremiumMyBoosts extends PremiumMyBoostsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9ae228e2.
     buffer.writeInt32(0x9ae228e2);
+
+    // Write fields.
     buffer.writeVectorObject(myBoosts);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -65530,7 +70936,10 @@ class PremiumBoostsStatus extends PremiumBoostsStatusBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4959427a.
     buffer.writeInt32(0x4959427a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(level);
     buffer.writeInt32(currentLevelBoosts);
@@ -65556,6 +70965,8 @@ class PremiumBoostsStatus extends PremiumBoostsStatusBase {
     if (localMyBoostSlotsCopy != null) {
       buffer.writeVectorInt32(localMyBoostSlotsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -65628,7 +71039,10 @@ class StoryFwdHeader extends StoryFwdHeaderBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb826e150.
     buffer.writeInt32(0xb826e150);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFromCopy = from;
     if (localFromCopy != null) {
@@ -65642,6 +71056,8 @@ class StoryFwdHeader extends StoryFwdHeaderBase {
     if (localStoryIdCopy != null) {
       buffer.writeInt32(localStoryIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -65706,11 +71122,16 @@ class PostInteractionCountersMessage extends PostInteractionCountersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe7058e7f.
     buffer.writeInt32(0xe7058e7f);
+
+    // Write fields.
     buffer.writeInt32(msgId);
     buffer.writeInt32(views);
     buffer.writeInt32(forwards);
     buffer.writeInt32(reactions);
+
+    // Finished serialization.
   }
 }
 
@@ -65769,11 +71190,16 @@ class PostInteractionCountersStory extends PostInteractionCountersBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8a480e27.
     buffer.writeInt32(0x8a480e27);
+
+    // Write fields.
     buffer.writeInt32(storyId);
     buffer.writeInt32(views);
     buffer.writeInt32(forwards);
     buffer.writeInt32(reactions);
+
+    // Finished serialization.
   }
 }
 
@@ -65818,9 +71244,14 @@ class StatsStoryStats extends StatsStoryStatsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x50cd067c.
     buffer.writeInt32(0x50cd067c);
+
+    // Write fields.
     buffer.writeObject(viewsGraph);
     buffer.writeObject(reactionsByEmotionGraph);
+
+    // Finished serialization.
   }
 }
 
@@ -65859,8 +71290,13 @@ class PublicForwardMessage extends PublicForwardBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x01f2bf4a.
     buffer.writeInt32(0x01f2bf4a);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -65899,9 +71335,14 @@ class PublicForwardStory extends PublicForwardBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xedf3add0.
     buffer.writeInt32(0xedf3add0);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(story);
+
+    // Finished serialization.
   }
 }
 
@@ -65977,7 +71418,10 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x93037e20.
     buffer.writeInt32(0x93037e20);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(forwards);
@@ -65987,6 +71431,8 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
     }
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -66045,7 +71491,10 @@ class PeerColor extends PeerColorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb54b5acf.
     buffer.writeInt32(0xb54b5acf);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localColorCopy = color;
     if (localColorCopy != null) {
@@ -66055,6 +71504,8 @@ class PeerColor extends PeerColorBase {
     if (localBackgroundEmojiIdCopy != null) {
       buffer.writeInt64(localBackgroundEmojiIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -66093,8 +71544,13 @@ class HelpPeerColorSet extends HelpPeerColorSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x26219a58.
     buffer.writeInt32(0x26219a58);
+
+    // Write fields.
     buffer.writeVectorInt32(colors);
+
+    // Finished serialization.
   }
 }
 
@@ -66139,10 +71595,15 @@ class HelpPeerColorProfileSet extends HelpPeerColorSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x767d61eb.
     buffer.writeInt32(0x767d61eb);
+
+    // Write fields.
     buffer.writeVectorInt32(paletteColors);
     buffer.writeVectorInt32(bgColors);
     buffer.writeVectorInt32(storyColors);
+
+    // Finished serialization.
   }
 }
 
@@ -66225,7 +71686,10 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xef8430ab.
     buffer.writeInt32(0xef8430ab);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(colorId);
     final localColorsCopy = colors;
@@ -66240,6 +71704,8 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
     if (localChannelMinLevelCopy != null) {
       buffer.writeInt32(localChannelMinLevelCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -66268,7 +71734,10 @@ class HelpPeerColorsNotModified extends HelpPeerColorsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2ba1f5ce.
     buffer.writeInt32(0x2ba1f5ce);
+
+    // Finished serialization.
   }
 }
 
@@ -66309,9 +71778,14 @@ class HelpPeerColors extends HelpPeerColorsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x00f8ed08.
     buffer.writeInt32(0x00f8ed08);
+
+    // Write fields.
     buffer.writeInt32(hash);
     buffer.writeVectorObject(colors);
+
+    // Finished serialization.
   }
 }
 
@@ -66362,10 +71836,15 @@ class StoryReaction extends StoryReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6090d6d5.
     buffer.writeInt32(0x6090d6d5);
+
+    // Write fields.
     buffer.writeObject(peerId);
     buffer.writeDateTime(date);
     buffer.writeObject(reaction);
+
+    // Finished serialization.
   }
 }
 
@@ -66398,8 +71877,13 @@ class StoryReactionPublicForward extends StoryReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbbab2643.
     buffer.writeInt32(0xbbab2643);
+
+    // Write fields.
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -66438,9 +71922,14 @@ class StoryReactionPublicRepost extends StoryReactionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcfcd0f13.
     buffer.writeInt32(0xcfcd0f13);
+
+    // Write fields.
     buffer.writeObject(peerId);
     buffer.writeObject(story);
+
+    // Finished serialization.
   }
 }
 
@@ -66516,7 +72005,10 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaa5f789c.
     buffer.writeInt32(0xaa5f789c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(reactions);
@@ -66526,6 +72018,8 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
     if (localNextOffsetCopy != null) {
       buffer.writeString(localNextOffsetCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -66588,10 +72082,15 @@ class SavedDialog extends SavedDialogBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd87cb6c.
     buffer.writeInt32(0xbd87cb6c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(topMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -66648,11 +72147,16 @@ class MessagesSavedDialogs extends MessagesSavedDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf83ae221.
     buffer.writeInt32(0xf83ae221);
+
+    // Write fields.
     buffer.writeVectorObject(dialogs);
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -66711,12 +72215,17 @@ class MessagesSavedDialogsSlice extends MessagesSavedDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x44ba9dd9.
     buffer.writeInt32(0x44ba9dd9);
+
+    // Write fields.
     buffer.writeInt32(count);
     buffer.writeVectorObject(dialogs);
     buffer.writeVectorObject(messages);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -66751,8 +72260,13 @@ class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc01f6fe8.
     buffer.writeInt32(0xc01f6fe8);
+
+    // Write fields.
     buffer.writeInt32(count);
+
+    // Finished serialization.
   }
 }
 
@@ -66793,9 +72307,14 @@ class InvokeAfterMsg<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcb9f372d.
     buffer.writeInt32(0xcb9f372d);
+
+    // Write fields.
     buffer.writeInt64(msgId);
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -66834,9 +72353,14 @@ class InvokeAfterMsgs<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dc4b4f0.
     buffer.writeInt32(0x3dc4b4f0);
+
+    // Write fields.
     buffer.writeVectorInt64(msgIds);
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -66889,11 +72413,16 @@ class AuthSendCode extends TlMethod<AuthSentCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa677244f.
     buffer.writeInt32(0xa677244f);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeInt32(apiId);
     buffer.writeString(apiHash);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -66944,11 +72473,16 @@ class AuthSignUp extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x80eee427.
     buffer.writeInt32(0x80eee427);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
+
+    // Finished serialization.
   }
 }
 
@@ -67014,7 +72548,10 @@ class AuthSignIn extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8d52a951.
     buffer.writeInt32(0x8d52a951);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
@@ -67026,6 +72563,8 @@ class AuthSignIn extends TlMethod<AuthAuthorizationBase> {
     if (localEmailVerificationCopy != null) {
       buffer.writeObject(localEmailVerificationCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -67048,7 +72587,10 @@ class AuthLogOut extends TlMethod<AuthLoggedOutBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3e72ba19.
     buffer.writeInt32(0x3e72ba19);
+
+    // Finished serialization.
   }
 }
 
@@ -67071,7 +72613,10 @@ class AuthResetAuthorizations extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9fab0d1a.
     buffer.writeInt32(0x9fab0d1a);
+
+    // Finished serialization.
   }
 }
 
@@ -67106,8 +72651,13 @@ class AuthExportAuthorization extends TlMethod<AuthExportedAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe5bfffcd.
     buffer.writeInt32(0xe5bfffcd);
+
+    // Write fields.
     buffer.writeInt32(dcId);
+
+    // Finished serialization.
   }
 }
 
@@ -67148,9 +72698,14 @@ class AuthImportAuthorization extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa57a7dad.
     buffer.writeInt32(0xa57a7dad);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -67207,11 +72762,16 @@ class AuthBindTempAuthKey extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcdd42a05.
     buffer.writeInt32(0xcdd42a05);
+
+    // Write fields.
     buffer.writeInt64(permAuthKeyId);
     buffer.writeInt64(nonce);
     buffer.writeInt32(expiresAt);
     buffer.writeBytes(encryptedMessage);
+
+    // Finished serialization.
   }
 }
 
@@ -67286,13 +72846,18 @@ class AccountRegisterDevice extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xec86017a.
     buffer.writeInt32(0xec86017a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(tokenType);
     buffer.writeString(token);
     buffer.writeBool(appSandbox);
     buffer.writeBytes(secret);
     buffer.writeVectorInt64(otherUids);
+
+    // Finished serialization.
   }
 }
 
@@ -67339,10 +72904,15 @@ class AccountUnregisterDevice extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a0d3206.
     buffer.writeInt32(0x6a0d3206);
+
+    // Write fields.
     buffer.writeInt32(tokenType);
     buffer.writeString(token);
     buffer.writeVectorInt64(otherUids);
+
+    // Finished serialization.
   }
 }
 
@@ -67381,9 +72951,14 @@ class AccountUpdateNotifySettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x84be5b93.
     buffer.writeInt32(0x84be5b93);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -67416,8 +72991,13 @@ class AccountGetNotifySettings extends TlMethod<PeerNotifySettingsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x12b3ad31.
     buffer.writeInt32(0x12b3ad31);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -67440,7 +73020,10 @@ class AccountResetNotifySettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdb7e1747.
     buffer.writeInt32(0xdb7e1747);
+
+    // Finished serialization.
   }
 }
 
@@ -67500,7 +73083,10 @@ class AccountUpdateProfile extends TlMethod<UserBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x78515775.
     buffer.writeInt32(0x78515775);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFirstNameCopy = firstName;
     if (localFirstNameCopy != null) {
@@ -67514,6 +73100,8 @@ class AccountUpdateProfile extends TlMethod<UserBase> {
     if (localAboutCopy != null) {
       buffer.writeString(localAboutCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -67546,8 +73134,13 @@ class AccountUpdateStatus extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6628562c.
     buffer.writeInt32(0x6628562c);
+
+    // Write fields.
     buffer.writeBool(offline);
+
+    // Finished serialization.
   }
 }
 
@@ -67582,8 +73175,13 @@ class AccountGetWallPapers extends TlMethod<AccountWallPapersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x07967d36.
     buffer.writeInt32(0x07967d36);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -67628,10 +73226,15 @@ class AccountReportPeer extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc5ba3d86.
     buffer.writeInt32(0xc5ba3d86);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(reason);
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -67664,8 +73267,13 @@ class UsersGetUsers extends TlMethod<List<UserBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0d91a548.
     buffer.writeInt32(0x0d91a548);
+
+    // Write fields.
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -67698,8 +73306,13 @@ class UsersGetFullUser extends TlMethod<UsersUserFullBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb60f5918.
     buffer.writeInt32(0xb60f5918);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -67734,8 +73347,13 @@ class ContactsGetContactIDs extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7adc669d.
     buffer.writeInt32(0x7adc669d);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -67758,7 +73376,10 @@ class ContactsGetStatuses extends TlMethod<List<ContactStatusBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc4a353ee.
     buffer.writeInt32(0xc4a353ee);
+
+    // Finished serialization.
   }
 }
 
@@ -67793,8 +73414,13 @@ class ContactsGetContacts extends TlMethod<ContactsContactsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5dd69e12.
     buffer.writeInt32(0x5dd69e12);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -67827,8 +73453,13 @@ class ContactsImportContacts extends TlMethod<ContactsImportedContactsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2c800be5.
     buffer.writeInt32(0x2c800be5);
+
+    // Write fields.
     buffer.writeVectorObject(contacts);
+
+    // Finished serialization.
   }
 }
 
@@ -67861,8 +73492,13 @@ class ContactsDeleteContacts extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x096a0e00.
     buffer.writeInt32(0x096a0e00);
+
+    // Write fields.
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -67895,8 +73531,13 @@ class ContactsDeleteByPhones extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1013fd9e.
     buffer.writeInt32(0x1013fd9e);
+
+    // Write fields.
     buffer.writeVectorString(phones);
+
+    // Finished serialization.
   }
 }
 
@@ -67945,9 +73586,14 @@ class ContactsBlock extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2e2e8734.
     buffer.writeInt32(0x2e2e8734);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -67996,9 +73642,14 @@ class ContactsUnblock extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb550d328.
     buffer.writeInt32(0xb550d328);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -68057,10 +73708,15 @@ class ContactsGetBlocked extends TlMethod<ContactsBlockedBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a868f80.
     buffer.writeInt32(0x9a868f80);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -68093,8 +73749,13 @@ class MessagesGetMessages extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x63c66506.
     buffer.writeInt32(0x63c66506);
+
+    // Write fields.
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -68181,7 +73842,10 @@ class MessagesGetDialogs extends TlMethod<MessagesDialogsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa0f4cb4f.
     buffer.writeInt32(0xa0f4cb4f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
@@ -68192,6 +73856,8 @@ class MessagesGetDialogs extends TlMethod<MessagesDialogsBase> {
     buffer.writeObject(offsetPeer);
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -68278,7 +73944,10 @@ class MessagesGetHistory extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4423e6c5.
     buffer.writeInt32(0x4423e6c5);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(offsetId);
     buffer.writeDateTime(offsetDate);
@@ -68287,6 +73956,8 @@ class MessagesGetHistory extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt32(maxId);
     buffer.writeInt32(minId);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -68425,7 +74096,10 @@ class MessagesSearch extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa7b4e929.
     buffer.writeInt32(0xa7b4e929);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeString(q);
@@ -68450,6 +74124,8 @@ class MessagesSearch extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt32(maxId);
     buffer.writeInt32(minId);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -68490,9 +74166,14 @@ class MessagesReadHistory extends TlMethod<MessagesAffectedMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0e306d3a.
     buffer.writeInt32(0x0e306d3a);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -68572,7 +74253,10 @@ class MessagesDeleteHistory extends TlMethod<MessagesAffectedHistoryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb08f922a.
     buffer.writeInt32(0xb08f922a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(maxId);
@@ -68584,6 +74268,8 @@ class MessagesDeleteHistory extends TlMethod<MessagesAffectedHistoryBase> {
     if (localMaxDateCopy != null) {
       buffer.writeDateTime(localMaxDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -68632,9 +74318,14 @@ class MessagesDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe58e95d2.
     buffer.writeInt32(0xe58e95d2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -68670,8 +74361,13 @@ class MessagesReceivedMessages
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x05a954c0.
     buffer.writeInt32(0x05a954c0);
+
+    // Write fields.
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -68727,7 +74423,10 @@ class MessagesSetTyping extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x58943ee2.
     buffer.writeInt32(0x58943ee2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
@@ -68735,6 +74434,8 @@ class MessagesSetTyping extends TlMethod<bool> {
       buffer.writeInt32(localTopMsgIdCopy);
     }
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -68882,7 +74583,10 @@ class MessagesSendMessage extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x280d096f.
     buffer.writeInt32(0x280d096f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localReplyToCopy = replyTo;
@@ -68907,6 +74611,8 @@ class MessagesSendMessage extends TlMethod<UpdatesBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -69053,7 +74759,10 @@ class MessagesSendMedia extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x72ccc23d.
     buffer.writeInt32(0x72ccc23d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localReplyToCopy = replyTo;
@@ -69079,6 +74788,8 @@ class MessagesSendMedia extends TlMethod<UpdatesBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -69204,7 +74915,10 @@ class MessagesForwardMessages extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc661bbc4.
     buffer.writeInt32(0xc661bbc4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(fromPeer);
     buffer.writeVectorInt32(id);
@@ -69222,6 +74936,8 @@ class MessagesForwardMessages extends TlMethod<UpdatesBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -69254,8 +74970,13 @@ class MessagesReportSpam extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcf1592db.
     buffer.writeInt32(0xcf1592db);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -69288,8 +75009,13 @@ class MessagesGetPeerSettings extends TlMethod<MessagesPeerSettingsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xefd9a6a2.
     buffer.writeInt32(0xefd9a6a2);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -69340,11 +75066,16 @@ class MessagesReport extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8953ab4e.
     buffer.writeInt32(0x8953ab4e);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
     buffer.writeObject(reason);
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -69377,8 +75108,13 @@ class MessagesGetChats extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x49e9528f.
     buffer.writeInt32(0x49e9528f);
+
+    // Write fields.
     buffer.writeVectorInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -69413,8 +75149,13 @@ class MessagesGetFullChat extends TlMethod<MessagesChatFullBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaeb00b34.
     buffer.writeInt32(0xaeb00b34);
+
+    // Write fields.
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -69455,9 +75196,14 @@ class MessagesEditChatTitle extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73783ffd.
     buffer.writeInt32(0x73783ffd);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -69498,9 +75244,14 @@ class MessagesEditChatPhoto extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35ddd674.
     buffer.writeInt32(0x35ddd674);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeObject(photo);
+
+    // Finished serialization.
   }
 }
 
@@ -69549,10 +75300,15 @@ class MessagesAddChatUser extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf24753e3.
     buffer.writeInt32(0xf24753e3);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeObject(userId);
     buffer.writeInt32(fwdLimit);
+
+    // Finished serialization.
   }
 }
 
@@ -69609,10 +75365,15 @@ class MessagesDeleteChatUser extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa2185cab.
     buffer.writeInt32(0xa2185cab);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(chatId);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -69668,7 +75429,10 @@ class MessagesCreateChat extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0034a818.
     buffer.writeInt32(0x0034a818);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(users);
     buffer.writeString(title);
@@ -69676,6 +75440,8 @@ class MessagesCreateChat extends TlMethod<UpdatesBase> {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -69698,7 +75464,10 @@ class UpdatesGetState extends TlMethod<UpdatesStateBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xedd4882a.
     buffer.writeInt32(0xedd4882a);
+
+    // Finished serialization.
   }
 }
 
@@ -69780,7 +75549,10 @@ class UpdatesGetDifference extends TlMethod<UpdatesDifferenceBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x19c2f763.
     buffer.writeInt32(0x19c2f763);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(pts);
     final localPtsLimitCopy = ptsLimit;
@@ -69797,6 +75569,8 @@ class UpdatesGetDifference extends TlMethod<UpdatesDifferenceBase> {
     if (localQtsLimitCopy != null) {
       buffer.writeInt32(localQtsLimitCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -69853,13 +75627,18 @@ class PhotosUpdateProfilePhoto extends TlMethod<PhotosPhotoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x09e82039.
     buffer.writeInt32(0x09e82039);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBotCopy = bot;
     if (localBotCopy != null) {
       buffer.writeObject(localBotCopy);
     }
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -69943,7 +75722,10 @@ class PhotosUploadProfilePhoto extends TlMethod<PhotosPhotoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0388a3b5.
     buffer.writeInt32(0x0388a3b5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBotCopy = bot;
     if (localBotCopy != null) {
@@ -69965,6 +75747,8 @@ class PhotosUploadProfilePhoto extends TlMethod<PhotosPhotoBase> {
     if (localVideoEmojiMarkupCopy != null) {
       buffer.writeObject(localVideoEmojiMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -69997,8 +75781,13 @@ class PhotosDeletePhotos extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x87cf7f2f.
     buffer.writeInt32(0x87cf7f2f);
+
+    // Write fields.
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -70047,10 +75836,15 @@ class UploadSaveFilePart extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb304a621.
     buffer.writeInt32(0xb304a621);
+
+    // Write fields.
     buffer.writeInt64(fileId);
     buffer.writeInt32(filePart);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -70122,11 +75916,16 @@ class UploadGetFile extends TlMethod<UploadFileBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbe5335be.
     buffer.writeInt32(0xbe5335be);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(location);
     buffer.writeInt64(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -70149,7 +75948,10 @@ class HelpGetConfig extends TlMethod<ConfigBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc4f9186b.
     buffer.writeInt32(0xc4f9186b);
+
+    // Finished serialization.
   }
 }
 
@@ -70172,7 +75974,10 @@ class HelpGetNearestDc extends TlMethod<NearestDcBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1fb33026.
     buffer.writeInt32(0x1fb33026);
+
+    // Finished serialization.
   }
 }
 
@@ -70205,8 +76010,13 @@ class HelpGetAppUpdate extends TlMethod<HelpAppUpdateBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x522d5a7d.
     buffer.writeInt32(0x522d5a7d);
+
+    // Write fields.
     buffer.writeString(source);
+
+    // Finished serialization.
   }
 }
 
@@ -70229,7 +76039,10 @@ class HelpGetInviteText extends TlMethod<HelpInviteTextBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4d392343.
     buffer.writeInt32(0x4d392343);
+
+    // Finished serialization.
   }
 }
 
@@ -70286,11 +76099,16 @@ class PhotosGetUserPhotos extends TlMethod<PhotosPhotosBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x91cd32a8.
     buffer.writeInt32(0x91cd32a8);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeInt32(offset);
     buffer.writeInt64(maxId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -70333,9 +76151,14 @@ class MessagesGetDhConfig extends TlMethod<MessagesDhConfigBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x26cf8950.
     buffer.writeInt32(0x26cf8950);
+
+    // Write fields.
     buffer.writeInt32(version);
     buffer.writeInt32(randomLength);
+
+    // Finished serialization.
   }
 }
 
@@ -70382,10 +76205,15 @@ class MessagesRequestEncryption extends TlMethod<EncryptedChatBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf64daf43.
     buffer.writeInt32(0xf64daf43);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeInt32(randomId);
     buffer.writeBytes(gA);
+
+    // Finished serialization.
   }
 }
 
@@ -70432,10 +76260,15 @@ class MessagesAcceptEncryption extends TlMethod<EncryptedChatBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dbc0415.
     buffer.writeInt32(0x3dbc0415);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBytes(gB);
     buffer.writeInt64(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -70486,9 +76319,14 @@ class MessagesDiscardEncryption extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf393aea0.
     buffer.writeInt32(0xf393aea0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -70527,9 +76365,14 @@ class MessagesSetEncryptedTyping extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x791451ed.
     buffer.writeInt32(0x791451ed);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBool(typing);
+
+    // Finished serialization.
   }
 }
 
@@ -70568,9 +76411,14 @@ class MessagesReadEncryptedHistory extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7f4b690a.
     buffer.writeInt32(0x7f4b690a);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeDateTime(maxDate);
+
+    // Finished serialization.
   }
 }
 
@@ -70633,11 +76481,16 @@ class MessagesSendEncrypted extends TlMethod<MessagesSentEncryptedMessageBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x44fa7a15.
     buffer.writeInt32(0x44fa7a15);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt64(randomId);
     buffer.writeBytes(data);
+
+    // Finished serialization.
   }
 }
 
@@ -70707,12 +76560,17 @@ class MessagesSendEncryptedFile
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5559481d.
     buffer.writeInt32(0x5559481d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt64(randomId);
     buffer.writeBytes(data);
     buffer.writeObject(file);
+
+    // Finished serialization.
   }
 }
 
@@ -70760,10 +76618,15 @@ class MessagesSendEncryptedService
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x32d439a4.
     buffer.writeInt32(0x32d439a4);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt64(randomId);
     buffer.writeBytes(data);
+
+    // Finished serialization.
   }
 }
 
@@ -70798,8 +76661,13 @@ class MessagesReceivedQueue extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x55a5bb66.
     buffer.writeInt32(0x55a5bb66);
+
+    // Write fields.
     buffer.writeInt32(maxQts);
+
+    // Finished serialization.
   }
 }
 
@@ -70832,8 +76700,13 @@ class MessagesReportEncryptedSpam extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4b0c8c0f.
     buffer.writeInt32(0x4b0c8c0f);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -70890,11 +76763,16 @@ class UploadSaveBigFilePart extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xde7b673d.
     buffer.writeInt32(0xde7b673d);
+
+    // Write fields.
     buffer.writeInt64(fileId);
     buffer.writeInt32(filePart);
     buffer.writeInt32(fileTotalParts);
     buffer.writeBytes(bytes);
+
+    // Finished serialization.
   }
 }
 
@@ -70997,7 +76875,10 @@ class InitConnection<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc1cd5ea9.
     buffer.writeInt32(0xc1cd5ea9);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(apiId);
     buffer.writeString(deviceModel);
@@ -71015,6 +76896,8 @@ class InitConnection<X> extends TlMethod<X> {
       buffer.writeObject(localParamsCopy);
     }
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -71037,7 +76920,10 @@ class HelpGetSupport extends TlMethod<HelpSupportBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9cdf08cd.
     buffer.writeInt32(0x9cdf08cd);
+
+    // Finished serialization.
   }
 }
 
@@ -71071,8 +76957,13 @@ class MessagesReadMessageContents
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x36a73f77.
     buffer.writeInt32(0x36a73f77);
+
+    // Write fields.
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -71105,8 +76996,13 @@ class AccountCheckUsername extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2714d86c.
     buffer.writeInt32(0x2714d86c);
+
+    // Write fields.
     buffer.writeString(username);
+
+    // Finished serialization.
   }
 }
 
@@ -71139,8 +77035,13 @@ class AccountUpdateUsername extends TlMethod<UserBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3e0bdd7c.
     buffer.writeInt32(0x3e0bdd7c);
+
+    // Write fields.
     buffer.writeString(username);
+
+    // Finished serialization.
   }
 }
 
@@ -71181,9 +77082,14 @@ class ContactsSearch extends TlMethod<ContactsFoundBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x11f812d8.
     buffer.writeInt32(0x11f812d8);
+
+    // Write fields.
     buffer.writeString(q);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -71216,8 +77122,13 @@ class AccountGetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdadbc950.
     buffer.writeInt32(0xdadbc950);
+
+    // Write fields.
     buffer.writeObject(key);
+
+    // Finished serialization.
   }
 }
 
@@ -71256,9 +77167,14 @@ class AccountSetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc9f81ce8.
     buffer.writeInt32(0xc9f81ce8);
+
+    // Write fields.
     buffer.writeObject(key);
     buffer.writeVectorObject(rules);
+
+    // Finished serialization.
   }
 }
 
@@ -71310,13 +77226,18 @@ class AccountDeleteAccount extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa2c0cf74.
     buffer.writeInt32(0xa2c0cf74);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(reason);
     final localPasswordCopy = password;
     if (localPasswordCopy != null) {
       buffer.writeObject(localPasswordCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -71339,7 +77260,10 @@ class AccountGetAccountTTL extends TlMethod<AccountDaysTTLBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x08fc711d.
     buffer.writeInt32(0x08fc711d);
+
+    // Finished serialization.
   }
 }
 
@@ -71372,8 +77296,13 @@ class AccountSetAccountTTL extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2442485e.
     buffer.writeInt32(0x2442485e);
+
+    // Write fields.
     buffer.writeObject(ttl);
+
+    // Finished serialization.
   }
 }
 
@@ -71414,9 +77343,14 @@ class InvokeWithLayer<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xda9b0d0d.
     buffer.writeInt32(0xda9b0d0d);
+
+    // Write fields.
     buffer.writeInt32(layer);
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -71449,8 +77383,13 @@ class ContactsResolveUsername extends TlMethod<ContactsResolvedPeerBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf93ccba3.
     buffer.writeInt32(0xf93ccba3);
+
+    // Write fields.
     buffer.writeString(username);
+
+    // Finished serialization.
   }
 }
 
@@ -71489,9 +77428,14 @@ class AccountSendChangePhoneCode extends TlMethod<AuthSentCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x82574ae5.
     buffer.writeInt32(0x82574ae5);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -71536,10 +77480,15 @@ class AccountChangePhone extends TlMethod<UserBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x70c32edb.
     buffer.writeInt32(0x70c32edb);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
     buffer.writeString(phoneCode);
+
+    // Finished serialization.
   }
 }
 
@@ -71580,9 +77529,14 @@ class MessagesGetStickers extends TlMethod<MessagesStickersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd5a5d3a1.
     buffer.writeInt32(0xd5a5d3a1);
+
+    // Write fields.
     buffer.writeString(emoticon);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -71617,8 +77571,13 @@ class MessagesGetAllStickers extends TlMethod<MessagesAllStickersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb8a0a1a8.
     buffer.writeInt32(0xb8a0a1a8);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -71653,8 +77612,13 @@ class AccountUpdateDeviceLocked extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x38df3532.
     buffer.writeInt32(0x38df3532);
+
+    // Write fields.
     buffer.writeInt32(period);
+
+    // Finished serialization.
   }
 }
 
@@ -71709,11 +77673,16 @@ class AuthImportBotAuthorization extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x67a3ff2c.
     buffer.writeInt32(0x67a3ff2c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(apiId);
     buffer.writeString(apiHash);
     buffer.writeString(botAuthToken);
+
+    // Finished serialization.
   }
 }
 
@@ -71764,13 +77733,18 @@ class MessagesGetWebPagePreview extends TlMethod<MessageMediaBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8b68b0cc.
     buffer.writeInt32(0x8b68b0cc);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
     if (localEntitiesCopy != null) {
       buffer.writeVectorObject(localEntitiesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -71793,7 +77767,10 @@ class AccountGetAuthorizations extends TlMethod<AccountAuthorizationsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe320c158.
     buffer.writeInt32(0xe320c158);
+
+    // Finished serialization.
   }
 }
 
@@ -71828,8 +77805,13 @@ class AccountResetAuthorization extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdf77f3bc.
     buffer.writeInt32(0xdf77f3bc);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -71852,7 +77834,10 @@ class AccountGetPassword extends TlMethod<AccountPasswordBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x548a30f5.
     buffer.writeInt32(0x548a30f5);
+
+    // Finished serialization.
   }
 }
 
@@ -71885,8 +77870,13 @@ class AccountGetPasswordSettings extends TlMethod<AccountPasswordSettingsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9cd4eaf9.
     buffer.writeInt32(0x9cd4eaf9);
+
+    // Write fields.
     buffer.writeObject(password);
+
+    // Finished serialization.
   }
 }
 
@@ -71925,9 +77915,14 @@ class AccountUpdatePasswordSettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa59b102f.
     buffer.writeInt32(0xa59b102f);
+
+    // Write fields.
     buffer.writeObject(password);
     buffer.writeObject(newSettings);
+
+    // Finished serialization.
   }
 }
 
@@ -71960,8 +77955,13 @@ class AuthCheckPassword extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd18b4d16.
     buffer.writeInt32(0xd18b4d16);
+
+    // Write fields.
     buffer.writeObject(password);
+
+    // Finished serialization.
   }
 }
 
@@ -71984,7 +77984,10 @@ class AuthRequestPasswordRecovery extends TlMethod<AuthPasswordRecoveryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd897bc66.
     buffer.writeInt32(0xd897bc66);
+
+    // Finished serialization.
   }
 }
 
@@ -72036,13 +78039,18 @@ class AuthRecoverPassword extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x37096c70.
     buffer.writeInt32(0x37096c70);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(code);
     final localNewSettingsCopy = newSettings;
     if (localNewSettingsCopy != null) {
       buffer.writeObject(localNewSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -72075,8 +78083,13 @@ class InvokeWithoutUpdates<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbf9459b7.
     buffer.writeInt32(0xbf9459b7);
+
+    // Write fields.
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -72156,7 +78169,10 @@ class MessagesExportChatInvite extends TlMethod<ExportedChatInviteBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa02ce5d5.
     buffer.writeInt32(0xa02ce5d5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localExpireDateCopy = expireDate;
@@ -72171,6 +78187,8 @@ class MessagesExportChatInvite extends TlMethod<ExportedChatInviteBase> {
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -72203,8 +78221,13 @@ class MessagesCheckChatInvite extends TlMethod<ChatInviteBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3eadb1bb.
     buffer.writeInt32(0x3eadb1bb);
+
+    // Write fields.
     buffer.writeString(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -72237,8 +78260,13 @@ class MessagesImportChatInvite extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c50051c.
     buffer.writeInt32(0x6c50051c);
+
+    // Write fields.
     buffer.writeString(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -72279,9 +78307,14 @@ class MessagesGetStickerSet extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc8a0ec74.
     buffer.writeInt32(0xc8a0ec74);
+
+    // Write fields.
     buffer.writeObject(stickerset);
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -72321,9 +78354,14 @@ class MessagesInstallStickerSet
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc78fe460.
     buffer.writeInt32(0xc78fe460);
+
+    // Write fields.
     buffer.writeObject(stickerset);
     buffer.writeBool(archived);
+
+    // Finished serialization.
   }
 }
 
@@ -72356,8 +78394,13 @@ class MessagesUninstallStickerSet extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf96e55de.
     buffer.writeInt32(0xf96e55de);
+
+    // Write fields.
     buffer.writeObject(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -72410,11 +78453,16 @@ class MessagesStartBot extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe6df7378.
     buffer.writeInt32(0xe6df7378);
+
+    // Write fields.
     buffer.writeObject(bot);
     buffer.writeObject(peer);
     buffer.writeInt64(randomId);
     buffer.writeString(startParam);
+
+    // Finished serialization.
   }
 }
 
@@ -72459,10 +78507,15 @@ class MessagesGetMessagesViews extends TlMethod<MessagesMessageViewsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5784d3e1.
     buffer.writeInt32(0x5784d3e1);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
     buffer.writeBool(increment);
+
+    // Finished serialization.
   }
 }
 
@@ -72503,9 +78556,14 @@ class ChannelsReadHistory extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcc104937.
     buffer.writeInt32(0xcc104937);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -72544,9 +78602,14 @@ class ChannelsDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x84c1fd4e.
     buffer.writeInt32(0x84c1fd4e);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -72591,10 +78654,15 @@ class ChannelsReportSpam extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf44a8315.
     buffer.writeInt32(0xf44a8315);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(participant);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -72633,9 +78701,14 @@ class ChannelsGetMessages extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xad8c9a23.
     buffer.writeInt32(0xad8c9a23);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -72699,12 +78772,17 @@ class ChannelsGetParticipants
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77ced9d0.
     buffer.writeInt32(0x77ced9d0);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(filter);
     buffer.writeInt32(offset);
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -72743,9 +78821,14 @@ class ChannelsGetParticipant extends TlMethod<ChannelsChannelParticipantBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa0ab6cc6.
     buffer.writeInt32(0xa0ab6cc6);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(participant);
+
+    // Finished serialization.
   }
 }
 
@@ -72778,8 +78861,13 @@ class ChannelsGetChannels extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a7f6bbb.
     buffer.writeInt32(0x0a7f6bbb);
+
+    // Write fields.
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -72812,8 +78900,13 @@ class ChannelsGetFullChannel extends TlMethod<MessagesChatFullBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x08736a09.
     buffer.writeInt32(0x08736a09);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -72913,7 +79006,10 @@ class ChannelsCreateChannel extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x91006707.
     buffer.writeInt32(0x91006707);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(title);
     buffer.writeString(about);
@@ -72929,6 +79025,8 @@ class ChannelsCreateChannel extends TlMethod<UpdatesBase> {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -72979,11 +79077,16 @@ class ChannelsEditAdmin extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd33c8902.
     buffer.writeInt32(0xd33c8902);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(userId);
     buffer.writeObject(adminRights);
     buffer.writeString(rank);
+
+    // Finished serialization.
   }
 }
 
@@ -73022,9 +79125,14 @@ class ChannelsEditTitle extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x566decd0.
     buffer.writeInt32(0x566decd0);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -73063,9 +79171,14 @@ class ChannelsEditPhoto extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf12e57c9.
     buffer.writeInt32(0xf12e57c9);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(photo);
+
+    // Finished serialization.
   }
 }
 
@@ -73104,9 +79217,14 @@ class ChannelsCheckUsername extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x10e6bd2c.
     buffer.writeInt32(0x10e6bd2c);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeString(username);
+
+    // Finished serialization.
   }
 }
 
@@ -73145,9 +79263,14 @@ class ChannelsUpdateUsername extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3514b3de.
     buffer.writeInt32(0x3514b3de);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeString(username);
+
+    // Finished serialization.
   }
 }
 
@@ -73180,8 +79303,13 @@ class ChannelsJoinChannel extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x24b524c5.
     buffer.writeInt32(0x24b524c5);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -73214,8 +79342,13 @@ class ChannelsLeaveChannel extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf836aa95.
     buffer.writeInt32(0xf836aa95);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -73254,9 +79387,14 @@ class ChannelsInviteToChannel extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x199f3a6c.
     buffer.writeInt32(0x199f3a6c);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -73289,8 +79427,13 @@ class ChannelsDeleteChannel extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc0111fe3.
     buffer.writeInt32(0xc0111fe3);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -73362,12 +79505,17 @@ class UpdatesGetChannelDifference
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x03173d78.
     buffer.writeInt32(0x03173d78);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeObject(filter);
     buffer.writeInt32(pts);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -73414,10 +79562,15 @@ class MessagesEditChatAdmin extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa85bd1c2.
     buffer.writeInt32(0xa85bd1c2);
+
+    // Write fields.
     buffer.writeInt64(chatId);
     buffer.writeObject(userId);
     buffer.writeBool(isAdmin);
+
+    // Finished serialization.
   }
 }
 
@@ -73452,8 +79605,13 @@ class MessagesMigrateChat extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa2875319.
     buffer.writeInt32(0xa2875319);
+
+    // Write fields.
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -73551,7 +79709,10 @@ class MessagesSearchGlobal extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4bc6589a.
     buffer.writeInt32(0x4bc6589a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
@@ -73565,6 +79726,8 @@ class MessagesSearchGlobal extends TlMethod<MessagesMessagesBase> {
     buffer.writeObject(offsetPeer);
     buffer.writeInt32(offsetId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -73620,9 +79783,14 @@ class MessagesReorderStickerSets extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x78337739.
     buffer.writeInt32(0x78337739);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorInt64(order);
+
+    // Finished serialization.
   }
 }
 
@@ -73669,10 +79837,15 @@ class MessagesGetDocumentByHash extends TlMethod<DocumentBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb1f2061f.
     buffer.writeInt32(0xb1f2061f);
+
+    // Write fields.
     buffer.writeBytes(sha256);
     buffer.writeInt64(size);
     buffer.writeString(mimeType);
+
+    // Finished serialization.
   }
 }
 
@@ -73707,8 +79880,13 @@ class MessagesGetSavedGifs extends TlMethod<MessagesSavedGifsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5cf09635.
     buffer.writeInt32(0x5cf09635);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -73747,9 +79925,14 @@ class MessagesSaveGif extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x327a30cb.
     buffer.writeInt32(0x327a30cb);
+
+    // Write fields.
     buffer.writeObject(id);
     buffer.writeBool(unsave);
+
+    // Finished serialization.
   }
 }
 
@@ -73818,7 +80001,10 @@ class MessagesGetInlineBotResults extends TlMethod<MessagesBotResultsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x514e999d.
     buffer.writeInt32(0x514e999d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(bot);
     buffer.writeObject(peer);
@@ -73828,6 +80014,8 @@ class MessagesGetInlineBotResults extends TlMethod<MessagesBotResultsBase> {
     }
     buffer.writeString(query);
     buffer.writeString(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -73926,7 +80114,10 @@ class MessagesSetInlineBotResults extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb12a419.
     buffer.writeInt32(0xbb12a419);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     buffer.writeVectorObject(results);
@@ -73943,6 +80134,8 @@ class MessagesSetInlineBotResults extends TlMethod<bool> {
     if (localSwitchWebviewCopy != null) {
       buffer.writeObject(localSwitchWebviewCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -74059,7 +80252,10 @@ class MessagesSendInlineBotResult extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf7bc68ba.
     buffer.writeInt32(0xf7bc68ba);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localReplyToCopy = replyTo;
@@ -74077,6 +80273,8 @@ class MessagesSendInlineBotResult extends TlMethod<UpdatesBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -74140,10 +80338,15 @@ class ChannelsExportMessageLink extends TlMethod<ExportedMessageLinkBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe63fadeb.
     buffer.writeInt32(0xe63fadeb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -74182,9 +80385,14 @@ class ChannelsToggleSignatures extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1f69b606.
     buffer.writeInt32(0x1f69b606);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -74223,9 +80431,14 @@ class AuthResendCode extends TlMethod<AuthSentCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3ef1a9bf.
     buffer.writeInt32(0x3ef1a9bf);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
+
+    // Finished serialization.
   }
 }
 
@@ -74264,9 +80477,14 @@ class AuthCancelCode extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1f040578.
     buffer.writeInt32(0x1f040578);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
+
+    // Finished serialization.
   }
 }
 
@@ -74307,9 +80525,14 @@ class MessagesGetMessageEditData extends TlMethod<MessagesMessageEditDataBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfda68d36.
     buffer.writeInt32(0xfda68d36);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -74415,7 +80638,10 @@ class MessagesEditMessage extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x48f71778.
     buffer.writeInt32(0x48f71778);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -74439,6 +80665,8 @@ class MessagesEditMessage extends TlMethod<UpdatesBase> {
     if (localScheduleDateCopy != null) {
       buffer.writeDateTime(localScheduleDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -74528,7 +80756,10 @@ class MessagesEditInlineBotMessage extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x83557dba.
     buffer.writeInt32(0x83557dba);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     final localMessageCopy = message;
@@ -74547,6 +80778,8 @@ class MessagesEditInlineBotMessage extends TlMethod<bool> {
     if (localEntitiesCopy != null) {
       buffer.writeVectorObject(localEntitiesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -74622,7 +80855,10 @@ class MessagesGetBotCallbackAnswer
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9342ca07.
     buffer.writeInt32(0x9342ca07);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
@@ -74634,6 +80870,8 @@ class MessagesGetBotCallbackAnswer
     if (localPasswordCopy != null) {
       buffer.writeObject(localPasswordCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -74708,7 +80946,10 @@ class MessagesSetBotCallbackAnswer extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd58f130a.
     buffer.writeInt32(0xd58f130a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     final localMessageCopy = message;
@@ -74720,6 +80961,8 @@ class MessagesSetBotCallbackAnswer extends TlMethod<bool> {
       buffer.writeString(localUrlCopy);
     }
     buffer.writeInt32(cacheTime);
+
+    // Finished serialization.
   }
 }
 
@@ -74835,11 +81078,16 @@ class ContactsGetTopPeers extends TlMethod<ContactsTopPeersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x973478b6.
     buffer.writeInt32(0x973478b6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(offset);
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -74878,9 +81126,14 @@ class ContactsResetTopPeerRating extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1ae373ac.
     buffer.writeInt32(0x1ae373ac);
+
+    // Write fields.
     buffer.writeObject(category);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -74913,8 +81166,13 @@ class MessagesGetPeerDialogs extends TlMethod<MessagesPeerDialogsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe470bcfd.
     buffer.writeInt32(0xe470bcfd);
+
+    // Write fields.
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -75002,7 +81260,10 @@ class MessagesSaveDraft extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7ff3b806.
     buffer.writeInt32(0x7ff3b806);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localReplyToCopy = replyTo;
     if (localReplyToCopy != null) {
@@ -75018,6 +81279,8 @@ class MessagesSaveDraft extends TlMethod<bool> {
     if (localMediaCopy != null) {
       buffer.writeObject(localMediaCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -75040,7 +81303,10 @@ class MessagesGetAllDrafts extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a3f8d65.
     buffer.writeInt32(0x6a3f8d65);
+
+    // Finished serialization.
   }
 }
 
@@ -75076,8 +81342,13 @@ class MessagesGetFeaturedStickers
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64780b14.
     buffer.writeInt32(0x64780b14);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -75110,8 +81381,13 @@ class MessagesReadFeaturedStickers extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5b118126.
     buffer.writeInt32(0x5b118126);
+
+    // Write fields.
     buffer.writeVectorInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -75162,9 +81438,14 @@ class MessagesGetRecentStickers extends TlMethod<MessagesRecentStickersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9da9403b.
     buffer.writeInt32(0x9da9403b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -75219,10 +81500,15 @@ class MessagesSaveRecentSticker extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x392718f8.
     buffer.writeInt32(0x392718f8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     buffer.writeBool(unsave);
+
+    // Finished serialization.
   }
 }
 
@@ -75265,8 +81551,13 @@ class MessagesClearRecentStickers extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8999602d.
     buffer.writeInt32(0x8999602d);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -75333,10 +81624,15 @@ class MessagesGetArchivedStickers
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57f17692.
     buffer.writeInt32(0x57f17692);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(offsetId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -75375,9 +81671,14 @@ class AccountSendConfirmPhoneCode extends TlMethod<AuthSentCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1b3faa88.
     buffer.writeInt32(0x1b3faa88);
+
+    // Write fields.
     buffer.writeString(hash);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -75416,9 +81717,14 @@ class AccountConfirmPhone extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5f2178c3.
     buffer.writeInt32(0x5f2178c3);
+
+    // Write fields.
     buffer.writeString(phoneCodeHash);
     buffer.writeString(phoneCode);
+
+    // Finished serialization.
   }
 }
 
@@ -75468,8 +81774,13 @@ class ChannelsGetAdminedPublicChannels extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf8b036af.
     buffer.writeInt32(0xf8b036af);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -75504,8 +81815,13 @@ class MessagesGetMaskStickers extends TlMethod<MessagesAllStickersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x640f82b8.
     buffer.writeInt32(0x640f82b8);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -75539,8 +81855,13 @@ class MessagesGetAttachedStickers
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcc5b67cc.
     buffer.writeInt32(0xcc5b67cc);
+
+    // Write fields.
     buffer.writeObject(media);
+
+    // Finished serialization.
   }
 }
 
@@ -75573,8 +81894,13 @@ class AuthDropTempAuthKeys extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8e48a188.
     buffer.writeInt32(0x8e48a188);
+
+    // Write fields.
     buffer.writeVectorInt64(exceptAuthKeys);
+
+    // Finished serialization.
   }
 }
 
@@ -75652,12 +81978,17 @@ class MessagesSetGameScore extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ef8ecc0.
     buffer.writeInt32(0x8ef8ecc0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
     buffer.writeObject(userId);
     buffer.writeInt32(score);
+
+    // Finished serialization.
   }
 }
 
@@ -75727,11 +82058,16 @@ class MessagesSetInlineGameScore extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15ad9f64.
     buffer.writeInt32(0x15ad9f64);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     buffer.writeObject(userId);
     buffer.writeInt32(score);
+
+    // Finished serialization.
   }
 }
 
@@ -75778,10 +82114,15 @@ class MessagesGetGameHighScores extends TlMethod<MessagesHighScoresBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe822649d.
     buffer.writeInt32(0xe822649d);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(id);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -75820,9 +82161,14 @@ class MessagesGetInlineGameHighScores extends TlMethod<MessagesHighScoresBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0f635e1b.
     buffer.writeInt32(0x0f635e1b);
+
+    // Write fields.
     buffer.writeObject(id);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -75871,10 +82217,15 @@ class MessagesGetCommonChats extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe40ca104.
     buffer.writeInt32(0xe40ca104);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeInt64(maxId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -75915,9 +82266,14 @@ class HelpSetBotUpdatesStatus extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xec22cfcd.
     buffer.writeInt32(0xec22cfcd);
+
+    // Write fields.
     buffer.writeInt32(pendingUpdatesCount);
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -75958,9 +82314,14 @@ class MessagesGetWebPage extends TlMethod<MessagesWebPageBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8d9692a3.
     buffer.writeInt32(0x8d9692a3);
+
+    // Write fields.
     buffer.writeString(url);
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -76009,9 +82370,14 @@ class MessagesToggleDialogPin extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa731e257.
     buffer.writeInt32(0xa731e257);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -76068,10 +82434,15 @@ class MessagesReorderPinnedDialogs extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3b1adf37.
     buffer.writeInt32(0x3b1adf37);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(folderId);
     buffer.writeVectorObject(order);
+
+    // Finished serialization.
   }
 }
 
@@ -76106,8 +82477,13 @@ class MessagesGetPinnedDialogs extends TlMethod<MessagesPeerDialogsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd6b94df2.
     buffer.writeInt32(0xd6b94df2);
+
+    // Write fields.
     buffer.writeInt32(folderId);
+
+    // Finished serialization.
   }
 }
 
@@ -76146,9 +82522,14 @@ class BotsSendCustomRequest extends TlMethod<DataJSONBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaa2769ed.
     buffer.writeInt32(0xaa2769ed);
+
+    // Write fields.
     buffer.writeString(customMethod);
     buffer.writeObject(params);
+
+    // Finished serialization.
   }
 }
 
@@ -76189,9 +82570,14 @@ class BotsAnswerWebhookJSONQuery extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe6213f4d.
     buffer.writeInt32(0xe6213f4d);
+
+    // Write fields.
     buffer.writeInt64(queryId);
     buffer.writeObject(data);
+
+    // Finished serialization.
   }
 }
 
@@ -76240,10 +82626,15 @@ class UploadGetWebFile extends TlMethod<UploadWebFileBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x24e6818d.
     buffer.writeInt32(0x24e6818d);
+
+    // Write fields.
     buffer.writeObject(location);
     buffer.writeInt32(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -76294,13 +82685,18 @@ class PaymentsGetPaymentForm extends TlMethod<PaymentsPaymentFormBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x37148dbb.
     buffer.writeInt32(0x37148dbb);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(invoice);
     final localThemeParamsCopy = themeParams;
     if (localThemeParamsCopy != null) {
       buffer.writeObject(localThemeParamsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -76341,9 +82737,14 @@ class PaymentsGetPaymentReceipt extends TlMethod<PaymentsPaymentReceiptBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2478d1cc.
     buffer.writeInt32(0x2478d1cc);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -76399,10 +82800,15 @@ class PaymentsValidateRequestedInfo
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6c8f12b.
     buffer.writeInt32(0xb6c8f12b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(invoice);
     buffer.writeObject(info);
+
+    // Finished serialization.
   }
 }
 
@@ -76484,7 +82890,10 @@ class PaymentsSendPaymentForm extends TlMethod<PaymentsPaymentResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2d03522f.
     buffer.writeInt32(0x2d03522f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(formId);
     buffer.writeObject(invoice);
@@ -76501,6 +82910,8 @@ class PaymentsSendPaymentForm extends TlMethod<PaymentsPaymentResultBase> {
     if (localTipAmountCopy != null) {
       buffer.writeInt64(localTipAmountCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -76541,9 +82952,14 @@ class AccountGetTmpPassword extends TlMethod<AccountTmpPasswordBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x449e0b51.
     buffer.writeInt32(0x449e0b51);
+
+    // Write fields.
     buffer.writeObject(password);
     buffer.writeInt32(period);
+
+    // Finished serialization.
   }
 }
 
@@ -76566,7 +82982,10 @@ class PaymentsGetSavedInfo extends TlMethod<PaymentsSavedInfoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x227d824b.
     buffer.writeInt32(0x227d824b);
+
+    // Finished serialization.
   }
 }
 
@@ -76616,8 +83035,13 @@ class PaymentsClearSavedInfo extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd83d70c1.
     buffer.writeInt32(0xd83d70c1);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -76679,7 +83103,10 @@ class MessagesSetBotShippingResults extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe5f672fa.
     buffer.writeInt32(0xe5f672fa);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     final localErrorCopy = error;
@@ -76690,6 +83117,8 @@ class MessagesSetBotShippingResults extends TlMethod<bool> {
     if (localShippingOptionsCopy != null) {
       buffer.writeVectorObject(localShippingOptionsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -76748,13 +83177,18 @@ class MessagesSetBotPrecheckoutResults extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x09c2dd95.
     buffer.writeInt32(0x09c2dd95);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(queryId);
     final localErrorCopy = error;
     if (localErrorCopy != null) {
       buffer.writeString(localErrorCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -76866,7 +83300,10 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9021ab67.
     buffer.writeInt32(0x9021ab67);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(userId);
     buffer.writeString(title);
@@ -76880,6 +83317,8 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
     if (localSoftwareCopy != null) {
       buffer.writeString(localSoftwareCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -76912,8 +83351,13 @@ class StickersRemoveStickerFromSet extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf7760f51.
     buffer.writeInt32(0xf7760f51);
+
+    // Write fields.
     buffer.writeObject(sticker);
+
+    // Finished serialization.
   }
 }
 
@@ -76954,9 +83398,14 @@ class StickersChangeStickerPosition extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xffb6d4ca.
     buffer.writeInt32(0xffb6d4ca);
+
+    // Write fields.
     buffer.writeObject(sticker);
     buffer.writeInt32(position);
+
+    // Finished serialization.
   }
 }
 
@@ -76995,9 +83444,14 @@ class StickersAddStickerToSet extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8653febe.
     buffer.writeInt32(0x8653febe);
+
+    // Write fields.
     buffer.writeObject(stickerset);
     buffer.writeObject(sticker);
+
+    // Finished serialization.
   }
 }
 
@@ -77036,9 +83490,14 @@ class MessagesUploadMedia extends TlMethod<MessageMediaBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x519bc2b1.
     buffer.writeInt32(0x519bc2b1);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(media);
+
+    // Finished serialization.
   }
 }
 
@@ -77061,7 +83520,10 @@ class PhoneGetCallConfig extends TlMethod<DataJSONBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x55451fa9.
     buffer.writeInt32(0x55451fa9);
+
+    // Finished serialization.
   }
 }
 
@@ -77130,12 +83592,17 @@ class PhoneRequestCall extends TlMethod<PhonePhoneCallBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x42ff96ed.
     buffer.writeInt32(0x42ff96ed);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(userId);
     buffer.writeInt32(randomId);
     buffer.writeBytes(gAHash);
     buffer.writeObject(protocol);
+
+    // Finished serialization.
   }
 }
 
@@ -77180,10 +83647,15 @@ class PhoneAcceptCall extends TlMethod<PhonePhoneCallBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3bd2b4a0.
     buffer.writeInt32(0x3bd2b4a0);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBytes(gB);
     buffer.writeObject(protocol);
+
+    // Finished serialization.
   }
 }
 
@@ -77236,11 +83708,16 @@ class PhoneConfirmCall extends TlMethod<PhonePhoneCallBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2efe1722.
     buffer.writeInt32(0x2efe1722);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBytes(gA);
     buffer.writeInt64(keyFingerprint);
     buffer.writeObject(protocol);
+
+    // Finished serialization.
   }
 }
 
@@ -77273,8 +83750,13 @@ class PhoneReceivedCall extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x17d54f61.
     buffer.writeInt32(0x17d54f61);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -77345,12 +83827,17 @@ class PhoneDiscardCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb2cbc1c0.
     buffer.writeInt32(0xb2cbc1c0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(duration);
     buffer.writeObject(reason);
     buffer.writeInt64(connectionId);
+
+    // Finished serialization.
   }
 }
 
@@ -77413,11 +83900,16 @@ class PhoneSetCallRating extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x59ead627.
     buffer.writeInt32(0x59ead627);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(rating);
     buffer.writeString(comment);
+
+    // Finished serialization.
   }
 }
 
@@ -77456,9 +83948,14 @@ class PhoneSaveCallDebug extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x277add7e.
     buffer.writeInt32(0x277add7e);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(debug);
+
+    // Finished serialization.
   }
 }
 
@@ -77507,10 +84004,15 @@ class UploadGetCdnFile extends TlMethod<UploadCdnFileBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x395f69da.
     buffer.writeInt32(0x395f69da);
+
+    // Write fields.
     buffer.writeBytes(fileToken);
     buffer.writeInt64(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -77549,9 +84051,14 @@ class UploadReuploadCdnFile extends TlMethod<List<FileHashBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9b2754a8.
     buffer.writeInt32(0x9b2754a8);
+
+    // Write fields.
     buffer.writeBytes(fileToken);
     buffer.writeBytes(requestToken);
+
+    // Finished serialization.
   }
 }
 
@@ -77574,7 +84081,10 @@ class HelpGetCdnConfig extends TlMethod<CdnConfigBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x52029342.
     buffer.writeInt32(0x52029342);
+
+    // Finished serialization.
   }
 }
 
@@ -77613,9 +84123,14 @@ class LangpackGetLangPack extends TlMethod<LangPackDifferenceBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf2f2330a.
     buffer.writeInt32(0xf2f2330a);
+
+    // Write fields.
     buffer.writeString(langPack);
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -77660,10 +84175,15 @@ class LangpackGetStrings extends TlMethod<List<LangPackStringBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xefea3803.
     buffer.writeInt32(0xefea3803);
+
+    // Write fields.
     buffer.writeString(langPack);
     buffer.writeString(langCode);
     buffer.writeVectorString(keys);
+
+    // Finished serialization.
   }
 }
 
@@ -77710,10 +84230,15 @@ class LangpackGetDifference extends TlMethod<LangPackDifferenceBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcd984aa5.
     buffer.writeInt32(0xcd984aa5);
+
+    // Write fields.
     buffer.writeString(langPack);
     buffer.writeString(langCode);
     buffer.writeInt32(fromVersion);
+
+    // Finished serialization.
   }
 }
 
@@ -77746,8 +84271,13 @@ class LangpackGetLanguages extends TlMethod<List<LangPackLanguageBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x42c6978f.
     buffer.writeInt32(0x42c6978f);
+
+    // Write fields.
     buffer.writeString(langPack);
+
+    // Finished serialization.
   }
 }
 
@@ -77792,10 +84322,15 @@ class ChannelsEditBanned extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x96e6cd81.
     buffer.writeInt32(0x96e6cd81);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(participant);
     buffer.writeObject(bannedRights);
+
+    // Finished serialization.
   }
 }
 
@@ -77886,7 +84421,10 @@ class ChannelsGetAdminLog extends TlMethod<ChannelsAdminLogResultsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x33ddf480.
     buffer.writeInt32(0x33ddf480);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeString(q);
@@ -77901,6 +84439,8 @@ class ChannelsGetAdminLog extends TlMethod<ChannelsAdminLogResultsBase> {
     buffer.writeInt64(maxId);
     buffer.writeInt64(minId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -77941,9 +84481,14 @@ class UploadGetCdnFileHashes extends TlMethod<List<FileHashBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x91dc3f31.
     buffer.writeInt32(0x91dc3f31);
+
+    // Write fields.
     buffer.writeBytes(fileToken);
     buffer.writeInt64(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -77990,10 +84535,15 @@ class MessagesSendScreenshotNotification extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa1405817.
     buffer.writeInt32(0xa1405817);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(replyTo);
     buffer.writeInt64(randomId);
+
+    // Finished serialization.
   }
 }
 
@@ -78032,9 +84582,14 @@ class ChannelsSetStickers extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea8ca4f9.
     buffer.writeInt32(0xea8ca4f9);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -78069,8 +84624,13 @@ class MessagesGetFavedStickers extends TlMethod<MessagesFavedStickersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x04f1aaa9.
     buffer.writeInt32(0x04f1aaa9);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -78109,9 +84669,14 @@ class MessagesFaveSticker extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb9ffc55b.
     buffer.writeInt32(0xb9ffc55b);
+
+    // Write fields.
     buffer.writeObject(id);
     buffer.writeBool(unfave);
+
+    // Finished serialization.
   }
 }
 
@@ -78150,9 +84715,14 @@ class ChannelsReadMessageContents extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeab5dc38.
     buffer.writeInt32(0xeab5dc38);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -78175,7 +84745,10 @@ class ContactsResetSaved extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x879537f1.
     buffer.writeInt32(0x879537f1);
+
+    // Finished serialization.
   }
 }
 
@@ -78265,7 +84838,10 @@ class MessagesGetUnreadMentions extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf107e790.
     buffer.writeInt32(0xf107e790);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
@@ -78277,6 +84853,8 @@ class MessagesGetUnreadMentions extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt32(limit);
     buffer.writeInt32(maxId);
     buffer.writeInt32(minId);
+
+    // Finished serialization.
   }
 }
 
@@ -78333,10 +84911,15 @@ class ChannelsDeleteHistory extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9baa9647.
     buffer.writeInt32(0x9baa9647);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -78369,8 +84952,13 @@ class HelpGetRecentMeUrls extends TlMethod<HelpRecentMeUrlsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dc0f114.
     buffer.writeInt32(0x3dc0f114);
+
+    // Write fields.
     buffer.writeString(referer);
+
+    // Finished serialization.
   }
 }
 
@@ -78409,9 +84997,14 @@ class ChannelsTogglePreHistoryHidden extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeabbb94c.
     buffer.writeInt32(0xeabbb94c);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -78461,13 +85054,18 @@ class MessagesReadMentions extends TlMethod<MessagesAffectedHistoryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x36e5bf4d.
     buffer.writeInt32(0x36e5bf4d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
     if (localTopMsgIdCopy != null) {
       buffer.writeInt32(localTopMsgIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -78516,10 +85114,15 @@ class MessagesGetRecentLocations extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x702a40e0.
     buffer.writeInt32(0x702a40e0);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -78634,7 +85237,10 @@ class MessagesSendMultiMedia extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x456e8987.
     buffer.writeInt32(0x456e8987);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localReplyToCopy = replyTo;
@@ -78650,6 +85256,8 @@ class MessagesSendMultiMedia extends TlMethod<UpdatesBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -78688,9 +85296,14 @@ class MessagesUploadEncryptedFile extends TlMethod<EncryptedFileBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5057c497.
     buffer.writeInt32(0x5057c497);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(file);
+
+    // Finished serialization.
   }
 }
 
@@ -78714,7 +85327,10 @@ class AccountGetWebAuthorizations
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x182e6d6f.
     buffer.writeInt32(0x182e6d6f);
+
+    // Finished serialization.
   }
 }
 
@@ -78749,8 +85365,13 @@ class AccountResetWebAuthorization extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2d01b9ef.
     buffer.writeInt32(0x2d01b9ef);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -78773,7 +85394,10 @@ class AccountResetWebAuthorizations extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x682d2594.
     buffer.writeInt32(0x682d2594);
+
+    // Finished serialization.
   }
 }
 
@@ -78830,10 +85454,15 @@ class MessagesSearchStickerSets extends TlMethod<MessagesFoundStickerSetsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35705b8a.
     buffer.writeInt32(0x35705b8a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(q);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -78874,9 +85503,14 @@ class UploadGetFileHashes extends TlMethod<List<FileHashBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9156982a.
     buffer.writeInt32(0x9156982a);
+
+    // Write fields.
     buffer.writeObject(location);
     buffer.writeInt64(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -78900,7 +85534,10 @@ class HelpGetTermsOfServiceUpdate
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2ca51fd1.
     buffer.writeInt32(0x2ca51fd1);
+
+    // Finished serialization.
   }
 }
 
@@ -78933,8 +85570,13 @@ class HelpAcceptTermsOfService extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xee72f79a.
     buffer.writeInt32(0xee72f79a);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -78957,7 +85599,10 @@ class AccountGetAllSecureValues extends TlMethod<List<SecureValueBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb288bc7d.
     buffer.writeInt32(0xb288bc7d);
+
+    // Finished serialization.
   }
 }
 
@@ -78990,8 +85635,13 @@ class AccountGetSecureValue extends TlMethod<List<SecureValueBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73665bc2.
     buffer.writeInt32(0x73665bc2);
+
+    // Write fields.
     buffer.writeVectorObject(types);
+
+    // Finished serialization.
   }
 }
 
@@ -79032,9 +85682,14 @@ class AccountSaveSecureValue extends TlMethod<SecureValueBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x899fe31d.
     buffer.writeInt32(0x899fe31d);
+
+    // Write fields.
     buffer.writeObject(value);
     buffer.writeInt64(secureSecretId);
+
+    // Finished serialization.
   }
 }
 
@@ -79067,8 +85722,13 @@ class AccountDeleteSecureValue extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb880bc4b.
     buffer.writeInt32(0xb880bc4b);
+
+    // Write fields.
     buffer.writeVectorObject(types);
+
+    // Finished serialization.
   }
 }
 
@@ -79107,9 +85767,14 @@ class UsersSetSecureValueErrors extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x90c894b5.
     buffer.writeInt32(0x90c894b5);
+
+    // Write fields.
     buffer.writeObject(id);
     buffer.writeVectorObject(errors);
+
+    // Finished serialization.
   }
 }
 
@@ -79157,10 +85822,15 @@ class AccountGetAuthorizationForm
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa929597a.
     buffer.writeInt32(0xa929597a);
+
+    // Write fields.
     buffer.writeInt64(botId);
     buffer.writeString(scope);
     buffer.writeString(publicKey);
+
+    // Finished serialization.
   }
 }
 
@@ -79219,12 +85889,17 @@ class AccountAcceptAuthorization extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3ed4c73.
     buffer.writeInt32(0xf3ed4c73);
+
+    // Write fields.
     buffer.writeInt64(botId);
     buffer.writeString(scope);
     buffer.writeString(publicKey);
     buffer.writeVectorObject(valueHashes);
     buffer.writeObject(credentials);
+
+    // Finished serialization.
   }
 }
 
@@ -79263,9 +85938,14 @@ class AccountSendVerifyPhoneCode extends TlMethod<AuthSentCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa5a356f9.
     buffer.writeInt32(0xa5a356f9);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -79310,10 +85990,15 @@ class AccountVerifyPhone extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4dd3a7f6.
     buffer.writeInt32(0x4dd3a7f6);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
     buffer.writeString(phoneCode);
+
+    // Finished serialization.
   }
 }
 
@@ -79352,9 +86037,14 @@ class AccountSendVerifyEmailCode extends TlMethod<AccountSentEmailCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x98e037bb.
     buffer.writeInt32(0x98e037bb);
+
+    // Write fields.
     buffer.writeObject(purpose);
     buffer.writeString(email);
+
+    // Finished serialization.
   }
 }
 
@@ -79393,9 +86083,14 @@ class AccountVerifyEmail extends TlMethod<AccountEmailVerifiedBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x032da4cf.
     buffer.writeInt32(0x032da4cf);
+
+    // Write fields.
     buffer.writeObject(purpose);
     buffer.writeObject(verification);
+
+    // Finished serialization.
   }
 }
 
@@ -79428,8 +86123,13 @@ class HelpGetDeepLinkInfo extends TlMethod<HelpDeepLinkInfoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3fedc75f.
     buffer.writeInt32(0x3fedc75f);
+
+    // Write fields.
     buffer.writeString(path);
+
+    // Finished serialization.
   }
 }
 
@@ -79452,7 +86152,10 @@ class ContactsGetSaved extends TlMethod<List<SavedContactBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x82f1e39f.
     buffer.writeInt32(0x82f1e39f);
+
+    // Finished serialization.
   }
 }
 
@@ -79487,8 +86190,13 @@ class ChannelsGetLeftChannels extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8341ecc0.
     buffer.writeInt32(0x8341ecc0);
+
+    // Write fields.
     buffer.writeInt32(offset);
+
+    // Finished serialization.
   }
 }
 
@@ -79573,12 +86281,17 @@ class AccountInitTakeoutSession extends TlMethod<AccountTakeoutBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ef3eab0.
     buffer.writeInt32(0x8ef3eab0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localFileMaxSizeCopy = fileMaxSize;
     if (localFileMaxSizeCopy != null) {
       buffer.writeInt64(localFileMaxSizeCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -79621,8 +86334,13 @@ class AccountFinishTakeoutSession extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1d2652ee.
     buffer.writeInt32(0x1d2652ee);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -79645,7 +86363,10 @@ class MessagesGetSplitRanges extends TlMethod<List<MessageRangeBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1cff7e08.
     buffer.writeInt32(0x1cff7e08);
+
+    // Finished serialization.
   }
 }
 
@@ -79684,9 +86405,14 @@ class InvokeWithMessagesRange<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x365275f2.
     buffer.writeInt32(0x365275f2);
+
+    // Write fields.
     buffer.writeObject(range);
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -79727,9 +86453,14 @@ class InvokeWithTakeout<X> extends TlMethod<X> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaca9fd2e.
     buffer.writeInt32(0xaca9fd2e);
+
+    // Write fields.
     buffer.writeInt64(takeoutId);
     buffer.writeObject(query);
+
+    // Finished serialization.
   }
 }
 
@@ -79778,9 +86509,14 @@ class MessagesMarkDialogUnread extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc286d98f.
     buffer.writeInt32(0xc286d98f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -79803,7 +86539,10 @@ class MessagesGetDialogUnreadMarks extends TlMethod<List<DialogPeerBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x22e24e22.
     buffer.writeInt32(0x22e24e22);
+
+    // Finished serialization.
   }
 }
 
@@ -79836,8 +86575,13 @@ class ContactsToggleTopPeers extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8514bdda.
     buffer.writeInt32(0x8514bdda);
+
+    // Write fields.
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -79860,7 +86604,10 @@ class MessagesClearAllDrafts extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7e58ee9c.
     buffer.writeInt32(0x7e58ee9c);
+
+    // Finished serialization.
   }
 }
 
@@ -79895,8 +86642,13 @@ class HelpGetAppConfig extends TlMethod<HelpAppConfigBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x61e3f854.
     buffer.writeInt32(0x61e3f854);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -79929,8 +86681,13 @@ class HelpSaveAppLog extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6f02f748.
     buffer.writeInt32(0x6f02f748);
+
+    // Write fields.
     buffer.writeVectorObject(events);
+
+    // Finished serialization.
   }
 }
 
@@ -79965,8 +86722,13 @@ class HelpGetPassportConfig extends TlMethod<HelpPassportConfigBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc661ad08.
     buffer.writeInt32(0xc661ad08);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -80005,9 +86767,14 @@ class LangpackGetLanguage extends TlMethod<LangPackLanguageBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a596502.
     buffer.writeInt32(0x6a596502);
+
+    // Write fields.
     buffer.writeString(langPack);
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -80078,10 +86845,15 @@ class MessagesUpdatePinnedMessage extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd2aaf7ec.
     buffer.writeInt32(0xd2aaf7ec);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -80114,8 +86886,13 @@ class AccountConfirmPasswordEmail extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8fdf1920.
     buffer.writeInt32(0x8fdf1920);
+
+    // Write fields.
     buffer.writeString(code);
+
+    // Finished serialization.
   }
 }
 
@@ -80138,7 +86915,10 @@ class AccountResendPasswordEmail extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a7f2a15.
     buffer.writeInt32(0x7a7f2a15);
+
+    // Finished serialization.
   }
 }
 
@@ -80161,7 +86941,10 @@ class AccountCancelPasswordEmail extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc1cbd5b6.
     buffer.writeInt32(0xc1cbd5b6);
+
+    // Finished serialization.
   }
 }
 
@@ -80184,7 +86967,10 @@ class HelpGetSupportName extends TlMethod<HelpSupportNameBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd360e72c.
     buffer.writeInt32(0xd360e72c);
+
+    // Finished serialization.
   }
 }
 
@@ -80217,8 +87003,13 @@ class HelpGetUserInfo extends TlMethod<HelpUserInfoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x038a08d3.
     buffer.writeInt32(0x038a08d3);
+
+    // Write fields.
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -80263,10 +87054,15 @@ class HelpEditUserInfo extends TlMethod<HelpUserInfoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x66b91b70.
     buffer.writeInt32(0x66b91b70);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeString(message);
     buffer.writeVectorObject(entities);
+
+    // Finished serialization.
   }
 }
 
@@ -80289,7 +87085,10 @@ class AccountGetContactSignUpNotification extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9f07c728.
     buffer.writeInt32(0x9f07c728);
+
+    // Finished serialization.
   }
 }
 
@@ -80322,8 +87121,13 @@ class AccountSetContactSignUpNotification extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcff43f61.
     buffer.writeInt32(0xcff43f61);
+
+    // Write fields.
     buffer.writeBool(silent);
+
+    // Finished serialization.
   }
 }
 
@@ -80382,12 +87186,17 @@ class AccountGetNotifyExceptions extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x53577479.
     buffer.writeInt32(0x53577479);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPeerCopy = peer;
     if (localPeerCopy != null) {
       buffer.writeObject(localPeerCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -80434,10 +87243,15 @@ class MessagesSendVote extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x10ea6184.
     buffer.writeInt32(0x10ea6184);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeVectorBytes(options);
+
+    // Finished serialization.
   }
 }
 
@@ -80478,9 +87292,14 @@ class MessagesGetPollResults extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73bb643b.
     buffer.writeInt32(0x73bb643b);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -80513,8 +87332,13 @@ class MessagesGetOnlines extends TlMethod<ChatOnlinesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6e2be050.
     buffer.writeInt32(0x6e2be050);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -80553,9 +87377,14 @@ class MessagesEditChatAbout extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdef60797.
     buffer.writeInt32(0xdef60797);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeString(about);
+
+    // Finished serialization.
   }
 }
 
@@ -80594,9 +87423,14 @@ class MessagesEditChatDefaultBannedRights extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa5866b41.
     buffer.writeInt32(0xa5866b41);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(bannedRights);
+
+    // Finished serialization.
   }
 }
 
@@ -80629,8 +87463,13 @@ class AccountGetWallPaper extends TlMethod<WallPaperBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfc8ddbea.
     buffer.writeInt32(0xfc8ddbea);
+
+    // Write fields.
     buffer.writeObject(wallpaper);
+
+    // Finished serialization.
   }
 }
 
@@ -80691,11 +87530,16 @@ class AccountUploadWallPaper extends TlMethod<WallPaperBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe39a8f03.
     buffer.writeInt32(0xe39a8f03);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(file);
     buffer.writeString(mimeType);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -80740,10 +87584,15 @@ class AccountSaveWallPaper extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c5a5b37.
     buffer.writeInt32(0x6c5a5b37);
+
+    // Write fields.
     buffer.writeObject(wallpaper);
     buffer.writeBool(unsave);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -80782,9 +87631,14 @@ class AccountInstallWallPaper extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfeed5769.
     buffer.writeInt32(0xfeed5769);
+
+    // Write fields.
     buffer.writeObject(wallpaper);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -80807,7 +87661,10 @@ class AccountResetWallPapers extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb3b9804.
     buffer.writeInt32(0xbb3b9804);
+
+    // Finished serialization.
   }
 }
 
@@ -80831,7 +87688,10 @@ class AccountGetAutoDownloadSettings
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56da0b3f.
     buffer.writeInt32(0x56da0b3f);
+
+    // Finished serialization.
   }
 }
 
@@ -80887,9 +87747,14 @@ class AccountSaveAutoDownloadSettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x76f36233.
     buffer.writeInt32(0x76f36233);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -80922,8 +87787,13 @@ class MessagesGetEmojiKeywords extends TlMethod<EmojiKeywordsDifferenceBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35a0e062.
     buffer.writeInt32(0x35a0e062);
+
+    // Write fields.
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -80965,9 +87835,14 @@ class MessagesGetEmojiKeywordsDifference
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1508b6af.
     buffer.writeInt32(0x1508b6af);
+
+    // Write fields.
     buffer.writeString(langCode);
     buffer.writeInt32(fromVersion);
+
+    // Finished serialization.
   }
 }
 
@@ -81001,8 +87876,13 @@ class MessagesGetEmojiKeywordsLanguages
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4e9963b2.
     buffer.writeInt32(0x4e9963b2);
+
+    // Write fields.
     buffer.writeVectorString(langCodes);
+
+    // Finished serialization.
   }
 }
 
@@ -81035,8 +87915,13 @@ class MessagesGetEmojiURL extends TlMethod<EmojiURLBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd5b10c26.
     buffer.writeInt32(0xd5b10c26);
+
+    // Write fields.
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -81069,8 +87954,13 @@ class FoldersEditPeerFolders extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6847d0ab.
     buffer.writeInt32(0x6847d0ab);
+
+    // Write fields.
     buffer.writeVectorObject(folderPeers);
+
+    // Finished serialization.
   }
 }
 
@@ -81136,7 +88026,10 @@ class MessagesGetSearchCounters
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1bbcf300.
     buffer.writeInt32(0x1bbcf300);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localSavedPeerIdCopy = savedPeerId;
@@ -81148,6 +88041,8 @@ class MessagesGetSearchCounters
       buffer.writeInt32(localTopMsgIdCopy);
     }
     buffer.writeVectorObject(filters);
+
+    // Finished serialization.
   }
 }
 
@@ -81170,7 +88065,10 @@ class ChannelsGetGroupsForDiscussion extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf5dad378.
     buffer.writeInt32(0xf5dad378);
+
+    // Finished serialization.
   }
 }
 
@@ -81209,9 +88107,14 @@ class ChannelsSetDiscussionGroup extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x40582bb2.
     buffer.writeInt32(0x40582bb2);
+
+    // Write fields.
     buffer.writeObject(broadcast);
     buffer.writeObject(group);
+
+    // Finished serialization.
   }
 }
 
@@ -81277,7 +88180,10 @@ class MessagesRequestUrlAuth extends TlMethod<UrlAuthResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x198fb446.
     buffer.writeInt32(0x198fb446);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPeerCopy = peer;
     if (localPeerCopy != null) {
@@ -81295,6 +88201,8 @@ class MessagesRequestUrlAuth extends TlMethod<UrlAuthResultBase> {
     if (localUrlCopy != null) {
       buffer.writeString(localUrlCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -81367,7 +88275,10 @@ class MessagesAcceptUrlAuth extends TlMethod<UrlAuthResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb12c7125.
     buffer.writeInt32(0xb12c7125);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPeerCopy = peer;
     if (localPeerCopy != null) {
@@ -81385,6 +88296,8 @@ class MessagesAcceptUrlAuth extends TlMethod<UrlAuthResultBase> {
     if (localUrlCopy != null) {
       buffer.writeString(localUrlCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -81417,8 +88330,13 @@ class MessagesHidePeerSettingsBar extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4facb138.
     buffer.writeInt32(0x4facb138);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -81485,12 +88403,17 @@ class ContactsAddContact extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe8f463d0.
     buffer.writeInt32(0xe8f463d0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(id);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
     buffer.writeString(phone);
+
+    // Finished serialization.
   }
 }
 
@@ -81523,8 +88446,13 @@ class ContactsAcceptContact extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf831a20f.
     buffer.writeInt32(0xf831a20f);
+
+    // Write fields.
     buffer.writeObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -81569,10 +88497,15 @@ class ChannelsEditCreator extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8f38cd1f.
     buffer.writeInt32(0x8f38cd1f);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(userId);
     buffer.writeObject(password);
+
+    // Finished serialization.
   }
 }
 
@@ -81629,13 +88562,18 @@ class ContactsGetLocated extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd348bc44.
     buffer.writeInt32(0xd348bc44);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(geoPoint);
     final localSelfExpiresCopy = selfExpires;
     if (localSelfExpiresCopy != null) {
       buffer.writeInt32(localSelfExpiresCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -81680,10 +88618,15 @@ class ChannelsEditLocation extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x58e63f6d.
     buffer.writeInt32(0x58e63f6d);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(geoPoint);
     buffer.writeString(address);
+
+    // Finished serialization.
   }
 }
 
@@ -81724,9 +88667,14 @@ class ChannelsToggleSlowMode extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xedd49ef0.
     buffer.writeInt32(0xedd49ef0);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeInt32(seconds);
+
+    // Finished serialization.
   }
 }
 
@@ -81767,9 +88715,14 @@ class MessagesGetScheduledHistory extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf516760b.
     buffer.writeInt32(0xf516760b);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -81808,9 +88761,14 @@ class MessagesGetScheduledMessages extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbdbb0464.
     buffer.writeInt32(0xbdbb0464);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -81849,9 +88807,14 @@ class MessagesSendScheduledMessages extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd38850a.
     buffer.writeInt32(0xbd38850a);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -81890,9 +88853,14 @@ class MessagesDeleteScheduledMessages extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x59ae2b16.
     buffer.writeInt32(0x59ae2b16);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -81954,7 +88922,10 @@ class AccountUploadTheme extends TlMethod<DocumentBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1c3db333.
     buffer.writeInt32(0x1c3db333);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(file);
     final localThumbCopy = thumb;
@@ -81963,6 +88934,8 @@ class AccountUploadTheme extends TlMethod<DocumentBase> {
     }
     buffer.writeString(fileName);
     buffer.writeString(mimeType);
+
+    // Finished serialization.
   }
 }
 
@@ -82029,7 +89002,10 @@ class AccountCreateTheme extends TlMethod<ThemeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x652e4400.
     buffer.writeInt32(0x652e4400);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(slug);
     buffer.writeString(title);
@@ -82041,6 +89017,8 @@ class AccountCreateTheme extends TlMethod<ThemeBase> {
     if (localSettingsCopy != null) {
       buffer.writeVectorObject(localSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -82123,7 +89101,10 @@ class AccountUpdateTheme extends TlMethod<ThemeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2bf40ccc.
     buffer.writeInt32(0x2bf40ccc);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(format);
     buffer.writeObject(theme);
@@ -82143,6 +89124,8 @@ class AccountUpdateTheme extends TlMethod<ThemeBase> {
     if (localSettingsCopy != null) {
       buffer.writeVectorObject(localSettingsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -82181,9 +89164,14 @@ class AccountSaveTheme extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf257106c.
     buffer.writeInt32(0xf257106c);
+
+    // Write fields.
     buffer.writeObject(theme);
     buffer.writeBool(unsave);
+
+    // Finished serialization.
   }
 }
 
@@ -82251,7 +89239,10 @@ class AccountInstallTheme extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc727bb3b.
     buffer.writeInt32(0xc727bb3b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localThemeCopy = theme;
     if (localThemeCopy != null) {
@@ -82265,6 +89256,8 @@ class AccountInstallTheme extends TlMethod<bool> {
     if (localBaseThemeCopy != null) {
       buffer.writeObject(localBaseThemeCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -82303,9 +89296,14 @@ class AccountGetTheme extends TlMethod<ThemeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3a5869ec.
     buffer.writeInt32(0x3a5869ec);
+
+    // Write fields.
     buffer.writeString(format);
     buffer.writeObject(theme);
+
+    // Finished serialization.
   }
 }
 
@@ -82346,9 +89344,14 @@ class AccountGetThemes extends TlMethod<AccountThemesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7206e458.
     buffer.writeInt32(0x7206e458);
+
+    // Write fields.
     buffer.writeString(format);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -82395,10 +89398,15 @@ class AuthExportLoginToken extends TlMethod<AuthLoginTokenBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb7e085fe.
     buffer.writeInt32(0xb7e085fe);
+
+    // Write fields.
     buffer.writeInt32(apiId);
     buffer.writeString(apiHash);
     buffer.writeVectorInt64(exceptIds);
+
+    // Finished serialization.
   }
 }
 
@@ -82431,8 +89439,13 @@ class AuthImportLoginToken extends TlMethod<AuthLoginTokenBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x95ac5ce4.
     buffer.writeInt32(0x95ac5ce4);
+
+    // Write fields.
     buffer.writeBytes(token);
+
+    // Finished serialization.
   }
 }
 
@@ -82465,8 +89478,13 @@ class AuthAcceptLoginToken extends TlMethod<AuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe894ad4d.
     buffer.writeInt32(0xe894ad4d);
+
+    // Write fields.
     buffer.writeBytes(token);
+
+    // Finished serialization.
   }
 }
 
@@ -82509,8 +89527,13 @@ class AccountSetContentSettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb574b16b.
     buffer.writeInt32(0xb574b16b);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -82533,7 +89556,10 @@ class AccountGetContentSettings extends TlMethod<AccountContentSettingsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8b9b4dae.
     buffer.writeInt32(0x8b9b4dae);
+
+    // Finished serialization.
   }
 }
 
@@ -82556,7 +89582,10 @@ class ChannelsGetInactiveChannels extends TlMethod<MessagesInactiveChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x11e831ee.
     buffer.writeInt32(0x11e831ee);
+
+    // Finished serialization.
   }
 }
 
@@ -82589,8 +89618,13 @@ class AccountGetMultiWallPapers extends TlMethod<List<WallPaperBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x65ad71dc.
     buffer.writeInt32(0x65ad71dc);
+
+    // Write fields.
     buffer.writeVectorObject(wallpapers);
+
+    // Finished serialization.
   }
 }
 
@@ -82664,7 +89698,10 @@ class MessagesGetPollVotes extends TlMethod<MessagesVotesListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb86e380e.
     buffer.writeInt32(0xb86e380e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -82677,6 +89714,8 @@ class MessagesGetPollVotes extends TlMethod<MessagesVotesListBase> {
       buffer.writeString(localOffsetCopy);
     }
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -82739,9 +89778,14 @@ class MessagesToggleStickerSets extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb5052fea.
     buffer.writeInt32(0xb5052fea);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(stickersets);
+
+    // Finished serialization.
   }
 }
 
@@ -82774,8 +89818,13 @@ class PaymentsGetBankCardData extends TlMethod<PaymentsBankCardDataBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2e79d779.
     buffer.writeInt32(0x2e79d779);
+
+    // Write fields.
     buffer.writeString(number);
+
+    // Finished serialization.
   }
 }
 
@@ -82798,7 +89847,10 @@ class MessagesGetDialogFilters extends TlMethod<List<DialogFilterBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf19ed96d.
     buffer.writeInt32(0xf19ed96d);
+
+    // Finished serialization.
   }
 }
 
@@ -82822,7 +89874,10 @@ class MessagesGetSuggestedDialogFilters
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa29cd42c.
     buffer.writeInt32(0xa29cd42c);
+
+    // Finished serialization.
   }
 }
 
@@ -82875,13 +89930,18 @@ class MessagesUpdateDialogFilter extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1ad4a04a.
     buffer.writeInt32(0x1ad4a04a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     final localFilterCopy = filter;
     if (localFilterCopy != null) {
       buffer.writeObject(localFilterCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -82914,8 +89974,13 @@ class MessagesUpdateDialogFiltersOrder extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc563c1e4.
     buffer.writeInt32(0xc563c1e4);
+
+    // Write fields.
     buffer.writeVectorInt32(order);
+
+    // Finished serialization.
   }
 }
 
@@ -82964,9 +90029,14 @@ class StatsGetBroadcastStats extends TlMethod<StatsBroadcastStatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xab42441a.
     buffer.writeInt32(0xab42441a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -83016,13 +90086,18 @@ class StatsLoadAsyncGraph extends TlMethod<StatsGraphBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x621d5fa0.
     buffer.writeInt32(0x621d5fa0);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(token);
     final localXCopy = x;
     if (localXCopy != null) {
       buffer.writeInt64(localXCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -83081,7 +90156,10 @@ class StickersSetStickerSetThumb extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa76a5392.
     buffer.writeInt32(0xa76a5392);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(stickerset);
     final localThumbCopy = thumb;
@@ -83092,6 +90170,8 @@ class StickersSetStickerSetThumb extends TlMethod<MessagesStickerSetBase> {
     if (localThumbDocumentIdCopy != null) {
       buffer.writeInt64(localThumbDocumentIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -83136,10 +90216,15 @@ class BotsSetBotCommands extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0517165a.
     buffer.writeInt32(0x0517165a);
+
+    // Write fields.
     buffer.writeObject(scope);
     buffer.writeString(langCode);
     buffer.writeVectorObject(commands);
+
+    // Finished serialization.
   }
 }
 
@@ -83191,10 +90276,15 @@ class MessagesGetOldFeaturedStickers
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7ed094a1.
     buffer.writeInt32(0x7ed094a1);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -83217,7 +90307,10 @@ class HelpGetPromoData extends TlMethod<HelpPromoDataBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc0977421.
     buffer.writeInt32(0xc0977421);
+
+    // Finished serialization.
   }
 }
 
@@ -83250,8 +90343,13 @@ class HelpHidePromoData extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1e251c95.
     buffer.writeInt32(0x1e251c95);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -83290,9 +90388,14 @@ class PhoneSendSignalingData extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xff7a9383.
     buffer.writeInt32(0xff7a9383);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBytes(data);
+
+    // Finished serialization.
   }
 }
 
@@ -83341,9 +90444,14 @@ class StatsGetMegagroupStats extends TlMethod<StatsMegagroupStatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdcdf8607.
     buffer.writeInt32(0xdcdf8607);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -83367,7 +90475,10 @@ class AccountGetGlobalPrivacySettings
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeb2b4cf6.
     buffer.writeInt32(0xeb2b4cf6);
+
+    // Finished serialization.
   }
 }
 
@@ -83401,8 +90512,13 @@ class AccountSetGlobalPrivacySettings
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1edaaac2.
     buffer.writeInt32(0x1edaaac2);
+
+    // Write fields.
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -83441,9 +90557,14 @@ class HelpDismissSuggestion extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf50dbaa1.
     buffer.writeInt32(0xf50dbaa1);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeString(suggestion);
+
+    // Finished serialization.
   }
 }
 
@@ -83484,9 +90605,14 @@ class HelpGetCountriesList extends TlMethod<HelpCountriesListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x735787a8.
     buffer.writeInt32(0x735787a8);
+
+    // Write fields.
     buffer.writeString(langCode);
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -83581,7 +90707,10 @@ class MessagesGetReplies extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x22ddd30c.
     buffer.writeInt32(0x22ddd30c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt32(offsetId);
@@ -83591,6 +90720,8 @@ class MessagesGetReplies extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt32(maxId);
     buffer.writeInt32(minId);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -83632,9 +90763,14 @@ class MessagesGetDiscussionMessage
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x446972fd.
     buffer.writeInt32(0x446972fd);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -83683,10 +90819,15 @@ class MessagesReadDiscussion extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf731a9f4.
     buffer.writeInt32(0xf731a9f4);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt32(readMaxId);
+
+    // Finished serialization.
   }
 }
 
@@ -83751,9 +90892,14 @@ class ContactsBlockFromReplies extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x29a8962c.
     buffer.writeInt32(0x29a8962c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -83808,11 +90954,16 @@ class StatsGetMessagePublicForwards extends TlMethod<StatsPublicForwardsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5f150144.
     buffer.writeInt32(0x5f150144);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeInt32(msgId);
     buffer.writeString(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -83869,10 +91020,15 @@ class StatsGetMessageStats extends TlMethod<StatsMessageStatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb6e0a3f5.
     buffer.writeInt32(0xb6e0a3f5);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -83922,13 +91078,18 @@ class MessagesUnpinAllMessages extends TlMethod<MessagesAffectedHistoryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xee22b9a8.
     buffer.writeInt32(0xee22b9a8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
     if (localTopMsgIdCopy != null) {
       buffer.writeInt32(localTopMsgIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -84001,7 +91162,10 @@ class PhoneCreateGroupCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x48cdc6d8.
     buffer.writeInt32(0x48cdc6d8);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(randomId);
@@ -84013,6 +91177,8 @@ class PhoneCreateGroupCall extends TlMethod<UpdatesBase> {
     if (localScheduleDateCopy != null) {
       buffer.writeDateTime(localScheduleDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -84088,7 +91254,10 @@ class PhoneJoinGroupCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb132ff7b.
     buffer.writeInt32(0xb132ff7b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
     buffer.writeObject(joinAs);
@@ -84097,6 +91266,8 @@ class PhoneJoinGroupCall extends TlMethod<UpdatesBase> {
       buffer.writeString(localInviteHashCopy);
     }
     buffer.writeObject(params);
+
+    // Finished serialization.
   }
 }
 
@@ -84137,9 +91308,14 @@ class PhoneLeaveGroupCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x500377f9.
     buffer.writeInt32(0x500377f9);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeInt32(source);
+
+    // Finished serialization.
   }
 }
 
@@ -84178,9 +91354,14 @@ class PhoneInviteToGroupCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7b393160.
     buffer.writeInt32(0x7b393160);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeVectorObject(users);
+
+    // Finished serialization.
   }
 }
 
@@ -84213,8 +91394,13 @@ class PhoneDiscardGroupCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7a777135.
     buffer.writeInt32(0x7a777135);
+
+    // Write fields.
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -84270,9 +91456,14 @@ class PhoneToggleGroupCallSettings extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74bbb43d.
     buffer.writeInt32(0x74bbb43d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -84313,9 +91504,14 @@ class PhoneGetGroupCall extends TlMethod<PhoneGroupCallBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x041845db.
     buffer.writeInt32(0x041845db);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -84374,12 +91570,17 @@ class PhoneGetGroupParticipants extends TlMethod<PhoneGroupParticipantsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc558d8ab.
     buffer.writeInt32(0xc558d8ab);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeVectorObject(ids);
     buffer.writeVectorInt32(sources);
     buffer.writeString(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -84418,9 +91619,14 @@ class PhoneCheckGroupCall extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb59cf977.
     buffer.writeInt32(0xb59cf977);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeVectorInt32(sources);
+
+    // Finished serialization.
   }
 }
 
@@ -84455,8 +91661,13 @@ class MessagesDeleteChat extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5bd0ee50.
     buffer.writeInt32(0x5bd0ee50);
+
+    // Write fields.
     buffer.writeInt64(chatId);
+
+    // Finished serialization.
   }
 }
 
@@ -84500,8 +91711,13 @@ class MessagesDeletePhoneCallHistory
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf9cbe409.
     buffer.writeInt32(0xf9cbe409);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -84535,8 +91751,13 @@ class MessagesCheckHistoryImport
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x43fe19f3.
     buffer.writeInt32(0x43fe19f3);
+
+    // Write fields.
     buffer.writeString(importHead);
+
+    // Finished serialization.
   }
 }
 
@@ -84583,10 +91804,15 @@ class MessagesInitHistoryImport extends TlMethod<MessagesHistoryImportBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x34090c3b.
     buffer.writeInt32(0x34090c3b);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(file);
     buffer.writeInt32(mediaCount);
+
+    // Finished serialization.
   }
 }
 
@@ -84639,11 +91865,16 @@ class MessagesUploadImportedMedia extends TlMethod<MessageMediaBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2a862092.
     buffer.writeInt32(0x2a862092);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt64(importId);
     buffer.writeString(fileName);
     buffer.writeObject(media);
+
+    // Finished serialization.
   }
 }
 
@@ -84684,9 +91915,14 @@ class MessagesStartHistoryImport extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb43df344.
     buffer.writeInt32(0xb43df344);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt64(importId);
+
+    // Finished serialization.
   }
 }
 
@@ -84765,7 +92001,10 @@ class MessagesGetExportedChatInvites
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa2b5a3f6.
     buffer.writeInt32(0xa2b5a3f6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(adminId);
@@ -84778,6 +92017,8 @@ class MessagesGetExportedChatInvites
       buffer.writeString(localOffsetLinkCopy);
     }
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -84817,9 +92058,14 @@ class MessagesGetExportedChatInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73746f5c.
     buffer.writeInt32(0x73746f5c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeString(link);
+
+    // Finished serialization.
   }
 }
 
@@ -84906,7 +92152,10 @@ class MessagesEditExportedChatInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbdca2f75.
     buffer.writeInt32(0xbdca2f75);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeString(link);
@@ -84922,6 +92171,8 @@ class MessagesEditExportedChatInvite
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -84961,9 +92212,14 @@ class MessagesDeleteRevokedExportedChatInvites extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56987bd5.
     buffer.writeInt32(0x56987bd5);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(adminId);
+
+    // Finished serialization.
   }
 }
 
@@ -85002,9 +92258,14 @@ class MessagesDeleteExportedChatInvite extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd464a42b.
     buffer.writeInt32(0xd464a42b);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeString(link);
+
+    // Finished serialization.
   }
 }
 
@@ -85038,8 +92299,13 @@ class MessagesGetAdminsWithInvites
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3920e6ef.
     buffer.writeInt32(0x3920e6ef);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -85125,7 +92391,10 @@ class MessagesGetChatInviteImporters
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdf04dd4e.
     buffer.writeInt32(0xdf04dd4e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localLinkCopy = link;
@@ -85139,6 +92408,8 @@ class MessagesGetChatInviteImporters
     buffer.writeDateTime(offsetDate);
     buffer.writeObject(offsetUser);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -85179,9 +92450,14 @@ class MessagesSetHistoryTTL extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb80e5fe4.
     buffer.writeInt32(0xb80e5fe4);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(period);
+
+    // Finished serialization.
   }
 }
 
@@ -85232,11 +92508,16 @@ class AccountReportProfilePhoto extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa8cc6f5.
     buffer.writeInt32(0xfa8cc6f5);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(photoId);
     buffer.writeObject(reason);
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -85269,8 +92550,13 @@ class ChannelsConvertToGigagroup extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0b290c69.
     buffer.writeInt32(0x0b290c69);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -85304,8 +92590,13 @@ class MessagesCheckHistoryImportPeer
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5dc60f03.
     buffer.writeInt32(0x5dc60f03);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -85375,13 +92666,18 @@ class PhoneToggleGroupCallRecord extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf128c708.
     buffer.writeInt32(0xf128c708);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
     final localTitleCopy = title;
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -85472,7 +92768,10 @@ class PhoneEditGroupCallParticipant extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa5273abf.
     buffer.writeInt32(0xa5273abf);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
     buffer.writeObject(participant);
@@ -85480,6 +92779,8 @@ class PhoneEditGroupCallParticipant extends TlMethod<UpdatesBase> {
     if (localVolumeCopy != null) {
       buffer.writeInt32(localVolumeCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -85518,9 +92819,14 @@ class PhoneEditGroupCallTitle extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1ca6ac0a.
     buffer.writeInt32(0x1ca6ac0a);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -85553,8 +92859,13 @@ class PhoneGetGroupCallJoinAs extends TlMethod<PhoneJoinAsPeersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xef7c213a.
     buffer.writeInt32(0xef7c213a);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -85604,9 +92915,14 @@ class PhoneExportGroupCallInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe6aa647f.
     buffer.writeInt32(0xe6aa647f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -85646,9 +92962,14 @@ class PhoneToggleGroupCallStartSubscription extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x219c34e6.
     buffer.writeInt32(0x219c34e6);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeBool(subscribed);
+
+    // Finished serialization.
   }
 }
 
@@ -85681,8 +93002,13 @@ class PhoneStartScheduledGroupCall extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5680e342.
     buffer.writeInt32(0x5680e342);
+
+    // Write fields.
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -85721,9 +93047,14 @@ class PhoneSaveDefaultGroupCallJoinAs extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x575e1f8c.
     buffer.writeInt32(0x575e1f8c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(joinAs);
+
+    // Finished serialization.
   }
 }
 
@@ -85762,9 +93093,14 @@ class PhoneJoinGroupCallPresentation extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcbea6bc4.
     buffer.writeInt32(0xcbea6bc4);
+
+    // Write fields.
     buffer.writeObject(call);
     buffer.writeObject(params);
+
+    // Finished serialization.
   }
 }
 
@@ -85797,8 +93133,13 @@ class PhoneLeaveGroupCallPresentation extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1c50d144.
     buffer.writeInt32(0x1c50d144);
+
+    // Write fields.
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -85831,8 +93172,13 @@ class StickersCheckShortName extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x284b3639.
     buffer.writeInt32(0x284b3639);
+
+    // Write fields.
     buffer.writeString(shortName);
+
+    // Finished serialization.
   }
 }
 
@@ -85866,8 +93212,13 @@ class StickersSuggestShortName
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4dafc503.
     buffer.writeInt32(0x4dafc503);
+
+    // Write fields.
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -85906,9 +93257,14 @@ class BotsResetBotCommands extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3d8de0f9.
     buffer.writeInt32(0x3d8de0f9);
+
+    // Write fields.
     buffer.writeObject(scope);
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -85947,9 +93303,14 @@ class BotsGetBotCommands extends TlMethod<List<BotCommandBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe34c0dd6.
     buffer.writeInt32(0xe34c0dd6);
+
+    // Write fields.
     buffer.writeObject(scope);
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -85972,7 +93333,10 @@ class AccountResetPassword extends TlMethod<AccountResetPasswordResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9308ce1b.
     buffer.writeInt32(0x9308ce1b);
+
+    // Finished serialization.
   }
 }
 
@@ -85995,7 +93359,10 @@ class AccountDeclinePasswordReset extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4c9409f6.
     buffer.writeInt32(0x4c9409f6);
+
+    // Finished serialization.
   }
 }
 
@@ -86028,8 +93395,13 @@ class AuthCheckRecoveryPassword extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0d36bf79.
     buffer.writeInt32(0x0d36bf79);
+
+    // Write fields.
     buffer.writeString(code);
+
+    // Finished serialization.
   }
 }
 
@@ -86064,8 +93436,13 @@ class AccountGetChatThemes extends TlMethod<AccountThemesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd638de89.
     buffer.writeInt32(0xd638de89);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -86104,9 +93481,14 @@ class MessagesSetChatTheme extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe63be13f.
     buffer.writeInt32(0xe63be13f);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeString(emoticon);
+
+    // Finished serialization.
   }
 }
 
@@ -86145,9 +93527,14 @@ class ChannelsViewSponsoredMessage extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbeaedb94.
     buffer.writeInt32(0xbeaedb94);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBytes(randomId);
+
+    // Finished serialization.
   }
 }
 
@@ -86181,8 +93568,13 @@ class ChannelsGetSponsoredMessages
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xec210fbf.
     buffer.writeInt32(0xec210fbf);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -86224,9 +93616,14 @@ class MessagesGetMessageReadParticipants
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x31c1c44f.
     buffer.writeInt32(0x31c1c44f);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -86298,7 +93695,10 @@ class MessagesGetSearchResultsCalendar
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6aa3f6bd.
     buffer.writeInt32(0x6aa3f6bd);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localSavedPeerIdCopy = savedPeerId;
@@ -86308,6 +93708,8 @@ class MessagesGetSearchResultsCalendar
     buffer.writeObject(filter);
     buffer.writeInt32(offsetId);
     buffer.writeDateTime(offsetDate);
+
+    // Finished serialization.
   }
 }
 
@@ -86381,7 +93783,10 @@ class MessagesGetSearchResultsPositions
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9c7f2f10.
     buffer.writeInt32(0x9c7f2f10);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localSavedPeerIdCopy = savedPeerId;
@@ -86391,6 +93796,8 @@ class MessagesGetSearchResultsPositions
     buffer.writeObject(filter);
     buffer.writeInt32(offsetId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -86445,10 +93852,15 @@ class MessagesHideChatJoinRequest extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7fe7e815.
     buffer.writeInt32(0x7fe7e815);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -86505,13 +93917,18 @@ class MessagesHideAllChatJoinRequests extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe085f4ea.
     buffer.writeInt32(0xe085f4ea);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localLinkCopy = link;
     if (localLinkCopy != null) {
       buffer.writeString(localLinkCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -86550,9 +93967,14 @@ class MessagesToggleNoForwards extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb11eafa2.
     buffer.writeInt32(0xb11eafa2);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -86591,9 +94013,14 @@ class MessagesSaveDefaultSendAs extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xccfddf96.
     buffer.writeInt32(0xccfddf96);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(sendAs);
+
+    // Finished serialization.
   }
 }
 
@@ -86626,8 +94053,13 @@ class ChannelsGetSendAs extends TlMethod<ChannelsSendAsPeersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0dc770ee.
     buffer.writeInt32(0x0dc770ee);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -86662,8 +94094,13 @@ class AccountSetAuthorizationTTL extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbf899aa0.
     buffer.writeInt32(0xbf899aa0);
+
+    // Write fields.
     buffer.writeInt32(authorizationTtlDays);
+
+    // Finished serialization.
   }
 }
 
@@ -86728,9 +94165,14 @@ class AccountChangeAuthorizationSettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x40f48462.
     buffer.writeInt32(0x40f48462);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -86770,9 +94212,14 @@ class ChannelsDeleteParticipantHistory
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x367544db.
     buffer.writeInt32(0x367544db);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(participant);
+
+    // Finished serialization.
   }
 }
 
@@ -86845,7 +94292,10 @@ class MessagesSendReaction extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd30d78d4.
     buffer.writeInt32(0xd30d78d4);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
@@ -86853,6 +94303,8 @@ class MessagesSendReaction extends TlMethod<UpdatesBase> {
     if (localReactionCopy != null) {
       buffer.writeVectorObject(localReactionCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -86891,9 +94343,14 @@ class MessagesGetMessagesReactions extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8bba90e6.
     buffer.writeInt32(0x8bba90e6);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -86969,7 +94426,10 @@ class MessagesGetMessageReactionsList
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x461b3f48.
     buffer.writeInt32(0x461b3f48);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -86982,6 +94442,8 @@ class MessagesGetMessageReactionsList
       buffer.writeString(localOffsetCopy);
     }
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -87020,9 +94482,14 @@ class MessagesSetChatAvailableReactions extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfeb16771.
     buffer.writeInt32(0xfeb16771);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(availableReactions);
+
+    // Finished serialization.
   }
 }
 
@@ -87058,8 +94525,13 @@ class MessagesGetAvailableReactions
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x18dea0ac.
     buffer.writeInt32(0x18dea0ac);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -87092,8 +94564,13 @@ class MessagesSetDefaultReaction extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4f47a016.
     buffer.writeInt32(0x4f47a016);
+
+    // Write fields.
     buffer.writeObject(reaction);
+
+    // Finished serialization.
   }
 }
 
@@ -87159,7 +94636,10 @@ class MessagesTranslateText extends TlMethod<MessagesTranslatedTextBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x63183030.
     buffer.writeInt32(0x63183030);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPeerCopy = peer;
     if (localPeerCopy != null) {
@@ -87174,6 +94654,8 @@ class MessagesTranslateText extends TlMethod<MessagesTranslatedTextBase> {
       buffer.writeVectorObject(localTextCopy);
     }
     buffer.writeString(toLang);
+
+    // Finished serialization.
   }
 }
 
@@ -87263,7 +94745,10 @@ class MessagesGetUnreadReactions extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3223495b.
     buffer.writeInt32(0x3223495b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
@@ -87275,6 +94760,8 @@ class MessagesGetUnreadReactions extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt32(limit);
     buffer.writeInt32(maxId);
     buffer.writeInt32(minId);
+
+    // Finished serialization.
   }
 }
 
@@ -87324,13 +94811,18 @@ class MessagesReadReactions extends TlMethod<MessagesAffectedHistoryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x54aa7f8e.
     buffer.writeInt32(0x54aa7f8e);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localTopMsgIdCopy = topMsgId;
     if (localTopMsgIdCopy != null) {
       buffer.writeInt32(localTopMsgIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -87363,8 +94855,13 @@ class ContactsResolvePhone extends TlMethod<ContactsResolvedPeerBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8af94344.
     buffer.writeInt32(0x8af94344);
+
+    // Write fields.
     buffer.writeString(phone);
+
+    // Finished serialization.
   }
 }
 
@@ -87398,8 +94895,13 @@ class PhoneGetGroupCallStreamChannels
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1ab21940.
     buffer.writeInt32(0x1ab21940);
+
+    // Write fields.
     buffer.writeObject(call);
+
+    // Finished serialization.
   }
 }
 
@@ -87439,9 +94941,14 @@ class PhoneGetGroupCallStreamRtmpUrl
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdeb3abbf.
     buffer.writeInt32(0xdeb3abbf);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBool(revoke);
+
+    // Finished serialization.
   }
 }
 
@@ -87488,10 +94995,15 @@ class MessagesSearchSentMedia extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x107e31a0.
     buffer.writeInt32(0x107e31a0);
+
+    // Write fields.
     buffer.writeString(q);
     buffer.writeObject(filter);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -87526,8 +95038,13 @@ class MessagesGetAttachMenuBots extends TlMethod<AttachMenuBotsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x16fcc2cb.
     buffer.writeInt32(0x16fcc2cb);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -87560,8 +95077,13 @@ class MessagesGetAttachMenuBot extends TlMethod<AttachMenuBotsBotBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77216192.
     buffer.writeInt32(0x77216192);
+
+    // Write fields.
     buffer.writeObject(bot);
+
+    // Finished serialization.
   }
 }
 
@@ -87616,10 +95138,15 @@ class MessagesToggleBotInAttachMenu extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x69f59d69.
     buffer.writeInt32(0x69f59d69);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(bot);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -87729,7 +95256,10 @@ class MessagesRequestWebView extends TlMethod<WebViewResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x269dc2c1.
     buffer.writeInt32(0x269dc2c1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(bot);
@@ -87754,6 +95284,8 @@ class MessagesRequestWebView extends TlMethod<WebViewResultBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -87833,7 +95365,10 @@ class MessagesProlongWebView extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb0d81a83.
     buffer.writeInt32(0xb0d81a83);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(bot);
@@ -87846,6 +95381,8 @@ class MessagesProlongWebView extends TlMethod<bool> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -87932,7 +95469,10 @@ class MessagesRequestSimpleWebView extends TlMethod<SimpleWebViewResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1a46500a.
     buffer.writeInt32(0x1a46500a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(bot);
     final localUrlCopy = url;
@@ -87948,6 +95488,8 @@ class MessagesRequestSimpleWebView extends TlMethod<SimpleWebViewResultBase> {
       buffer.writeObject(localThemeParamsCopy);
     }
     buffer.writeString(platform);
+
+    // Finished serialization.
   }
 }
 
@@ -87987,9 +95529,14 @@ class MessagesSendWebViewResultMessage
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a4314f5.
     buffer.writeInt32(0x0a4314f5);
+
+    // Write fields.
     buffer.writeString(botQueryId);
     buffer.writeObject(result);
+
+    // Finished serialization.
   }
 }
 
@@ -88042,11 +95589,16 @@ class MessagesSendWebViewData extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdc0242c8.
     buffer.writeInt32(0xdc0242c8);
+
+    // Write fields.
     buffer.writeObject(bot);
     buffer.writeInt64(randomId);
     buffer.writeString(buttonText);
     buffer.writeString(data);
+
+    // Finished serialization.
   }
 }
 
@@ -88085,9 +95637,14 @@ class BotsSetBotMenuButton extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4504d54f.
     buffer.writeInt32(0x4504d54f);
+
+    // Write fields.
     buffer.writeObject(userId);
     buffer.writeObject(button);
+
+    // Finished serialization.
   }
 }
 
@@ -88120,8 +95677,13 @@ class BotsGetBotMenuButton extends TlMethod<BotMenuButtonBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9c60eb28.
     buffer.writeInt32(0x9c60eb28);
+
+    // Write fields.
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -88156,8 +95718,13 @@ class AccountGetSavedRingtones extends TlMethod<AccountSavedRingtonesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe1902288.
     buffer.writeInt32(0xe1902288);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -88196,9 +95763,14 @@ class AccountSaveRingtone extends TlMethod<AccountSavedRingtoneBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3dea5b03.
     buffer.writeInt32(0x3dea5b03);
+
+    // Write fields.
     buffer.writeObject(id);
     buffer.writeBool(unsave);
+
+    // Finished serialization.
   }
 }
 
@@ -88243,10 +95815,15 @@ class AccountUploadRingtone extends TlMethod<DocumentBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x831a83a2.
     buffer.writeInt32(0x831a83a2);
+
+    // Write fields.
     buffer.writeObject(file);
     buffer.writeString(fileName);
     buffer.writeString(mimeType);
+
+    // Finished serialization.
   }
 }
 
@@ -88280,8 +95857,13 @@ class BotsSetBotBroadcastDefaultAdminRights extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x788464e1.
     buffer.writeInt32(0x788464e1);
+
+    // Write fields.
     buffer.writeObject(adminRights);
+
+    // Finished serialization.
   }
 }
 
@@ -88314,8 +95896,13 @@ class BotsSetBotGroupDefaultAdminRights extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x925ec9ea.
     buffer.writeInt32(0x925ec9ea);
+
+    // Write fields.
     buffer.writeObject(adminRights);
+
+    // Finished serialization.
   }
 }
 
@@ -88354,9 +95941,14 @@ class PhoneSaveCallLog extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x41248786.
     buffer.writeInt32(0x41248786);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(file);
+
+    // Finished serialization.
   }
 }
 
@@ -88395,9 +95987,14 @@ class ChannelsToggleJoinToSend extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe4cb9580.
     buffer.writeInt32(0xe4cb9580);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -88436,9 +96033,14 @@ class ChannelsToggleJoinRequest extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4c2985b6.
     buffer.writeInt32(0x4c2985b6);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -88471,8 +96073,13 @@ class PaymentsExportInvoice extends TlMethod<PaymentsExportedInvoiceBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0f91b065.
     buffer.writeInt32(0x0f91b065);
+
+    // Write fields.
     buffer.writeObject(invoiceMedia);
+
+    // Finished serialization.
   }
 }
 
@@ -88513,9 +96120,14 @@ class MessagesTranscribeAudio extends TlMethod<MessagesTranscribedAudioBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x269e9a49.
     buffer.writeInt32(0x269e9a49);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -88570,11 +96182,16 @@ class MessagesRateTranscribedAudio extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7f1d072f.
     buffer.writeInt32(0x7f1d072f);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt64(transcriptionId);
     buffer.writeBool(good);
+
+    // Finished serialization.
   }
 }
 
@@ -88613,9 +96230,14 @@ class PaymentsAssignAppStoreTransaction extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x80ed747d.
     buffer.writeInt32(0x80ed747d);
+
+    // Write fields.
     buffer.writeBytes(receipt);
     buffer.writeObject(purpose);
+
+    // Finished serialization.
   }
 }
 
@@ -88654,9 +96276,14 @@ class PaymentsAssignPlayMarketTransaction extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdffd50d3.
     buffer.writeInt32(0xdffd50d3);
+
+    // Write fields.
     buffer.writeObject(receipt);
     buffer.writeObject(purpose);
+
+    // Finished serialization.
   }
 }
 
@@ -88689,8 +96316,13 @@ class PaymentsCanPurchasePremium extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9fc19eb6.
     buffer.writeInt32(0x9fc19eb6);
+
+    // Write fields.
     buffer.writeObject(purpose);
+
+    // Finished serialization.
   }
 }
 
@@ -88713,7 +96345,10 @@ class HelpGetPremiumPromo extends TlMethod<HelpPremiumPromoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb81b93d4.
     buffer.writeInt32(0xb81b93d4);
+
+    // Finished serialization.
   }
 }
 
@@ -88746,8 +96381,13 @@ class MessagesGetCustomEmojiDocuments extends TlMethod<List<DocumentBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd9ab0f54.
     buffer.writeInt32(0xd9ab0f54);
+
+    // Write fields.
     buffer.writeVectorInt64(documentId);
+
+    // Finished serialization.
   }
 }
 
@@ -88782,8 +96422,13 @@ class MessagesGetEmojiStickers extends TlMethod<MessagesAllStickersBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfbfca18f.
     buffer.writeInt32(0xfbfca18f);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -88819,8 +96464,13 @@ class MessagesGetFeaturedEmojiStickers
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0ecf6736.
     buffer.writeInt32(0x0ecf6736);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -88853,8 +96503,13 @@ class AccountUpdateEmojiStatus extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfbd3de6b.
     buffer.writeInt32(0xfbd3de6b);
+
+    // Write fields.
     buffer.writeObject(emojiStatus);
+
+    // Finished serialization.
   }
 }
 
@@ -88890,8 +96545,13 @@ class AccountGetDefaultEmojiStatuses
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd6753386.
     buffer.writeInt32(0xd6753386);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -88926,8 +96586,13 @@ class AccountGetRecentEmojiStatuses extends TlMethod<AccountEmojiStatusesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0f578105.
     buffer.writeInt32(0x0f578105);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -88950,7 +96615,10 @@ class AccountClearRecentEmojiStatuses extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x18201aae.
     buffer.writeInt32(0x18201aae);
+
+    // Finished serialization.
   }
 }
 
@@ -88997,10 +96665,15 @@ class MessagesReportReaction extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3f64c076.
     buffer.writeInt32(0x3f64c076);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(id);
     buffer.writeObject(reactionPeer);
+
+    // Finished serialization.
   }
 }
 
@@ -89043,9 +96716,14 @@ class MessagesGetTopReactions extends TlMethod<MessagesReactionsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb8125ba.
     buffer.writeInt32(0xbb8125ba);
+
+    // Write fields.
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -89088,9 +96766,14 @@ class MessagesGetRecentReactions extends TlMethod<MessagesReactionsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x39461db2.
     buffer.writeInt32(0x39461db2);
+
+    // Write fields.
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -89113,7 +96796,10 @@ class MessagesClearRecentReactions extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9dfeefb4.
     buffer.writeInt32(0x9dfeefb4);
+
+    // Finished serialization.
   }
 }
 
@@ -89152,9 +96838,14 @@ class MessagesGetExtendedMedia extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x84f80814.
     buffer.writeInt32(0x84f80814);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -89201,10 +96892,15 @@ class AuthImportWebTokenAuthorization extends TlMethod<AuthAuthorizationBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2db873a9.
     buffer.writeInt32(0x2db873a9);
+
+    // Write fields.
     buffer.writeInt32(apiId);
     buffer.writeString(apiHash);
     buffer.writeString(webAuthToken);
+
+    // Finished serialization.
   }
 }
 
@@ -89237,8 +96933,13 @@ class AccountReorderUsernames extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xef500eab.
     buffer.writeInt32(0xef500eab);
+
+    // Write fields.
     buffer.writeVectorString(order);
+
+    // Finished serialization.
   }
 }
 
@@ -89277,9 +96978,14 @@ class AccountToggleUsername extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x58d6b376.
     buffer.writeInt32(0x58d6b376);
+
+    // Write fields.
     buffer.writeString(username);
     buffer.writeBool(active);
+
+    // Finished serialization.
   }
 }
 
@@ -89318,9 +97024,14 @@ class ChannelsReorderUsernames extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb45ced1d.
     buffer.writeInt32(0xb45ced1d);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeVectorString(order);
+
+    // Finished serialization.
   }
 }
 
@@ -89365,10 +97076,15 @@ class ChannelsToggleUsername extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x50f24105.
     buffer.writeInt32(0x50f24105);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeString(username);
     buffer.writeBool(active);
+
+    // Finished serialization.
   }
 }
 
@@ -89401,8 +97117,13 @@ class ChannelsDeactivateAllUsernames extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a245dd3.
     buffer.writeInt32(0x0a245dd3);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -89441,9 +97162,14 @@ class ChannelsToggleForum extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa4298b29.
     buffer.writeInt32(0xa4298b29);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -89523,7 +97249,10 @@ class ChannelsCreateForumTopic extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf40c0224.
     buffer.writeInt32(0xf40c0224);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeString(title);
@@ -89540,6 +97269,8 @@ class ChannelsCreateForumTopic extends TlMethod<UpdatesBase> {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -89619,7 +97350,10 @@ class ChannelsGetForumTopics extends TlMethod<MessagesForumTopicsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0de560d1.
     buffer.writeInt32(0x0de560d1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     final localQCopy = q;
@@ -89630,6 +97364,8 @@ class ChannelsGetForumTopics extends TlMethod<MessagesForumTopicsBase> {
     buffer.writeInt32(offsetId);
     buffer.writeInt32(offsetTopic);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -89668,9 +97404,14 @@ class ChannelsGetForumTopicsByID extends TlMethod<MessagesForumTopicsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb0831eb9.
     buffer.writeInt32(0xb0831eb9);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeVectorInt32(topics);
+
+    // Finished serialization.
   }
 }
 
@@ -89750,7 +97491,10 @@ class ChannelsEditForumTopic extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf4dfa185.
     buffer.writeInt32(0xf4dfa185);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeInt32(topicId);
@@ -89762,6 +97506,8 @@ class ChannelsEditForumTopic extends TlMethod<UpdatesBase> {
     if (localIconEmojiIdCopy != null) {
       buffer.writeInt64(localIconEmojiIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -89808,10 +97554,15 @@ class ChannelsUpdatePinnedForumTopic extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c2d9026.
     buffer.writeInt32(0x6c2d9026);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeInt32(topicId);
     buffer.writeBool(pinned);
+
+    // Finished serialization.
   }
 }
 
@@ -89852,9 +97603,14 @@ class ChannelsDeleteTopicHistory extends TlMethod<MessagesAffectedHistoryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x34435f2d.
     buffer.writeInt32(0x34435f2d);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeInt32(topMsgId);
+
+    // Finished serialization.
   }
 }
 
@@ -89909,10 +97665,15 @@ class ChannelsReorderPinnedForumTopics extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2950a18f.
     buffer.writeInt32(0x2950a18f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeVectorInt32(order);
+
+    // Finished serialization.
   }
 }
 
@@ -89951,9 +97712,14 @@ class ChannelsToggleAntiSpam extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x68f3e4eb.
     buffer.writeInt32(0x68f3e4eb);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -89994,9 +97760,14 @@ class ChannelsReportAntiSpamFalsePositive extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa850a693.
     buffer.writeInt32(0xa850a693);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -90031,8 +97802,13 @@ class MessagesSetDefaultHistoryTTL extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9eb51445.
     buffer.writeInt32(0x9eb51445);
+
+    // Write fields.
     buffer.writeInt32(period);
+
+    // Finished serialization.
   }
 }
 
@@ -90055,7 +97831,10 @@ class MessagesGetDefaultHistoryTTL extends TlMethod<DefaultHistoryTTLBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x658b7188.
     buffer.writeInt32(0x658b7188);
+
+    // Finished serialization.
   }
 }
 
@@ -90078,7 +97857,10 @@ class ContactsExportContactToken extends TlMethod<ExportedContactTokenBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf8654027.
     buffer.writeInt32(0xf8654027);
+
+    // Finished serialization.
   }
 }
 
@@ -90111,8 +97893,13 @@ class ContactsImportContactToken extends TlMethod<UserBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x13005788.
     buffer.writeInt32(0x13005788);
+
+    // Write fields.
     buffer.writeString(token);
+
+    // Finished serialization.
   }
 }
 
@@ -90201,7 +97988,10 @@ class PhotosUploadContactProfilePhoto extends TlMethod<PhotosPhotoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe14c4a71.
     buffer.writeInt32(0xe14c4a71);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(userId);
     final localFileCopy = file;
@@ -90220,6 +98010,8 @@ class PhotosUploadContactProfilePhoto extends TlMethod<PhotosPhotoBase> {
     if (localVideoEmojiMarkupCopy != null) {
       buffer.writeObject(localVideoEmojiMarkupCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -90258,9 +98050,14 @@ class ChannelsToggleParticipantsHidden extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6a6e7854.
     buffer.writeInt32(0x6a6e7854);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -90315,11 +98112,16 @@ class MessagesSendBotRequestedPeer extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x91b2d060.
     buffer.writeInt32(0x91b2d060);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
     buffer.writeInt32(buttonId);
     buffer.writeVectorObject(requestedPeers);
+
+    // Finished serialization.
   }
 }
 
@@ -90354,8 +98156,13 @@ class AccountGetDefaultProfilePhotoEmojis extends TlMethod<EmojiListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe2750328.
     buffer.writeInt32(0xe2750328);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -90390,8 +98197,13 @@ class AccountGetDefaultGroupPhotoEmojis extends TlMethod<EmojiListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x915860ae.
     buffer.writeInt32(0x915860ae);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -90455,7 +98267,10 @@ class AuthRequestFirebaseSms extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x89464b50.
     buffer.writeInt32(0x89464b50);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
@@ -90467,6 +98282,8 @@ class AuthRequestFirebaseSms extends TlMethod<bool> {
     if (localIosPushSecretCopy != null) {
       buffer.writeString(localIosPushSecretCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -90501,8 +98318,13 @@ class MessagesGetEmojiGroups extends TlMethod<MessagesEmojiGroupsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7488ce5b.
     buffer.writeInt32(0x7488ce5b);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -90537,8 +98359,13 @@ class MessagesGetEmojiStatusGroups extends TlMethod<MessagesEmojiGroupsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2ecd56cd.
     buffer.writeInt32(0x2ecd56cd);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -90574,8 +98401,13 @@ class MessagesGetEmojiProfilePhotoGroups
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x21a548f3.
     buffer.writeInt32(0x21a548f3);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -90616,9 +98448,14 @@ class MessagesSearchCustomEmoji extends TlMethod<EmojiListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2c11c0d7.
     buffer.writeInt32(0x2c11c0d7);
+
+    // Write fields.
     buffer.writeString(emoticon);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -90667,9 +98504,14 @@ class MessagesTogglePeerTranslations extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe47cb579.
     buffer.writeInt32(0xe47cb579);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -90692,7 +98534,10 @@ class AccountGetAutoSaveSettings extends TlMethod<AccountAutoSaveSettingsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xadcbbcda.
     buffer.writeInt32(0xadcbbcda);
+
+    // Finished serialization.
   }
 }
 
@@ -90763,13 +98608,18 @@ class AccountSaveAutoSaveSettings extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd69b8361.
     buffer.writeInt32(0xd69b8361);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localPeerCopy = peer;
     if (localPeerCopy != null) {
       buffer.writeObject(localPeerCopy);
     }
     buffer.writeObject(settings);
+
+    // Finished serialization.
   }
 }
 
@@ -90792,7 +98642,10 @@ class AccountDeleteAutoSaveExceptions extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x53bc0020.
     buffer.writeInt32(0x53bc0020);
+
+    // Finished serialization.
   }
 }
 
@@ -90859,7 +98712,10 @@ class StickersChangeSticker extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf5537ebc.
     buffer.writeInt32(0xf5537ebc);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(sticker);
     final localEmojiCopy = emoji;
@@ -90874,6 +98730,8 @@ class StickersChangeSticker extends TlMethod<MessagesStickerSetBase> {
     if (localKeywordsCopy != null) {
       buffer.writeString(localKeywordsCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -90912,9 +98770,14 @@ class StickersRenameStickerSet extends TlMethod<MessagesStickerSetBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x124b1c00.
     buffer.writeInt32(0x124b1c00);
+
+    // Write fields.
     buffer.writeObject(stickerset);
     buffer.writeString(title);
+
+    // Finished serialization.
   }
 }
 
@@ -90947,8 +98810,13 @@ class StickersDeleteStickerSet extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x87704394.
     buffer.writeInt32(0x87704394);
+
+    // Write fields.
     buffer.writeObject(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -90989,9 +98857,14 @@ class MessagesGetBotApp extends TlMethod<MessagesBotAppBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x34fdc5c3.
     buffer.writeInt32(0x34fdc5c3);
+
+    // Write fields.
     buffer.writeObject(app);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -91069,7 +98942,10 @@ class MessagesRequestAppWebView extends TlMethod<AppWebViewResultBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8c5a3b3c.
     buffer.writeInt32(0x8c5a3b3c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(app);
@@ -91082,6 +98958,8 @@ class MessagesRequestAppWebView extends TlMethod<AppWebViewResultBase> {
       buffer.writeObject(localThemeParamsCopy);
     }
     buffer.writeString(platform);
+
+    // Finished serialization.
   }
 }
 
@@ -91155,7 +99033,10 @@ class BotsSetBotInfo extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x10cf3123.
     buffer.writeInt32(0x10cf3123);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBotCopy = bot;
     if (localBotCopy != null) {
@@ -91174,6 +99055,8 @@ class BotsSetBotInfo extends TlMethod<bool> {
     if (localDescriptionCopy != null) {
       buffer.writeString(localDescriptionCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -91223,13 +99106,18 @@ class BotsGetBotInfo extends TlMethod<BotsBotInfoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdcd914fd.
     buffer.writeInt32(0xdcd914fd);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBotCopy = bot;
     if (localBotCopy != null) {
       buffer.writeObject(localBotCopy);
     }
     buffer.writeString(langCode);
+
+    // Finished serialization.
   }
 }
 
@@ -91268,9 +99156,14 @@ class AuthResetLoginEmail extends TlMethod<AuthSentCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7e960193.
     buffer.writeInt32(0x7e960193);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
+
+    // Finished serialization.
   }
 }
 
@@ -91316,10 +99209,15 @@ class ChatlistsExportChatlistInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8472478e.
     buffer.writeInt32(0x8472478e);
+
+    // Write fields.
     buffer.writeObject(chatlist);
     buffer.writeString(title);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -91358,9 +99256,14 @@ class ChatlistsDeleteExportedInvite extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x719c5c5e.
     buffer.writeInt32(0x719c5c5e);
+
+    // Write fields.
     buffer.writeObject(chatlist);
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -91425,7 +99328,10 @@ class ChatlistsEditExportedInvite extends TlMethod<ExportedChatlistInviteBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x653db63d.
     buffer.writeInt32(0x653db63d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(chatlist);
     buffer.writeString(slug);
@@ -91437,6 +99343,8 @@ class ChatlistsEditExportedInvite extends TlMethod<ExportedChatlistInviteBase> {
     if (localPeersCopy != null) {
       buffer.writeVectorObject(localPeersCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -91470,8 +99378,13 @@ class ChatlistsGetExportedInvites
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xce03da83.
     buffer.writeInt32(0xce03da83);
+
+    // Write fields.
     buffer.writeObject(chatlist);
+
+    // Finished serialization.
   }
 }
 
@@ -91505,8 +99418,13 @@ class ChatlistsCheckChatlistInvite
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x41c10fff.
     buffer.writeInt32(0x41c10fff);
+
+    // Write fields.
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -91545,9 +99463,14 @@ class ChatlistsJoinChatlistInvite extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa6b1e39a.
     buffer.writeInt32(0xa6b1e39a);
+
+    // Write fields.
     buffer.writeString(slug);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -91581,8 +99504,13 @@ class ChatlistsGetChatlistUpdates
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x89419521.
     buffer.writeInt32(0x89419521);
+
+    // Write fields.
     buffer.writeObject(chatlist);
+
+    // Finished serialization.
   }
 }
 
@@ -91621,9 +99549,14 @@ class ChatlistsJoinChatlistUpdates extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe089f8f5.
     buffer.writeInt32(0xe089f8f5);
+
+    // Write fields.
     buffer.writeObject(chatlist);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -91656,8 +99589,13 @@ class ChatlistsHideChatlistUpdates extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x66e486fb.
     buffer.writeInt32(0x66e486fb);
+
+    // Write fields.
     buffer.writeObject(chatlist);
+
+    // Finished serialization.
   }
 }
 
@@ -91691,8 +99629,13 @@ class ChatlistsGetLeaveChatlistSuggestions extends TlMethod<List<PeerBase>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfdbcd714.
     buffer.writeInt32(0xfdbcd714);
+
+    // Write fields.
     buffer.writeObject(chatlist);
+
+    // Finished serialization.
   }
 }
 
@@ -91731,9 +99674,14 @@ class ChatlistsLeaveChatlist extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x74fae13a.
     buffer.writeInt32(0x74fae13a);
+
+    // Write fields.
     buffer.writeObject(chatlist);
     buffer.writeVectorObject(peers);
+
+    // Finished serialization.
   }
 }
 
@@ -91772,9 +99720,14 @@ class BotsReorderUsernames extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9709b1c2.
     buffer.writeInt32(0x9709b1c2);
+
+    // Write fields.
     buffer.writeObject(bot);
     buffer.writeVectorString(order);
+
+    // Finished serialization.
   }
 }
 
@@ -91819,10 +99772,15 @@ class BotsToggleUsername extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x053ca973.
     buffer.writeInt32(0x053ca973);
+
+    // Write fields.
     buffer.writeObject(bot);
     buffer.writeString(username);
     buffer.writeBool(active);
+
+    // Finished serialization.
   }
 }
 
@@ -91904,7 +99862,10 @@ class MessagesSetChatWallPaper extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ffacae1.
     buffer.writeInt32(0x8ffacae1);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localWallpaperCopy = wallpaper;
@@ -91919,6 +99880,8 @@ class MessagesSetChatWallPaper extends TlMethod<UpdatesBase> {
     if (localIdCopy != null) {
       buffer.writeInt32(localIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -91951,8 +99914,13 @@ class AccountInvalidateSignInCodes extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xca8ae8ba.
     buffer.writeInt32(0xca8ae8ba);
+
+    // Write fields.
     buffer.writeVectorString(codes);
+
+    // Finished serialization.
   }
 }
 
@@ -91991,9 +99959,14 @@ class ChannelsClickSponsoredMessage extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x18afbc93.
     buffer.writeInt32(0x18afbc93);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBytes(randomId);
+
+    // Finished serialization.
   }
 }
 
@@ -92026,8 +99999,13 @@ class ContactsEditCloseFriends extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xba6705f0.
     buffer.writeInt32(0xba6705f0);
+
+    // Write fields.
     buffer.writeVectorInt64(id);
+
+    // Finished serialization.
   }
 }
 
@@ -92060,8 +100038,13 @@ class StoriesCanSendStory extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc7dfdfdd.
     buffer.writeInt32(0xc7dfdfdd);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -92194,7 +100177,10 @@ class StoriesSendStory extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe4e6694b.
     buffer.writeInt32(0xe4e6694b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(media);
@@ -92224,6 +100210,8 @@ class StoriesSendStory extends TlMethod<UpdatesBase> {
     if (localFwdFromStoryCopy != null) {
       buffer.writeInt32(localFwdFromStoryCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -92316,7 +100304,10 @@ class StoriesEditStory extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb583ba46.
     buffer.writeInt32(0xb583ba46);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -92340,6 +100331,8 @@ class StoriesEditStory extends TlMethod<UpdatesBase> {
     if (localPrivacyRulesCopy != null) {
       buffer.writeVectorObject(localPrivacyRulesCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -92378,9 +100371,14 @@ class StoriesDeleteStories extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xae59db5f.
     buffer.writeInt32(0xae59db5f);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -92425,10 +100423,15 @@ class StoriesTogglePinned extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9a75a1ef.
     buffer.writeInt32(0x9a75a1ef);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
     buffer.writeBool(pinned);
+
+    // Finished serialization.
   }
 }
 
@@ -92486,12 +100489,17 @@ class StoriesGetAllStories extends TlMethod<StoriesAllStoriesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xeeb0d625.
     buffer.writeInt32(0xeeb0d625);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localStateCopy = state;
     if (localStateCopy != null) {
       buffer.writeString(localStateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -92540,10 +100548,15 @@ class StoriesGetPinnedStories extends TlMethod<StoriesStoriesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5821a5dc.
     buffer.writeInt32(0x5821a5dc);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(offsetId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -92592,10 +100605,15 @@ class StoriesGetStoriesArchive extends TlMethod<StoriesStoriesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb4352016.
     buffer.writeInt32(0xb4352016);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(offsetId);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -92634,9 +100652,14 @@ class StoriesGetStoriesByID extends TlMethod<StoriesStoriesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5774ca74.
     buffer.writeInt32(0x5774ca74);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -92669,8 +100692,13 @@ class StoriesToggleAllStoriesHidden extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7c2557c4.
     buffer.writeInt32(0x7c2557c4);
+
+    // Write fields.
     buffer.writeBool(hidden);
+
+    // Finished serialization.
   }
 }
 
@@ -92711,9 +100739,14 @@ class StoriesReadStories extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa556dac8.
     buffer.writeInt32(0xa556dac8);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(maxId);
+
+    // Finished serialization.
   }
 }
 
@@ -92752,9 +100785,14 @@ class StoriesIncrementStoryViews extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb2028afb.
     buffer.writeInt32(0xb2028afb);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -92847,7 +100885,10 @@ class StoriesGetStoryViewsList extends TlMethod<StoriesStoryViewsListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7ed23c57.
     buffer.writeInt32(0x7ed23c57);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     final localQCopy = q;
@@ -92857,6 +100898,8 @@ class StoriesGetStoryViewsList extends TlMethod<StoriesStoryViewsListBase> {
     buffer.writeInt32(id);
     buffer.writeString(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -92895,9 +100938,14 @@ class StoriesGetStoriesViews extends TlMethod<StoriesStoryViewsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x28e16cc8.
     buffer.writeInt32(0x28e16cc8);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -92938,9 +100986,14 @@ class StoriesExportStoryLink extends TlMethod<ExportedStoryLinkBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7b8def20.
     buffer.writeInt32(0x7b8def20);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -92991,11 +101044,16 @@ class StoriesReport extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1923fa8c.
     buffer.writeInt32(0x1923fa8c);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
     buffer.writeObject(reason);
     buffer.writeString(message);
+
+    // Finished serialization.
   }
 }
 
@@ -93045,8 +101103,13 @@ class StoriesActivateStealthMode extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57bbd166.
     buffer.writeInt32(0x57bbd166);
+
+    // Write fields.
     buffer.writeInt32(flags);
+
+    // Finished serialization.
   }
 }
 
@@ -93103,10 +101166,15 @@ class ContactsSetBlocked extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x94c65c76.
     buffer.writeInt32(0x94c65c76);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(id);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -93169,11 +101237,16 @@ class StoriesSendReaction extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7fd736b2.
     buffer.writeInt32(0x7fd736b2);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(storyId);
     buffer.writeObject(reaction);
+
+    // Finished serialization.
   }
 }
 
@@ -93206,8 +101279,13 @@ class BotsCanSendMessage extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1359f4e6.
     buffer.writeInt32(0x1359f4e6);
+
+    // Write fields.
     buffer.writeObject(bot);
+
+    // Finished serialization.
   }
 }
 
@@ -93240,8 +101318,13 @@ class BotsAllowSendMessage extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf132e3ef.
     buffer.writeInt32(0xf132e3ef);
+
+    // Write fields.
     buffer.writeObject(bot);
+
+    // Finished serialization.
   }
 }
 
@@ -93286,10 +101369,15 @@ class BotsInvokeWebViewCustomMethod extends TlMethod<DataJSONBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x087fc5e7.
     buffer.writeInt32(0x087fc5e7);
+
+    // Write fields.
     buffer.writeObject(bot);
     buffer.writeString(customMethod);
     buffer.writeObject(params);
+
+    // Finished serialization.
   }
 }
 
@@ -93322,8 +101410,13 @@ class StoriesGetPeerStories extends TlMethod<StoriesPeerStoriesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2c4ada50.
     buffer.writeInt32(0x2c4ada50);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -93346,7 +101439,10 @@ class StoriesGetAllReadPeerStories extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9b5ae7f9.
     buffer.writeInt32(0x9b5ae7f9);
+
+    // Finished serialization.
   }
 }
 
@@ -93379,8 +101475,13 @@ class StoriesGetPeerMaxIDs extends TlMethod<List<int>> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x535983c3.
     buffer.writeInt32(0x535983c3);
+
+    // Write fields.
     buffer.writeVectorObject(id);
+
+    // Finished serialization.
   }
 }
 
@@ -93403,7 +101504,10 @@ class StoriesGetChatsToSend extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa56a8b60.
     buffer.writeInt32(0xa56a8b60);
+
+    // Finished serialization.
   }
 }
 
@@ -93442,9 +101546,14 @@ class StoriesTogglePeerStoriesHidden extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd0415c4.
     buffer.writeInt32(0xbd0415c4);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeBool(hidden);
+
+    // Finished serialization.
   }
 }
 
@@ -93490,12 +101599,17 @@ class PaymentsGetPremiumGiftCodeOptions
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2757ba54.
     buffer.writeInt32(0x2757ba54);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localBoostPeerCopy = boostPeer;
     if (localBoostPeerCopy != null) {
       buffer.writeObject(localBoostPeerCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -93528,8 +101642,13 @@ class PaymentsCheckGiftCode extends TlMethod<PaymentsCheckedGiftCodeBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8e51b4c1.
     buffer.writeInt32(0x8e51b4c1);
+
+    // Write fields.
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -93562,8 +101681,13 @@ class PaymentsApplyGiftCode extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf6e26854.
     buffer.writeInt32(0xf6e26854);
+
+    // Write fields.
     buffer.writeString(slug);
+
+    // Finished serialization.
   }
 }
 
@@ -93604,9 +101728,14 @@ class PaymentsGetGiveawayInfo extends TlMethod<PaymentsGiveawayInfoBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf4239425.
     buffer.writeInt32(0xf4239425);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+
+    // Finished serialization.
   }
 }
 
@@ -93653,10 +101782,15 @@ class PaymentsLaunchPrepaidGiveaway extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5ff58f20.
     buffer.writeInt32(0x5ff58f20);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt64(giveawayId);
     buffer.writeObject(purpose);
+
+    // Finished serialization.
   }
 }
 
@@ -93716,7 +101850,10 @@ class AccountUpdateColor extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7cefa15d.
     buffer.writeInt32(0x7cefa15d);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localColorCopy = color;
     if (localColorCopy != null) {
@@ -93726,6 +101863,8 @@ class AccountUpdateColor extends TlMethod<bool> {
     if (localBackgroundEmojiIdCopy != null) {
       buffer.writeInt64(localBackgroundEmojiIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -93791,7 +101930,10 @@ class ChannelsUpdateColor extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd8aa3671.
     buffer.writeInt32(0xd8aa3671);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(channel);
     final localColorCopy = color;
@@ -93802,6 +101944,8 @@ class ChannelsUpdateColor extends TlMethod<UpdatesBase> {
     if (localBackgroundEmojiIdCopy != null) {
       buffer.writeInt64(localBackgroundEmojiIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -93836,8 +101980,13 @@ class AccountGetDefaultBackgroundEmojis extends TlMethod<EmojiListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa60ab9ce.
     buffer.writeInt32(0xa60ab9ce);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -93900,11 +102049,16 @@ class PremiumGetBoostsList extends TlMethod<PremiumBoostsListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x60f67660.
     buffer.writeInt32(0x60f67660);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeString(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -93927,7 +102081,10 @@ class PremiumGetMyBoosts extends TlMethod<PremiumMyBoostsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0be77b4a.
     buffer.writeInt32(0x0be77b4a);
+
+    // Finished serialization.
   }
 }
 
@@ -93977,13 +102134,18 @@ class PremiumApplyBoost extends TlMethod<PremiumMyBoostsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6b7da746.
     buffer.writeInt32(0x6b7da746);
+
+    // Write fields.
     buffer.writeInt32(flags);
     final localSlotsCopy = slots;
     if (localSlotsCopy != null) {
       buffer.writeVectorInt32(localSlotsCopy);
     }
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -94016,8 +102178,13 @@ class PremiumGetBoostsStatus extends TlMethod<PremiumBoostsStatusBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x042f1f61.
     buffer.writeInt32(0x042f1f61);
+
+    // Write fields.
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -94056,9 +102223,14 @@ class PremiumGetUserBoosts extends TlMethod<PremiumBoostsListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x39854d1f.
     buffer.writeInt32(0x39854d1f);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeObject(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -94097,9 +102269,14 @@ class ChannelsToggleViewForumAsMessages extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9738bb15.
     buffer.writeInt32(0x9738bb15);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeBool(enabled);
+
+    // Finished serialization.
   }
 }
 
@@ -94157,10 +102334,15 @@ class MessagesSearchEmojiStickerSets
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x92b4494c.
     buffer.writeInt32(0x92b4494c);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(q);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94193,8 +102375,13 @@ class ChannelsGetChannelRecommendations extends TlMethod<MessagesChatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x83b70d97.
     buffer.writeInt32(0x83b70d97);
+
+    // Write fields.
     buffer.writeObject(channel);
+
+    // Finished serialization.
   }
 }
 
@@ -94251,10 +102438,15 @@ class StatsGetStoryStats extends TlMethod<StatsStoryStatsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x374fef40.
     buffer.writeInt32(0x374fef40);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
+
+    // Finished serialization.
   }
 }
 
@@ -94309,11 +102501,16 @@ class StatsGetStoryPublicForwards extends TlMethod<StatsPublicForwardsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa6437ef6.
     buffer.writeInt32(0xa6437ef6);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(id);
     buffer.writeString(offset);
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -94348,8 +102545,13 @@ class HelpGetPeerColors extends TlMethod<HelpPeerColorsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xda80f42f.
     buffer.writeInt32(0xda80f42f);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94384,8 +102586,13 @@ class HelpGetPeerProfileColors extends TlMethod<HelpPeerColorsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xabcfa9fd.
     buffer.writeInt32(0xabcfa9fd);
+
+    // Write fields.
     buffer.writeInt32(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94468,7 +102675,10 @@ class StoriesGetStoryReactionsList
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb9b2881f.
     buffer.writeInt32(0xb9b2881f);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(id);
@@ -94481,6 +102691,8 @@ class StoriesGetStoryReactionsList
       buffer.writeString(localOffsetCopy);
     }
     buffer.writeInt32(limit);
+
+    // Finished serialization.
   }
 }
 
@@ -94519,9 +102731,14 @@ class ChannelsUpdateEmojiStatus extends TlMethod<UpdatesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf0d3e6a8.
     buffer.writeInt32(0xf0d3e6a8);
+
+    // Write fields.
     buffer.writeObject(channel);
     buffer.writeObject(emojiStatus);
+
+    // Finished serialization.
   }
 }
 
@@ -94558,8 +102775,13 @@ class AccountGetChannelDefaultEmojiStatuses
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7727a7d5.
     buffer.writeInt32(0x7727a7d5);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94595,8 +102817,13 @@ class AccountGetChannelRestrictedStatusEmojis extends TlMethod<EmojiListBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35a9e0d5.
     buffer.writeInt32(0x35a9e0d5);
+
+    // Write fields.
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94675,13 +102902,18 @@ class MessagesGetSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5381d21a.
     buffer.writeInt32(0x5381d21a);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(offsetDate);
     buffer.writeInt32(offsetId);
     buffer.writeObject(offsetPeer);
     buffer.writeInt32(limit);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94768,7 +103000,10 @@ class MessagesGetSavedHistory extends TlMethod<MessagesMessagesBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3d9a414d.
     buffer.writeInt32(0x3d9a414d);
+
+    // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(offsetId);
     buffer.writeDateTime(offsetDate);
@@ -94777,6 +103012,8 @@ class MessagesGetSavedHistory extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt32(maxId);
     buffer.writeInt32(minId);
     buffer.writeInt64(hash);
+
+    // Finished serialization.
   }
 }
 
@@ -94842,7 +103079,10 @@ class MessagesDeleteSavedHistory extends TlMethod<MessagesAffectedHistoryBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6e98102b.
     buffer.writeInt32(0x6e98102b);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeInt32(maxId);
@@ -94854,6 +103094,8 @@ class MessagesDeleteSavedHistory extends TlMethod<MessagesAffectedHistoryBase> {
     if (localMaxDateCopy != null) {
       buffer.writeDateTime(localMaxDateCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -94876,7 +103118,10 @@ class MessagesGetPinnedSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd63d94e0.
     buffer.writeInt32(0xd63d94e0);
+
+    // Finished serialization.
   }
 }
 
@@ -94925,9 +103170,14 @@ class MessagesToggleSavedDialogPin extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xac81bbde.
     buffer.writeInt32(0xac81bbde);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
+
+    // Finished serialization.
   }
 }
 
@@ -94976,8 +103226,13 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod<bool> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8b716587.
     buffer.writeInt32(0x8b716587);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeVectorObject(order);
+
+    // Finished serialization.
   }
 }
