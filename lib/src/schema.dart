@@ -29564,8 +29564,6 @@ class StickerSet extends StickerSetBase {
     required this.archived,
     required this.official,
     required this.masks,
-    required this.animated,
-    required this.videos,
     required this.emojis,
     required this.textColor,
     required this.channelEmojiStatus,
@@ -29589,8 +29587,6 @@ class StickerSet extends StickerSetBase {
     final archived = (flags & 2) != 0;
     final official = (flags & 4) != 0;
     final masks = (flags & 8) != 0;
-    final animated = (flags & 32) != 0;
-    final videos = (flags & 64) != 0;
     final emojis = (flags & 128) != 0;
     final textColor = (flags & 512) != 0;
     final channelEmojiStatus = (flags & 1024) != 0;
@@ -29617,8 +29613,6 @@ class StickerSet extends StickerSetBase {
       archived: archived,
       official: official,
       masks: masks,
-      animated: animated,
-      videos: videos,
       emojis: emojis,
       textColor: textColor,
       channelEmojiStatus: channelEmojiStatus,
@@ -29645,8 +29639,6 @@ class StickerSet extends StickerSetBase {
       b01: archived,
       b02: official,
       b03: masks,
-      b05: animated,
-      b06: videos,
       b07: emojis,
       b09: textColor,
       b10: channelEmojiStatus,
@@ -29666,12 +29658,6 @@ class StickerSet extends StickerSetBase {
 
   /// masks: bit 3 of flags.3?true
   final bool masks;
-
-  /// animated: bit 5 of flags.5?true
-  final bool animated;
-
-  /// videos: bit 6 of flags.6?true
-  final bool videos;
 
   /// emojis: bit 7 of flags.7?true
   final bool emojis;
@@ -67260,7 +67246,7 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
   /// Deserialize.
   factory ExportedChatlistInvite.deserialize(BinaryReader reader) {
     // Read [ExportedChatlistInvite] fields.
-    final _ = reader.readInt32(); // flags
+    final _ = reader.readInt32(); // flags.
     final title = reader.readString();
     final url = reader.readString();
     final peers = reader.readVectorObject<PeerBase>();
@@ -68403,7 +68389,7 @@ class StoriesAllStoriesNotModified extends StoriesAllStoriesBase {
   /// Deserialize.
   factory StoriesAllStoriesNotModified.deserialize(BinaryReader reader) {
     // Read [StoriesAllStoriesNotModified] fields.
-    final _ = reader.readInt32(); // flags
+    final _ = reader.readInt32(); // flags.
     final state = reader.readString();
     final stealthMode = reader.readObject() as StoriesStealthModeBase;
 
@@ -83199,8 +83185,6 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
   /// Stickers Create Sticker Set constructor.
   const StickersCreateStickerSet({
     required this.masks,
-    required this.animated,
-    required this.videos,
     required this.emojis,
     required this.textColor,
     required this.userId,
@@ -83216,8 +83200,6 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
     // Read [StickersCreateStickerSet] fields.
     final flags = reader.readInt32();
     final masks = (flags & 1) != 0;
-    final animated = (flags & 2) != 0;
-    final videos = (flags & 16) != 0;
     final emojis = (flags & 32) != 0;
     final textColor = (flags & 64) != 0;
     final userId = reader.readObject() as InputUserBase;
@@ -83233,8 +83215,6 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
     // Construct [StickersCreateStickerSet] object.
     final returnValue = StickersCreateStickerSet(
       masks: masks,
-      animated: animated,
-      videos: videos,
       emojis: emojis,
       textColor: textColor,
       userId: userId,
@@ -83253,8 +83233,6 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
   int get flags {
     final v = _flag(
       b00: masks,
-      b01: animated,
-      b04: videos,
       b05: emojis,
       b06: textColor,
       b02: thumb != null,
@@ -83266,12 +83244,6 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
 
   /// masks: bit 0 of flags.0?true
   final bool masks;
-
-  /// animated: bit 1 of flags.1?true
-  final bool animated;
-
-  /// videos: bit 4 of flags.4?true
-  final bool videos;
 
   /// emojis: bit 5 of flags.5?true
   final bool emojis;
