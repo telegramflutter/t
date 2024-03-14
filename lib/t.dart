@@ -4,6 +4,7 @@ library t;
 import 'dart:convert';
 import 'dart:typed_data';
 
+part 'src/base.dart';
 part 'src/binary_reader_object.dart';
 part 'src/binary_reader.dart';
 part 'src/binary_writer.dart';

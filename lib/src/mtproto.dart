@@ -1,11 +1,5 @@
 part of '../t.dart';
 
-/// Predicate Res P Q.
-abstract class ResPQBase extends TlConstructor {
-  /// Predicate Res P Q constructor.
-  const ResPQBase._() : super._();
-}
-
 /// Res P Q.
 ///
 /// ID: `05162463`.
@@ -53,18 +47,17 @@ class ResPQ extends ResPQBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x05162463.
     buffer.writeInt32(0x05162463);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeBytes(pq);
     buffer.writeVectorInt64(serverPublicKeyFingerprints);
-  }
-}
 
-/// Predicate P Q Inner Data.
-abstract class PQInnerDataBase extends TlConstructor {
-  /// Predicate P Q Inner Data constructor.
-  const PQInnerDataBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// P Q Inner Data Dc.
@@ -134,7 +127,10 @@ class PQInnerDataDc extends PQInnerDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa9f55f95.
     buffer.writeInt32(0xa9f55f95);
+
+    // Write fields.
     buffer.writeBytes(pq);
     buffer.writeBytes(p);
     buffer.writeBytes(q);
@@ -142,6 +138,8 @@ class PQInnerDataDc extends PQInnerDataBase {
     buffer.writeInt128(serverNonce);
     buffer.writeInt256(newNonce);
     buffer.writeInt32(dc);
+
+    // Finished serialization.
   }
 }
 
@@ -220,7 +218,10 @@ class PQInnerDataTempDc extends PQInnerDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x56fddf88.
     buffer.writeInt32(0x56fddf88);
+
+    // Write fields.
     buffer.writeBytes(pq);
     buffer.writeBytes(p);
     buffer.writeBytes(q);
@@ -229,13 +230,9 @@ class PQInnerDataTempDc extends PQInnerDataBase {
     buffer.writeInt256(newNonce);
     buffer.writeInt32(dc);
     buffer.writeInt32(expiresIn);
-  }
-}
 
-/// Predicate Server D H Params.
-abstract class ServerDHParamsBase extends TlConstructor {
-  /// Predicate Server D H Params constructor.
-  const ServerDHParamsBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Server D H Params Ok.
@@ -279,17 +276,16 @@ class ServerDHParamsOk extends ServerDHParamsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd0e8075c.
     buffer.writeInt32(0xd0e8075c);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeBytes(encryptedAnswer);
-  }
-}
 
-/// Predicate Server D H Inner Data.
-abstract class ServerDHInnerDataBase extends TlConstructor {
-  /// Predicate Server D H Inner Data constructor.
-  const ServerDHInnerDataBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Server D H Inner Data.
@@ -355,20 +351,19 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb5890dba.
     buffer.writeInt32(0xb5890dba);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeInt32(g);
     buffer.writeBytes(dhPrime);
     buffer.writeBytes(gA);
     buffer.writeInt32(serverTime);
-  }
-}
 
-/// Predicate Client D H Inner Data.
-abstract class ClientDHInnerDataBase extends TlConstructor {
-  /// Predicate Client D H Inner Data constructor.
-  const ClientDHInnerDataBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Client D H Inner Data.
@@ -420,18 +415,17 @@ class ClientDHInnerData extends ClientDHInnerDataBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6643b654.
     buffer.writeInt32(0x6643b654);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeInt64(retryId);
     buffer.writeBytes(gB);
-  }
-}
 
-/// Predicate Set Client D H Params Answer.
-abstract class SetClientDHParamsAnswerBase extends TlConstructor {
-  /// Predicate Set Client D H Params Answer constructor.
-  const SetClientDHParamsAnswerBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Dh Gen Ok.
@@ -475,10 +469,15 @@ class DhGenOk extends SetClientDHParamsAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3bcbf734.
     buffer.writeInt32(0x3bcbf734);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeInt128(newNonceHash1);
+
+    // Finished serialization.
   }
 }
 
@@ -523,10 +522,15 @@ class DhGenRetry extends SetClientDHParamsAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x46dc1fb9.
     buffer.writeInt32(0x46dc1fb9);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeInt128(newNonceHash2);
+
+    // Finished serialization.
   }
 }
 
@@ -571,17 +575,16 @@ class DhGenFail extends SetClientDHParamsAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa69dae02.
     buffer.writeInt32(0xa69dae02);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeInt128(newNonceHash3);
-  }
-}
 
-/// Predicate Bind Auth Key Inner.
-abstract class BindAuthKeyInnerBase extends TlConstructor {
-  /// Predicate Bind Auth Key Inner constructor.
-  const BindAuthKeyInnerBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Bind Auth Key Inner.
@@ -647,19 +650,18 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x75a3f765.
     buffer.writeInt32(0x75a3f765);
+
+    // Write fields.
     buffer.writeInt64(nonce);
     buffer.writeInt64(tempAuthKeyId);
     buffer.writeInt64(permAuthKeyId);
     buffer.writeInt64(tempSessionId);
     buffer.writeInt32(expiresAt);
-  }
-}
 
-/// Predicate Rpc Result.
-abstract class RpcResultBase extends TlConstructor {
-  /// Predicate Rpc Result constructor.
-  const RpcResultBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Rpc Result.
@@ -676,7 +678,7 @@ class RpcResult extends RpcResultBase {
   factory RpcResult.deserialize(BinaryReader reader) {
     // Read [RpcResult] fields.
     final reqMsgId = reader.readInt64();
-    final result = reader.readObject() as ObjectBase;
+    final result = reader.readObject();
 
     // Construct [RpcResult] object.
     final returnValue = RpcResult(
@@ -694,21 +696,20 @@ class RpcResult extends RpcResultBase {
   final int reqMsgId;
 
   /// Result.
-  final ObjectBase result;
+  final TlObject result;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf35c6d01.
     buffer.writeInt32(0xf35c6d01);
+
+    // Write fields.
     buffer.writeInt64(reqMsgId);
     buffer.writeObject(result);
-  }
-}
 
-/// Predicate Rpc Error.
-abstract class RpcErrorBase extends TlConstructor {
-  /// Predicate Rpc Error constructor.
-  const RpcErrorBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Rpc Error.
@@ -748,16 +749,15 @@ class RpcError extends RpcErrorBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x2144ca19.
     buffer.writeInt32(0x2144ca19);
+
+    // Write fields.
     buffer.writeInt32(errorCode);
     buffer.writeString(errorMessage);
-  }
-}
 
-/// Predicate Rpc Drop Answer.
-abstract class RpcDropAnswerBase extends TlConstructor {
-  /// Predicate Rpc Drop Answer constructor.
-  const RpcDropAnswerBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Rpc Answer Unknown.
@@ -779,7 +779,10 @@ class RpcAnswerUnknown extends RpcDropAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5e2ad36e.
     buffer.writeInt32(0x5e2ad36e);
+
+    // Finished serialization.
   }
 }
 
@@ -802,7 +805,10 @@ class RpcAnswerDroppedRunning extends RpcDropAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xcd78e586.
     buffer.writeInt32(0xcd78e586);
+
+    // Finished serialization.
   }
 }
 
@@ -853,17 +859,16 @@ class RpcAnswerDropped extends RpcDropAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa43ad8b7.
     buffer.writeInt32(0xa43ad8b7);
+
+    // Write fields.
     buffer.writeInt64(msgId);
     buffer.writeInt32(seqNo);
     buffer.writeInt32(bytes);
-  }
-}
 
-/// Predicate Future Salt.
-abstract class FutureSaltBase extends TlConstructor {
-  /// Predicate Future Salt constructor.
-  const FutureSaltBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Future Salt.
@@ -913,17 +918,16 @@ class FutureSalt extends FutureSaltBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0949d9dc.
     buffer.writeInt32(0x0949d9dc);
+
+    // Write fields.
     buffer.writeInt32(validSince);
     buffer.writeInt32(validUntil);
     buffer.writeInt64(salt);
-  }
-}
 
-/// Predicate Future Salts.
-abstract class FutureSaltsBase extends TlConstructor {
-  /// Predicate Future Salts constructor.
-  const FutureSaltsBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Future Salts.
@@ -971,17 +975,16 @@ class FutureSalts extends FutureSaltsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xae500895.
     buffer.writeInt32(0xae500895);
+
+    // Write fields.
     buffer.writeInt64(reqMsgId);
     buffer.writeInt32(now);
     buffer.writeVectorObject(salts);
-  }
-}
 
-/// Predicate Pong.
-abstract class PongBase extends TlConstructor {
-  /// Predicate Pong constructor.
-  const PongBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Pong.
@@ -1023,16 +1026,15 @@ class Pong extends PongBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x347773c5.
     buffer.writeInt32(0x347773c5);
+
+    // Write fields.
     buffer.writeInt64(msgId);
     buffer.writeInt64(pingId);
-  }
-}
 
-/// Predicate Destroy Session Res.
-abstract class DestroySessionResBase extends TlConstructor {
-  /// Predicate Destroy Session Res constructor.
-  const DestroySessionResBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Destroy Session Ok.
@@ -1066,8 +1068,13 @@ class DestroySessionOk extends DestroySessionResBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe22045fc.
     buffer.writeInt32(0xe22045fc);
+
+    // Write fields.
     buffer.writeInt64(sessionId);
+
+    // Finished serialization.
   }
 }
 
@@ -1102,15 +1109,14 @@ class DestroySessionNone extends DestroySessionResBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x62d350c9.
     buffer.writeInt32(0x62d350c9);
-    buffer.writeInt64(sessionId);
-  }
-}
 
-/// Predicate New Session.
-abstract class NewSessionBase extends TlConstructor {
-  /// Predicate New Session constructor.
-  const NewSessionBase._() : super._();
+    // Write fields.
+    buffer.writeInt64(sessionId);
+
+    // Finished serialization.
+  }
 }
 
 /// New Session Created.
@@ -1160,17 +1166,16 @@ class NewSessionCreated extends NewSessionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9ec20908.
     buffer.writeInt32(0x9ec20908);
+
+    // Write fields.
     buffer.writeInt64(firstMsgId);
     buffer.writeInt64(uniqueId);
     buffer.writeInt64(serverSalt);
-  }
-}
 
-/// Predicate Message Container.
-abstract class MessageContainerBase extends TlConstructor {
-  /// Predicate Message Container constructor.
-  const MessageContainerBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Msg Container.
@@ -1202,8 +1207,13 @@ class MsgContainer extends MessageContainerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73f1f8dc.
     buffer.writeInt32(0x73f1f8dc);
+
+    // Write fields.
     buffer.writeVectorObject(messages);
+
+    // Finished serialization.
   }
 }
 
@@ -1221,13 +1231,13 @@ class Msg extends TlConstructor {
 
   /// Deserialize.
   factory Msg.deserialize(BinaryReader reader) {
-    // Read [Message] fields.
+    // Read [Msg] fields.
     final msgId = reader.readInt64();
     final seqno = reader.readInt32();
     final bytes = reader.readInt32();
-    final body = reader.readObject() as ObjectBase;
+    final body = reader.readObject();
 
-    // Construct [Message] object.
+    // Construct [Msg] object.
     final returnValue = Msg(
       msgId: msgId,
       seqno: seqno,
@@ -1235,7 +1245,7 @@ class Msg extends TlConstructor {
       body: body,
     );
 
-    // Now return the deserialized [Message].
+    // Now return the deserialized [Msg].
     return returnValue;
   }
 
@@ -1260,18 +1270,17 @@ class Msg extends TlConstructor {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5bb8e511.
     buffer.writeInt32(0x5bb8e511);
+
+    // Write fields.
     buffer.writeInt64(msgId);
     buffer.writeInt32(seqno);
     buffer.writeInt32(bytes);
     buffer.writeObject(body);
-  }
-}
 
-/// Predicate Message Copy.
-abstract class MessageCopyBase extends TlConstructor {
-  /// Predicate Message Copy constructor.
-  const MessageCopyBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Msg Copy.
@@ -1303,21 +1312,20 @@ class MsgCopy extends MessageCopyBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe06046b2.
     buffer.writeInt32(0xe06046b2);
-    buffer.writeObject(origMessage);
-  }
-}
 
-/// Predicate Object.
-abstract class ObjectBase extends TlConstructor {
-  /// Predicate Object constructor.
-  const ObjectBase._() : super._();
+    // Write fields.
+    buffer.writeObject(origMessage);
+
+    // Finished serialization.
+  }
 }
 
 /// Gzip Packed.
 ///
 /// ID: `3072cfa1`.
-class GzipPacked extends ObjectBase {
+class GzipPacked extends TlObject {
   /// Gzip Packed constructor.
   const GzipPacked({
     required this.packedData,
@@ -1343,15 +1351,14 @@ class GzipPacked extends ObjectBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3072cfa1.
     buffer.writeInt32(0x3072cfa1);
-    buffer.writeBytes(packedData);
-  }
-}
 
-/// Predicate Msgs Ack.
-abstract class MsgsAckBase extends TlConstructor {
-  /// Predicate Msgs Ack constructor.
-  const MsgsAckBase._() : super._();
+    // Write fields.
+    buffer.writeBytes(packedData);
+
+    // Finished serialization.
+  }
 }
 
 /// Msgs Ack.
@@ -1383,15 +1390,14 @@ class MsgsAck extends MsgsAckBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x62d6b459.
     buffer.writeInt32(0x62d6b459);
-    buffer.writeVectorInt64(msgIds);
-  }
-}
 
-/// Predicate Bad Msg Notification.
-abstract class BadMsgNotificationBase extends TlConstructor {
-  /// Predicate Bad Msg Notification constructor.
-  const BadMsgNotificationBase._() : super._();
+    // Write fields.
+    buffer.writeVectorInt64(msgIds);
+
+    // Finished serialization.
+  }
 }
 
 /// Bad Msg Notification.
@@ -1441,10 +1447,15 @@ class BadMsgNotification extends BadMsgNotificationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa7eff811.
     buffer.writeInt32(0xa7eff811);
+
+    // Write fields.
     buffer.writeInt64(badMsgId);
     buffer.writeInt32(badMsgSeqno);
     buffer.writeInt32(errorCode);
+
+    // Finished serialization.
   }
 }
 
@@ -1503,18 +1514,17 @@ class BadServerSalt extends BadMsgNotificationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xedab447b.
     buffer.writeInt32(0xedab447b);
+
+    // Write fields.
     buffer.writeInt64(badMsgId);
     buffer.writeInt32(badMsgSeqno);
     buffer.writeInt32(errorCode);
     buffer.writeInt64(newServerSalt);
-  }
-}
 
-/// Predicate Msg Resend Req.
-abstract class MsgResendReqBase extends TlConstructor {
-  /// Predicate Msg Resend Req constructor.
-  const MsgResendReqBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Msg Resend Req.
@@ -1546,15 +1556,14 @@ class MsgResendReq extends MsgResendReqBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7d861a08.
     buffer.writeInt32(0x7d861a08);
-    buffer.writeVectorInt64(msgIds);
-  }
-}
 
-/// Predicate Msgs State Req.
-abstract class MsgsStateReqBase extends TlConstructor {
-  /// Predicate Msgs State Req constructor.
-  const MsgsStateReqBase._() : super._();
+    // Write fields.
+    buffer.writeVectorInt64(msgIds);
+
+    // Finished serialization.
+  }
 }
 
 /// Msgs State Req.
@@ -1586,15 +1595,14 @@ class MsgsStateReq extends MsgsStateReqBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xda69fb52.
     buffer.writeInt32(0xda69fb52);
-    buffer.writeVectorInt64(msgIds);
-  }
-}
 
-/// Predicate Msgs State Info.
-abstract class MsgsStateInfoBase extends TlConstructor {
-  /// Predicate Msgs State Info constructor.
-  const MsgsStateInfoBase._() : super._();
+    // Write fields.
+    buffer.writeVectorInt64(msgIds);
+
+    // Finished serialization.
+  }
 }
 
 /// Msgs State Info.
@@ -1634,16 +1642,15 @@ class MsgsStateInfo extends MsgsStateInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x04deb57d.
     buffer.writeInt32(0x04deb57d);
+
+    // Write fields.
     buffer.writeInt64(reqMsgId);
     buffer.writeBytes(info);
-  }
-}
 
-/// Predicate Msgs All Info.
-abstract class MsgsAllInfoBase extends TlConstructor {
-  /// Predicate Msgs All Info constructor.
-  const MsgsAllInfoBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Msgs All Info.
@@ -1681,16 +1688,15 @@ class MsgsAllInfo extends MsgsAllInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8cc0d131.
     buffer.writeInt32(0x8cc0d131);
+
+    // Write fields.
     buffer.writeVectorInt64(msgIds);
     buffer.writeBytes(info);
-  }
-}
 
-/// Predicate Msg Detailed Info.
-abstract class MsgDetailedInfoBase extends TlConstructor {
-  /// Predicate Msg Detailed Info constructor.
-  const MsgDetailedInfoBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Msg Detailed Info.
@@ -1748,11 +1754,16 @@ class MsgDetailedInfo extends MsgDetailedInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x276d3ec6.
     buffer.writeInt32(0x276d3ec6);
+
+    // Write fields.
     buffer.writeInt64(msgId);
     buffer.writeInt64(answerMsgId);
     buffer.writeInt32(bytes);
     buffer.writeInt32(status);
+
+    // Finished serialization.
   }
 }
 
@@ -1803,17 +1814,16 @@ class MsgNewDetailedInfo extends MsgDetailedInfoBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x809db6df.
     buffer.writeInt32(0x809db6df);
+
+    // Write fields.
     buffer.writeInt64(answerMsgId);
     buffer.writeInt32(bytes);
     buffer.writeInt32(status);
-  }
-}
 
-/// Predicate Destroy Auth Key Res.
-abstract class DestroyAuthKeyResBase extends TlConstructor {
-  /// Predicate Destroy Auth Key Res constructor.
-  const DestroyAuthKeyResBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Destroy Auth Key Ok.
@@ -1835,7 +1845,10 @@ class DestroyAuthKeyOk extends DestroyAuthKeyResBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf660e1d4.
     buffer.writeInt32(0xf660e1d4);
+
+    // Finished serialization.
   }
 }
 
@@ -1858,7 +1871,10 @@ class DestroyAuthKeyNone extends DestroyAuthKeyResBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0a9f2259.
     buffer.writeInt32(0x0a9f2259);
+
+    // Finished serialization.
   }
 }
 
@@ -1881,7 +1897,10 @@ class DestroyAuthKeyFail extends DestroyAuthKeyResBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xea109b13.
     buffer.writeInt32(0xea109b13);
+
+    // Finished serialization.
   }
 }
 
@@ -1914,8 +1933,13 @@ class ReqPqMulti extends TlMethod<ResPQBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbe7e8ef1.
     buffer.writeInt32(0xbe7e8ef1);
+
+    // Write fields.
     buffer.writeInt128(nonce);
+
+    // Finished serialization.
   }
 }
 
@@ -1980,13 +2004,18 @@ class ReqDHParams extends TlMethod<ServerDHParamsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd712e4be.
     buffer.writeInt32(0xd712e4be);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeBytes(p);
     buffer.writeBytes(q);
     buffer.writeInt64(publicKeyFingerprint);
     buffer.writeBytes(encryptedData);
+
+    // Finished serialization.
   }
 }
 
@@ -2031,10 +2060,15 @@ class SetClientDHParams extends TlMethod<SetClientDHParamsAnswerBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf5045f1f.
     buffer.writeInt32(0xf5045f1f);
+
+    // Write fields.
     buffer.writeInt128(nonce);
     buffer.writeInt128(serverNonce);
     buffer.writeBytes(encryptedData);
+
+    // Finished serialization.
   }
 }
 
@@ -2069,8 +2103,13 @@ class RpcDropAnswer extends TlMethod<RpcDropAnswerBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x58e4a740.
     buffer.writeInt32(0x58e4a740);
+
+    // Write fields.
     buffer.writeInt64(reqMsgId);
+
+    // Finished serialization.
   }
 }
 
@@ -2105,8 +2144,13 @@ class GetFutureSalts extends TlMethod<FutureSaltsBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb921bd04.
     buffer.writeInt32(0xb921bd04);
+
+    // Write fields.
     buffer.writeInt32(num);
+
+    // Finished serialization.
   }
 }
 
@@ -2141,8 +2185,13 @@ class Ping extends TlMethod<PongBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7abe77ec.
     buffer.writeInt32(0x7abe77ec);
+
+    // Write fields.
     buffer.writeInt64(pingId);
+
+    // Finished serialization.
   }
 }
 
@@ -2185,9 +2234,14 @@ class PingDelayDisconnect extends TlMethod<PongBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3427b8c.
     buffer.writeInt32(0xf3427b8c);
+
+    // Write fields.
     buffer.writeInt64(pingId);
     buffer.writeInt32(disconnectDelay);
+
+    // Finished serialization.
   }
 }
 
@@ -2222,8 +2276,13 @@ class DestroySession extends TlMethod<DestroySessionResBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe7512126.
     buffer.writeInt32(0xe7512126);
+
+    // Write fields.
     buffer.writeInt64(sessionId);
+
+    // Finished serialization.
   }
 }
 
@@ -2274,10 +2333,15 @@ class HttpWait extends TlMethod<HttpWait> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9299359f.
     buffer.writeInt32(0x9299359f);
+
+    // Write fields.
     buffer.writeInt32(maxDelay);
     buffer.writeInt32(waitAfter);
     buffer.writeInt32(maxWait);
+
+    // Finished serialization.
   }
 }
 
@@ -2300,6 +2364,9 @@ class DestroyAuthKey extends TlMethod<DestroyAuthKeyResBase> {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd1435160.
     buffer.writeInt32(0xd1435160);
+
+    // Finished serialization.
   }
 }

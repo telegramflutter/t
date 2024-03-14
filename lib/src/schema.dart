@@ -1,11 +1,5 @@
 part of '../t.dart';
 
-/// Predicate Error.
-abstract class ErrorBase extends TlConstructor {
-  /// Predicate Error constructor.
-  const ErrorBase._() : super._();
-}
-
 /// Error.
 ///
 /// ID: `c4b9f9bb`.
@@ -52,12 +46,6 @@ class Error extends ErrorBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Peer.
-abstract class InputPeerBase extends TlConstructor {
-  /// Predicate Input Peer constructor.
-  const InputPeerBase._() : super._();
 }
 
 /// Input Peer Empty.
@@ -367,12 +355,6 @@ class InputPeerChannelFromMessage extends InputPeerBase {
   }
 }
 
-/// Predicate Input User.
-abstract class InputUserBase extends TlConstructor {
-  /// Predicate Input User constructor.
-  const InputUserBase._() : super._();
-}
-
 /// Input User Empty.
 ///
 /// ID: `b98886cf`.
@@ -532,12 +514,6 @@ class InputUserFromMessage extends InputUserBase {
   }
 }
 
-/// Predicate Input Contact.
-abstract class InputContactBase extends TlConstructor {
-  /// Predicate Input Contact constructor.
-  const InputContactBase._() : super._();
-}
-
 /// Input Phone Contact.
 ///
 /// ID: `f392b7f4`.
@@ -598,12 +574,6 @@ class InputPhoneContact extends InputContactBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input File.
-abstract class InputFileBase extends TlConstructor {
-  /// Predicate Input File constructor.
-  const InputFileBase._() : super._();
 }
 
 /// Input File.
@@ -725,12 +695,6 @@ class InputFileBig extends InputFileBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Media.
-abstract class InputMediaBase extends TlConstructor {
-  /// Predicate Input Media constructor.
-  const InputMediaBase._() : super._();
 }
 
 /// Input Media Empty.
@@ -1916,12 +1880,6 @@ class InputMediaWebPage extends InputMediaBase {
   }
 }
 
-/// Predicate Input Chat Photo.
-abstract class InputChatPhotoBase extends TlConstructor {
-  /// Predicate Input Chat Photo constructor.
-  const InputChatPhotoBase._() : super._();
-}
-
 /// Input Chat Photo Empty.
 ///
 /// ID: `1ca48f57`.
@@ -2078,12 +2036,6 @@ class InputChatPhoto extends InputChatPhotoBase {
   }
 }
 
-/// Predicate Input Geo Point.
-abstract class InputGeoPointBase extends TlConstructor {
-  /// Predicate Input Geo Point constructor.
-  const InputGeoPointBase._() : super._();
-}
-
 /// Input Geo Point Empty.
 ///
 /// ID: `e4c123d6`.
@@ -2178,12 +2130,6 @@ class InputGeoPoint extends InputGeoPointBase {
   }
 }
 
-/// Predicate Input Photo.
-abstract class InputPhotoBase extends TlConstructor {
-  /// Predicate Input Photo constructor.
-  const InputPhotoBase._() : super._();
-}
-
 /// Input Photo Empty.
 ///
 /// ID: `1cd7bf0d`.
@@ -2265,12 +2211,6 @@ class InputPhoto extends InputPhotoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input File Location.
-abstract class InputFileLocationBase extends TlConstructor {
-  /// Predicate Input File Location constructor.
-  const InputFileLocationBase._() : super._();
 }
 
 /// Input File Location.
@@ -2880,12 +2820,6 @@ class InputGroupCallStream extends InputFileLocationBase {
   }
 }
 
-/// Predicate Peer.
-abstract class PeerBase extends TlConstructor {
-  /// Predicate Peer constructor.
-  const PeerBase._() : super._();
-}
-
 /// Peer User.
 ///
 /// ID: `59511722`.
@@ -3007,12 +2941,6 @@ class PeerChannel extends PeerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Storage File Type.
-abstract class StorageFileTypeBase extends TlConstructor {
-  /// Predicate Storage File Type constructor.
-  const StorageFileTypeBase._() : super._();
 }
 
 /// Storage File Unknown.
@@ -3273,12 +3201,6 @@ class StorageFileWebp extends StorageFileTypeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate User.
-abstract class UserBase extends TlConstructor {
-  /// Predicate User constructor.
-  const UserBase._() : super._();
 }
 
 /// User Empty.
@@ -3735,12 +3657,6 @@ class User extends UserBase {
   }
 }
 
-/// Predicate User Profile Photo.
-abstract class UserProfilePhotoBase extends TlConstructor {
-  /// Predicate User Profile Photo constructor.
-  const UserProfilePhotoBase._() : super._();
-}
-
 /// User Profile Photo Empty.
 ///
 /// ID: `4f11bae1`.
@@ -3851,12 +3767,6 @@ class UserProfilePhoto extends UserProfilePhotoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate User Status.
-abstract class UserStatusBase extends TlConstructor {
-  /// Predicate User Status constructor.
-  const UserStatusBase._() : super._();
 }
 
 /// User Status Empty.
@@ -4043,12 +3953,6 @@ class UserStatusLastMonth extends UserStatusBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat.
-abstract class ChatBase extends TlConstructor {
-  /// Predicate Chat constructor.
-  const ChatBase._() : super._();
 }
 
 /// Chat Empty.
@@ -4812,12 +4716,6 @@ class ChannelForbidden extends ChatBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Full.
-abstract class ChatFullBase extends TlConstructor {
-  /// Predicate Chat Full constructor.
-  const ChatFullBase._() : super._();
 }
 
 /// Chat Full.
@@ -5638,12 +5536,6 @@ class ChannelFull extends ChatFullBase {
   }
 }
 
-/// Predicate Chat Participant.
-abstract class ChatParticipantBase extends TlConstructor {
-  /// Predicate Chat Participant constructor.
-  const ChatParticipantBase._() : super._();
-}
-
 /// Chat Participant.
 ///
 /// ID: `c02d4007`.
@@ -5799,12 +5691,6 @@ class ChatParticipantAdmin extends ChatParticipantBase {
   }
 }
 
-/// Predicate Chat Participants.
-abstract class ChatParticipantsBase extends TlConstructor {
-  /// Predicate Chat Participants constructor.
-  const ChatParticipantsBase._() : super._();
-}
-
 /// Chat Participants Forbidden.
 ///
 /// ID: `8763d3e1`.
@@ -5927,12 +5813,6 @@ class ChatParticipants extends ChatParticipantsBase {
   }
 }
 
-/// Predicate Chat Photo.
-abstract class ChatPhotoBase extends TlConstructor {
-  /// Predicate Chat Photo constructor.
-  const ChatPhotoBase._() : super._();
-}
-
 /// Chat Photo Empty.
 ///
 /// ID: `37c1011c`.
@@ -6036,12 +5916,6 @@ class ChatPhoto extends ChatPhotoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message.
-abstract class MessageBase extends TlConstructor {
-  /// Predicate Message constructor.
-  const MessageBase._() : super._();
 }
 
 /// Message Empty.
@@ -6618,12 +6492,6 @@ class MessageService extends MessageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Media.
-abstract class MessageMediaBase extends TlConstructor {
-  /// Predicate Message Media constructor.
-  const MessageMediaBase._() : super._();
 }
 
 /// Message Media Empty.
@@ -7802,12 +7670,6 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Action.
-abstract class MessageActionBase extends TlConstructor {
-  /// Predicate Message Action constructor.
-  const MessageActionBase._() : super._();
 }
 
 /// Message Action Empty.
@@ -9890,12 +9752,6 @@ class MessageActionGiveawayResults extends MessageActionBase {
   }
 }
 
-/// Predicate Dialog.
-abstract class DialogBase extends TlConstructor {
-  /// Predicate Dialog constructor.
-  const DialogBase._() : super._();
-}
-
 /// Dialog.
 ///
 /// ID: `d58a08c6`.
@@ -10184,12 +10040,6 @@ class DialogFolder extends DialogBase {
   }
 }
 
-/// Predicate Photo.
-abstract class PhotoBase extends TlConstructor {
-  /// Predicate Photo constructor.
-  const PhotoBase._() : super._();
-}
-
 /// Photo Empty.
 ///
 /// ID: `2331b22d`.
@@ -10339,12 +10189,6 @@ class Photo extends PhotoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Photo Size.
-abstract class PhotoSizeBase extends TlConstructor {
-  /// Predicate Photo Size constructor.
-  const PhotoSizeBase._() : super._();
 }
 
 /// Photo Size Empty.
@@ -10672,12 +10516,6 @@ class PhotoPathSize extends PhotoSizeBase {
   }
 }
 
-/// Predicate Geo Point.
-abstract class GeoPointBase extends TlConstructor {
-  /// Predicate Geo Point constructor.
-  const GeoPointBase._() : super._();
-}
-
 /// Geo Point Empty.
 ///
 /// ID: `1117dd5f`.
@@ -10779,12 +10617,6 @@ class GeoPoint extends GeoPointBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Auth Sent Code.
-abstract class AuthSentCodeBase extends TlConstructor {
-  /// Predicate Auth Sent Code constructor.
-  const AuthSentCodeBase._() : super._();
 }
 
 /// Auth Sent Code.
@@ -10905,12 +10737,6 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Auth Authorization.
-abstract class AuthAuthorizationBase extends TlConstructor {
-  /// Predicate Auth Authorization constructor.
-  const AuthAuthorizationBase._() : super._();
 }
 
 /// Auth Authorization.
@@ -11061,12 +10887,6 @@ class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
   }
 }
 
-/// Predicate Auth Exported Authorization.
-abstract class AuthExportedAuthorizationBase extends TlConstructor {
-  /// Predicate Auth Exported Authorization constructor.
-  const AuthExportedAuthorizationBase._() : super._();
-}
-
 /// Auth Exported Authorization.
 ///
 /// ID: `b434e2b8`.
@@ -11113,12 +10933,6 @@ class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Notify Peer.
-abstract class InputNotifyPeerBase extends TlConstructor {
-  /// Predicate Input Notify Peer constructor.
-  const InputNotifyPeerBase._() : super._();
 }
 
 /// Input Notify Peer.
@@ -11286,12 +11100,6 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
   }
 }
 
-/// Predicate Input Peer Notify Settings.
-abstract class InputPeerNotifySettingsBase extends TlConstructor {
-  /// Predicate Input Peer Notify Settings constructor.
-  const InputPeerNotifySettingsBase._() : super._();
-}
-
 /// Input Peer Notify Settings.
 ///
 /// ID: `cacb6ae2`.
@@ -11399,12 +11207,6 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Peer Notify Settings.
-abstract class PeerNotifySettingsBase extends TlConstructor {
-  /// Predicate Peer Notify Settings constructor.
-  const PeerNotifySettingsBase._() : super._();
 }
 
 /// Peer Notify Settings.
@@ -11572,12 +11374,6 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   }
 }
 
-/// Predicate Peer Settings.
-abstract class PeerSettingsBase extends TlConstructor {
-  /// Predicate Peer Settings constructor.
-  const PeerSettingsBase._() : super._();
-}
-
 /// Peer Settings.
 ///
 /// ID: `a518110d`.
@@ -11718,12 +11514,6 @@ class PeerSettings extends PeerSettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Wall Paper.
-abstract class WallPaperBase extends TlConstructor {
-  /// Predicate Wall Paper constructor.
-  const WallPaperBase._() : super._();
 }
 
 /// Wall Paper.
@@ -11917,12 +11707,6 @@ class WallPaperNoFile extends WallPaperBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Report Reason.
-abstract class ReportReasonBase extends TlConstructor {
-  /// Predicate Report Reason constructor.
-  const ReportReasonBase._() : super._();
 }
 
 /// Input Report Reason Spam.
@@ -12183,12 +11967,6 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate User Full.
-abstract class UserFullBase extends TlConstructor {
-  /// Predicate User Full constructor.
-  const UserFullBase._() : super._();
 }
 
 /// User Full.
@@ -12534,12 +12312,6 @@ class UserFull extends UserFullBase {
   }
 }
 
-/// Predicate Contact.
-abstract class ContactBase extends TlConstructor {
-  /// Predicate Contact constructor.
-  const ContactBase._() : super._();
-}
-
 /// Contact.
 ///
 /// ID: `145ade0b`.
@@ -12586,12 +12358,6 @@ class Contact extends ContactBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Imported Contact.
-abstract class ImportedContactBase extends TlConstructor {
-  /// Predicate Imported Contact constructor.
-  const ImportedContactBase._() : super._();
 }
 
 /// Imported Contact.
@@ -12644,12 +12410,6 @@ class ImportedContact extends ImportedContactBase {
   }
 }
 
-/// Predicate Contact Status.
-abstract class ContactStatusBase extends TlConstructor {
-  /// Predicate Contact Status constructor.
-  const ContactStatusBase._() : super._();
-}
-
 /// Contact Status.
 ///
 /// ID: `16d9703b`.
@@ -12696,12 +12456,6 @@ class ContactStatus extends ContactStatusBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Contacts Contacts.
-abstract class ContactsContactsBase extends TlConstructor {
-  /// Predicate Contacts Contacts constructor.
-  const ContactsContactsBase._() : super._();
 }
 
 /// Contacts Contacts Not Modified.
@@ -12785,12 +12539,6 @@ class ContactsContacts extends ContactsContactsBase {
   }
 }
 
-/// Predicate Contacts Imported Contacts.
-abstract class ContactsImportedContactsBase extends TlConstructor {
-  /// Predicate Contacts Imported Contacts constructor.
-  const ContactsImportedContactsBase._() : super._();
-}
-
 /// Contacts Imported Contacts.
 ///
 /// ID: `77d01c3b`.
@@ -12849,12 +12597,6 @@ class ContactsImportedContacts extends ContactsImportedContactsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Contacts Blocked.
-abstract class ContactsBlockedBase extends TlConstructor {
-  /// Predicate Contacts Blocked constructor.
-  const ContactsBlockedBase._() : super._();
 }
 
 /// Contacts Blocked.
@@ -12970,12 +12712,6 @@ class ContactsBlockedSlice extends ContactsBlockedBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Dialogs.
-abstract class MessagesDialogsBase extends TlConstructor {
-  /// Predicate Messages Dialogs constructor.
-  const MessagesDialogsBase._() : super._();
 }
 
 /// Messages Dialogs.
@@ -13146,12 +12882,6 @@ class MessagesDialogsNotModified extends MessagesDialogsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Messages.
-abstract class MessagesMessagesBase extends TlConstructor {
-  /// Predicate Messages Messages constructor.
-  const MessagesMessagesBase._() : super._();
 }
 
 /// Messages Messages.
@@ -13458,12 +13188,6 @@ class MessagesMessagesNotModified extends MessagesMessagesBase {
   }
 }
 
-/// Predicate Messages Chats.
-abstract class MessagesChatsBase extends TlConstructor {
-  /// Predicate Messages Chats constructor.
-  const MessagesChatsBase._() : super._();
-}
-
 /// Messages Chats.
 ///
 /// ID: `64ff9fd5`.
@@ -13551,12 +13275,6 @@ class MessagesChatsSlice extends MessagesChatsBase {
   }
 }
 
-/// Predicate Messages Chat Full.
-abstract class MessagesChatFullBase extends TlConstructor {
-  /// Predicate Messages Chat Full constructor.
-  const MessagesChatFullBase._() : super._();
-}
-
 /// Messages Chat Full.
 ///
 /// ID: `e5d7d19c`.
@@ -13608,12 +13326,6 @@ class MessagesChatFull extends MessagesChatFullBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Affected History.
-abstract class MessagesAffectedHistoryBase extends TlConstructor {
-  /// Predicate Messages Affected History constructor.
-  const MessagesAffectedHistoryBase._() : super._();
 }
 
 /// Messages Affected History.
@@ -13673,12 +13385,6 @@ class MessagesAffectedHistory extends MessagesAffectedHistoryBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Filter.
-abstract class MessagesFilterBase extends TlConstructor {
-  /// Predicate Messages Filter constructor.
-  const MessagesFilterBase._() : super._();
 }
 
 /// Input Messages Filter Empty.
@@ -14144,12 +13850,6 @@ class InputMessagesFilterPinned extends MessagesFilterBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Update.
-abstract class UpdateBase extends TlConstructor {
-  /// Predicate Update constructor.
-  const UpdateBase._() : super._();
 }
 
 /// Update New Message.
@@ -21186,12 +20886,6 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
   }
 }
 
-/// Predicate Updates State.
-abstract class UpdatesStateBase extends TlConstructor {
-  /// Predicate Updates State constructor.
-  const UpdatesStateBase._() : super._();
-}
-
 /// Updates State.
 ///
 /// ID: `a56c2a3e`.
@@ -21265,12 +20959,6 @@ class UpdatesState extends UpdatesStateBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Updates Difference.
-abstract class UpdatesDifferenceBase extends TlConstructor {
-  /// Predicate Updates Difference constructor.
-  const UpdatesDifferenceBase._() : super._();
 }
 
 /// Updates Difference Empty.
@@ -21510,12 +21198,6 @@ class UpdatesDifferenceTooLong extends UpdatesDifferenceBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Updates.
-abstract class UpdatesBase extends TlConstructor {
-  /// Predicate Updates constructor.
-  const UpdatesBase._() : super._();
 }
 
 /// Updates Too Long.
@@ -22233,12 +21915,6 @@ class UpdateShortSentMessage extends UpdatesBase {
   }
 }
 
-/// Predicate Photos Photos.
-abstract class PhotosPhotosBase extends TlConstructor {
-  /// Predicate Photos Photos constructor.
-  const PhotosPhotosBase._() : super._();
-}
-
 /// Photos Photos.
 ///
 /// ID: `8dca6aa5`.
@@ -22340,12 +22016,6 @@ class PhotosPhotosSlice extends PhotosPhotosBase {
   }
 }
 
-/// Predicate Photos Photo.
-abstract class PhotosPhotoBase extends TlConstructor {
-  /// Predicate Photos Photo constructor.
-  const PhotosPhotoBase._() : super._();
-}
-
 /// Photos Photo.
 ///
 /// ID: `20212ca8`.
@@ -22390,12 +22060,6 @@ class PhotosPhoto extends PhotosPhotoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Upload File.
-abstract class UploadFileBase extends TlConstructor {
-  /// Predicate Upload File constructor.
-  const UploadFileBase._() : super._();
 }
 
 /// Upload File.
@@ -22522,12 +22186,6 @@ class UploadFileCdnRedirect extends UploadFileBase {
   }
 }
 
-/// Predicate Dc Option.
-abstract class DcOptionBase extends TlConstructor {
-  /// Predicate Dc Option constructor.
-  const DcOptionBase._() : super._();
-}
-
 /// Dc Option.
 ///
 /// ID: `18b7a10d`.
@@ -22647,12 +22305,6 @@ class DcOption extends DcOptionBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Config.
-abstract class ConfigBase extends TlConstructor {
-  /// Predicate Config constructor.
-  const ConfigBase._() : super._();
 }
 
 /// Config.
@@ -23141,12 +22793,6 @@ class Config extends ConfigBase {
   }
 }
 
-/// Predicate Nearest Dc.
-abstract class NearestDcBase extends TlConstructor {
-  /// Predicate Nearest Dc constructor.
-  const NearestDcBase._() : super._();
-}
-
 /// Nearest Dc.
 ///
 /// ID: `8e1a1775`.
@@ -23202,12 +22848,6 @@ class NearestDc extends NearestDcBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help App Update.
-abstract class HelpAppUpdateBase extends TlConstructor {
-  /// Predicate Help App Update constructor.
-  const HelpAppUpdateBase._() : super._();
 }
 
 /// Help App Update.
@@ -23353,12 +22993,6 @@ class HelpNoAppUpdate extends HelpAppUpdateBase {
   }
 }
 
-/// Predicate Help Invite Text.
-abstract class HelpInviteTextBase extends TlConstructor {
-  /// Predicate Help Invite Text constructor.
-  const HelpInviteTextBase._() : super._();
-}
-
 /// Help Invite Text.
 ///
 /// ID: `18cb9f78`.
@@ -23396,12 +23030,6 @@ class HelpInviteText extends HelpInviteTextBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Encrypted Chat.
-abstract class EncryptedChatBase extends TlConstructor {
-  /// Predicate Encrypted Chat constructor.
-  const EncryptedChatBase._() : super._();
 }
 
 /// Encrypted Chat Empty.
@@ -23773,12 +23401,6 @@ class EncryptedChatDiscarded extends EncryptedChatBase {
   }
 }
 
-/// Predicate Input Encrypted Chat.
-abstract class InputEncryptedChatBase extends TlConstructor {
-  /// Predicate Input Encrypted Chat constructor.
-  const InputEncryptedChatBase._() : super._();
-}
-
 /// Input Encrypted Chat.
 ///
 /// ID: `f141b5e1`.
@@ -23827,12 +23449,6 @@ class InputEncryptedChat extends InputEncryptedChatBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Encrypted File.
-abstract class EncryptedFileBase extends TlConstructor {
-  /// Predicate Encrypted File constructor.
-  const EncryptedFileBase._() : super._();
 }
 
 /// Encrypted File Empty.
@@ -23936,12 +23552,6 @@ class EncryptedFile extends EncryptedFileBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Encrypted File.
-abstract class InputEncryptedFileBase extends TlConstructor {
-  /// Predicate Input Encrypted File constructor.
-  const InputEncryptedFileBase._() : super._();
 }
 
 /// Input Encrypted File Empty.
@@ -24145,12 +23755,6 @@ class InputEncryptedFileBigUploaded extends InputEncryptedFileBase {
   }
 }
 
-/// Predicate Encrypted Message.
-abstract class EncryptedMessageBase extends TlConstructor {
-  /// Predicate Encrypted Message constructor.
-  const EncryptedMessageBase._() : super._();
-}
-
 /// Encrypted Message.
 ///
 /// ID: `ed18c118`.
@@ -24286,12 +23890,6 @@ class EncryptedMessageService extends EncryptedMessageBase {
   }
 }
 
-/// Predicate Messages Dh Config.
-abstract class MessagesDhConfigBase extends TlConstructor {
-  /// Predicate Messages Dh Config constructor.
-  const MessagesDhConfigBase._() : super._();
-}
-
 /// Messages Dh Config Not Modified.
 ///
 /// ID: `c0e24635`.
@@ -24395,12 +23993,6 @@ class MessagesDhConfig extends MessagesDhConfigBase {
   }
 }
 
-/// Predicate Messages Sent Encrypted Message.
-abstract class MessagesSentEncryptedMessageBase extends TlConstructor {
-  /// Predicate Messages Sent Encrypted Message constructor.
-  const MessagesSentEncryptedMessageBase._() : super._();
-}
-
 /// Messages Sent Encrypted Message.
 ///
 /// ID: `560f8935`.
@@ -24486,12 +24078,6 @@ class MessagesSentEncryptedFile extends MessagesSentEncryptedMessageBase {
   }
 }
 
-/// Predicate Input Document.
-abstract class InputDocumentBase extends TlConstructor {
-  /// Predicate Input Document constructor.
-  const InputDocumentBase._() : super._();
-}
-
 /// Input Document Empty.
 ///
 /// ID: `72f0eaae`.
@@ -24573,12 +24159,6 @@ class InputDocument extends InputDocumentBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Document.
-abstract class DocumentBase extends TlConstructor {
-  /// Predicate Document constructor.
-  const DocumentBase._() : super._();
 }
 
 /// Document Empty.
@@ -24754,12 +24334,6 @@ class Document extends DocumentBase {
   }
 }
 
-/// Predicate Help Support.
-abstract class HelpSupportBase extends TlConstructor {
-  /// Predicate Help Support constructor.
-  const HelpSupportBase._() : super._();
-}
-
 /// Help Support.
 ///
 /// ID: `17c6b5f6`.
@@ -24804,12 +24378,6 @@ class HelpSupport extends HelpSupportBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Notify Peer.
-abstract class NotifyPeerBase extends TlConstructor {
-  /// Predicate Notify Peer constructor.
-  const NotifyPeerBase._() : super._();
 }
 
 /// Notify Peer.
@@ -24975,12 +24543,6 @@ class NotifyForumTopic extends NotifyPeerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Send Message Action.
-abstract class SendMessageActionBase extends TlConstructor {
-  /// Predicate Send Message Action constructor.
-  const SendMessageActionBase._() : super._();
 }
 
 /// Send Message Typing Action.
@@ -25583,12 +25145,6 @@ class SendMessageEmojiInteractionSeen extends SendMessageActionBase {
   }
 }
 
-/// Predicate Contacts Found.
-abstract class ContactsFoundBase extends TlConstructor {
-  /// Predicate Contacts Found constructor.
-  const ContactsFoundBase._() : super._();
-}
-
 /// Contacts Found.
 ///
 /// ID: `b3134d9d`.
@@ -25647,12 +25203,6 @@ class ContactsFound extends ContactsFoundBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Privacy Key.
-abstract class InputPrivacyKeyBase extends TlConstructor {
-  /// Predicate Input Privacy Key constructor.
-  const InputPrivacyKeyBase._() : super._();
 }
 
 /// Input Privacy Key Status Timestamp.
@@ -25915,12 +25465,6 @@ class InputPrivacyKeyAbout extends InputPrivacyKeyBase {
   }
 }
 
-/// Predicate Privacy Key.
-abstract class PrivacyKeyBase extends TlConstructor {
-  /// Predicate Privacy Key constructor.
-  const PrivacyKeyBase._() : super._();
-}
-
 /// Privacy Key Status Timestamp.
 ///
 /// ID: `bc2eab30`.
@@ -26179,12 +25723,6 @@ class PrivacyKeyAbout extends PrivacyKeyBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Privacy Rule.
-abstract class InputPrivacyRuleBase extends TlConstructor {
-  /// Predicate Input Privacy Rule constructor.
-  const InputPrivacyRuleBase._() : super._();
 }
 
 /// Input Privacy Value Allow Contacts.
@@ -26475,12 +26013,6 @@ class InputPrivacyValueAllowCloseFriends extends InputPrivacyRuleBase {
   }
 }
 
-/// Predicate Privacy Rule.
-abstract class PrivacyRuleBase extends TlConstructor {
-  /// Predicate Privacy Rule constructor.
-  const PrivacyRuleBase._() : super._();
-}
-
 /// Privacy Value Allow Contacts.
 ///
 /// ID: `fffe1bac`.
@@ -26768,12 +26300,6 @@ class PrivacyValueAllowCloseFriends extends PrivacyRuleBase {
   }
 }
 
-/// Predicate Account Privacy Rules.
-abstract class AccountPrivacyRulesBase extends TlConstructor {
-  /// Predicate Account Privacy Rules constructor.
-  const AccountPrivacyRulesBase._() : super._();
-}
-
 /// Account Privacy Rules.
 ///
 /// ID: `50a04e45`.
@@ -26827,12 +26353,6 @@ class AccountPrivacyRules extends AccountPrivacyRulesBase {
   }
 }
 
-/// Predicate Account Days T T L.
-abstract class AccountDaysTTLBase extends TlConstructor {
-  /// Predicate Account Days T T L constructor.
-  const AccountDaysTTLBase._() : super._();
-}
-
 /// Account Days T T L.
 ///
 /// ID: `b8d0afdf`.
@@ -26872,12 +26392,6 @@ class AccountDaysTTL extends AccountDaysTTLBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Document Attribute.
-abstract class DocumentAttributeBase extends TlConstructor {
-  /// Predicate Document Attribute constructor.
-  const DocumentAttributeBase._() : super._();
 }
 
 /// Document Attribute Image Size.
@@ -27362,12 +26876,6 @@ class DocumentAttributeCustomEmoji extends DocumentAttributeBase {
   }
 }
 
-/// Predicate Messages Stickers.
-abstract class MessagesStickersBase extends TlConstructor {
-  /// Predicate Messages Stickers constructor.
-  const MessagesStickersBase._() : super._();
-}
-
 /// Messages Stickers Not Modified.
 ///
 /// ID: `f1749a22`.
@@ -27442,12 +26950,6 @@ class MessagesStickers extends MessagesStickersBase {
   }
 }
 
-/// Predicate Sticker Pack.
-abstract class StickerPackBase extends TlConstructor {
-  /// Predicate Sticker Pack constructor.
-  const StickerPackBase._() : super._();
-}
-
 /// Sticker Pack.
 ///
 /// ID: `12b299d4`.
@@ -27492,12 +26994,6 @@ class StickerPack extends StickerPackBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages All Stickers.
-abstract class MessagesAllStickersBase extends TlConstructor {
-  /// Predicate Messages All Stickers constructor.
-  const MessagesAllStickersBase._() : super._();
 }
 
 /// Messages All Stickers Not Modified.
@@ -27574,12 +27070,6 @@ class MessagesAllStickers extends MessagesAllStickersBase {
   }
 }
 
-/// Predicate Messages Affected Messages.
-abstract class MessagesAffectedMessagesBase extends TlConstructor {
-  /// Predicate Messages Affected Messages constructor.
-  const MessagesAffectedMessagesBase._() : super._();
-}
-
 /// Messages Affected Messages.
 ///
 /// ID: `84d19185`.
@@ -27628,12 +27118,6 @@ class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Web Page.
-abstract class WebPageBase extends TlConstructor {
-  /// Predicate Web Page constructor.
-  const WebPageBase._() : super._();
 }
 
 /// Web Page Empty.
@@ -28074,12 +27558,6 @@ class WebPageNotModified extends WebPageBase {
   }
 }
 
-/// Predicate Authorization.
-abstract class AuthorizationBase extends TlConstructor {
-  /// Predicate Authorization constructor.
-  const AuthorizationBase._() : super._();
-}
-
 /// Authorization.
 ///
 /// ID: `ad01d61d`.
@@ -28252,12 +27730,6 @@ class Authorization extends AuthorizationBase {
   }
 }
 
-/// Predicate Account Authorizations.
-abstract class AccountAuthorizationsBase extends TlConstructor {
-  /// Predicate Account Authorizations constructor.
-  const AccountAuthorizationsBase._() : super._();
-}
-
 /// Account Authorizations.
 ///
 /// ID: `4bff8ea0`.
@@ -28304,12 +27776,6 @@ class AccountAuthorizations extends AccountAuthorizationsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Account Password.
-abstract class AccountPasswordBase extends TlConstructor {
-  /// Predicate Account Password constructor.
-  const AccountPasswordBase._() : super._();
 }
 
 /// Account Password.
@@ -28481,12 +27947,6 @@ class AccountPassword extends AccountPasswordBase {
   }
 }
 
-/// Predicate Account Password Settings.
-abstract class AccountPasswordSettingsBase extends TlConstructor {
-  /// Predicate Account Password Settings constructor.
-  const AccountPasswordSettingsBase._() : super._();
-}
-
 /// Account Password Settings.
 ///
 /// ID: `9a5c33e5`.
@@ -28553,12 +28013,6 @@ class AccountPasswordSettings extends AccountPasswordSettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Account Password Input Settings.
-abstract class AccountPasswordInputSettingsBase extends TlConstructor {
-  /// Predicate Account Password Input Settings constructor.
-  const AccountPasswordInputSettingsBase._() : super._();
 }
 
 /// Account Password Input Settings.
@@ -28664,12 +28118,6 @@ class AccountPasswordInputSettings extends AccountPasswordInputSettingsBase {
   }
 }
 
-/// Predicate Auth Password Recovery.
-abstract class AuthPasswordRecoveryBase extends TlConstructor {
-  /// Predicate Auth Password Recovery constructor.
-  const AuthPasswordRecoveryBase._() : super._();
-}
-
 /// Auth Password Recovery.
 ///
 /// ID: `137948a5`.
@@ -28707,12 +28155,6 @@ class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Received Notify Message.
-abstract class ReceivedNotifyMessageBase extends TlConstructor {
-  /// Predicate Received Notify Message constructor.
-  const ReceivedNotifyMessageBase._() : super._();
 }
 
 /// Received Notify Message.
@@ -28763,12 +28205,6 @@ class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Exported Chat Invite.
-abstract class ExportedChatInviteBase extends TlConstructor {
-  /// Predicate Exported Chat Invite constructor.
-  const ExportedChatInviteBase._() : super._();
 }
 
 /// Chat Invite Exported.
@@ -28953,12 +28389,6 @@ class ChatInvitePublicJoinRequests extends ExportedChatInviteBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Invite.
-abstract class ChatInviteBase extends TlConstructor {
-  /// Predicate Chat Invite constructor.
-  const ChatInviteBase._() : super._();
 }
 
 /// Chat Invite Already.
@@ -29201,12 +28631,6 @@ class ChatInvitePeek extends ChatInviteBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Sticker Set.
-abstract class InputStickerSetBase extends TlConstructor {
-  /// Predicate Input Sticker Set constructor.
-  const InputStickerSetBase._() : super._();
 }
 
 /// Input Sticker Set Empty.
@@ -29549,12 +28973,6 @@ class InputStickerSetEmojiChannelDefaultStatuses extends InputStickerSetBase {
   }
 }
 
-/// Predicate Sticker Set.
-abstract class StickerSetBase extends TlConstructor {
-  /// Predicate Sticker Set constructor.
-  const StickerSetBase._() : super._();
-}
-
 /// Sticker Set.
 ///
 /// ID: `2dd14edc`.
@@ -29748,12 +29166,6 @@ class StickerSet extends StickerSetBase {
   }
 }
 
-/// Predicate Messages Sticker Set.
-abstract class MessagesStickerSetBase extends TlConstructor {
-  /// Predicate Messages Sticker Set constructor.
-  const MessagesStickerSetBase._() : super._();
-}
-
 /// Messages Sticker Set.
 ///
 /// ID: `6e153f16`.
@@ -29840,12 +29252,6 @@ class MessagesStickerSetNotModified extends MessagesStickerSetBase {
   }
 }
 
-/// Predicate Bot Command.
-abstract class BotCommandBase extends TlConstructor {
-  /// Predicate Bot Command constructor.
-  const BotCommandBase._() : super._();
-}
-
 /// Bot Command.
 ///
 /// ID: `c27ac8c7`.
@@ -29890,12 +29296,6 @@ class BotCommand extends BotCommandBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Bot Info.
-abstract class BotInfoBase extends TlConstructor {
-  /// Predicate Bot Info constructor.
-  const BotInfoBase._() : super._();
 }
 
 /// Bot Info.
@@ -30015,12 +29415,6 @@ class BotInfo extends BotInfoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Keyboard Button.
-abstract class KeyboardButtonBase extends TlConstructor {
-  /// Predicate Keyboard Button constructor.
-  const KeyboardButtonBase._() : super._();
 }
 
 /// Keyboard Button.
@@ -30869,12 +30263,6 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   }
 }
 
-/// Predicate Keyboard Button Row.
-abstract class KeyboardButtonRowBase extends TlConstructor {
-  /// Predicate Keyboard Button Row constructor.
-  const KeyboardButtonRowBase._() : super._();
-}
-
 /// Keyboard Button Row.
 ///
 /// ID: `77608b83`.
@@ -30912,12 +30300,6 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Reply Markup.
-abstract class ReplyMarkupBase extends TlConstructor {
-  /// Predicate Reply Markup constructor.
-  const ReplyMarkupBase._() : super._();
 }
 
 /// Reply Keyboard Hide.
@@ -31163,12 +30545,6 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Entity.
-abstract class MessageEntityBase extends TlConstructor {
-  /// Predicate Message Entity constructor.
-  const MessageEntityBase._() : super._();
 }
 
 /// Message Entity Unknown.
@@ -32260,12 +31636,6 @@ class MessageEntityBlockquote extends MessageEntityBase {
   }
 }
 
-/// Predicate Input Channel.
-abstract class InputChannelBase extends TlConstructor {
-  /// Predicate Input Channel constructor.
-  const InputChannelBase._() : super._();
-}
-
 /// Input Channel Empty.
 ///
 /// ID: `ee8c1e86`.
@@ -32399,12 +31769,6 @@ class InputChannelFromMessage extends InputChannelBase {
   }
 }
 
-/// Predicate Contacts Resolved Peer.
-abstract class ContactsResolvedPeerBase extends TlConstructor {
-  /// Predicate Contacts Resolved Peer constructor.
-  const ContactsResolvedPeerBase._() : super._();
-}
-
 /// Contacts Resolved Peer.
 ///
 /// ID: `7f077ad9`.
@@ -32458,12 +31822,6 @@ class ContactsResolvedPeer extends ContactsResolvedPeerBase {
   }
 }
 
-/// Predicate Message Range.
-abstract class MessageRangeBase extends TlConstructor {
-  /// Predicate Message Range constructor.
-  const MessageRangeBase._() : super._();
-}
-
 /// Message Range.
 ///
 /// ID: `0ae30253`.
@@ -32512,12 +31870,6 @@ class MessageRange extends MessageRangeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Updates Channel Difference.
-abstract class UpdatesChannelDifferenceBase extends TlConstructor {
-  /// Predicate Updates Channel Difference constructor.
-  const UpdatesChannelDifferenceBase._() : super._();
 }
 
 /// Updates Channel Difference Empty.
@@ -32777,12 +32129,6 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
   }
 }
 
-/// Predicate Channel Messages Filter.
-abstract class ChannelMessagesFilterBase extends TlConstructor {
-  /// Predicate Channel Messages Filter constructor.
-  const ChannelMessagesFilterBase._() : super._();
-}
-
 /// Channel Messages Filter Empty.
 ///
 /// ID: `94d42ee7`.
@@ -32863,12 +32209,6 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Channel Participant.
-abstract class ChannelParticipantBase extends TlConstructor {
-  /// Predicate Channel Participant constructor.
-  const ChannelParticipantBase._() : super._();
 }
 
 /// Channel Participant.
@@ -33292,12 +32632,6 @@ class ChannelParticipantLeft extends ChannelParticipantBase {
   }
 }
 
-/// Predicate Channel Participants Filter.
-abstract class ChannelParticipantsFilterBase extends TlConstructor {
-  /// Predicate Channel Participants Filter constructor.
-  const ChannelParticipantsFilterBase._() : super._();
-}
-
 /// Channel Participants Recent.
 ///
 /// ID: `de3f3c79`.
@@ -33598,12 +32932,6 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
   }
 }
 
-/// Predicate Channels Channel Participants.
-abstract class ChannelsChannelParticipantsBase extends TlConstructor {
-  /// Predicate Channels Channel Participants constructor.
-  const ChannelsChannelParticipantsBase._() : super._();
-}
-
 /// Channels Channel Participants.
 ///
 /// ID: `9ab0feaf`.
@@ -33694,12 +33022,6 @@ class ChannelsChannelParticipantsNotModified
   }
 }
 
-/// Predicate Channels Channel Participant.
-abstract class ChannelsChannelParticipantBase extends TlConstructor {
-  /// Predicate Channels Channel Participant constructor.
-  const ChannelsChannelParticipantBase._() : super._();
-}
-
 /// Channels Channel Participant.
 ///
 /// ID: `dfb80317`.
@@ -33751,12 +33073,6 @@ class ChannelsChannelParticipant extends ChannelsChannelParticipantBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Terms Of Service.
-abstract class HelpTermsOfServiceBase extends TlConstructor {
-  /// Predicate Help Terms Of Service constructor.
-  const HelpTermsOfServiceBase._() : super._();
 }
 
 /// Help Terms Of Service.
@@ -33841,12 +33157,6 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
   }
 }
 
-/// Predicate Messages Saved Gifs.
-abstract class MessagesSavedGifsBase extends TlConstructor {
-  /// Predicate Messages Saved Gifs constructor.
-  const MessagesSavedGifsBase._() : super._();
-}
-
 /// Messages Saved Gifs Not Modified.
 ///
 /// ID: `e8025ca2`.
@@ -33919,12 +33229,6 @@ class MessagesSavedGifs extends MessagesSavedGifsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Bot Inline Message.
-abstract class InputBotInlineMessageBase extends TlConstructor {
-  /// Predicate Input Bot Inline Message constructor.
-  const InputBotInlineMessageBase._() : super._();
 }
 
 /// Input Bot Inline Message Media Auto.
@@ -34652,12 +33956,6 @@ class InputBotInlineMessageMediaWebPage extends InputBotInlineMessageBase {
   }
 }
 
-/// Predicate Input Bot Inline Result.
-abstract class InputBotInlineResultBase extends TlConstructor {
-  /// Predicate Input Bot Inline Result constructor.
-  const InputBotInlineResultBase._() : super._();
-}
-
 /// Input Bot Inline Result.
 ///
 /// ID: `88bf9319`.
@@ -34988,12 +34286,6 @@ class InputBotInlineResultGame extends InputBotInlineResultBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Bot Inline Message.
-abstract class BotInlineMessageBase extends TlConstructor {
-  /// Predicate Bot Inline Message constructor.
-  const BotInlineMessageBase._() : super._();
 }
 
 /// Bot Inline Message Media Auto.
@@ -35674,12 +34966,6 @@ class BotInlineMessageMediaWebPage extends BotInlineMessageBase {
   }
 }
 
-/// Predicate Bot Inline Result.
-abstract class BotInlineResultBase extends TlConstructor {
-  /// Predicate Bot Inline Result constructor.
-  const BotInlineResultBase._() : super._();
-}
-
 /// Bot Inline Result.
 ///
 /// ID: `11965f3a`.
@@ -35916,12 +35202,6 @@ class BotInlineMediaResult extends BotInlineResultBase {
   }
 }
 
-/// Predicate Messages Bot Results.
-abstract class MessagesBotResultsBase extends TlConstructor {
-  /// Predicate Messages Bot Results constructor.
-  const MessagesBotResultsBase._() : super._();
-}
-
 /// Messages Bot Results.
 ///
 /// ID: `e021f2f6`.
@@ -36042,12 +35322,6 @@ class MessagesBotResults extends MessagesBotResultsBase {
   }
 }
 
-/// Predicate Exported Message Link.
-abstract class ExportedMessageLinkBase extends TlConstructor {
-  /// Predicate Exported Message Link constructor.
-  const ExportedMessageLinkBase._() : super._();
-}
-
 /// Exported Message Link.
 ///
 /// ID: `5dab1af4`.
@@ -36092,12 +35366,6 @@ class ExportedMessageLink extends ExportedMessageLinkBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Fwd Header.
-abstract class MessageFwdHeaderBase extends TlConstructor {
-  /// Predicate Message Fwd Header constructor.
-  const MessageFwdHeaderBase._() : super._();
 }
 
 /// Message Fwd Header.
@@ -36284,12 +35552,6 @@ class MessageFwdHeader extends MessageFwdHeaderBase {
   }
 }
 
-/// Predicate Auth Code Type.
-abstract class AuthCodeTypeBase extends TlConstructor {
-  /// Predicate Auth Code Type constructor.
-  const AuthCodeTypeBase._() : super._();
-}
-
 /// Auth Code Type Sms.
 ///
 /// ID: `72a3158c`.
@@ -36418,12 +35680,6 @@ class AuthCodeTypeFragmentSms extends AuthCodeTypeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Auth Sent Code Type.
-abstract class AuthSentCodeTypeBase extends TlConstructor {
-  /// Predicate Auth Sent Code Type constructor.
-  const AuthSentCodeTypeBase._() : super._();
 }
 
 /// Auth Sent Code Type App.
@@ -36924,12 +36180,6 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   }
 }
 
-/// Predicate Messages Bot Callback Answer.
-abstract class MessagesBotCallbackAnswerBase extends TlConstructor {
-  /// Predicate Messages Bot Callback Answer constructor.
-  const MessagesBotCallbackAnswerBase._() : super._();
-}
-
 /// Messages Bot Callback Answer.
 ///
 /// ID: `36585ea4`.
@@ -37026,12 +36276,6 @@ class MessagesBotCallbackAnswer extends MessagesBotCallbackAnswerBase {
   }
 }
 
-/// Predicate Messages Message Edit Data.
-abstract class MessagesMessageEditDataBase extends TlConstructor {
-  /// Predicate Messages Message Edit Data constructor.
-  const MessagesMessageEditDataBase._() : super._();
-}
-
 /// Messages Message Edit Data.
 ///
 /// ID: `26b5dde6`.
@@ -37079,12 +36323,6 @@ class MessagesMessageEditData extends MessagesMessageEditDataBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Bot Inline Message I D.
-abstract class InputBotInlineMessageIDBase extends TlConstructor {
-  /// Predicate Input Bot Inline Message I D constructor.
-  const InputBotInlineMessageIDBase._() : super._();
 }
 
 /// Input Bot Inline Message I D.
@@ -37214,12 +36452,6 @@ class InputBotInlineMessageID64 extends InputBotInlineMessageIDBase {
   }
 }
 
-/// Predicate Inline Bot Switch P M.
-abstract class InlineBotSwitchPMBase extends TlConstructor {
-  /// Predicate Inline Bot Switch P M constructor.
-  const InlineBotSwitchPMBase._() : super._();
-}
-
 /// Inline Bot Switch P M.
 ///
 /// ID: `3c20629f`.
@@ -37264,12 +36496,6 @@ class InlineBotSwitchPM extends InlineBotSwitchPMBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Peer Dialogs.
-abstract class MessagesPeerDialogsBase extends TlConstructor {
-  /// Predicate Messages Peer Dialogs constructor.
-  const MessagesPeerDialogsBase._() : super._();
 }
 
 /// Messages Peer Dialogs.
@@ -37339,12 +36565,6 @@ class MessagesPeerDialogs extends MessagesPeerDialogsBase {
   }
 }
 
-/// Predicate Top Peer.
-abstract class TopPeerBase extends TlConstructor {
-  /// Predicate Top Peer constructor.
-  const TopPeerBase._() : super._();
-}
-
 /// Top Peer.
 ///
 /// ID: `edcdc05b`.
@@ -37389,12 +36609,6 @@ class TopPeer extends TopPeerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Top Peer Category.
-abstract class TopPeerCategoryBase extends TlConstructor {
-  /// Predicate Top Peer Category constructor.
-  const TopPeerCategoryBase._() : super._();
 }
 
 /// Top Peer Category Bots P M.
@@ -37605,12 +36819,6 @@ class TopPeerCategoryForwardChats extends TopPeerCategoryBase {
   }
 }
 
-/// Predicate Top Peer Category Peers.
-abstract class TopPeerCategoryPeersBase extends TlConstructor {
-  /// Predicate Top Peer Category Peers constructor.
-  const TopPeerCategoryPeersBase._() : super._();
-}
-
 /// Top Peer Category Peers.
 ///
 /// ID: `fb834291`.
@@ -37664,12 +36872,6 @@ class TopPeerCategoryPeers extends TopPeerCategoryPeersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Contacts Top Peers.
-abstract class ContactsTopPeersBase extends TlConstructor {
-  /// Predicate Contacts Top Peers constructor.
-  const ContactsTopPeersBase._() : super._();
 }
 
 /// Contacts Top Peers Not Modified.
@@ -37775,12 +36977,6 @@ class ContactsTopPeersDisabled extends ContactsTopPeersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Draft Message.
-abstract class DraftMessageBase extends TlConstructor {
-  /// Predicate Draft Message constructor.
-  const DraftMessageBase._() : super._();
 }
 
 /// Draft Message Empty.
@@ -37945,12 +37141,6 @@ class DraftMessage extends DraftMessageBase {
   }
 }
 
-/// Predicate Messages Featured Stickers.
-abstract class MessagesFeaturedStickersBase extends TlConstructor {
-  /// Predicate Messages Featured Stickers constructor.
-  const MessagesFeaturedStickersBase._() : super._();
-}
-
 /// Messages Featured Stickers Not Modified.
 ///
 /// ID: `c6dc0c66`.
@@ -38073,12 +37263,6 @@ class MessagesFeaturedStickers extends MessagesFeaturedStickersBase {
   }
 }
 
-/// Predicate Messages Recent Stickers.
-abstract class MessagesRecentStickersBase extends TlConstructor {
-  /// Predicate Messages Recent Stickers constructor.
-  const MessagesRecentStickersBase._() : super._();
-}
-
 /// Messages Recent Stickers Not Modified.
 ///
 /// ID: `0b17f890`.
@@ -38167,12 +37351,6 @@ class MessagesRecentStickers extends MessagesRecentStickersBase {
   }
 }
 
-/// Predicate Messages Archived Stickers.
-abstract class MessagesArchivedStickersBase extends TlConstructor {
-  /// Predicate Messages Archived Stickers constructor.
-  const MessagesArchivedStickersBase._() : super._();
-}
-
 /// Messages Archived Stickers.
 ///
 /// ID: `4fcba9c8`.
@@ -38219,12 +37397,6 @@ class MessagesArchivedStickers extends MessagesArchivedStickersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Sticker Set Install Result.
-abstract class MessagesStickerSetInstallResultBase extends TlConstructor {
-  /// Predicate Messages Sticker Set Install Result constructor.
-  const MessagesStickerSetInstallResultBase._() : super._();
 }
 
 /// Messages Sticker Set Install Result Success.
@@ -38294,12 +37466,6 @@ class MessagesStickerSetInstallResultArchive
 
     // Finished serialization.
   }
-}
-
-/// Predicate Sticker Set Covered.
-abstract class StickerSetCoveredBase extends TlConstructor {
-  /// Predicate Sticker Set Covered constructor.
-  const StickerSetCoveredBase._() : super._();
 }
 
 /// Sticker Set Covered.
@@ -38493,12 +37659,6 @@ class StickerSetNoCovered extends StickerSetCoveredBase {
   }
 }
 
-/// Predicate Mask Coords.
-abstract class MaskCoordsBase extends TlConstructor {
-  /// Predicate Mask Coords constructor.
-  const MaskCoordsBase._() : super._();
-}
-
 /// Mask Coords.
 ///
 /// ID: `aed6dbb2`.
@@ -38559,12 +37719,6 @@ class MaskCoords extends MaskCoordsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Stickered Media.
-abstract class InputStickeredMediaBase extends TlConstructor {
-  /// Predicate Input Stickered Media constructor.
-  const InputStickeredMediaBase._() : super._();
 }
 
 /// Input Stickered Media Photo.
@@ -38643,12 +37797,6 @@ class InputStickeredMediaDocument extends InputStickeredMediaBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Game.
-abstract class GameBase extends TlConstructor {
-  /// Predicate Game constructor.
-  const GameBase._() : super._();
 }
 
 /// Game.
@@ -38752,12 +37900,6 @@ class Game extends GameBase {
   }
 }
 
-/// Predicate Input Game.
-abstract class InputGameBase extends TlConstructor {
-  /// Predicate Input Game constructor.
-  const InputGameBase._() : super._();
-}
-
 /// Input Game I D.
 ///
 /// ID: `032c3e77`.
@@ -38854,12 +37996,6 @@ class InputGameShortName extends InputGameBase {
   }
 }
 
-/// Predicate High Score.
-abstract class HighScoreBase extends TlConstructor {
-  /// Predicate High Score constructor.
-  const HighScoreBase._() : super._();
-}
-
 /// High Score.
 ///
 /// ID: `73a379eb`.
@@ -38919,12 +38055,6 @@ class HighScore extends HighScoreBase {
   }
 }
 
-/// Predicate Messages High Scores.
-abstract class MessagesHighScoresBase extends TlConstructor {
-  /// Predicate Messages High Scores constructor.
-  const MessagesHighScoresBase._() : super._();
-}
-
 /// Messages High Scores.
 ///
 /// ID: `9a3bfd99`.
@@ -38969,12 +38099,6 @@ class MessagesHighScores extends MessagesHighScoresBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Rich Text.
-abstract class RichTextBase extends TlConstructor {
-  /// Predicate Rich Text constructor.
-  const RichTextBase._() : super._();
 }
 
 /// Text Empty.
@@ -39643,12 +38767,6 @@ class TextAnchor extends RichTextBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Page Block.
-abstract class PageBlockBase extends TlConstructor {
-  /// Predicate Page Block constructor.
-  const PageBlockBase._() : super._();
 }
 
 /// Page Block Unsupported.
@@ -41107,12 +40225,6 @@ class PageBlockMap extends PageBlockBase {
   }
 }
 
-/// Predicate Phone Call Discard Reason.
-abstract class PhoneCallDiscardReasonBase extends TlConstructor {
-  /// Predicate Phone Call Discard Reason constructor.
-  const PhoneCallDiscardReasonBase._() : super._();
-}
-
 /// Phone Call Discard Reason Missed.
 ///
 /// ID: `85e42301`.
@@ -41217,12 +40329,6 @@ class PhoneCallDiscardReasonBusy extends PhoneCallDiscardReasonBase {
   }
 }
 
-/// Predicate Data J S O N.
-abstract class DataJSONBase extends TlConstructor {
-  /// Predicate Data J S O N constructor.
-  const DataJSONBase._() : super._();
-}
-
 /// Data J S O N.
 ///
 /// ID: `7d748d04`.
@@ -41260,12 +40366,6 @@ class DataJSON extends DataJSONBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Labeled Price.
-abstract class LabeledPriceBase extends TlConstructor {
-  /// Predicate Labeled Price constructor.
-  const LabeledPriceBase._() : super._();
 }
 
 /// Labeled Price.
@@ -41314,12 +40414,6 @@ class LabeledPrice extends LabeledPriceBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Invoice.
-abstract class InvoiceBase extends TlConstructor {
-  /// Predicate Invoice constructor.
-  const InvoiceBase._() : super._();
 }
 
 /// Invoice.
@@ -41477,12 +40571,6 @@ class Invoice extends InvoiceBase {
   }
 }
 
-/// Predicate Payment Charge.
-abstract class PaymentChargeBase extends TlConstructor {
-  /// Predicate Payment Charge constructor.
-  const PaymentChargeBase._() : super._();
-}
-
 /// Payment Charge.
 ///
 /// ID: `ea02c27e`.
@@ -41527,12 +40615,6 @@ class PaymentCharge extends PaymentChargeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Post Address.
-abstract class PostAddressBase extends TlConstructor {
-  /// Predicate Post Address constructor.
-  const PostAddressBase._() : super._();
 }
 
 /// Post Address.
@@ -41607,12 +40689,6 @@ class PostAddress extends PostAddressBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Payment Requested Info.
-abstract class PaymentRequestedInfoBase extends TlConstructor {
-  /// Predicate Payment Requested Info constructor.
-  const PaymentRequestedInfoBase._() : super._();
 }
 
 /// Payment Requested Info.
@@ -41706,12 +40782,6 @@ class PaymentRequestedInfo extends PaymentRequestedInfoBase {
   }
 }
 
-/// Predicate Payment Saved Credentials.
-abstract class PaymentSavedCredentialsBase extends TlConstructor {
-  /// Predicate Payment Saved Credentials constructor.
-  const PaymentSavedCredentialsBase._() : super._();
-}
-
 /// Payment Saved Credentials Card.
 ///
 /// ID: `cdc27a1f`.
@@ -41756,12 +40826,6 @@ class PaymentSavedCredentialsCard extends PaymentSavedCredentialsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Web Document.
-abstract class WebDocumentBase extends TlConstructor {
-  /// Predicate Web Document constructor.
-  const WebDocumentBase._() : super._();
 }
 
 /// Web Document.
@@ -41897,12 +40961,6 @@ class WebDocumentNoProxy extends WebDocumentBase {
   }
 }
 
-/// Predicate Input Web Document.
-abstract class InputWebDocumentBase extends TlConstructor {
-  /// Predicate Input Web Document constructor.
-  const InputWebDocumentBase._() : super._();
-}
-
 /// Input Web Document.
 ///
 /// ID: `9bed434d`.
@@ -41963,12 +41021,6 @@ class InputWebDocument extends InputWebDocumentBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Web File Location.
-abstract class InputWebFileLocationBase extends TlConstructor {
-  /// Predicate Input Web File Location constructor.
-  const InputWebFileLocationBase._() : super._();
 }
 
 /// Input Web File Location.
@@ -42188,12 +41240,6 @@ class InputWebFileAudioAlbumThumbLocation extends InputWebFileLocationBase {
   }
 }
 
-/// Predicate Upload Web File.
-abstract class UploadWebFileBase extends TlConstructor {
-  /// Predicate Upload Web File constructor.
-  const UploadWebFileBase._() : super._();
-}
-
 /// Upload Web File.
 ///
 /// ID: `21e753bc`.
@@ -42263,12 +41309,6 @@ class UploadWebFile extends UploadWebFileBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Payments Payment Form.
-abstract class PaymentsPaymentFormBase extends TlConstructor {
-  /// Predicate Payments Payment Form constructor.
-  const PaymentsPaymentFormBase._() : super._();
 }
 
 /// Payments Payment Form.
@@ -42467,12 +41507,6 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
   }
 }
 
-/// Predicate Payments Validated Requested Info.
-abstract class PaymentsValidatedRequestedInfoBase extends TlConstructor {
-  /// Predicate Payments Validated Requested Info constructor.
-  const PaymentsValidatedRequestedInfoBase._() : super._();
-}
-
 /// Payments Validated Requested Info.
 ///
 /// ID: `d1451883`.
@@ -42540,12 +41574,6 @@ class PaymentsValidatedRequestedInfo
 
     // Finished serialization.
   }
-}
-
-/// Predicate Payments Payment Result.
-abstract class PaymentsPaymentResultBase extends TlConstructor {
-  /// Predicate Payments Payment Result constructor.
-  const PaymentsPaymentResultBase._() : super._();
 }
 
 /// Payments Payment Result.
@@ -42624,12 +41652,6 @@ class PaymentsPaymentVerificationNeeded extends PaymentsPaymentResultBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Payments Payment Receipt.
-abstract class PaymentsPaymentReceiptBase extends TlConstructor {
-  /// Predicate Payments Payment Receipt constructor.
-  const PaymentsPaymentReceiptBase._() : super._();
 }
 
 /// Payments Payment Receipt.
@@ -42800,12 +41822,6 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
   }
 }
 
-/// Predicate Payments Saved Info.
-abstract class PaymentsSavedInfoBase extends TlConstructor {
-  /// Predicate Payments Saved Info constructor.
-  const PaymentsSavedInfoBase._() : super._();
-}
-
 /// Payments Saved Info.
 ///
 /// ID: `fb8fe43c`.
@@ -42867,12 +41883,6 @@ class PaymentsSavedInfo extends PaymentsSavedInfoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Payment Credentials.
-abstract class InputPaymentCredentialsBase extends TlConstructor {
-  /// Predicate Input Payment Credentials constructor.
-  const InputPaymentCredentialsBase._() : super._();
 }
 
 /// Input Payment Credentials Saved.
@@ -43055,12 +42065,6 @@ class InputPaymentCredentialsGooglePay extends InputPaymentCredentialsBase {
   }
 }
 
-/// Predicate Account Tmp Password.
-abstract class AccountTmpPasswordBase extends TlConstructor {
-  /// Predicate Account Tmp Password constructor.
-  const AccountTmpPasswordBase._() : super._();
-}
-
 /// Account Tmp Password.
 ///
 /// ID: `db64fd34`.
@@ -43107,12 +42111,6 @@ class AccountTmpPassword extends AccountTmpPasswordBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Shipping Option.
-abstract class ShippingOptionBase extends TlConstructor {
-  /// Predicate Shipping Option constructor.
-  const ShippingOptionBase._() : super._();
 }
 
 /// Shipping Option.
@@ -43166,12 +42164,6 @@ class ShippingOption extends ShippingOptionBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Sticker Set Item.
-abstract class InputStickerSetItemBase extends TlConstructor {
-  /// Predicate Input Sticker Set Item constructor.
-  const InputStickerSetItemBase._() : super._();
 }
 
 /// Input Sticker Set Item.
@@ -43255,12 +42247,6 @@ class InputStickerSetItem extends InputStickerSetItemBase {
   }
 }
 
-/// Predicate Input Phone Call.
-abstract class InputPhoneCallBase extends TlConstructor {
-  /// Predicate Input Phone Call constructor.
-  const InputPhoneCallBase._() : super._();
-}
-
 /// Input Phone Call.
 ///
 /// ID: `1e36fded`.
@@ -43309,12 +42295,6 @@ class InputPhoneCall extends InputPhoneCallBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Phone Call.
-abstract class PhoneCallBase extends TlConstructor {
-  /// Predicate Phone Call constructor.
-  const PhoneCallBase._() : super._();
 }
 
 /// Phone Call Empty.
@@ -43915,12 +42895,6 @@ class PhoneCallDiscarded extends PhoneCallBase {
   }
 }
 
-/// Predicate Phone Connection.
-abstract class PhoneConnectionBase extends TlConstructor {
-  /// Predicate Phone Connection constructor.
-  const PhoneConnectionBase._() : super._();
-}
-
 /// Phone Connection.
 ///
 /// ID: `9cc123c7`.
@@ -44111,12 +43085,6 @@ class PhoneConnectionWebrtc extends PhoneConnectionBase {
   }
 }
 
-/// Predicate Phone Call Protocol.
-abstract class PhoneCallProtocolBase extends TlConstructor {
-  /// Predicate Phone Call Protocol constructor.
-  const PhoneCallProtocolBase._() : super._();
-}
-
 /// Phone Call Protocol.
 ///
 /// ID: `fc878fc8`.
@@ -44198,12 +43166,6 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
   }
 }
 
-/// Predicate Phone Phone Call.
-abstract class PhonePhoneCallBase extends TlConstructor {
-  /// Predicate Phone Phone Call constructor.
-  const PhonePhoneCallBase._() : super._();
-}
-
 /// Phone Phone Call.
 ///
 /// ID: `ec82e140`.
@@ -44248,12 +43210,6 @@ class PhonePhoneCall extends PhonePhoneCallBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Upload Cdn File.
-abstract class UploadCdnFileBase extends TlConstructor {
-  /// Predicate Upload Cdn File constructor.
-  const UploadCdnFileBase._() : super._();
 }
 
 /// Upload Cdn File Reupload Needed.
@@ -44334,12 +43290,6 @@ class UploadCdnFile extends UploadCdnFileBase {
   }
 }
 
-/// Predicate Cdn Public Key.
-abstract class CdnPublicKeyBase extends TlConstructor {
-  /// Predicate Cdn Public Key constructor.
-  const CdnPublicKeyBase._() : super._();
-}
-
 /// Cdn Public Key.
 ///
 /// ID: `c982eaba`.
@@ -44388,12 +43338,6 @@ class CdnPublicKey extends CdnPublicKeyBase {
   }
 }
 
-/// Predicate Cdn Config.
-abstract class CdnConfigBase extends TlConstructor {
-  /// Predicate Cdn Config constructor.
-  const CdnConfigBase._() : super._();
-}
-
 /// Cdn Config.
 ///
 /// ID: `5725e40a`.
@@ -44431,12 +43375,6 @@ class CdnConfig extends CdnConfigBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Lang Pack String.
-abstract class LangPackStringBase extends TlConstructor {
-  /// Predicate Lang Pack String constructor.
-  const LangPackStringBase._() : super._();
 }
 
 /// Lang Pack String.
@@ -44640,12 +43578,6 @@ class LangPackStringDeleted extends LangPackStringBase {
   }
 }
 
-/// Predicate Lang Pack Difference.
-abstract class LangPackDifferenceBase extends TlConstructor {
-  /// Predicate Lang Pack Difference constructor.
-  const LangPackDifferenceBase._() : super._();
-}
-
 /// Lang Pack Difference.
 ///
 /// ID: `f385c1f6`.
@@ -44708,12 +43640,6 @@ class LangPackDifference extends LangPackDifferenceBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Lang Pack Language.
-abstract class LangPackLanguageBase extends TlConstructor {
-  /// Predicate Lang Pack Language constructor.
-  const LangPackLanguageBase._() : super._();
 }
 
 /// Lang Pack Language.
@@ -44842,12 +43768,6 @@ class LangPackLanguage extends LangPackLanguageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Channel Admin Log Event Action.
-abstract class ChannelAdminLogEventActionBase extends TlConstructor {
-  /// Predicate Channel Admin Log Event Action constructor.
-  const ChannelAdminLogEventActionBase._() : super._();
 }
 
 /// Channel Admin Log Event Action Change Title.
@@ -46962,12 +45882,6 @@ class ChannelAdminLogEventActionChangeEmojiStatus
   }
 }
 
-/// Predicate Channel Admin Log Event.
-abstract class ChannelAdminLogEventBase extends TlConstructor {
-  /// Predicate Channel Admin Log Event constructor.
-  const ChannelAdminLogEventBase._() : super._();
-}
-
 /// Channel Admin Log Event.
 ///
 /// ID: `1fad68cd`.
@@ -47032,12 +45946,6 @@ class ChannelAdminLogEvent extends ChannelAdminLogEventBase {
   }
 }
 
-/// Predicate Channels Admin Log Results.
-abstract class ChannelsAdminLogResultsBase extends TlConstructor {
-  /// Predicate Channels Admin Log Results constructor.
-  const ChannelsAdminLogResultsBase._() : super._();
-}
-
 /// Channels Admin Log Results.
 ///
 /// ID: `ed8af74d`.
@@ -47089,12 +45997,6 @@ class ChannelsAdminLogResults extends ChannelsAdminLogResultsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Channel Admin Log Events Filter.
-abstract class ChannelAdminLogEventsFilterBase extends TlConstructor {
-  /// Predicate Channel Admin Log Events Filter constructor.
-  const ChannelAdminLogEventsFilterBase._() : super._();
 }
 
 /// Channel Admin Log Events Filter.
@@ -47265,12 +46167,6 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
   }
 }
 
-/// Predicate Popular Contact.
-abstract class PopularContactBase extends TlConstructor {
-  /// Predicate Popular Contact constructor.
-  const PopularContactBase._() : super._();
-}
-
 /// Popular Contact.
 ///
 /// ID: `5ce14175`.
@@ -47319,12 +46215,6 @@ class PopularContact extends PopularContactBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Faved Stickers.
-abstract class MessagesFavedStickersBase extends TlConstructor {
-  /// Predicate Messages Faved Stickers constructor.
-  const MessagesFavedStickersBase._() : super._();
 }
 
 /// Messages Faved Stickers Not Modified.
@@ -47406,12 +46296,6 @@ class MessagesFavedStickers extends MessagesFavedStickersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Recent Me Url.
-abstract class RecentMeUrlBase extends TlConstructor {
-  /// Predicate Recent Me Url constructor.
-  const RecentMeUrlBase._() : super._();
 }
 
 /// Recent Me Url Unknown.
@@ -47641,12 +46525,6 @@ class RecentMeUrlStickerSet extends RecentMeUrlBase {
   }
 }
 
-/// Predicate Help Recent Me Urls.
-abstract class HelpRecentMeUrlsBase extends TlConstructor {
-  /// Predicate Help Recent Me Urls constructor.
-  const HelpRecentMeUrlsBase._() : super._();
-}
-
 /// Help Recent Me Urls.
 ///
 /// ID: `0e0310d7`.
@@ -47698,12 +46576,6 @@ class HelpRecentMeUrls extends HelpRecentMeUrlsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Single Media.
-abstract class InputSingleMediaBase extends TlConstructor {
-  /// Predicate Input Single Media constructor.
-  const InputSingleMediaBase._() : super._();
 }
 
 /// Input Single Media.
@@ -47782,12 +46654,6 @@ class InputSingleMedia extends InputSingleMediaBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Web Authorization.
-abstract class WebAuthorizationBase extends TlConstructor {
-  /// Predicate Web Authorization constructor.
-  const WebAuthorizationBase._() : super._();
 }
 
 /// Web Authorization.
@@ -47889,12 +46755,6 @@ class WebAuthorization extends WebAuthorizationBase {
   }
 }
 
-/// Predicate Account Web Authorizations.
-abstract class AccountWebAuthorizationsBase extends TlConstructor {
-  /// Predicate Account Web Authorizations constructor.
-  const AccountWebAuthorizationsBase._() : super._();
-}
-
 /// Account Web Authorizations.
 ///
 /// ID: `ed56c9fc`.
@@ -47939,12 +46799,6 @@ class AccountWebAuthorizations extends AccountWebAuthorizationsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Message.
-abstract class InputMessageBase extends TlConstructor {
-  /// Predicate Input Message constructor.
-  const InputMessageBase._() : super._();
 }
 
 /// Input Message I D.
@@ -48105,12 +46959,6 @@ class InputMessageCallbackQuery extends InputMessageBase {
   }
 }
 
-/// Predicate Input Dialog Peer.
-abstract class InputDialogPeerBase extends TlConstructor {
-  /// Predicate Input Dialog Peer constructor.
-  const InputDialogPeerBase._() : super._();
-}
-
 /// Input Dialog Peer.
 ///
 /// ID: `fcaafeb7`.
@@ -48189,12 +47037,6 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Dialog Peer.
-abstract class DialogPeerBase extends TlConstructor {
-  /// Predicate Dialog Peer constructor.
-  const DialogPeerBase._() : super._();
 }
 
 /// Dialog Peer.
@@ -48277,12 +47119,6 @@ class DialogPeerFolder extends DialogPeerBase {
   }
 }
 
-/// Predicate Messages Found Sticker Sets.
-abstract class MessagesFoundStickerSetsBase extends TlConstructor {
-  /// Predicate Messages Found Sticker Sets constructor.
-  const MessagesFoundStickerSetsBase._() : super._();
-}
-
 /// Messages Found Sticker Sets Not Modified.
 ///
 /// ID: `0d54b65d`.
@@ -48357,12 +47193,6 @@ class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
   }
 }
 
-/// Predicate File Hash.
-abstract class FileHashBase extends TlConstructor {
-  /// Predicate File Hash constructor.
-  const FileHashBase._() : super._();
-}
-
 /// File Hash.
 ///
 /// ID: `f39b035c`.
@@ -48420,12 +47250,6 @@ class FileHash extends FileHashBase {
   }
 }
 
-/// Predicate Input Client Proxy.
-abstract class InputClientProxyBase extends TlConstructor {
-  /// Predicate Input Client Proxy constructor.
-  const InputClientProxyBase._() : super._();
-}
-
 /// Input Client Proxy.
 ///
 /// ID: `75588b3f`.
@@ -48472,12 +47296,6 @@ class InputClientProxy extends InputClientProxyBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Terms Of Service Update.
-abstract class HelpTermsOfServiceUpdateBase extends TlConstructor {
-  /// Predicate Help Terms Of Service Update constructor.
-  const HelpTermsOfServiceUpdateBase._() : super._();
 }
 
 /// Help Terms Of Service Update Empty.
@@ -48567,12 +47385,6 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Secure File.
-abstract class InputSecureFileBase extends TlConstructor {
-  /// Predicate Input Secure File constructor.
-  const InputSecureFileBase._() : super._();
 }
 
 /// Input Secure File Uploaded.
@@ -48696,12 +47508,6 @@ class InputSecureFile extends InputSecureFileBase {
   }
 }
 
-/// Predicate Secure File.
-abstract class SecureFileBase extends TlConstructor {
-  /// Predicate Secure File constructor.
-  const SecureFileBase._() : super._();
-}
-
 /// Secure File Empty.
 ///
 /// ID: `64199744`.
@@ -48817,12 +47623,6 @@ class SecureFile extends SecureFileBase {
   }
 }
 
-/// Predicate Secure Data.
-abstract class SecureDataBase extends TlConstructor {
-  /// Predicate Secure Data constructor.
-  const SecureDataBase._() : super._();
-}
-
 /// Secure Data.
 ///
 /// ID: `8aeabec3`.
@@ -48874,12 +47674,6 @@ class SecureData extends SecureDataBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Secure Plain Data.
-abstract class SecurePlainDataBase extends TlConstructor {
-  /// Predicate Secure Plain Data constructor.
-  const SecurePlainDataBase._() : super._();
 }
 
 /// Secure Plain Phone.
@@ -48958,12 +47752,6 @@ class SecurePlainEmail extends SecurePlainDataBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Secure Value Type.
-abstract class SecureValueTypeBase extends TlConstructor {
-  /// Predicate Secure Value Type constructor.
-  const SecureValueTypeBase._() : super._();
 }
 
 /// Secure Value Type Personal Details.
@@ -49305,12 +48093,6 @@ class SecureValueTypeEmail extends SecureValueTypeBase {
   }
 }
 
-/// Predicate Secure Value.
-abstract class SecureValueBase extends TlConstructor {
-  /// Predicate Secure Value constructor.
-  const SecureValueBase._() : super._();
-}
-
 /// Secure Value.
 ///
 /// ID: `187fa0ca`.
@@ -49457,12 +48239,6 @@ class SecureValue extends SecureValueBase {
   }
 }
 
-/// Predicate Input Secure Value.
-abstract class InputSecureValueBase extends TlConstructor {
-  /// Predicate Input Secure Value constructor.
-  const InputSecureValueBase._() : super._();
-}
-
 /// Input Secure Value.
 ///
 /// ID: `db21d0a7`.
@@ -49603,12 +48379,6 @@ class InputSecureValue extends InputSecureValueBase {
   }
 }
 
-/// Predicate Secure Value Hash.
-abstract class SecureValueHashBase extends TlConstructor {
-  /// Predicate Secure Value Hash constructor.
-  const SecureValueHashBase._() : super._();
-}
-
 /// Secure Value Hash.
 ///
 /// ID: `ed1ecdb0`.
@@ -49653,12 +48423,6 @@ class SecureValueHash extends SecureValueHashBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Secure Value Error.
-abstract class SecureValueErrorBase extends TlConstructor {
-  /// Predicate Secure Value Error constructor.
-  const SecureValueErrorBase._() : super._();
 }
 
 /// Secure Value Error Data.
@@ -50145,12 +48909,6 @@ class SecureValueErrorTranslationFiles extends SecureValueErrorBase {
   }
 }
 
-/// Predicate Secure Credentials Encrypted.
-abstract class SecureCredentialsEncryptedBase extends TlConstructor {
-  /// Predicate Secure Credentials Encrypted constructor.
-  const SecureCredentialsEncryptedBase._() : super._();
-}
-
 /// Secure Credentials Encrypted.
 ///
 /// ID: `33f0ea47`.
@@ -50202,12 +48960,6 @@ class SecureCredentialsEncrypted extends SecureCredentialsEncryptedBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Account Authorization Form.
-abstract class AccountAuthorizationFormBase extends TlConstructor {
-  /// Predicate Account Authorization Form constructor.
-  const AccountAuthorizationFormBase._() : super._();
 }
 
 /// Account Authorization Form.
@@ -50293,12 +49045,6 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
   }
 }
 
-/// Predicate Account Sent Email Code.
-abstract class AccountSentEmailCodeBase extends TlConstructor {
-  /// Predicate Account Sent Email Code constructor.
-  const AccountSentEmailCodeBase._() : super._();
-}
-
 /// Account Sent Email Code.
 ///
 /// ID: `811f854f`.
@@ -50345,12 +49091,6 @@ class AccountSentEmailCode extends AccountSentEmailCodeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Deep Link Info.
-abstract class HelpDeepLinkInfoBase extends TlConstructor {
-  /// Predicate Help Deep Link Info constructor.
-  const HelpDeepLinkInfoBase._() : super._();
 }
 
 /// Help Deep Link Info Empty.
@@ -50448,12 +49188,6 @@ class HelpDeepLinkInfo extends HelpDeepLinkInfoBase {
   }
 }
 
-/// Predicate Saved Contact.
-abstract class SavedContactBase extends TlConstructor {
-  /// Predicate Saved Contact constructor.
-  const SavedContactBase._() : super._();
-}
-
 /// Saved Phone Contact.
 ///
 /// ID: `1142bd56`.
@@ -50514,12 +49248,6 @@ class SavedPhoneContact extends SavedContactBase {
   }
 }
 
-/// Predicate Account Takeout.
-abstract class AccountTakeoutBase extends TlConstructor {
-  /// Predicate Account Takeout constructor.
-  const AccountTakeoutBase._() : super._();
-}
-
 /// Account Takeout.
 ///
 /// ID: `4dba4501`.
@@ -50559,12 +49287,6 @@ class AccountTakeout extends AccountTakeoutBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Password Kdf Algo.
-abstract class PasswordKdfAlgoBase extends TlConstructor {
-  /// Predicate Password Kdf Algo constructor.
-  const PasswordKdfAlgoBase._() : super._();
 }
 
 /// Password Kdf Algo Unknown.
@@ -50656,12 +49378,6 @@ class PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
 
     // Finished serialization.
   }
-}
-
-/// Predicate Secure Password Kdf Algo.
-abstract class SecurePasswordKdfAlgoBase extends TlConstructor {
-  /// Predicate Secure Password Kdf Algo constructor.
-  const SecurePasswordKdfAlgoBase._() : super._();
 }
 
 /// Secure Password Kdf Algo Unknown.
@@ -50770,12 +49486,6 @@ class SecurePasswordKdfAlgoSHA512 extends SecurePasswordKdfAlgoBase {
   }
 }
 
-/// Predicate Secure Secret Settings.
-abstract class SecureSecretSettingsBase extends TlConstructor {
-  /// Predicate Secure Secret Settings constructor.
-  const SecureSecretSettingsBase._() : super._();
-}
-
 /// Secure Secret Settings.
 ///
 /// ID: `1527bcac`.
@@ -50829,12 +49539,6 @@ class SecureSecretSettings extends SecureSecretSettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Check Password S R P.
-abstract class InputCheckPasswordSRPBase extends TlConstructor {
-  /// Predicate Input Check Password S R P constructor.
-  const InputCheckPasswordSRPBase._() : super._();
 }
 
 /// Input Check Password Empty.
@@ -50916,12 +49620,6 @@ class InputCheckPasswordSRP extends InputCheckPasswordSRPBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Secure Required Type.
-abstract class SecureRequiredTypeBase extends TlConstructor {
-  /// Predicate Secure Required Type constructor.
-  const SecureRequiredTypeBase._() : super._();
 }
 
 /// Secure Required Type.
@@ -51033,12 +49731,6 @@ class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
   }
 }
 
-/// Predicate Help Passport Config.
-abstract class HelpPassportConfigBase extends TlConstructor {
-  /// Predicate Help Passport Config constructor.
-  const HelpPassportConfigBase._() : super._();
-}
-
 /// Help Passport Config Not Modified.
 ///
 /// ID: `bfb9f457`.
@@ -51113,12 +49805,6 @@ class HelpPassportConfig extends HelpPassportConfigBase {
   }
 }
 
-/// Predicate Input App Event.
-abstract class InputAppEventBase extends TlConstructor {
-  /// Predicate Input App Event constructor.
-  const InputAppEventBase._() : super._();
-}
-
 /// Input App Event.
 ///
 /// ID: `1d1b1245`.
@@ -51181,12 +49867,6 @@ class InputAppEvent extends InputAppEventBase {
   }
 }
 
-/// Predicate J S O N Object Value.
-abstract class JSONObjectValueBase extends TlConstructor {
-  /// Predicate J S O N Object Value constructor.
-  const JSONObjectValueBase._() : super._();
-}
-
 /// Json Object Value.
 ///
 /// ID: `c0de1bd9`.
@@ -51231,12 +49911,6 @@ class JsonObjectValue extends JSONObjectValueBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate J S O N Value.
-abstract class JSONValueBase extends TlConstructor {
-  /// Predicate J S O N Value constructor.
-  const JSONValueBase._() : super._();
 }
 
 /// Json Null.
@@ -51460,12 +50134,6 @@ class JsonObject extends JSONValueBase {
   }
 }
 
-/// Predicate Page Table Cell.
-abstract class PageTableCellBase extends TlConstructor {
-  /// Predicate Page Table Cell constructor.
-  const PageTableCellBase._() : super._();
-}
-
 /// Page Table Cell.
 ///
 /// ID: `34566b6a`.
@@ -51579,12 +50247,6 @@ class PageTableCell extends PageTableCellBase {
   }
 }
 
-/// Predicate Page Table Row.
-abstract class PageTableRowBase extends TlConstructor {
-  /// Predicate Page Table Row constructor.
-  const PageTableRowBase._() : super._();
-}
-
 /// Page Table Row.
 ///
 /// ID: `e0c0c5e5`.
@@ -51622,12 +50284,6 @@ class PageTableRow extends PageTableRowBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Page Caption.
-abstract class PageCaptionBase extends TlConstructor {
-  /// Predicate Page Caption constructor.
-  const PageCaptionBase._() : super._();
 }
 
 /// Page Caption.
@@ -51674,12 +50330,6 @@ class PageCaption extends PageCaptionBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Page List Item.
-abstract class PageListItemBase extends TlConstructor {
-  /// Predicate Page List Item constructor.
-  const PageListItemBase._() : super._();
 }
 
 /// Page List Item Text.
@@ -51758,12 +50408,6 @@ class PageListItemBlocks extends PageListItemBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Page List Ordered Item.
-abstract class PageListOrderedItemBase extends TlConstructor {
-  /// Predicate Page List Ordered Item constructor.
-  const PageListOrderedItemBase._() : super._();
 }
 
 /// Page List Ordered Item Text.
@@ -51856,12 +50500,6 @@ class PageListOrderedItemBlocks extends PageListOrderedItemBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Page Related Article.
-abstract class PageRelatedArticleBase extends TlConstructor {
-  /// Predicate Page Related Article constructor.
-  const PageRelatedArticleBase._() : super._();
 }
 
 /// Page Related Article.
@@ -51982,12 +50620,6 @@ class PageRelatedArticle extends PageRelatedArticleBase {
   }
 }
 
-/// Predicate Page.
-abstract class PageBase extends TlConstructor {
-  /// Predicate Page constructor.
-  const PageBase._() : super._();
-}
-
 /// Page.
 ///
 /// ID: `98657f0d`.
@@ -52091,12 +50723,6 @@ class Page extends PageBase {
   }
 }
 
-/// Predicate Help Support Name.
-abstract class HelpSupportNameBase extends TlConstructor {
-  /// Predicate Help Support Name constructor.
-  const HelpSupportNameBase._() : super._();
-}
-
 /// Help Support Name.
 ///
 /// ID: `8c05f1c9`.
@@ -52134,12 +50760,6 @@ class HelpSupportName extends HelpSupportNameBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help User Info.
-abstract class HelpUserInfoBase extends TlConstructor {
-  /// Predicate Help User Info constructor.
-  const HelpUserInfoBase._() : super._();
 }
 
 /// Help User Info Empty.
@@ -52228,12 +50848,6 @@ class HelpUserInfo extends HelpUserInfoBase {
   }
 }
 
-/// Predicate Poll Answer.
-abstract class PollAnswerBase extends TlConstructor {
-  /// Predicate Poll Answer constructor.
-  const PollAnswerBase._() : super._();
-}
-
 /// Poll Answer.
 ///
 /// ID: `6ca9c2e9`.
@@ -52278,12 +50892,6 @@ class PollAnswer extends PollAnswerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Poll.
-abstract class PollBase extends TlConstructor {
-  /// Predicate Poll constructor.
-  const PollBase._() : super._();
 }
 
 /// Poll.
@@ -52403,12 +51011,6 @@ class Poll extends PollBase {
   }
 }
 
-/// Predicate Poll Answer Voters.
-abstract class PollAnswerVotersBase extends TlConstructor {
-  /// Predicate Poll Answer Voters constructor.
-  const PollAnswerVotersBase._() : super._();
-}
-
 /// Poll Answer Voters.
 ///
 /// ID: `3b6ddad2`.
@@ -52479,12 +51081,6 @@ class PollAnswerVoters extends PollAnswerVotersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Poll Results.
-abstract class PollResultsBase extends TlConstructor {
-  /// Predicate Poll Results constructor.
-  const PollResultsBase._() : super._();
 }
 
 /// Poll Results.
@@ -52600,12 +51196,6 @@ class PollResults extends PollResultsBase {
   }
 }
 
-/// Predicate Chat Onlines.
-abstract class ChatOnlinesBase extends TlConstructor {
-  /// Predicate Chat Onlines constructor.
-  const ChatOnlinesBase._() : super._();
-}
-
 /// Chat Onlines.
 ///
 /// ID: `f041e250`.
@@ -52647,12 +51237,6 @@ class ChatOnlines extends ChatOnlinesBase {
   }
 }
 
-/// Predicate Stats U R L.
-abstract class StatsURLBase extends TlConstructor {
-  /// Predicate Stats U R L constructor.
-  const StatsURLBase._() : super._();
-}
-
 /// Stats U R L.
 ///
 /// ID: `47a971e0`.
@@ -52690,12 +51274,6 @@ class StatsURL extends StatsURLBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Admin Rights.
-abstract class ChatAdminRightsBase extends TlConstructor {
-  /// Predicate Chat Admin Rights constructor.
-  const ChatAdminRightsBase._() : super._();
 }
 
 /// Chat Admin Rights.
@@ -52843,12 +51421,6 @@ class ChatAdminRights extends ChatAdminRightsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Banned Rights.
-abstract class ChatBannedRightsBase extends TlConstructor {
-  /// Predicate Chat Banned Rights constructor.
-  const ChatBannedRightsBase._() : super._();
 }
 
 /// Chat Banned Rights.
@@ -53040,12 +51612,6 @@ class ChatBannedRights extends ChatBannedRightsBase {
   }
 }
 
-/// Predicate Input Wall Paper.
-abstract class InputWallPaperBase extends TlConstructor {
-  /// Predicate Input Wall Paper constructor.
-  const InputWallPaperBase._() : super._();
-}
-
 /// Input Wall Paper.
 ///
 /// ID: `e630b979`.
@@ -53176,12 +51742,6 @@ class InputWallPaperNoFile extends InputWallPaperBase {
   }
 }
 
-/// Predicate Account Wall Papers.
-abstract class AccountWallPapersBase extends TlConstructor {
-  /// Predicate Account Wall Papers constructor.
-  const AccountWallPapersBase._() : super._();
-}
-
 /// Account Wall Papers Not Modified.
 ///
 /// ID: `1c199183`.
@@ -53254,12 +51814,6 @@ class AccountWallPapers extends AccountWallPapersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Code Settings.
-abstract class CodeSettingsBase extends TlConstructor {
-  /// Predicate Code Settings constructor.
-  const CodeSettingsBase._() : super._();
 }
 
 /// Code Settings.
@@ -53367,12 +51921,6 @@ class CodeSettings extends CodeSettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Wall Paper Settings.
-abstract class WallPaperSettingsBase extends TlConstructor {
-  /// Predicate Wall Paper Settings constructor.
-  const WallPaperSettingsBase._() : super._();
 }
 
 /// Wall Paper Settings.
@@ -53517,12 +52065,6 @@ class WallPaperSettings extends WallPaperSettingsBase {
   }
 }
 
-/// Predicate Auto Download Settings.
-abstract class AutoDownloadSettingsBase extends TlConstructor {
-  /// Predicate Auto Download Settings constructor.
-  const AutoDownloadSettingsBase._() : super._();
-}
-
 /// Auto Download Settings.
 ///
 /// ID: `baa57628`.
@@ -53654,12 +52196,6 @@ class AutoDownloadSettings extends AutoDownloadSettingsBase {
   }
 }
 
-/// Predicate Account Auto Download Settings.
-abstract class AccountAutoDownloadSettingsBase extends TlConstructor {
-  /// Predicate Account Auto Download Settings constructor.
-  const AccountAutoDownloadSettingsBase._() : super._();
-}
-
 /// Account Auto Download Settings.
 ///
 /// ID: `63cacf26`.
@@ -53711,12 +52247,6 @@ class AccountAutoDownloadSettings extends AccountAutoDownloadSettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Emoji Keyword.
-abstract class EmojiKeywordBase extends TlConstructor {
-  /// Predicate Emoji Keyword constructor.
-  const EmojiKeywordBase._() : super._();
 }
 
 /// Emoji Keyword.
@@ -53811,12 +52341,6 @@ class EmojiKeywordDeleted extends EmojiKeywordBase {
   }
 }
 
-/// Predicate Emoji Keywords Difference.
-abstract class EmojiKeywordsDifferenceBase extends TlConstructor {
-  /// Predicate Emoji Keywords Difference constructor.
-  const EmojiKeywordsDifferenceBase._() : super._();
-}
-
 /// Emoji Keywords Difference.
 ///
 /// ID: `5cc761bd`.
@@ -53881,12 +52405,6 @@ class EmojiKeywordsDifference extends EmojiKeywordsDifferenceBase {
   }
 }
 
-/// Predicate Emoji U R L.
-abstract class EmojiURLBase extends TlConstructor {
-  /// Predicate Emoji U R L constructor.
-  const EmojiURLBase._() : super._();
-}
-
 /// Emoji U R L.
 ///
 /// ID: `a575739d`.
@@ -53926,12 +52444,6 @@ class EmojiURL extends EmojiURLBase {
   }
 }
 
-/// Predicate Emoji Language.
-abstract class EmojiLanguageBase extends TlConstructor {
-  /// Predicate Emoji Language constructor.
-  const EmojiLanguageBase._() : super._();
-}
-
 /// Emoji Language.
 ///
 /// ID: `b3fb5361`.
@@ -53969,12 +52481,6 @@ class EmojiLanguage extends EmojiLanguageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Folder.
-abstract class FolderBase extends TlConstructor {
-  /// Predicate Folder constructor.
-  const FolderBase._() : super._();
 }
 
 /// Folder.
@@ -54068,12 +52574,6 @@ class Folder extends FolderBase {
   }
 }
 
-/// Predicate Input Folder Peer.
-abstract class InputFolderPeerBase extends TlConstructor {
-  /// Predicate Input Folder Peer constructor.
-  const InputFolderPeerBase._() : super._();
-}
-
 /// Input Folder Peer.
 ///
 /// ID: `fbd2c296`.
@@ -54122,12 +52622,6 @@ class InputFolderPeer extends InputFolderPeerBase {
   }
 }
 
-/// Predicate Folder Peer.
-abstract class FolderPeerBase extends TlConstructor {
-  /// Predicate Folder Peer constructor.
-  const FolderPeerBase._() : super._();
-}
-
 /// Folder Peer.
 ///
 /// ID: `e9baa668`.
@@ -54174,12 +52668,6 @@ class FolderPeer extends FolderPeerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Search Counter.
-abstract class MessagesSearchCounterBase extends TlConstructor {
-  /// Predicate Messages Search Counter constructor.
-  const MessagesSearchCounterBase._() : super._();
 }
 
 /// Messages Search Counter.
@@ -54245,12 +52733,6 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Url Auth Result.
-abstract class UrlAuthResultBase extends TlConstructor {
-  /// Predicate Url Auth Result constructor.
-  const UrlAuthResultBase._() : super._();
 }
 
 /// Url Auth Result Request.
@@ -54381,12 +52863,6 @@ class UrlAuthResultDefault extends UrlAuthResultBase {
   }
 }
 
-/// Predicate Channel Location.
-abstract class ChannelLocationBase extends TlConstructor {
-  /// Predicate Channel Location constructor.
-  const ChannelLocationBase._() : super._();
-}
-
 /// Channel Location Empty.
 ///
 /// ID: `bfb5ad8b`.
@@ -54457,12 +52933,6 @@ class ChannelLocation extends ChannelLocationBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Peer Located.
-abstract class PeerLocatedBase extends TlConstructor {
-  /// Predicate Peer Located constructor.
-  const PeerLocatedBase._() : super._();
 }
 
 /// Peer Located.
@@ -54563,12 +53033,6 @@ class PeerSelfLocated extends PeerLocatedBase {
   }
 }
 
-/// Predicate Restriction Reason.
-abstract class RestrictionReasonBase extends TlConstructor {
-  /// Predicate Restriction Reason constructor.
-  const RestrictionReasonBase._() : super._();
-}
-
 /// Restriction Reason.
 ///
 /// ID: `d072acb4`.
@@ -54620,12 +53084,6 @@ class RestrictionReason extends RestrictionReasonBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Theme.
-abstract class InputThemeBase extends TlConstructor {
-  /// Predicate Input Theme constructor.
-  const InputThemeBase._() : super._();
 }
 
 /// Input Theme.
@@ -54715,12 +53173,6 @@ class InputThemeSlug extends InputThemeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Theme.
-abstract class ThemeBase extends TlConstructor {
-  /// Predicate Theme constructor.
-  const ThemeBase._() : super._();
 }
 
 /// Theme.
@@ -54868,12 +53320,6 @@ class Theme extends ThemeBase {
   }
 }
 
-/// Predicate Account Themes.
-abstract class AccountThemesBase extends TlConstructor {
-  /// Predicate Account Themes constructor.
-  const AccountThemesBase._() : super._();
-}
-
 /// Account Themes Not Modified.
 ///
 /// ID: `f41eb622`.
@@ -54946,12 +53392,6 @@ class AccountThemes extends AccountThemesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Auth Login Token.
-abstract class AuthLoginTokenBase extends TlConstructor {
-  /// Predicate Auth Login Token constructor.
-  const AuthLoginTokenBase._() : super._();
 }
 
 /// Auth Login Token.
@@ -55089,12 +53529,6 @@ class AuthLoginTokenSuccess extends AuthLoginTokenBase {
   }
 }
 
-/// Predicate Account Content Settings.
-abstract class AccountContentSettingsBase extends TlConstructor {
-  /// Predicate Account Content Settings constructor.
-  const AccountContentSettingsBase._() : super._();
-}
-
 /// Account Content Settings.
 ///
 /// ID: `57e28221`.
@@ -55151,12 +53585,6 @@ class AccountContentSettings extends AccountContentSettingsBase {
   }
 }
 
-/// Predicate Messages Inactive Chats.
-abstract class MessagesInactiveChatsBase extends TlConstructor {
-  /// Predicate Messages Inactive Chats constructor.
-  const MessagesInactiveChatsBase._() : super._();
-}
-
 /// Messages Inactive Chats.
 ///
 /// ID: `a927fec5`.
@@ -55208,12 +53636,6 @@ class MessagesInactiveChats extends MessagesInactiveChatsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Base Theme.
-abstract class BaseThemeBase extends TlConstructor {
-  /// Predicate Base Theme constructor.
-  const BaseThemeBase._() : super._();
 }
 
 /// Base Theme Classic.
@@ -55346,12 +53768,6 @@ class BaseThemeArctic extends BaseThemeBase {
   }
 }
 
-/// Predicate Input Theme Settings.
-abstract class InputThemeSettingsBase extends TlConstructor {
-  /// Predicate Input Theme Settings constructor.
-  const InputThemeSettingsBase._() : super._();
-}
-
 /// Input Theme Settings.
 ///
 /// ID: `8fde504f`.
@@ -55469,12 +53885,6 @@ class InputThemeSettings extends InputThemeSettingsBase {
   }
 }
 
-/// Predicate Theme Settings.
-abstract class ThemeSettingsBase extends TlConstructor {
-  /// Predicate Theme Settings constructor.
-  const ThemeSettingsBase._() : super._();
-}
-
 /// Theme Settings.
 ///
 /// ID: `fa58b6d4`.
@@ -55577,12 +53987,6 @@ class ThemeSettings extends ThemeSettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Web Page Attribute.
-abstract class WebPageAttributeBase extends TlConstructor {
-  /// Predicate Web Page Attribute constructor.
-  const WebPageAttributeBase._() : super._();
 }
 
 /// Web Page Attribute Theme.
@@ -55723,12 +54127,6 @@ class WebPageAttributeStory extends WebPageAttributeBase {
   }
 }
 
-/// Predicate Messages Votes List.
-abstract class MessagesVotesListBase extends TlConstructor {
-  /// Predicate Messages Votes List constructor.
-  const MessagesVotesListBase._() : super._();
-}
-
 /// Messages Votes List.
 ///
 /// ID: `4899484e`.
@@ -55813,12 +54211,6 @@ class MessagesVotesList extends MessagesVotesListBase {
   }
 }
 
-/// Predicate Bank Card Open Url.
-abstract class BankCardOpenUrlBase extends TlConstructor {
-  /// Predicate Bank Card Open Url constructor.
-  const BankCardOpenUrlBase._() : super._();
-}
-
 /// Bank Card Open Url.
 ///
 /// ID: `f568028a`.
@@ -55865,12 +54257,6 @@ class BankCardOpenUrl extends BankCardOpenUrlBase {
   }
 }
 
-/// Predicate Payments Bank Card Data.
-abstract class PaymentsBankCardDataBase extends TlConstructor {
-  /// Predicate Payments Bank Card Data constructor.
-  const PaymentsBankCardDataBase._() : super._();
-}
-
 /// Payments Bank Card Data.
 ///
 /// ID: `3e24e573`.
@@ -55915,12 +54301,6 @@ class PaymentsBankCardData extends PaymentsBankCardDataBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Dialog Filter.
-abstract class DialogFilterBase extends TlConstructor {
-  /// Predicate Dialog Filter constructor.
-  const DialogFilterBase._() : super._();
 }
 
 /// Dialog Filter.
@@ -56187,12 +54567,6 @@ class DialogFilterChatlist extends DialogFilterBase {
   }
 }
 
-/// Predicate Dialog Filter Suggested.
-abstract class DialogFilterSuggestedBase extends TlConstructor {
-  /// Predicate Dialog Filter Suggested constructor.
-  const DialogFilterSuggestedBase._() : super._();
-}
-
 /// Dialog Filter Suggested.
 ///
 /// ID: `77744d4a`.
@@ -56237,12 +54611,6 @@ class DialogFilterSuggested extends DialogFilterSuggestedBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Stats Date Range Days.
-abstract class StatsDateRangeDaysBase extends TlConstructor {
-  /// Predicate Stats Date Range Days constructor.
-  const StatsDateRangeDaysBase._() : super._();
 }
 
 /// Stats Date Range Days.
@@ -56291,12 +54659,6 @@ class StatsDateRangeDays extends StatsDateRangeDaysBase {
   }
 }
 
-/// Predicate Stats Abs Value And Prev.
-abstract class StatsAbsValueAndPrevBase extends TlConstructor {
-  /// Predicate Stats Abs Value And Prev constructor.
-  const StatsAbsValueAndPrevBase._() : super._();
-}
-
 /// Stats Abs Value And Prev.
 ///
 /// ID: `cb43acde`.
@@ -56343,12 +54705,6 @@ class StatsAbsValueAndPrev extends StatsAbsValueAndPrevBase {
   }
 }
 
-/// Predicate Stats Percent Value.
-abstract class StatsPercentValueBase extends TlConstructor {
-  /// Predicate Stats Percent Value constructor.
-  const StatsPercentValueBase._() : super._();
-}
-
 /// Stats Percent Value.
 ///
 /// ID: `cbce2fe0`.
@@ -56393,12 +54749,6 @@ class StatsPercentValue extends StatsPercentValueBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Stats Graph.
-abstract class StatsGraphBase extends TlConstructor {
-  /// Predicate Stats Graph constructor.
-  const StatsGraphBase._() : super._();
 }
 
 /// Stats Graph Async.
@@ -56538,12 +54888,6 @@ class StatsGraph extends StatsGraphBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Stats Broadcast Stats.
-abstract class StatsBroadcastStatsBase extends TlConstructor {
-  /// Predicate Stats Broadcast Stats constructor.
-  const StatsBroadcastStatsBase._() : super._();
 }
 
 /// Stats Broadcast Stats.
@@ -56733,12 +55077,6 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
   }
 }
 
-/// Predicate Help Promo Data.
-abstract class HelpPromoDataBase extends TlConstructor {
-  /// Predicate Help Promo Data constructor.
-  const HelpPromoDataBase._() : super._();
-}
-
 /// Help Promo Data Empty.
 ///
 /// ID: `98f6ac75`.
@@ -56881,12 +55219,6 @@ class HelpPromoData extends HelpPromoDataBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Video Size.
-abstract class VideoSizeBase extends TlConstructor {
-  /// Predicate Video Size constructor.
-  const VideoSizeBase._() : super._();
 }
 
 /// Video Size.
@@ -57080,12 +55412,6 @@ class VideoSizeStickerMarkup extends VideoSizeBase {
   }
 }
 
-/// Predicate Stats Group Top Poster.
-abstract class StatsGroupTopPosterBase extends TlConstructor {
-  /// Predicate Stats Group Top Poster constructor.
-  const StatsGroupTopPosterBase._() : super._();
-}
-
 /// Stats Group Top Poster.
 ///
 /// ID: `9d04af9b`.
@@ -57143,12 +55469,6 @@ class StatsGroupTopPoster extends StatsGroupTopPosterBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Stats Group Top Admin.
-abstract class StatsGroupTopAdminBase extends TlConstructor {
-  /// Predicate Stats Group Top Admin constructor.
-  const StatsGroupTopAdminBase._() : super._();
 }
 
 /// Stats Group Top Admin.
@@ -57219,12 +55539,6 @@ class StatsGroupTopAdmin extends StatsGroupTopAdminBase {
   }
 }
 
-/// Predicate Stats Group Top Inviter.
-abstract class StatsGroupTopInviterBase extends TlConstructor {
-  /// Predicate Stats Group Top Inviter constructor.
-  const StatsGroupTopInviterBase._() : super._();
-}
-
 /// Stats Group Top Inviter.
 ///
 /// ID: `535f779d`.
@@ -57273,12 +55587,6 @@ class StatsGroupTopInviter extends StatsGroupTopInviterBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Stats Megagroup Stats.
-abstract class StatsMegagroupStatsBase extends TlConstructor {
-  /// Predicate Stats Megagroup Stats constructor.
-  const StatsMegagroupStatsBase._() : super._();
 }
 
 /// Stats Megagroup Stats.
@@ -57432,12 +55740,6 @@ class StatsMegagroupStats extends StatsMegagroupStatsBase {
   }
 }
 
-/// Predicate Global Privacy Settings.
-abstract class GlobalPrivacySettingsBase extends TlConstructor {
-  /// Predicate Global Privacy Settings constructor.
-  const GlobalPrivacySettingsBase._() : super._();
-}
-
 /// Global Privacy Settings.
 ///
 /// ID: `734c4ccb`.
@@ -57499,12 +55801,6 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Country Code.
-abstract class HelpCountryCodeBase extends TlConstructor {
-  /// Predicate Help Country Code constructor.
-  const HelpCountryCodeBase._() : super._();
 }
 
 /// Help Country Code.
@@ -57578,12 +55874,6 @@ class HelpCountryCode extends HelpCountryCodeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Country.
-abstract class HelpCountryBase extends TlConstructor {
-  /// Predicate Help Country constructor.
-  const HelpCountryBase._() : super._();
 }
 
 /// Help Country.
@@ -57668,12 +55958,6 @@ class HelpCountry extends HelpCountryBase {
   }
 }
 
-/// Predicate Help Countries List.
-abstract class HelpCountriesListBase extends TlConstructor {
-  /// Predicate Help Countries List constructor.
-  const HelpCountriesListBase._() : super._();
-}
-
 /// Help Countries List Not Modified.
 ///
 /// ID: `93cc1f32`.
@@ -57746,12 +56030,6 @@ class HelpCountriesList extends HelpCountriesListBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Views.
-abstract class MessageViewsBase extends TlConstructor {
-  /// Predicate Message Views constructor.
-  const MessageViewsBase._() : super._();
 }
 
 /// Message Views.
@@ -57833,12 +56111,6 @@ class MessageViews extends MessageViewsBase {
   }
 }
 
-/// Predicate Messages Message Views.
-abstract class MessagesMessageViewsBase extends TlConstructor {
-  /// Predicate Messages Message Views constructor.
-  const MessagesMessageViewsBase._() : super._();
-}
-
 /// Messages Message Views.
 ///
 /// ID: `b6c4f543`.
@@ -57890,12 +56162,6 @@ class MessagesMessageViews extends MessagesMessageViewsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Discussion Message.
-abstract class MessagesDiscussionMessageBase extends TlConstructor {
-  /// Predicate Messages Discussion Message constructor.
-  const MessagesDiscussionMessageBase._() : super._();
 }
 
 /// Messages Discussion Message.
@@ -58004,12 +56270,6 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Reply Header.
-abstract class MessageReplyHeaderBase extends TlConstructor {
-  /// Predicate Message Reply Header constructor.
-  const MessageReplyHeaderBase._() : super._();
 }
 
 /// Message Reply Header.
@@ -58226,12 +56486,6 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   }
 }
 
-/// Predicate Message Replies.
-abstract class MessageRepliesBase extends TlConstructor {
-  /// Predicate Message Replies constructor.
-  const MessageRepliesBase._() : super._();
-}
-
 /// Message Replies.
 ///
 /// ID: `83d60fc2`.
@@ -58347,12 +56601,6 @@ class MessageReplies extends MessageRepliesBase {
   }
 }
 
-/// Predicate Peer Blocked.
-abstract class PeerBlockedBase extends TlConstructor {
-  /// Predicate Peer Blocked constructor.
-  const PeerBlockedBase._() : super._();
-}
-
 /// Peer Blocked.
 ///
 /// ID: `e8fd8014`.
@@ -58399,12 +56647,6 @@ class PeerBlocked extends PeerBlockedBase {
   }
 }
 
-/// Predicate Stats Message Stats.
-abstract class StatsMessageStatsBase extends TlConstructor {
-  /// Predicate Stats Message Stats constructor.
-  const StatsMessageStatsBase._() : super._();
-}
-
 /// Stats Message Stats.
 ///
 /// ID: `7fe91c14`.
@@ -58449,12 +56691,6 @@ class StatsMessageStats extends StatsMessageStatsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Group Call.
-abstract class GroupCallBase extends TlConstructor {
-  /// Predicate Group Call constructor.
-  const GroupCallBase._() : super._();
 }
 
 /// Group Call Discarded.
@@ -58721,12 +56957,6 @@ class GroupCall extends GroupCallBase {
   }
 }
 
-/// Predicate Input Group Call.
-abstract class InputGroupCallBase extends TlConstructor {
-  /// Predicate Input Group Call constructor.
-  const InputGroupCallBase._() : super._();
-}
-
 /// Input Group Call.
 ///
 /// ID: `d8aa840f`.
@@ -58775,12 +57005,6 @@ class InputGroupCall extends InputGroupCallBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Group Call Participant.
-abstract class GroupCallParticipantBase extends TlConstructor {
-  /// Predicate Group Call Participant constructor.
-  const GroupCallParticipantBase._() : super._();
 }
 
 /// Group Call Participant.
@@ -58994,12 +57218,6 @@ class GroupCallParticipant extends GroupCallParticipantBase {
   }
 }
 
-/// Predicate Phone Group Call.
-abstract class PhoneGroupCallBase extends TlConstructor {
-  /// Predicate Phone Group Call constructor.
-  const PhoneGroupCallBase._() : super._();
-}
-
 /// Phone Group Call.
 ///
 /// ID: `9e727aad`.
@@ -59065,12 +57283,6 @@ class PhoneGroupCall extends PhoneGroupCallBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Phone Group Participants.
-abstract class PhoneGroupParticipantsBase extends TlConstructor {
-  /// Predicate Phone Group Participants constructor.
-  const PhoneGroupParticipantsBase._() : super._();
 }
 
 /// Phone Group Participants.
@@ -59149,12 +57361,6 @@ class PhoneGroupParticipants extends PhoneGroupParticipantsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Inline Query Peer Type.
-abstract class InlineQueryPeerTypeBase extends TlConstructor {
-  /// Predicate Inline Query Peer Type constructor.
-  const InlineQueryPeerTypeBase._() : super._();
 }
 
 /// Inline Query Peer Type Same Bot P M.
@@ -59313,12 +57519,6 @@ class InlineQueryPeerTypeBotPM extends InlineQueryPeerTypeBase {
   }
 }
 
-/// Predicate Messages History Import.
-abstract class MessagesHistoryImportBase extends TlConstructor {
-  /// Predicate Messages History Import constructor.
-  const MessagesHistoryImportBase._() : super._();
-}
-
 /// Messages History Import.
 ///
 /// ID: `1662af0b`.
@@ -59358,12 +57558,6 @@ class MessagesHistoryImport extends MessagesHistoryImportBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages History Import Parsed.
-abstract class MessagesHistoryImportParsedBase extends TlConstructor {
-  /// Predicate Messages History Import Parsed constructor.
-  const MessagesHistoryImportParsedBase._() : super._();
 }
 
 /// Messages History Import Parsed.
@@ -59434,12 +57628,6 @@ class MessagesHistoryImportParsed extends MessagesHistoryImportParsedBase {
   }
 }
 
-/// Predicate Messages Affected Found Messages.
-abstract class MessagesAffectedFoundMessagesBase extends TlConstructor {
-  /// Predicate Messages Affected Found Messages constructor.
-  const MessagesAffectedFoundMessagesBase._() : super._();
-}
-
 /// Messages Affected Found Messages.
 ///
 /// ID: `ef8d3e6c`.
@@ -59504,12 +57692,6 @@ class MessagesAffectedFoundMessages extends MessagesAffectedFoundMessagesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Invite Importer.
-abstract class ChatInviteImporterBase extends TlConstructor {
-  /// Predicate Chat Invite Importer constructor.
-  const ChatInviteImporterBase._() : super._();
 }
 
 /// Chat Invite Importer.
@@ -59608,12 +57790,6 @@ class ChatInviteImporter extends ChatInviteImporterBase {
   }
 }
 
-/// Predicate Messages Exported Chat Invites.
-abstract class MessagesExportedChatInvitesBase extends TlConstructor {
-  /// Predicate Messages Exported Chat Invites constructor.
-  const MessagesExportedChatInvitesBase._() : super._();
-}
-
 /// Messages Exported Chat Invites.
 ///
 /// ID: `bdc62dcc`.
@@ -59667,12 +57843,6 @@ class MessagesExportedChatInvites extends MessagesExportedChatInvitesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Exported Chat Invite.
-abstract class MessagesExportedChatInviteBase extends TlConstructor {
-  /// Predicate Messages Exported Chat Invite constructor.
-  const MessagesExportedChatInviteBase._() : super._();
 }
 
 /// Messages Exported Chat Invite.
@@ -59775,12 +57945,6 @@ class MessagesExportedChatInviteReplaced
   }
 }
 
-/// Predicate Messages Chat Invite Importers.
-abstract class MessagesChatInviteImportersBase extends TlConstructor {
-  /// Predicate Messages Chat Invite Importers constructor.
-  const MessagesChatInviteImportersBase._() : super._();
-}
-
 /// Messages Chat Invite Importers.
 ///
 /// ID: `81b6b00a`.
@@ -59834,12 +57998,6 @@ class MessagesChatInviteImporters extends MessagesChatInviteImportersBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Admin With Invites.
-abstract class ChatAdminWithInvitesBase extends TlConstructor {
-  /// Predicate Chat Admin With Invites constructor.
-  const ChatAdminWithInvitesBase._() : super._();
 }
 
 /// Chat Admin With Invites.
@@ -59901,12 +58059,6 @@ class ChatAdminWithInvites extends ChatAdminWithInvitesBase {
   }
 }
 
-/// Predicate Messages Chat Admins With Invites.
-abstract class MessagesChatAdminsWithInvitesBase extends TlConstructor {
-  /// Predicate Messages Chat Admins With Invites constructor.
-  const MessagesChatAdminsWithInvitesBase._() : super._();
-}
-
 /// Messages Chat Admins With Invites.
 ///
 /// ID: `b69b72d7`.
@@ -59953,12 +58105,6 @@ class MessagesChatAdminsWithInvites extends MessagesChatAdminsWithInvitesBase {
   }
 }
 
-/// Predicate Messages Checked History Import Peer.
-abstract class MessagesCheckedHistoryImportPeerBase extends TlConstructor {
-  /// Predicate Messages Checked History Import Peer constructor.
-  const MessagesCheckedHistoryImportPeerBase._() : super._();
-}
-
 /// Messages Checked History Import Peer.
 ///
 /// ID: `a24de717`.
@@ -59997,12 +58143,6 @@ class MessagesCheckedHistoryImportPeer
 
     // Finished serialization.
   }
-}
-
-/// Predicate Phone Join As Peers.
-abstract class PhoneJoinAsPeersBase extends TlConstructor {
-  /// Predicate Phone Join As Peers constructor.
-  const PhoneJoinAsPeersBase._() : super._();
 }
 
 /// Phone Join As Peers.
@@ -60058,12 +58198,6 @@ class PhoneJoinAsPeers extends PhoneJoinAsPeersBase {
   }
 }
 
-/// Predicate Phone Exported Group Call Invite.
-abstract class PhoneExportedGroupCallInviteBase extends TlConstructor {
-  /// Predicate Phone Exported Group Call Invite constructor.
-  const PhoneExportedGroupCallInviteBase._() : super._();
-}
-
 /// Phone Exported Group Call Invite.
 ///
 /// ID: `204bd158`.
@@ -60101,12 +58235,6 @@ class PhoneExportedGroupCallInvite extends PhoneExportedGroupCallInviteBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Group Call Participant Video Source Group.
-abstract class GroupCallParticipantVideoSourceGroupBase extends TlConstructor {
-  /// Predicate Group Call Participant Video Source Group constructor.
-  const GroupCallParticipantVideoSourceGroupBase._() : super._();
 }
 
 /// Group Call Participant Video Source Group.
@@ -60155,12 +58283,6 @@ class GroupCallParticipantVideoSourceGroup
 
     // Finished serialization.
   }
-}
-
-/// Predicate Group Call Participant Video.
-abstract class GroupCallParticipantVideoBase extends TlConstructor {
-  /// Predicate Group Call Participant Video constructor.
-  const GroupCallParticipantVideoBase._() : super._();
 }
 
 /// Group Call Participant Video.
@@ -60239,12 +58361,6 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
   }
 }
 
-/// Predicate Stickers Suggested Short Name.
-abstract class StickersSuggestedShortNameBase extends TlConstructor {
-  /// Predicate Stickers Suggested Short Name constructor.
-  const StickersSuggestedShortNameBase._() : super._();
-}
-
 /// Stickers Suggested Short Name.
 ///
 /// ID: `85fea03f`.
@@ -60282,12 +58398,6 @@ class StickersSuggestedShortName extends StickersSuggestedShortNameBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Bot Command Scope.
-abstract class BotCommandScopeBase extends TlConstructor {
-  /// Predicate Bot Command Scope constructor.
-  const BotCommandScopeBase._() : super._();
 }
 
 /// Bot Command Scope Default.
@@ -60518,12 +58628,6 @@ class BotCommandScopePeerUser extends BotCommandScopeBase {
   }
 }
 
-/// Predicate Account Reset Password Result.
-abstract class AccountResetPasswordResultBase extends TlConstructor {
-  /// Predicate Account Reset Password Result constructor.
-  const AccountResetPasswordResultBase._() : super._();
-}
-
 /// Account Reset Password Failed Wait.
 ///
 /// ID: `e3779861`.
@@ -60626,12 +58730,6 @@ class AccountResetPasswordOk extends AccountResetPasswordResultBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Sponsored Message.
-abstract class SponsoredMessageBase extends TlConstructor {
-  /// Predicate Sponsored Message constructor.
-  const SponsoredMessageBase._() : super._();
 }
 
 /// Sponsored Message.
@@ -60838,12 +58936,6 @@ class SponsoredMessage extends SponsoredMessageBase {
   }
 }
 
-/// Predicate Messages Sponsored Messages.
-abstract class MessagesSponsoredMessagesBase extends TlConstructor {
-  /// Predicate Messages Sponsored Messages constructor.
-  const MessagesSponsoredMessagesBase._() : super._();
-}
-
 /// Messages Sponsored Messages.
 ///
 /// ID: `c9ee1d87`.
@@ -60945,12 +59037,6 @@ class MessagesSponsoredMessagesEmpty extends MessagesSponsoredMessagesBase {
   }
 }
 
-/// Predicate Search Results Calendar Period.
-abstract class SearchResultsCalendarPeriodBase extends TlConstructor {
-  /// Predicate Search Results Calendar Period constructor.
-  const SearchResultsCalendarPeriodBase._() : super._();
-}
-
 /// Search Results Calendar Period.
 ///
 /// ID: `c9b0539f`.
@@ -61015,12 +59101,6 @@ class SearchResultsCalendarPeriod extends SearchResultsCalendarPeriodBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Search Results Calendar.
-abstract class MessagesSearchResultsCalendarBase extends TlConstructor {
-  /// Predicate Messages Search Results Calendar constructor.
-  const MessagesSearchResultsCalendarBase._() : super._();
 }
 
 /// Messages Search Results Calendar.
@@ -61137,12 +59217,6 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
   }
 }
 
-/// Predicate Search Results Position.
-abstract class SearchResultsPositionBase extends TlConstructor {
-  /// Predicate Search Results Position constructor.
-  const SearchResultsPositionBase._() : super._();
-}
-
 /// Search Result Position.
 ///
 /// ID: `7f648b67`.
@@ -61200,12 +59274,6 @@ class SearchResultPosition extends SearchResultsPositionBase {
   }
 }
 
-/// Predicate Messages Search Results Positions.
-abstract class MessagesSearchResultsPositionsBase extends TlConstructor {
-  /// Predicate Messages Search Results Positions constructor.
-  const MessagesSearchResultsPositionsBase._() : super._();
-}
-
 /// Messages Search Results Positions.
 ///
 /// ID: `53b22baf`.
@@ -61253,12 +59321,6 @@ class MessagesSearchResultsPositions
 
     // Finished serialization.
   }
-}
-
-/// Predicate Channels Send As Peers.
-abstract class ChannelsSendAsPeersBase extends TlConstructor {
-  /// Predicate Channels Send As Peers constructor.
-  const ChannelsSendAsPeersBase._() : super._();
 }
 
 /// Channels Send As Peers.
@@ -61314,12 +59376,6 @@ class ChannelsSendAsPeers extends ChannelsSendAsPeersBase {
   }
 }
 
-/// Predicate Users User Full.
-abstract class UsersUserFullBase extends TlConstructor {
-  /// Predicate Users User Full constructor.
-  const UsersUserFullBase._() : super._();
-}
-
 /// Users User Full.
 ///
 /// ID: `3b6d152e`.
@@ -61371,12 +59427,6 @@ class UsersUserFull extends UsersUserFullBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Peer Settings.
-abstract class MessagesPeerSettingsBase extends TlConstructor {
-  /// Predicate Messages Peer Settings constructor.
-  const MessagesPeerSettingsBase._() : super._();
 }
 
 /// Messages Peer Settings.
@@ -61432,12 +59482,6 @@ class MessagesPeerSettings extends MessagesPeerSettingsBase {
   }
 }
 
-/// Predicate Auth Logged Out.
-abstract class AuthLoggedOutBase extends TlConstructor {
-  /// Predicate Auth Logged Out constructor.
-  const AuthLoggedOutBase._() : super._();
-}
-
 /// Auth Logged Out.
 ///
 /// ID: `c3a2835f`.
@@ -61490,12 +59534,6 @@ class AuthLoggedOut extends AuthLoggedOutBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Reaction Count.
-abstract class ReactionCountBase extends TlConstructor {
-  /// Predicate Reaction Count constructor.
-  const ReactionCountBase._() : super._();
 }
 
 /// Reaction Count.
@@ -61566,12 +59604,6 @@ class ReactionCount extends ReactionCountBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Reactions.
-abstract class MessageReactionsBase extends TlConstructor {
-  /// Predicate Message Reactions constructor.
-  const MessageReactionsBase._() : super._();
 }
 
 /// Message Reactions.
@@ -61649,12 +59681,6 @@ class MessageReactions extends MessageReactionsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Message Reactions List.
-abstract class MessagesMessageReactionsListBase extends TlConstructor {
-  /// Predicate Messages Message Reactions List constructor.
-  const MessagesMessageReactionsListBase._() : super._();
 }
 
 /// Messages Message Reactions List.
@@ -61739,12 +59765,6 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Available Reaction.
-abstract class AvailableReactionBase extends TlConstructor {
-  /// Predicate Available Reaction constructor.
-  const AvailableReactionBase._() : super._();
 }
 
 /// Available Reaction.
@@ -61877,12 +59897,6 @@ class AvailableReaction extends AvailableReactionBase {
   }
 }
 
-/// Predicate Messages Available Reactions.
-abstract class MessagesAvailableReactionsBase extends TlConstructor {
-  /// Predicate Messages Available Reactions constructor.
-  const MessagesAvailableReactionsBase._() : super._();
-}
-
 /// Messages Available Reactions Not Modified.
 ///
 /// ID: `9f071957`.
@@ -61957,12 +59971,6 @@ class MessagesAvailableReactions extends MessagesAvailableReactionsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Peer Reaction.
-abstract class MessagePeerReactionBase extends TlConstructor {
-  /// Predicate Message Peer Reaction constructor.
-  const MessagePeerReactionBase._() : super._();
 }
 
 /// Message Peer Reaction.
@@ -62049,12 +60057,6 @@ class MessagePeerReaction extends MessagePeerReactionBase {
   }
 }
 
-/// Predicate Group Call Stream Channel.
-abstract class GroupCallStreamChannelBase extends TlConstructor {
-  /// Predicate Group Call Stream Channel constructor.
-  const GroupCallStreamChannelBase._() : super._();
-}
-
 /// Group Call Stream Channel.
 ///
 /// ID: `80eb48af`.
@@ -62114,12 +60116,6 @@ class GroupCallStreamChannel extends GroupCallStreamChannelBase {
   }
 }
 
-/// Predicate Phone Group Call Stream Channels.
-abstract class PhoneGroupCallStreamChannelsBase extends TlConstructor {
-  /// Predicate Phone Group Call Stream Channels constructor.
-  const PhoneGroupCallStreamChannelsBase._() : super._();
-}
-
 /// Phone Group Call Stream Channels.
 ///
 /// ID: `d0e482b2`.
@@ -62157,12 +60153,6 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Phone Group Call Stream Rtmp Url.
-abstract class PhoneGroupCallStreamRtmpUrlBase extends TlConstructor {
-  /// Predicate Phone Group Call Stream Rtmp Url constructor.
-  const PhoneGroupCallStreamRtmpUrlBase._() : super._();
 }
 
 /// Phone Group Call Stream Rtmp Url.
@@ -62211,12 +60201,6 @@ class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
   }
 }
 
-/// Predicate Attach Menu Bot Icon Color.
-abstract class AttachMenuBotIconColorBase extends TlConstructor {
-  /// Predicate Attach Menu Bot Icon Color constructor.
-  const AttachMenuBotIconColorBase._() : super._();
-}
-
 /// Attach Menu Bot Icon Color.
 ///
 /// ID: `4576f3f0`.
@@ -62263,12 +60247,6 @@ class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Attach Menu Bot Icon.
-abstract class AttachMenuBotIconBase extends TlConstructor {
-  /// Predicate Attach Menu Bot Icon constructor.
-  const AttachMenuBotIconBase._() : super._();
 }
 
 /// Attach Menu Bot Icon.
@@ -62339,12 +60317,6 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Attach Menu Bot.
-abstract class AttachMenuBotBase extends TlConstructor {
-  /// Predicate Attach Menu Bot constructor.
-  const AttachMenuBotBase._() : super._();
 }
 
 /// Attach Menu Bot.
@@ -62467,12 +60439,6 @@ class AttachMenuBot extends AttachMenuBotBase {
   }
 }
 
-/// Predicate Attach Menu Bots.
-abstract class AttachMenuBotsBase extends TlConstructor {
-  /// Predicate Attach Menu Bots constructor.
-  const AttachMenuBotsBase._() : super._();
-}
-
 /// Attach Menu Bots Not Modified.
 ///
 /// ID: `f1d88a5c`.
@@ -62554,12 +60520,6 @@ class AttachMenuBots extends AttachMenuBotsBase {
   }
 }
 
-/// Predicate Attach Menu Bots Bot.
-abstract class AttachMenuBotsBotBase extends TlConstructor {
-  /// Predicate Attach Menu Bots Bot constructor.
-  const AttachMenuBotsBotBase._() : super._();
-}
-
 /// Attach Menu Bots Bot.
 ///
 /// ID: `93bf667f`.
@@ -62604,12 +60564,6 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Web View Result.
-abstract class WebViewResultBase extends TlConstructor {
-  /// Predicate Web View Result constructor.
-  const WebViewResultBase._() : super._();
 }
 
 /// Web View Result Url.
@@ -62660,12 +60614,6 @@ class WebViewResultUrl extends WebViewResultBase {
   }
 }
 
-/// Predicate Simple Web View Result.
-abstract class SimpleWebViewResultBase extends TlConstructor {
-  /// Predicate Simple Web View Result constructor.
-  const SimpleWebViewResultBase._() : super._();
-}
-
 /// Simple Web View Result Url.
 ///
 /// ID: `882f76bb`.
@@ -62703,12 +60651,6 @@ class SimpleWebViewResultUrl extends SimpleWebViewResultBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Web View Message Sent.
-abstract class WebViewMessageSentBase extends TlConstructor {
-  /// Predicate Web View Message Sent constructor.
-  const WebViewMessageSentBase._() : super._();
 }
 
 /// Web View Message Sent.
@@ -62765,12 +60707,6 @@ class WebViewMessageSent extends WebViewMessageSentBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Bot Menu Button.
-abstract class BotMenuButtonBase extends TlConstructor {
-  /// Predicate Bot Menu Button constructor.
-  const BotMenuButtonBase._() : super._();
 }
 
 /// Bot Menu Button Default.
@@ -62871,12 +60807,6 @@ class BotMenuButton extends BotMenuButtonBase {
   }
 }
 
-/// Predicate Account Saved Ringtones.
-abstract class AccountSavedRingtonesBase extends TlConstructor {
-  /// Predicate Account Saved Ringtones constructor.
-  const AccountSavedRingtonesBase._() : super._();
-}
-
 /// Account Saved Ringtones Not Modified.
 ///
 /// ID: `fbf6e8b1`.
@@ -62949,12 +60879,6 @@ class AccountSavedRingtones extends AccountSavedRingtonesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Notification Sound.
-abstract class NotificationSoundBase extends TlConstructor {
-  /// Predicate Notification Sound constructor.
-  const NotificationSoundBase._() : super._();
 }
 
 /// Notification Sound Default.
@@ -63096,12 +61020,6 @@ class NotificationSoundRingtone extends NotificationSoundBase {
   }
 }
 
-/// Predicate Account Saved Ringtone.
-abstract class AccountSavedRingtoneBase extends TlConstructor {
-  /// Predicate Account Saved Ringtone constructor.
-  const AccountSavedRingtoneBase._() : super._();
-}
-
 /// Account Saved Ringtone.
 ///
 /// ID: `b7263f6d`.
@@ -63165,12 +61083,6 @@ class AccountSavedRingtoneConverted extends AccountSavedRingtoneBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Attach Menu Peer Type.
-abstract class AttachMenuPeerTypeBase extends TlConstructor {
-  /// Predicate Attach Menu Peer Type constructor.
-  const AttachMenuPeerTypeBase._() : super._();
 }
 
 /// Attach Menu Peer Type Same Bot P M.
@@ -63301,12 +61213,6 @@ class AttachMenuPeerTypeBroadcast extends AttachMenuPeerTypeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Invoice.
-abstract class InputInvoiceBase extends TlConstructor {
-  /// Predicate Input Invoice constructor.
-  const InputInvoiceBase._() : super._();
 }
 
 /// Input Invoice Message.
@@ -63442,12 +61348,6 @@ class InputInvoicePremiumGiftCode extends InputInvoiceBase {
   }
 }
 
-/// Predicate Payments Exported Invoice.
-abstract class PaymentsExportedInvoiceBase extends TlConstructor {
-  /// Predicate Payments Exported Invoice constructor.
-  const PaymentsExportedInvoiceBase._() : super._();
-}
-
 /// Payments Exported Invoice.
 ///
 /// ID: `aed0cbd9`.
@@ -63485,12 +61385,6 @@ class PaymentsExportedInvoice extends PaymentsExportedInvoiceBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Transcribed Audio.
-abstract class MessagesTranscribedAudioBase extends TlConstructor {
-  /// Predicate Messages Transcribed Audio constructor.
-  const MessagesTranscribedAudioBase._() : super._();
 }
 
 /// Messages Transcribed Audio.
@@ -63582,12 +61476,6 @@ class MessagesTranscribedAudio extends MessagesTranscribedAudioBase {
   }
 }
 
-/// Predicate Help Premium Promo.
-abstract class HelpPremiumPromoBase extends TlConstructor {
-  /// Predicate Help Premium Promo constructor.
-  const HelpPremiumPromoBase._() : super._();
-}
-
 /// Help Premium Promo.
 ///
 /// ID: `5334759c`.
@@ -63661,12 +61549,6 @@ class HelpPremiumPromo extends HelpPremiumPromoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Store Payment Purpose.
-abstract class InputStorePaymentPurposeBase extends TlConstructor {
-  /// Predicate Input Store Payment Purpose constructor.
-  const InputStorePaymentPurposeBase._() : super._();
 }
 
 /// Input Store Payment Premium Subscription.
@@ -63995,12 +61877,6 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
   }
 }
 
-/// Predicate Premium Gift Option.
-abstract class PremiumGiftOptionBase extends TlConstructor {
-  /// Predicate Premium Gift Option constructor.
-  const PremiumGiftOptionBase._() : super._();
-}
-
 /// Premium Gift Option.
 ///
 /// ID: `74c34319`.
@@ -64087,12 +61963,6 @@ class PremiumGiftOption extends PremiumGiftOptionBase {
   }
 }
 
-/// Predicate Payment Form Method.
-abstract class PaymentFormMethodBase extends TlConstructor {
-  /// Predicate Payment Form Method constructor.
-  const PaymentFormMethodBase._() : super._();
-}
-
 /// Payment Form Method.
 ///
 /// ID: `88f8f21b`.
@@ -64137,12 +62007,6 @@ class PaymentFormMethod extends PaymentFormMethodBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Emoji Status.
-abstract class EmojiStatusBase extends TlConstructor {
-  /// Predicate Emoji Status constructor.
-  const EmojiStatusBase._() : super._();
 }
 
 /// Emoji Status Empty.
@@ -64262,12 +62126,6 @@ class EmojiStatusUntil extends EmojiStatusBase {
   }
 }
 
-/// Predicate Account Emoji Statuses.
-abstract class AccountEmojiStatusesBase extends TlConstructor {
-  /// Predicate Account Emoji Statuses constructor.
-  const AccountEmojiStatusesBase._() : super._();
-}
-
 /// Account Emoji Statuses Not Modified.
 ///
 /// ID: `d08ce645`.
@@ -64340,12 +62198,6 @@ class AccountEmojiStatuses extends AccountEmojiStatusesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Reaction.
-abstract class ReactionBase extends TlConstructor {
-  /// Predicate Reaction constructor.
-  const ReactionBase._() : super._();
 }
 
 /// Reaction Empty.
@@ -64452,12 +62304,6 @@ class ReactionCustomEmoji extends ReactionBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chat Reactions.
-abstract class ChatReactionsBase extends TlConstructor {
-  /// Predicate Chat Reactions constructor.
-  const ChatReactionsBase._() : super._();
 }
 
 /// Chat Reactions None.
@@ -64574,12 +62420,6 @@ class ChatReactionsSome extends ChatReactionsBase {
   }
 }
 
-/// Predicate Messages Reactions.
-abstract class MessagesReactionsBase extends TlConstructor {
-  /// Predicate Messages Reactions constructor.
-  const MessagesReactionsBase._() : super._();
-}
-
 /// Messages Reactions Not Modified.
 ///
 /// ID: `b06fdbdf`.
@@ -64652,12 +62492,6 @@ class MessagesReactions extends MessagesReactionsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Email Verify Purpose.
-abstract class EmailVerifyPurposeBase extends TlConstructor {
-  /// Predicate Email Verify Purpose constructor.
-  const EmailVerifyPurposeBase._() : super._();
 }
 
 /// Email Verify Purpose Login Setup.
@@ -64756,12 +62590,6 @@ class EmailVerifyPurposePassport extends EmailVerifyPurposeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Email Verification.
-abstract class EmailVerificationBase extends TlConstructor {
-  /// Predicate Email Verification constructor.
-  const EmailVerificationBase._() : super._();
 }
 
 /// Email Verification Code.
@@ -64881,12 +62709,6 @@ class EmailVerificationApple extends EmailVerificationBase {
   }
 }
 
-/// Predicate Account Email Verified.
-abstract class AccountEmailVerifiedBase extends TlConstructor {
-  /// Predicate Account Email Verified constructor.
-  const AccountEmailVerifiedBase._() : super._();
-}
-
 /// Account Email Verified.
 ///
 /// ID: `2b96cd1b`.
@@ -64970,12 +62792,6 @@ class AccountEmailVerifiedLogin extends AccountEmailVerifiedBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Premium Subscription Option.
-abstract class PremiumSubscriptionOptionBase extends TlConstructor {
-  /// Predicate Premium Subscription Option constructor.
-  const PremiumSubscriptionOptionBase._() : super._();
 }
 
 /// Premium Subscription Option.
@@ -65090,12 +62906,6 @@ class PremiumSubscriptionOption extends PremiumSubscriptionOptionBase {
   }
 }
 
-/// Predicate Send As Peer.
-abstract class SendAsPeerBase extends TlConstructor {
-  /// Predicate Send As Peer constructor.
-  const SendAsPeerBase._() : super._();
-}
-
 /// Send As Peer.
 ///
 /// ID: `b81c7034`.
@@ -65150,12 +62960,6 @@ class SendAsPeer extends SendAsPeerBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Extended Media.
-abstract class MessageExtendedMediaBase extends TlConstructor {
-  /// Predicate Message Extended Media constructor.
-  const MessageExtendedMediaBase._() : super._();
 }
 
 /// Message Extended Media Preview.
@@ -65286,12 +63090,6 @@ class MessageExtendedMedia extends MessageExtendedMediaBase {
   }
 }
 
-/// Predicate Sticker Keyword.
-abstract class StickerKeywordBase extends TlConstructor {
-  /// Predicate Sticker Keyword constructor.
-  const StickerKeywordBase._() : super._();
-}
-
 /// Sticker Keyword.
 ///
 /// ID: `fcfeb29c`.
@@ -65338,12 +63136,6 @@ class StickerKeyword extends StickerKeywordBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Username.
-abstract class UsernameBase extends TlConstructor {
-  /// Predicate Username constructor.
-  const UsernameBase._() : super._();
 }
 
 /// Username.
@@ -65407,12 +63199,6 @@ class Username extends UsernameBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Forum Topic.
-abstract class ForumTopicBase extends TlConstructor {
-  /// Predicate Forum Topic constructor.
-  const ForumTopicBase._() : super._();
 }
 
 /// Forum Topic Deleted.
@@ -65658,12 +63444,6 @@ class ForumTopic extends ForumTopicBase {
   }
 }
 
-/// Predicate Messages Forum Topics.
-abstract class MessagesForumTopicsBase extends TlConstructor {
-  /// Predicate Messages Forum Topics constructor.
-  const MessagesForumTopicsBase._() : super._();
-}
-
 /// Messages Forum Topics.
 ///
 /// ID: `367617d3`.
@@ -65759,12 +63539,6 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
   }
 }
 
-/// Predicate Default History T T L.
-abstract class DefaultHistoryTTLBase extends TlConstructor {
-  /// Predicate Default History T T L constructor.
-  const DefaultHistoryTTLBase._() : super._();
-}
-
 /// Default History T T L.
 ///
 /// ID: `43b46b20`.
@@ -65804,12 +63578,6 @@ class DefaultHistoryTTL extends DefaultHistoryTTLBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Exported Contact Token.
-abstract class ExportedContactTokenBase extends TlConstructor {
-  /// Predicate Exported Contact Token constructor.
-  const ExportedContactTokenBase._() : super._();
 }
 
 /// Exported Contact Token.
@@ -65858,12 +63626,6 @@ class ExportedContactToken extends ExportedContactTokenBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Request Peer Type.
-abstract class RequestPeerTypeBase extends TlConstructor {
-  /// Predicate Request Peer Type constructor.
-  const RequestPeerTypeBase._() : super._();
 }
 
 /// Request Peer Type User.
@@ -66104,12 +63866,6 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   }
 }
 
-/// Predicate Emoji List.
-abstract class EmojiListBase extends TlConstructor {
-  /// Predicate Emoji List constructor.
-  const EmojiListBase._() : super._();
-}
-
 /// Emoji List Not Modified.
 ///
 /// ID: `481eadfa`.
@@ -66184,12 +63940,6 @@ class EmojiList extends EmojiListBase {
   }
 }
 
-/// Predicate Emoji Group.
-abstract class EmojiGroupBase extends TlConstructor {
-  /// Predicate Emoji Group constructor.
-  const EmojiGroupBase._() : super._();
-}
-
 /// Emoji Group.
 ///
 /// ID: `7a9abda9`.
@@ -66243,12 +63993,6 @@ class EmojiGroup extends EmojiGroupBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Emoji Groups.
-abstract class MessagesEmojiGroupsBase extends TlConstructor {
-  /// Predicate Messages Emoji Groups constructor.
-  const MessagesEmojiGroupsBase._() : super._();
 }
 
 /// Messages Emoji Groups Not Modified.
@@ -66325,12 +64069,6 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
   }
 }
 
-/// Predicate Text With Entities.
-abstract class TextWithEntitiesBase extends TlConstructor {
-  /// Predicate Text With Entities constructor.
-  const TextWithEntitiesBase._() : super._();
-}
-
 /// Text With Entities.
 ///
 /// ID: `751f3146`.
@@ -66377,12 +64115,6 @@ class TextWithEntities extends TextWithEntitiesBase {
   }
 }
 
-/// Predicate Messages Translated Text.
-abstract class MessagesTranslatedTextBase extends TlConstructor {
-  /// Predicate Messages Translated Text constructor.
-  const MessagesTranslatedTextBase._() : super._();
-}
-
 /// Messages Translate Result.
 ///
 /// ID: `33db32f8`.
@@ -66420,12 +64152,6 @@ class MessagesTranslateResult extends MessagesTranslatedTextBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Auto Save Settings.
-abstract class AutoSaveSettingsBase extends TlConstructor {
-  /// Predicate Auto Save Settings constructor.
-  const AutoSaveSettingsBase._() : super._();
 }
 
 /// Auto Save Settings.
@@ -66496,12 +64222,6 @@ class AutoSaveSettings extends AutoSaveSettingsBase {
   }
 }
 
-/// Predicate Auto Save Exception.
-abstract class AutoSaveExceptionBase extends TlConstructor {
-  /// Predicate Auto Save Exception constructor.
-  const AutoSaveExceptionBase._() : super._();
-}
-
 /// Auto Save Exception.
 ///
 /// ID: `81602d47`.
@@ -66546,12 +64266,6 @@ class AutoSaveException extends AutoSaveExceptionBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Account Auto Save Settings.
-abstract class AccountAutoSaveSettingsBase extends TlConstructor {
-  /// Predicate Account Auto Save Settings constructor.
-  const AccountAutoSaveSettingsBase._() : super._();
 }
 
 /// Account Auto Save Settings.
@@ -66628,12 +64342,6 @@ class AccountAutoSaveSettings extends AccountAutoSaveSettingsBase {
   }
 }
 
-/// Predicate Help App Config.
-abstract class HelpAppConfigBase extends TlConstructor {
-  /// Predicate Help App Config constructor.
-  const HelpAppConfigBase._() : super._();
-}
-
 /// Help App Config Not Modified.
 ///
 /// ID: `7cde641d`.
@@ -66706,12 +64414,6 @@ class HelpAppConfig extends HelpAppConfigBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Bot App.
-abstract class InputBotAppBase extends TlConstructor {
-  /// Predicate Input Bot App constructor.
-  const InputBotAppBase._() : super._();
 }
 
 /// Input Bot App I D.
@@ -66808,12 +64510,6 @@ class InputBotAppShortName extends InputBotAppBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Bot App.
-abstract class BotAppBase extends TlConstructor {
-  /// Predicate Bot App constructor.
-  const BotAppBase._() : super._();
 }
 
 /// Bot App Not Modified.
@@ -66952,12 +64648,6 @@ class BotApp extends BotAppBase {
   }
 }
 
-/// Predicate Messages Bot App.
-abstract class MessagesBotAppBase extends TlConstructor {
-  /// Predicate Messages Bot App constructor.
-  const MessagesBotAppBase._() : super._();
-}
-
 /// Messages Bot App.
 ///
 /// ID: `eb50adf5`.
@@ -67028,12 +64718,6 @@ class MessagesBotApp extends MessagesBotAppBase {
   }
 }
 
-/// Predicate App Web View Result.
-abstract class AppWebViewResultBase extends TlConstructor {
-  /// Predicate App Web View Result constructor.
-  const AppWebViewResultBase._() : super._();
-}
-
 /// App Web View Result Url.
 ///
 /// ID: `3c1b4f0d`.
@@ -67071,12 +64755,6 @@ class AppWebViewResultUrl extends AppWebViewResultBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Inline Bot Web View.
-abstract class InlineBotWebViewBase extends TlConstructor {
-  /// Predicate Inline Bot Web View constructor.
-  const InlineBotWebViewBase._() : super._();
 }
 
 /// Inline Bot Web View.
@@ -67123,12 +64801,6 @@ class InlineBotWebView extends InlineBotWebViewBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Read Participant Date.
-abstract class ReadParticipantDateBase extends TlConstructor {
-  /// Predicate Read Participant Date constructor.
-  const ReadParticipantDateBase._() : super._();
 }
 
 /// Read Participant Date.
@@ -67179,12 +64851,6 @@ class ReadParticipantDate extends ReadParticipantDateBase {
   }
 }
 
-/// Predicate Input Chatlist.
-abstract class InputChatlistBase extends TlConstructor {
-  /// Predicate Input Chatlist constructor.
-  const InputChatlistBase._() : super._();
-}
-
 /// Input Chatlist Dialog Filter.
 ///
 /// ID: `f3e0da33`.
@@ -67224,12 +64890,6 @@ class InputChatlistDialogFilter extends InputChatlistBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Exported Chatlist Invite.
-abstract class ExportedChatlistInviteBase extends TlConstructor {
-  /// Predicate Exported Chatlist Invite constructor.
-  const ExportedChatlistInviteBase._() : super._();
 }
 
 /// Exported Chatlist Invite.
@@ -67294,12 +64954,6 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
   }
 }
 
-/// Predicate Chatlists Exported Chatlist Invite.
-abstract class ChatlistsExportedChatlistInviteBase extends TlConstructor {
-  /// Predicate Chatlists Exported Chatlist Invite constructor.
-  const ChatlistsExportedChatlistInviteBase._() : super._();
-}
-
 /// Chatlists Exported Chatlist Invite.
 ///
 /// ID: `10e6e3a6`.
@@ -67345,12 +64999,6 @@ class ChatlistsExportedChatlistInvite
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chatlists Exported Invites.
-abstract class ChatlistsExportedInvitesBase extends TlConstructor {
-  /// Predicate Chatlists Exported Invites constructor.
-  const ChatlistsExportedInvitesBase._() : super._();
 }
 
 /// Chatlists Exported Invites.
@@ -67404,12 +65052,6 @@ class ChatlistsExportedInvites extends ChatlistsExportedInvitesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Chatlists Chatlist Invite.
-abstract class ChatlistsChatlistInviteBase extends TlConstructor {
-  /// Predicate Chatlists Chatlist Invite constructor.
-  const ChatlistsChatlistInviteBase._() : super._();
 }
 
 /// Chatlists Chatlist Invite Already.
@@ -67563,12 +65205,6 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
   }
 }
 
-/// Predicate Chatlists Chatlist Updates.
-abstract class ChatlistsChatlistUpdatesBase extends TlConstructor {
-  /// Predicate Chatlists Chatlist Updates constructor.
-  const ChatlistsChatlistUpdatesBase._() : super._();
-}
-
 /// Chatlists Chatlist Updates.
 ///
 /// ID: `93bd878d`.
@@ -67622,12 +65258,6 @@ class ChatlistsChatlistUpdates extends ChatlistsChatlistUpdatesBase {
   }
 }
 
-/// Predicate Bots Bot Info.
-abstract class BotsBotInfoBase extends TlConstructor {
-  /// Predicate Bots Bot Info constructor.
-  const BotsBotInfoBase._() : super._();
-}
-
 /// Bots Bot Info.
 ///
 /// ID: `e8a775b0`.
@@ -67679,12 +65309,6 @@ class BotsBotInfo extends BotsBotInfoBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Message Peer Vote.
-abstract class MessagePeerVoteBase extends TlConstructor {
-  /// Predicate Message Peer Vote constructor.
-  const MessagePeerVoteBase._() : super._();
 }
 
 /// Message Peer Vote.
@@ -67839,12 +65463,6 @@ class MessagePeerVoteMultiple extends MessagePeerVoteBase {
   }
 }
 
-/// Predicate Sponsored Web Page.
-abstract class SponsoredWebPageBase extends TlConstructor {
-  /// Predicate Sponsored Web Page constructor.
-  const SponsoredWebPageBase._() : super._();
-}
-
 /// Sponsored Web Page.
 ///
 /// ID: `3db8ec63`.
@@ -67911,12 +65529,6 @@ class SponsoredWebPage extends SponsoredWebPageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Story Views.
-abstract class StoryViewsBase extends TlConstructor {
-  /// Predicate Story Views constructor.
-  const StoryViewsBase._() : super._();
 }
 
 /// Story Views.
@@ -68025,12 +65637,6 @@ class StoryViews extends StoryViewsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Story Item.
-abstract class StoryItemBase extends TlConstructor {
-  /// Predicate Story Item constructor.
-  const StoryItemBase._() : super._();
 }
 
 /// Story Item Deleted.
@@ -68370,12 +65976,6 @@ class StoryItem extends StoryItemBase {
   }
 }
 
-/// Predicate Stories All Stories.
-abstract class StoriesAllStoriesBase extends TlConstructor {
-  /// Predicate Stories All Stories constructor.
-  const StoriesAllStoriesBase._() : super._();
-}
-
 /// Stories All Stories Not Modified.
 ///
 /// ID: `1158fe3e`.
@@ -68524,12 +66124,6 @@ class StoriesAllStories extends StoriesAllStoriesBase {
   }
 }
 
-/// Predicate Stories Stories.
-abstract class StoriesStoriesBase extends TlConstructor {
-  /// Predicate Stories Stories constructor.
-  const StoriesStoriesBase._() : super._();
-}
-
 /// Stories Stories.
 ///
 /// ID: `5dd8c3c8`.
@@ -68590,12 +66184,6 @@ class StoriesStories extends StoriesStoriesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Story View.
-abstract class StoryViewBase extends TlConstructor {
-  /// Predicate Story View constructor.
-  const StoryViewBase._() : super._();
 }
 
 /// Story View.
@@ -68816,12 +66404,6 @@ class StoryViewPublicRepost extends StoryViewBase {
   }
 }
 
-/// Predicate Stories Story Views List.
-abstract class StoriesStoryViewsListBase extends TlConstructor {
-  /// Predicate Stories Story Views List constructor.
-  const StoriesStoryViewsListBase._() : super._();
-}
-
 /// Stories Story Views List.
 ///
 /// ID: `59d78fc5`.
@@ -68933,12 +66515,6 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
   }
 }
 
-/// Predicate Stories Story Views.
-abstract class StoriesStoryViewsBase extends TlConstructor {
-  /// Predicate Stories Story Views constructor.
-  const StoriesStoryViewsBase._() : super._();
-}
-
 /// Stories Story Views.
 ///
 /// ID: `de9eed1d`.
@@ -68983,12 +66559,6 @@ class StoriesStoryViews extends StoriesStoryViewsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Input Reply To.
-abstract class InputReplyToBase extends TlConstructor {
-  /// Predicate Input Reply To constructor.
-  const InputReplyToBase._() : super._();
 }
 
 /// Input Reply To Message.
@@ -69153,12 +66723,6 @@ class InputReplyToStory extends InputReplyToBase {
   }
 }
 
-/// Predicate Exported Story Link.
-abstract class ExportedStoryLinkBase extends TlConstructor {
-  /// Predicate Exported Story Link constructor.
-  const ExportedStoryLinkBase._() : super._();
-}
-
 /// Exported Story Link.
 ///
 /// ID: `3fc9053b`.
@@ -69196,12 +66760,6 @@ class ExportedStoryLink extends ExportedStoryLinkBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Stories Stealth Mode.
-abstract class StoriesStealthModeBase extends TlConstructor {
-  /// Predicate Stories Stealth Mode constructor.
-  const StoriesStealthModeBase._() : super._();
 }
 
 /// Stories Stealth Mode.
@@ -69272,12 +66830,6 @@ class StoriesStealthMode extends StoriesStealthModeBase {
   }
 }
 
-/// Predicate Media Area Coordinates.
-abstract class MediaAreaCoordinatesBase extends TlConstructor {
-  /// Predicate Media Area Coordinates constructor.
-  const MediaAreaCoordinatesBase._() : super._();
-}
-
 /// Media Area Coordinates.
 ///
 /// ID: `03d1ea4e`.
@@ -69343,12 +66895,6 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Media Area.
-abstract class MediaAreaBase extends TlConstructor {
-  /// Predicate Media Area constructor.
-  const MediaAreaBase._() : super._();
 }
 
 /// Media Area Venue.
@@ -69715,12 +67261,6 @@ class InputMediaAreaChannelPost extends MediaAreaBase {
   }
 }
 
-/// Predicate Peer Stories.
-abstract class PeerStoriesBase extends TlConstructor {
-  /// Predicate Peer Stories constructor.
-  const PeerStoriesBase._() : super._();
-}
-
 /// Peer Stories.
 ///
 /// ID: `9a35e999`.
@@ -69789,12 +67329,6 @@ class PeerStories extends PeerStoriesBase {
   }
 }
 
-/// Predicate Stories Peer Stories.
-abstract class StoriesPeerStoriesBase extends TlConstructor {
-  /// Predicate Stories Peer Stories constructor.
-  const StoriesPeerStoriesBase._() : super._();
-}
-
 /// Stories Peer Stories.
 ///
 /// ID: `cae68768`.
@@ -69848,12 +67382,6 @@ class StoriesPeerStories extends StoriesPeerStoriesBase {
   }
 }
 
-/// Predicate Messages Web Page.
-abstract class MessagesWebPageBase extends TlConstructor {
-  /// Predicate Messages Web Page constructor.
-  const MessagesWebPageBase._() : super._();
-}
-
 /// Messages Web Page.
 ///
 /// ID: `fd5e12bd`.
@@ -69905,12 +67433,6 @@ class MessagesWebPage extends MessagesWebPageBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Premium Gift Code Option.
-abstract class PremiumGiftCodeOptionBase extends TlConstructor {
-  /// Predicate Premium Gift Code Option constructor.
-  const PremiumGiftCodeOptionBase._() : super._();
 }
 
 /// Premium Gift Code Option.
@@ -70011,12 +67533,6 @@ class PremiumGiftCodeOption extends PremiumGiftCodeOptionBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Payments Checked Gift Code.
-abstract class PaymentsCheckedGiftCodeBase extends TlConstructor {
-  /// Predicate Payments Checked Gift Code constructor.
-  const PaymentsCheckedGiftCodeBase._() : super._();
 }
 
 /// Payments Checked Gift Code.
@@ -70144,12 +67660,6 @@ class PaymentsCheckedGiftCode extends PaymentsCheckedGiftCodeBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Payments Giveaway Info.
-abstract class PaymentsGiveawayInfoBase extends TlConstructor {
-  /// Predicate Payments Giveaway Info constructor.
-  const PaymentsGiveawayInfoBase._() : super._();
 }
 
 /// Payments Giveaway Info.
@@ -70353,12 +67863,6 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   }
 }
 
-/// Predicate Prepaid Giveaway.
-abstract class PrepaidGiveawayBase extends TlConstructor {
-  /// Predicate Prepaid Giveaway constructor.
-  const PrepaidGiveawayBase._() : super._();
-}
-
 /// Prepaid Giveaway.
 ///
 /// ID: `b2539d54`.
@@ -70423,12 +67927,6 @@ class PrepaidGiveaway extends PrepaidGiveawayBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Boost.
-abstract class BoostBase extends TlConstructor {
-  /// Predicate Boost constructor.
-  const BoostBase._() : super._();
 }
 
 /// Boost.
@@ -70564,12 +68062,6 @@ class Boost extends BoostBase {
   }
 }
 
-/// Predicate Premium Boosts List.
-abstract class PremiumBoostsListBase extends TlConstructor {
-  /// Predicate Premium Boosts List constructor.
-  const PremiumBoostsListBase._() : super._();
-}
-
 /// Premium Boosts List.
 ///
 /// ID: `86f8613c`.
@@ -70645,12 +68137,6 @@ class PremiumBoostsList extends PremiumBoostsListBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate My Boost.
-abstract class MyBoostBase extends TlConstructor {
-  /// Predicate My Boost constructor.
-  const MyBoostBase._() : super._();
 }
 
 /// My Boost.
@@ -70745,12 +68231,6 @@ class MyBoost extends MyBoostBase {
   }
 }
 
-/// Predicate Premium My Boosts.
-abstract class PremiumMyBoostsBase extends TlConstructor {
-  /// Predicate Premium My Boosts constructor.
-  const PremiumMyBoostsBase._() : super._();
-}
-
 /// Premium My Boosts.
 ///
 /// ID: `9ae228e2`.
@@ -70802,12 +68282,6 @@ class PremiumMyBoosts extends PremiumMyBoostsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Premium Boosts Status.
-abstract class PremiumBoostsStatusBase extends TlConstructor {
-  /// Predicate Premium Boosts Status constructor.
-  const PremiumBoostsStatusBase._() : super._();
 }
 
 /// Premium Boosts Status.
@@ -70956,12 +68430,6 @@ class PremiumBoostsStatus extends PremiumBoostsStatusBase {
   }
 }
 
-/// Predicate Story Fwd Header.
-abstract class StoryFwdHeaderBase extends TlConstructor {
-  /// Predicate Story Fwd Header constructor.
-  const StoryFwdHeaderBase._() : super._();
-}
-
 /// Story Fwd Header.
 ///
 /// ID: `b826e150`.
@@ -71045,12 +68513,6 @@ class StoryFwdHeader extends StoryFwdHeaderBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Post Interaction Counters.
-abstract class PostInteractionCountersBase extends TlConstructor {
-  /// Predicate Post Interaction Counters constructor.
-  const PostInteractionCountersBase._() : super._();
 }
 
 /// Post Interaction Counters Message.
@@ -71189,12 +68651,6 @@ class PostInteractionCountersStory extends PostInteractionCountersBase {
   }
 }
 
-/// Predicate Stats Story Stats.
-abstract class StatsStoryStatsBase extends TlConstructor {
-  /// Predicate Stats Story Stats constructor.
-  const StatsStoryStatsBase._() : super._();
-}
-
 /// Stats Story Stats.
 ///
 /// ID: `50cd067c`.
@@ -71239,12 +68695,6 @@ class StatsStoryStats extends StatsStoryStatsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Public Forward.
-abstract class PublicForwardBase extends TlConstructor {
-  /// Predicate Public Forward constructor.
-  const PublicForwardBase._() : super._();
 }
 
 /// Public Forward Message.
@@ -71332,12 +68782,6 @@ class PublicForwardStory extends PublicForwardBase {
   }
 }
 
-/// Predicate Stats Public Forwards.
-abstract class StatsPublicForwardsBase extends TlConstructor {
-  /// Predicate Stats Public Forwards constructor.
-  const StatsPublicForwardsBase._() : super._();
-}
-
 /// Stats Public Forwards.
 ///
 /// ID: `93037e20`.
@@ -71422,12 +68866,6 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
   }
 }
 
-/// Predicate Peer Color.
-abstract class PeerColorBase extends TlConstructor {
-  /// Predicate Peer Color constructor.
-  const PeerColorBase._() : super._();
-}
-
 /// Peer Color.
 ///
 /// ID: `b54b5acf`.
@@ -71493,12 +68931,6 @@ class PeerColor extends PeerColorBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Peer Color Set.
-abstract class HelpPeerColorSetBase extends TlConstructor {
-  /// Predicate Help Peer Color Set constructor.
-  const HelpPeerColorSetBase._() : super._();
 }
 
 /// Help Peer Color Set.
@@ -71591,12 +69023,6 @@ class HelpPeerColorProfileSet extends HelpPeerColorSetBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Help Peer Color Option.
-abstract class HelpPeerColorOptionBase extends TlConstructor {
-  /// Predicate Help Peer Color Option constructor.
-  const HelpPeerColorOptionBase._() : super._();
 }
 
 /// Help Peer Color Option.
@@ -71695,12 +69121,6 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
   }
 }
 
-/// Predicate Help Peer Colors.
-abstract class HelpPeerColorsBase extends TlConstructor {
-  /// Predicate Help Peer Colors constructor.
-  const HelpPeerColorsBase._() : super._();
-}
-
 /// Help Peer Colors Not Modified.
 ///
 /// ID: `2ba1f5ce`.
@@ -71773,12 +69193,6 @@ class HelpPeerColors extends HelpPeerColorsBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Story Reaction.
-abstract class StoryReactionBase extends TlConstructor {
-  /// Predicate Story Reaction constructor.
-  const StoryReactionBase._() : super._();
 }
 
 /// Story Reaction.
@@ -71919,12 +69333,6 @@ class StoryReactionPublicRepost extends StoryReactionBase {
   }
 }
 
-/// Predicate Stories Story Reactions List.
-abstract class StoriesStoryReactionsListBase extends TlConstructor {
-  /// Predicate Stories Story Reactions List constructor.
-  const StoriesStoryReactionsListBase._() : super._();
-}
-
 /// Stories Story Reactions List.
 ///
 /// ID: `aa5f789c`.
@@ -72009,12 +69417,6 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
   }
 }
 
-/// Predicate Saved Dialog.
-abstract class SavedDialogBase extends TlConstructor {
-  /// Predicate Saved Dialog constructor.
-  const SavedDialogBase._() : super._();
-}
-
 /// Saved Dialog.
 ///
 /// ID: `bd87cb6c`.
@@ -72078,12 +69480,6 @@ class SavedDialog extends SavedDialogBase {
 
     // Finished serialization.
   }
-}
-
-/// Predicate Messages Saved Dialogs.
-abstract class MessagesSavedDialogsBase extends TlConstructor {
-  /// Predicate Messages Saved Dialogs constructor.
-  const MessagesSavedDialogsBase._() : super._();
 }
 
 /// Messages Saved Dialogs.

@@ -1,11 +1,5 @@
 part of '../t.dart';
 
-/// Predicate Decrypted Message.
-abstract class DecryptedMessageBase extends TlConstructor {
-  /// Predicate Decrypted Message constructor.
-  const DecryptedMessageBase._() : super._();
-}
-
 /// Decrypted Message.
 ///
 /// Layer: 8.
@@ -56,11 +50,16 @@ class DecryptedMessage008 extends DecryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1f814f1f.
     buffer.writeInt32(0x1f814f1f);
+
+    // Write fields.
     buffer.writeInt64(randomId);
     buffer.writeBytes(randomBytes);
     buffer.writeString(message);
     buffer.writeObject(media);
+
+    // Finished serialization.
   }
 }
 
@@ -116,11 +115,16 @@ class DecryptedMessage017 extends DecryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x204d3878.
     buffer.writeInt32(0x204d3878);
+
+    // Write fields.
     buffer.writeInt64(randomId);
     buffer.writeInt32(ttl);
     buffer.writeString(message);
     buffer.writeObject(media);
+
+    // Finished serialization.
   }
 }
 
@@ -213,7 +217,10 @@ class DecryptedMessage045 extends DecryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x36b091de.
     buffer.writeInt32(0x36b091de);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(randomId);
     buffer.writeInt32(ttl);
@@ -234,6 +241,8 @@ class DecryptedMessage045 extends DecryptedMessageBase {
     if (localReplyToRandomIdCopy != null) {
       buffer.writeInt64(localReplyToRandomIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -334,7 +343,10 @@ class DecryptedMessage073 extends DecryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x91cc4674.
     buffer.writeInt32(0x91cc4674);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(randomId);
     buffer.writeInt32(ttl);
@@ -359,6 +371,8 @@ class DecryptedMessage073 extends DecryptedMessageBase {
     if (localGroupedIdCopy != null) {
       buffer.writeInt64(localGroupedIdCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -406,10 +420,15 @@ class DecryptedMessageService008 extends DecryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xaa48327d.
     buffer.writeInt32(0xaa48327d);
+
+    // Write fields.
     buffer.writeInt64(randomId);
     buffer.writeBytes(randomBytes);
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -451,16 +470,15 @@ class DecryptedMessageService017 extends DecryptedMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73164160.
     buffer.writeInt32(0x73164160);
+
+    // Write fields.
     buffer.writeInt64(randomId);
     buffer.writeObject(action);
-  }
-}
 
-/// Predicate Decrypted Message Media.
-abstract class DecryptedMessageMediaBase extends TlConstructor {
-  /// Predicate Decrypted Message Media constructor.
-  const DecryptedMessageMediaBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Decrypted Message Media Empty.
@@ -483,7 +501,10 @@ class DecryptedMessageMediaEmpty008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x089f5c4a.
     buffer.writeInt32(0x089f5c4a);
+
+    // Finished serialization.
   }
 }
 
@@ -569,7 +590,10 @@ class DecryptedMessageMediaPhoto008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x32798a8c.
     buffer.writeInt32(0x32798a8c);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -578,6 +602,8 @@ class DecryptedMessageMediaPhoto008 extends DecryptedMessageMediaBase {
     buffer.writeInt32(size);
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
+
+    // Finished serialization.
   }
 }
 
@@ -669,7 +695,10 @@ class DecryptedMessageMediaPhoto045 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf1fa8d78.
     buffer.writeInt32(0xf1fa8d78);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -679,6 +708,8 @@ class DecryptedMessageMediaPhoto045 extends DecryptedMessageMediaBase {
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
     buffer.writeString(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -772,7 +803,10 @@ class DecryptedMessageMediaVideo008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x4cee6ef3.
     buffer.writeInt32(0x4cee6ef3);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -782,6 +816,8 @@ class DecryptedMessageMediaVideo008 extends DecryptedMessageMediaBase {
     buffer.writeInt32(size);
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
+
+    // Finished serialization.
   }
 }
 
@@ -881,7 +917,10 @@ class DecryptedMessageMediaVideo017 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x524a415d.
     buffer.writeInt32(0x524a415d);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -892,6 +931,8 @@ class DecryptedMessageMediaVideo017 extends DecryptedMessageMediaBase {
     buffer.writeInt32(size);
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
+
+    // Finished serialization.
   }
 }
 
@@ -997,7 +1038,10 @@ class DecryptedMessageMediaVideo045 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x970c8c0e.
     buffer.writeInt32(0x970c8c0e);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -1009,6 +1053,8 @@ class DecryptedMessageMediaVideo045 extends DecryptedMessageMediaBase {
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
     buffer.writeString(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -1048,9 +1094,14 @@ class DecryptedMessageMediaGeoPoint008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x35480a59.
     buffer.writeInt32(0x35480a59);
+
+    // Write fields.
     buffer.writeDouble(lat);
     buffer.writeDouble(long);
+
+    // Finished serialization.
   }
 }
 
@@ -1104,11 +1155,16 @@ class DecryptedMessageMediaContact008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x588a0a97.
     buffer.writeInt32(0x588a0a97);
+
+    // Write fields.
     buffer.writeString(phoneNumber);
     buffer.writeString(firstName);
     buffer.writeString(lastName);
     buffer.writeInt32(userId);
+
+    // Finished serialization.
   }
 }
 
@@ -1190,7 +1246,10 @@ class DecryptedMessageMediaDocument008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xb095434b.
     buffer.writeInt32(0xb095434b);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -1199,6 +1258,8 @@ class DecryptedMessageMediaDocument008 extends DecryptedMessageMediaBase {
     buffer.writeInt32(size);
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
+
+    // Finished serialization.
   }
 }
 
@@ -1286,7 +1347,10 @@ class DecryptedMessageMediaDocument045 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7afe8ae2.
     buffer.writeInt32(0x7afe8ae2);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -1296,6 +1360,8 @@ class DecryptedMessageMediaDocument045 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
     buffer.writeVectorObject(attributes);
     buffer.writeString(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -1383,7 +1449,10 @@ class DecryptedMessageMediaDocument143 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6abd9782.
     buffer.writeInt32(0x6abd9782);
+
+    // Write fields.
     buffer.writeBytes(thumb);
     buffer.writeInt32(thumbW);
     buffer.writeInt32(thumbH);
@@ -1393,6 +1462,8 @@ class DecryptedMessageMediaDocument143 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
     buffer.writeVectorObject(attributes);
     buffer.writeString(caption);
+
+    // Finished serialization.
   }
 }
 
@@ -1448,11 +1519,16 @@ class DecryptedMessageMediaAudio008 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6080758f.
     buffer.writeInt32(0x6080758f);
+
+    // Write fields.
     buffer.writeInt32(duration);
     buffer.writeInt32(size);
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
+
+    // Finished serialization.
   }
 }
 
@@ -1514,12 +1590,17 @@ class DecryptedMessageMediaAudio017 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x57e0a9cb.
     buffer.writeInt32(0x57e0a9cb);
+
+    // Write fields.
     buffer.writeInt32(duration);
     buffer.writeString(mimeType);
     buffer.writeInt32(size);
     buffer.writeBytes(key);
     buffer.writeBytes(iv);
+
+    // Finished serialization.
   }
 }
 
@@ -1605,7 +1686,10 @@ class DecryptedMessageMediaExternalDocument023
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa95b0dd.
     buffer.writeInt32(0xfa95b0dd);
+
+    // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt64(accessHash);
     buffer.writeDateTime(date);
@@ -1614,6 +1698,8 @@ class DecryptedMessageMediaExternalDocument023
     buffer.writeObject(thumb);
     buffer.writeInt32(dcId);
     buffer.writeVectorObject(attributes);
+
+    // Finished serialization.
   }
 }
 
@@ -1677,13 +1763,18 @@ class DecryptedMessageMediaVenue045 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8a0df56f.
     buffer.writeInt32(0x8a0df56f);
+
+    // Write fields.
     buffer.writeDouble(lat);
     buffer.writeDouble(long);
     buffer.writeString(title);
     buffer.writeString(address);
     buffer.writeString(provider);
     buffer.writeString(venueId);
+
+    // Finished serialization.
   }
 }
 
@@ -1717,15 +1808,14 @@ class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe50511d8.
     buffer.writeInt32(0xe50511d8);
-    buffer.writeString(url);
-  }
-}
 
-/// Predicate Decrypted Message Action.
-abstract class DecryptedMessageActionBase extends TlConstructor {
-  /// Predicate Decrypted Message Action constructor.
-  const DecryptedMessageActionBase._() : super._();
+    // Write fields.
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
 }
 
 /// Decrypted Message Action Set Message T T L.
@@ -1762,8 +1852,13 @@ class DecryptedMessageActionSetMessageTTL008
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa1733aec.
     buffer.writeInt32(0xa1733aec);
+
+    // Write fields.
     buffer.writeInt32(ttlSeconds);
+
+    // Finished serialization.
   }
 }
 
@@ -1798,8 +1893,13 @@ class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0c4f40be.
     buffer.writeInt32(0x0c4f40be);
+
+    // Write fields.
     buffer.writeVectorInt64(randomIds);
+
+    // Finished serialization.
   }
 }
 
@@ -1835,8 +1935,13 @@ class DecryptedMessageActionDeleteMessages008
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x65614304.
     buffer.writeInt32(0x65614304);
+
+    // Write fields.
     buffer.writeVectorInt64(randomIds);
+
+    // Finished serialization.
   }
 }
 
@@ -1872,8 +1977,13 @@ class DecryptedMessageActionScreenshotMessages008
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8ac1f475.
     buffer.writeInt32(0x8ac1f475);
+
+    // Write fields.
     buffer.writeVectorInt64(randomIds);
+
+    // Finished serialization.
   }
 }
 
@@ -1898,7 +2008,10 @@ class DecryptedMessageActionFlushHistory008 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6719e45c.
     buffer.writeInt32(0x6719e45c);
+
+    // Finished serialization.
   }
 }
 
@@ -1942,9 +2055,14 @@ class DecryptedMessageActionResend017 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x511110b0.
     buffer.writeInt32(0x511110b0);
+
+    // Write fields.
     buffer.writeInt32(startSeqNo);
     buffer.writeInt32(endSeqNo);
+
+    // Finished serialization.
   }
 }
 
@@ -1981,8 +2099,13 @@ class DecryptedMessageActionNotifyLayer017 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3048883.
     buffer.writeInt32(0xf3048883);
+
+    // Write fields.
     buffer.writeInt32(layer);
+
+    // Finished serialization.
   }
 }
 
@@ -2016,8 +2139,13 @@ class DecryptedMessageActionTyping017 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xccb27641.
     buffer.writeInt32(0xccb27641);
+
+    // Write fields.
     buffer.writeObject(action);
+
+    // Finished serialization.
   }
 }
 
@@ -2059,9 +2187,14 @@ class DecryptedMessageActionRequestKey020 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xf3c9611b.
     buffer.writeInt32(0xf3c9611b);
+
+    // Write fields.
     buffer.writeInt64(exchangeId);
     buffer.writeBytes(gA);
+
+    // Finished serialization.
   }
 }
 
@@ -2111,10 +2244,15 @@ class DecryptedMessageActionAcceptKey020 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6fe1735b.
     buffer.writeInt32(0x6fe1735b);
+
+    // Write fields.
     buffer.writeInt64(exchangeId);
     buffer.writeBytes(gB);
     buffer.writeInt64(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -2150,8 +2288,13 @@ class DecryptedMessageActionAbortKey020 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xdd05ec6b.
     buffer.writeInt32(0xdd05ec6b);
+
+    // Write fields.
     buffer.writeInt64(exchangeId);
+
+    // Finished serialization.
   }
 }
 
@@ -2195,9 +2338,14 @@ class DecryptedMessageActionCommitKey020 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xec2e0b9b.
     buffer.writeInt32(0xec2e0b9b);
+
+    // Write fields.
     buffer.writeInt64(exchangeId);
     buffer.writeInt64(keyFingerprint);
+
+    // Finished serialization.
   }
 }
 
@@ -2221,14 +2369,11 @@ class DecryptedMessageActionNoop020 extends DecryptedMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa82fdd63.
     buffer.writeInt32(0xa82fdd63);
-  }
-}
 
-/// Predicate Decrypted Message Layer.
-abstract class DecryptedMessageLayerBase extends TlConstructor {
-  /// Predicate Decrypted Message Layer constructor.
-  const DecryptedMessageLayerBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// Decrypted Message Layer.
@@ -2291,12 +2436,17 @@ class DecryptedMessageLayer017 extends DecryptedMessageLayerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x1be31789.
     buffer.writeInt32(0x1be31789);
+
+    // Write fields.
     buffer.writeBytes(randomBytes);
     buffer.writeInt32(layer);
     buffer.writeInt32(inSeqNo);
     buffer.writeInt32(outSeqNo);
     buffer.writeObject(message);
+
+    // Finished serialization.
   }
 }
 
@@ -2320,7 +2470,10 @@ class SendMessageTypingAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x16bf744e.
     buffer.writeInt32(0x16bf744e);
+
+    // Finished serialization.
   }
 }
 
@@ -2344,7 +2497,10 @@ class SendMessageCancelAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfd5ec8f5.
     buffer.writeInt32(0xfd5ec8f5);
+
+    // Finished serialization.
   }
 }
 
@@ -2368,7 +2524,10 @@ class SendMessageRecordVideoAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xa187d66f.
     buffer.writeInt32(0xa187d66f);
+
+    // Finished serialization.
   }
 }
 
@@ -2392,7 +2551,10 @@ class SendMessageUploadVideoAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x92042ff7.
     buffer.writeInt32(0x92042ff7);
+
+    // Finished serialization.
   }
 }
 
@@ -2416,7 +2578,10 @@ class SendMessageRecordAudioAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xd52f73f7.
     buffer.writeInt32(0xd52f73f7);
+
+    // Finished serialization.
   }
 }
 
@@ -2440,7 +2605,10 @@ class SendMessageUploadAudioAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe6ac8a6f.
     buffer.writeInt32(0xe6ac8a6f);
+
+    // Finished serialization.
   }
 }
 
@@ -2464,7 +2632,10 @@ class SendMessageUploadPhotoAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x990a3c1a.
     buffer.writeInt32(0x990a3c1a);
+
+    // Finished serialization.
   }
 }
 
@@ -2488,7 +2659,10 @@ class SendMessageUploadDocumentAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x8faee98e.
     buffer.writeInt32(0x8faee98e);
+
+    // Finished serialization.
   }
 }
 
@@ -2512,7 +2686,10 @@ class SendMessageGeoLocationAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x176f8ba1.
     buffer.writeInt32(0x176f8ba1);
+
+    // Finished serialization.
   }
 }
 
@@ -2536,7 +2713,10 @@ class SendMessageChooseContactAction017 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x628cbc6f.
     buffer.writeInt32(0x628cbc6f);
+
+    // Finished serialization.
   }
 }
 
@@ -2560,7 +2740,10 @@ class SendMessageRecordRoundAction066 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x88f27fbc.
     buffer.writeInt32(0x88f27fbc);
+
+    // Finished serialization.
   }
 }
 
@@ -2584,7 +2767,10 @@ class SendMessageUploadRoundAction066 extends SendMessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb718624.
     buffer.writeInt32(0xbb718624);
+
+    // Finished serialization.
   }
 }
 
@@ -2628,9 +2814,14 @@ class DocumentAttributeImageSize023 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6c37c15c.
     buffer.writeInt32(0x6c37c15c);
+
+    // Write fields.
     buffer.writeInt32(w);
     buffer.writeInt32(h);
+
+    // Finished serialization.
   }
 }
 
@@ -2654,7 +2845,10 @@ class DocumentAttributeAnimated023 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x11b58939.
     buffer.writeInt32(0x11b58939);
+
+    // Finished serialization.
   }
 }
 
@@ -2678,7 +2872,10 @@ class DocumentAttributeSticker023 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfb0a5727.
     buffer.writeInt32(0xfb0a5727);
+
+    // Finished serialization.
   }
 }
 
@@ -2718,9 +2915,14 @@ class DocumentAttributeSticker045 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x3a556302.
     buffer.writeInt32(0x3a556302);
+
+    // Write fields.
     buffer.writeString(alt);
     buffer.writeObject(stickerset);
+
+    // Finished serialization.
   }
 }
 
@@ -2772,10 +2974,15 @@ class DocumentAttributeVideo023 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x5910cccb.
     buffer.writeInt32(0x5910cccb);
+
+    // Write fields.
     buffer.writeInt32(duration);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
+
+    // Finished serialization.
   }
 }
 
@@ -2794,7 +3001,7 @@ class DocumentAttributeVideo066 extends DocumentAttributeBase {
   /// Deserialize.
   factory DocumentAttributeVideo066.deserialize(BinaryReader reader) {
     // Read [DocumentAttributeVideo066] fields.
-    final _ = reader.readInt32();
+    final _ = reader.readInt32(); // flags.
     final duration = reader.readInt32();
     final w = reader.readInt32();
     final h = reader.readInt32();
@@ -2835,11 +3042,16 @@ class DocumentAttributeVideo066 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0ef02ce6.
     buffer.writeInt32(0x0ef02ce6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(duration);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
+
+    // Finished serialization.
   }
 }
 
@@ -2875,8 +3087,13 @@ class DocumentAttributeAudio023 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x051448e5.
     buffer.writeInt32(0x051448e5);
+
+    // Write fields.
     buffer.writeInt32(duration);
+
+    // Finished serialization.
   }
 }
 
@@ -2924,10 +3141,15 @@ class DocumentAttributeAudio045 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xded218e0.
     buffer.writeInt32(0xded218e0);
+
+    // Write fields.
     buffer.writeInt32(duration);
     buffer.writeString(title);
     buffer.writeString(performer);
+
+    // Finished serialization.
   }
 }
 
@@ -2996,7 +3218,10 @@ class DocumentAttributeAudio046 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9852f9c6.
     buffer.writeInt32(0x9852f9c6);
+
+    // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(duration);
     final localTitleCopy = title;
@@ -3011,6 +3236,8 @@ class DocumentAttributeAudio046 extends DocumentAttributeBase {
     if (localWaveformCopy != null) {
       buffer.writeBytes(localWaveformCopy);
     }
+
+    // Finished serialization.
   }
 }
 
@@ -3044,8 +3271,13 @@ class DocumentAttributeFilename023 extends DocumentAttributeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x15590068.
     buffer.writeInt32(0x15590068);
+
+    // Write fields.
     buffer.writeString(fileName);
+
+    // Finished serialization.
   }
 }
 
@@ -3079,8 +3311,13 @@ class PhotoSizeEmpty023 extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x0e17e23c.
     buffer.writeInt32(0x0e17e23c);
+
+    // Write fields.
     buffer.writeString(type);
+
+    // Finished serialization.
   }
 }
 
@@ -3144,12 +3381,17 @@ class PhotoSize023 extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x77bfb61b.
     buffer.writeInt32(0x77bfb61b);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeObject(location);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeInt32(size);
+
+    // Finished serialization.
   }
 }
 
@@ -3211,19 +3453,18 @@ class PhotoCachedSize023 extends PhotoSizeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xe9a734fa.
     buffer.writeInt32(0xe9a734fa);
+
+    // Write fields.
     buffer.writeString(type);
     buffer.writeObject(location);
     buffer.writeInt32(w);
     buffer.writeInt32(h);
     buffer.writeBytes(bytes);
-  }
-}
 
-/// Predicate File Location.
-abstract class FileLocationBase extends TlConstructor {
-  /// Predicate File Location constructor.
-  const FileLocationBase._() : super._();
+    // Finished serialization.
+  }
 }
 
 /// File Location Unavailable.
@@ -3274,10 +3515,15 @@ class FileLocationUnavailable023 extends FileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x7c596b46.
     buffer.writeInt32(0x7c596b46);
+
+    // Write fields.
     buffer.writeInt64(volumeId);
     buffer.writeInt32(localId);
     buffer.writeInt64(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -3337,11 +3583,16 @@ class FileLocation023 extends FileLocationBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x53d69076.
     buffer.writeInt32(0x53d69076);
+
+    // Write fields.
     buffer.writeInt32(dcId);
     buffer.writeInt64(volumeId);
     buffer.writeInt32(localId);
     buffer.writeInt64(secret);
+
+    // Finished serialization.
   }
 }
 
@@ -3385,9 +3636,14 @@ class MessageEntityUnknown045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbb92ba95.
     buffer.writeInt32(0xbb92ba95);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3431,9 +3687,14 @@ class MessageEntityMention045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xfa04579d.
     buffer.writeInt32(0xfa04579d);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3477,9 +3738,14 @@ class MessageEntityHashtag045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6f635b0d.
     buffer.writeInt32(0x6f635b0d);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3523,9 +3789,14 @@ class MessageEntityBotCommand045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6cef8ac7.
     buffer.writeInt32(0x6cef8ac7);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3569,9 +3840,14 @@ class MessageEntityUrl045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x6ed02538.
     buffer.writeInt32(0x6ed02538);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3615,9 +3891,14 @@ class MessageEntityEmail045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x64e475c2.
     buffer.writeInt32(0x64e475c2);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3661,9 +3942,14 @@ class MessageEntityBold045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbd610bc9.
     buffer.writeInt32(0xbd610bc9);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3707,9 +3993,14 @@ class MessageEntityItalic045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x826f8b60.
     buffer.writeInt32(0x826f8b60);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3753,9 +4044,14 @@ class MessageEntityCode045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x28a20571.
     buffer.writeInt32(0x28a20571);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3805,10 +4101,15 @@ class MessageEntityPre045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x73924be0.
     buffer.writeInt32(0x73924be0);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeString(language);
+
+    // Finished serialization.
   }
 }
 
@@ -3858,10 +4159,15 @@ class MessageEntityTextUrl045 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x76a6d327.
     buffer.writeInt32(0x76a6d327);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeString(url);
+
+    // Finished serialization.
   }
 }
 
@@ -3905,9 +4211,14 @@ class MessageEntityUnderline101 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x9c4e7e8b.
     buffer.writeInt32(0x9c4e7e8b);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3951,9 +4262,14 @@ class MessageEntityStrike101 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xbf0693d4.
     buffer.writeInt32(0xbf0693d4);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -3997,9 +4313,14 @@ class MessageEntityBlockquote101 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x020df5d0.
     buffer.writeInt32(0x020df5d0);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -4043,9 +4364,14 @@ class MessageEntitySpoiler144 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x32ca960f.
     buffer.writeInt32(0x32ca960f);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
+
+    // Finished serialization.
   }
 }
 
@@ -4097,10 +4423,15 @@ class MessageEntityCustomEmoji144 extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xc8cf05f8.
     buffer.writeInt32(0xc8cf05f8);
+
+    // Write fields.
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
     buffer.writeInt64(documentId);
+
+    // Finished serialization.
   }
 }
 
@@ -4134,8 +4465,13 @@ class InputStickerSetShortName045 extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0x861cc8a0.
     buffer.writeInt32(0x861cc8a0);
+
+    // Write fields.
     buffer.writeString(shortName);
+
+    // Finished serialization.
   }
 }
 
@@ -4159,6 +4495,9 @@ class InputStickerSetEmpty045 extends InputStickerSetBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
+    // Write type-id 0xffb62b95.
     buffer.writeInt32(0xffb62b95);
+
+    // Finished serialization.
   }
 }
