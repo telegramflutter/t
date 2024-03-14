@@ -15,8 +15,6 @@ class BinaryReader {
     final x = b.buffer.asUint32List(0, 1).first;
 
     _position += 4;
-
-    print(x.toRadixString(16));
     return x;
   }
 
