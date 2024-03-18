@@ -126,3 +126,22 @@ class Int256 {
   /// Buffer.
   final Uint8List data;
 }
+
+/// RSA Public Key.
+class RSAPublicKey extends TlConstructor {
+  /// Constructor.
+  const RSAPublicKey({required this.n, required this.e}) : super._();
+
+  /// Modulus
+  final Uint8List n;
+
+  /// Exponent.
+  final Uint8List e;
+
+  @override
+  void serialize(List<int> buffer) {
+    buffer.writeInt32(0x7A19CB76);
+    buffer.writeBytes(n);
+    buffer.writeBytes(e);
+  }
+}
