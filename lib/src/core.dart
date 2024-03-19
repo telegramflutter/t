@@ -114,8 +114,16 @@ class Int128 {
   /// Constructor.
   Int128(this.data);
 
+  /// Random.
+  Int128.random() : this(_randomUint8List(16));
+
   /// Buffer.
   final Uint8List data;
+
+  @override
+  String toString() {
+    return "0x${data.map((x) => x.toRadixString(16).padLeft(2, '0')).join('')}";
+  }
 }
 
 /// 256 bit Integer.
@@ -123,8 +131,16 @@ class Int256 {
   /// Constructor.
   Int256(this.data);
 
+  /// Random.
+  Int256.random() : this(_randomUint8List(32));
+
   /// Buffer.
   final Uint8List data;
+
+  @override
+  String toString() {
+    return "0x${data.map((x) => x.toRadixString(16).padLeft(2, '0')).join('')}";
+  }
 }
 
 /// RSA Public Key.
