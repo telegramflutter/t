@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Generate random `Int128` and `Int256`.
+
 ## 0.0.2
 
 - RSA Public Key.
