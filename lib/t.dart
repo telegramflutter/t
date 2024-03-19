@@ -2,6 +2,7 @@
 library t;
 
 import 'dart:convert';
+import 'dart:math';
 import 'dart:typed_data';
 
 part 'src/base.dart';
@@ -14,3 +15,4 @@ part 'src/schema.dart';
 part 'src/end_to_end.dart';
 part 'src/flag_builder.dart';
 part 'src/mtproto.dart';
+part 'src/private.dart';

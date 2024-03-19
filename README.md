@@ -15,6 +15,7 @@ This project is written in 100% Dart language. Over 120,000 lines of code is por
 ## Features
 
 * Supports Telegram API Layer 174.
+* Serialize/Deserialize MTProto objects to binary format to be sent/received throught the transport protocol (TCP, HTTP).
 
 ## Security Guidelines for Client Developers
 
