@@ -171,6 +171,7 @@ class BinaryReader {
   /// Read Uint8List.
   Uint8List readBytes() {
     var length = buffer[_position++];
+    bool add3 = !(length < 254);
 
     if (length < 254) {
       // NOP
@@ -179,8 +180,12 @@ class BinaryReader {
     }
 
     final tmp = buffer.skip(_position).take(length).toList();
-
     _position += length;
+
+    if (add3) {
+      length += 3;
+    }
+
     while (++length % 4 != 0) {
       _position++;
     }
