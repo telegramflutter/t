@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Fix server time reading.
+
 ## 0.0.4
 
 - `BinaryReader` bugs fixed.
