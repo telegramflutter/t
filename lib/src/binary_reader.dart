@@ -9,6 +9,9 @@ class BinaryReader {
   final Uint8List buffer;
   int _position = 0;
 
+  /// Gets the position.
+  int get position => _position;
+
   /// Read Int32.
   int readInt32() {
     final b = Uint8List.fromList(buffer.skip(_position).take(4).toList());
@@ -77,6 +80,9 @@ class BinaryReader {
 
   /// Read List<TlObject>.
   List<T> readVectorObject<T extends TlObject>() {
+    final ctor = readInt32();
+    assert(ctor == _vectorCtor, 'Invalid type.');
+
     final count = readInt32();
     final items = <T>[];
 
@@ -89,6 +95,9 @@ class BinaryReader {
 
   /// Read List<int32>.
   List<int> readVectorInt32() {
+    final ctor = readInt32();
+    assert(ctor == _vectorCtor, 'Invalid type.');
+
     final count = readInt32();
     final items = <int>[];
 
@@ -101,6 +110,9 @@ class BinaryReader {
 
   /// Read List<int64>.
   List<int> readVectorInt64() {
+    final ctor = readInt32();
+    assert(ctor == _vectorCtor, 'Invalid type.');
+
     final count = readInt32();
     final items = <int>[];
 
@@ -113,6 +125,9 @@ class BinaryReader {
 
   /// Read List<Uint8List>.
   List<Uint8List> readVectorBytes() {
+    final ctor = readInt32();
+    assert(ctor == _vectorCtor, 'Invalid type.');
+    
     final count = readInt32();
     final items = <Uint8List>[];
 
@@ -125,6 +140,9 @@ class BinaryReader {
 
   /// Read List<String>.
   List<String> readVectorString() {
+    final ctor = readInt32();
+    assert(ctor == _vectorCtor, 'Invalid type.');
+    
     final count = readInt32();
     final items = <String>[];
 
@@ -153,6 +171,14 @@ class BinaryReader {
     }
 
     return Uint8List.fromList(tmp);
+  }
+
+  /// Read raw Uint8List.
+  Uint8List readRawBytes(int length) {
+    final b = Uint8List.fromList(buffer.skip(_position).take(length).toList());
+
+    _position += length;
+    return b;
   }
 
   /// Read String.

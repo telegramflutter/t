@@ -1,3 +1,7 @@
+## 0.0.4
+
+- `BinaryReader` bugs fixed.
+
 ## 0.0.3
 
 - Generate random `Int128` and `Int256`.
