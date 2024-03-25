@@ -12,22 +12,37 @@ class BinaryReader {
   /// Gets the position.
   int get position => _position;
 
+  /// Read Int16.
+  int readInt16([bool bigEndian = false]) {
+    final b = Uint8List.fromList(buffer.skip(_position).take(2).toList());
+
+    final endian = bigEndian ? Endian.big : Endian.little;
+    final x = b.buffer.asByteData().getUint16(0, endian);
+
+    _position += 2;
+    return x;
+  }
+
   /// Read Int32.
-  int readInt32() {
+  int readInt32([bool bigEndian = false]) {
     final b = Uint8List.fromList(buffer.skip(_position).take(4).toList());
-    final x = b.buffer.asUint32List(0, 1).first;
+
+    final endian = bigEndian ? Endian.big : Endian.little;
+    final x = b.buffer.asByteData().getUint32(0, endian);
 
     _position += 4;
     return x;
   }
 
   /// Read Int64.
-  int readInt64() {
+  int readInt64([bool bigEndian = false]) {
     final b = Uint8List.fromList(buffer.skip(_position).take(8).toList());
-    final x = b.buffer.asUint64List(0, 1);
+
+    final endian = bigEndian ? Endian.big : Endian.little;
+    final x = b.buffer.asByteData().getUint64(0, endian);
 
     _position += 8;
-    return x.first;
+    return x;
   }
 
   /// Read Int128.
@@ -127,7 +142,7 @@ class BinaryReader {
   List<Uint8List> readVectorBytes() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
-    
+
     final count = readInt32();
     final items = <Uint8List>[];
 
@@ -142,7 +157,7 @@ class BinaryReader {
   List<String> readVectorString() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
-    
+
     final count = readInt32();
     final items = <String>[];
 
@@ -155,12 +170,12 @@ class BinaryReader {
 
   /// Read Uint8List.
   Uint8List readBytes() {
-    var length = buffer[_position];
+    var length = buffer[_position++];
 
     if (length < 254) {
-      _position++;
+      // NOP
     } else {
-      length = readInt32();
+      length = readInt16() + (buffer[_position++] << 16);
     }
 
     final tmp = buffer.skip(_position).take(length).toList();
