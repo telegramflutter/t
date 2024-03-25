@@ -310,7 +310,7 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
     final g = reader.readInt32();
     final dhPrime = reader.readBytes();
     final gA = reader.readBytes();
-    final serverTime = reader.readInt32();
+    final serverTime = reader.readDateTime();
 
     // Construct [ServerDHInnerData] object.
     final returnValue = ServerDHInnerData(
@@ -344,9 +344,7 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
   final Uint8List gA;
 
   /// Server Time.
-  ///
-  /// Field type is Int32.
-  final int serverTime;
+  final DateTime serverTime;
 
   /// Serialize.
   @override
@@ -360,7 +358,7 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
     buffer.writeInt32(g);
     buffer.writeBytes(dhPrime);
     buffer.writeBytes(gA);
-    buffer.writeInt32(serverTime);
+    buffer.writeDateTime(serverTime);
 
     // Finished serialization.
   }
