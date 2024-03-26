@@ -117,6 +117,9 @@ class Int128 {
   /// Random.
   Int128.random() : this(_randomUint8List(16));
 
+  /// Parse.
+  Int128.parse(String hex) : this(_fromHexToUint8List(hex));
+
   /// Buffer.
   final Uint8List data;
 
@@ -133,6 +136,9 @@ class Int256 {
 
   /// Random.
   Int256.random() : this(_randomUint8List(32));
+
+  /// Parse.
+  Int256.parse(String hex) : this(_fromHexToUint8List(hex));
 
   /// Buffer.
   final Uint8List data;

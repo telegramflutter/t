@@ -11,3 +11,22 @@ Uint8List _randomUint8List(int length) {
 
   return result;
 }
+
+Uint8List _fromHexToUint8List(String value) {
+  if (value.toLowerCase().startsWith('0x')) {
+    value = value.substring(2);
+  }
+
+  if (value.length.isOdd) {
+    value = '0$value';
+  }
+
+  final r = Uint8List(value.length ~/ 2);
+
+  for (int i = 0; i < value.length ~/ 2; i += 1) {
+    final sub = value.substring(i * 2, i * 2 + 2);
+    r[i] = int.parse(sub, radix: 16);
+  }
+
+  return r;
+}

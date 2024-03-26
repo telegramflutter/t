@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Parse `Int128` and `Int256` from hex String.
+
 ## 0.0.5
 
 - Fix server time reading.

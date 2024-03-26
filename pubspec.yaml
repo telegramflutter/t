@@ -1,6 +1,6 @@
 name: t
 description: Telegram Client API (MTProto) to connect to Telegram and control a user programmatically.
-version: 0.0.5
+version: 0.0.6
 homepage: https://pwa.ir
 repository: https://github.com/xclud/dart-telegram-schema
 
