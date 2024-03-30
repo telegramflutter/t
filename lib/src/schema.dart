@@ -46,6 +46,19 @@ class Error extends ErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4b9f9bb",
+      "code": code,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Peer Empty.
@@ -72,6 +85,17 @@ class InputPeerEmpty extends InputPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f3b18ea",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Peer Self.
@@ -97,6 +121,17 @@ class InputPeerSelf extends InputPeerBase {
     buffer.writeInt32(0x7da07ec9);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7da07ec9",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -138,6 +173,18 @@ class InputPeerChat extends InputPeerBase {
     buffer.writeInt64(chatId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35a95cb9",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -189,6 +236,19 @@ class InputPeerUser extends InputPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdde8a54c",
+      "userId": userId,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Peer Channel.
@@ -238,6 +298,19 @@ class InputPeerChannel extends InputPeerBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x27bcbbfc",
+      "channelId": channelId,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -296,6 +369,20 @@ class InputPeerUserFromMessage extends InputPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa87b0a1c",
+      "peer": peer,
+      "msgId": msgId,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Peer Channel From Message.
@@ -353,6 +440,20 @@ class InputPeerChannelFromMessage extends InputPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd2a0840",
+      "peer": peer,
+      "msgId": msgId,
+      "channelId": channelId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input User Empty.
@@ -379,6 +480,17 @@ class InputUserEmpty extends InputUserBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb98886cf",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input User Self.
@@ -404,6 +516,17 @@ class InputUserSelf extends InputUserBase {
     buffer.writeInt32(0xf7c1b13f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf7c1b13f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -454,6 +577,19 @@ class InputUser extends InputUserBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf21158c6",
+      "userId": userId,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -511,6 +647,20 @@ class InputUserFromMessage extends InputUserBase {
     buffer.writeInt64(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1da448e2",
+      "peer": peer,
+      "msgId": msgId,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -573,6 +723,21 @@ class InputPhoneContact extends InputContactBase {
     buffer.writeString(lastName);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf392b7f4",
+      "clientId": clientId,
+      "phone": phone,
+      "firstName": firstName,
+      "lastName": lastName,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -638,6 +803,21 @@ class InputFile extends InputFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf52ff27f",
+      "id": id,
+      "parts": parts,
+      "name": name,
+      "md5Checksum": md5Checksum,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input File Big.
@@ -695,6 +875,20 @@ class InputFileBig extends InputFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa4f0bb5",
+      "id": id,
+      "parts": parts,
+      "name": name,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Empty.
@@ -720,6 +914,17 @@ class InputMediaEmpty extends InputMediaBase {
     buffer.writeInt32(0x9664f57f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9664f57f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -802,6 +1007,22 @@ class InputMediaUploadedPhoto extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e287d04",
+      "flags": flags,
+      "spoiler": spoiler,
+      "file": file,
+      "stickers": stickers,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Photo.
@@ -870,6 +1091,21 @@ class InputMediaPhoto extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb3ba0635",
+      "flags": flags,
+      "spoiler": spoiler,
+      "id": id,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Geo Point.
@@ -908,6 +1144,18 @@ class InputMediaGeoPoint extends InputMediaBase {
     buffer.writeObject(geoPoint);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf9c44144",
+      "geoPoint": geoPoint,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -968,6 +1216,21 @@ class InputMediaContact extends InputMediaBase {
     buffer.writeString(vcard);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf8ab7dfb",
+      "phoneNumber": phoneNumber,
+      "firstName": firstName,
+      "lastName": lastName,
+      "vcard": vcard,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1090,6 +1353,27 @@ class InputMediaUploadedDocument extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5b38c6c1",
+      "flags": flags,
+      "nosoundVideo": nosoundVideo,
+      "forceFile": forceFile,
+      "spoiler": spoiler,
+      "file": file,
+      "thumb": thumb,
+      "mimeType": mimeType,
+      "attributes": attributes,
+      "stickers": stickers,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Document.
@@ -1170,6 +1454,22 @@ class InputMediaDocument extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x33473058",
+      "flags": flags,
+      "spoiler": spoiler,
+      "id": id,
+      "ttlSeconds": ttlSeconds,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Venue.
@@ -1244,6 +1544,23 @@ class InputMediaVenue extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc13d1c11",
+      "geoPoint": geoPoint,
+      "title": title,
+      "address": address,
+      "provider": provider,
+      "venueId": venueId,
+      "venueType": venueType,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Photo External.
@@ -1311,6 +1628,21 @@ class InputMediaPhotoExternal extends InputMediaBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe5bbfe1a",
+      "flags": flags,
+      "spoiler": spoiler,
+      "url": url,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1380,6 +1712,21 @@ class InputMediaDocumentExternal extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfb52dc99",
+      "flags": flags,
+      "spoiler": spoiler,
+      "url": url,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Game.
@@ -1418,6 +1765,18 @@ class InputMediaGame extends InputMediaBase {
     buffer.writeObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd33f43f3",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1541,6 +1900,27 @@ class InputMediaInvoice extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8eb5a6d5",
+      "flags": flags,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "invoice": invoice,
+      "payload": payload,
+      "provider": provider,
+      "providerData": providerData,
+      "startParam": startParam,
+      "extendedMedia": extendedMedia,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Geo Live.
@@ -1634,6 +2014,23 @@ class InputMediaGeoLive extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x971fa843",
+      "flags": flags,
+      "stopped": stopped,
+      "geoPoint": geoPoint,
+      "heading": heading,
+      "period": period,
+      "proximityNotificationRadius": proximityNotificationRadius,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Poll.
@@ -1721,6 +2118,22 @@ class InputMediaPoll extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0f94e5f1",
+      "flags": flags,
+      "poll": poll,
+      "correctAnswers": correctAnswers,
+      "solution": solution,
+      "solutionEntities": solutionEntities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Dice.
@@ -1759,6 +2172,18 @@ class InputMediaDice extends InputMediaBase {
     buffer.writeString(emoticon);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe66fbf7b",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1807,6 +2232,19 @@ class InputMediaStory extends InputMediaBase {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x89fdd778",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1878,6 +2316,22 @@ class InputMediaWebPage extends InputMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc21b8849",
+      "flags": flags,
+      "forceLargeMedia": forceLargeMedia,
+      "forceSmallMedia": forceSmallMedia,
+      "optional": optional,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Chat Photo Empty.
@@ -1903,6 +2357,17 @@ class InputChatPhotoEmpty extends InputChatPhotoBase {
     buffer.writeInt32(0x1ca48f57);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ca48f57",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1995,6 +2460,22 @@ class InputChatUploadedPhoto extends InputChatPhotoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdcdaec0",
+      "flags": flags,
+      "file": file,
+      "video": video,
+      "videoStartTs": videoStartTs,
+      "videoEmojiMarkup": videoEmojiMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Chat Photo.
@@ -2034,6 +2515,18 @@ class InputChatPhoto extends InputChatPhotoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8953ad37",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Geo Point Empty.
@@ -2059,6 +2552,17 @@ class InputGeoPointEmpty extends InputGeoPointBase {
     buffer.writeInt32(0xe4c123d6);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe4c123d6",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2128,6 +2632,21 @@ class InputGeoPoint extends InputGeoPointBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x48222faf",
+      "flags": flags,
+      "lat": lat,
+      "long": long,
+      "accuracyRadius": accuracyRadius,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Photo Empty.
@@ -2153,6 +2672,17 @@ class InputPhotoEmpty extends InputPhotoBase {
     buffer.writeInt32(0x1cd7bf0d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1cd7bf0d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2210,6 +2740,20 @@ class InputPhoto extends InputPhotoBase {
     buffer.writeBytes(fileReference);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3bb3b94a",
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2277,6 +2821,21 @@ class InputFileLocation extends InputFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdfdaabe1",
+      "volumeId": volumeId,
+      "localId": localId,
+      "secret": secret,
+      "fileReference": fileReference,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Encrypted File Location.
@@ -2326,6 +2885,19 @@ class InputEncryptedFileLocation extends InputFileLocationBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf5235d55",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2391,6 +2963,21 @@ class InputDocumentFileLocation extends InputFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbad07584",
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+      "thumbSize": thumbSize,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Secure File Location.
@@ -2441,6 +3028,19 @@ class InputSecureFileLocation extends InputFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcbc7ee28",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Takeout File Location.
@@ -2466,6 +3066,17 @@ class InputTakeoutFileLocation extends InputFileLocationBase {
     buffer.writeInt32(0x29be5899);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x29be5899",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2530,6 +3141,21 @@ class InputPhotoFileLocation extends InputFileLocationBase {
     buffer.writeString(thumbSize);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x40181ffe",
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+      "thumbSize": thumbSize,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2615,6 +3241,23 @@ class InputPhotoLegacyFileLocation extends InputFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd83466f3",
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+      "volumeId": volumeId,
+      "localId": localId,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Peer Photo File Location.
@@ -2680,6 +3323,21 @@ class InputPeerPhotoFileLocation extends InputFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x37257e99",
+      "flags": flags,
+      "big": big,
+      "peer": peer,
+      "photoId": photoId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Thumb.
@@ -2727,6 +3385,19 @@ class InputStickerSetThumb extends InputFileLocationBase {
     buffer.writeInt32(thumbVersion);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9d84f3db",
+      "stickerset": stickerset,
+      "thumbVersion": thumbVersion,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2818,6 +3489,23 @@ class InputGroupCallStream extends InputFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0598a92a",
+      "flags": flags,
+      "call": call,
+      "timeMs": timeMs,
+      "scale": scale,
+      "videoChannel": videoChannel,
+      "videoQuality": videoQuality,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Peer User.
@@ -2858,6 +3546,18 @@ class PeerUser extends PeerBase {
     buffer.writeInt64(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x59511722",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2900,6 +3600,18 @@ class PeerChat extends PeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x36c6019a",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Peer Channel.
@@ -2941,6 +3653,18 @@ class PeerChannel extends PeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2a5371e",
+      "channelId": channelId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Storage File Unknown.
@@ -2966,6 +3690,17 @@ class StorageFileUnknown extends StorageFileTypeBase {
     buffer.writeInt32(0xaa963b05);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaa963b05",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2993,6 +3728,17 @@ class StorageFilePartial extends StorageFileTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x40bc6f52",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Storage File Jpeg.
@@ -3018,6 +3764,17 @@ class StorageFileJpeg extends StorageFileTypeBase {
     buffer.writeInt32(0x007efe0e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x007efe0e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3045,6 +3802,17 @@ class StorageFileGif extends StorageFileTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcae1aadf",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Storage File Png.
@@ -3070,6 +3838,17 @@ class StorageFilePng extends StorageFileTypeBase {
     buffer.writeInt32(0x0a4f63c0);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a4f63c0",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3097,6 +3876,17 @@ class StorageFilePdf extends StorageFileTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xae1e508d",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Storage File Mp3.
@@ -3122,6 +3912,17 @@ class StorageFileMp3 extends StorageFileTypeBase {
     buffer.writeInt32(0x528a0677);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x528a0677",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3149,6 +3950,17 @@ class StorageFileMov extends StorageFileTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4b09ebbc",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Storage File Mp4.
@@ -3175,6 +3987,17 @@ class StorageFileMp4 extends StorageFileTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb3cea0e4",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Storage File Webp.
@@ -3200,6 +4023,17 @@ class StorageFileWebp extends StorageFileTypeBase {
     buffer.writeInt32(0x1081464c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1081464c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3241,6 +4075,18 @@ class UserEmpty extends UserBase {
     buffer.writeInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd3bc4b7a",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3655,6 +4501,58 @@ class User extends UserBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x215c4438",
+      "flags": flags,
+      "self": self,
+      "contact": contact,
+      "mutualContact": mutualContact,
+      "deleted": deleted,
+      "bot": bot,
+      "botChatHistory": botChatHistory,
+      "botNochats": botNochats,
+      "verified": verified,
+      "restricted": restricted,
+      "min": min,
+      "botInlineGeo": botInlineGeo,
+      "support": support,
+      "scam": scam,
+      "applyMinPhoto": applyMinPhoto,
+      "fake": fake,
+      "botAttachMenu": botAttachMenu,
+      "premium": premium,
+      "attachMenuEnabled": attachMenuEnabled,
+      "flags2": flags2,
+      "botCanEdit": botCanEdit,
+      "closeFriend": closeFriend,
+      "storiesHidden": storiesHidden,
+      "storiesUnavailable": storiesUnavailable,
+      "id": id,
+      "accessHash": accessHash,
+      "firstName": firstName,
+      "lastName": lastName,
+      "username": username,
+      "phone": phone,
+      "photo": photo,
+      "status": status,
+      "botInfoVersion": botInfoVersion,
+      "restrictionReason": restrictionReason,
+      "botInlinePlaceholder": botInlinePlaceholder,
+      "langCode": langCode,
+      "emojiStatus": emojiStatus,
+      "usernames": usernames,
+      "storiesMaxId": storiesMaxId,
+      "color": color,
+      "profileColor": profileColor,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// User Profile Photo Empty.
@@ -3680,6 +4578,17 @@ class UserProfilePhotoEmpty extends UserProfilePhotoBase {
     buffer.writeInt32(0x4f11bae1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4f11bae1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3767,6 +4676,23 @@ class UserProfilePhoto extends UserProfilePhotoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x82d1f706",
+      "flags": flags,
+      "hasVideo": hasVideo,
+      "personal": personal,
+      "photoId": photoId,
+      "strippedThumb": strippedThumb,
+      "dcId": dcId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// User Status Empty.
@@ -3792,6 +4718,17 @@ class UserStatusEmpty extends UserStatusBase {
     buffer.writeInt32(0x09d05049);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x09d05049",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3834,6 +4771,18 @@ class UserStatusOnline extends UserStatusBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xedb93949",
+      "expires": expires,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// User Status Offline.
@@ -3875,6 +4824,18 @@ class UserStatusOffline extends UserStatusBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x008c703f",
+      "wasOnline": wasOnline,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// User Status Recently.
@@ -3900,6 +4861,17 @@ class UserStatusRecently extends UserStatusBase {
     buffer.writeInt32(0xe26f42f1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe26f42f1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3927,6 +4899,17 @@ class UserStatusLastWeek extends UserStatusBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x07bf09fc",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// User Status Last Month.
@@ -3952,6 +4935,17 @@ class UserStatusLastMonth extends UserStatusBase {
     buffer.writeInt32(0x77ebc742);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77ebc742",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3993,6 +4987,18 @@ class ChatEmpty extends ChatBase {
     buffer.writeInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x29562865",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4166,6 +5172,33 @@ class Chat extends ChatBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x41cbf256",
+      "flags": flags,
+      "creator": creator,
+      "left": left,
+      "deactivated": deactivated,
+      "callActive": callActive,
+      "callNotEmpty": callNotEmpty,
+      "noforwards": noforwards,
+      "id": id,
+      "title": title,
+      "photo": photo,
+      "participantsCount": participantsCount,
+      "date": date,
+      "version": version,
+      "migratedTo": migratedTo,
+      "adminRights": adminRights,
+      "defaultBannedRights": defaultBannedRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Forbidden.
@@ -4213,6 +5246,19 @@ class ChatForbidden extends ChatBase {
     buffer.writeString(title);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6592a1a7",
+      "id": id,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4623,6 +5669,59 @@ class Channel extends ChatBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0aadfc8f",
+      "flags": flags,
+      "creator": creator,
+      "left": left,
+      "broadcast": broadcast,
+      "verified": verified,
+      "megagroup": megagroup,
+      "restricted": restricted,
+      "signatures": signatures,
+      "min": min,
+      "scam": scam,
+      "hasLink": hasLink,
+      "hasGeo": hasGeo,
+      "slowmodeEnabled": slowmodeEnabled,
+      "callActive": callActive,
+      "callNotEmpty": callNotEmpty,
+      "fake": fake,
+      "gigagroup": gigagroup,
+      "noforwards": noforwards,
+      "joinToSend": joinToSend,
+      "joinRequest": joinRequest,
+      "forum": forum,
+      "flags2": flags2,
+      "storiesHidden": storiesHidden,
+      "storiesHiddenMin": storiesHiddenMin,
+      "storiesUnavailable": storiesUnavailable,
+      "id": id,
+      "accessHash": accessHash,
+      "title": title,
+      "username": username,
+      "photo": photo,
+      "date": date,
+      "restrictionReason": restrictionReason,
+      "adminRights": adminRights,
+      "bannedRights": bannedRights,
+      "defaultBannedRights": defaultBannedRights,
+      "participantsCount": participantsCount,
+      "usernames": usernames,
+      "storiesMaxId": storiesMaxId,
+      "color": color,
+      "profileColor": profileColor,
+      "emojiStatus": emojiStatus,
+      "level": level,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Forbidden.
@@ -4715,6 +5814,24 @@ class ChannelForbidden extends ChatBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17d493d5",
+      "flags": flags,
+      "broadcast": broadcast,
+      "megagroup": megagroup,
+      "id": id,
+      "accessHash": accessHash,
+      "title": title,
+      "untilDate": untilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4960,6 +6077,37 @@ class ChatFull extends ChatFullBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9d31138",
+      "flags": flags,
+      "canSetUsername": canSetUsername,
+      "hasScheduled": hasScheduled,
+      "translationsDisabled": translationsDisabled,
+      "id": id,
+      "about": about,
+      "participants": participants,
+      "chatPhoto": chatPhoto,
+      "notifySettings": notifySettings,
+      "exportedInvite": exportedInvite,
+      "botInfo": botInfo,
+      "pinnedMsgId": pinnedMsgId,
+      "folderId": folderId,
+      "call": call,
+      "ttlPeriod": ttlPeriod,
+      "groupcallDefaultJoinAs": groupcallDefaultJoinAs,
+      "themeEmoticon": themeEmoticon,
+      "requestsPending": requestsPending,
+      "recentRequesters": recentRequesters,
+      "availableReactions": availableReactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -5534,6 +6682,70 @@ class ChannelFull extends ChatFullBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0f2bcb6f",
+      "flags": flags,
+      "canViewParticipants": canViewParticipants,
+      "canSetUsername": canSetUsername,
+      "canSetStickers": canSetStickers,
+      "hiddenPrehistory": hiddenPrehistory,
+      "canSetLocation": canSetLocation,
+      "hasScheduled": hasScheduled,
+      "canViewStats": canViewStats,
+      "blocked": blocked,
+      "flags2": flags2,
+      "canDeleteChannel": canDeleteChannel,
+      "antispam": antispam,
+      "participantsHidden": participantsHidden,
+      "translationsDisabled": translationsDisabled,
+      "storiesPinnedAvailable": storiesPinnedAvailable,
+      "viewForumAsMessages": viewForumAsMessages,
+      "id": id,
+      "about": about,
+      "participantsCount": participantsCount,
+      "adminsCount": adminsCount,
+      "kickedCount": kickedCount,
+      "bannedCount": bannedCount,
+      "onlineCount": onlineCount,
+      "readInboxMaxId": readInboxMaxId,
+      "readOutboxMaxId": readOutboxMaxId,
+      "unreadCount": unreadCount,
+      "chatPhoto": chatPhoto,
+      "notifySettings": notifySettings,
+      "exportedInvite": exportedInvite,
+      "botInfo": botInfo,
+      "migratedFromChatId": migratedFromChatId,
+      "migratedFromMaxId": migratedFromMaxId,
+      "pinnedMsgId": pinnedMsgId,
+      "stickerset": stickerset,
+      "availableMinId": availableMinId,
+      "folderId": folderId,
+      "linkedChatId": linkedChatId,
+      "location": location,
+      "slowmodeSeconds": slowmodeSeconds,
+      "slowmodeNextSendDate": slowmodeNextSendDate,
+      "statsDc": statsDc,
+      "pts": pts,
+      "call": call,
+      "ttlPeriod": ttlPeriod,
+      "pendingSuggestions": pendingSuggestions,
+      "groupcallDefaultJoinAs": groupcallDefaultJoinAs,
+      "themeEmoticon": themeEmoticon,
+      "requestsPending": requestsPending,
+      "recentRequesters": recentRequesters,
+      "defaultSendAs": defaultSendAs,
+      "availableReactions": availableReactions,
+      "stories": stories,
+      "wallpaper": wallpaper,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Participant.
@@ -5591,6 +6803,20 @@ class ChatParticipant extends ChatParticipantBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc02d4007",
+      "userId": userId,
+      "inviterId": inviterId,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Participant Creator.
@@ -5631,6 +6857,18 @@ class ChatParticipantCreator extends ChatParticipantBase {
     buffer.writeInt64(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe46bcee4",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -5688,6 +6926,20 @@ class ChatParticipantAdmin extends ChatParticipantBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa0933f5b",
+      "userId": userId,
+      "inviterId": inviterId,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -5754,6 +7006,20 @@ class ChatParticipantsForbidden extends ChatParticipantsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8763d3e1",
+      "flags": flags,
+      "chatId": chatId,
+      "selfParticipant": selfParticipant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Participants.
@@ -5811,6 +7077,20 @@ class ChatParticipants extends ChatParticipantsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3cbc93f8",
+      "chatId": chatId,
+      "participants": participants,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Photo Empty.
@@ -5836,6 +7116,17 @@ class ChatPhotoEmpty extends ChatPhotoBase {
     buffer.writeInt32(0x37c1011c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x37c1011c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -5916,6 +7207,22 @@ class ChatPhoto extends ChatPhotoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1c6e1c11",
+      "flags": flags,
+      "hasVideo": hasVideo,
+      "photoId": photoId,
+      "strippedThumb": strippedThumb,
+      "dcId": dcId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Empty.
@@ -5978,6 +7285,20 @@ class MessageEmpty extends MessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x90a6ca84",
+      "flags": flags,
+      "id": id,
+      "peerId": peerId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -6341,6 +7662,50 @@ class Message extends MessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x76bec211",
+      "flags": flags,
+      "out": out,
+      "mentioned": mentioned,
+      "mediaUnread": mediaUnread,
+      "silent": silent,
+      "post": post,
+      "fromScheduled": fromScheduled,
+      "legacy": legacy,
+      "editHide": editHide,
+      "pinned": pinned,
+      "noforwards": noforwards,
+      "invertMedia": invertMedia,
+      "id": id,
+      "fromId": fromId,
+      "peerId": peerId,
+      "savedPeerId": savedPeerId,
+      "fwdFrom": fwdFrom,
+      "viaBotId": viaBotId,
+      "replyTo": replyTo,
+      "date": date,
+      "message": message,
+      "media": media,
+      "replyMarkup": replyMarkup,
+      "entities": entities,
+      "views": views,
+      "forwards": forwards,
+      "replies": replies,
+      "editDate": editDate,
+      "postAuthor": postAuthor,
+      "groupedId": groupedId,
+      "reactions": reactions,
+      "restrictionReason": restrictionReason,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Service.
@@ -6492,6 +7857,31 @@ class MessageService extends MessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2b085862",
+      "flags": flags,
+      "out": out,
+      "mentioned": mentioned,
+      "mediaUnread": mediaUnread,
+      "silent": silent,
+      "post": post,
+      "legacy": legacy,
+      "id": id,
+      "fromId": fromId,
+      "peerId": peerId,
+      "replyTo": replyTo,
+      "date": date,
+      "action": action,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Empty.
@@ -6517,6 +7907,17 @@ class MessageMediaEmpty extends MessageMediaBase {
     buffer.writeInt32(0x3ded6320);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3ded6320",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -6591,6 +7992,21 @@ class MessageMediaPhoto extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x695150d7",
+      "flags": flags,
+      "spoiler": spoiler,
+      "photo": photo,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Geo.
@@ -6629,6 +8045,18 @@ class MessageMediaGeo extends MessageMediaBase {
     buffer.writeObject(geo);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56e0d474",
+      "geo": geo,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -6699,6 +8127,22 @@ class MessageMediaContact extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x70322949",
+      "phoneNumber": phoneNumber,
+      "firstName": firstName,
+      "lastName": lastName,
+      "vcard": vcard,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Unsupported.
@@ -6724,6 +8168,17 @@ class MessageMediaUnsupported extends MessageMediaBase {
     buffer.writeInt32(0x9f84f49e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9f84f49e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -6840,6 +8295,26 @@ class MessageMediaDocument extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4cf4d72d",
+      "flags": flags,
+      "nopremium": nopremium,
+      "spoiler": spoiler,
+      "video": video,
+      "round": round,
+      "voice": voice,
+      "document": document,
+      "altDocument": altDocument,
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Web Page.
@@ -6917,6 +8392,23 @@ class MessageMediaWebPage extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xddf10c3b",
+      "flags": flags,
+      "forceLargeMedia": forceLargeMedia,
+      "forceSmallMedia": forceSmallMedia,
+      "manual": manual,
+      "safe": safe,
+      "webpage": webpage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Venue.
@@ -6991,6 +8483,23 @@ class MessageMediaVenue extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ec0533f",
+      "geo": geo,
+      "title": title,
+      "address": address,
+      "provider": provider,
+      "venueId": venueId,
+      "venueType": venueType,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Game.
@@ -7029,6 +8538,18 @@ class MessageMediaGame extends MessageMediaBase {
     buffer.writeObject(game);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfdb19008",
+      "game": game,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7161,6 +8682,28 @@ class MessageMediaInvoice extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf6a548d3",
+      "flags": flags,
+      "shippingAddressRequested": shippingAddressRequested,
+      "test": test,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "receiptMsgId": receiptMsgId,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "startParam": startParam,
+      "extendedMedia": extendedMedia,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Geo Live.
@@ -7244,6 +8787,22 @@ class MessageMediaGeoLive extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb940c666",
+      "flags": flags,
+      "geo": geo,
+      "heading": heading,
+      "period": period,
+      "proximityNotificationRadius": proximityNotificationRadius,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Media Poll.
@@ -7289,6 +8848,19 @@ class MessageMediaPoll extends MessageMediaBase {
     buffer.writeObject(results);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4bd6e798",
+      "poll": poll,
+      "results": results,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7337,6 +8909,19 @@ class MessageMediaDice extends MessageMediaBase {
     buffer.writeString(emoticon);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3f7ee58b",
+      "value": value,
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7414,6 +8999,22 @@ class MessageMediaStory extends MessageMediaBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x68cb6283",
+      "flags": flags,
+      "viaMention": viaMention,
+      "peer": peer,
+      "id": id,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7528,6 +9129,26 @@ class MessageMediaGiveaway extends MessageMediaBase {
     buffer.writeDateTime(untilDate);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdaad85b0",
+      "flags": flags,
+      "onlyNewSubscribers": onlyNewSubscribers,
+      "winnersAreVisible": winnersAreVisible,
+      "channels": channels,
+      "countriesIso2": countriesIso2,
+      "prizeDescription": prizeDescription,
+      "quantity": quantity,
+      "months": months,
+      "untilDate": untilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7670,6 +9291,29 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc6991068",
+      "flags": flags,
+      "onlyNewSubscribers": onlyNewSubscribers,
+      "refunded": refunded,
+      "channelId": channelId,
+      "additionalPeersCount": additionalPeersCount,
+      "launchMsgId": launchMsgId,
+      "winnersCount": winnersCount,
+      "unclaimedCount": unclaimedCount,
+      "winners": winners,
+      "months": months,
+      "prizeDescription": prizeDescription,
+      "untilDate": untilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Empty.
@@ -7695,6 +9339,17 @@ class MessageActionEmpty extends MessageActionBase {
     buffer.writeInt32(0xb6aef7b0);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6aef7b0",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7742,6 +9397,19 @@ class MessageActionChatCreate extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd47cbad",
+      "title": title,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Chat Edit Title.
@@ -7780,6 +9448,18 @@ class MessageActionChatEditTitle extends MessageActionBase {
     buffer.writeString(title);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb5a1ce5a",
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7820,6 +9500,18 @@ class MessageActionChatEditPhoto extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7fcb13a8",
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Chat Delete Photo.
@@ -7845,6 +9537,17 @@ class MessageActionChatDeletePhoto extends MessageActionBase {
     buffer.writeInt32(0x95e3fbef);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x95e3fbef",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7884,6 +9587,18 @@ class MessageActionChatAddUser extends MessageActionBase {
     buffer.writeVectorInt64(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15cefd00",
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -7926,6 +9641,18 @@ class MessageActionChatDeleteUser extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa43f30cc",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Chat Joined By Link.
@@ -7967,6 +9694,18 @@ class MessageActionChatJoinedByLink extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x031224c3",
+      "inviterId": inviterId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Channel Create.
@@ -8005,6 +9744,18 @@ class MessageActionChannelCreate extends MessageActionBase {
     buffer.writeString(title);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x95d2ac92",
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8046,6 +9797,18 @@ class MessageActionChatMigrateTo extends MessageActionBase {
     buffer.writeInt64(channelId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe1037f92",
+      "channelId": channelId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8095,6 +9858,19 @@ class MessageActionChannelMigrateFrom extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea3948e9",
+      "title": title,
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Pin Message.
@@ -8121,6 +9897,17 @@ class MessageActionPinMessage extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x94bd38ed",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action History Clear.
@@ -8146,6 +9933,17 @@ class MessageActionHistoryClear extends MessageActionBase {
     buffer.writeInt32(0x9fbab604);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9fbab604",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8196,6 +9994,19 @@ class MessageActionGameScore extends MessageActionBase {
     buffer.writeInt32(score);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x92a72876",
+      "gameId": gameId,
+      "score": score,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8309,6 +10120,26 @@ class MessageActionPaymentSentMe extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8f31b327",
+      "flags": flags,
+      "recurringInit": recurringInit,
+      "recurringUsed": recurringUsed,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "payload": payload,
+      "info": info,
+      "shippingOptionId": shippingOptionId,
+      "charge": charge,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Payment Sent.
@@ -8392,6 +10223,23 @@ class MessageActionPaymentSent extends MessageActionBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x96163f56",
+      "flags": flags,
+      "recurringInit": recurringInit,
+      "recurringUsed": recurringUsed,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "invoiceSlug": invoiceSlug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8477,6 +10325,22 @@ class MessageActionPhoneCall extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x80e11a7f",
+      "flags": flags,
+      "video": video,
+      "callId": callId,
+      "reason": reason,
+      "duration": duration,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Screenshot Taken.
@@ -8502,6 +10366,17 @@ class MessageActionScreenshotTaken extends MessageActionBase {
     buffer.writeInt32(0x4792929b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4792929b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8541,6 +10416,18 @@ class MessageActionCustomAction extends MessageActionBase {
     buffer.writeString(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfae69f56",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8622,6 +10509,22 @@ class MessageActionBotAllowed extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc516d679",
+      "flags": flags,
+      "attachMenu": attachMenu,
+      "fromRequest": fromRequest,
+      "domain": domain,
+      "app": app,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Secure Values Sent Me.
@@ -8668,6 +10571,19 @@ class MessageActionSecureValuesSentMe extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b287353",
+      "values": values,
+      "credentials": credentials,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Secure Values Sent.
@@ -8707,6 +10623,18 @@ class MessageActionSecureValuesSent extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd95c6154",
+      "types": types,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Contact Sign Up.
@@ -8732,6 +10660,17 @@ class MessageActionContactSignUp extends MessageActionBase {
     buffer.writeInt32(0xf3f25f76);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3f25f76",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8787,6 +10726,20 @@ class MessageActionGeoProximityReached extends MessageActionBase {
     buffer.writeInt32(distance);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98e0d697",
+      "fromId": fromId,
+      "toId": toId,
+      "distance": distance,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8849,6 +10802,20 @@ class MessageActionGroupCall extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a0d7f42",
+      "flags": flags,
+      "call": call,
+      "duration": duration,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Invite To Group Call.
@@ -8894,6 +10861,19 @@ class MessageActionInviteToGroupCall extends MessageActionBase {
     buffer.writeVectorInt64(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x502f92f7",
+      "call": call,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -8958,6 +10938,20 @@ class MessageActionSetMessagesTTL extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c134d7b",
+      "flags": flags,
+      "period": period,
+      "autoSettingFrom": autoSettingFrom,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Group Call Scheduled.
@@ -9004,6 +10998,19 @@ class MessageActionGroupCallScheduled extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb3a07661",
+      "call": call,
+      "scheduleDate": scheduleDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Set Chat Theme.
@@ -9043,6 +11050,18 @@ class MessageActionSetChatTheme extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaa786345",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Chat Joined By Request.
@@ -9068,6 +11087,17 @@ class MessageActionChatJoinedByRequest extends MessageActionBase {
     buffer.writeInt32(0xebbca3cb);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xebbca3cb",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9115,6 +11145,19 @@ class MessageActionWebViewDataSentMe extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x47dd8079",
+      "text": text,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Web View Data Sent.
@@ -9153,6 +11196,18 @@ class MessageActionWebViewDataSent extends MessageActionBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4c38cb5",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9244,6 +11299,23 @@ class MessageActionGiftPremium extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc83d6aec",
+      "flags": flags,
+      "currency": currency,
+      "amount": amount,
+      "months": months,
+      "cryptoCurrency": cryptoCurrency,
+      "cryptoAmount": cryptoAmount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Topic Create.
@@ -9313,6 +11385,21 @@ class MessageActionTopicCreate extends MessageActionBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0d999256",
+      "flags": flags,
+      "title": title,
+      "iconColor": iconColor,
+      "iconEmojiId": iconEmojiId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9394,6 +11481,22 @@ class MessageActionTopicEdit extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc0944820",
+      "flags": flags,
+      "title": title,
+      "iconEmojiId": iconEmojiId,
+      "closed": closed,
+      "hidden": hidden,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Suggest Profile Photo.
@@ -9432,6 +11535,18 @@ class MessageActionSuggestProfilePhoto extends MessageActionBase {
     buffer.writeObject(photo);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57de635e",
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9480,6 +11595,19 @@ class MessageActionRequestedPeer extends MessageActionBase {
     buffer.writeVectorObject(peers);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x31518e9b",
+      "buttonId": buttonId,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9543,6 +11671,21 @@ class MessageActionSetChatWallPaper extends MessageActionBase {
     buffer.writeObject(wallpaper);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5060a3f4",
+      "flags": flags,
+      "same": same,
+      "forBoth": forBoth,
+      "wallpaper": wallpaper,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9674,6 +11817,27 @@ class MessageActionGiftCode extends MessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x678c2e09",
+      "flags": flags,
+      "viaGiveaway": viaGiveaway,
+      "unclaimed": unclaimed,
+      "boostPeer": boostPeer,
+      "months": months,
+      "slug": slug,
+      "currency": currency,
+      "amount": amount,
+      "cryptoCurrency": cryptoCurrency,
+      "cryptoAmount": cryptoAmount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Action Giveaway Launch.
@@ -9699,6 +11863,17 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
     buffer.writeInt32(0x332ba9ed);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x332ba9ed",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9749,6 +11924,19 @@ class MessageActionGiveawayResults extends MessageActionBase {
     buffer.writeInt32(unclaimedCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2a9fadc5",
+      "winnersCount": winnersCount,
+      "unclaimedCount": unclaimedCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -9930,6 +12118,33 @@ class Dialog extends DialogBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd58a08c6",
+      "flags": flags,
+      "pinned": pinned,
+      "unreadMark": unreadMark,
+      "viewForumAsMessages": viewForumAsMessages,
+      "peer": peer,
+      "topMessage": topMessage,
+      "readInboxMaxId": readInboxMaxId,
+      "readOutboxMaxId": readOutboxMaxId,
+      "unreadCount": unreadCount,
+      "unreadMentionsCount": unreadMentionsCount,
+      "unreadReactionsCount": unreadReactionsCount,
+      "notifySettings": notifySettings,
+      "pts": pts,
+      "draft": draft,
+      "folderId": folderId,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Dialog Folder.
@@ -10038,6 +12253,26 @@ class DialogFolder extends DialogBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x71bd134c",
+      "flags": flags,
+      "pinned": pinned,
+      "folder": folder,
+      "peer": peer,
+      "topMessage": topMessage,
+      "unreadMutedPeersCount": unreadMutedPeersCount,
+      "unreadUnmutedPeersCount": unreadUnmutedPeersCount,
+      "unreadMutedMessagesCount": unreadMutedMessagesCount,
+      "unreadUnmutedMessagesCount": unreadUnmutedMessagesCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Empty.
@@ -10078,6 +12313,18 @@ class PhotoEmpty extends PhotoBase {
     buffer.writeInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2331b22d",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -10189,6 +12436,26 @@ class Photo extends PhotoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfb197a65",
+      "flags": flags,
+      "hasStickers": hasStickers,
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+      "date": date,
+      "sizes": sizes,
+      "videoSizes": videoSizes,
+      "dcId": dcId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Size Empty.
@@ -10227,6 +12494,18 @@ class PhotoSizeEmpty extends PhotoSizeBase {
     buffer.writeString(type);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0e17e23c",
+      "type": type,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -10294,6 +12573,21 @@ class PhotoSize extends PhotoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x75c78e60",
+      "type": type,
+      "w": w,
+      "h": h,
+      "size": size,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Cached Size.
@@ -10358,6 +12652,21 @@ class PhotoCachedSize extends PhotoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x021e1ad6",
+      "type": type,
+      "w": w,
+      "h": h,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Stripped Size.
@@ -10403,6 +12712,19 @@ class PhotoStrippedSize extends PhotoSizeBase {
     buffer.writeBytes(bytes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe0b0bc2e",
+      "type": type,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -10468,6 +12790,21 @@ class PhotoSizeProgressive extends PhotoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa3efb95",
+      "type": type,
+      "w": w,
+      "h": h,
+      "sizes": sizes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Path Size.
@@ -10514,6 +12851,19 @@ class PhotoPathSize extends PhotoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd8214d41",
+      "type": type,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Geo Point Empty.
@@ -10539,6 +12889,17 @@ class GeoPointEmpty extends GeoPointBase {
     buffer.writeInt32(0x1117dd5f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1117dd5f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -10616,6 +12977,22 @@ class GeoPoint extends GeoPointBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb2a2f663",
+      "flags": flags,
+      "long": long,
+      "lat": lat,
+      "accessHash": accessHash,
+      "accuracyRadius": accuracyRadius,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -10698,6 +13075,22 @@ class AuthSentCode extends AuthSentCodeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e002502",
+      "flags": flags,
+      "type": type,
+      "phoneCodeHash": phoneCodeHash,
+      "nextType": nextType,
+      "timeout": timeout,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Sent Code Success.
@@ -10736,6 +13129,18 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
     buffer.writeObject(authorization);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2390fe44",
+      "authorization": authorization,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -10829,6 +13234,23 @@ class AuthAuthorization extends AuthAuthorizationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ea2c0d4",
+      "flags": flags,
+      "setupPasswordRequired": setupPasswordRequired,
+      "otherwiseReloginDays": otherwiseReloginDays,
+      "tmpSessions": tmpSessions,
+      "futureAuthToken": futureAuthToken,
+      "user": user,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Authorization Sign Up Required.
@@ -10885,6 +13307,19 @@ class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x44747e9a",
+      "flags": flags,
+      "termsOfService": termsOfService,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Exported Authorization.
@@ -10933,6 +13368,19 @@ class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb434e2b8",
+      "id": id,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Notify Peer.
@@ -10972,6 +13420,18 @@ class InputNotifyPeer extends InputNotifyPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb8bc5b0c",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Notify Users.
@@ -10997,6 +13457,17 @@ class InputNotifyUsers extends InputNotifyPeerBase {
     buffer.writeInt32(0x193b4417);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x193b4417",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11024,6 +13495,17 @@ class InputNotifyChats extends InputNotifyPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4a95e84e",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Notify Broadcasts.
@@ -11049,6 +13531,17 @@ class InputNotifyBroadcasts extends InputNotifyPeerBase {
     buffer.writeInt32(0xb1db7c7e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb1db7c7e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11097,6 +13590,19 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
     buffer.writeInt32(topMsgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5c467992",
+      "peer": peer,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11206,6 +13712,25 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcacb6ae2",
+      "flags": flags,
+      "showPreviews": showPreviews,
+      "silent": silent,
+      "muteUntil": muteUntil,
+      "sound": sound,
+      "storiesMuted": storiesMuted,
+      "storiesHideSender": storiesHideSender,
+      "storiesSound": storiesSound,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11372,6 +13897,29 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x99622c0c",
+      "flags": flags,
+      "showPreviews": showPreviews,
+      "silent": silent,
+      "muteUntil": muteUntil,
+      "iosSound": iosSound,
+      "androidSound": androidSound,
+      "otherSound": otherSound,
+      "storiesMuted": storiesMuted,
+      "storiesHideSender": storiesHideSender,
+      "storiesIosSound": storiesIosSound,
+      "storiesAndroidSound": storiesAndroidSound,
+      "storiesOtherSound": storiesOtherSound,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Peer Settings.
@@ -11514,6 +14062,30 @@ class PeerSettings extends PeerSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa518110d",
+      "flags": flags,
+      "reportSpam": reportSpam,
+      "addContact": addContact,
+      "blockContact": blockContact,
+      "shareContact": shareContact,
+      "needContactsException": needContactsException,
+      "reportGeo": reportGeo,
+      "autoarchived": autoarchived,
+      "inviteMembers": inviteMembers,
+      "requestChatBroadcast": requestChatBroadcast,
+      "geoDistance": geoDistance,
+      "requestChatTitle": requestChatTitle,
+      "requestChatDate": requestChatDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Wall Paper.
@@ -11629,6 +14201,27 @@ class WallPaper extends WallPaperBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa437c3ed",
+      "id": id,
+      "flags": flags,
+      "creator": creator,
+      "ddefault": ddefault,
+      "pattern": pattern,
+      "dark": dark,
+      "accessHash": accessHash,
+      "slug": slug,
+      "document": document,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Wall Paper No File.
@@ -11707,6 +14300,22 @@ class WallPaperNoFile extends WallPaperBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe0804116",
+      "id": id,
+      "flags": flags,
+      "ddefault": ddefault,
+      "dark": dark,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Report Reason Spam.
@@ -11732,6 +14341,17 @@ class InputReportReasonSpam extends ReportReasonBase {
     buffer.writeInt32(0x58dbcab8);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x58dbcab8",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11759,6 +14379,17 @@ class InputReportReasonViolence extends ReportReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e22c78d",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Report Reason Pornography.
@@ -11784,6 +14415,17 @@ class InputReportReasonPornography extends ReportReasonBase {
     buffer.writeInt32(0x2e59d922);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2e59d922",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11811,6 +14453,17 @@ class InputReportReasonChildAbuse extends ReportReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xadf44ee3",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Report Reason Other.
@@ -11836,6 +14489,17 @@ class InputReportReasonOther extends ReportReasonBase {
     buffer.writeInt32(0xc1e4a2b1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc1e4a2b1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11863,6 +14527,17 @@ class InputReportReasonCopyright extends ReportReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9b89f93a",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Report Reason Geo Irrelevant.
@@ -11888,6 +14563,17 @@ class InputReportReasonGeoIrrelevant extends ReportReasonBase {
     buffer.writeInt32(0xdbd4feed);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdbd4feed",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -11915,6 +14601,17 @@ class InputReportReasonFake extends ReportReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf5ddd6e7",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Report Reason Illegal Drugs.
@@ -11941,6 +14638,17 @@ class InputReportReasonIllegalDrugs extends ReportReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a8eb2be",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Report Reason Personal Details.
@@ -11966,6 +14674,17 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
     buffer.writeInt32(0x9ec7863d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9ec7863d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12310,6 +15029,48 @@ class UserFull extends UserFullBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9b12c6c",
+      "flags": flags,
+      "blocked": blocked,
+      "phoneCallsAvailable": phoneCallsAvailable,
+      "phoneCallsPrivate": phoneCallsPrivate,
+      "canPinMessage": canPinMessage,
+      "hasScheduled": hasScheduled,
+      "videoCallsAvailable": videoCallsAvailable,
+      "voiceMessagesForbidden": voiceMessagesForbidden,
+      "translationsDisabled": translationsDisabled,
+      "storiesPinnedAvailable": storiesPinnedAvailable,
+      "blockedMyStoriesFrom": blockedMyStoriesFrom,
+      "wallpaperOverridden": wallpaperOverridden,
+      "id": id,
+      "about": about,
+      "settings": settings,
+      "personalPhoto": personalPhoto,
+      "profilePhoto": profilePhoto,
+      "fallbackPhoto": fallbackPhoto,
+      "notifySettings": notifySettings,
+      "botInfo": botInfo,
+      "pinnedMsgId": pinnedMsgId,
+      "commonChatsCount": commonChatsCount,
+      "folderId": folderId,
+      "ttlPeriod": ttlPeriod,
+      "themeEmoticon": themeEmoticon,
+      "privateForwardName": privateForwardName,
+      "botGroupAdminRights": botGroupAdminRights,
+      "botBroadcastAdminRights": botBroadcastAdminRights,
+      "premiumGifts": premiumGifts,
+      "wallpaper": wallpaper,
+      "stories": stories,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contact.
@@ -12357,6 +15118,19 @@ class Contact extends ContactBase {
     buffer.writeBool(mutual);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x145ade0b",
+      "userId": userId,
+      "mutual": mutual,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12408,6 +15182,19 @@ class ImportedContact extends ImportedContactBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc13e3c50",
+      "userId": userId,
+      "clientId": clientId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contact Status.
@@ -12456,6 +15243,19 @@ class ContactStatus extends ContactStatusBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x16d9703b",
+      "userId": userId,
+      "status": status,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Contacts Not Modified.
@@ -12481,6 +15281,17 @@ class ContactsContactsNotModified extends ContactsContactsBase {
     buffer.writeInt32(0xb74ba9d2);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb74ba9d2",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12536,6 +15347,20 @@ class ContactsContacts extends ContactsContactsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeae87e42",
+      "contacts": contacts,
+      "savedCount": savedCount,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12597,6 +15422,21 @@ class ContactsImportedContacts extends ContactsImportedContactsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77d01c3b",
+      "imported": imported,
+      "popularInvites": popularInvites,
+      "retryContacts": retryContacts,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Blocked.
@@ -12649,6 +15489,20 @@ class ContactsBlocked extends ContactsBlockedBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ade1591",
+      "blocked": blocked,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12712,6 +15566,21 @@ class ContactsBlockedSlice extends ContactsBlockedBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe1664194",
+      "count": count,
+      "blocked": blocked,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Dialogs.
@@ -12771,6 +15640,21 @@ class MessagesDialogs extends MessagesDialogsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15ba6c40",
+      "dialogs": dialogs,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12841,6 +15725,22 @@ class MessagesDialogsSlice extends MessagesDialogsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x71e094f3",
+      "count": count,
+      "dialogs": dialogs,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Dialogs Not Modified.
@@ -12881,6 +15781,18 @@ class MessagesDialogsNotModified extends MessagesDialogsBase {
     buffer.writeInt32(count);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf0e3e596",
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -12934,6 +15846,20 @@ class MessagesMessages extends MessagesMessagesBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c718e87",
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13037,6 +15963,25 @@ class MessagesMessagesSlice extends MessagesMessagesBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3a54685e",
+      "flags": flags,
+      "inexact": inexact,
+      "count": count,
+      "nextRate": nextRate,
+      "offsetIdOffset": offsetIdOffset,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13145,6 +16090,26 @@ class MessagesChannelMessages extends MessagesMessagesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc776ba4e",
+      "flags": flags,
+      "inexact": inexact,
+      "pts": pts,
+      "count": count,
+      "offsetIdOffset": offsetIdOffset,
+      "messages": messages,
+      "topics": topics,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Messages Not Modified.
@@ -13186,6 +16151,18 @@ class MessagesMessagesNotModified extends MessagesMessagesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74535f21",
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Chats.
@@ -13224,6 +16201,18 @@ class MessagesChats extends MessagesChatsBase {
     buffer.writeVectorObject(chats);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64ff9fd5",
+      "chats": chats,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13272,6 +16261,19 @@ class MessagesChatsSlice extends MessagesChatsBase {
     buffer.writeVectorObject(chats);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9cd81144",
+      "count": count,
+      "chats": chats,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13325,6 +16327,20 @@ class MessagesChatFull extends MessagesChatFullBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe5d7d19c",
+      "fullChat": fullChat,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13385,6 +16401,20 @@ class MessagesAffectedHistory extends MessagesAffectedHistoryBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb45c69d1",
+      "pts": pts,
+      "ptsCount": ptsCount,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Empty.
@@ -13410,6 +16440,17 @@ class InputMessagesFilterEmpty extends MessagesFilterBase {
     buffer.writeInt32(0x57e2f66c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57e2f66c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13437,6 +16478,17 @@ class InputMessagesFilterPhotos extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9609a51c",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Video.
@@ -13462,6 +16514,17 @@ class InputMessagesFilterVideo extends MessagesFilterBase {
     buffer.writeInt32(0x9fc00e65);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9fc00e65",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13489,6 +16552,17 @@ class InputMessagesFilterPhotoVideo extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56e9f0e4",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Document.
@@ -13514,6 +16588,17 @@ class InputMessagesFilterDocument extends MessagesFilterBase {
     buffer.writeInt32(0x9eddf188);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9eddf188",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13541,6 +16626,17 @@ class InputMessagesFilterUrl extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7ef0dd87",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Gif.
@@ -13566,6 +16662,17 @@ class InputMessagesFilterGif extends MessagesFilterBase {
     buffer.writeInt32(0xffc86587);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xffc86587",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13593,6 +16700,17 @@ class InputMessagesFilterVoice extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50f5c392",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Music.
@@ -13619,6 +16737,17 @@ class InputMessagesFilterMusic extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3751b49e",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Chat Photos.
@@ -13644,6 +16773,17 @@ class InputMessagesFilterChatPhotos extends MessagesFilterBase {
     buffer.writeInt32(0x3a20ecb8);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3a20ecb8",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13694,6 +16834,19 @@ class InputMessagesFilterPhoneCalls extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x80c99768",
+      "flags": flags,
+      "missed": missed,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Round Voice.
@@ -13719,6 +16872,17 @@ class InputMessagesFilterRoundVoice extends MessagesFilterBase {
     buffer.writeInt32(0x7a7c17a4);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a7c17a4",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13746,6 +16910,17 @@ class InputMessagesFilterRoundVideo extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb549da53",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter My Mentions.
@@ -13771,6 +16946,17 @@ class InputMessagesFilterMyMentions extends MessagesFilterBase {
     buffer.writeInt32(0xc1f8e69a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc1f8e69a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13798,6 +16984,17 @@ class InputMessagesFilterGeo extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe7026d0d",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Contacts.
@@ -13824,6 +17021,17 @@ class InputMessagesFilterContacts extends MessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe062db83",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Messages Filter Pinned.
@@ -13849,6 +17057,17 @@ class InputMessagesFilterPinned extends MessagesFilterBase {
     buffer.writeInt32(0x1bb00451);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1bb00451",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -13907,6 +17126,20 @@ class UpdateNewMessage extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1f2b0afd",
+      "message": message,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Message I D.
@@ -13956,6 +17189,19 @@ class UpdateMessageID extends UpdateBase {
     buffer.writeInt64(randomId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4e90bfd6",
+      "id": id,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14014,6 +17260,20 @@ class UpdateDeleteMessages extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa20db0e5",
+      "messages": messages,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update User Typing.
@@ -14061,6 +17321,19 @@ class UpdateUserTyping extends UpdateBase {
     buffer.writeObject(action);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc01e857f",
+      "userId": userId,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14117,6 +17390,20 @@ class UpdateChatUserTyping extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x83487af0",
+      "chatId": chatId,
+      "fromId": fromId,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Chat Participants.
@@ -14155,6 +17442,18 @@ class UpdateChatParticipants extends UpdateBase {
     buffer.writeObject(participants);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x07761198",
+      "participants": participants,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14203,6 +17502,19 @@ class UpdateUserStatus extends UpdateBase {
     buffer.writeObject(status);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe5bdf8de",
+      "userId": userId,
+      "status": status,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14265,6 +17577,21 @@ class UpdateUserName extends UpdateBase {
     buffer.writeVectorObject(usernames);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa7848924",
+      "userId": userId,
+      "firstName": firstName,
+      "lastName": lastName,
+      "usernames": usernames,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14357,6 +17684,23 @@ class UpdateNewAuthorization extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8951abef",
+      "flags": flags,
+      "unconfirmed": unconfirmed,
+      "hash": hash,
+      "date": date,
+      "device": device,
+      "location": location,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update New Encrypted Message.
@@ -14405,6 +17749,19 @@ class UpdateNewEncryptedMessage extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x12bcbd9a",
+      "message": message,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Encrypted Chat Typing.
@@ -14445,6 +17802,18 @@ class UpdateEncryptedChatTyping extends UpdateBase {
     buffer.writeInt32(chatId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1710f156",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14491,6 +17860,19 @@ class UpdateEncryption extends UpdateBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4a2e88d",
+      "chat": chat,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14546,6 +17928,20 @@ class UpdateEncryptedMessagesRead extends UpdateBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x38fe25b7",
+      "chatId": chatId,
+      "maxDate": maxDate,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14622,6 +18018,22 @@ class UpdateChatParticipantAdd extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dda5451",
+      "chatId": chatId,
+      "userId": userId,
+      "inviterId": inviterId,
+      "date": date,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Chat Participant Delete.
@@ -14681,6 +18093,20 @@ class UpdateChatParticipantDelete extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe32f3d77",
+      "chatId": chatId,
+      "userId": userId,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Dc Options.
@@ -14719,6 +18145,18 @@ class UpdateDcOptions extends UpdateBase {
     buffer.writeVectorObject(dcOptions);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8e5e9873",
+      "dcOptions": dcOptions,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14765,6 +18203,19 @@ class UpdateNotifySettings extends UpdateBase {
     buffer.writeObject(notifySettings);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbec268ef",
+      "peer": peer,
+      "notifySettings": notifySettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14862,6 +18313,25 @@ class UpdateServiceNotification extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xebe46819",
+      "flags": flags,
+      "popup": popup,
+      "invertMedia": invertMedia,
+      "inboxDate": inboxDate,
+      "type": type,
+      "message": message,
+      "media": media,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Privacy.
@@ -14907,6 +18377,19 @@ class UpdatePrivacy extends UpdateBase {
     buffer.writeVectorObject(rules);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xee3b272a",
+      "key": key,
+      "rules": rules,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -14955,6 +18438,19 @@ class UpdateUserPhone extends UpdateBase {
     buffer.writeString(phone);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x05492a13",
+      "userId": userId,
+      "phone": phone,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15053,6 +18549,24 @@ class UpdateReadHistoryInbox extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9c974fdf",
+      "flags": flags,
+      "folderId": folderId,
+      "peer": peer,
+      "maxId": maxId,
+      "stillUnreadCount": stillUnreadCount,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Read History Outbox.
@@ -15119,6 +18633,21 @@ class UpdateReadHistoryOutbox extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2f2f21bf",
+      "peer": peer,
+      "maxId": maxId,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Web Page.
@@ -15175,6 +18704,20 @@ class UpdateWebPage extends UpdateBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f891213",
+      "webpage": webpage,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15255,6 +18798,22 @@ class UpdateReadMessagesContents extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf8227181",
+      "flags": flags,
+      "messages": messages,
+      "pts": pts,
+      "ptsCount": ptsCount,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Channel Too Long.
@@ -15318,6 +18877,20 @@ class UpdateChannelTooLong extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x108d941f",
+      "flags": flags,
+      "channelId": channelId,
+      "pts": pts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Channel.
@@ -15358,6 +18931,18 @@ class UpdateChannel extends UpdateBase {
     buffer.writeInt64(channelId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x635b4c09",
+      "channelId": channelId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15415,6 +19000,20 @@ class UpdateNewChannelMessage extends UpdateBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x62ba04d9",
+      "message": message,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15506,6 +19105,23 @@ class UpdateReadChannelInbox extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x922e6e10",
+      "flags": flags,
+      "folderId": folderId,
+      "channelId": channelId,
+      "maxId": maxId,
+      "stillUnreadCount": stillUnreadCount,
+      "pts": pts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Delete Channel Messages.
@@ -15572,6 +19188,21 @@ class UpdateDeleteChannelMessages extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc32d5b12",
+      "channelId": channelId,
+      "messages": messages,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Channel Message Views.
@@ -15630,6 +19261,20 @@ class UpdateChannelMessageViews extends UpdateBase {
     buffer.writeInt32(views);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf226ac08",
+      "channelId": channelId,
+      "id": id,
+      "views": views,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15697,6 +19342,21 @@ class UpdateChatParticipantAdmin extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd7ca61a2",
+      "chatId": chatId,
+      "userId": userId,
+      "isAdmin": isAdmin,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update New Sticker Set.
@@ -15735,6 +19395,18 @@ class UpdateNewStickerSet extends UpdateBase {
     buffer.writeObject(stickerset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x688a30aa",
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15799,6 +19471,21 @@ class UpdateStickerSetsOrder extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0bb2d201",
+      "flags": flags,
+      "masks": masks,
+      "emojis": emojis,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Sticker Sets.
@@ -15855,6 +19542,20 @@ class UpdateStickerSets extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x31c24808",
+      "flags": flags,
+      "masks": masks,
+      "emojis": emojis,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Saved Gifs.
@@ -15880,6 +19581,17 @@ class UpdateSavedGifs extends UpdateBase {
     buffer.writeInt32(0x9375341e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9375341e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -15981,6 +19693,24 @@ class UpdateBotInlineQuery extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x496f379c",
+      "flags": flags,
+      "queryId": queryId,
+      "userId": userId,
+      "query": query,
+      "geo": geo,
+      "peerType": peerType,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Bot Inline Send.
@@ -16072,6 +19802,23 @@ class UpdateBotInlineSend extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x12f12a07",
+      "flags": flags,
+      "userId": userId,
+      "query": query,
+      "geo": geo,
+      "id": id,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Edit Channel Message.
@@ -16128,6 +19875,20 @@ class UpdateEditChannelMessage extends UpdateBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b3f4df7",
+      "message": message,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16238,6 +19999,25 @@ class UpdateBotCallbackQuery extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9cfc48d",
+      "flags": flags,
+      "queryId": queryId,
+      "userId": userId,
+      "peer": peer,
+      "msgId": msgId,
+      "chatInstance": chatInstance,
+      "data": data,
+      "gameShortName": gameShortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Edit Message.
@@ -16294,6 +20074,20 @@ class UpdateEditMessage extends UpdateBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe40370a3",
+      "message": message,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16395,6 +20189,24 @@ class UpdateInlineBotCallbackQuery extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x691e9052",
+      "flags": flags,
+      "queryId": queryId,
+      "userId": userId,
+      "msgId": msgId,
+      "chatInstance": chatInstance,
+      "data": data,
+      "gameShortName": gameShortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Read Channel Outbox.
@@ -16444,6 +20256,19 @@ class UpdateReadChannelOutbox extends UpdateBase {
     buffer.writeInt32(maxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb75f99a9",
+      "channelId": channelId,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16513,6 +20338,21 @@ class UpdateDraftMessage extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b49ec6d",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+      "draft": draft,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Read Featured Stickers.
@@ -16538,6 +20378,17 @@ class UpdateReadFeaturedStickers extends UpdateBase {
     buffer.writeInt32(0x571d2742);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x571d2742",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16565,6 +20416,17 @@ class UpdateRecentStickers extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a422c20",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Config.
@@ -16591,6 +20453,17 @@ class UpdateConfig extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa229dd06",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Pts Changed.
@@ -16616,6 +20489,17 @@ class UpdatePtsChanged extends UpdateBase {
     buffer.writeInt32(0x3354678f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3354678f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16682,6 +20566,21 @@ class UpdateChannelWebPage extends UpdateBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2f2ba99f",
+      "channelId": channelId,
+      "webpage": webpage,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16751,6 +20650,21 @@ class UpdateDialogPinned extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6e6fe51c",
+      "flags": flags,
+      "pinned": pinned,
+      "folderId": folderId,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Pinned Dialogs.
@@ -16818,6 +20732,20 @@ class UpdatePinnedDialogs extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa0f3ca2",
+      "flags": flags,
+      "folderId": folderId,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Bot Webhook J S O N.
@@ -16856,6 +20784,18 @@ class UpdateBotWebhookJSON extends UpdateBase {
     buffer.writeObject(data);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8317c0c3",
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16913,6 +20853,20 @@ class UpdateBotWebhookJSONQuery extends UpdateBase {
     buffer.writeInt32(timeout);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9b9240a6",
+      "queryId": queryId,
+      "data": data,
+      "timeout": timeout,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -16977,6 +20931,21 @@ class UpdateBotShippingQuery extends UpdateBase {
     buffer.writeObject(shippingAddress);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb5aefd7d",
+      "queryId": queryId,
+      "userId": userId,
+      "payload": payload,
+      "shippingAddress": shippingAddress,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17087,6 +21056,25 @@ class UpdateBotPrecheckoutQuery extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8caa9a96",
+      "flags": flags,
+      "queryId": queryId,
+      "userId": userId,
+      "payload": payload,
+      "info": info,
+      "shippingOptionId": shippingOptionId,
+      "currency": currency,
+      "totalAmount": totalAmount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Phone Call.
@@ -17125,6 +21113,18 @@ class UpdatePhoneCall extends UpdateBase {
     buffer.writeObject(phoneCall);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xab0f6b1e",
+      "phoneCall": phoneCall,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17165,6 +21165,18 @@ class UpdateLangPackTooLong extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x46560264",
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Lang Pack.
@@ -17204,6 +21216,18 @@ class UpdateLangPack extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56022f4d",
+      "difference": difference,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Faved Stickers.
@@ -17229,6 +21253,17 @@ class UpdateFavedStickers extends UpdateBase {
     buffer.writeInt32(0xe511996d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe511996d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17300,6 +21335,21 @@ class UpdateChannelReadMessagesContents extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea29055d",
+      "flags": flags,
+      "channelId": channelId,
+      "topMsgId": topMsgId,
+      "messages": messages,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Contacts Reset.
@@ -17325,6 +21375,17 @@ class UpdateContactsReset extends UpdateBase {
     buffer.writeInt32(0x7084a7be);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7084a7be",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17375,6 +21436,19 @@ class UpdateChannelAvailableMessages extends UpdateBase {
     buffer.writeInt32(availableMinId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb23fc698",
+      "channelId": channelId,
+      "availableMinId": availableMinId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17431,6 +21505,20 @@ class UpdateDialogUnreadMark extends UpdateBase {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe16459c3",
+      "flags": flags,
+      "unread": unread,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17502,6 +21590,21 @@ class UpdateMessagePoll extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaca1657b",
+      "flags": flags,
+      "pollId": pollId,
+      "poll": poll,
+      "results": results,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Chat Default Banned Rights.
@@ -17556,6 +21659,20 @@ class UpdateChatDefaultBannedRights extends UpdateBase {
     buffer.writeInt32(version);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x54c01850",
+      "peer": peer,
+      "defaultBannedRights": defaultBannedRights,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17614,6 +21731,20 @@ class UpdateFolderPeers extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x19360dc0",
+      "folderPeers": folderPeers,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Peer Settings.
@@ -17660,6 +21791,19 @@ class UpdatePeerSettings extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a7e7366",
+      "peer": peer,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Peer Located.
@@ -17699,6 +21843,18 @@ class UpdatePeerLocated extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4afcfb0",
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update New Scheduled Message.
@@ -17737,6 +21893,18 @@ class UpdateNewScheduledMessage extends UpdateBase {
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x39a51dfb",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17784,6 +21952,19 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x90866cee",
+      "peer": peer,
+      "messages": messages,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Theme.
@@ -17822,6 +22003,18 @@ class UpdateTheme extends UpdateBase {
     buffer.writeObject(theme);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8216fba3",
+      "theme": theme,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17871,6 +22064,19 @@ class UpdateGeoLiveViewed extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x871fb939",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Login Token.
@@ -17896,6 +22102,17 @@ class UpdateLoginToken extends UpdateBase {
     buffer.writeInt32(0x564fe691);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x564fe691",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -17961,6 +22178,21 @@ class UpdateMessagePollVote extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x24f40e77",
+      "pollId": pollId,
+      "peer": peer,
+      "options": options,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Dialog Filter.
@@ -18025,6 +22257,20 @@ class UpdateDialogFilter extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x26ffde7d",
+      "flags": flags,
+      "id": id,
+      "filter": filter,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Dialog Filter Order.
@@ -18064,6 +22310,18 @@ class UpdateDialogFilterOrder extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa5d72105",
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Dialog Filters.
@@ -18089,6 +22347,17 @@ class UpdateDialogFilters extends UpdateBase {
     buffer.writeInt32(0x3504914f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3504914f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18137,6 +22406,19 @@ class UpdatePhoneCallSignalingData extends UpdateBase {
     buffer.writeBytes(data);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2661bf09",
+      "phoneCallId": phoneCallId,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18196,6 +22478,20 @@ class UpdateChannelMessageForwards extends UpdateBase {
     buffer.writeInt32(forwards);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd29a27f4",
+      "channelId": channelId,
+      "id": id,
+      "forwards": forwards,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18289,6 +22585,23 @@ class UpdateReadChannelDiscussionInbox extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd6b19546",
+      "flags": flags,
+      "channelId": channelId,
+      "topMsgId": topMsgId,
+      "readMaxId": readMaxId,
+      "broadcastId": broadcastId,
+      "broadcastPost": broadcastPost,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Read Channel Discussion Outbox.
@@ -18347,6 +22660,20 @@ class UpdateReadChannelDiscussionOutbox extends UpdateBase {
     buffer.writeInt32(readMaxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x695c9e7c",
+      "channelId": channelId,
+      "topMsgId": topMsgId,
+      "readMaxId": readMaxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18410,6 +22737,21 @@ class UpdatePeerBlocked extends UpdateBase {
     buffer.writeObject(peerId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xebe07752",
+      "flags": flags,
+      "blocked": blocked,
+      "blockedMyStoriesFrom": blockedMyStoriesFrom,
+      "peerId": peerId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18487,6 +22829,22 @@ class UpdateChannelUserTyping extends UpdateBase {
     buffer.writeObject(action);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c88c923",
+      "flags": flags,
+      "channelId": channelId,
+      "topMsgId": topMsgId,
+      "fromId": fromId,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18568,6 +22926,23 @@ class UpdatePinnedMessages extends UpdateBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed85eab5",
+      "flags": flags,
+      "pinned": pinned,
+      "peer": peer,
+      "messages": messages,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18652,6 +23027,23 @@ class UpdatePinnedChannelMessages extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5bb98608",
+      "flags": flags,
+      "pinned": pinned,
+      "channelId": channelId,
+      "messages": messages,
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Chat.
@@ -18692,6 +23084,18 @@ class UpdateChat extends UpdateBase {
     buffer.writeInt64(chatId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf89a6a4e",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18748,6 +23152,20 @@ class UpdateGroupCallParticipants extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf2ebdb4e",
+      "call": call,
+      "participants": participants,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Group Call.
@@ -18795,6 +23213,19 @@ class UpdateGroupCall extends UpdateBase {
     buffer.writeObject(call);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x14b24500",
+      "chatId": chatId,
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18856,6 +23287,20 @@ class UpdatePeerHistoryTTL extends UpdateBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb9bb9a5",
+      "flags": flags,
+      "peer": peer,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -18982,6 +23427,26 @@ class UpdateChatParticipant extends UpdateBase {
     buffer.writeInt32(qts);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd087663a",
+      "flags": flags,
+      "chatId": chatId,
+      "date": date,
+      "actorId": actorId,
+      "userId": userId,
+      "prevParticipant": prevParticipant,
+      "newParticipant": newParticipant,
+      "invite": invite,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19116,6 +23581,27 @@ class UpdateChannelParticipant extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x985d3abb",
+      "flags": flags,
+      "viaChatlist": viaChatlist,
+      "channelId": channelId,
+      "date": date,
+      "actorId": actorId,
+      "userId": userId,
+      "prevParticipant": prevParticipant,
+      "newParticipant": newParticipant,
+      "invite": invite,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Bot Stopped.
@@ -19180,6 +23666,21 @@ class UpdateBotStopped extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4870a49",
+      "userId": userId,
+      "date": date,
+      "stopped": stopped,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Group Call Connection.
@@ -19236,6 +23737,20 @@ class UpdateGroupCallConnection extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0b783982",
+      "flags": flags,
+      "presentation": presentation,
+      "params": params,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Bot Commands.
@@ -19291,6 +23806,20 @@ class UpdateBotCommands extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4d712f2e",
+      "peer": peer,
+      "botId": botId,
+      "commands": commands,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Pending Join Requests.
@@ -19345,6 +23874,20 @@ class UpdatePendingJoinRequests extends UpdateBase {
     buffer.writeVectorInt64(recentRequesters);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7063c3db",
+      "peer": peer,
+      "requestsPending": requestsPending,
+      "recentRequesters": recentRequesters,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19424,6 +23967,23 @@ class UpdateBotChatInviteRequester extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11dfa986",
+      "peer": peer,
+      "date": date,
+      "userId": userId,
+      "about": about,
+      "invite": invite,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Message Reactions.
@@ -19501,6 +24061,22 @@ class UpdateMessageReactions extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e1b3cb8",
+      "flags": flags,
+      "peer": peer,
+      "msgId": msgId,
+      "topMsgId": topMsgId,
+      "reactions": reactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Attach Menu Bots.
@@ -19526,6 +24102,17 @@ class UpdateAttachMenuBots extends UpdateBase {
     buffer.writeInt32(0x17b7a20b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17b7a20b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19567,6 +24154,18 @@ class UpdateWebViewResultSent extends UpdateBase {
     buffer.writeInt64(queryId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1592b79d",
+      "queryId": queryId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19616,6 +24215,19 @@ class UpdateBotMenuButton extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x14b85813",
+      "botId": botId,
+      "button": button,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Saved Ringtones.
@@ -19641,6 +24253,17 @@ class UpdateSavedRingtones extends UpdateBase {
     buffer.writeInt32(0x74d8be99);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74d8be99",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19723,6 +24346,23 @@ class UpdateTranscribedAudio extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0084cd5a",
+      "flags": flags,
+      "pending": pending,
+      "peer": peer,
+      "msgId": msgId,
+      "transcriptionId": transcriptionId,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Read Featured Emoji Stickers.
@@ -19748,6 +24388,17 @@ class UpdateReadFeaturedEmojiStickers extends UpdateBase {
     buffer.writeInt32(0xfb4c496c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfb4c496c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19797,6 +24448,19 @@ class UpdateUserEmojiStatus extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x28373599",
+      "userId": userId,
+      "emojiStatus": emojiStatus,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Recent Emoji Statuses.
@@ -19823,6 +24487,17 @@ class UpdateRecentEmojiStatuses extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x30f443db",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Recent Reactions.
@@ -19848,6 +24523,17 @@ class UpdateRecentReactions extends UpdateBase {
     buffer.writeInt32(0x6f7863f4);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f7863f4",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -19914,6 +24600,21 @@ class UpdateMoveStickerSetToTop extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x86fccf85",
+      "flags": flags,
+      "masks": masks,
+      "emojis": emojis,
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Message Extended Media.
@@ -19968,6 +24669,20 @@ class UpdateMessageExtendedMedia extends UpdateBase {
     buffer.writeObject(extendedMedia);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a73a98c",
+      "peer": peer,
+      "msgId": msgId,
+      "extendedMedia": extendedMedia,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20036,6 +24751,21 @@ class UpdateChannelPinnedTopic extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x192efbe3",
+      "flags": flags,
+      "pinned": pinned,
+      "channelId": channelId,
+      "topicId": topicId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Channel Pinned Topics.
@@ -20099,6 +24829,20 @@ class UpdateChannelPinnedTopics extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfe198602",
+      "flags": flags,
+      "channelId": channelId,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update User.
@@ -20140,6 +24884,18 @@ class UpdateUser extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x20529438",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Auto Save Settings.
@@ -20165,6 +24921,17 @@ class UpdateAutoSaveSettings extends UpdateBase {
     buffer.writeInt32(0xec05b097);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec05b097",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20206,6 +24973,18 @@ class UpdateGroupInvitePrivacyForbidden extends UpdateBase {
     buffer.writeInt64(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xccf08ad6",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20252,6 +25031,19 @@ class UpdateStory extends UpdateBase {
     buffer.writeObject(story);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x75b3b798",
+      "peer": peer,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20300,6 +25092,19 @@ class UpdateReadStories extends UpdateBase {
     buffer.writeInt32(maxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf74e932b",
+      "peer": peer,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20351,6 +25156,19 @@ class UpdateStoryID extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1bf335b9",
+      "id": id,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Stories Stealth Mode.
@@ -20389,6 +25207,18 @@ class UpdateStoriesStealthMode extends UpdateBase {
     buffer.writeObject(stealthMode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2c084dc1",
+      "stealthMode": stealthMode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20445,6 +25275,20 @@ class UpdateSentStoryReaction extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7d627683",
+      "peer": peer,
+      "storyId": storyId,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Bot Chat Boost.
@@ -20500,6 +25344,20 @@ class UpdateBotChatBoost extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x904dd49c",
+      "peer": peer,
+      "boost": boost,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Channel View Forum As Messages.
@@ -20547,6 +25405,19 @@ class UpdateChannelViewForumAsMessages extends UpdateBase {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x07b68920",
+      "channelId": channelId,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20616,6 +25487,21 @@ class UpdatePeerWallpaper extends UpdateBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xae3f101d",
+      "flags": flags,
+      "wallpaperOverridden": wallpaperOverridden,
+      "peer": peer,
+      "wallpaper": wallpaper,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20702,6 +25588,24 @@ class UpdateBotMessageReaction extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xac21d3ce",
+      "peer": peer,
+      "msgId": msgId,
+      "date": date,
+      "actor": actor,
+      "oldReactions": oldReactions,
+      "newReactions": newReactions,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Bot Message Reactions.
@@ -20773,6 +25677,22 @@ class UpdateBotMessageReactions extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x09cb7759",
+      "peer": peer,
+      "msgId": msgId,
+      "date": date,
+      "reactions": reactions,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Saved Dialog Pinned.
@@ -20829,6 +25749,20 @@ class UpdateSavedDialogPinned extends UpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaeaf9e74",
+      "flags": flags,
+      "pinned": pinned,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Pinned Saved Dialogs.
@@ -20883,6 +25817,19 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x686c85a6",
+      "flags": flags,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -20959,6 +25906,22 @@ class UpdatesState extends UpdatesStateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa56c2a3e",
+      "pts": pts,
+      "qts": qts,
+      "date": date,
+      "seq": seq,
+      "unreadCount": unreadCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Updates Difference Empty.
@@ -21006,6 +25969,19 @@ class UpdatesDifferenceEmpty extends UpdatesDifferenceBase {
     buffer.writeInt32(seq);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5d75a138",
+      "date": date,
+      "seq": seq,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -21082,6 +26058,23 @@ class UpdatesDifference extends UpdatesDifferenceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x00f49ca0",
+      "newMessages": newMessages,
+      "newEncryptedMessages": newEncryptedMessages,
+      "otherUpdates": otherUpdates,
+      "chats": chats,
+      "users": users,
+      "state": state,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Updates Difference Slice.
@@ -21157,6 +26150,23 @@ class UpdatesDifferenceSlice extends UpdatesDifferenceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa8fb1981",
+      "newMessages": newMessages,
+      "newEncryptedMessages": newEncryptedMessages,
+      "otherUpdates": otherUpdates,
+      "chats": chats,
+      "users": users,
+      "intermediateState": intermediateState,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Updates Difference Too Long.
@@ -21198,6 +26208,18 @@ class UpdatesDifferenceTooLong extends UpdatesDifferenceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4afe8f6d",
+      "pts": pts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Updates Too Long.
@@ -21223,6 +26245,17 @@ class UpdatesTooLong extends UpdatesBase {
     buffer.writeInt32(0xe317af7e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe317af7e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -21406,6 +26439,33 @@ class UpdateShortMessage extends UpdatesBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x313bc7f8",
+      "flags": flags,
+      "out": out,
+      "mentioned": mentioned,
+      "mediaUnread": mediaUnread,
+      "silent": silent,
+      "id": id,
+      "userId": userId,
+      "message": message,
+      "pts": pts,
+      "ptsCount": ptsCount,
+      "date": date,
+      "fwdFrom": fwdFrom,
+      "viaBotId": viaBotId,
+      "replyTo": replyTo,
+      "entities": entities,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -21599,6 +26659,34 @@ class UpdateShortChatMessage extends UpdatesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4d6deea5",
+      "flags": flags,
+      "out": out,
+      "mentioned": mentioned,
+      "mediaUnread": mediaUnread,
+      "silent": silent,
+      "id": id,
+      "fromId": fromId,
+      "chatId": chatId,
+      "message": message,
+      "pts": pts,
+      "ptsCount": ptsCount,
+      "date": date,
+      "fwdFrom": fwdFrom,
+      "viaBotId": viaBotId,
+      "replyTo": replyTo,
+      "entities": entities,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Update Short.
@@ -21644,6 +26732,19 @@ class UpdateShort extends UpdatesBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x78d4dec1",
+      "update": update,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -21723,6 +26824,23 @@ class UpdatesCombined extends UpdatesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x725b04c3",
+      "updates": updates,
+      "users": users,
+      "chats": chats,
+      "date": date,
+      "seqStart": seqStart,
+      "seq": seq,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Updates.
@@ -21791,6 +26909,22 @@ class Updates extends UpdatesBase {
     buffer.writeInt32(seq);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74ae4240",
+      "updates": updates,
+      "users": users,
+      "chats": chats,
+      "date": date,
+      "seq": seq,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -21913,6 +27047,26 @@ class UpdateShortSentMessage extends UpdatesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9015e101",
+      "flags": flags,
+      "out": out,
+      "id": id,
+      "pts": pts,
+      "ptsCount": ptsCount,
+      "date": date,
+      "media": media,
+      "entities": entities,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photos Photos.
@@ -21958,6 +27112,19 @@ class PhotosPhotos extends PhotosPhotosBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8dca6aa5",
+      "photos": photos,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -22014,6 +27181,20 @@ class PhotosPhotosSlice extends PhotosPhotosBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15051f54",
+      "count": count,
+      "photos": photos,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photos Photo.
@@ -22059,6 +27240,19 @@ class PhotosPhoto extends PhotosPhotoBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x20212ca8",
+      "photo": photo,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -22114,6 +27308,20 @@ class UploadFile extends UploadFileBase {
     buffer.writeBytes(bytes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x096a18d5",
+      "type": type,
+      "mtime": mtime,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -22183,6 +27391,22 @@ class UploadFileCdnRedirect extends UploadFileBase {
     buffer.writeVectorObject(fileHashes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf18cda44",
+      "dcId": dcId,
+      "fileToken": fileToken,
+      "encryptionKey": encryptionKey,
+      "encryptionIv": encryptionIv,
+      "fileHashes": fileHashes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -22304,6 +27528,28 @@ class DcOption extends DcOptionBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x18b7a10d",
+      "flags": flags,
+      "ipv6": ipv6,
+      "mediaOnly": mediaOnly,
+      "tcpoOnly": tcpoOnly,
+      "cdn": cdn,
+      "static": static,
+      "thisPortOnly": thisPortOnly,
+      "id": id,
+      "ipAddress": ipAddress,
+      "port": port,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -22791,6 +28037,65 @@ class Config extends ConfigBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc1a241e",
+      "flags": flags,
+      "defaultP2pContacts": defaultP2pContacts,
+      "preloadFeaturedStickers": preloadFeaturedStickers,
+      "revokePmInbox": revokePmInbox,
+      "blockedMode": blockedMode,
+      "forceTryIpv6": forceTryIpv6,
+      "date": date,
+      "expires": expires,
+      "testMode": testMode,
+      "thisDc": thisDc,
+      "dcOptions": dcOptions,
+      "dcTxtDomainName": dcTxtDomainName,
+      "chatSizeMax": chatSizeMax,
+      "megagroupSizeMax": megagroupSizeMax,
+      "forwardedCountMax": forwardedCountMax,
+      "onlineUpdatePeriodMs": onlineUpdatePeriodMs,
+      "offlineBlurTimeoutMs": offlineBlurTimeoutMs,
+      "offlineIdleTimeoutMs": offlineIdleTimeoutMs,
+      "onlineCloudTimeoutMs": onlineCloudTimeoutMs,
+      "notifyCloudDelayMs": notifyCloudDelayMs,
+      "notifyDefaultDelayMs": notifyDefaultDelayMs,
+      "pushChatPeriodMs": pushChatPeriodMs,
+      "pushChatLimit": pushChatLimit,
+      "editTimeLimit": editTimeLimit,
+      "revokeTimeLimit": revokeTimeLimit,
+      "revokePmTimeLimit": revokePmTimeLimit,
+      "ratingEDecay": ratingEDecay,
+      "stickersRecentLimit": stickersRecentLimit,
+      "channelsReadMediaPeriod": channelsReadMediaPeriod,
+      "tmpSessions": tmpSessions,
+      "callReceiveTimeoutMs": callReceiveTimeoutMs,
+      "callRingTimeoutMs": callRingTimeoutMs,
+      "callConnectTimeoutMs": callConnectTimeoutMs,
+      "callPacketTimeoutMs": callPacketTimeoutMs,
+      "meUrlPrefix": meUrlPrefix,
+      "autoupdateUrlPrefix": autoupdateUrlPrefix,
+      "gifSearchUsername": gifSearchUsername,
+      "venueSearchUsername": venueSearchUsername,
+      "imgSearchUsername": imgSearchUsername,
+      "staticMapsProvider": staticMapsProvider,
+      "captionLengthMax": captionLengthMax,
+      "messageLengthMax": messageLengthMax,
+      "webfileDcId": webfileDcId,
+      "suggestedLangCode": suggestedLangCode,
+      "langPackVersion": langPackVersion,
+      "baseLangPackVersion": baseLangPackVersion,
+      "reactionsDefault": reactionsDefault,
+      "autologinToken": autologinToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Nearest Dc.
@@ -22847,6 +28152,20 @@ class NearestDc extends NearestDcBase {
     buffer.writeInt32(nearestDc);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8e1a1775",
+      "country": country,
+      "thisDc": thisDc,
+      "nearestDc": nearestDc,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -22965,6 +28284,26 @@ class HelpAppUpdate extends HelpAppUpdateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xccbbce30",
+      "flags": flags,
+      "canNotSkip": canNotSkip,
+      "id": id,
+      "version": version,
+      "text": text,
+      "entities": entities,
+      "document": document,
+      "url": url,
+      "sticker": sticker,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help No App Update.
@@ -22990,6 +28329,17 @@ class HelpNoAppUpdate extends HelpAppUpdateBase {
     buffer.writeInt32(0xc45a6536);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc45a6536",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23029,6 +28379,18 @@ class HelpInviteText extends HelpInviteTextBase {
     buffer.writeString(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x18cb9f78",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23070,6 +28432,18 @@ class EncryptedChatEmpty extends EncryptedChatBase {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xab7ec0a0",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23145,6 +28519,22 @@ class EncryptedChatWaiting extends EncryptedChatBase {
     buffer.writeInt64(participantId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x66b25953",
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23250,6 +28640,25 @@ class EncryptedChatRequested extends EncryptedChatBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x48f1d94c",
+      "flags": flags,
+      "folderId": folderId,
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+      "gA": gA,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Encrypted Chat.
@@ -23341,6 +28750,24 @@ class EncryptedChat extends EncryptedChatBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x61f0d4c7",
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+      "gAOrB": gAOrB,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Encrypted Chat Discarded.
@@ -23399,6 +28826,20 @@ class EncryptedChatDiscarded extends EncryptedChatBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e1c7c45",
+      "flags": flags,
+      "historyDeleted": historyDeleted,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Encrypted Chat.
@@ -23449,6 +28890,19 @@ class InputEncryptedChat extends InputEncryptedChatBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf141b5e1",
+      "chatId": chatId,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Encrypted File Empty.
@@ -23474,6 +28928,17 @@ class EncryptedFileEmpty extends EncryptedFileBase {
     buffer.writeInt32(0xc21f497e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc21f497e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23552,6 +29017,22 @@ class EncryptedFile extends EncryptedFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa8008cd8",
+      "id": id,
+      "accessHash": accessHash,
+      "size": size,
+      "dcId": dcId,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Encrypted File Empty.
@@ -23577,6 +29058,17 @@ class InputEncryptedFileEmpty extends InputEncryptedFileBase {
     buffer.writeInt32(0x1837c364);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1837c364",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23644,6 +29136,21 @@ class InputEncryptedFileUploaded extends InputEncryptedFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64bd0306",
+      "id": id,
+      "parts": parts,
+      "md5Checksum": md5Checksum,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Encrypted File.
@@ -23693,6 +29200,19 @@ class InputEncryptedFile extends InputEncryptedFileBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a17b5e5",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23752,6 +29272,20 @@ class InputEncryptedFileBigUploaded extends InputEncryptedFileBase {
     buffer.writeInt32(keyFingerprint);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2dc173c8",
+      "id": id,
+      "parts": parts,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23824,6 +29358,22 @@ class EncryptedMessage extends EncryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed18c118",
+      "randomId": randomId,
+      "chatId": chatId,
+      "date": date,
+      "bytes": bytes,
+      "file": file,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Encrypted Message Service.
@@ -23888,6 +29438,21 @@ class EncryptedMessageService extends EncryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x23734b06",
+      "randomId": randomId,
+      "chatId": chatId,
+      "date": date,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Dh Config Not Modified.
@@ -23926,6 +29491,18 @@ class MessagesDhConfigNotModified extends MessagesDhConfigBase {
     buffer.writeBytes(random);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc0e24635",
+      "random": random,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -23991,6 +29568,21 @@ class MessagesDhConfig extends MessagesDhConfigBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2c221edd",
+      "g": g,
+      "p": p,
+      "version": version,
+      "random": random,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Sent Encrypted Message.
@@ -24029,6 +29621,18 @@ class MessagesSentEncryptedMessage extends MessagesSentEncryptedMessageBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x560f8935",
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24076,6 +29680,19 @@ class MessagesSentEncryptedFile extends MessagesSentEncryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9493ff32",
+      "date": date,
+      "file": file,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Document Empty.
@@ -24101,6 +29718,17 @@ class InputDocumentEmpty extends InputDocumentBase {
     buffer.writeInt32(0x72f0eaae);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x72f0eaae",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24159,6 +29787,20 @@ class InputDocument extends InputDocumentBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1abfb575",
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Empty.
@@ -24199,6 +29841,18 @@ class DocumentEmpty extends DocumentBase {
     buffer.writeInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x36f8c871",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24332,6 +29986,28 @@ class Document extends DocumentBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8fd4c4d8",
+      "flags": flags,
+      "id": id,
+      "accessHash": accessHash,
+      "fileReference": fileReference,
+      "date": date,
+      "mimeType": mimeType,
+      "size": size,
+      "thumbs": thumbs,
+      "videoThumbs": videoThumbs,
+      "dcId": dcId,
+      "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Support.
@@ -24378,6 +30054,19 @@ class HelpSupport extends HelpSupportBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17c6b5f6",
+      "phoneNumber": phoneNumber,
+      "user": user,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Notify Peer.
@@ -24417,6 +30106,18 @@ class NotifyPeer extends NotifyPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9fd40bd8",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Notify Users.
@@ -24442,6 +30143,17 @@ class NotifyUsers extends NotifyPeerBase {
     buffer.writeInt32(0xb4c83b4c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4c83b4c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24469,6 +30181,17 @@ class NotifyChats extends NotifyPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc007cec3",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Notify Broadcasts.
@@ -24494,6 +30217,17 @@ class NotifyBroadcasts extends NotifyPeerBase {
     buffer.writeInt32(0xd612e8ef);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd612e8ef",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24543,6 +30277,19 @@ class NotifyForumTopic extends NotifyPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x226e6308",
+      "peer": peer,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Typing Action.
@@ -24568,6 +30315,17 @@ class SendMessageTypingAction extends SendMessageActionBase {
     buffer.writeInt32(0x16bf744e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x16bf744e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24595,6 +30353,17 @@ class SendMessageCancelAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfd5ec8f5",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Record Video Action.
@@ -24620,6 +30389,17 @@ class SendMessageRecordVideoAction extends SendMessageActionBase {
     buffer.writeInt32(0xa187d66f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa187d66f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24662,6 +30442,18 @@ class SendMessageUploadVideoAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe9763aec",
+      "progress": progress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Record Audio Action.
@@ -24687,6 +30479,17 @@ class SendMessageRecordAudioAction extends SendMessageActionBase {
     buffer.writeInt32(0xd52f73f7);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd52f73f7",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24729,6 +30532,18 @@ class SendMessageUploadAudioAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf351d7ab",
+      "progress": progress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Upload Photo Action.
@@ -24769,6 +30584,18 @@ class SendMessageUploadPhotoAction extends SendMessageActionBase {
     buffer.writeInt32(progress);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1d34a26",
+      "progress": progress,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24811,6 +30638,18 @@ class SendMessageUploadDocumentAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaa0cd9e4",
+      "progress": progress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Geo Location Action.
@@ -24836,6 +30675,17 @@ class SendMessageGeoLocationAction extends SendMessageActionBase {
     buffer.writeInt32(0x176f8ba1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x176f8ba1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24863,6 +30713,17 @@ class SendMessageChooseContactAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x628cbc6f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Game Play Action.
@@ -24889,6 +30750,17 @@ class SendMessageGamePlayAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdd6a8f48",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Record Round Action.
@@ -24914,6 +30786,17 @@ class SendMessageRecordRoundAction extends SendMessageActionBase {
     buffer.writeInt32(0x88f27fbc);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x88f27fbc",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -24956,6 +30839,18 @@ class SendMessageUploadRoundAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x243e1c66",
+      "progress": progress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Speaking In Group Call Action.
@@ -24981,6 +30876,17 @@ class SpeakingInGroupCallAction extends SendMessageActionBase {
     buffer.writeInt32(0xd92c2285);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd92c2285",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25023,6 +30929,18 @@ class SendMessageHistoryImportAction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdbda9246",
+      "progress": progress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Choose Sticker Action.
@@ -25048,6 +30966,17 @@ class SendMessageChooseStickerAction extends SendMessageActionBase {
     buffer.writeInt32(0xb05ac6b1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb05ac6b1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25104,6 +31033,20 @@ class SendMessageEmojiInteraction extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x25972bcb",
+      "emoticon": emoticon,
+      "msgId": msgId,
+      "interaction": interaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Emoji Interaction Seen.
@@ -25142,6 +31085,18 @@ class SendMessageEmojiInteractionSeen extends SendMessageActionBase {
     buffer.writeString(emoticon);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb665902e",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25203,6 +31158,21 @@ class ContactsFound extends ContactsFoundBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb3134d9d",
+      "myResults": myResults,
+      "results": results,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Key Status Timestamp.
@@ -25228,6 +31198,17 @@ class InputPrivacyKeyStatusTimestamp extends InputPrivacyKeyBase {
     buffer.writeInt32(0x4f96cb18);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4f96cb18",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25255,6 +31236,17 @@ class InputPrivacyKeyChatInvite extends InputPrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdfb0426",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Key Phone Call.
@@ -25280,6 +31272,17 @@ class InputPrivacyKeyPhoneCall extends InputPrivacyKeyBase {
     buffer.writeInt32(0xfabadc5f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfabadc5f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25307,6 +31310,17 @@ class InputPrivacyKeyPhoneP2P extends InputPrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb9e70d2",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Key Forwards.
@@ -25332,6 +31346,17 @@ class InputPrivacyKeyForwards extends InputPrivacyKeyBase {
     buffer.writeInt32(0xa4dd4c08);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa4dd4c08",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25359,6 +31384,17 @@ class InputPrivacyKeyProfilePhoto extends InputPrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5719bacc",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Key Phone Number.
@@ -25384,6 +31420,17 @@ class InputPrivacyKeyPhoneNumber extends InputPrivacyKeyBase {
     buffer.writeInt32(0x0352dafa);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0352dafa",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25411,6 +31458,17 @@ class InputPrivacyKeyAddedByPhone extends InputPrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1219bdd",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Key Voice Messages.
@@ -25436,6 +31494,17 @@ class InputPrivacyKeyVoiceMessages extends InputPrivacyKeyBase {
     buffer.writeInt32(0xaee69d68);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaee69d68",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25463,6 +31532,17 @@ class InputPrivacyKeyAbout extends InputPrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3823cc40",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Key Status Timestamp.
@@ -25488,6 +31568,17 @@ class PrivacyKeyStatusTimestamp extends PrivacyKeyBase {
     buffer.writeInt32(0xbc2eab30);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbc2eab30",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25515,6 +31606,17 @@ class PrivacyKeyChatInvite extends PrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x500e6dfa",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Key Phone Call.
@@ -25540,6 +31642,17 @@ class PrivacyKeyPhoneCall extends PrivacyKeyBase {
     buffer.writeInt32(0x3d662b7b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3d662b7b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25567,6 +31680,17 @@ class PrivacyKeyPhoneP2P extends PrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x39491cc8",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Key Forwards.
@@ -25592,6 +31716,17 @@ class PrivacyKeyForwards extends PrivacyKeyBase {
     buffer.writeInt32(0x69ec56a3);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x69ec56a3",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25619,6 +31754,17 @@ class PrivacyKeyProfilePhoto extends PrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x96151fed",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Key Phone Number.
@@ -25644,6 +31790,17 @@ class PrivacyKeyPhoneNumber extends PrivacyKeyBase {
     buffer.writeInt32(0xd19ae46d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd19ae46d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25671,6 +31828,17 @@ class PrivacyKeyAddedByPhone extends PrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x42ffd42b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Key Voice Messages.
@@ -25696,6 +31864,17 @@ class PrivacyKeyVoiceMessages extends PrivacyKeyBase {
     buffer.writeInt32(0x0697f414);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0697f414",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25723,6 +31902,17 @@ class PrivacyKeyAbout extends PrivacyKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa486b761",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Value Allow Contacts.
@@ -25749,6 +31939,17 @@ class InputPrivacyValueAllowContacts extends InputPrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0d09e07b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Value Allow All.
@@ -25774,6 +31975,17 @@ class InputPrivacyValueAllowAll extends InputPrivacyRuleBase {
     buffer.writeInt32(0x184b35ce);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x184b35ce",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25814,6 +32026,18 @@ class InputPrivacyValueAllowUsers extends InputPrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x131cc67f",
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Value Disallow Contacts.
@@ -25840,6 +32064,17 @@ class InputPrivacyValueDisallowContacts extends InputPrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ba52007",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Value Disallow All.
@@ -25865,6 +32100,17 @@ class InputPrivacyValueDisallowAll extends InputPrivacyRuleBase {
     buffer.writeInt32(0xd66b66c9);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd66b66c9",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25904,6 +32150,18 @@ class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x90110467",
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -25945,6 +32203,18 @@ class InputPrivacyValueAllowChatParticipants extends InputPrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x840649cf",
+      "chats": chats,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Value Disallow Chat Participants.
@@ -25985,6 +32255,18 @@ class InputPrivacyValueDisallowChatParticipants extends InputPrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe94f0f86",
+      "chats": chats,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Privacy Value Allow Close Friends.
@@ -26010,6 +32292,17 @@ class InputPrivacyValueAllowCloseFriends extends InputPrivacyRuleBase {
     buffer.writeInt32(0x2f453e49);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2f453e49",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26037,6 +32330,17 @@ class PrivacyValueAllowContacts extends PrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfffe1bac",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Value Allow All.
@@ -26062,6 +32366,17 @@ class PrivacyValueAllowAll extends PrivacyRuleBase {
     buffer.writeInt32(0x65427b82);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x65427b82",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26102,6 +32417,18 @@ class PrivacyValueAllowUsers extends PrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb8905fb2",
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Value Disallow Contacts.
@@ -26128,6 +32455,17 @@ class PrivacyValueDisallowContacts extends PrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf888fa1a",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Value Disallow All.
@@ -26153,6 +32491,17 @@ class PrivacyValueDisallowAll extends PrivacyRuleBase {
     buffer.writeInt32(0x8b73e763);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8b73e763",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26193,6 +32542,18 @@ class PrivacyValueDisallowUsers extends PrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe4621141",
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Value Allow Chat Participants.
@@ -26231,6 +32592,18 @@ class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
     buffer.writeVectorInt64(chats);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6b134e8e",
+      "chats": chats,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26272,6 +32645,18 @@ class PrivacyValueDisallowChatParticipants extends PrivacyRuleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x41c87565",
+      "chats": chats,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Privacy Value Allow Close Friends.
@@ -26297,6 +32682,17 @@ class PrivacyValueAllowCloseFriends extends PrivacyRuleBase {
     buffer.writeInt32(0xf7e8d89b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf7e8d89b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26351,6 +32747,20 @@ class AccountPrivacyRules extends AccountPrivacyRulesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50a04e45",
+      "rules": rules,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Days T T L.
@@ -26391,6 +32801,18 @@ class AccountDaysTTL extends AccountDaysTTLBase {
     buffer.writeInt32(days);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb8d0afdf",
+      "days": days,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26442,6 +32864,19 @@ class DocumentAttributeImageSize extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c37c15c",
+      "w": w,
+      "h": h,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Animated.
@@ -26467,6 +32902,17 @@ class DocumentAttributeAnimated extends DocumentAttributeBase {
     buffer.writeInt32(0x11b58939);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11b58939",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26543,6 +32989,22 @@ class DocumentAttributeSticker extends DocumentAttributeBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6319d612",
+      "flags": flags,
+      "mask": mask,
+      "alt": alt,
+      "stickerset": stickerset,
+      "maskCoords": maskCoords,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26645,6 +33107,25 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd38ff1c2",
+      "flags": flags,
+      "roundMessage": roundMessage,
+      "supportsStreaming": supportsStreaming,
+      "nosound": nosound,
+      "duration": duration,
+      "w": w,
+      "h": h,
+      "preloadPrefixSize": preloadPrefixSize,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Audio.
@@ -26739,6 +33220,23 @@ class DocumentAttributeAudio extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9852f9c6",
+      "flags": flags,
+      "voice": voice,
+      "duration": duration,
+      "title": title,
+      "performer": performer,
+      "waveform": waveform,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Filename.
@@ -26778,6 +33276,18 @@ class DocumentAttributeFilename extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15590068",
+      "fileName": fileName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Has Stickers.
@@ -26803,6 +33313,17 @@ class DocumentAttributeHasStickers extends DocumentAttributeBase {
     buffer.writeInt32(0x9801d2f7);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9801d2f7",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26874,6 +33395,22 @@ class DocumentAttributeCustomEmoji extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfd149899",
+      "flags": flags,
+      "free": free,
+      "textColor": textColor,
+      "alt": alt,
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Stickers Not Modified.
@@ -26899,6 +33436,17 @@ class MessagesStickersNotModified extends MessagesStickersBase {
     buffer.writeInt32(0xf1749a22);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf1749a22",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -26948,6 +33496,19 @@ class MessagesStickers extends MessagesStickersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x30a6ec7e",
+      "hash": hash,
+      "stickers": stickers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Sticker Pack.
@@ -26994,6 +33555,19 @@ class StickerPack extends StickerPackBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x12b299d4",
+      "emoticon": emoticon,
+      "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages All Stickers Not Modified.
@@ -27019,6 +33593,17 @@ class MessagesAllStickersNotModified extends MessagesAllStickersBase {
     buffer.writeInt32(0xe86602c3);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe86602c3",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27067,6 +33652,19 @@ class MessagesAllStickers extends MessagesAllStickersBase {
     buffer.writeVectorObject(sets);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcdbbcebb",
+      "hash": hash,
+      "sets": sets,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27117,6 +33715,19 @@ class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
     buffer.writeInt32(ptsCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x84d19185",
+      "pts": pts,
+      "ptsCount": ptsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27180,6 +33791,20 @@ class WebPageEmpty extends WebPageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x211a1788",
+      "flags": flags,
+      "id": id,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27250,6 +33875,21 @@ class WebPagePending extends WebPageBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb0d13e47",
+      "flags": flags,
+      "id": id,
+      "url": url,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27502,6 +34142,37 @@ class WebPage extends WebPageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe89c45b2",
+      "flags": flags,
+      "hasLargeMedia": hasLargeMedia,
+      "id": id,
+      "url": url,
+      "displayUrl": displayUrl,
+      "hash": hash,
+      "type": type,
+      "siteName": siteName,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "embedUrl": embedUrl,
+      "embedType": embedType,
+      "embedWidth": embedWidth,
+      "embedHeight": embedHeight,
+      "duration": duration,
+      "author": author,
+      "document": document,
+      "cachedPage": cachedPage,
+      "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Web Page Not Modified.
@@ -27555,6 +34226,19 @@ class WebPageNotModified extends WebPageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7311ca11",
+      "flags": flags,
+      "cachedPageViews": cachedPageViews,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27728,6 +34412,36 @@ class Authorization extends AuthorizationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad01d61d",
+      "flags": flags,
+      "current": current,
+      "officialApp": officialApp,
+      "passwordPending": passwordPending,
+      "encryptedRequestsDisabled": encryptedRequestsDisabled,
+      "callRequestsDisabled": callRequestsDisabled,
+      "unconfirmed": unconfirmed,
+      "hash": hash,
+      "deviceModel": deviceModel,
+      "platform": platform,
+      "systemVersion": systemVersion,
+      "apiId": apiId,
+      "appName": appName,
+      "appVersion": appVersion,
+      "dateCreated": dateCreated,
+      "dateActive": dateActive,
+      "ip": ip,
+      "country": country,
+      "region": region,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Authorizations.
@@ -27775,6 +34489,19 @@ class AccountAuthorizations extends AccountAuthorizationsBase {
     buffer.writeVectorObject(authorizations);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4bff8ea0",
+      "authorizationTtlDays": authorizationTtlDays,
+      "authorizations": authorizations,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -27945,6 +34672,31 @@ class AccountPassword extends AccountPasswordBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x957b50fb",
+      "flags": flags,
+      "hasRecovery": hasRecovery,
+      "hasSecureValues": hasSecureValues,
+      "hasPassword": hasPassword,
+      "currentAlgo": currentAlgo,
+      "srpB": srpB,
+      "srpId": srpId,
+      "hint": hint,
+      "emailUnconfirmedPattern": emailUnconfirmedPattern,
+      "newAlgo": newAlgo,
+      "newSecureAlgo": newSecureAlgo,
+      "secureRandom": secureRandom,
+      "pendingResetDate": pendingResetDate,
+      "loginEmailPattern": loginEmailPattern,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Password Settings.
@@ -28012,6 +34764,20 @@ class AccountPasswordSettings extends AccountPasswordSettingsBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a5c33e5",
+      "flags": flags,
+      "email": email,
+      "secureSettings": secureSettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28116,6 +34882,23 @@ class AccountPasswordInputSettings extends AccountPasswordInputSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc23727c9",
+      "flags": flags,
+      "newAlgo": newAlgo,
+      "newPasswordHash": newPasswordHash,
+      "hint": hint,
+      "email": email,
+      "newSecureSettings": newSecureSettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Password Recovery.
@@ -28154,6 +34937,18 @@ class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
     buffer.writeString(emailPattern);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x137948a5",
+      "emailPattern": emailPattern,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28204,6 +34999,19 @@ class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa384b779",
+      "id": id,
+      "flags": flags,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28363,6 +35171,30 @@ class ChatInviteExported extends ExportedChatInviteBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ab4a819",
+      "flags": flags,
+      "revoked": revoked,
+      "permanent": permanent,
+      "requestNeeded": requestNeeded,
+      "link": link,
+      "adminId": adminId,
+      "date": date,
+      "startDate": startDate,
+      "expireDate": expireDate,
+      "usageLimit": usageLimit,
+      "usage": usage,
+      "requested": requested,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Invite Public Join Requests.
@@ -28388,6 +35220,17 @@ class ChatInvitePublicJoinRequests extends ExportedChatInviteBase {
     buffer.writeInt32(0xed107ab7);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed107ab7",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28427,6 +35270,18 @@ class ChatInviteAlready extends ChatInviteBase {
     buffer.writeObject(chat);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a686d7c",
+      "chat": chat,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28583,6 +35438,32 @@ class ChatInvite extends ChatInviteBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcde0ec40",
+      "flags": flags,
+      "channel": channel,
+      "broadcast": broadcast,
+      "public": public,
+      "megagroup": megagroup,
+      "requestNeeded": requestNeeded,
+      "verified": verified,
+      "scam": scam,
+      "fake": fake,
+      "title": title,
+      "about": about,
+      "photo": photo,
+      "participantsCount": participantsCount,
+      "participants": participants,
+      "color": color,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Invite Peek.
@@ -28631,6 +35512,19 @@ class ChatInvitePeek extends ChatInviteBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x61695cb0",
+      "chat": chat,
+      "expires": expires,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Empty.
@@ -28656,6 +35550,17 @@ class InputStickerSetEmpty extends InputStickerSetBase {
     buffer.writeInt32(0xffb62b95);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xffb62b95",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28707,6 +35612,19 @@ class InputStickerSetID extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9de7a269",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Short Name.
@@ -28746,6 +35664,18 @@ class InputStickerSetShortName extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x861cc8a0",
+      "shortName": shortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Animated Emoji.
@@ -28771,6 +35701,17 @@ class InputStickerSetAnimatedEmoji extends InputStickerSetBase {
     buffer.writeInt32(0x028703c8);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x028703c8",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28811,6 +35752,18 @@ class InputStickerSetDice extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe67f520e",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Animated Emoji Animations.
@@ -28838,6 +35791,17 @@ class InputStickerSetAnimatedEmojiAnimations extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0cde3739",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Premium Gifts.
@@ -28863,6 +35827,17 @@ class InputStickerSetPremiumGifts extends InputStickerSetBase {
     buffer.writeInt32(0xc88b3b02);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc88b3b02",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28891,6 +35866,17 @@ class InputStickerSetEmojiGenericAnimations extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x04c4d4ce",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Emoji Default Statuses.
@@ -28916,6 +35902,17 @@ class InputStickerSetEmojiDefaultStatuses extends InputStickerSetBase {
     buffer.writeInt32(0x29d0f5ee);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x29d0f5ee",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -28944,6 +35941,17 @@ class InputStickerSetEmojiDefaultTopicIcons extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x44c1f8e9",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Emoji Channel Default Statuses.
@@ -28970,6 +35978,17 @@ class InputStickerSetEmojiChannelDefaultStatuses extends InputStickerSetBase {
     buffer.writeInt32(0x49748553);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x49748553",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29178,6 +36197,37 @@ class StickerSet extends StickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2dd14edc",
+      "flags": flags,
+      "archived": archived,
+      "official": official,
+      "masks": masks,
+      "animated": animated,
+      "videos": videos,
+      "emojis": emojis,
+      "textColor": textColor,
+      "channelEmojiStatus": channelEmojiStatus,
+      "installedDate": installedDate,
+      "id": id,
+      "accessHash": accessHash,
+      "title": title,
+      "shortName": shortName,
+      "thumbs": thumbs,
+      "thumbDcId": thumbDcId,
+      "thumbVersion": thumbVersion,
+      "thumbDocumentId": thumbDocumentId,
+      "count": count,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Sticker Set.
@@ -29238,6 +36288,21 @@ class MessagesStickerSet extends MessagesStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6e153f16",
+      "set": set,
+      "packs": packs,
+      "keywords": keywords,
+      "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Sticker Set Not Modified.
@@ -29263,6 +36328,17 @@ class MessagesStickerSetNotModified extends MessagesStickerSetBase {
     buffer.writeInt32(0xd3f924eb);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd3f924eb",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29309,6 +36385,19 @@ class BotCommand extends BotCommandBase {
     buffer.writeString(description);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc27ac8c7",
+      "command": command,
+      "description": description,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29429,6 +36518,24 @@ class BotInfo extends BotInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8f300b57",
+      "flags": flags,
+      "userId": userId,
+      "description": description,
+      "descriptionPhoto": descriptionPhoto,
+      "descriptionDocument": descriptionDocument,
+      "commands": commands,
+      "menuButton": menuButton,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button.
@@ -29467,6 +36574,18 @@ class KeyboardButton extends KeyboardButtonBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2fa4880",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29513,6 +36632,19 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x258aff05",
+      "text": text,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29577,6 +36709,21 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35bbdb6b",
+      "flags": flags,
+      "requiresPassword": requiresPassword,
+      "text": text,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Request Phone.
@@ -29616,6 +36763,18 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb16a6c29",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Request Geo Location.
@@ -29654,6 +36813,18 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfc796b3f",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29732,6 +36903,22 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93b9fbb5",
+      "flags": flags,
+      "samePeer": samePeer,
+      "text": text,
+      "query": query,
+      "peerTypes": peerTypes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Game.
@@ -29771,6 +36958,18 @@ class KeyboardButtonGame extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50f41ccf",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Buy.
@@ -29809,6 +37008,18 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xafd93fbb",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29886,6 +37097,22 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
     buffer.writeInt32(buttonId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10b78d29",
+      "flags": flags,
+      "text": text,
+      "fwdText": fwdText,
+      "url": url,
+      "buttonId": buttonId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -29969,6 +37196,23 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd02e7fd4",
+      "flags": flags,
+      "requestWriteAccess": requestWriteAccess,
+      "text": text,
+      "fwdText": fwdText,
+      "url": url,
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Request Poll.
@@ -30025,6 +37269,20 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbbc7515d",
+      "flags": flags,
+      "quiz": quiz,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Keyboard Button User Profile.
@@ -30070,6 +37328,19 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
     buffer.writeObject(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe988037b",
+      "text": text,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30119,6 +37390,19 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x308660c1",
+      "text": text,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Web View.
@@ -30165,6 +37449,19 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x13767230",
+      "text": text,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Simple Web View.
@@ -30210,6 +37507,19 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa0c0505c",
+      "text": text,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30275,6 +37585,21 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53d7bfd8",
+      "text": text,
+      "buttonId": buttonId,
+      "peerType": peerType,
+      "maxQuantity": maxQuantity,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Keyboard Button Row.
@@ -30313,6 +37638,18 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
     buffer.writeVectorObject(buttons);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77608b83",
+      "buttons": buttons,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30362,6 +37699,19 @@ class ReplyKeyboardHide extends ReplyMarkupBase {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa03e5b85",
+      "flags": flags,
+      "selective": selective,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30430,6 +37780,21 @@ class ReplyKeyboardForceReply extends ReplyMarkupBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x86b40b08",
+      "flags": flags,
+      "singleUse": singleUse,
+      "selective": selective,
+      "placeholder": placeholder,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30520,6 +37885,24 @@ class ReplyKeyboardMarkup extends ReplyMarkupBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x85dd99d1",
+      "flags": flags,
+      "resize": resize,
+      "singleUse": singleUse,
+      "selective": selective,
+      "persistent": persistent,
+      "rows": rows,
+      "placeholder": placeholder,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Reply Inline Markup.
@@ -30558,6 +37941,18 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
     buffer.writeVectorObject(rows);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x48a30254",
+      "rows": rows,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30609,6 +38004,19 @@ class MessageEntityUnknown extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb92ba95",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Mention.
@@ -30658,6 +38066,19 @@ class MessageEntityMention extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa04579d",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30709,6 +38130,19 @@ class MessageEntityHashtag extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f635b0d",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Bot Command.
@@ -30758,6 +38192,19 @@ class MessageEntityBotCommand extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6cef8ac7",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30809,6 +38256,19 @@ class MessageEntityUrl extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6ed02538",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Email.
@@ -30858,6 +38318,19 @@ class MessageEntityEmail extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64e475c2",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -30909,6 +38382,19 @@ class MessageEntityBold extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd610bc9",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Italic.
@@ -30959,6 +38445,19 @@ class MessageEntityItalic extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x826f8b60",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Code.
@@ -31008,6 +38507,19 @@ class MessageEntityCode extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x28a20571",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31066,6 +38578,20 @@ class MessageEntityPre extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73924be0",
+      "offset": offset,
+      "length": length,
+      "language": language,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Text Url.
@@ -31122,6 +38648,20 @@ class MessageEntityTextUrl extends MessageEntityBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x76a6d327",
+      "offset": offset,
+      "length": length,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31182,6 +38722,20 @@ class MessageEntityMentionName extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdc7b1140",
+      "offset": offset,
+      "length": length,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Message Entity Mention Name.
@@ -31239,6 +38793,20 @@ class InputMessageEntityMentionName extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x208e68c9",
+      "offset": offset,
+      "length": length,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Phone.
@@ -31288,6 +38856,19 @@ class MessageEntityPhone extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9b69e34b",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31339,6 +38920,19 @@ class MessageEntityCashtag extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4c4e743f",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Underline.
@@ -31388,6 +38982,19 @@ class MessageEntityUnderline extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9c4e7e8b",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31439,6 +39046,19 @@ class MessageEntityStrike extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbf0693d4",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Bank Card.
@@ -31489,6 +39109,19 @@ class MessageEntityBankCard extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x761e6af4",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Spoiler.
@@ -31538,6 +39171,19 @@ class MessageEntitySpoiler extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x32ca960f",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31598,6 +39244,20 @@ class MessageEntityCustomEmoji extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc8cf05f8",
+      "offset": offset,
+      "length": length,
+      "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Blockquote.
@@ -31648,6 +39308,19 @@ class MessageEntityBlockquote extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x020df5d0",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Channel Empty.
@@ -31673,6 +39346,17 @@ class InputChannelEmpty extends InputChannelBase {
     buffer.writeInt32(0xee8c1e86);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xee8c1e86",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31723,6 +39407,19 @@ class InputChannel extends InputChannelBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf35aec28",
+      "channelId": channelId,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31781,6 +39478,20 @@ class InputChannelFromMessage extends InputChannelBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5b934f9d",
+      "peer": peer,
+      "msgId": msgId,
+      "channelId": channelId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Resolved Peer.
@@ -31834,6 +39545,20 @@ class ContactsResolvedPeer extends ContactsResolvedPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f077ad9",
+      "peer": peer,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Range.
@@ -31883,6 +39608,19 @@ class MessageRange extends MessageRangeBase {
     buffer.writeInt32(maxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ae30253",
+      "minId": minId,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -31953,6 +39691,21 @@ class UpdatesChannelDifferenceEmpty extends UpdatesChannelDifferenceBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e11affb",
+      "flags": flags,
+      "ffinal": ffinal,
+      "pts": pts,
+      "timeout": timeout,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32042,6 +39795,24 @@ class UpdatesChannelDifferenceTooLong extends UpdatesChannelDifferenceBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa4bcc6fe",
+      "flags": flags,
+      "ffinal": ffinal,
+      "timeout": timeout,
+      "dialog": dialog,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32141,6 +39912,25 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2064674e",
+      "flags": flags,
+      "ffinal": ffinal,
+      "pts": pts,
+      "timeout": timeout,
+      "newMessages": newMessages,
+      "otherUpdates": otherUpdates,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Messages Filter Empty.
@@ -32166,6 +39956,17 @@ class ChannelMessagesFilterEmpty extends ChannelMessagesFilterBase {
     buffer.writeInt32(0x94d42ee7);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x94d42ee7",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32223,6 +40024,20 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcd77d957",
+      "flags": flags,
+      "excludeNewMessages": excludeNewMessages,
+      "ranges": ranges,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participant.
@@ -32270,6 +40085,19 @@ class ChannelParticipant extends ChannelParticipantBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc00c07c0",
+      "userId": userId,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32345,6 +40173,22 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35a8bfa7",
+      "flags": flags,
+      "viaRequest": viaRequest,
+      "userId": userId,
+      "inviterId": inviterId,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participant Creator.
@@ -32414,6 +40258,21 @@ class ChannelParticipantCreator extends ChannelParticipantBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2fe601d3",
+      "flags": flags,
+      "userId": userId,
+      "adminRights": adminRights,
+      "rank": rank,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32526,6 +40385,26 @@ class ChannelParticipantAdmin extends ChannelParticipantBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34c3bb53",
+      "flags": flags,
+      "canEdit": canEdit,
+      "self": self,
+      "userId": userId,
+      "inviterId": inviterId,
+      "promotedBy": promotedBy,
+      "date": date,
+      "adminRights": adminRights,
+      "rank": rank,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participant Banned.
@@ -32605,6 +40484,23 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6df8014e",
+      "flags": flags,
+      "left": left,
+      "peer": peer,
+      "kickedBy": kickedBy,
+      "date": date,
+      "bannedRights": bannedRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participant Left.
@@ -32644,6 +40540,18 @@ class ChannelParticipantLeft extends ChannelParticipantBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b03f006",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participants Recent.
@@ -32670,6 +40578,17 @@ class ChannelParticipantsRecent extends ChannelParticipantsFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde3f3c79",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participants Admins.
@@ -32695,6 +40614,17 @@ class ChannelParticipantsAdmins extends ChannelParticipantsFilterBase {
     buffer.writeInt32(0xb4608969);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4608969",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32735,6 +40665,18 @@ class ChannelParticipantsKicked extends ChannelParticipantsFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa3b54985",
+      "q": q,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participants Bots.
@@ -32760,6 +40702,17 @@ class ChannelParticipantsBots extends ChannelParticipantsFilterBase {
     buffer.writeInt32(0xb0d1865b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb0d1865b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32800,6 +40753,18 @@ class ChannelParticipantsBanned extends ChannelParticipantsFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1427a5e1",
+      "q": q,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participants Search.
@@ -32839,6 +40804,18 @@ class ChannelParticipantsSearch extends ChannelParticipantsFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0656ac4b",
+      "q": q,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Participants Contacts.
@@ -32877,6 +40854,18 @@ class ChannelParticipantsContacts extends ChannelParticipantsFilterBase {
     buffer.writeString(q);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb6ae88d",
+      "q": q,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -32944,6 +40933,20 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe04b5ceb",
+      "flags": flags,
+      "q": q,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Channel Participants.
@@ -33006,6 +41009,21 @@ class ChannelsChannelParticipants extends ChannelsChannelParticipantsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9ab0feaf",
+      "count": count,
+      "participants": participants,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Channel Participants Not Modified.
@@ -33033,6 +41051,17 @@ class ChannelsChannelParticipantsNotModified
     buffer.writeInt32(0xf0173fe9);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf0173fe9",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33086,6 +41115,20 @@ class ChannelsChannelParticipant extends ChannelsChannelParticipantBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdfb80317",
+      "participant": participant,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33169,6 +41212,23 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x780a0310",
+      "flags": flags,
+      "popup": popup,
+      "id": id,
+      "text": text,
+      "entities": entities,
+      "minAgeConfirm": minAgeConfirm,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Saved Gifs Not Modified.
@@ -33194,6 +41254,17 @@ class MessagesSavedGifsNotModified extends MessagesSavedGifsBase {
     buffer.writeInt32(0xe8025ca2);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe8025ca2",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33242,6 +41313,19 @@ class MessagesSavedGifs extends MessagesSavedGifsBase {
     buffer.writeVectorObject(gifs);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x84a02a0d",
+      "hash": hash,
+      "gifs": gifs,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33324,6 +41408,22 @@ class InputBotInlineMessageMediaAuto extends InputBotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3380c786",
+      "flags": flags,
+      "invertMedia": invertMedia,
+      "message": message,
+      "entities": entities,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33413,6 +41513,23 @@ class InputBotInlineMessageText extends InputBotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dcd7a87",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "invertMedia": invertMedia,
+      "message": message,
+      "entities": entities,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33513,6 +41630,23 @@ class InputBotInlineMessageMediaGeo extends InputBotInlineMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x96929a85",
+      "flags": flags,
+      "geoPoint": geoPoint,
+      "heading": heading,
+      "period": period,
+      "proximityNotificationRadius": proximityNotificationRadius,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot Inline Message Media Venue.
@@ -33610,6 +41744,25 @@ class InputBotInlineMessageMediaVenue extends InputBotInlineMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x417bbf11",
+      "flags": flags,
+      "geoPoint": geoPoint,
+      "title": title,
+      "address": address,
+      "provider": provider,
+      "venueId": venueId,
+      "venueType": venueType,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot Inline Message Media Contact.
@@ -33693,6 +41846,23 @@ class InputBotInlineMessageMediaContact extends InputBotInlineMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa6edbffd",
+      "flags": flags,
+      "phoneNumber": phoneNumber,
+      "firstName": firstName,
+      "lastName": lastName,
+      "vcard": vcard,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot Inline Message Game.
@@ -33747,6 +41917,19 @@ class InputBotInlineMessageGame extends InputBotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4b425864",
+      "flags": flags,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -33858,6 +42041,26 @@ class InputBotInlineMessageMediaInvoice extends InputBotInlineMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd7e78225",
+      "flags": flags,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "invoice": invoice,
+      "payload": payload,
+      "provider": provider,
+      "providerData": providerData,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot Inline Message Media Web Page.
@@ -33967,6 +42170,26 @@ class InputBotInlineMessageMediaWebPage extends InputBotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbddcc510",
+      "flags": flags,
+      "invertMedia": invertMedia,
+      "forceLargeMedia": forceLargeMedia,
+      "forceSmallMedia": forceSmallMedia,
+      "optional": optional,
+      "message": message,
+      "entities": entities,
+      "url": url,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34093,6 +42316,26 @@ class InputBotInlineResult extends InputBotInlineResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x88bf9319",
+      "flags": flags,
+      "id": id,
+      "type": type,
+      "title": title,
+      "description": description,
+      "url": url,
+      "thumb": thumb,
+      "content": content,
+      "sendMessage": sendMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot Inline Result Photo.
@@ -34152,6 +42395,21 @@ class InputBotInlineResultPhoto extends InputBotInlineResultBase {
     buffer.writeObject(sendMessage);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa8d864a7",
+      "id": id,
+      "type": type,
+      "photo": photo,
+      "sendMessage": sendMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34247,6 +42505,24 @@ class InputBotInlineResultDocument extends InputBotInlineResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfff8fdc4",
+      "flags": flags,
+      "id": id,
+      "type": type,
+      "title": title,
+      "description": description,
+      "document": document,
+      "sendMessage": sendMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot Inline Result Game.
@@ -34299,6 +42575,20 @@ class InputBotInlineResultGame extends InputBotInlineResultBase {
     buffer.writeObject(sendMessage);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4fa417f2",
+      "id": id,
+      "shortName": shortName,
+      "sendMessage": sendMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34381,6 +42671,22 @@ class BotInlineMessageMediaAuto extends BotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x764cf810",
+      "flags": flags,
+      "invertMedia": invertMedia,
+      "message": message,
+      "entities": entities,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34470,6 +42776,23 @@ class BotInlineMessageText extends BotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c7f65e2",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "invertMedia": invertMedia,
+      "message": message,
+      "entities": entities,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34570,6 +42893,23 @@ class BotInlineMessageMediaGeo extends BotInlineMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x051846fd",
+      "flags": flags,
+      "geo": geo,
+      "heading": heading,
+      "period": period,
+      "proximityNotificationRadius": proximityNotificationRadius,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Inline Message Media Venue.
@@ -34667,6 +43007,25 @@ class BotInlineMessageMediaVenue extends BotInlineMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8a86659c",
+      "flags": flags,
+      "geo": geo,
+      "title": title,
+      "address": address,
+      "provider": provider,
+      "venueId": venueId,
+      "venueType": venueType,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Inline Message Media Contact.
@@ -34749,6 +43108,23 @@ class BotInlineMessageMediaContact extends BotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x18d1cdc2",
+      "flags": flags,
+      "phoneNumber": phoneNumber,
+      "firstName": firstName,
+      "lastName": lastName,
+      "vcard": vcard,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34860,6 +43236,26 @@ class BotInlineMessageMediaInvoice extends BotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x354a9b09",
+      "flags": flags,
+      "shippingAddressRequested": shippingAddressRequested,
+      "test": test,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -34977,6 +43373,27 @@ class BotInlineMessageMediaWebPage extends BotInlineMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x809ad9a6",
+      "flags": flags,
+      "invertMedia": invertMedia,
+      "forceLargeMedia": forceLargeMedia,
+      "forceSmallMedia": forceSmallMedia,
+      "manual": manual,
+      "safe": safe,
+      "message": message,
+      "entities": entities,
+      "url": url,
+      "replyMarkup": replyMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35102,6 +43519,26 @@ class BotInlineResult extends BotInlineResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11965f3a",
+      "flags": flags,
+      "id": id,
+      "type": type,
+      "title": title,
+      "description": description,
+      "url": url,
+      "thumb": thumb,
+      "content": content,
+      "sendMessage": sendMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Inline Media Result.
@@ -35213,6 +43650,25 @@ class BotInlineMediaResult extends BotInlineResultBase {
     buffer.writeObject(sendMessage);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17db940b",
+      "flags": flags,
+      "id": id,
+      "type": type,
+      "photo": photo,
+      "document": document,
+      "title": title,
+      "description": description,
+      "sendMessage": sendMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35334,6 +43790,26 @@ class MessagesBotResults extends MessagesBotResultsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe021f2f6",
+      "flags": flags,
+      "gallery": gallery,
+      "queryId": queryId,
+      "nextOffset": nextOffset,
+      "switchPm": switchPm,
+      "switchWebview": switchWebview,
+      "results": results,
+      "cacheTime": cacheTime,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Exported Message Link.
@@ -35379,6 +43855,19 @@ class ExportedMessageLink extends ExportedMessageLinkBase {
     buffer.writeString(html);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5dab1af4",
+      "link": link,
+      "html": html,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35564,6 +44053,31 @@ class MessageFwdHeader extends MessageFwdHeaderBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4e4df4bb",
+      "flags": flags,
+      "imported": imported,
+      "savedOut": savedOut,
+      "fromId": fromId,
+      "fromName": fromName,
+      "date": date,
+      "channelPost": channelPost,
+      "postAuthor": postAuthor,
+      "savedFromPeer": savedFromPeer,
+      "savedFromMsgId": savedFromMsgId,
+      "savedFromId": savedFromId,
+      "savedFromName": savedFromName,
+      "savedDate": savedDate,
+      "psaType": psaType,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Code Type Sms.
@@ -35589,6 +44103,17 @@ class AuthCodeTypeSms extends AuthCodeTypeBase {
     buffer.writeInt32(0x72a3158c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x72a3158c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35616,6 +44141,17 @@ class AuthCodeTypeCall extends AuthCodeTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x741cd3e3",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Code Type Flash Call.
@@ -35641,6 +44177,17 @@ class AuthCodeTypeFlashCall extends AuthCodeTypeBase {
     buffer.writeInt32(0x226ccefb);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x226ccefb",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35668,6 +44215,17 @@ class AuthCodeTypeMissedCall extends AuthCodeTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd61ad6ee",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Code Type Fragment Sms.
@@ -35693,6 +44251,17 @@ class AuthCodeTypeFragmentSms extends AuthCodeTypeBase {
     buffer.writeInt32(0x06ed998c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x06ed998c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35735,6 +44304,18 @@ class AuthSentCodeTypeApp extends AuthSentCodeTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dbb5986",
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Sent Code Type Sms.
@@ -35775,6 +44356,18 @@ class AuthSentCodeTypeSms extends AuthSentCodeTypeBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc000bba2",
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35817,6 +44410,18 @@ class AuthSentCodeTypeCall extends AuthSentCodeTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5353e5a7",
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Sent Code Type Flash Call.
@@ -35855,6 +44460,18 @@ class AuthSentCodeTypeFlashCall extends AuthSentCodeTypeBase {
     buffer.writeString(pattern);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xab03c6d9",
+      "pattern": pattern,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -35903,6 +44520,19 @@ class AuthSentCodeTypeMissedCall extends AuthSentCodeTypeBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x82006484",
+      "prefix": prefix,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36002,6 +44632,24 @@ class AuthSentCodeTypeEmailCode extends AuthSentCodeTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf450f59b",
+      "flags": flags,
+      "appleSigninAllowed": appleSigninAllowed,
+      "googleSigninAllowed": googleSigninAllowed,
+      "emailPattern": emailPattern,
+      "length": length,
+      "resetAvailablePeriod": resetAvailablePeriod,
+      "resetPendingDate": resetPendingDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Sent Code Type Set Up Email Required.
@@ -36058,6 +44706,20 @@ class AuthSentCodeTypeSetUpEmailRequired extends AuthSentCodeTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa5491dea",
+      "flags": flags,
+      "appleSigninAllowed": appleSigninAllowed,
+      "googleSigninAllowed": googleSigninAllowed,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Sent Code Type Fragment Sms.
@@ -36105,6 +44767,19 @@ class AuthSentCodeTypeFragmentSms extends AuthSentCodeTypeBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd9565c39",
+      "url": url,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36191,6 +44866,22 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe57b1432",
+      "flags": flags,
+      "nonce": nonce,
+      "receipt": receipt,
+      "pushTimeout": pushTimeout,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36288,6 +44979,24 @@ class MessagesBotCallbackAnswer extends MessagesBotCallbackAnswerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x36585ea4",
+      "flags": flags,
+      "alert": alert,
+      "hasUrl": hasUrl,
+      "nativeUi": nativeUi,
+      "message": message,
+      "url": url,
+      "cacheTime": cacheTime,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Message Edit Data.
@@ -36336,6 +45045,19 @@ class MessagesMessageEditData extends MessagesMessageEditDataBase {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x26b5dde6",
+      "flags": flags,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36395,6 +45117,20 @@ class InputBotInlineMessageID extends InputBotInlineMessageIDBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x890c3d89",
+      "dcId": dcId,
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36464,6 +45200,21 @@ class InputBotInlineMessageID64 extends InputBotInlineMessageIDBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6d915d7",
+      "dcId": dcId,
+      "ownerId": ownerId,
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Inline Bot Switch P M.
@@ -36509,6 +45260,19 @@ class InlineBotSwitchPM extends InlineBotSwitchPMBase {
     buffer.writeString(startParam);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c20629f",
+      "text": text,
+      "startParam": startParam,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36577,6 +45341,22 @@ class MessagesPeerDialogs extends MessagesPeerDialogsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3371c354",
+      "dialogs": dialogs,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+      "state": state,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Top Peer.
@@ -36623,6 +45403,19 @@ class TopPeer extends TopPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xedcdc05b",
+      "peer": peer,
+      "rating": rating,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Top Peer Category Bots P M.
@@ -36648,6 +45441,17 @@ class TopPeerCategoryBotsPM extends TopPeerCategoryBase {
     buffer.writeInt32(0xab661b5b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xab661b5b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36675,6 +45479,17 @@ class TopPeerCategoryBotsInline extends TopPeerCategoryBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x148677e2",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Top Peer Category Correspondents.
@@ -36700,6 +45515,17 @@ class TopPeerCategoryCorrespondents extends TopPeerCategoryBase {
     buffer.writeInt32(0x0637b7ed);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0637b7ed",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36727,6 +45553,17 @@ class TopPeerCategoryGroups extends TopPeerCategoryBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd17a14a",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Top Peer Category Channels.
@@ -36752,6 +45589,17 @@ class TopPeerCategoryChannels extends TopPeerCategoryBase {
     buffer.writeInt32(0x161d9628);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x161d9628",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36779,6 +45627,17 @@ class TopPeerCategoryPhoneCalls extends TopPeerCategoryBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e76a78c",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Top Peer Category Forward Users.
@@ -36805,6 +45664,17 @@ class TopPeerCategoryForwardUsers extends TopPeerCategoryBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa8406ca9",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Top Peer Category Forward Chats.
@@ -36830,6 +45700,17 @@ class TopPeerCategoryForwardChats extends TopPeerCategoryBase {
     buffer.writeInt32(0xfbeec0f0);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfbeec0f0",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36886,6 +45767,20 @@ class TopPeerCategoryPeers extends TopPeerCategoryPeersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfb834291",
+      "category": category,
+      "count": count,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Top Peers Not Modified.
@@ -36911,6 +45806,17 @@ class ContactsTopPeersNotModified extends ContactsTopPeersBase {
     buffer.writeInt32(0xde266ef5);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde266ef5",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -36965,6 +45871,20 @@ class ContactsTopPeers extends ContactsTopPeersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x70b772a8",
+      "categories": categories,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Top Peers Disabled.
@@ -36990,6 +45910,17 @@ class ContactsTopPeersDisabled extends ContactsTopPeersBase {
     buffer.writeInt32(0xb52c939d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb52c939d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37044,6 +45975,19 @@ class DraftMessageEmpty extends DraftMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b0c841a",
+      "flags": flags,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37153,6 +46097,25 @@ class DraftMessage extends DraftMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3fccf7ef",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "invertMedia": invertMedia,
+      "replyTo": replyTo,
+      "message": message,
+      "entities": entities,
+      "media": media,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Featured Stickers Not Modified.
@@ -37193,6 +46156,18 @@ class MessagesFeaturedStickersNotModified extends MessagesFeaturedStickersBase {
     buffer.writeInt32(count);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc6dc0c66",
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37275,6 +46250,23 @@ class MessagesFeaturedStickers extends MessagesFeaturedStickersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbe382906",
+      "flags": flags,
+      "premium": premium,
+      "hash": hash,
+      "count": count,
+      "sets": sets,
+      "unread": unread,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Recent Stickers Not Modified.
@@ -37300,6 +46292,17 @@ class MessagesRecentStickersNotModified extends MessagesRecentStickersBase {
     buffer.writeInt32(0x0b17f890);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0b17f890",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37363,6 +46366,21 @@ class MessagesRecentStickers extends MessagesRecentStickersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x88d37c56",
+      "hash": hash,
+      "packs": packs,
+      "stickers": stickers,
+      "dates": dates,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Archived Stickers.
@@ -37411,6 +46429,19 @@ class MessagesArchivedStickers extends MessagesArchivedStickersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4fcba9c8",
+      "count": count,
+      "sets": sets,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Sticker Set Install Result Success.
@@ -37438,6 +46469,17 @@ class MessagesStickerSetInstallResultSuccess
     buffer.writeInt32(0x38641628);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x38641628",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37479,6 +46521,18 @@ class MessagesStickerSetInstallResultArchive
     buffer.writeVectorObject(sets);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35e410a8",
+      "sets": sets,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37526,6 +46580,19 @@ class StickerSetCovered extends StickerSetCoveredBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6410a5d2",
+      "set": set,
+      "cover": cover,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Sticker Set Multi Covered.
@@ -37571,6 +46638,19 @@ class StickerSetMultiCovered extends StickerSetCoveredBase {
     buffer.writeVectorObject(covers);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3407e51b",
+      "set": set,
+      "covers": covers,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37632,6 +46712,21 @@ class StickerSetFullCovered extends StickerSetCoveredBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x40d13c0e",
+      "set": set,
+      "packs": packs,
+      "keywords": keywords,
+      "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Sticker Set No Covered.
@@ -37670,6 +46765,18 @@ class StickerSetNoCovered extends StickerSetCoveredBase {
     buffer.writeObject(set);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77b15d1c",
+      "set": set,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37733,6 +46840,21 @@ class MaskCoords extends MaskCoordsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaed6dbb2",
+      "n": n,
+      "x": x,
+      "y": y,
+      "zoom": zoom,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Stickered Media Photo.
@@ -37772,6 +46894,18 @@ class InputStickeredMediaPhoto extends InputStickeredMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4a992157",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Stickered Media Document.
@@ -37810,6 +46944,18 @@ class InputStickeredMediaDocument extends InputStickeredMediaBase {
     buffer.writeObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0438865b",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -37912,6 +47058,25 @@ class Game extends GameBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdf9653b",
+      "flags": flags,
+      "id": id,
+      "accessHash": accessHash,
+      "shortName": shortName,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "document": document,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Game I D.
@@ -37962,6 +47127,19 @@ class InputGameID extends InputGameBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x032c3e77",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Game Short Name.
@@ -38007,6 +47185,19 @@ class InputGameShortName extends InputGameBase {
     buffer.writeString(shortName);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc331e80a",
+      "botId": botId,
+      "shortName": shortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38067,6 +47258,20 @@ class HighScore extends HighScoreBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73a379eb",
+      "pos": pos,
+      "userId": userId,
+      "score": score,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages High Scores.
@@ -38113,6 +47318,19 @@ class MessagesHighScores extends MessagesHighScoresBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a3bfd99",
+      "scores": scores,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Empty.
@@ -38138,6 +47356,17 @@ class TextEmpty extends RichTextBase {
     buffer.writeInt32(0xdc3d824f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdc3d824f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38178,6 +47407,18 @@ class TextPlain extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x744694e0",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Bold.
@@ -38216,6 +47457,18 @@ class TextBold extends RichTextBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6724abc4",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38256,6 +47509,18 @@ class TextItalic extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd912a59c",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Underline.
@@ -38294,6 +47559,18 @@ class TextUnderline extends RichTextBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc12622c4",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38334,6 +47611,18 @@ class TextStrike extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9bf8bb95",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Fixed.
@@ -38372,6 +47661,18 @@ class TextFixed extends RichTextBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c3f19b9",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38428,6 +47729,20 @@ class TextUrl extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c2884c1",
+      "text": text,
+      "url": url,
+      "webpageId": webpageId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Email.
@@ -38474,6 +47789,19 @@ class TextEmail extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde5a0dd6",
+      "text": text,
+      "email": email,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Concat.
@@ -38512,6 +47840,18 @@ class TextConcat extends RichTextBase {
     buffer.writeVectorObject(texts);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7e6260d7",
+      "texts": texts,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38552,6 +47892,18 @@ class TextSubscript extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed6a8504",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Superscript.
@@ -38591,6 +47943,18 @@ class TextSuperscript extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc7fb5e01",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Marked.
@@ -38629,6 +47993,18 @@ class TextMarked extends RichTextBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x034b8621",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38675,6 +48051,19 @@ class TextPhone extends RichTextBase {
     buffer.writeString(phone);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ccb966a",
+      "text": text,
+      "phone": phone,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38735,6 +48124,20 @@ class TextImage extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x081ccf4f",
+      "documentId": documentId,
+      "w": w,
+      "h": h,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text Anchor.
@@ -38781,6 +48184,19 @@ class TextAnchor extends RichTextBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35553762",
+      "text": text,
+      "name": name,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Unsupported.
@@ -38806,6 +48222,17 @@ class PageBlockUnsupported extends PageBlockBase {
     buffer.writeInt32(0x13567e8a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x13567e8a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38846,6 +48273,18 @@ class PageBlockTitle extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x70abc3fd",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Subtitle.
@@ -38884,6 +48323,18 @@ class PageBlockSubtitle extends PageBlockBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ffa9a1f",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -38931,6 +48382,19 @@ class PageBlockAuthorDate extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbaafe5e0",
+      "author": author,
+      "publishedDate": publishedDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Header.
@@ -38969,6 +48433,18 @@ class PageBlockHeader extends PageBlockBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbfd064ec",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39009,6 +48485,18 @@ class PageBlockSubheader extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf12bb6e1",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Paragraph.
@@ -39047,6 +48535,18 @@ class PageBlockParagraph extends PageBlockBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x467a0766",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39094,6 +48594,19 @@ class PageBlockPreformatted extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc070d93e",
+      "text": text,
+      "language": language,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Footer.
@@ -39133,6 +48646,18 @@ class PageBlockFooter extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x48870999",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Divider.
@@ -39158,6 +48683,17 @@ class PageBlockDivider extends PageBlockBase {
     buffer.writeInt32(0xdb20b188);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb20b188",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39198,6 +48734,18 @@ class PageBlockAnchor extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xce0d37b0",
+      "name": name,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block List.
@@ -39236,6 +48784,18 @@ class PageBlockList extends PageBlockBase {
     buffer.writeVectorObject(items);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe4e88011",
+      "items": items,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39283,6 +48843,19 @@ class PageBlockBlockquote extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x263d7c26",
+      "text": text,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Pullquote.
@@ -39328,6 +48901,19 @@ class PageBlockPullquote extends PageBlockBase {
     buffer.writeObject(caption);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4f4456d3",
+      "text": text,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39410,6 +48996,22 @@ class PageBlockPhoto extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1759c560",
+      "flags": flags,
+      "photoId": photoId,
+      "caption": caption,
+      "url": url,
+      "webpageId": webpageId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Video.
@@ -39482,6 +49084,22 @@ class PageBlockVideo extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7c8fe7b6",
+      "flags": flags,
+      "autoplay": autoplay,
+      "loop": loop,
+      "videoId": videoId,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Cover.
@@ -39520,6 +49138,18 @@ class PageBlockCover extends PageBlockBase {
     buffer.writeObject(cover);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x39f23300",
+      "cover": cover,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39643,6 +49273,26 @@ class PageBlockEmbed extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa8718dc5",
+      "flags": flags,
+      "fullWidth": fullWidth,
+      "allowScrolling": allowScrolling,
+      "url": url,
+      "html": html,
+      "posterPhotoId": posterPhotoId,
+      "w": w,
+      "h": h,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Embed Post.
@@ -39728,6 +49378,24 @@ class PageBlockEmbedPost extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf259a80b",
+      "url": url,
+      "webpageId": webpageId,
+      "authorPhotoId": authorPhotoId,
+      "author": author,
+      "date": date,
+      "blocks": blocks,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Collage.
@@ -39773,6 +49441,19 @@ class PageBlockCollage extends PageBlockBase {
     buffer.writeObject(caption);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x65a0fa4d",
+      "items": items,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39820,6 +49501,19 @@ class PageBlockSlideshow extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x031f9590",
+      "items": items,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Channel.
@@ -39858,6 +49552,18 @@ class PageBlockChannel extends PageBlockBase {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef1751b5",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -39907,6 +49613,19 @@ class PageBlockAudio extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x804361ea",
+      "audioId": audioId,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Kicker.
@@ -39945,6 +49664,18 @@ class PageBlockKicker extends PageBlockBase {
     buffer.writeObject(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e148390",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40016,6 +49747,22 @@ class PageBlockTable extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbf4dea82",
+      "flags": flags,
+      "bordered": bordered,
+      "striped": striped,
+      "title": title,
+      "rows": rows,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Ordered List.
@@ -40054,6 +49801,18 @@ class PageBlockOrderedList extends PageBlockBase {
     buffer.writeVectorObject(items);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a8ae1e1",
+      "items": items,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40118,6 +49877,21 @@ class PageBlockDetails extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x76768bed",
+      "flags": flags,
+      "open": open,
+      "blocks": blocks,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Block Related Articles.
@@ -40163,6 +49937,19 @@ class PageBlockRelatedArticles extends PageBlockBase {
     buffer.writeVectorObject(articles);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x16115a96",
+      "title": title,
+      "articles": articles,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40237,6 +50024,22 @@ class PageBlockMap extends PageBlockBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa44f3ef6",
+      "geo": geo,
+      "zoom": zoom,
+      "w": w,
+      "h": h,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Discard Reason Missed.
@@ -40262,6 +50065,17 @@ class PhoneCallDiscardReasonMissed extends PhoneCallDiscardReasonBase {
     buffer.writeInt32(0x85e42301);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x85e42301",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40289,6 +50103,17 @@ class PhoneCallDiscardReasonDisconnect extends PhoneCallDiscardReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe095c1a0",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Discard Reason Hangup.
@@ -40315,6 +50140,17 @@ class PhoneCallDiscardReasonHangup extends PhoneCallDiscardReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57adc690",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Discard Reason Busy.
@@ -40340,6 +50176,17 @@ class PhoneCallDiscardReasonBusy extends PhoneCallDiscardReasonBase {
     buffer.writeInt32(0xfaf7e8c9);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfaf7e8c9",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40379,6 +50226,18 @@ class DataJSON extends DataJSONBase {
     buffer.writeString(data);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7d748d04",
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40427,6 +50286,19 @@ class LabeledPrice extends LabeledPriceBase {
     buffer.writeInt64(amount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcb296bf8",
+      "label": label,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40583,6 +50455,32 @@ class Invoice extends InvoiceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5db95a15",
+      "flags": flags,
+      "test": test,
+      "nameRequested": nameRequested,
+      "phoneRequested": phoneRequested,
+      "emailRequested": emailRequested,
+      "shippingAddressRequested": shippingAddressRequested,
+      "flexible": flexible,
+      "phoneToProvider": phoneToProvider,
+      "emailToProvider": emailToProvider,
+      "recurring": recurring,
+      "currency": currency,
+      "prices": prices,
+      "maxTipAmount": maxTipAmount,
+      "suggestedTipAmounts": suggestedTipAmounts,
+      "termsUrl": termsUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payment Charge.
@@ -40628,6 +50526,19 @@ class PaymentCharge extends PaymentChargeBase {
     buffer.writeString(providerChargeId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea02c27e",
+      "id": id,
+      "providerChargeId": providerChargeId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40702,6 +50613,23 @@ class PostAddress extends PostAddressBase {
     buffer.writeString(postCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e8caaeb",
+      "streetLine1": streetLine1,
+      "streetLine2": streetLine2,
+      "city": city,
+      "state": state,
+      "countryIso2": countryIso2,
+      "postCode": postCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40794,6 +50722,22 @@ class PaymentRequestedInfo extends PaymentRequestedInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x909c3f94",
+      "flags": flags,
+      "name": name,
+      "phone": phone,
+      "email": email,
+      "shippingAddress": shippingAddress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payment Saved Credentials Card.
@@ -40839,6 +50783,19 @@ class PaymentSavedCredentialsCard extends PaymentSavedCredentialsBase {
     buffer.writeString(title);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcdc27a1f",
+      "id": id,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -40911,6 +50868,22 @@ class WebDocument extends WebDocumentBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1c570ed1",
+      "url": url,
+      "accessHash": accessHash,
+      "size": size,
+      "mimeType": mimeType,
+      "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Web Document No Proxy.
@@ -40972,6 +50945,21 @@ class WebDocumentNoProxy extends WebDocumentBase {
     buffer.writeVectorObject(attributes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf9c8bcc6",
+      "url": url,
+      "size": size,
+      "mimeType": mimeType,
+      "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -41035,6 +51023,21 @@ class InputWebDocument extends InputWebDocumentBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9bed434d",
+      "url": url,
+      "size": size,
+      "mimeType": mimeType,
+      "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Web File Location.
@@ -41082,6 +51085,19 @@ class InputWebFileLocation extends InputWebFileLocationBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc239d686",
+      "url": url,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -41166,6 +51182,23 @@ class InputWebFileGeoPointLocation extends InputWebFileLocationBase {
     buffer.writeInt32(scale);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9f2221c9",
+      "geoPoint": geoPoint,
+      "accessHash": accessHash,
+      "w": w,
+      "h": h,
+      "zoom": zoom,
+      "scale": scale,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -41252,6 +51285,22 @@ class InputWebFileAudioAlbumThumbLocation extends InputWebFileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf46fe924",
+      "flags": flags,
+      "small": small,
+      "document": document,
+      "title": title,
+      "performer": performer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Upload Web File.
@@ -41322,6 +51371,22 @@ class UploadWebFile extends UploadWebFileBase {
     buffer.writeBytes(bytes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x21e753bc",
+      "size": size,
+      "mimeType": mimeType,
+      "fileType": fileType,
+      "mtime": mtime,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -41519,6 +51584,34 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa0058751",
+      "flags": flags,
+      "canSaveCredentials": canSaveCredentials,
+      "passwordMissing": passwordMissing,
+      "formId": formId,
+      "botId": botId,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "invoice": invoice,
+      "providerId": providerId,
+      "url": url,
+      "nativeProvider": nativeProvider,
+      "nativeParams": nativeParams,
+      "additionalMethods": additionalMethods,
+      "savedInfo": savedInfo,
+      "savedCredentials": savedCredentials,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Validated Requested Info.
@@ -41588,6 +51681,20 @@ class PaymentsValidatedRequestedInfo
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1451883",
+      "flags": flags,
+      "id": id,
+      "shippingOptions": shippingOptions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Payment Result.
@@ -41627,6 +51734,18 @@ class PaymentsPaymentResult extends PaymentsPaymentResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4e5f810d",
+      "updates": updates,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Payment Verification Needed.
@@ -41665,6 +51784,18 @@ class PaymentsPaymentVerificationNeeded extends PaymentsPaymentResultBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd8411139",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -41834,6 +51965,32 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x70c4fe03",
+      "flags": flags,
+      "date": date,
+      "botId": botId,
+      "providerId": providerId,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "invoice": invoice,
+      "info": info,
+      "shipping": shipping,
+      "tipAmount": tipAmount,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "credentialsTitle": credentialsTitle,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Saved Info.
@@ -41897,6 +52054,20 @@ class PaymentsSavedInfo extends PaymentsSavedInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfb8fe43c",
+      "flags": flags,
+      "hasSavedCredentials": hasSavedCredentials,
+      "savedInfo": savedInfo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Payment Credentials Saved.
@@ -41942,6 +52113,19 @@ class InputPaymentCredentialsSaved extends InputPaymentCredentialsBase {
     buffer.writeBytes(tmpPassword);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc10eb2cf",
+      "id": id,
+      "tmpPassword": tmpPassword,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -41999,6 +52183,20 @@ class InputPaymentCredentials extends InputPaymentCredentialsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3417d728",
+      "flags": flags,
+      "save": save,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Payment Credentials Apple Pay.
@@ -42038,6 +52236,18 @@ class InputPaymentCredentialsApplePay extends InputPaymentCredentialsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0aa1c39f",
+      "paymentData": paymentData,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Payment Credentials Google Pay.
@@ -42076,6 +52286,18 @@ class InputPaymentCredentialsGooglePay extends InputPaymentCredentialsBase {
     buffer.writeObject(paymentToken);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ac32801",
+      "paymentToken": paymentToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -42124,6 +52346,19 @@ class AccountTmpPassword extends AccountTmpPasswordBase {
     buffer.writeInt32(validUntil);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb64fd34",
+      "tmpPassword": tmpPassword,
+      "validUntil": validUntil,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -42177,6 +52412,20 @@ class ShippingOption extends ShippingOptionBase {
     buffer.writeVectorObject(prices);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6213cdf",
+      "id": id,
+      "title": title,
+      "prices": prices,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -42259,6 +52508,22 @@ class InputStickerSetItem extends InputStickerSetItemBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x32da9e9c",
+      "flags": flags,
+      "document": document,
+      "emoji": emoji,
+      "maskCoords": maskCoords,
+      "keywords": keywords,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Phone Call.
@@ -42309,6 +52574,19 @@ class InputPhoneCall extends InputPhoneCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e36fded",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Empty.
@@ -42349,6 +52627,18 @@ class PhoneCallEmpty extends PhoneCallBase {
     buffer.writeInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5366c915",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -42461,6 +52751,26 @@ class PhoneCallWaiting extends PhoneCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc5226f17",
+      "flags": flags,
+      "video": video,
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+      "protocol": protocol,
+      "receiveDate": receiveDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Requested.
@@ -42567,6 +52877,26 @@ class PhoneCallRequested extends PhoneCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x14b0ed0c",
+      "flags": flags,
+      "video": video,
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+      "gAHash": gAHash,
+      "protocol": protocol,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Accepted.
@@ -42672,6 +53002,26 @@ class PhoneCallAccepted extends PhoneCallBase {
     buffer.writeObject(protocol);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3660c311",
+      "flags": flags,
+      "video": video,
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+      "gB": gB,
+      "protocol": protocol,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -42809,6 +53159,30 @@ class PhoneCall extends PhoneCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x967f7c67",
+      "flags": flags,
+      "p2pAllowed": p2pAllowed,
+      "video": video,
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "adminId": adminId,
+      "participantId": participantId,
+      "gAOrB": gAOrB,
+      "keyFingerprint": keyFingerprint,
+      "protocol": protocol,
+      "connections": connections,
+      "startDate": startDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Discarded.
@@ -42907,6 +53281,24 @@ class PhoneCallDiscarded extends PhoneCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50ca4de1",
+      "flags": flags,
+      "needRating": needRating,
+      "needDebug": needDebug,
+      "video": video,
+      "id": id,
+      "reason": reason,
+      "duration": duration,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Connection.
@@ -42994,6 +53386,24 @@ class PhoneConnection extends PhoneConnectionBase {
     buffer.writeBytes(peerTag);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9cc123c7",
+      "flags": flags,
+      "tcp": tcp,
+      "id": id,
+      "ip": ip,
+      "ipv6": ipv6,
+      "port": port,
+      "peerTag": peerTag,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43097,6 +53507,26 @@ class PhoneConnectionWebrtc extends PhoneConnectionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x635fe375",
+      "flags": flags,
+      "turn": turn,
+      "stun": stun,
+      "id": id,
+      "ip": ip,
+      "ipv6": ipv6,
+      "port": port,
+      "username": username,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Call Protocol.
@@ -43178,6 +53608,23 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfc878fc8",
+      "flags": flags,
+      "udpP2p": udpP2p,
+      "udpReflector": udpReflector,
+      "minLayer": minLayer,
+      "maxLayer": maxLayer,
+      "libraryVersions": libraryVersions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Phone Call.
@@ -43224,6 +53671,19 @@ class PhonePhoneCall extends PhonePhoneCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec82e140",
+      "phoneCall": phoneCall,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Upload Cdn File Reupload Needed.
@@ -43263,6 +53723,18 @@ class UploadCdnFileReuploadNeeded extends UploadCdnFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeea8e46e",
+      "requestToken": requestToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Upload Cdn File.
@@ -43301,6 +53773,18 @@ class UploadCdnFile extends UploadCdnFileBase {
     buffer.writeBytes(bytes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa99fca4f",
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43350,6 +53834,19 @@ class CdnPublicKey extends CdnPublicKeyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc982eaba",
+      "dcId": dcId,
+      "publicKey": publicKey,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Cdn Config.
@@ -43388,6 +53885,18 @@ class CdnConfig extends CdnConfigBase {
     buffer.writeVectorObject(publicKeys);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5725e40a",
+      "publicKeys": publicKeys,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43434,6 +53943,19 @@ class LangPackString extends LangPackStringBase {
     buffer.writeString(value);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcad181f6",
+      "key": key,
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43551,6 +54073,25 @@ class LangPackStringPluralized extends LangPackStringBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c47ac9f",
+      "flags": flags,
+      "key": key,
+      "zeroValue": zeroValue,
+      "oneValue": oneValue,
+      "twoValue": twoValue,
+      "fewValue": fewValue,
+      "manyValue": manyValue,
+      "otherValue": otherValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Lang Pack String Deleted.
@@ -43589,6 +54130,18 @@ class LangPackStringDeleted extends LangPackStringBase {
     buffer.writeString(key);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2979eeb2",
+      "key": key,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43653,6 +54206,21 @@ class LangPackDifference extends LangPackDifferenceBase {
     buffer.writeVectorObject(strings);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf385c1f6",
+      "langCode": langCode,
+      "fromVersion": fromVersion,
+      "version": version,
+      "strings": strings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43782,6 +54350,29 @@ class LangPackLanguage extends LangPackLanguageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeeca5ce3",
+      "flags": flags,
+      "official": official,
+      "rtl": rtl,
+      "beta": beta,
+      "name": name,
+      "nativeName": nativeName,
+      "langCode": langCode,
+      "baseLangCode": baseLangCode,
+      "pluralCode": pluralCode,
+      "stringsCount": stringsCount,
+      "translatedCount": translatedCount,
+      "translationsUrl": translationsUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Change Title.
@@ -43829,6 +54420,19 @@ class ChannelAdminLogEventActionChangeTitle
     buffer.writeString(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6dfb825",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43878,6 +54482,19 @@ class ChannelAdminLogEventActionChangeAbout
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x55188a2e",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Change Username.
@@ -43925,6 +54542,19 @@ class ChannelAdminLogEventActionChangeUsername
     buffer.writeString(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a4afc38",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -43974,6 +54604,19 @@ class ChannelAdminLogEventActionChangePhoto
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x434bd2af",
+      "prevPhoto": prevPhoto,
+      "newPhoto": newPhoto,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Toggle Invites.
@@ -44014,6 +54657,18 @@ class ChannelAdminLogEventActionToggleInvites
     buffer.writeBool(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b7907ae",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44056,6 +54711,18 @@ class ChannelAdminLogEventActionToggleSignatures
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x26ae0971",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Update Pinned.
@@ -44096,6 +54763,18 @@ class ChannelAdminLogEventActionUpdatePinned
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe9e82c18",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44145,6 +54824,19 @@ class ChannelAdminLogEventActionEditMessage
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x709b2405",
+      "prevMessage": prevMessage,
+      "newMessage": newMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Delete Message.
@@ -44186,6 +54878,18 @@ class ChannelAdminLogEventActionDeleteMessage
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x42e047bb",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Participant Join.
@@ -44214,6 +54918,17 @@ class ChannelAdminLogEventActionParticipantJoin
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x183040d3",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Participant Leave.
@@ -44241,6 +54956,17 @@ class ChannelAdminLogEventActionParticipantLeave
     buffer.writeInt32(0xf89777f2);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf89777f2",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44282,6 +55008,18 @@ class ChannelAdminLogEventActionParticipantInvite
     buffer.writeObject(participant);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe31c34d8",
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44331,6 +55069,19 @@ class ChannelAdminLogEventActionParticipantToggleBan
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6d83d7e",
+      "prevParticipant": prevParticipant,
+      "newParticipant": newParticipant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Participant Toggle Admin.
@@ -44378,6 +55129,19 @@ class ChannelAdminLogEventActionParticipantToggleAdmin
     buffer.writeObject(newParticipant);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd5676710",
+      "prevParticipant": prevParticipant,
+      "newParticipant": newParticipant,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44427,6 +55191,19 @@ class ChannelAdminLogEventActionChangeStickerSet
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb1c3caa7",
+      "prevStickerset": prevStickerset,
+      "newStickerset": newStickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Toggle Pre History Hidden.
@@ -44467,6 +55244,18 @@ class ChannelAdminLogEventActionTogglePreHistoryHidden
     buffer.writeBool(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5f5c95f1",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44516,6 +55305,19 @@ class ChannelAdminLogEventActionDefaultBannedRights
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2df5fc0a",
+      "prevBannedRights": prevBannedRights,
+      "newBannedRights": newBannedRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Stop Poll.
@@ -44555,6 +55357,18 @@ class ChannelAdminLogEventActionStopPoll
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8f079643",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44608,6 +55422,19 @@ class ChannelAdminLogEventActionChangeLinkedChat
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x050c7ac8",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Change Location.
@@ -44655,6 +55482,19 @@ class ChannelAdminLogEventActionChangeLocation
     buffer.writeObject(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0e6b76ae",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44708,6 +55548,19 @@ class ChannelAdminLogEventActionToggleSlowMode
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53909779",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Start Group Call.
@@ -44748,6 +55601,18 @@ class ChannelAdminLogEventActionStartGroupCall
     buffer.writeObject(call);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x23209745",
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44790,6 +55655,18 @@ class ChannelAdminLogEventActionDiscardGroupCall
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb9f9140",
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Participant Mute.
@@ -44830,6 +55707,18 @@ class ChannelAdminLogEventActionParticipantMute
     buffer.writeObject(participant);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf92424d2",
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44872,6 +55761,18 @@ class ChannelAdminLogEventActionParticipantUnmute
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe64429c0",
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Toggle Group Call Setting.
@@ -44912,6 +55813,18 @@ class ChannelAdminLogEventActionToggleGroupCallSetting
     buffer.writeBool(joinMuted);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56d6a247",
+      "joinMuted": joinMuted,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -44971,6 +55884,20 @@ class ChannelAdminLogEventActionParticipantJoinByInvite
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfe9fc158",
+      "flags": flags,
+      "viaChatlist": viaChatlist,
+      "invite": invite,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Exported Invite Delete.
@@ -45012,6 +55939,18 @@ class ChannelAdminLogEventActionExportedInviteDelete
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a50fca4",
+      "invite": invite,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Exported Invite Revoke.
@@ -45052,6 +55991,18 @@ class ChannelAdminLogEventActionExportedInviteRevoke
     buffer.writeObject(invite);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x410a134e",
+      "invite": invite,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45101,6 +56052,19 @@ class ChannelAdminLogEventActionExportedInviteEdit
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe90ebb59",
+      "prevInvite": prevInvite,
+      "newInvite": newInvite,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Participant Volume.
@@ -45141,6 +56105,18 @@ class ChannelAdminLogEventActionParticipantVolume
     buffer.writeObject(participant);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e7f6847",
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45194,6 +56170,19 @@ class ChannelAdminLogEventActionChangeHistoryTTL
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6e941a38",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Participant Join By Request.
@@ -45244,6 +56233,19 @@ class ChannelAdminLogEventActionParticipantJoinByRequest
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xafb6144a",
+      "invite": invite,
+      "approvedBy": approvedBy,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Toggle No Forwards.
@@ -45285,6 +56287,18 @@ class ChannelAdminLogEventActionToggleNoForwards
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcb2ac766",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Send Message.
@@ -45325,6 +56339,18 @@ class ChannelAdminLogEventActionSendMessage
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x278f2868",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45374,6 +56400,19 @@ class ChannelAdminLogEventActionChangeAvailableReactions
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbe4e0ef8",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Change Usernames.
@@ -45422,6 +56461,19 @@ class ChannelAdminLogEventActionChangeUsernames
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf04fb3a9",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Toggle Forum.
@@ -45463,6 +56515,18 @@ class ChannelAdminLogEventActionToggleForum
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x02cc6383",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Create Topic.
@@ -45503,6 +56567,18 @@ class ChannelAdminLogEventActionCreateTopic
     buffer.writeObject(topic);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x58707d28",
+      "topic": topic,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45551,6 +56627,19 @@ class ChannelAdminLogEventActionEditTopic
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf06fe208",
+      "prevTopic": prevTopic,
+      "newTopic": newTopic,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Delete Topic.
@@ -45591,6 +56680,18 @@ class ChannelAdminLogEventActionDeleteTopic
     buffer.writeObject(topic);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xae168909",
+      "topic": topic,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45661,6 +56762,20 @@ class ChannelAdminLogEventActionPinTopic
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5d8d353b",
+      "flags": flags,
+      "prevTopic": prevTopic,
+      "newTopic": newTopic,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Toggle Anti Spam.
@@ -45701,6 +56816,18 @@ class ChannelAdminLogEventActionToggleAntiSpam
     buffer.writeBool(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64f36dfc",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45750,6 +56877,19 @@ class ChannelAdminLogEventActionChangePeerColor
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5796e780",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Change Profile Peer Color.
@@ -45797,6 +56937,19 @@ class ChannelAdminLogEventActionChangeProfilePeerColor
     buffer.writeObject(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e477b25",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45846,6 +56999,19 @@ class ChannelAdminLogEventActionChangeWallpaper
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x31bb5d52",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Admin Log Event Action Change Emoji Status.
@@ -45893,6 +57059,19 @@ class ChannelAdminLogEventActionChangeEmojiStatus
     buffer.writeObject(newValue);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3ea9feb1",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -45958,6 +57137,21 @@ class ChannelAdminLogEvent extends ChannelAdminLogEventBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1fad68cd",
+      "id": id,
+      "date": date,
+      "userId": userId,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Admin Log Results.
@@ -46010,6 +57204,20 @@ class ChannelsAdminLogResults extends ChannelsAdminLogResultsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed8af74d",
+      "events": events,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46179,6 +57387,36 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea107ae4",
+      "flags": flags,
+      "join": join,
+      "leave": leave,
+      "invite": invite,
+      "ban": ban,
+      "unban": unban,
+      "kick": kick,
+      "unkick": unkick,
+      "promote": promote,
+      "demote": demote,
+      "info": info,
+      "settings": settings,
+      "pinned": pinned,
+      "edit": edit,
+      "delete": delete,
+      "groupCall": groupCall,
+      "invites": invites,
+      "send": send,
+      "forums": forums,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Popular Contact.
@@ -46229,6 +57467,19 @@ class PopularContact extends PopularContactBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5ce14175",
+      "clientId": clientId,
+      "importers": importers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Faved Stickers Not Modified.
@@ -46254,6 +57505,17 @@ class MessagesFavedStickersNotModified extends MessagesFavedStickersBase {
     buffer.writeInt32(0x9e8fa6d3);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9e8fa6d3",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46310,6 +57572,20 @@ class MessagesFavedStickers extends MessagesFavedStickersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2cb51097",
+      "hash": hash,
+      "packs": packs,
+      "stickers": stickers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Recent Me Url Unknown.
@@ -46348,6 +57624,18 @@ class RecentMeUrlUnknown extends RecentMeUrlBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x46e1d13d",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46397,6 +57685,19 @@ class RecentMeUrlUser extends RecentMeUrlBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb92c09e2",
+      "url": url,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Recent Me Url Chat.
@@ -46445,6 +57746,19 @@ class RecentMeUrlChat extends RecentMeUrlBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb2da71d2",
+      "url": url,
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Recent Me Url Chat Invite.
@@ -46491,6 +57805,19 @@ class RecentMeUrlChatInvite extends RecentMeUrlBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeb49081d",
+      "url": url,
+      "chatInvite": chatInvite,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Recent Me Url Sticker Set.
@@ -46536,6 +57863,19 @@ class RecentMeUrlStickerSet extends RecentMeUrlBase {
     buffer.writeObject(set);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbc0a57dc",
+      "url": url,
+      "set": set,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46589,6 +57929,20 @@ class HelpRecentMeUrls extends HelpRecentMeUrlsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0e0310d7",
+      "urls": urls,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46667,6 +58021,22 @@ class InputSingleMedia extends InputSingleMediaBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1cc6e91f",
+      "flags": flags,
+      "media": media,
+      "randomId": randomId,
+      "message": message,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46767,6 +58137,26 @@ class WebAuthorization extends WebAuthorizationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa6f8f452",
+      "hash": hash,
+      "botId": botId,
+      "domain": domain,
+      "browser": browser,
+      "platform": platform,
+      "dateCreated": dateCreated,
+      "dateActive": dateActive,
+      "ip": ip,
+      "region": region,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Web Authorizations.
@@ -46813,6 +58203,19 @@ class AccountWebAuthorizations extends AccountWebAuthorizationsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed56c9fc",
+      "authorizations": authorizations,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Message I D.
@@ -46853,6 +58256,18 @@ class InputMessageID extends InputMessageBase {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa676a322",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46895,6 +58310,18 @@ class InputMessageReplyTo extends InputMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbad88395",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Message Pinned.
@@ -46920,6 +58347,17 @@ class InputMessagePinned extends InputMessageBase {
     buffer.writeInt32(0x86872538);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x86872538",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -46971,6 +58409,19 @@ class InputMessageCallbackQuery extends InputMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xacfa1a7e",
+      "id": id,
+      "queryId": queryId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Dialog Peer.
@@ -47009,6 +58460,18 @@ class InputDialogPeer extends InputDialogPeerBase {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfcaafeb7",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47051,6 +58514,18 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64600527",
+      "folderId": folderId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Dialog Peer.
@@ -47089,6 +58564,18 @@ class DialogPeer extends DialogPeerBase {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe56dbf05",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47131,6 +58618,18 @@ class DialogPeerFolder extends DialogPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x514519e2",
+      "folderId": folderId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Found Sticker Sets Not Modified.
@@ -47156,6 +58655,17 @@ class MessagesFoundStickerSetsNotModified extends MessagesFoundStickerSetsBase {
     buffer.writeInt32(0x0d54b65d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0d54b65d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47204,6 +58714,19 @@ class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
     buffer.writeVectorObject(sets);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8af09dd2",
+      "hash": hash,
+      "sets": sets,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47262,6 +58785,20 @@ class FileHash extends FileHashBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf39b035c",
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Client Proxy.
@@ -47310,6 +58847,19 @@ class InputClientProxy extends InputClientProxyBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x75588b3f",
+      "address": address,
+      "port": port,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Terms Of Service Update Empty.
@@ -47350,6 +58900,18 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
     buffer.writeInt32(expires);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe3309f7f",
+      "expires": expires,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47398,6 +58960,19 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
     buffer.writeObject(termsOfService);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x28ecf961",
+      "expires": expires,
+      "termsOfService": termsOfService,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47470,6 +59045,22 @@ class InputSecureFileUploaded extends InputSecureFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3334b0f0",
+      "id": id,
+      "parts": parts,
+      "md5Checksum": md5Checksum,
+      "fileHash": fileHash,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Secure File.
@@ -47520,6 +59111,19 @@ class InputSecureFile extends InputSecureFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5367e5be",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure File Empty.
@@ -47545,6 +59149,17 @@ class SecureFileEmpty extends SecureFileBase {
     buffer.writeInt32(0x64199744);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64199744",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47635,6 +59250,24 @@ class SecureFile extends SecureFileBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7d09c27e",
+      "id": id,
+      "accessHash": accessHash,
+      "size": size,
+      "dcId": dcId,
+      "date": date,
+      "fileHash": fileHash,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Data.
@@ -47688,6 +59321,20 @@ class SecureData extends SecureDataBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8aeabec3",
+      "data": data,
+      "dataHash": dataHash,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Plain Phone.
@@ -47726,6 +59373,18 @@ class SecurePlainPhone extends SecurePlainDataBase {
     buffer.writeString(phone);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7d6099dd",
+      "phone": phone,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47766,6 +59425,18 @@ class SecurePlainEmail extends SecurePlainDataBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x21ec5a5f",
+      "email": email,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Personal Details.
@@ -47791,6 +59462,17 @@ class SecureValueTypePersonalDetails extends SecureValueTypeBase {
     buffer.writeInt32(0x9d2a81e3);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9d2a81e3",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47818,6 +59500,17 @@ class SecureValueTypePassport extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dac6a00",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Driver License.
@@ -47843,6 +59536,17 @@ class SecureValueTypeDriverLicense extends SecureValueTypeBase {
     buffer.writeInt32(0x06e425c4);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x06e425c4",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47870,6 +59574,17 @@ class SecureValueTypeIdentityCard extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa0d0744b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Internal Passport.
@@ -47895,6 +59610,17 @@ class SecureValueTypeInternalPassport extends SecureValueTypeBase {
     buffer.writeInt32(0x99a48f23);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x99a48f23",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47922,6 +59648,17 @@ class SecureValueTypeAddress extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcbe31e26",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Utility Bill.
@@ -47947,6 +59684,17 @@ class SecureValueTypeUtilityBill extends SecureValueTypeBase {
     buffer.writeInt32(0xfc36954e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfc36954e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -47974,6 +59722,17 @@ class SecureValueTypeBankStatement extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x89137c0d",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Rental Agreement.
@@ -48000,6 +59759,17 @@ class SecureValueTypeRentalAgreement extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8b883488",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Passport Registration.
@@ -48025,6 +59795,17 @@ class SecureValueTypePassportRegistration extends SecureValueTypeBase {
     buffer.writeInt32(0x99e3806a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x99e3806a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48053,6 +59834,17 @@ class SecureValueTypeTemporaryRegistration extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea02ec33",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Phone.
@@ -48079,6 +59871,17 @@ class SecureValueTypePhone extends SecureValueTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb320aadb",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Type Email.
@@ -48104,6 +59907,17 @@ class SecureValueTypeEmail extends SecureValueTypeBase {
     buffer.writeInt32(0x8e3ca7ee);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8e3ca7ee",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48251,6 +60065,27 @@ class SecureValue extends SecureValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x187fa0ca",
+      "flags": flags,
+      "type": type,
+      "data": data,
+      "frontSide": frontSide,
+      "reverseSide": reverseSide,
+      "selfie": selfie,
+      "translation": translation,
+      "files": files,
+      "plainData": plainData,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Secure Value.
@@ -48391,6 +60226,26 @@ class InputSecureValue extends InputSecureValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb21d0a7",
+      "flags": flags,
+      "type": type,
+      "data": data,
+      "frontSide": frontSide,
+      "reverseSide": reverseSide,
+      "selfie": selfie,
+      "translation": translation,
+      "files": files,
+      "plainData": plainData,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Hash.
@@ -48436,6 +60291,19 @@ class SecureValueHash extends SecureValueHashBase {
     buffer.writeBytes(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed1ecdb0",
+      "type": type,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48497,6 +60365,21 @@ class SecureValueErrorData extends SecureValueErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe8a40bd9",
+      "type": type,
+      "dataHash": dataHash,
+      "field": field,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Error Front Side.
@@ -48549,6 +60432,20 @@ class SecureValueErrorFrontSide extends SecureValueErrorBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x00be3dfa",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48603,6 +60500,20 @@ class SecureValueErrorReverseSide extends SecureValueErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x868a2aa5",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Error Selfie.
@@ -48655,6 +60566,20 @@ class SecureValueErrorSelfie extends SecureValueErrorBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe537ced6",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48709,6 +60634,20 @@ class SecureValueErrorFile extends SecureValueErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a700873",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Error Files.
@@ -48761,6 +60700,20 @@ class SecureValueErrorFiles extends SecureValueErrorBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x666220e9",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48815,6 +60768,20 @@ class SecureValueError extends SecureValueErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x869d758f",
+      "type": type,
+      "hash": hash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Value Error Translation File.
@@ -48867,6 +60834,20 @@ class SecureValueErrorTranslationFile extends SecureValueErrorBase {
     buffer.writeString(text);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa1144770",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -48921,6 +60902,20 @@ class SecureValueErrorTranslationFiles extends SecureValueErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34636dd8",
+      "type": type,
+      "fileHash": fileHash,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Credentials Encrypted.
@@ -48973,6 +60968,20 @@ class SecureCredentialsEncrypted extends SecureCredentialsEncryptedBase {
     buffer.writeBytes(secret);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x33f0ea47",
+      "data": data,
+      "hash": hash,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49057,6 +61066,23 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad2e1cd8",
+      "flags": flags,
+      "requiredTypes": requiredTypes,
+      "values": values,
+      "errors": errors,
+      "users": users,
+      "privacyPolicyUrl": privacyPolicyUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Sent Email Code.
@@ -49105,6 +61131,19 @@ class AccountSentEmailCode extends AccountSentEmailCodeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x811f854f",
+      "emailPattern": emailPattern,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Deep Link Info Empty.
@@ -49130,6 +61169,17 @@ class HelpDeepLinkInfoEmpty extends HelpDeepLinkInfoBase {
     buffer.writeInt32(0x66afa166);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x66afa166",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49200,6 +61250,21 @@ class HelpDeepLinkInfo extends HelpDeepLinkInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a4ee832",
+      "flags": flags,
+      "updateApp": updateApp,
+      "message": message,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Saved Phone Contact.
@@ -49260,6 +61325,21 @@ class SavedPhoneContact extends SavedContactBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1142bd56",
+      "phone": phone,
+      "firstName": firstName,
+      "lastName": lastName,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Takeout.
@@ -49301,6 +61381,18 @@ class AccountTakeout extends AccountTakeoutBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4dba4501",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Password Kdf Algo Unknown.
@@ -49326,6 +61418,17 @@ class PasswordKdfAlgoUnknown extends PasswordKdfAlgoBase {
     buffer.writeInt32(0xd45ab096);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd45ab096",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49392,6 +61495,21 @@ class PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3a912d4a",
+      "salt1": salt1,
+      "salt2": salt2,
+      "g": g,
+      "p": p,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Password Kdf Algo Unknown.
@@ -49417,6 +61535,17 @@ class SecurePasswordKdfAlgoUnknown extends SecurePasswordKdfAlgoBase {
     buffer.writeInt32(0x004a8537);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x004a8537",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49459,6 +61588,18 @@ class SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbbf2dda0",
+      "salt": salt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Password Kdf Algo S H A512.
@@ -49497,6 +61638,18 @@ class SecurePasswordKdfAlgoSHA512 extends SecurePasswordKdfAlgoBase {
     buffer.writeBytes(salt);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x86471d92",
+      "salt": salt,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49553,6 +61706,20 @@ class SecureSecretSettings extends SecureSecretSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1527bcac",
+      "secureAlgo": secureAlgo,
+      "secureSecret": secureSecret,
+      "secureSecretId": secureSecretId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Check Password Empty.
@@ -49578,6 +61745,17 @@ class InputCheckPasswordEmpty extends InputCheckPasswordSRPBase {
     buffer.writeInt32(0x9880f658);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9880f658",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49633,6 +61811,20 @@ class InputCheckPasswordSRP extends InputCheckPasswordSRPBase {
     buffer.writeBytes(m1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd27ff082",
+      "srpId": srpId,
+      "a": a,
+      "m1": m1,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49704,6 +61896,22 @@ class SecureRequiredType extends SecureRequiredTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x829d99da",
+      "flags": flags,
+      "nativeNames": nativeNames,
+      "selfieRequired": selfieRequired,
+      "translationRequired": translationRequired,
+      "type": type,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Secure Required Type One Of.
@@ -49743,6 +61951,18 @@ class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x027477b4",
+      "types": types,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Passport Config Not Modified.
@@ -49768,6 +61988,17 @@ class HelpPassportConfigNotModified extends HelpPassportConfigBase {
     buffer.writeInt32(0xbfb9f457);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbfb9f457",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49816,6 +62047,19 @@ class HelpPassportConfig extends HelpPassportConfigBase {
     buffer.writeObject(countriesLangs);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa098d6af",
+      "hash": hash,
+      "countriesLangs": countriesLangs,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49879,6 +62123,21 @@ class InputAppEvent extends InputAppEventBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1d1b1245",
+      "time": time,
+      "type": type,
+      "peer": peer,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Json Object Value.
@@ -49925,6 +62184,19 @@ class JsonObjectValue extends JSONObjectValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc0de1bd9",
+      "key": key,
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Json Null.
@@ -49950,6 +62222,17 @@ class JsonNull extends JSONValueBase {
     buffer.writeInt32(0x3f6d7b68);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3f6d7b68",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -49990,6 +62273,18 @@ class JsonBool extends JSONValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc7345e6a",
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Json Number.
@@ -50028,6 +62323,18 @@ class JsonNumber extends JSONValueBase {
     buffer.writeDouble(value);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2be0dfa4",
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -50068,6 +62375,18 @@ class JsonString extends JSONValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb71e767a",
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Json Array.
@@ -50107,6 +62426,18 @@ class JsonArray extends JSONValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf7444763",
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Json Object.
@@ -50145,6 +62476,18 @@ class JsonObject extends JSONValueBase {
     buffer.writeVectorObject(value);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x99c1d49d",
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -50259,6 +62602,26 @@ class PageTableCell extends PageTableCellBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34566b6a",
+      "flags": flags,
+      "header": header,
+      "alignCenter": alignCenter,
+      "alignRight": alignRight,
+      "valignMiddle": valignMiddle,
+      "valignBottom": valignBottom,
+      "text": text,
+      "colspan": colspan,
+      "rowspan": rowspan,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page Table Row.
@@ -50297,6 +62660,18 @@ class PageTableRow extends PageTableRowBase {
     buffer.writeVectorObject(cells);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe0c0c5e5",
+      "cells": cells,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -50344,6 +62719,19 @@ class PageCaption extends PageCaptionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f747657",
+      "text": text,
+      "credit": credit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page List Item Text.
@@ -50383,6 +62771,18 @@ class PageListItemText extends PageListItemBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb92fb6cd",
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page List Item Blocks.
@@ -50421,6 +62821,18 @@ class PageListItemBlocks extends PageListItemBase {
     buffer.writeVectorObject(blocks);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x25e073fc",
+      "blocks": blocks,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -50468,6 +62880,19 @@ class PageListOrderedItemText extends PageListOrderedItemBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e068047",
+      "num": num,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page List Ordered Item Blocks.
@@ -50513,6 +62938,19 @@ class PageListOrderedItemBlocks extends PageListOrderedItemBase {
     buffer.writeVectorObject(blocks);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98dd8936",
+      "num": num,
+      "blocks": blocks,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -50632,6 +63070,25 @@ class PageRelatedArticle extends PageRelatedArticleBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb390dc08",
+      "flags": flags,
+      "url": url,
+      "webpageId": webpageId,
+      "title": title,
+      "description": description,
+      "photoId": photoId,
+      "author": author,
+      "publishedDate": publishedDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Page.
@@ -50735,6 +63192,26 @@ class Page extends PageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98657f0d",
+      "flags": flags,
+      "part": part,
+      "rtl": rtl,
+      "v2": v2,
+      "url": url,
+      "blocks": blocks,
+      "photos": photos,
+      "documents": documents,
+      "views": views,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Support Name.
@@ -50774,6 +63251,18 @@ class HelpSupportName extends HelpSupportNameBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c05f1c9",
+      "name": name,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help User Info Empty.
@@ -50799,6 +63288,17 @@ class HelpUserInfoEmpty extends HelpUserInfoBase {
     buffer.writeInt32(0xf3ae2eed);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3ae2eed",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -50860,6 +63360,21 @@ class HelpUserInfo extends HelpUserInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x01eb3758",
+      "message": message,
+      "entities": entities,
+      "author": author,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Poll Answer.
@@ -50905,6 +63420,19 @@ class PollAnswer extends PollAnswerBase {
     buffer.writeBytes(option);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6ca9c2e9",
+      "text": text,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51023,6 +63551,27 @@ class Poll extends PollBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x86e18161",
+      "id": id,
+      "flags": flags,
+      "closed": closed,
+      "publicVoters": publicVoters,
+      "multipleChoice": multipleChoice,
+      "quiz": quiz,
+      "question": question,
+      "answers": answers,
+      "closePeriod": closePeriod,
+      "closeDate": closeDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Poll Answer Voters.
@@ -51094,6 +63643,22 @@ class PollAnswerVoters extends PollAnswerVotersBase {
     buffer.writeInt32(voters);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3b6ddad2",
+      "flags": flags,
+      "chosen": chosen,
+      "correct": correct,
+      "option": option,
+      "voters": voters,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51208,6 +63773,24 @@ class PollResults extends PollResultsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7adf2420",
+      "flags": flags,
+      "min": min,
+      "results": results,
+      "totalVoters": totalVoters,
+      "recentVoters": recentVoters,
+      "solution": solution,
+      "solutionEntities": solutionEntities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Onlines.
@@ -51249,6 +63832,18 @@ class ChatOnlines extends ChatOnlinesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf041e250",
+      "onlines": onlines,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats U R L.
@@ -51287,6 +63882,18 @@ class StatsURL extends StatsURLBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x47a971e0",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51434,6 +64041,33 @@ class ChatAdminRights extends ChatAdminRightsBase {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5fb224d5",
+      "flags": flags,
+      "changeInfo": changeInfo,
+      "postMessages": postMessages,
+      "editMessages": editMessages,
+      "deleteMessages": deleteMessages,
+      "banUsers": banUsers,
+      "inviteUsers": inviteUsers,
+      "pinMessages": pinMessages,
+      "addAdmins": addAdmins,
+      "anonymous": anonymous,
+      "manageCall": manageCall,
+      "other": other,
+      "manageTopics": manageTopics,
+      "postStories": postStories,
+      "editStories": editStories,
+      "deleteStories": deleteStories,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51624,6 +64258,39 @@ class ChatBannedRights extends ChatBannedRightsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9f120418",
+      "flags": flags,
+      "viewMessages": viewMessages,
+      "sendMessages": sendMessages,
+      "sendMedia": sendMedia,
+      "sendStickers": sendStickers,
+      "sendGifs": sendGifs,
+      "sendGames": sendGames,
+      "sendInline": sendInline,
+      "embedLinks": embedLinks,
+      "sendPolls": sendPolls,
+      "changeInfo": changeInfo,
+      "inviteUsers": inviteUsers,
+      "pinMessages": pinMessages,
+      "manageTopics": manageTopics,
+      "sendPhotos": sendPhotos,
+      "sendVideos": sendVideos,
+      "sendRoundvideos": sendRoundvideos,
+      "sendAudios": sendAudios,
+      "sendVoices": sendVoices,
+      "sendDocs": sendDocs,
+      "sendPlain": sendPlain,
+      "untilDate": untilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Wall Paper.
@@ -51674,6 +64341,19 @@ class InputWallPaper extends InputWallPaperBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe630b979",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Wall Paper Slug.
@@ -51712,6 +64392,18 @@ class InputWallPaperSlug extends InputWallPaperBase {
     buffer.writeString(slug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x72091c80",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51754,6 +64446,18 @@ class InputWallPaperNoFile extends InputWallPaperBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x967a462e",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Wall Papers Not Modified.
@@ -51779,6 +64483,17 @@ class AccountWallPapersNotModified extends AccountWallPapersBase {
     buffer.writeInt32(0x1c199183);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1c199183",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51827,6 +64542,19 @@ class AccountWallPapers extends AccountWallPapersBase {
     buffer.writeVectorObject(wallpapers);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcdc3858c",
+      "hash": hash,
+      "wallpapers": wallpapers,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -51934,6 +64662,26 @@ class CodeSettings extends CodeSettingsBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad253d78",
+      "flags": flags,
+      "allowFlashcall": allowFlashcall,
+      "currentNumber": currentNumber,
+      "allowAppHash": allowAppHash,
+      "allowMissedCall": allowMissedCall,
+      "allowFirebase": allowFirebase,
+      "logoutTokens": logoutTokens,
+      "token": token,
+      "appSandbox": appSandbox,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -52077,6 +64825,27 @@ class WallPaperSettings extends WallPaperSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x372efcd0",
+      "flags": flags,
+      "blur": blur,
+      "motion": motion,
+      "backgroundColor": backgroundColor,
+      "secondBackgroundColor": secondBackgroundColor,
+      "thirdBackgroundColor": thirdBackgroundColor,
+      "fourthBackgroundColor": fourthBackgroundColor,
+      "intensity": intensity,
+      "rotation": rotation,
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auto Download Settings.
@@ -52208,6 +64977,29 @@ class AutoDownloadSettings extends AutoDownloadSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbaa57628",
+      "flags": flags,
+      "disabled": disabled,
+      "videoPreloadLarge": videoPreloadLarge,
+      "audioPreloadNext": audioPreloadNext,
+      "phonecallsLessData": phonecallsLessData,
+      "storiesPreload": storiesPreload,
+      "photoSizeMax": photoSizeMax,
+      "videoSizeMax": videoSizeMax,
+      "fileSizeMax": fileSizeMax,
+      "videoUploadMaxbitrate": videoUploadMaxbitrate,
+      "smallQueueActiveOperationsMax": smallQueueActiveOperationsMax,
+      "largeQueueActiveOperationsMax": largeQueueActiveOperationsMax,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Auto Download Settings.
@@ -52261,6 +65053,20 @@ class AccountAutoDownloadSettings extends AccountAutoDownloadSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x63cacf26",
+      "low": low,
+      "medium": medium,
+      "high": high,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Emoji Keyword.
@@ -52307,6 +65113,19 @@ class EmojiKeyword extends EmojiKeywordBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd5b3b9f9",
+      "keyword": keyword,
+      "emoticons": emoticons,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Emoji Keyword Deleted.
@@ -52352,6 +65171,19 @@ class EmojiKeywordDeleted extends EmojiKeywordBase {
     buffer.writeVectorString(emoticons);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x236df622",
+      "keyword": keyword,
+      "emoticons": emoticons,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -52417,6 +65249,21 @@ class EmojiKeywordsDifference extends EmojiKeywordsDifferenceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5cc761bd",
+      "langCode": langCode,
+      "fromVersion": fromVersion,
+      "version": version,
+      "keywords": keywords,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Emoji U R L.
@@ -52456,6 +65303,18 @@ class EmojiURL extends EmojiURLBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa575739d",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Emoji Language.
@@ -52494,6 +65353,18 @@ class EmojiLanguage extends EmojiLanguageBase {
     buffer.writeString(langCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb3fb5361",
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -52586,6 +65457,24 @@ class Folder extends FolderBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xff544e65",
+      "flags": flags,
+      "autofillNewBroadcasts": autofillNewBroadcasts,
+      "autofillPublicGroups": autofillPublicGroups,
+      "autofillNewCorrespondents": autofillNewCorrespondents,
+      "id": id,
+      "title": title,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Folder Peer.
@@ -52634,6 +65523,19 @@ class InputFolderPeer extends InputFolderPeerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfbd2c296",
+      "peer": peer,
+      "folderId": folderId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Folder Peer.
@@ -52681,6 +65583,19 @@ class FolderPeer extends FolderPeerBase {
     buffer.writeInt32(folderId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe9baa668",
+      "peer": peer,
+      "folderId": folderId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -52747,6 +65662,21 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe844ebff",
+      "flags": flags,
+      "inexact": inexact,
+      "filter": filter,
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Url Auth Result Request.
@@ -52810,6 +65740,21 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x92d33a0e",
+      "flags": flags,
+      "requestWriteAccess": requestWriteAccess,
+      "bot": bot,
+      "domain": domain,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Url Auth Result Accepted.
@@ -52849,6 +65794,18 @@ class UrlAuthResultAccepted extends UrlAuthResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8f8c0e4e",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Url Auth Result Default.
@@ -52875,6 +65832,17 @@ class UrlAuthResultDefault extends UrlAuthResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa9d6db1f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channel Location Empty.
@@ -52900,6 +65868,17 @@ class ChannelLocationEmpty extends ChannelLocationBase {
     buffer.writeInt32(0xbfb5ad8b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbfb5ad8b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -52946,6 +65925,19 @@ class ChannelLocation extends ChannelLocationBase {
     buffer.writeString(address);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x209b82db",
+      "geoPoint": geoPoint,
+      "address": address,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53004,6 +65996,20 @@ class PeerLocated extends PeerLocatedBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xca461b5d",
+      "peer": peer,
+      "expires": expires,
+      "distance": distance,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Peer Self Located.
@@ -53044,6 +66050,18 @@ class PeerSelfLocated extends PeerLocatedBase {
     buffer.writeInt32(expires);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf8ec284b",
+      "expires": expires,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53098,6 +66116,20 @@ class RestrictionReason extends RestrictionReasonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd072acb4",
+      "platform": platform,
+      "reason": reason,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Theme.
@@ -53148,6 +66180,19 @@ class InputTheme extends InputThemeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c5693e9",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Theme Slug.
@@ -53186,6 +66231,18 @@ class InputThemeSlug extends InputThemeBase {
     buffer.writeString(slug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf5890df1",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53332,6 +66389,29 @@ class Theme extends ThemeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa00e67d6",
+      "flags": flags,
+      "creator": creator,
+      "ddefault": ddefault,
+      "forChat": forChat,
+      "id": id,
+      "accessHash": accessHash,
+      "slug": slug,
+      "title": title,
+      "document": document,
+      "settings": settings,
+      "emoticon": emoticon,
+      "installsCount": installsCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Themes Not Modified.
@@ -53357,6 +66437,17 @@ class AccountThemesNotModified extends AccountThemesBase {
     buffer.writeInt32(0xf41eb622);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf41eb622",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53406,6 +66497,19 @@ class AccountThemes extends AccountThemesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a3d8c6d",
+      "hash": hash,
+      "themes": themes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Login Token.
@@ -53453,6 +66557,19 @@ class AuthLoginToken extends AuthLoginTokenBase {
     buffer.writeBytes(token);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x629f1980",
+      "expires": expires,
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53502,6 +66619,19 @@ class AuthLoginTokenMigrateTo extends AuthLoginTokenBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x068e9916",
+      "dcId": dcId,
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Login Token Success.
@@ -53540,6 +66670,18 @@ class AuthLoginTokenSuccess extends AuthLoginTokenBase {
     buffer.writeObject(authorization);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x390d5c5e",
+      "authorization": authorization,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53597,6 +66739,20 @@ class AccountContentSettings extends AccountContentSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57e28221",
+      "flags": flags,
+      "sensitiveEnabled": sensitiveEnabled,
+      "sensitiveCanChange": sensitiveCanChange,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Inactive Chats.
@@ -53650,6 +66806,20 @@ class MessagesInactiveChats extends MessagesInactiveChatsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa927fec5",
+      "dates": dates,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Base Theme Classic.
@@ -53675,6 +66845,17 @@ class BaseThemeClassic extends BaseThemeBase {
     buffer.writeInt32(0xc3a12462);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc3a12462",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53702,6 +66883,17 @@ class BaseThemeDay extends BaseThemeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfbd81688",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Base Theme Night.
@@ -53727,6 +66919,17 @@ class BaseThemeNight extends BaseThemeBase {
     buffer.writeInt32(0xb7b31ea8);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb7b31ea8",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53754,6 +66957,17 @@ class BaseThemeTinted extends BaseThemeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6d5f77ee",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Base Theme Arctic.
@@ -53779,6 +66993,17 @@ class BaseThemeArctic extends BaseThemeBase {
     buffer.writeInt32(0x5b11125a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5b11125a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -53897,6 +67122,25 @@ class InputThemeSettings extends InputThemeSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8fde504f",
+      "flags": flags,
+      "messageColorsAnimated": messageColorsAnimated,
+      "baseTheme": baseTheme,
+      "accentColor": accentColor,
+      "outboxAccentColor": outboxAccentColor,
+      "messageColors": messageColors,
+      "wallpaper": wallpaper,
+      "wallpaperSettings": wallpaperSettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Theme Settings.
@@ -54001,6 +67245,24 @@ class ThemeSettings extends ThemeSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa58b6d4",
+      "flags": flags,
+      "messageColorsAnimated": messageColorsAnimated,
+      "baseTheme": baseTheme,
+      "accentColor": accentColor,
+      "outboxAccentColor": outboxAccentColor,
+      "messageColors": messageColors,
+      "wallpaper": wallpaper,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Web Page Attribute Theme.
@@ -54068,6 +67330,20 @@ class WebPageAttributeTheme extends WebPageAttributeBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x54b56617",
+      "flags": flags,
+      "documents": documents,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54138,6 +67414,21 @@ class WebPageAttributeStory extends WebPageAttributeBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2e94c3e7",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54223,6 +67514,23 @@ class MessagesVotesList extends MessagesVotesListBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4899484e",
+      "flags": flags,
+      "count": count,
+      "votes": votes,
+      "chats": chats,
+      "users": users,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bank Card Open Url.
@@ -54269,6 +67577,19 @@ class BankCardOpenUrl extends BankCardOpenUrlBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf568028a",
+      "url": url,
+      "name": name,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Bank Card Data.
@@ -54314,6 +67635,19 @@ class PaymentsBankCardData extends PaymentsBankCardDataBase {
     buffer.writeVectorObject(openUrls);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e24e573",
+      "title": title,
+      "openUrls": openUrls,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54462,6 +67796,32 @@ class DialogFilter extends DialogFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7438f7e8",
+      "flags": flags,
+      "contacts": contacts,
+      "nonContacts": nonContacts,
+      "groups": groups,
+      "broadcasts": broadcasts,
+      "bots": bots,
+      "excludeMuted": excludeMuted,
+      "excludeRead": excludeRead,
+      "excludeArchived": excludeArchived,
+      "id": id,
+      "title": title,
+      "emoticon": emoticon,
+      "pinnedPeers": pinnedPeers,
+      "includePeers": includePeers,
+      "excludePeers": excludePeers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Dialog Filter Default.
@@ -54487,6 +67847,17 @@ class DialogFilterDefault extends DialogFilterBase {
     buffer.writeInt32(0x363293ae);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x363293ae",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54579,6 +67950,24 @@ class DialogFilterChatlist extends DialogFilterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd64a04a8",
+      "flags": flags,
+      "hasMyInvites": hasMyInvites,
+      "id": id,
+      "title": title,
+      "emoticon": emoticon,
+      "pinnedPeers": pinnedPeers,
+      "includePeers": includePeers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Dialog Filter Suggested.
@@ -54624,6 +68013,19 @@ class DialogFilterSuggested extends DialogFilterSuggestedBase {
     buffer.writeString(description);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77744d4a",
+      "filter": filter,
+      "description": description,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54671,6 +68073,19 @@ class StatsDateRangeDays extends StatsDateRangeDaysBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb637edaf",
+      "minDate": minDate,
+      "maxDate": maxDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Abs Value And Prev.
@@ -54716,6 +68131,19 @@ class StatsAbsValueAndPrev extends StatsAbsValueAndPrevBase {
     buffer.writeDouble(previous);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcb43acde",
+      "current": current,
+      "previous": previous,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54763,6 +68191,19 @@ class StatsPercentValue extends StatsPercentValueBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcbce2fe0",
+      "part": part,
+      "total": total,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Graph Async.
@@ -54802,6 +68243,18 @@ class StatsGraphAsync extends StatsGraphBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4a27eb2d",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Graph Error.
@@ -54840,6 +68293,18 @@ class StatsGraphError extends StatsGraphBase {
     buffer.writeString(error);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbedc9822",
+      "error": error,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -54901,6 +68366,20 @@ class StatsGraph extends StatsGraphBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ea464b6",
+      "flags": flags,
+      "json": json,
+      "zoomToken": zoomToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55089,6 +68568,39 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x396ca5fc",
+      "period": period,
+      "followers": followers,
+      "viewsPerPost": viewsPerPost,
+      "sharesPerPost": sharesPerPost,
+      "reactionsPerPost": reactionsPerPost,
+      "viewsPerStory": viewsPerStory,
+      "sharesPerStory": sharesPerStory,
+      "reactionsPerStory": reactionsPerStory,
+      "enabledNotifications": enabledNotifications,
+      "growthGraph": growthGraph,
+      "followersGraph": followersGraph,
+      "muteGraph": muteGraph,
+      "topHoursGraph": topHoursGraph,
+      "interactionsGraph": interactionsGraph,
+      "ivInteractionsGraph": ivInteractionsGraph,
+      "viewsBySourceGraph": viewsBySourceGraph,
+      "newFollowersBySourceGraph": newFollowersBySourceGraph,
+      "languagesGraph": languagesGraph,
+      "reactionsByEmotionGraph": reactionsByEmotionGraph,
+      "storyInteractionsGraph": storyInteractionsGraph,
+      "storyReactionsByEmotionGraph": storyReactionsByEmotionGraph,
+      "recentPostsInteractions": recentPostsInteractions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Promo Data Empty.
@@ -55129,6 +68641,18 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
     buffer.writeInt32(expires);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98f6ac75",
+      "expires": expires,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55233,6 +68757,25 @@ class HelpPromoData extends HelpPromoDataBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c39793f",
+      "flags": flags,
+      "proxy": proxy,
+      "expires": expires,
+      "peer": peer,
+      "chats": chats,
+      "users": users,
+      "psaType": psaType,
+      "psaMessage": psaMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Video Size.
@@ -55321,6 +68864,23 @@ class VideoSize extends VideoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde33b094",
+      "flags": flags,
+      "type": type,
+      "w": w,
+      "h": h,
+      "size": size,
+      "videoStartTs": videoStartTs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Video Size Emoji Markup.
@@ -55368,6 +68928,19 @@ class VideoSizeEmojiMarkup extends VideoSizeBase {
     buffer.writeVectorInt32(backgroundColors);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf85c413c",
+      "emojiId": emojiId,
+      "backgroundColors": backgroundColors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55423,6 +68996,20 @@ class VideoSizeStickerMarkup extends VideoSizeBase {
     buffer.writeVectorInt32(backgroundColors);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0da082fe",
+      "stickerset": stickerset,
+      "stickerId": stickerId,
+      "backgroundColors": backgroundColors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55482,6 +69069,20 @@ class StatsGroupTopPoster extends StatsGroupTopPosterBase {
     buffer.writeInt32(avgChars);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9d04af9b",
+      "userId": userId,
+      "messages": messages,
+      "avgChars": avgChars,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55551,6 +69152,21 @@ class StatsGroupTopAdmin extends StatsGroupTopAdminBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd7584c87",
+      "userId": userId,
+      "deleted": deleted,
+      "kicked": kicked,
+      "banned": banned,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Group Top Inviter.
@@ -55600,6 +69216,19 @@ class StatsGroupTopInviter extends StatsGroupTopInviterBase {
     buffer.writeInt32(invitations);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x535f779d",
+      "userId": userId,
+      "invitations": invitations,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55752,6 +69381,34 @@ class StatsMegagroupStats extends StatsMegagroupStatsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef7ff916",
+      "period": period,
+      "members": members,
+      "messages": messages,
+      "viewers": viewers,
+      "posters": posters,
+      "growthGraph": growthGraph,
+      "membersGraph": membersGraph,
+      "newMembersBySourceGraph": newMembersBySourceGraph,
+      "languagesGraph": languagesGraph,
+      "messagesGraph": messagesGraph,
+      "actionsGraph": actionsGraph,
+      "topHoursGraph": topHoursGraph,
+      "weekdaysGraph": weekdaysGraph,
+      "topPosters": topPosters,
+      "topAdmins": topAdmins,
+      "topInviters": topInviters,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Global Privacy Settings.
@@ -55814,6 +69471,21 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x734c4ccb",
+      "flags": flags,
+      "archiveAndMuteNewNoncontactPeers": archiveAndMuteNewNoncontactPeers,
+      "keepArchivedUnmuted": keepArchivedUnmuted,
+      "keepArchivedFolders": keepArchivedFolders,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55887,6 +69559,21 @@ class HelpCountryCode extends HelpCountryCodeBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4203c5ef",
+      "flags": flags,
+      "countryCode": countryCode,
+      "prefixes": prefixes,
+      "patterns": patterns,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -55970,6 +69657,23 @@ class HelpCountry extends HelpCountryBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc3878e23",
+      "flags": flags,
+      "hidden": hidden,
+      "iso2": iso2,
+      "defaultName": defaultName,
+      "name": name,
+      "countryCodes": countryCodes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Countries List Not Modified.
@@ -55995,6 +69699,17 @@ class HelpCountriesListNotModified extends HelpCountriesListBase {
     buffer.writeInt32(0x93cc1f32);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93cc1f32",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56043,6 +69758,19 @@ class HelpCountriesList extends HelpCountriesListBase {
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x87d0759e",
+      "countries": countries,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56123,6 +69851,21 @@ class MessageViews extends MessageViewsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x455b853d",
+      "flags": flags,
+      "views": views,
+      "forwards": forwards,
+      "replies": replies,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Message Views.
@@ -56175,6 +69918,20 @@ class MessagesMessageViews extends MessagesMessageViewsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6c4f543",
+      "views": views,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56283,6 +70040,25 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa6341782",
+      "flags": flags,
+      "messages": messages,
+      "maxId": maxId,
+      "readInboxMaxId": readInboxMaxId,
+      "readOutboxMaxId": readOutboxMaxId,
+      "unreadCount": unreadCount,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56448,6 +70224,29 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xafbc09db",
+      "flags": flags,
+      "replyToScheduled": replyToScheduled,
+      "forumTopic": forumTopic,
+      "quote": quote,
+      "replyToMsgId": replyToMsgId,
+      "replyToPeerId": replyToPeerId,
+      "replyFrom": replyFrom,
+      "replyMedia": replyMedia,
+      "replyToTopId": replyToTopId,
+      "quoteText": quoteText,
+      "quoteEntities": quoteEntities,
+      "quoteOffset": quoteOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Reply Story Header.
@@ -56497,6 +70296,19 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
     buffer.writeInt32(storyId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9c98bfc1",
+      "userId": userId,
+      "storyId": storyId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56613,6 +70425,25 @@ class MessageReplies extends MessageRepliesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x83d60fc2",
+      "flags": flags,
+      "comments": comments,
+      "replies": replies,
+      "repliesPts": repliesPts,
+      "recentRepliers": recentRepliers,
+      "channelId": channelId,
+      "maxId": maxId,
+      "readMaxId": readMaxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Peer Blocked.
@@ -56659,6 +70490,19 @@ class PeerBlocked extends PeerBlockedBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe8fd8014",
+      "peerId": peerId,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Message Stats.
@@ -56704,6 +70548,19 @@ class StatsMessageStats extends StatsMessageStatsBase {
     buffer.writeObject(reactionsByEmotionGraph);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7fe91c14",
+      "viewsGraph": viewsGraph,
+      "reactionsByEmotionGraph": reactionsByEmotionGraph,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56763,6 +70620,20 @@ class GroupCallDiscarded extends GroupCallBase {
     buffer.writeInt32(duration);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7780bcb4",
+      "id": id,
+      "accessHash": accessHash,
+      "duration": duration,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -56969,6 +70840,36 @@ class GroupCall extends GroupCallBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd597650c",
+      "flags": flags,
+      "joinMuted": joinMuted,
+      "canChangeJoinMuted": canChangeJoinMuted,
+      "joinDateAsc": joinDateAsc,
+      "scheduleStartSubscribed": scheduleStartSubscribed,
+      "canStartVideo": canStartVideo,
+      "recordVideoActive": recordVideoActive,
+      "rtmpStream": rtmpStream,
+      "listenersHidden": listenersHidden,
+      "id": id,
+      "accessHash": accessHash,
+      "participantsCount": participantsCount,
+      "title": title,
+      "streamDcId": streamDcId,
+      "recordStartDate": recordStartDate,
+      "scheduleDate": scheduleDate,
+      "unmutedVideoCount": unmutedVideoCount,
+      "unmutedVideoLimit": unmutedVideoLimit,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Group Call.
@@ -57018,6 +70919,19 @@ class InputGroupCall extends InputGroupCallBase {
     buffer.writeInt64(accessHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd8aa840f",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57230,6 +71144,37 @@ class GroupCallParticipant extends GroupCallParticipantBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeba636fe",
+      "flags": flags,
+      "muted": muted,
+      "left": left,
+      "canSelfUnmute": canSelfUnmute,
+      "justJoined": justJoined,
+      "versioned": versioned,
+      "min": min,
+      "mutedByYou": mutedByYou,
+      "volumeByAdmin": volumeByAdmin,
+      "self": self,
+      "videoJoined": videoJoined,
+      "peer": peer,
+      "date": date,
+      "activeDate": activeDate,
+      "source": source,
+      "volume": volume,
+      "about": about,
+      "raiseHandRating": raiseHandRating,
+      "video": video,
+      "presentation": presentation,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Group Call.
@@ -57296,6 +71241,22 @@ class PhoneGroupCall extends PhoneGroupCallBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9e727aad",
+      "call": call,
+      "participants": participants,
+      "participantsNextOffset": participantsNextOffset,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57375,6 +71336,23 @@ class PhoneGroupParticipants extends PhoneGroupParticipantsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf47751b6",
+      "count": count,
+      "participants": participants,
+      "nextOffset": nextOffset,
+      "chats": chats,
+      "users": users,
+      "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Inline Query Peer Type Same Bot P M.
@@ -57400,6 +71378,17 @@ class InlineQueryPeerTypeSameBotPM extends InlineQueryPeerTypeBase {
     buffer.writeInt32(0x3081ed9d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3081ed9d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57427,6 +71416,17 @@ class InlineQueryPeerTypePM extends InlineQueryPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x833c0fac",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Inline Query Peer Type Chat.
@@ -57452,6 +71452,17 @@ class InlineQueryPeerTypeChat extends InlineQueryPeerTypeBase {
     buffer.writeInt32(0xd766c50a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd766c50a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57479,6 +71490,17 @@ class InlineQueryPeerTypeMegagroup extends InlineQueryPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5ec4be43",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Inline Query Peer Type Broadcast.
@@ -57505,6 +71527,17 @@ class InlineQueryPeerTypeBroadcast extends InlineQueryPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6334ee9a",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Inline Query Peer Type Bot P M.
@@ -57530,6 +71563,17 @@ class InlineQueryPeerTypeBotPM extends InlineQueryPeerTypeBase {
     buffer.writeInt32(0x0e3b2d0c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0e3b2d0c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57571,6 +71615,18 @@ class MessagesHistoryImport extends MessagesHistoryImportBase {
     buffer.writeInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1662af0b",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57640,6 +71696,21 @@ class MessagesHistoryImportParsed extends MessagesHistoryImportParsedBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e0fb7b9",
+      "flags": flags,
+      "pm": pm,
+      "group": group,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Affected Found Messages.
@@ -57705,6 +71776,21 @@ class MessagesAffectedFoundMessages extends MessagesAffectedFoundMessagesBase {
     buffer.writeVectorInt32(messages);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef8d3e6c",
+      "pts": pts,
+      "ptsCount": ptsCount,
+      "offset": offset,
+      "messages": messages,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57802,6 +71888,24 @@ class ChatInviteImporter extends ChatInviteImporterBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c5adfd9",
+      "flags": flags,
+      "requested": requested,
+      "viaChatlist": viaChatlist,
+      "userId": userId,
+      "date": date,
+      "about": about,
+      "approvedBy": approvedBy,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Exported Chat Invites.
@@ -57857,6 +71961,20 @@ class MessagesExportedChatInvites extends MessagesExportedChatInvitesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdc62dcc",
+      "count": count,
+      "invites": invites,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Exported Chat Invite.
@@ -57902,6 +72020,19 @@ class MessagesExportedChatInvite extends MessagesExportedChatInviteBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1871be50",
+      "invite": invite,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -57957,6 +72088,20 @@ class MessagesExportedChatInviteReplaced
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x222600ef",
+      "invite": invite,
+      "newInvite": newInvite,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Chat Invite Importers.
@@ -58011,6 +72156,20 @@ class MessagesChatInviteImporters extends MessagesChatInviteImportersBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x81b6b00a",
+      "count": count,
+      "importers": importers,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58071,6 +72230,20 @@ class ChatAdminWithInvites extends ChatAdminWithInvitesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf2ecef23",
+      "adminId": adminId,
+      "invitesCount": invitesCount,
+      "revokedInvitesCount": revokedInvitesCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Chat Admins With Invites.
@@ -58117,6 +72290,19 @@ class MessagesChatAdminsWithInvites extends MessagesChatAdminsWithInvitesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb69b72d7",
+      "admins": admins,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Checked History Import Peer.
@@ -58156,6 +72342,18 @@ class MessagesCheckedHistoryImportPeer
     buffer.writeString(confirmText);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa24de717",
+      "confirmText": confirmText,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58210,6 +72408,20 @@ class PhoneJoinAsPeers extends PhoneJoinAsPeersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xafe5623f",
+      "peers": peers,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Exported Group Call Invite.
@@ -58248,6 +72460,18 @@ class PhoneExportedGroupCallInvite extends PhoneExportedGroupCallInviteBase {
     buffer.writeString(link);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x204bd158",
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58296,6 +72520,19 @@ class GroupCallParticipantVideoSourceGroup
     buffer.writeVectorInt32(sources);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdcb118b7",
+      "semantics": semantics,
+      "sources": sources,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58373,6 +72610,22 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x67753ac8",
+      "flags": flags,
+      "paused": paused,
+      "endpoint": endpoint,
+      "sourceGroups": sourceGroups,
+      "audioSource": audioSource,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stickers Suggested Short Name.
@@ -58412,6 +72665,18 @@ class StickersSuggestedShortName extends StickersSuggestedShortNameBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x85fea03f",
+      "shortName": shortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Command Scope Default.
@@ -58437,6 +72702,17 @@ class BotCommandScopeDefault extends BotCommandScopeBase {
     buffer.writeInt32(0x2f6cb2ab);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2f6cb2ab",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58464,6 +72740,17 @@ class BotCommandScopeUsers extends BotCommandScopeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c4f04d8",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Command Scope Chats.
@@ -58490,6 +72777,17 @@ class BotCommandScopeChats extends BotCommandScopeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6fe1a881",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Command Scope Chat Admins.
@@ -58515,6 +72813,17 @@ class BotCommandScopeChatAdmins extends BotCommandScopeBase {
     buffer.writeInt32(0xb9aa606a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9aa606a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58555,6 +72864,18 @@ class BotCommandScopePeer extends BotCommandScopeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb9d897d",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Command Scope Peer Admins.
@@ -58593,6 +72914,18 @@ class BotCommandScopePeerAdmins extends BotCommandScopeBase {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3fd863d1",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58640,6 +72973,19 @@ class BotCommandScopePeerUser extends BotCommandScopeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a1321f3",
+      "peer": peer,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reset Password Failed Wait.
@@ -58678,6 +73024,18 @@ class AccountResetPasswordFailedWait extends AccountResetPasswordResultBase {
     buffer.writeDateTime(retryDate);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe3779861",
+      "retryDate": retryDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58718,6 +73076,18 @@ class AccountResetPasswordRequestedWait extends AccountResetPasswordResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe9effc7d",
+      "untilDate": untilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reset Password Ok.
@@ -58743,6 +73113,17 @@ class AccountResetPasswordOk extends AccountResetPasswordResultBase {
     buffer.writeInt32(0xe926d63e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe926d63e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -58948,6 +73329,33 @@ class SponsoredMessage extends SponsoredMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed5383f7",
+      "flags": flags,
+      "recommended": recommended,
+      "showPeerPhoto": showPeerPhoto,
+      "randomId": randomId,
+      "fromId": fromId,
+      "chatInvite": chatInvite,
+      "chatInviteHash": chatInviteHash,
+      "channelPost": channelPost,
+      "startParam": startParam,
+      "webpage": webpage,
+      "app": app,
+      "message": message,
+      "entities": entities,
+      "buttonText": buttonText,
+      "sponsorInfo": sponsorInfo,
+      "additionalInfo": additionalInfo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Sponsored Messages.
@@ -59023,6 +73431,22 @@ class MessagesSponsoredMessages extends MessagesSponsoredMessagesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9ee1d87",
+      "flags": flags,
+      "postsBetween": postsBetween,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Sponsored Messages Empty.
@@ -59048,6 +73472,17 @@ class MessagesSponsoredMessagesEmpty extends MessagesSponsoredMessagesBase {
     buffer.writeInt32(0x1839490f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1839490f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59114,6 +73549,21 @@ class SearchResultsCalendarPeriod extends SearchResultsCalendarPeriodBase {
     buffer.writeInt32(count);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9b0539f",
+      "date": date,
+      "minMsgId": minMsgId,
+      "maxMsgId": maxMsgId,
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59229,6 +73679,27 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x147ee23c",
+      "flags": flags,
+      "inexact": inexact,
+      "count": count,
+      "minDate": minDate,
+      "minMsgId": minMsgId,
+      "offsetIdOffset": offsetIdOffset,
+      "periods": periods,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Search Result Position.
@@ -59286,6 +73757,20 @@ class SearchResultPosition extends SearchResultsPositionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f648b67",
+      "msgId": msgId,
+      "date": date,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Search Results Positions.
@@ -59334,6 +73819,19 @@ class MessagesSearchResultsPositions
     buffer.writeVectorObject(positions);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53b22baf",
+      "count": count,
+      "positions": positions,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59388,6 +73886,20 @@ class ChannelsSendAsPeers extends ChannelsSendAsPeersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf496b0c6",
+      "peers": peers,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Users User Full.
@@ -59440,6 +73952,20 @@ class UsersUserFull extends UsersUserFullBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3b6d152e",
+      "fullUser": fullUser,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59494,6 +74020,20 @@ class MessagesPeerSettings extends MessagesPeerSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6880b94d",
+      "settings": settings,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Logged Out.
@@ -59547,6 +74087,19 @@ class AuthLoggedOut extends AuthLoggedOutBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc3a2835f",
+      "flags": flags,
+      "futureAuthToken": futureAuthToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59617,6 +74170,21 @@ class ReactionCount extends ReactionCountBase {
     buffer.writeInt32(count);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa3d1cb80",
+      "flags": flags,
+      "chosenOrder": chosenOrder,
+      "reaction": reaction,
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59694,6 +74262,22 @@ class MessageReactions extends MessageReactionsBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4f2b9479",
+      "flags": flags,
+      "min": min,
+      "canSeeList": canSeeList,
+      "results": results,
+      "recentReactions": recentReactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59778,6 +74362,23 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x31bd492d",
+      "flags": flags,
+      "count": count,
+      "reactions": reactions,
+      "chats": chats,
+      "users": users,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59909,6 +74510,29 @@ class AvailableReaction extends AvailableReactionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc077ec01",
+      "flags": flags,
+      "inactive": inactive,
+      "premium": premium,
+      "reaction": reaction,
+      "title": title,
+      "staticIcon": staticIcon,
+      "appearAnimation": appearAnimation,
+      "selectAnimation": selectAnimation,
+      "activateAnimation": activateAnimation,
+      "effectAnimation": effectAnimation,
+      "aroundAnimation": aroundAnimation,
+      "centerIcon": centerIcon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Available Reactions Not Modified.
@@ -59936,6 +74560,17 @@ class MessagesAvailableReactionsNotModified
     buffer.writeInt32(0x9f071957);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9f071957",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -59984,6 +74619,19 @@ class MessagesAvailableReactions extends MessagesAvailableReactionsBase {
     buffer.writeVectorObject(reactions);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x768e3aad",
+      "hash": hash,
+      "reactions": reactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60069,6 +74717,24 @@ class MessagePeerReaction extends MessagePeerReactionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c79b63c",
+      "flags": flags,
+      "big": big,
+      "unread": unread,
+      "my": my,
+      "peerId": peerId,
+      "date": date,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Group Call Stream Channel.
@@ -60128,6 +74794,20 @@ class GroupCallStreamChannel extends GroupCallStreamChannelBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x80eb48af",
+      "channel": channel,
+      "scale": scale,
+      "lastTimestampMs": lastTimestampMs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Group Call Stream Channels.
@@ -60166,6 +74846,18 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
     buffer.writeVectorObject(channels);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd0e482b2",
+      "channels": channels,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60212,6 +74904,19 @@ class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
     buffer.writeString(key);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2dbf3432",
+      "url": url,
+      "key": key,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60260,6 +74965,19 @@ class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
     buffer.writeInt32(color);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4576f3f0",
+      "name": name,
+      "color": color,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60330,6 +75048,21 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb2a7386b",
+      "flags": flags,
+      "name": name,
+      "icon": icon,
+      "colors": colors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60451,6 +75184,28 @@ class AttachMenuBot extends AttachMenuBotBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd90d8dfe",
+      "flags": flags,
+      "inactive": inactive,
+      "hasSettings": hasSettings,
+      "requestWriteAccess": requestWriteAccess,
+      "showInAttachMenu": showInAttachMenu,
+      "showInSideMenu": showInSideMenu,
+      "sideMenuDisclaimerNeeded": sideMenuDisclaimerNeeded,
+      "botId": botId,
+      "shortName": shortName,
+      "peerTypes": peerTypes,
+      "icons": icons,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Attach Menu Bots Not Modified.
@@ -60476,6 +75231,17 @@ class AttachMenuBotsNotModified extends AttachMenuBotsBase {
     buffer.writeInt32(0xf1d88a5c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf1d88a5c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60532,6 +75298,20 @@ class AttachMenuBots extends AttachMenuBotsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c4301c0",
+      "hash": hash,
+      "bots": bots,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Attach Menu Bots Bot.
@@ -60577,6 +75357,19 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93bf667f",
+      "bot": bot,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60626,6 +75419,19 @@ class WebViewResultUrl extends WebViewResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0c14557c",
+      "queryId": queryId,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Simple Web View Result Url.
@@ -60664,6 +75470,18 @@ class SimpleWebViewResultUrl extends SimpleWebViewResultBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x882f76bb",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60721,6 +75539,19 @@ class WebViewMessageSent extends WebViewMessageSentBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0c94511c",
+      "flags": flags,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Menu Button Default.
@@ -60747,6 +75578,17 @@ class BotMenuButtonDefault extends BotMenuButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7533a588",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot Menu Button Commands.
@@ -60772,6 +75614,17 @@ class BotMenuButtonCommands extends BotMenuButtonBase {
     buffer.writeInt32(0x4258c205);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4258c205",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60819,6 +75672,19 @@ class BotMenuButton extends BotMenuButtonBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc7b57ce6",
+      "text": text,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Saved Ringtones Not Modified.
@@ -60844,6 +75710,17 @@ class AccountSavedRingtonesNotModified extends AccountSavedRingtonesBase {
     buffer.writeInt32(0xfbf6e8b1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfbf6e8b1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60893,6 +75770,19 @@ class AccountSavedRingtones extends AccountSavedRingtonesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc1e92cc5",
+      "hash": hash,
+      "ringtones": ringtones,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Notification Sound Default.
@@ -60919,6 +75809,17 @@ class NotificationSoundDefault extends NotificationSoundBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x97e8bebe",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Notification Sound None.
@@ -60944,6 +75845,17 @@ class NotificationSoundNone extends NotificationSoundBase {
     buffer.writeInt32(0x6f0c34df);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f0c34df",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -60991,6 +75903,19 @@ class NotificationSoundLocal extends NotificationSoundBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x830b9ae4",
+      "title": title,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Notification Sound Ringtone.
@@ -61032,6 +75957,18 @@ class NotificationSoundRingtone extends NotificationSoundBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xff6c8049",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Saved Ringtone.
@@ -61057,6 +75994,17 @@ class AccountSavedRingtone extends AccountSavedRingtoneBase {
     buffer.writeInt32(0xb7263f6d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb7263f6d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61097,6 +76045,18 @@ class AccountSavedRingtoneConverted extends AccountSavedRingtoneBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1f307eb7",
+      "document": document,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Attach Menu Peer Type Same Bot P M.
@@ -61122,6 +76082,17 @@ class AttachMenuPeerTypeSameBotPM extends AttachMenuPeerTypeBase {
     buffer.writeInt32(0x7d6be90e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7d6be90e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61149,6 +76120,17 @@ class AttachMenuPeerTypeBotPM extends AttachMenuPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc32bfa1a",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Attach Menu Peer Type P M.
@@ -61174,6 +76156,17 @@ class AttachMenuPeerTypePM extends AttachMenuPeerTypeBase {
     buffer.writeInt32(0xf146d31f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf146d31f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61201,6 +76194,17 @@ class AttachMenuPeerTypeChat extends AttachMenuPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0509113f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Attach Menu Peer Type Broadcast.
@@ -61226,6 +76230,17 @@ class AttachMenuPeerTypeBroadcast extends AttachMenuPeerTypeBase {
     buffer.writeInt32(0x7bfbdefc);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7bfbdefc",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61275,6 +76290,19 @@ class InputInvoiceMessage extends InputInvoiceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc5b56859",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Invoice Slug.
@@ -61313,6 +76341,18 @@ class InputInvoiceSlug extends InputInvoiceBase {
     buffer.writeString(slug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc326caef",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61360,6 +76400,19 @@ class InputInvoicePremiumGiftCode extends InputInvoiceBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98986c0d",
+      "purpose": purpose,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Exported Invoice.
@@ -61398,6 +76451,18 @@ class PaymentsExportedInvoice extends PaymentsExportedInvoiceBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaed0cbd9",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61488,6 +76553,23 @@ class MessagesTranscribedAudio extends MessagesTranscribedAudioBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcfb9d957",
+      "flags": flags,
+      "pending": pending,
+      "transcriptionId": transcriptionId,
+      "text": text,
+      "trialRemainsNum": trialRemainsNum,
+      "trialRemainsUntilDate": trialRemainsUntilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Premium Promo.
@@ -61563,6 +76645,23 @@ class HelpPremiumPromo extends HelpPremiumPromoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5334759c",
+      "statusText": statusText,
+      "statusEntities": statusEntities,
+      "videoSections": videoSections,
+      "videos": videos,
+      "periodOptions": periodOptions,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Store Payment Premium Subscription.
@@ -61621,6 +76720,20 @@ class InputStorePaymentPremiumSubscription
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa6751e66",
+      "flags": flags,
+      "restore": restore,
+      "upgrade": upgrade,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Store Payment Gift Premium.
@@ -61675,6 +76788,20 @@ class InputStorePaymentGiftPremium extends InputStorePaymentPurposeBase {
     buffer.writeInt64(amount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x616f7fe8",
+      "userId": userId,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61753,6 +76880,22 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
     buffer.writeInt64(amount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa3805f3f",
+      "flags": flags,
+      "users": users,
+      "boostPeer": boostPeer,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -61889,6 +77032,28 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x160544ca",
+      "flags": flags,
+      "onlyNewSubscribers": onlyNewSubscribers,
+      "winnersAreVisible": winnersAreVisible,
+      "boostPeer": boostPeer,
+      "additionalPeers": additionalPeers,
+      "countriesIso2": countriesIso2,
+      "prizeDescription": prizeDescription,
+      "randomId": randomId,
+      "untilDate": untilDate,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Premium Gift Option.
@@ -61975,6 +77140,23 @@ class PremiumGiftOption extends PremiumGiftOptionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74c34319",
+      "flags": flags,
+      "months": months,
+      "currency": currency,
+      "amount": amount,
+      "botUrl": botUrl,
+      "storeProduct": storeProduct,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payment Form Method.
@@ -62021,6 +77203,19 @@ class PaymentFormMethod extends PaymentFormMethodBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x88f8f21b",
+      "url": url,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Emoji Status Empty.
@@ -62046,6 +77241,17 @@ class EmojiStatusEmpty extends EmojiStatusBase {
     buffer.writeInt32(0x2de11aae);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2de11aae",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62087,6 +77293,18 @@ class EmojiStatus extends EmojiStatusBase {
     buffer.writeInt64(documentId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x929b619d",
+      "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62138,6 +77356,19 @@ class EmojiStatusUntil extends EmojiStatusBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa30a8c7",
+      "documentId": documentId,
+      "until": until,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Emoji Statuses Not Modified.
@@ -62163,6 +77394,17 @@ class AccountEmojiStatusesNotModified extends AccountEmojiStatusesBase {
     buffer.writeInt32(0xd08ce645);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd08ce645",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62212,6 +77454,19 @@ class AccountEmojiStatuses extends AccountEmojiStatusesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x90c467d1",
+      "hash": hash,
+      "statuses": statuses,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Reaction Empty.
@@ -62237,6 +77492,17 @@ class ReactionEmpty extends ReactionBase {
     buffer.writeInt32(0x79f5d419);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x79f5d419",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62276,6 +77542,18 @@ class ReactionEmoji extends ReactionBase {
     buffer.writeString(emoticon);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b2286b8",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62318,6 +77596,18 @@ class ReactionCustomEmoji extends ReactionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8935fc73",
+      "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Reactions None.
@@ -62343,6 +77633,17 @@ class ChatReactionsNone extends ChatReactionsBase {
     buffer.writeInt32(0xeafc32bc);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeafc32bc",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62393,6 +77694,19 @@ class ChatReactionsAll extends ChatReactionsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x52928bca",
+      "flags": flags,
+      "allowCustom": allowCustom,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chat Reactions Some.
@@ -62432,6 +77746,18 @@ class ChatReactionsSome extends ChatReactionsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x661d4037",
+      "reactions": reactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Reactions Not Modified.
@@ -62457,6 +77783,17 @@ class MessagesReactionsNotModified extends MessagesReactionsBase {
     buffer.writeInt32(0xb06fdbdf);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb06fdbdf",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62506,6 +77843,19 @@ class MessagesReactions extends MessagesReactionsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeafdf716",
+      "hash": hash,
+      "reactions": reactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Email Verify Purpose Login Setup.
@@ -62552,6 +77902,19 @@ class EmailVerifyPurposeLoginSetup extends EmailVerifyPurposeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4345be73",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Email Verify Purpose Login Change.
@@ -62578,6 +77941,17 @@ class EmailVerifyPurposeLoginChange extends EmailVerifyPurposeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x527d22eb",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Email Verify Purpose Passport.
@@ -62603,6 +77977,17 @@ class EmailVerifyPurposePassport extends EmailVerifyPurposeBase {
     buffer.writeInt32(0xbbf51685);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbbf51685",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62643,6 +78028,18 @@ class EmailVerificationCode extends EmailVerificationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x922e55a9",
+      "code": code,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Email Verification Google.
@@ -62681,6 +78078,18 @@ class EmailVerificationGoogle extends EmailVerificationBase {
     buffer.writeString(token);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb909ec2",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62721,6 +78130,18 @@ class EmailVerificationApple extends EmailVerificationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x96d074fd",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Email Verified.
@@ -62759,6 +78180,18 @@ class AccountEmailVerified extends AccountEmailVerifiedBase {
     buffer.writeString(email);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2b96cd1b",
+      "email": email,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62805,6 +78238,19 @@ class AccountEmailVerifiedLogin extends AccountEmailVerifiedBase {
     buffer.writeObject(sentCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe1bb0d61",
+      "email": email,
+      "sentCode": sentCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -62918,6 +78364,26 @@ class PremiumSubscriptionOption extends PremiumSubscriptionOptionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5f2d1df2",
+      "flags": flags,
+      "current": current,
+      "canPurchaseUpgrade": canPurchaseUpgrade,
+      "transaction": transaction,
+      "months": months,
+      "currency": currency,
+      "amount": amount,
+      "botUrl": botUrl,
+      "storeProduct": storeProduct,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send As Peer.
@@ -62973,6 +78439,20 @@ class SendAsPeer extends SendAsPeerBase {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb81c7034",
+      "flags": flags,
+      "premiumRequired": premiumRequired,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63063,6 +78543,22 @@ class MessageExtendedMediaPreview extends MessageExtendedMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad628cc8",
+      "flags": flags,
+      "w": w,
+      "h": h,
+      "thumb": thumb,
+      "videoDuration": videoDuration,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Extended Media.
@@ -63101,6 +78597,18 @@ class MessageExtendedMedia extends MessageExtendedMediaBase {
     buffer.writeObject(media);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xee479c64",
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63149,6 +78657,19 @@ class StickerKeyword extends StickerKeywordBase {
     buffer.writeVectorString(keyword);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfcfeb29c",
+      "documentId": documentId,
+      "keyword": keyword,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63213,6 +78734,21 @@ class Username extends UsernameBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4073647",
+      "flags": flags,
+      "editable": editable,
+      "active": active,
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Forum Topic Deleted.
@@ -63253,6 +78789,18 @@ class ForumTopicDeleted extends ForumTopicBase {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x023f109b",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63456,6 +79004,37 @@ class ForumTopic extends ForumTopicBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x71701da9",
+      "flags": flags,
+      "my": my,
+      "closed": closed,
+      "pinned": pinned,
+      "short": short,
+      "hidden": hidden,
+      "id": id,
+      "date": date,
+      "title": title,
+      "iconColor": iconColor,
+      "iconEmojiId": iconEmojiId,
+      "topMessage": topMessage,
+      "readInboxMaxId": readInboxMaxId,
+      "readOutboxMaxId": readOutboxMaxId,
+      "unreadCount": unreadCount,
+      "unreadMentionsCount": unreadMentionsCount,
+      "unreadReactionsCount": unreadReactionsCount,
+      "fromId": fromId,
+      "notifySettings": notifySettings,
+      "draft": draft,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Forum Topics.
@@ -63551,6 +79130,25 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x367617d3",
+      "flags": flags,
+      "orderByCreateDate": orderByCreateDate,
+      "count": count,
+      "topics": topics,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+      "pts": pts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Default History T T L.
@@ -63591,6 +79189,18 @@ class DefaultHistoryTTL extends DefaultHistoryTTLBase {
     buffer.writeInt32(period);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x43b46b20",
+      "period": period,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63639,6 +79249,19 @@ class ExportedContactToken extends ExportedContactTokenBase {
     buffer.writeInt32(expires);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x41bf109b",
+      "url": url,
+      "expires": expires,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63695,6 +79318,20 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5f3b8a00",
+      "flags": flags,
+      "bot": bot,
+      "premium": premium,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63794,6 +79431,24 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9f06e1b",
+      "flags": flags,
+      "creator": creator,
+      "botParticipant": botParticipant,
+      "hasUsername": hasUsername,
+      "forum": forum,
+      "userAdminRights": userAdminRights,
+      "botAdminRights": botAdminRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Request Peer Type Broadcast.
@@ -63878,6 +79533,22 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x339bef6c",
+      "flags": flags,
+      "creator": creator,
+      "hasUsername": hasUsername,
+      "userAdminRights": userAdminRights,
+      "botAdminRights": botAdminRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Emoji List Not Modified.
@@ -63903,6 +79574,17 @@ class EmojiListNotModified extends EmojiListBase {
     buffer.writeInt32(0x481eadfa);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x481eadfa",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -63951,6 +79633,19 @@ class EmojiList extends EmojiListBase {
     buffer.writeVectorInt64(documentId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a1e11d1",
+      "hash": hash,
+      "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64007,6 +79702,20 @@ class EmojiGroup extends EmojiGroupBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a9abda9",
+      "title": title,
+      "iconEmojiId": iconEmojiId,
+      "emoticons": emoticons,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Emoji Groups Not Modified.
@@ -64032,6 +79741,17 @@ class MessagesEmojiGroupsNotModified extends MessagesEmojiGroupsBase {
     buffer.writeInt32(0x6fb4ad87);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6fb4ad87",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64081,6 +79801,19 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x881fb94b",
+      "hash": hash,
+      "groups": groups,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Text With Entities.
@@ -64127,6 +79860,19 @@ class TextWithEntities extends TextWithEntitiesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x751f3146",
+      "text": text,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Translate Result.
@@ -64165,6 +79911,18 @@ class MessagesTranslateResult extends MessagesTranslatedTextBase {
     buffer.writeVectorObject(result);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x33db32f8",
+      "result": result,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64234,6 +79992,21 @@ class AutoSaveSettings extends AutoSaveSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc84834ce",
+      "flags": flags,
+      "photos": photos,
+      "videos": videos,
+      "videoMaxSize": videoMaxSize,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auto Save Exception.
@@ -64279,6 +80052,19 @@ class AutoSaveException extends AutoSaveExceptionBase {
     buffer.writeObject(settings);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x81602d47",
+      "peer": peer,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64354,6 +80140,23 @@ class AccountAutoSaveSettings extends AccountAutoSaveSettingsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4c3e069d",
+      "usersSettings": usersSettings,
+      "chatsSettings": chatsSettings,
+      "broadcastsSettings": broadcastsSettings,
+      "exceptions": exceptions,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help App Config Not Modified.
@@ -64379,6 +80182,17 @@ class HelpAppConfigNotModified extends HelpAppConfigBase {
     buffer.writeInt32(0x7cde641d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7cde641d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64427,6 +80241,19 @@ class HelpAppConfig extends HelpAppConfigBase {
     buffer.writeObject(config);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdd18782e",
+      "hash": hash,
+      "config": config,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64478,6 +80305,19 @@ class InputBotAppID extends InputBotAppBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa920bd7a",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Bot App Short Name.
@@ -64524,6 +80364,19 @@ class InputBotAppShortName extends InputBotAppBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x908c0407",
+      "botId": botId,
+      "shortName": shortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bot App Not Modified.
@@ -64549,6 +80402,17 @@ class BotAppNotModified extends BotAppBase {
     buffer.writeInt32(0x5da674b7);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5da674b7",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64660,6 +80524,26 @@ class BotApp extends BotAppBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x95fcd1d6",
+      "flags": flags,
+      "id": id,
+      "accessHash": accessHash,
+      "shortName": shortName,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "document": document,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Bot App.
@@ -64730,6 +80614,22 @@ class MessagesBotApp extends MessagesBotAppBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeb50adf5",
+      "flags": flags,
+      "inactive": inactive,
+      "requestWriteAccess": requestWriteAccess,
+      "hasSettings": hasSettings,
+      "app": app,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// App Web View Result Url.
@@ -64768,6 +80668,18 @@ class AppWebViewResultUrl extends AppWebViewResultBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3c1b4f0d",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64814,6 +80726,19 @@ class InlineBotWebView extends InlineBotWebViewBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb57295d5",
+      "text": text,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64863,6 +80788,19 @@ class ReadParticipantDate extends ReadParticipantDateBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4a4ff172",
+      "userId": userId,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Chatlist Dialog Filter.
@@ -64903,6 +80841,18 @@ class InputChatlistDialogFilter extends InputChatlistBase {
     buffer.writeInt32(filterId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3e0da33",
+      "filterId": filterId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -64966,6 +80916,21 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0c5181ac",
+      "flags": flags,
+      "title": title,
+      "url": url,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Exported Chatlist Invite.
@@ -65012,6 +80977,19 @@ class ChatlistsExportedChatlistInvite
     buffer.writeObject(invite);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10e6e3a6",
+      "filter": filter,
+      "invite": invite,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65065,6 +81043,20 @@ class ChatlistsExportedInvites extends ChatlistsExportedInvitesBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10ab6dc7",
+      "invites": invites,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65134,6 +81126,22 @@ class ChatlistsChatlistInviteAlready extends ChatlistsChatlistInviteBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa87f659",
+      "filterId": filterId,
+      "missingPeers": missingPeers,
+      "alreadyPeers": alreadyPeers,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65217,6 +81225,23 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1dcd839d",
+      "flags": flags,
+      "title": title,
+      "emoticon": emoticon,
+      "peers": peers,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Chatlist Updates.
@@ -65269,6 +81294,20 @@ class ChatlistsChatlistUpdates extends ChatlistsChatlistUpdatesBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93bd878d",
+      "missingPeers": missingPeers,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65323,6 +81362,20 @@ class BotsBotInfo extends BotsBotInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe8a775b0",
+      "name": name,
+      "about": about,
+      "description": description,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Peer Vote.
@@ -65376,6 +81429,20 @@ class MessagePeerVote extends MessagePeerVoteBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6cc2d5c",
+      "peer": peer,
+      "option": option,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Peer Vote Input Option.
@@ -65421,6 +81488,19 @@ class MessagePeerVoteInputOption extends MessagePeerVoteBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74cda504",
+      "peer": peer,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65474,6 +81554,20 @@ class MessagePeerVoteMultiple extends MessagePeerVoteBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4628f6e6",
+      "peer": peer,
+      "options": options,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65542,6 +81636,21 @@ class SponsoredWebPage extends SponsoredWebPageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3db8ec63",
+      "flags": flags,
+      "url": url,
+      "siteName": siteName,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65651,6 +81760,24 @@ class StoryViews extends StoryViewsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8d595cd6",
+      "flags": flags,
+      "hasViewers": hasViewers,
+      "viewsCount": viewsCount,
+      "forwardsCount": forwardsCount,
+      "reactions": reactions,
+      "reactionsCount": reactionsCount,
+      "recentViewers": recentViewers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Story Item Deleted.
@@ -65691,6 +81818,18 @@ class StoryItemDeleted extends StoryItemBase {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x51e6ee4f",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65763,6 +81902,22 @@ class StoryItemSkipped extends StoryItemBase {
     buffer.writeDateTime(expireDate);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xffadc913",
+      "flags": flags,
+      "closeFriends": closeFriends,
+      "id": id,
+      "date": date,
+      "expireDate": expireDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -65988,6 +82143,38 @@ class StoryItem extends StoryItemBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaf6365a1",
+      "flags": flags,
+      "pinned": pinned,
+      "public": public,
+      "closeFriends": closeFriends,
+      "min": min,
+      "noforwards": noforwards,
+      "edited": edited,
+      "contacts": contacts,
+      "selectedContacts": selectedContacts,
+      "out": out,
+      "id": id,
+      "date": date,
+      "fwdFrom": fwdFrom,
+      "expireDate": expireDate,
+      "caption": caption,
+      "entities": entities,
+      "media": media,
+      "mediaAreas": mediaAreas,
+      "privacy": privacy,
+      "views": views,
+      "sentReaction": sentReaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories All Stories Not Modified.
@@ -66042,6 +82229,20 @@ class StoriesAllStoriesNotModified extends StoriesAllStoriesBase {
     buffer.writeObject(stealthMode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1158fe3e",
+      "flags": flags,
+      "state": state,
+      "stealthMode": stealthMode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66136,6 +82337,25 @@ class StoriesAllStories extends StoriesAllStoriesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6efc5e81",
+      "flags": flags,
+      "hasMore": hasMore,
+      "count": count,
+      "state": state,
+      "peerStories": peerStories,
+      "chats": chats,
+      "users": users,
+      "stealthMode": stealthMode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Stories.
@@ -66197,6 +82417,21 @@ class StoriesStories extends StoriesStoriesBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5dd8c3c8",
+      "count": count,
+      "stories": stories,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66283,6 +82518,23 @@ class StoryView extends StoryViewBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb0bdeac5",
+      "flags": flags,
+      "blocked": blocked,
+      "blockedMyStoriesFrom": blockedMyStoriesFrom,
+      "userId": userId,
+      "date": date,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Story View Public Forward.
@@ -66345,6 +82597,21 @@ class StoryViewPublicForward extends StoryViewBase {
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9083670b",
+      "flags": flags,
+      "blocked": blocked,
+      "blockedMyStoriesFrom": blockedMyStoriesFrom,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66415,6 +82682,22 @@ class StoryViewPublicRepost extends StoryViewBase {
     buffer.writeObject(story);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd74cf49",
+      "flags": flags,
+      "blocked": blocked,
+      "blockedMyStoriesFrom": blockedMyStoriesFrom,
+      "peerId": peerId,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66527,6 +82810,26 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x59d78fc5",
+      "flags": flags,
+      "count": count,
+      "viewsCount": viewsCount,
+      "forwardsCount": forwardsCount,
+      "reactionsCount": reactionsCount,
+      "views": views,
+      "chats": chats,
+      "users": users,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Story Views.
@@ -66572,6 +82875,19 @@ class StoriesStoryViews extends StoriesStoryViewsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde9eed1d",
+      "views": views,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66687,6 +83003,24 @@ class InputReplyToMessage extends InputReplyToBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x22c0f6d5",
+      "flags": flags,
+      "replyToMsgId": replyToMsgId,
+      "topMsgId": topMsgId,
+      "replyToPeerId": replyToPeerId,
+      "quoteText": quoteText,
+      "quoteEntities": quoteEntities,
+      "quoteOffset": quoteOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Reply To Story.
@@ -66735,6 +83069,19 @@ class InputReplyToStory extends InputReplyToBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15b0f283",
+      "userId": userId,
+      "storyId": storyId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Exported Story Link.
@@ -66773,6 +83120,18 @@ class ExportedStoryLink extends ExportedStoryLinkBase {
     buffer.writeString(link);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3fc9053b",
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66842,6 +83201,20 @@ class StoriesStealthMode extends StoriesStealthModeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x712e27fd",
+      "flags": flags,
+      "activeUntilDate": activeUntilDate,
+      "cooldownUntilDate": cooldownUntilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Media Area Coordinates.
@@ -66908,6 +83281,22 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
     buffer.writeDouble(rotation);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x03d1ea4e",
+      "x": x,
+      "y": y,
+      "w": w,
+      "h": h,
+      "rotation": rotation,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -66990,6 +83379,24 @@ class MediaAreaVenue extends MediaAreaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbe82db9c",
+      "coordinates": coordinates,
+      "geo": geo,
+      "title": title,
+      "address": address,
+      "provider": provider,
+      "venueId": venueId,
+      "venueType": venueType,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Area Venue.
@@ -67045,6 +83452,20 @@ class InputMediaAreaVenue extends MediaAreaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb282217f",
+      "coordinates": coordinates,
+      "queryId": queryId,
+      "resultId": resultId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Media Area Geo Point.
@@ -67090,6 +83511,19 @@ class MediaAreaGeoPoint extends MediaAreaBase {
     buffer.writeObject(geo);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdf8b3b22",
+      "coordinates": coordinates,
+      "geo": geo,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -67161,6 +83595,22 @@ class MediaAreaSuggestedReaction extends MediaAreaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x14455871",
+      "flags": flags,
+      "dark": dark,
+      "flipped": flipped,
+      "coordinates": coordinates,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Media Area Channel Post.
@@ -67218,6 +83668,20 @@ class MediaAreaChannelPost extends MediaAreaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x770416af",
+      "coordinates": coordinates,
+      "channelId": channelId,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Media Area Channel Post.
@@ -67272,6 +83736,20 @@ class InputMediaAreaChannelPost extends MediaAreaBase {
     buffer.writeInt32(msgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2271f2bf",
+      "coordinates": coordinates,
+      "channel": channel,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -67341,6 +83819,21 @@ class PeerStories extends PeerStoriesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a35e999",
+      "flags": flags,
+      "peer": peer,
+      "maxReadId": maxReadId,
+      "stories": stories,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Peer Stories.
@@ -67394,6 +83887,20 @@ class StoriesPeerStories extends StoriesPeerStoriesBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcae68768",
+      "stories": stories,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Web Page.
@@ -67446,6 +83953,20 @@ class MessagesWebPage extends MessagesWebPageBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfd5e12bd",
+      "webpage": webpage,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -67546,6 +84067,24 @@ class PremiumGiftCodeOption extends PremiumGiftCodeOptionBase {
     buffer.writeInt64(amount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x257e962b",
+      "flags": flags,
+      "users": users,
+      "months": months,
+      "storeProduct": storeProduct,
+      "storeQuantity": storeQuantity,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -67674,6 +84213,27 @@ class PaymentsCheckedGiftCode extends PaymentsCheckedGiftCodeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x284a1096",
+      "flags": flags,
+      "viaGiveaway": viaGiveaway,
+      "fromId": fromId,
+      "giveawayMsgId": giveawayMsgId,
+      "toId": toId,
+      "date": date,
+      "months": months,
+      "usedDate": usedDate,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Giveaway Info.
@@ -67776,6 +84336,24 @@ class PaymentsGiveawayInfo extends PaymentsGiveawayInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4367daa0",
+      "flags": flags,
+      "participating": participating,
+      "preparingResults": preparingResults,
+      "startDate": startDate,
+      "joinedTooEarlyDate": joinedTooEarlyDate,
+      "adminDisallowedChatId": adminDisallowedChatId,
+      "disallowedCountry": disallowedCountry,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Giveaway Info Results.
@@ -67875,6 +84453,25 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x00cd5570",
+      "flags": flags,
+      "winner": winner,
+      "refunded": refunded,
+      "startDate": startDate,
+      "giftCodeSlug": giftCodeSlug,
+      "finishDate": finishDate,
+      "winnersCount": winnersCount,
+      "activatedCount": activatedCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Prepaid Giveaway.
@@ -67940,6 +84537,21 @@ class PrepaidGiveaway extends PrepaidGiveawayBase {
     buffer.writeDateTime(date);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb2539d54",
+      "id": id,
+      "months": months,
+      "quantity": quantity,
+      "date": date,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -68074,6 +84686,28 @@ class Boost extends BoostBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2a1c8c71",
+      "flags": flags,
+      "gift": gift,
+      "giveaway": giveaway,
+      "unclaimed": unclaimed,
+      "id": id,
+      "userId": userId,
+      "giveawayMsgId": giveawayMsgId,
+      "date": date,
+      "expires": expires,
+      "usedGiftSlug": usedGiftSlug,
+      "multiplier": multiplier,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Premium Boosts List.
@@ -68150,6 +84784,22 @@ class PremiumBoostsList extends PremiumBoostsListBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x86f8613c",
+      "flags": flags,
+      "count": count,
+      "boosts": boosts,
+      "nextOffset": nextOffset,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -68243,6 +84893,23 @@ class MyBoost extends MyBoostBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc448415c",
+      "flags": flags,
+      "slot": slot,
+      "peer": peer,
+      "date": date,
+      "expires": expires,
+      "cooldownUntilDate": cooldownUntilDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Premium My Boosts.
@@ -68295,6 +84962,20 @@ class PremiumMyBoosts extends PremiumMyBoostsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9ae228e2",
+      "myBoosts": myBoosts,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -68442,6 +85123,28 @@ class PremiumBoostsStatus extends PremiumBoostsStatusBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4959427a",
+      "flags": flags,
+      "myBoost": myBoost,
+      "level": level,
+      "currentLevelBoosts": currentLevelBoosts,
+      "boosts": boosts,
+      "giftBoosts": giftBoosts,
+      "nextLevelBoosts": nextLevelBoosts,
+      "premiumAudience": premiumAudience,
+      "boostUrl": boostUrl,
+      "prepaidGiveaways": prepaidGiveaways,
+      "myBoostSlots": myBoostSlots,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Story Fwd Header.
@@ -68527,6 +85230,22 @@ class StoryFwdHeader extends StoryFwdHeaderBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb826e150",
+      "flags": flags,
+      "modified": modified,
+      "from": from,
+      "fromName": fromName,
+      "storyId": storyId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Post Interaction Counters Message.
@@ -68594,6 +85313,21 @@ class PostInteractionCountersMessage extends PostInteractionCountersBase {
     buffer.writeInt32(reactions);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe7058e7f",
+      "msgId": msgId,
+      "views": views,
+      "forwards": forwards,
+      "reactions": reactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -68663,6 +85397,21 @@ class PostInteractionCountersStory extends PostInteractionCountersBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8a480e27",
+      "storyId": storyId,
+      "views": views,
+      "forwards": forwards,
+      "reactions": reactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Story Stats.
@@ -68709,6 +85458,19 @@ class StatsStoryStats extends StatsStoryStatsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50cd067c",
+      "viewsGraph": viewsGraph,
+      "reactionsByEmotionGraph": reactionsByEmotionGraph,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Public Forward Message.
@@ -68747,6 +85509,18 @@ class PublicForwardMessage extends PublicForwardBase {
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x01f2bf4a",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -68793,6 +85567,19 @@ class PublicForwardStory extends PublicForwardBase {
     buffer.writeObject(story);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xedf3add0",
+      "peer": peer,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -68878,6 +85665,23 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93037e20",
+      "flags": flags,
+      "count": count,
+      "forwards": forwards,
+      "nextOffset": nextOffset,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Peer Color.
@@ -68945,6 +85749,20 @@ class PeerColor extends PeerColorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb54b5acf",
+      "flags": flags,
+      "color": color,
+      "backgroundEmojiId": backgroundEmojiId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Peer Color Set.
@@ -68983,6 +85801,18 @@ class HelpPeerColorSet extends HelpPeerColorSetBase {
     buffer.writeVectorInt32(colors);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x26219a58",
+      "colors": colors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69036,6 +85866,20 @@ class HelpPeerColorProfileSet extends HelpPeerColorSetBase {
     buffer.writeVectorInt32(storyColors);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x767d61eb",
+      "paletteColors": paletteColors,
+      "bgColors": bgColors,
+      "storyColors": storyColors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69133,6 +85977,23 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef8430ab",
+      "flags": flags,
+      "hidden": hidden,
+      "colorId": colorId,
+      "colors": colors,
+      "darkColors": darkColors,
+      "channelMinLevel": channelMinLevel,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Peer Colors Not Modified.
@@ -69158,6 +86019,17 @@ class HelpPeerColorsNotModified extends HelpPeerColorsBase {
     buffer.writeInt32(0x2ba1f5ce);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ba1f5ce",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69206,6 +86078,19 @@ class HelpPeerColors extends HelpPeerColorsBase {
     buffer.writeVectorObject(colors);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x00f8ed08",
+      "hash": hash,
+      "colors": colors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69260,6 +86145,20 @@ class StoryReaction extends StoryReactionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6090d6d5",
+      "peerId": peerId,
+      "date": date,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Story Reaction Public Forward.
@@ -69298,6 +86197,18 @@ class StoryReactionPublicForward extends StoryReactionBase {
     buffer.writeObject(message);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbbab2643",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69344,6 +86255,19 @@ class StoryReactionPublicRepost extends StoryReactionBase {
     buffer.writeObject(story);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcfcd0f13",
+      "peerId": peerId,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69429,6 +86353,23 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaa5f789c",
+      "flags": flags,
+      "count": count,
+      "reactions": reactions,
+      "chats": chats,
+      "users": users,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Saved Dialog.
@@ -69494,6 +86435,21 @@ class SavedDialog extends SavedDialogBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd87cb6c",
+      "flags": flags,
+      "pinned": pinned,
+      "peer": peer,
+      "topMessage": topMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Saved Dialogs.
@@ -69553,6 +86509,21 @@ class MessagesSavedDialogs extends MessagesSavedDialogsBase {
     buffer.writeVectorObject(users);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf83ae221",
+      "dialogs": dialogs,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69623,6 +86594,22 @@ class MessagesSavedDialogsSlice extends MessagesSavedDialogsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x44ba9dd9",
+      "count": count,
+      "dialogs": dialogs,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Saved Dialogs Not Modified.
@@ -69663,6 +86650,18 @@ class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
     buffer.writeInt32(count);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc01f6fe8",
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69712,6 +86711,19 @@ class InvokeAfterMsg<X> extends TlMethod<X> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcb9f372d",
+      "msgId": msgId,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Invoke After Msgs.
@@ -69757,6 +86769,19 @@ class InvokeAfterMsgs<X> extends TlMethod<X> {
     buffer.writeObject(query);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dc4b4f0",
+      "msgIds": msgIds,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69820,6 +86845,21 @@ class AuthSendCode extends TlMethod<AuthSentCodeBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa677244f",
+      "phoneNumber": phoneNumber,
+      "apiId": apiId,
+      "apiHash": apiHash,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Sign Up.
@@ -69879,6 +86919,21 @@ class AuthSignUp extends TlMethod<AuthAuthorizationBase> {
     buffer.writeString(lastName);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x80eee427",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+      "firstName": firstName,
+      "lastName": lastName,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -69962,6 +87017,22 @@ class AuthSignIn extends TlMethod<AuthAuthorizationBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8d52a951",
+      "flags": flags,
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+      "phoneCode": phoneCode,
+      "emailVerification": emailVerification,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Log Out.
@@ -69988,6 +87059,17 @@ class AuthLogOut extends TlMethod<AuthLoggedOutBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e72ba19",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Reset Authorizations.
@@ -70013,6 +87095,17 @@ class AuthResetAuthorizations extends TlMethod<bool> {
     buffer.writeInt32(0x9fab0d1a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9fab0d1a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70054,6 +87147,18 @@ class AuthExportAuthorization extends TlMethod<AuthExportedAuthorizationBase> {
     buffer.writeInt32(dcId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe5bfffcd",
+      "dcId": dcId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70103,6 +87208,19 @@ class AuthImportAuthorization extends TlMethod<AuthAuthorizationBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa57a7dad",
+      "id": id,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Bind Temp Auth Key.
@@ -70122,7 +87240,7 @@ class AuthBindTempAuthKey extends TlMethod<bool> {
     // Read [AuthBindTempAuthKey] fields.
     final permAuthKeyId = reader.readInt64();
     final nonce = reader.readInt64();
-    final expiresAt = reader.readInt32();
+    final expiresAt = reader.readDateTime();
     final encryptedMessage = reader.readBytes();
 
     // Construct [AuthBindTempAuthKey] object.
@@ -70148,9 +87266,7 @@ class AuthBindTempAuthKey extends TlMethod<bool> {
   final int nonce;
 
   /// Expires At.
-  ///
-  /// Field type is Int32.
-  final int expiresAt;
+  final DateTime expiresAt;
 
   /// Encrypted Message.
   final Uint8List encryptedMessage;
@@ -70164,10 +87280,25 @@ class AuthBindTempAuthKey extends TlMethod<bool> {
     // Write fields.
     buffer.writeInt64(permAuthKeyId);
     buffer.writeInt64(nonce);
-    buffer.writeInt32(expiresAt);
+    buffer.writeDateTime(expiresAt);
     buffer.writeBytes(encryptedMessage);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcdd42a05",
+      "permAuthKeyId": permAuthKeyId,
+      "nonce": nonce,
+      "expiresAt": expiresAt,
+      "encryptedMessage": encryptedMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70255,6 +87386,24 @@ class AccountRegisterDevice extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec86017a",
+      "flags": flags,
+      "noMuted": noMuted,
+      "tokenType": tokenType,
+      "token": token,
+      "appSandbox": appSandbox,
+      "secret": secret,
+      "otherUids": otherUids,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Unregister Device.
@@ -70310,6 +87459,20 @@ class AccountUnregisterDevice extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a0d3206",
+      "tokenType": tokenType,
+      "token": token,
+      "otherUids": otherUids,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Update Notify Settings.
@@ -70356,6 +87519,19 @@ class AccountUpdateNotifySettings extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x84be5b93",
+      "peer": peer,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Notify Settings.
@@ -70395,6 +87571,18 @@ class AccountGetNotifySettings extends TlMethod<PeerNotifySettingsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x12b3ad31",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reset Notify Settings.
@@ -70420,6 +87608,17 @@ class AccountResetNotifySettings extends TlMethod<bool> {
     buffer.writeInt32(0xdb7e1747);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdb7e1747",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70499,6 +87698,21 @@ class AccountUpdateProfile extends TlMethod<UserBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x78515775",
+      "flags": flags,
+      "firstName": firstName,
+      "lastName": lastName,
+      "about": about,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Update Status.
@@ -70537,6 +87751,18 @@ class AccountUpdateStatus extends TlMethod<bool> {
     buffer.writeBool(offline);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6628562c",
+      "offline": offline,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70578,6 +87804,18 @@ class AccountGetWallPapers extends TlMethod<AccountWallPapersBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x07967d36",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70632,6 +87870,20 @@ class AccountReportPeer extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc5ba3d86",
+      "peer": peer,
+      "reason": reason,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Users Get Users.
@@ -70671,6 +87923,18 @@ class UsersGetUsers extends TlMethod<List<UserBase>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0d91a548",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Users Get Full User.
@@ -70709,6 +87973,18 @@ class UsersGetFullUser extends TlMethod<UsersUserFullBase> {
     buffer.writeObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb60f5918",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70751,6 +88027,18 @@ class ContactsGetContactIDs extends TlMethod<List<int>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7adc669d",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Get Statuses.
@@ -70776,6 +88064,17 @@ class ContactsGetStatuses extends TlMethod<List<ContactStatusBase>> {
     buffer.writeInt32(0xc4a353ee);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4a353ee",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70818,6 +88117,18 @@ class ContactsGetContacts extends TlMethod<ContactsContactsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5dd69e12",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Import Contacts.
@@ -70856,6 +88167,18 @@ class ContactsImportContacts extends TlMethod<ContactsImportedContactsBase> {
     buffer.writeVectorObject(contacts);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2c800be5",
+      "contacts": contacts,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70896,6 +88219,18 @@ class ContactsDeleteContacts extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x096a0e00",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Delete By Phones.
@@ -70934,6 +88269,18 @@ class ContactsDeleteByPhones extends TlMethod<bool> {
     buffer.writeVectorString(phones);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1013fd9e",
+      "phones": phones,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -70991,6 +88338,20 @@ class ContactsBlock extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2e2e8734",
+      "flags": flags,
+      "myStoriesFrom": myStoriesFrom,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Unblock.
@@ -71046,6 +88407,20 @@ class ContactsUnblock extends TlMethod<bool> {
     buffer.writeObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb550d328",
+      "flags": flags,
+      "myStoriesFrom": myStoriesFrom,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -71114,6 +88489,21 @@ class ContactsGetBlocked extends TlMethod<ContactsBlockedBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a868f80",
+      "flags": flags,
+      "myStoriesFrom": myStoriesFrom,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Messages.
@@ -71152,6 +88542,18 @@ class MessagesGetMessages extends TlMethod<MessagesMessagesBase> {
     buffer.writeVectorObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x63c66506",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -71255,6 +88657,25 @@ class MessagesGetDialogs extends TlMethod<MessagesDialogsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa0f4cb4f",
+      "flags": flags,
+      "excludePinned": excludePinned,
+      "folderId": folderId,
+      "offsetDate": offsetDate,
+      "offsetId": offsetId,
+      "offsetPeer": offsetPeer,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get History.
@@ -71354,6 +88775,25 @@ class MessagesGetHistory extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4423e6c5",
+      "peer": peer,
+      "offsetId": offsetId,
+      "offsetDate": offsetDate,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -71523,6 +88963,32 @@ class MessagesSearch extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa7b4e929",
+      "flags": flags,
+      "peer": peer,
+      "q": q,
+      "fromId": fromId,
+      "savedPeerId": savedPeerId,
+      "topMsgId": topMsgId,
+      "filter": filter,
+      "minDate": minDate,
+      "maxDate": maxDate,
+      "offsetId": offsetId,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Read History.
@@ -71570,6 +89036,19 @@ class MessagesReadHistory extends TlMethod<MessagesAffectedMessagesBase> {
     buffer.writeInt32(maxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0e306d3a",
+      "peer": peer,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -71667,6 +89146,24 @@ class MessagesDeleteHistory extends TlMethod<MessagesAffectedHistoryBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb08f922a",
+      "flags": flags,
+      "justClear": justClear,
+      "revoke": revoke,
+      "peer": peer,
+      "maxId": maxId,
+      "minDate": minDate,
+      "maxDate": maxDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Delete Messages.
@@ -71723,6 +89220,20 @@ class MessagesDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe58e95d2",
+      "flags": flags,
+      "revoke": revoke,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Received Messages.
@@ -71764,6 +89275,18 @@ class MessagesReceivedMessages
     buffer.writeInt32(maxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x05a954c0",
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -71832,6 +89355,21 @@ class MessagesSetTyping extends TlMethod<bool> {
     buffer.writeObject(action);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x58943ee2",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72010,6 +89548,33 @@ class MessagesSendMessage extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x280d096f",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "silent": silent,
+      "background": background,
+      "clearDraft": clearDraft,
+      "noforwards": noforwards,
+      "updateStickersetsOrder": updateStickersetsOrder,
+      "invertMedia": invertMedia,
+      "peer": peer,
+      "replyTo": replyTo,
+      "message": message,
+      "randomId": randomId,
+      "replyMarkup": replyMarkup,
+      "entities": entities,
+      "scheduleDate": scheduleDate,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Send Media.
@@ -72187,6 +89752,33 @@ class MessagesSendMedia extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x72ccc23d",
+      "flags": flags,
+      "silent": silent,
+      "background": background,
+      "clearDraft": clearDraft,
+      "noforwards": noforwards,
+      "updateStickersetsOrder": updateStickersetsOrder,
+      "invertMedia": invertMedia,
+      "peer": peer,
+      "replyTo": replyTo,
+      "media": media,
+      "message": message,
+      "randomId": randomId,
+      "replyMarkup": replyMarkup,
+      "entities": entities,
+      "scheduleDate": scheduleDate,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Forward Messages.
@@ -72335,6 +89927,31 @@ class MessagesForwardMessages extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc661bbc4",
+      "flags": flags,
+      "silent": silent,
+      "background": background,
+      "withMyScore": withMyScore,
+      "dropAuthor": dropAuthor,
+      "dropMediaCaptions": dropMediaCaptions,
+      "noforwards": noforwards,
+      "fromPeer": fromPeer,
+      "id": id,
+      "randomId": randomId,
+      "toPeer": toPeer,
+      "topMsgId": topMsgId,
+      "scheduleDate": scheduleDate,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Report Spam.
@@ -72374,6 +89991,18 @@ class MessagesReportSpam extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcf1592db",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Peer Settings.
@@ -72412,6 +90041,18 @@ class MessagesGetPeerSettings extends TlMethod<MessagesPeerSettingsBase> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xefd9a6a2",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72473,6 +90114,21 @@ class MessagesReport extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8953ab4e",
+      "peer": peer,
+      "id": id,
+      "reason": reason,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Chats.
@@ -72511,6 +90167,18 @@ class MessagesGetChats extends TlMethod<MessagesChatsBase> {
     buffer.writeVectorInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x49e9528f",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72552,6 +90220,18 @@ class MessagesGetFullChat extends TlMethod<MessagesChatFullBase> {
     buffer.writeInt64(chatId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaeb00b34",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72601,6 +90281,19 @@ class MessagesEditChatTitle extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73783ffd",
+      "chatId": chatId,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Edit Chat Photo.
@@ -72648,6 +90341,19 @@ class MessagesEditChatPhoto extends TlMethod<UpdatesBase> {
     buffer.writeObject(photo);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35ddd674",
+      "chatId": chatId,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72705,6 +90411,20 @@ class MessagesAddChatUser extends TlMethod<UpdatesBase> {
     buffer.writeInt32(fwdLimit);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf24753e3",
+      "chatId": chatId,
+      "userId": userId,
+      "fwdLimit": fwdLimit,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72770,6 +90490,21 @@ class MessagesDeleteChatUser extends TlMethod<UpdatesBase> {
     buffer.writeObject(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2185cab",
+      "flags": flags,
+      "revokeHistory": revokeHistory,
+      "chatId": chatId,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72839,6 +90574,21 @@ class MessagesCreateChat extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0034a818",
+      "flags": flags,
+      "users": users,
+      "title": title,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Updates Get State.
@@ -72864,6 +90614,17 @@ class UpdatesGetState extends TlMethod<UpdatesStateBase> {
     buffer.writeInt32(0xedd4882a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xedd4882a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -72968,6 +90729,24 @@ class UpdatesGetDifference extends TlMethod<UpdatesDifferenceBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x19c2f763",
+      "flags": flags,
+      "pts": pts,
+      "ptsLimit": ptsLimit,
+      "ptsTotalLimit": ptsTotalLimit,
+      "date": date,
+      "qts": qts,
+      "qtsLimit": qtsLimit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photos Update Profile Photo.
@@ -73035,6 +90814,21 @@ class PhotosUpdateProfilePhoto extends TlMethod<PhotosPhotoBase> {
     buffer.writeObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x09e82039",
+      "flags": flags,
+      "fallback": fallback,
+      "bot": bot,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73146,6 +90940,24 @@ class PhotosUploadProfilePhoto extends TlMethod<PhotosPhotoBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0388a3b5",
+      "flags": flags,
+      "fallback": fallback,
+      "bot": bot,
+      "file": file,
+      "video": video,
+      "videoStartTs": videoStartTs,
+      "videoEmojiMarkup": videoEmojiMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photos Delete Photos.
@@ -73184,6 +90996,18 @@ class PhotosDeletePhotos extends TlMethod<List<int>> {
     buffer.writeVectorObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x87cf7f2f",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73241,6 +91065,20 @@ class UploadSaveFilePart extends TlMethod<bool> {
     buffer.writeBytes(bytes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb304a621",
+      "fileId": fileId,
+      "filePart": filePart,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73323,6 +91161,23 @@ class UploadGetFile extends TlMethod<UploadFileBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbe5335be",
+      "flags": flags,
+      "precise": precise,
+      "cdnSupported": cdnSupported,
+      "location": location,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Config.
@@ -73349,6 +91204,17 @@ class HelpGetConfig extends TlMethod<ConfigBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4f9186b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Nearest Dc.
@@ -73374,6 +91240,17 @@ class HelpGetNearestDc extends TlMethod<NearestDcBase> {
     buffer.writeInt32(0x1fb33026);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1fb33026",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73414,6 +91291,18 @@ class HelpGetAppUpdate extends TlMethod<HelpAppUpdateBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x522d5a7d",
+      "source": source,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Invite Text.
@@ -73439,6 +91328,17 @@ class HelpGetInviteText extends TlMethod<HelpInviteTextBase> {
     buffer.writeInt32(0x4d392343);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4d392343",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73506,6 +91406,21 @@ class PhotosGetUserPhotos extends TlMethod<PhotosPhotosBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x91cd32a8",
+      "userId": userId,
+      "offset": offset,
+      "maxId": maxId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Dh Config.
@@ -73555,6 +91470,19 @@ class MessagesGetDhConfig extends TlMethod<MessagesDhConfigBase> {
     buffer.writeInt32(randomLength);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x26cf8950",
+      "version": version,
+      "randomLength": randomLength,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73611,6 +91539,20 @@ class MessagesRequestEncryption extends TlMethod<EncryptedChatBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf64daf43",
+      "userId": userId,
+      "randomId": randomId,
+      "gA": gA,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Accept Encryption.
@@ -73665,6 +91607,20 @@ class MessagesAcceptEncryption extends TlMethod<EncryptedChatBase> {
     buffer.writeInt64(keyFingerprint);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dbc0415",
+      "peer": peer,
+      "gB": gB,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73724,6 +91680,20 @@ class MessagesDiscardEncryption extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf393aea0",
+      "flags": flags,
+      "deleteHistory": deleteHistory,
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Encrypted Typing.
@@ -73770,6 +91740,19 @@ class MessagesSetEncryptedTyping extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x791451ed",
+      "peer": peer,
+      "typing": typing,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Read Encrypted History.
@@ -73815,6 +91798,19 @@ class MessagesReadEncryptedHistory extends TlMethod<bool> {
     buffer.writeDateTime(maxDate);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f4b690a",
+      "peer": peer,
+      "maxDate": maxDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73887,6 +91883,22 @@ class MessagesSendEncrypted extends TlMethod<MessagesSentEncryptedMessageBase> {
     buffer.writeBytes(data);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x44fa7a15",
+      "flags": flags,
+      "silent": silent,
+      "peer": peer,
+      "randomId": randomId,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -73968,6 +91980,23 @@ class MessagesSendEncryptedFile
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5559481d",
+      "flags": flags,
+      "silent": silent,
+      "peer": peer,
+      "randomId": randomId,
+      "data": data,
+      "file": file,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Send Encrypted Service.
@@ -74024,6 +92053,20 @@ class MessagesSendEncryptedService
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x32d439a4",
+      "peer": peer,
+      "randomId": randomId,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Received Queue.
@@ -74065,6 +92108,18 @@ class MessagesReceivedQueue extends TlMethod<List<int>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x55a5bb66",
+      "maxQts": maxQts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Report Encrypted Spam.
@@ -74103,6 +92158,18 @@ class MessagesReportEncryptedSpam extends TlMethod<bool> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4b0c8c0f",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74169,6 +92236,21 @@ class UploadSaveBigFilePart extends TlMethod<bool> {
     buffer.writeBytes(bytes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde7b673d",
+      "fileId": fileId,
+      "filePart": filePart,
+      "fileTotalParts": fileTotalParts,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74295,6 +92377,28 @@ class InitConnection<X> extends TlMethod<X> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc1cd5ea9",
+      "flags": flags,
+      "apiId": apiId,
+      "deviceModel": deviceModel,
+      "systemVersion": systemVersion,
+      "appVersion": appVersion,
+      "systemLangCode": systemLangCode,
+      "langPack": langPack,
+      "langCode": langCode,
+      "proxy": proxy,
+      "params": params,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Support.
@@ -74320,6 +92424,17 @@ class HelpGetSupport extends TlMethod<HelpSupportBase> {
     buffer.writeInt32(0x9cdf08cd);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9cdf08cd",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74361,6 +92476,18 @@ class MessagesReadMessageContents
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x36a73f77",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Check Username.
@@ -74400,6 +92527,18 @@ class AccountCheckUsername extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2714d86c",
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Update Username.
@@ -74438,6 +92577,18 @@ class AccountUpdateUsername extends TlMethod<UserBase> {
     buffer.writeString(username);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e0bdd7c",
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74487,6 +92638,19 @@ class ContactsSearch extends TlMethod<ContactsFoundBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11f812d8",
+      "q": q,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Privacy.
@@ -74525,6 +92689,18 @@ class AccountGetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
     buffer.writeObject(key);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdadbc950",
+      "key": key,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74571,6 +92747,19 @@ class AccountSetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
     buffer.writeVectorObject(rules);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9f81ce8",
+      "key": key,
+      "rules": rules,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74635,6 +92824,20 @@ class AccountDeleteAccount extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2c0cf74",
+      "flags": flags,
+      "reason": reason,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Account T T L.
@@ -74660,6 +92863,17 @@ class AccountGetAccountTTL extends TlMethod<AccountDaysTTLBase> {
     buffer.writeInt32(0x08fc711d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x08fc711d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74699,6 +92913,18 @@ class AccountSetAccountTTL extends TlMethod<bool> {
     buffer.writeObject(ttl);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2442485e",
+      "ttl": ttl,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74748,6 +92974,19 @@ class InvokeWithLayer<X> extends TlMethod<X> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xda9b0d0d",
+      "layer": layer,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Resolve Username.
@@ -74786,6 +93025,18 @@ class ContactsResolveUsername extends TlMethod<ContactsResolvedPeerBase> {
     buffer.writeString(username);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf93ccba3",
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74832,6 +93083,19 @@ class AccountSendChangePhoneCode extends TlMethod<AuthSentCodeBase> {
     buffer.writeObject(settings);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x82574ae5",
+      "phoneNumber": phoneNumber,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -74886,6 +93150,20 @@ class AccountChangePhone extends TlMethod<UserBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x70c32edb",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+      "phoneCode": phoneCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Stickers.
@@ -74934,6 +93212,19 @@ class MessagesGetStickers extends TlMethod<MessagesStickersBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd5a5d3a1",
+      "emoticon": emoticon,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get All Stickers.
@@ -74975,6 +93266,18 @@ class MessagesGetAllStickers extends TlMethod<MessagesAllStickersBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb8a0a1a8",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Update Device Locked.
@@ -75015,6 +93318,18 @@ class AccountUpdateDeviceLocked extends TlMethod<bool> {
     buffer.writeInt32(period);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x38df3532",
+      "period": period,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75080,6 +93395,21 @@ class AuthImportBotAuthorization extends TlMethod<AuthAuthorizationBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x67a3ff2c",
+      "flags": flags,
+      "apiId": apiId,
+      "apiHash": apiHash,
+      "botAuthToken": botAuthToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Web Page Preview.
@@ -75142,6 +93472,20 @@ class MessagesGetWebPagePreview extends TlMethod<MessageMediaBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8b68b0cc",
+      "flags": flags,
+      "message": message,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Authorizations.
@@ -75167,6 +93511,17 @@ class AccountGetAuthorizations extends TlMethod<AccountAuthorizationsBase> {
     buffer.writeInt32(0xe320c158);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe320c158",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75209,6 +93564,18 @@ class AccountResetAuthorization extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdf77f3bc",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Password.
@@ -75234,6 +93601,17 @@ class AccountGetPassword extends TlMethod<AccountPasswordBase> {
     buffer.writeInt32(0x548a30f5);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x548a30f5",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75273,6 +93651,18 @@ class AccountGetPasswordSettings extends TlMethod<AccountPasswordSettingsBase> {
     buffer.writeObject(password);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9cd4eaf9",
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75320,6 +93710,19 @@ class AccountUpdatePasswordSettings extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa59b102f",
+      "password": password,
+      "newSettings": newSettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Check Password.
@@ -75359,6 +93762,18 @@ class AuthCheckPassword extends TlMethod<AuthAuthorizationBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd18b4d16",
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Request Password Recovery.
@@ -75384,6 +93799,17 @@ class AuthRequestPasswordRecovery extends TlMethod<AuthPasswordRecoveryBase> {
     buffer.writeInt32(0xd897bc66);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd897bc66",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75448,6 +93874,20 @@ class AuthRecoverPassword extends TlMethod<AuthAuthorizationBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x37096c70",
+      "flags": flags,
+      "code": code,
+      "newSettings": newSettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Invoke Without Updates.
@@ -75486,6 +93926,18 @@ class InvokeWithoutUpdates<X> extends TlMethod<X> {
     buffer.writeObject(query);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbf9459b7",
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75586,6 +94038,24 @@ class MessagesExportChatInvite extends TlMethod<ExportedChatInviteBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa02ce5d5",
+      "flags": flags,
+      "legacyRevokePermanent": legacyRevokePermanent,
+      "requestNeeded": requestNeeded,
+      "peer": peer,
+      "expireDate": expireDate,
+      "usageLimit": usageLimit,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Check Chat Invite.
@@ -75625,6 +94095,18 @@ class MessagesCheckChatInvite extends TlMethod<ChatInviteBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3eadb1bb",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Import Chat Invite.
@@ -75663,6 +94145,18 @@ class MessagesImportChatInvite extends TlMethod<UpdatesBase> {
     buffer.writeString(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c50051c",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75712,6 +94206,19 @@ class MessagesGetStickerSet extends TlMethod<MessagesStickerSetBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc8a0ec74",
+      "stickerset": stickerset,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Install Sticker Set.
@@ -75759,6 +94266,19 @@ class MessagesInstallStickerSet
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc78fe460",
+      "stickerset": stickerset,
+      "archived": archived,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Uninstall Sticker Set.
@@ -75797,6 +94317,18 @@ class MessagesUninstallStickerSet extends TlMethod<bool> {
     buffer.writeObject(stickerset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf96e55de",
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -75860,6 +94392,21 @@ class MessagesStartBot extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6df7378",
+      "bot": bot,
+      "peer": peer,
+      "randomId": randomId,
+      "startParam": startParam,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Messages Views.
@@ -75913,6 +94460,20 @@ class MessagesGetMessagesViews extends TlMethod<MessagesMessageViewsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5784d3e1",
+      "peer": peer,
+      "id": id,
+      "increment": increment,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Read History.
@@ -75961,6 +94522,19 @@ class ChannelsReadHistory extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc104937",
+      "channel": channel,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Delete Messages.
@@ -76006,6 +94580,19 @@ class ChannelsDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x84c1fd4e",
+      "channel": channel,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76060,6 +94647,20 @@ class ChannelsReportSpam extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf44a8315",
+      "channel": channel,
+      "participant": participant,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Messages.
@@ -76105,6 +94706,19 @@ class ChannelsGetMessages extends TlMethod<MessagesMessagesBase> {
     buffer.writeVectorObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad8c9a23",
+      "channel": channel,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76180,6 +94794,22 @@ class ChannelsGetParticipants
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77ced9d0",
+      "channel": channel,
+      "filter": filter,
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Participant.
@@ -76226,6 +94856,19 @@ class ChannelsGetParticipant extends TlMethod<ChannelsChannelParticipantBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa0ab6cc6",
+      "channel": channel,
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Channels.
@@ -76265,6 +94908,18 @@ class ChannelsGetChannels extends TlMethod<MessagesChatsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a7f6bbb",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Full Channel.
@@ -76303,6 +94958,18 @@ class ChannelsGetFullChannel extends TlMethod<MessagesChatFullBase> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x08736a09",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76424,6 +95091,27 @@ class ChannelsCreateChannel extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x91006707",
+      "flags": flags,
+      "broadcast": broadcast,
+      "megagroup": megagroup,
+      "forImport": forImport,
+      "forum": forum,
+      "title": title,
+      "about": about,
+      "geoPoint": geoPoint,
+      "address": address,
+      "ttlPeriod": ttlPeriod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Edit Admin.
@@ -76484,6 +95172,21 @@ class ChannelsEditAdmin extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd33c8902",
+      "channel": channel,
+      "userId": userId,
+      "adminRights": adminRights,
+      "rank": rank,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Edit Title.
@@ -76529,6 +95232,19 @@ class ChannelsEditTitle extends TlMethod<UpdatesBase> {
     buffer.writeString(title);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x566decd0",
+      "channel": channel,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76576,6 +95292,19 @@ class ChannelsEditPhoto extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf12e57c9",
+      "channel": channel,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Check Username.
@@ -76621,6 +95350,19 @@ class ChannelsCheckUsername extends TlMethod<bool> {
     buffer.writeString(username);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10e6bd2c",
+      "channel": channel,
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76668,6 +95410,19 @@ class ChannelsUpdateUsername extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3514b3de",
+      "channel": channel,
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Join Channel.
@@ -76707,6 +95462,18 @@ class ChannelsJoinChannel extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x24b524c5",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Leave Channel.
@@ -76745,6 +95512,18 @@ class ChannelsLeaveChannel extends TlMethod<UpdatesBase> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf836aa95",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76792,6 +95571,19 @@ class ChannelsInviteToChannel extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x199f3a6c",
+      "channel": channel,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Delete Channel.
@@ -76830,6 +95622,18 @@ class ChannelsDeleteChannel extends TlMethod<UpdatesBase> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc0111fe3",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -76913,6 +95717,23 @@ class UpdatesGetChannelDifference
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x03173d78",
+      "flags": flags,
+      "force": force,
+      "channel": channel,
+      "filter": filter,
+      "pts": pts,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Edit Chat Admin.
@@ -76968,6 +95789,20 @@ class MessagesEditChatAdmin extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa85bd1c2",
+      "chatId": chatId,
+      "userId": userId,
+      "isAdmin": isAdmin,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Migrate Chat.
@@ -77008,6 +95843,18 @@ class MessagesMigrateChat extends TlMethod<UpdatesBase> {
     buffer.writeInt64(chatId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2875319",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77125,6 +95972,27 @@ class MessagesSearchGlobal extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4bc6589a",
+      "flags": flags,
+      "folderId": folderId,
+      "q": q,
+      "filter": filter,
+      "minDate": minDate,
+      "maxDate": maxDate,
+      "offsetRate": offsetRate,
+      "offsetPeer": offsetPeer,
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Reorder Sticker Sets.
@@ -77188,6 +96056,21 @@ class MessagesReorderStickerSets extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x78337739",
+      "flags": flags,
+      "masks": masks,
+      "emojis": emojis,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Document By Hash.
@@ -77243,6 +96126,20 @@ class MessagesGetDocumentByHash extends TlMethod<DocumentBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb1f2061f",
+      "sha256": sha256,
+      "size": size,
+      "mimeType": mimeType,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Saved Gifs.
@@ -77283,6 +96180,18 @@ class MessagesGetSavedGifs extends TlMethod<MessagesSavedGifsBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5cf09635",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77329,6 +96238,19 @@ class MessagesSaveGif extends TlMethod<bool> {
     buffer.writeBool(unsave);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x327a30cb",
+      "id": id,
+      "unsave": unsave,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77412,6 +96334,23 @@ class MessagesGetInlineBotResults extends TlMethod<MessagesBotResultsBase> {
     buffer.writeString(offset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x514e999d",
+      "flags": flags,
+      "bot": bot,
+      "peer": peer,
+      "geoPoint": geoPoint,
+      "query": query,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77532,6 +96471,26 @@ class MessagesSetInlineBotResults extends TlMethod<bool> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb12a419",
+      "flags": flags,
+      "gallery": gallery,
+      "private": private,
+      "queryId": queryId,
+      "results": results,
+      "cacheTime": cacheTime,
+      "nextOffset": nextOffset,
+      "switchPm": switchPm,
+      "switchWebview": switchWebview,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77672,6 +96631,29 @@ class MessagesSendInlineBotResult extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf7bc68ba",
+      "flags": flags,
+      "silent": silent,
+      "background": background,
+      "clearDraft": clearDraft,
+      "hideVia": hideVia,
+      "peer": peer,
+      "replyTo": replyTo,
+      "randomId": randomId,
+      "queryId": queryId,
+      "id": id,
+      "scheduleDate": scheduleDate,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Export Message Link.
@@ -77744,6 +96726,22 @@ class ChannelsExportMessageLink extends TlMethod<ExportedMessageLinkBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe63fadeb",
+      "flags": flags,
+      "grouped": grouped,
+      "thread": thread,
+      "channel": channel,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Toggle Signatures.
@@ -77789,6 +96787,19 @@ class ChannelsToggleSignatures extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1f69b606",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77836,6 +96847,19 @@ class AuthResendCode extends TlMethod<AuthSentCodeBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3ef1a9bf",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Cancel Code.
@@ -77881,6 +96905,19 @@ class AuthCancelCode extends TlMethod<bool> {
     buffer.writeString(phoneCodeHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1f040578",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -77929,6 +96966,19 @@ class MessagesGetMessageEditData extends TlMethod<MessagesMessageEditDataBase> {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfda68d36",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -78064,6 +97114,27 @@ class MessagesEditMessage extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x48f71778",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "invertMedia": invertMedia,
+      "peer": peer,
+      "id": id,
+      "message": message,
+      "media": media,
+      "replyMarkup": replyMarkup,
+      "entities": entities,
+      "scheduleDate": scheduleDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Edit Inline Bot Message.
@@ -78177,6 +97248,25 @@ class MessagesEditInlineBotMessage extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x83557dba",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "invertMedia": invertMedia,
+      "id": id,
+      "message": message,
+      "media": media,
+      "replyMarkup": replyMarkup,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Bot Callback Answer.
@@ -78269,6 +97359,23 @@ class MessagesGetBotCallbackAnswer
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9342ca07",
+      "flags": flags,
+      "game": game,
+      "peer": peer,
+      "msgId": msgId,
+      "data": data,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Bot Callback Answer.
@@ -78359,6 +97466,23 @@ class MessagesSetBotCallbackAnswer extends TlMethod<bool> {
     buffer.writeInt32(cacheTime);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd58f130a",
+      "flags": flags,
+      "alert": alert,
+      "queryId": queryId,
+      "message": message,
+      "url": url,
+      "cacheTime": cacheTime,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -78485,6 +97609,29 @@ class ContactsGetTopPeers extends TlMethod<ContactsTopPeersBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x973478b6",
+      "flags": flags,
+      "correspondents": correspondents,
+      "botsPm": botsPm,
+      "botsInline": botsInline,
+      "phoneCalls": phoneCalls,
+      "forwardUsers": forwardUsers,
+      "forwardChats": forwardChats,
+      "groups": groups,
+      "channels": channels,
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Reset Top Peer Rating.
@@ -78531,6 +97678,19 @@ class ContactsResetTopPeerRating extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ae373ac",
+      "category": category,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Peer Dialogs.
@@ -78569,6 +97729,18 @@ class MessagesGetPeerDialogs extends TlMethod<MessagesPeerDialogsBase> {
     buffer.writeVectorObject(peers);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe470bcfd",
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -78678,6 +97850,25 @@ class MessagesSaveDraft extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7ff3b806",
+      "flags": flags,
+      "noWebpage": noWebpage,
+      "invertMedia": invertMedia,
+      "replyTo": replyTo,
+      "peer": peer,
+      "message": message,
+      "entities": entities,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get All Drafts.
@@ -78703,6 +97894,17 @@ class MessagesGetAllDrafts extends TlMethod<UpdatesBase> {
     buffer.writeInt32(0x6a3f8d65);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a3f8d65",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -78746,6 +97948,18 @@ class MessagesGetFeaturedStickers
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64780b14",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Read Featured Stickers.
@@ -78784,6 +97998,18 @@ class MessagesReadFeaturedStickers extends TlMethod<bool> {
     buffer.writeVectorInt64(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5b118126",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -78842,6 +98068,20 @@ class MessagesGetRecentStickers extends TlMethod<MessagesRecentStickersBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9da9403b",
+      "flags": flags,
+      "attached": attached,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -78906,6 +98146,21 @@ class MessagesSaveRecentSticker extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x392718f8",
+      "flags": flags,
+      "attached": attached,
+      "id": id,
+      "unsave": unsave,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Clear Recent Stickers.
@@ -78954,6 +98209,19 @@ class MessagesClearRecentStickers extends TlMethod<bool> {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8999602d",
+      "flags": flags,
+      "attached": attached,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79030,6 +98298,22 @@ class MessagesGetArchivedStickers
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57f17692",
+      "flags": flags,
+      "masks": masks,
+      "emojis": emojis,
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Send Confirm Phone Code.
@@ -79076,6 +98360,19 @@ class AccountSendConfirmPhoneCode extends TlMethod<AuthSentCodeBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1b3faa88",
+      "hash": hash,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Confirm Phone.
@@ -79121,6 +98418,19 @@ class AccountConfirmPhone extends TlMethod<bool> {
     buffer.writeString(phoneCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5f2178c3",
+      "phoneCodeHash": phoneCodeHash,
+      "phoneCode": phoneCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79178,6 +98488,20 @@ class ChannelsGetAdminedPublicChannels extends TlMethod<MessagesChatsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf8b036af",
+      "flags": flags,
+      "byLocation": byLocation,
+      "checkLimit": checkLimit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Mask Stickers.
@@ -79219,6 +98543,18 @@ class MessagesGetMaskStickers extends TlMethod<MessagesAllStickersBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x640f82b8",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Attached Stickers.
@@ -79259,6 +98595,18 @@ class MessagesGetAttachedStickers
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc5b67cc",
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Drop Temp Auth Keys.
@@ -79297,6 +98645,18 @@ class AuthDropTempAuthKeys extends TlMethod<bool> {
     buffer.writeVectorInt64(exceptAuthKeys);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8e48a188",
+      "exceptAuthKeys": exceptAuthKeys,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79386,6 +98746,24 @@ class MessagesSetGameScore extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ef8ecc0",
+      "flags": flags,
+      "editMessage": editMessage,
+      "force": force,
+      "peer": peer,
+      "id": id,
+      "userId": userId,
+      "score": score,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Inline Game Score.
@@ -79465,6 +98843,23 @@ class MessagesSetInlineGameScore extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15ad9f64",
+      "flags": flags,
+      "editMessage": editMessage,
+      "force": force,
+      "id": id,
+      "userId": userId,
+      "score": score,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Game High Scores.
@@ -79520,6 +98915,20 @@ class MessagesGetGameHighScores extends TlMethod<MessagesHighScoresBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe822649d",
+      "peer": peer,
+      "id": id,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Inline Game High Scores.
@@ -79565,6 +98974,19 @@ class MessagesGetInlineGameHighScores extends TlMethod<MessagesHighScoresBase> {
     buffer.writeObject(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0f635e1b",
+      "id": id,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79623,6 +99045,20 @@ class MessagesGetCommonChats extends TlMethod<MessagesChatsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe40ca104",
+      "userId": userId,
+      "maxId": maxId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Set Bot Updates Status.
@@ -79671,6 +99107,19 @@ class HelpSetBotUpdatesStatus extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec22cfcd",
+      "pendingUpdatesCount": pendingUpdatesCount,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Web Page.
@@ -79718,6 +99167,19 @@ class MessagesGetWebPage extends TlMethod<MessagesWebPageBase> {
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8d9692a3",
+      "url": url,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79774,6 +99236,20 @@ class MessagesToggleDialogPin extends TlMethod<bool> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa731e257",
+      "flags": flags,
+      "pinned": pinned,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79840,6 +99316,21 @@ class MessagesReorderPinnedDialogs extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3b1adf37",
+      "flags": flags,
+      "force": force,
+      "folderId": folderId,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Pinned Dialogs.
@@ -79880,6 +99371,18 @@ class MessagesGetPinnedDialogs extends TlMethod<MessagesPeerDialogsBase> {
     buffer.writeInt32(folderId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd6b94df2",
+      "folderId": folderId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79926,6 +99429,19 @@ class BotsSendCustomRequest extends TlMethod<DataJSONBase> {
     buffer.writeObject(params);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaa2769ed",
+      "customMethod": customMethod,
+      "params": params,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -79974,6 +99490,19 @@ class BotsAnswerWebhookJSONQuery extends TlMethod<bool> {
     buffer.writeObject(data);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6213f4d",
+      "queryId": queryId,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80031,6 +99560,20 @@ class UploadGetWebFile extends TlMethod<UploadWebFileBase> {
     buffer.writeInt32(limit);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x24e6818d",
+      "location": location,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80094,6 +99637,20 @@ class PaymentsGetPaymentForm extends TlMethod<PaymentsPaymentFormBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x37148dbb",
+      "flags": flags,
+      "invoice": invoice,
+      "themeParams": themeParams,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Get Payment Receipt.
@@ -80141,6 +99698,19 @@ class PaymentsGetPaymentReceipt extends TlMethod<PaymentsPaymentReceiptBase> {
     buffer.writeInt32(msgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2478d1cc",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80205,6 +99775,21 @@ class PaymentsValidateRequestedInfo
     buffer.writeObject(info);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6c8f12b",
+      "flags": flags,
+      "save": save,
+      "invoice": invoice,
+      "info": info,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80309,6 +99894,24 @@ class PaymentsSendPaymentForm extends TlMethod<PaymentsPaymentResultBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2d03522f",
+      "flags": flags,
+      "formId": formId,
+      "invoice": invoice,
+      "requestedInfoId": requestedInfoId,
+      "shippingOptionId": shippingOptionId,
+      "credentials": credentials,
+      "tipAmount": tipAmount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Tmp Password.
@@ -80357,6 +99960,19 @@ class AccountGetTmpPassword extends TlMethod<AccountTmpPasswordBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x449e0b51",
+      "password": password,
+      "period": period,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Get Saved Info.
@@ -80382,6 +99998,17 @@ class PaymentsGetSavedInfo extends TlMethod<PaymentsSavedInfoBase> {
     buffer.writeInt32(0x227d824b);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x227d824b",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80438,6 +100065,20 @@ class PaymentsClearSavedInfo extends TlMethod<bool> {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd83d70c1",
+      "flags": flags,
+      "credentials": credentials,
+      "info": info,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80516,6 +100157,21 @@ class MessagesSetBotShippingResults extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe5f672fa",
+      "flags": flags,
+      "queryId": queryId,
+      "error": error,
+      "shippingOptions": shippingOptions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Bot Precheckout Results.
@@ -80585,6 +100241,21 @@ class MessagesSetBotPrecheckoutResults extends TlMethod<bool> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x09c2dd95",
+      "flags": flags,
+      "success": success,
+      "queryId": queryId,
+      "error": error,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80716,6 +100387,29 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9021ab67",
+      "flags": flags,
+      "masks": masks,
+      "animated": animated,
+      "videos": videos,
+      "emojis": emojis,
+      "textColor": textColor,
+      "userId": userId,
+      "title": title,
+      "shortName": shortName,
+      "thumb": thumb,
+      "stickers": stickers,
+      "software": software,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stickers Remove Sticker From Set.
@@ -80754,6 +100448,18 @@ class StickersRemoveStickerFromSet extends TlMethod<MessagesStickerSetBase> {
     buffer.writeObject(sticker);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf7760f51",
+      "sticker": sticker,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80803,6 +100509,19 @@ class StickersChangeStickerPosition extends TlMethod<MessagesStickerSetBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xffb6d4ca",
+      "sticker": sticker,
+      "position": position,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stickers Add Sticker To Set.
@@ -80848,6 +100567,19 @@ class StickersAddStickerToSet extends TlMethod<MessagesStickerSetBase> {
     buffer.writeObject(sticker);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8653febe",
+      "stickerset": stickerset,
+      "sticker": sticker,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -80895,6 +100627,19 @@ class MessagesUploadMedia extends TlMethod<MessageMediaBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x519bc2b1",
+      "peer": peer,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Get Call Config.
@@ -80920,6 +100665,17 @@ class PhoneGetCallConfig extends TlMethod<DataJSONBase> {
     buffer.writeInt32(0x55451fa9);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x55451fa9",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81000,6 +100756,23 @@ class PhoneRequestCall extends TlMethod<PhonePhoneCallBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x42ff96ed",
+      "flags": flags,
+      "video": video,
+      "userId": userId,
+      "randomId": randomId,
+      "gAHash": gAHash,
+      "protocol": protocol,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Accept Call.
@@ -81052,6 +100825,20 @@ class PhoneAcceptCall extends TlMethod<PhonePhoneCallBase> {
     buffer.writeObject(protocol);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3bd2b4a0",
+      "peer": peer,
+      "gB": gB,
+      "protocol": protocol,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81115,6 +100902,21 @@ class PhoneConfirmCall extends TlMethod<PhonePhoneCallBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2efe1722",
+      "peer": peer,
+      "gA": gA,
+      "keyFingerprint": keyFingerprint,
+      "protocol": protocol,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Received Call.
@@ -81153,6 +100955,18 @@ class PhoneReceivedCall extends TlMethod<bool> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17d54f61",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81235,6 +101049,23 @@ class PhoneDiscardCall extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb2cbc1c0",
+      "flags": flags,
+      "video": video,
+      "peer": peer,
+      "duration": duration,
+      "reason": reason,
+      "connectionId": connectionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Set Call Rating.
@@ -81307,6 +101138,22 @@ class PhoneSetCallRating extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x59ead627",
+      "flags": flags,
+      "userInitiative": userInitiative,
+      "peer": peer,
+      "rating": rating,
+      "comment": comment,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Save Call Debug.
@@ -81352,6 +101199,19 @@ class PhoneSaveCallDebug extends TlMethod<bool> {
     buffer.writeObject(debug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x277add7e",
+      "peer": peer,
+      "debug": debug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81410,6 +101270,20 @@ class UploadGetCdnFile extends TlMethod<UploadCdnFileBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x395f69da",
+      "fileToken": fileToken,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Upload Reupload Cdn File.
@@ -81456,6 +101330,19 @@ class UploadReuploadCdnFile extends TlMethod<List<FileHashBase>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9b2754a8",
+      "fileToken": fileToken,
+      "requestToken": requestToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Cdn Config.
@@ -81481,6 +101368,17 @@ class HelpGetCdnConfig extends TlMethod<CdnConfigBase> {
     buffer.writeInt32(0x52029342);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x52029342",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81527,6 +101425,19 @@ class LangpackGetLangPack extends TlMethod<LangPackDifferenceBase> {
     buffer.writeString(langCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf2f2330a",
+      "langPack": langPack,
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81580,6 +101491,20 @@ class LangpackGetStrings extends TlMethod<List<LangPackStringBase>> {
     buffer.writeVectorString(keys);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xefea3803",
+      "langPack": langPack,
+      "langCode": langCode,
+      "keys": keys,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81636,6 +101561,20 @@ class LangpackGetDifference extends TlMethod<LangPackDifferenceBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcd984aa5",
+      "langPack": langPack,
+      "langCode": langCode,
+      "fromVersion": fromVersion,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Langpack Get Languages.
@@ -81674,6 +101613,18 @@ class LangpackGetLanguages extends TlMethod<List<LangPackLanguageBase>> {
     buffer.writeString(langPack);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x42c6978f",
+      "langPack": langPack,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81727,6 +101678,20 @@ class ChannelsEditBanned extends TlMethod<UpdatesBase> {
     buffer.writeObject(bannedRights);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x96e6cd81",
+      "channel": channel,
+      "participant": participant,
+      "bannedRights": bannedRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81838,6 +101803,25 @@ class ChannelsGetAdminLog extends TlMethod<ChannelsAdminLogResultsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x33ddf480",
+      "flags": flags,
+      "channel": channel,
+      "q": q,
+      "eventsFilter": eventsFilter,
+      "admins": admins,
+      "maxId": maxId,
+      "minId": minId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Upload Get Cdn File Hashes.
@@ -81885,6 +101869,19 @@ class UploadGetCdnFileHashes extends TlMethod<List<FileHashBase>> {
     buffer.writeInt64(offset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x91dc3f31",
+      "fileToken": fileToken,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -81941,6 +101938,20 @@ class MessagesSendScreenshotNotification extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa1405817",
+      "peer": peer,
+      "replyTo": replyTo,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Set Stickers.
@@ -81987,6 +101998,19 @@ class ChannelsSetStickers extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea8ca4f9",
+      "channel": channel,
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Faved Stickers.
@@ -82027,6 +102051,18 @@ class MessagesGetFavedStickers extends TlMethod<MessagesFavedStickersBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x04f1aaa9",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82074,6 +102110,19 @@ class MessagesFaveSticker extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9ffc55b",
+      "id": id,
+      "unfave": unfave,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Read Message Contents.
@@ -82120,6 +102169,19 @@ class ChannelsReadMessageContents extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeab5dc38",
+      "channel": channel,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Reset Saved.
@@ -82145,6 +102207,17 @@ class ContactsResetSaved extends TlMethod<bool> {
     buffer.writeInt32(0x879537f1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x879537f1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82252,6 +102325,25 @@ class MessagesGetUnreadMentions extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf107e790",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+      "offsetId": offsetId,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Delete History.
@@ -82317,6 +102409,21 @@ class ChannelsDeleteHistory extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9baa9647",
+      "flags": flags,
+      "forEveryone": forEveryone,
+      "channel": channel,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Recent Me Urls.
@@ -82355,6 +102462,18 @@ class HelpGetRecentMeUrls extends TlMethod<HelpRecentMeUrlsBase> {
     buffer.writeString(referer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dc0f114",
+      "referer": referer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82401,6 +102520,19 @@ class ChannelsTogglePreHistoryHidden extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeabbb94c",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82463,6 +102595,20 @@ class MessagesReadMentions extends TlMethod<MessagesAffectedHistoryBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x36e5bf4d",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Recent Locations.
@@ -82519,6 +102665,20 @@ class MessagesGetRecentLocations extends TlMethod<MessagesMessagesBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x702a40e0",
+      "peer": peer,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82655,6 +102815,29 @@ class MessagesSendMultiMedia extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x456e8987",
+      "flags": flags,
+      "silent": silent,
+      "background": background,
+      "clearDraft": clearDraft,
+      "noforwards": noforwards,
+      "updateStickersetsOrder": updateStickersetsOrder,
+      "invertMedia": invertMedia,
+      "peer": peer,
+      "replyTo": replyTo,
+      "multiMedia": multiMedia,
+      "scheduleDate": scheduleDate,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Upload Encrypted File.
@@ -82701,6 +102884,19 @@ class MessagesUploadEncryptedFile extends TlMethod<EncryptedFileBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5057c497",
+      "peer": peer,
+      "file": file,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Web Authorizations.
@@ -82727,6 +102923,17 @@ class AccountGetWebAuthorizations
     buffer.writeInt32(0x182e6d6f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x182e6d6f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82769,6 +102976,18 @@ class AccountResetWebAuthorization extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2d01b9ef",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reset Web Authorizations.
@@ -82794,6 +103013,17 @@ class AccountResetWebAuthorizations extends TlMethod<bool> {
     buffer.writeInt32(0x682d2594);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x682d2594",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82860,6 +103090,21 @@ class MessagesSearchStickerSets extends TlMethod<MessagesFoundStickerSetsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35705b8a",
+      "flags": flags,
+      "excludeFeatured": excludeFeatured,
+      "q": q,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Upload Get File Hashes.
@@ -82908,6 +103153,19 @@ class UploadGetFileHashes extends TlMethod<List<FileHashBase>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9156982a",
+      "location": location,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Terms Of Service Update.
@@ -82934,6 +103192,17 @@ class HelpGetTermsOfServiceUpdate
     buffer.writeInt32(0x2ca51fd1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ca51fd1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -82974,6 +103243,18 @@ class HelpAcceptTermsOfService extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xee72f79a",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get All Secure Values.
@@ -82999,6 +103280,17 @@ class AccountGetAllSecureValues extends TlMethod<List<SecureValueBase>> {
     buffer.writeInt32(0xb288bc7d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb288bc7d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83038,6 +103330,18 @@ class AccountGetSecureValue extends TlMethod<List<SecureValueBase>> {
     buffer.writeVectorObject(types);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73665bc2",
+      "types": types,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83087,6 +103391,19 @@ class AccountSaveSecureValue extends TlMethod<SecureValueBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x899fe31d",
+      "value": value,
+      "secureSecretId": secureSecretId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Delete Secure Value.
@@ -83125,6 +103442,18 @@ class AccountDeleteSecureValue extends TlMethod<bool> {
     buffer.writeVectorObject(types);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb880bc4b",
+      "types": types,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83171,6 +103500,19 @@ class UsersSetSecureValueErrors extends TlMethod<bool> {
     buffer.writeVectorObject(errors);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x90c894b5",
+      "id": id,
+      "errors": errors,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83227,6 +103569,20 @@ class AccountGetAuthorizationForm
     buffer.writeString(publicKey);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa929597a",
+      "botId": botId,
+      "scope": scope,
+      "publicKey": publicKey,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83297,6 +103653,22 @@ class AccountAcceptAuthorization extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3ed4c73",
+      "botId": botId,
+      "scope": scope,
+      "publicKey": publicKey,
+      "valueHashes": valueHashes,
+      "credentials": credentials,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Send Verify Phone Code.
@@ -83342,6 +103714,19 @@ class AccountSendVerifyPhoneCode extends TlMethod<AuthSentCodeBase> {
     buffer.writeObject(settings);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa5a356f9",
+      "phoneNumber": phoneNumber,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83396,6 +103781,20 @@ class AccountVerifyPhone extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4dd3a7f6",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+      "phoneCode": phoneCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Send Verify Email Code.
@@ -83441,6 +103840,19 @@ class AccountSendVerifyEmailCode extends TlMethod<AccountSentEmailCodeBase> {
     buffer.writeString(email);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98e037bb",
+      "purpose": purpose,
+      "email": email,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83488,6 +103900,19 @@ class AccountVerifyEmail extends TlMethod<AccountEmailVerifiedBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x032da4cf",
+      "purpose": purpose,
+      "verification": verification,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Deep Link Info.
@@ -83527,6 +103952,18 @@ class HelpGetDeepLinkInfo extends TlMethod<HelpDeepLinkInfoBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3fedc75f",
+      "path": path,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Get Saved.
@@ -83552,6 +103989,17 @@ class ContactsGetSaved extends TlMethod<List<SavedContactBase>> {
     buffer.writeInt32(0x82f1e39f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x82f1e39f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83593,6 +104041,18 @@ class ChannelsGetLeftChannels extends TlMethod<MessagesChatsBase> {
     buffer.writeInt32(offset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8341ecc0",
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83689,6 +104149,25 @@ class AccountInitTakeoutSession extends TlMethod<AccountTakeoutBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ef3eab0",
+      "flags": flags,
+      "contacts": contacts,
+      "messageUsers": messageUsers,
+      "messageChats": messageChats,
+      "messageMegagroups": messageMegagroups,
+      "messageChannels": messageChannels,
+      "files": files,
+      "fileMaxSize": fileMaxSize,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Finish Takeout Session.
@@ -83738,6 +104217,19 @@ class AccountFinishTakeoutSession extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1d2652ee",
+      "flags": flags,
+      "success": success,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Split Ranges.
@@ -83763,6 +104255,17 @@ class MessagesGetSplitRanges extends TlMethod<List<MessageRangeBase>> {
     buffer.writeInt32(0x1cff7e08);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1cff7e08",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83809,6 +104312,19 @@ class InvokeWithMessagesRange<X> extends TlMethod<X> {
     buffer.writeObject(query);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x365275f2",
+      "range": range,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83857,6 +104373,19 @@ class InvokeWithTakeout<X> extends TlMethod<X> {
     buffer.writeObject(query);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaca9fd2e",
+      "takeoutId": takeoutId,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83914,6 +104443,20 @@ class MessagesMarkDialogUnread extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc286d98f",
+      "flags": flags,
+      "unread": unread,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Dialog Unread Marks.
@@ -83939,6 +104482,17 @@ class MessagesGetDialogUnreadMarks extends TlMethod<List<DialogPeerBase>> {
     buffer.writeInt32(0x22e24e22);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x22e24e22",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -83979,6 +104533,18 @@ class ContactsToggleTopPeers extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8514bdda",
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Clear All Drafts.
@@ -84004,6 +104570,17 @@ class MessagesClearAllDrafts extends TlMethod<bool> {
     buffer.writeInt32(0x7e58ee9c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7e58ee9c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84046,6 +104623,18 @@ class HelpGetAppConfig extends TlMethod<HelpAppConfigBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x61e3f854",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Save App Log.
@@ -84084,6 +104673,18 @@ class HelpSaveAppLog extends TlMethod<bool> {
     buffer.writeVectorObject(events);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f02f748",
+      "events": events,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84125,6 +104726,18 @@ class HelpGetPassportConfig extends TlMethod<HelpPassportConfigBase> {
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc661ad08",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84171,6 +104784,19 @@ class LangpackGetLanguage extends TlMethod<LangPackLanguageBase> {
     buffer.writeString(langCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a596502",
+      "langPack": langPack,
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84251,6 +104877,23 @@ class MessagesUpdatePinnedMessage extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd2aaf7ec",
+      "flags": flags,
+      "silent": silent,
+      "unpin": unpin,
+      "pmOneside": pmOneside,
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Confirm Password Email.
@@ -84290,6 +104933,18 @@ class AccountConfirmPasswordEmail extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8fdf1920",
+      "code": code,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Resend Password Email.
@@ -84315,6 +104970,17 @@ class AccountResendPasswordEmail extends TlMethod<bool> {
     buffer.writeInt32(0x7a7f2a15);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a7f2a15",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84342,6 +105008,17 @@ class AccountCancelPasswordEmail extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc1cbd5b6",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Support Name.
@@ -84367,6 +105044,17 @@ class HelpGetSupportName extends TlMethod<HelpSupportNameBase> {
     buffer.writeInt32(0xd360e72c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd360e72c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84406,6 +105094,18 @@ class HelpGetUserInfo extends TlMethod<HelpUserInfoBase> {
     buffer.writeObject(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x038a08d3",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84460,6 +105160,20 @@ class HelpEditUserInfo extends TlMethod<HelpUserInfoBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x66b91b70",
+      "userId": userId,
+      "message": message,
+      "entities": entities,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Contact Sign Up Notification.
@@ -84485,6 +105199,17 @@ class AccountGetContactSignUpNotification extends TlMethod<bool> {
     buffer.writeInt32(0x9f07c728);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9f07c728",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84524,6 +105249,18 @@ class AccountSetContactSignUpNotification extends TlMethod<bool> {
     buffer.writeBool(silent);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcff43f61",
+      "silent": silent,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84594,6 +105331,21 @@ class AccountGetNotifyExceptions extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53577479",
+      "flags": flags,
+      "compareSound": compareSound,
+      "compareStories": compareStories,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Send Vote.
@@ -84649,6 +105401,20 @@ class MessagesSendVote extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10ea6184",
+      "peer": peer,
+      "msgId": msgId,
+      "options": options,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Poll Results.
@@ -84697,6 +105463,19 @@ class MessagesGetPollResults extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73bb643b",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Onlines.
@@ -84735,6 +105514,18 @@ class MessagesGetOnlines extends TlMethod<ChatOnlinesBase> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6e2be050",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84782,6 +105573,19 @@ class MessagesEditChatAbout extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdef60797",
+      "peer": peer,
+      "about": about,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Edit Chat Default Banned Rights.
@@ -84828,6 +105632,19 @@ class MessagesEditChatDefaultBannedRights extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa5866b41",
+      "peer": peer,
+      "bannedRights": bannedRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Wall Paper.
@@ -84866,6 +105683,18 @@ class AccountGetWallPaper extends TlMethod<WallPaperBase> {
     buffer.writeObject(wallpaper);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfc8ddbea",
+      "wallpaper": wallpaper,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -84937,6 +105766,22 @@ class AccountUploadWallPaper extends TlMethod<WallPaperBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe39a8f03",
+      "flags": flags,
+      "forChat": forChat,
+      "file": file,
+      "mimeType": mimeType,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Save Wall Paper.
@@ -84990,6 +105835,20 @@ class AccountSaveWallPaper extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c5a5b37",
+      "wallpaper": wallpaper,
+      "unsave": unsave,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Install Wall Paper.
@@ -85036,6 +105895,19 @@ class AccountInstallWallPaper extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfeed5769",
+      "wallpaper": wallpaper,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reset Wall Papers.
@@ -85061,6 +105933,17 @@ class AccountResetWallPapers extends TlMethod<bool> {
     buffer.writeInt32(0xbb3b9804);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb3b9804",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85088,6 +105971,17 @@ class AccountGetAutoDownloadSettings
     buffer.writeInt32(0x56da0b3f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56da0b3f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85152,6 +106046,21 @@ class AccountSaveAutoDownloadSettings extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x76f36233",
+      "flags": flags,
+      "low": low,
+      "high": high,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Emoji Keywords.
@@ -85190,6 +106099,18 @@ class MessagesGetEmojiKeywords extends TlMethod<EmojiKeywordsDifferenceBase> {
     buffer.writeString(langCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35a0e062",
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85240,6 +106161,19 @@ class MessagesGetEmojiKeywordsDifference
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1508b6af",
+      "langCode": langCode,
+      "fromVersion": fromVersion,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Emoji Keywords Languages.
@@ -85280,6 +106214,18 @@ class MessagesGetEmojiKeywordsLanguages
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4e9963b2",
+      "langCodes": langCodes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Emoji U R L.
@@ -85319,6 +106265,18 @@ class MessagesGetEmojiURL extends TlMethod<EmojiURLBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd5b10c26",
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Folders Edit Peer Folders.
@@ -85357,6 +106315,18 @@ class FoldersEditPeerFolders extends TlMethod<UpdatesBase> {
     buffer.writeVectorObject(folderPeers);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6847d0ab",
+      "folderPeers": folderPeers,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85440,6 +106410,22 @@ class MessagesGetSearchCounters
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1bbcf300",
+      "flags": flags,
+      "peer": peer,
+      "savedPeerId": savedPeerId,
+      "topMsgId": topMsgId,
+      "filters": filters,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Groups For Discussion.
@@ -85465,6 +106451,17 @@ class ChannelsGetGroupsForDiscussion extends TlMethod<MessagesChatsBase> {
     buffer.writeInt32(0xf5dad378);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf5dad378",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85511,6 +106508,19 @@ class ChannelsSetDiscussionGroup extends TlMethod<bool> {
     buffer.writeObject(group);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x40582bb2",
+      "broadcast": broadcast,
+      "group": group,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85599,6 +106609,22 @@ class MessagesRequestUrlAuth extends TlMethod<UrlAuthResultBase> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x198fb446",
+      "flags": flags,
+      "peer": peer,
+      "msgId": msgId,
+      "buttonId": buttonId,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85695,6 +106721,23 @@ class MessagesAcceptUrlAuth extends TlMethod<UrlAuthResultBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb12c7125",
+      "flags": flags,
+      "writeAllowed": writeAllowed,
+      "peer": peer,
+      "msgId": msgId,
+      "buttonId": buttonId,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Hide Peer Settings Bar.
@@ -85733,6 +106776,18 @@ class MessagesHidePeerSettingsBar extends TlMethod<bool> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4facb138",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85811,6 +106866,23 @@ class ContactsAddContact extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe8f463d0",
+      "flags": flags,
+      "addPhonePrivacyException": addPhonePrivacyException,
+      "id": id,
+      "firstName": firstName,
+      "lastName": lastName,
+      "phone": phone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Accept Contact.
@@ -85849,6 +106921,18 @@ class ContactsAcceptContact extends TlMethod<UpdatesBase> {
     buffer.writeObject(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf831a20f",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85902,6 +106986,20 @@ class ChannelsEditCreator extends TlMethod<UpdatesBase> {
     buffer.writeObject(password);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8f38cd1f",
+      "channel": channel,
+      "userId": userId,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -85971,6 +107069,21 @@ class ContactsGetLocated extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd348bc44",
+      "flags": flags,
+      "background": background,
+      "geoPoint": geoPoint,
+      "selfExpires": selfExpires,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Edit Location.
@@ -86024,6 +107137,20 @@ class ChannelsEditLocation extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x58e63f6d",
+      "channel": channel,
+      "geoPoint": geoPoint,
+      "address": address,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Toggle Slow Mode.
@@ -86071,6 +107198,19 @@ class ChannelsToggleSlowMode extends TlMethod<UpdatesBase> {
     buffer.writeInt32(seconds);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xedd49ef0",
+      "channel": channel,
+      "seconds": seconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86120,6 +107260,19 @@ class MessagesGetScheduledHistory extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf516760b",
+      "peer": peer,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Scheduled Messages.
@@ -86165,6 +107318,19 @@ class MessagesGetScheduledMessages extends TlMethod<MessagesMessagesBase> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdbb0464",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86212,6 +107378,19 @@ class MessagesSendScheduledMessages extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd38850a",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Delete Scheduled Messages.
@@ -86257,6 +107436,19 @@ class MessagesDeleteScheduledMessages extends TlMethod<UpdatesBase> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x59ae2b16",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86332,6 +107524,22 @@ class AccountUploadTheme extends TlMethod<DocumentBase> {
     buffer.writeString(mimeType);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1c3db333",
+      "flags": flags,
+      "file": file,
+      "thumb": thumb,
+      "fileName": fileName,
+      "mimeType": mimeType,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86415,6 +107623,22 @@ class AccountCreateTheme extends TlMethod<ThemeBase> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x652e4400",
+      "flags": flags,
+      "slug": slug,
+      "title": title,
+      "document": document,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86523,6 +107747,24 @@ class AccountUpdateTheme extends TlMethod<ThemeBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2bf40ccc",
+      "flags": flags,
+      "format": format,
+      "theme": theme,
+      "slug": slug,
+      "title": title,
+      "document": document,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Save Theme.
@@ -86568,6 +107810,19 @@ class AccountSaveTheme extends TlMethod<bool> {
     buffer.writeBool(unsave);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf257106c",
+      "theme": theme,
+      "unsave": unsave,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86655,6 +107910,22 @@ class AccountInstallTheme extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc727bb3b",
+      "flags": flags,
+      "dark": dark,
+      "theme": theme,
+      "format": format,
+      "baseTheme": baseTheme,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Theme.
@@ -86700,6 +107971,19 @@ class AccountGetTheme extends TlMethod<ThemeBase> {
     buffer.writeObject(theme);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3a5869ec",
+      "format": format,
+      "theme": theme,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86748,6 +108032,19 @@ class AccountGetThemes extends TlMethod<AccountThemesBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7206e458",
+      "format": format,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86804,6 +108101,20 @@ class AuthExportLoginToken extends TlMethod<AuthLoginTokenBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb7e085fe",
+      "apiId": apiId,
+      "apiHash": apiHash,
+      "exceptIds": exceptIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Import Login Token.
@@ -86843,6 +108154,18 @@ class AuthImportLoginToken extends TlMethod<AuthLoginTokenBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x95ac5ce4",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Accept Login Token.
@@ -86881,6 +108204,18 @@ class AuthAcceptLoginToken extends TlMethod<AuthorizationBase> {
     buffer.writeBytes(token);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe894ad4d",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -86931,6 +108266,19 @@ class AccountSetContentSettings extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb574b16b",
+      "flags": flags,
+      "sensitiveEnabled": sensitiveEnabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Content Settings.
@@ -86957,6 +108305,17 @@ class AccountGetContentSettings extends TlMethod<AccountContentSettingsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8b9b4dae",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Inactive Channels.
@@ -86982,6 +108341,17 @@ class ChannelsGetInactiveChannels extends TlMethod<MessagesInactiveChatsBase> {
     buffer.writeInt32(0x11e831ee);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11e831ee",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87021,6 +108391,18 @@ class AccountGetMultiWallPapers extends TlMethod<List<WallPaperBase>> {
     buffer.writeVectorObject(wallpapers);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x65ad71dc",
+      "wallpapers": wallpapers,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87113,6 +108495,23 @@ class MessagesGetPollVotes extends TlMethod<MessagesVotesListBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb86e380e",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "option": option,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Toggle Sticker Sets.
@@ -87183,6 +108582,22 @@ class MessagesToggleStickerSets extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb5052fea",
+      "flags": flags,
+      "uninstall": uninstall,
+      "archive": archive,
+      "unarchive": unarchive,
+      "stickersets": stickersets,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Get Bank Card Data.
@@ -87222,6 +108637,18 @@ class PaymentsGetBankCardData extends TlMethod<PaymentsBankCardDataBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2e79d779",
+      "number": number,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Dialog Filters.
@@ -87247,6 +108674,17 @@ class MessagesGetDialogFilters extends TlMethod<List<DialogFilterBase>> {
     buffer.writeInt32(0xf19ed96d);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf19ed96d",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87274,6 +108712,17 @@ class MessagesGetSuggestedDialogFilters
     buffer.writeInt32(0xa29cd42c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa29cd42c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87339,6 +108788,20 @@ class MessagesUpdateDialogFilter extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ad4a04a",
+      "flags": flags,
+      "id": id,
+      "filter": filter,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Update Dialog Filters Order.
@@ -87377,6 +108840,18 @@ class MessagesUpdateDialogFiltersOrder extends TlMethod<bool> {
     buffer.writeVectorInt32(order);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc563c1e4",
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87433,6 +108908,20 @@ class StatsGetBroadcastStats extends TlMethod<StatsBroadcastStatsBase> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xab42441a",
+      "flags": flags,
+      "dark": dark,
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87494,6 +108983,20 @@ class StatsLoadAsyncGraph extends TlMethod<StatsGraphBase> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x621d5fa0",
+      "flags": flags,
+      "token": token,
+      "x": x,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87569,6 +109072,21 @@ class StickersSetStickerSetThumb extends TlMethod<MessagesStickerSetBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa76a5392",
+      "flags": flags,
+      "stickerset": stickerset,
+      "thumb": thumb,
+      "thumbDocumentId": thumbDocumentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Set Bot Commands.
@@ -87621,6 +109139,20 @@ class BotsSetBotCommands extends TlMethod<bool> {
     buffer.writeVectorObject(commands);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0517165a",
+      "scope": scope,
+      "langCode": langCode,
+      "commands": commands,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87682,6 +109214,20 @@ class MessagesGetOldFeaturedStickers
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7ed094a1",
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Promo Data.
@@ -87707,6 +109253,17 @@ class HelpGetPromoData extends TlMethod<HelpPromoDataBase> {
     buffer.writeInt32(0xc0977421);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc0977421",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87746,6 +109303,18 @@ class HelpHidePromoData extends TlMethod<bool> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1e251c95",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87792,6 +109361,19 @@ class PhoneSendSignalingData extends TlMethod<bool> {
     buffer.writeBytes(data);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xff7a9383",
+      "peer": peer,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87849,6 +109431,20 @@ class StatsGetMegagroupStats extends TlMethod<StatsMegagroupStatsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdcdf8607",
+      "flags": flags,
+      "dark": dark,
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Global Privacy Settings.
@@ -87875,6 +109471,17 @@ class AccountGetGlobalPrivacySettings
     buffer.writeInt32(0xeb2b4cf6);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeb2b4cf6",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87915,6 +109522,18 @@ class AccountSetGlobalPrivacySettings
     buffer.writeObject(settings);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1edaaac2",
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -87961,6 +109580,19 @@ class HelpDismissSuggestion extends TlMethod<bool> {
     buffer.writeString(suggestion);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf50dbaa1",
+      "peer": peer,
+      "suggestion": suggestion,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88009,6 +109641,19 @@ class HelpGetCountriesList extends TlMethod<HelpCountriesListBase> {
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x735787a8",
+      "langCode": langCode,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88119,6 +109764,26 @@ class MessagesGetReplies extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x22ddd30c",
+      "peer": peer,
+      "msgId": msgId,
+      "offsetId": offsetId,
+      "offsetDate": offsetDate,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Discussion Message.
@@ -88167,6 +109832,19 @@ class MessagesGetDiscussionMessage
     buffer.writeInt32(msgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x446972fd",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88224,6 +109902,20 @@ class MessagesReadDiscussion extends TlMethod<bool> {
     buffer.writeInt32(readMaxId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf731a9f4",
+      "peer": peer,
+      "msgId": msgId,
+      "readMaxId": readMaxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88297,6 +109989,22 @@ class ContactsBlockFromReplies extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x29a8962c",
+      "flags": flags,
+      "deleteMessage": deleteMessage,
+      "deleteHistory": deleteHistory,
+      "reportSpam": reportSpam,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Get Message Public Forwards.
@@ -88360,6 +110068,21 @@ class StatsGetMessagePublicForwards extends TlMethod<StatsPublicForwardsBase> {
     buffer.writeInt32(limit);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5f150144",
+      "channel": channel,
+      "msgId": msgId,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88426,6 +110149,21 @@ class StatsGetMessageStats extends TlMethod<StatsMessageStatsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb6e0a3f5",
+      "flags": flags,
+      "dark": dark,
+      "channel": channel,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Unpin All Messages.
@@ -88486,6 +110224,20 @@ class MessagesUnpinAllMessages extends TlMethod<MessagesAffectedHistoryBase> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xee22b9a8",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88576,6 +110328,23 @@ class PhoneCreateGroupCall extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x48cdc6d8",
+      "flags": flags,
+      "rtmpStream": rtmpStream,
+      "peer": peer,
+      "randomId": randomId,
+      "title": title,
+      "scheduleDate": scheduleDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Join Group Call.
@@ -88665,6 +110434,24 @@ class PhoneJoinGroupCall extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb132ff7b",
+      "flags": flags,
+      "muted": muted,
+      "videoStopped": videoStopped,
+      "call": call,
+      "joinAs": joinAs,
+      "inviteHash": inviteHash,
+      "params": params,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Leave Group Call.
@@ -88713,6 +110500,19 @@ class PhoneLeaveGroupCall extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x500377f9",
+      "call": call,
+      "source": source,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Invite To Group Call.
@@ -88759,6 +110559,19 @@ class PhoneInviteToGroupCall extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7b393160",
+      "call": call,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Discard Group Call.
@@ -88797,6 +110610,18 @@ class PhoneDiscardGroupCall extends TlMethod<UpdatesBase> {
     buffer.writeObject(call);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7a777135",
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88861,6 +110686,21 @@ class PhoneToggleGroupCallSettings extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74bbb43d",
+      "flags": flags,
+      "resetInviteHash": resetInviteHash,
+      "call": call,
+      "joinMuted": joinMuted,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Get Group Call.
@@ -88908,6 +110748,19 @@ class PhoneGetGroupCall extends TlMethod<PhoneGroupCallBase> {
     buffer.writeInt32(limit);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x041845db",
+      "call": call,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -88978,6 +110831,22 @@ class PhoneGetGroupParticipants extends TlMethod<PhoneGroupParticipantsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc558d8ab",
+      "call": call,
+      "ids": ids,
+      "sources": sources,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Check Group Call.
@@ -89024,6 +110893,19 @@ class PhoneCheckGroupCall extends TlMethod<List<int>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb59cf977",
+      "call": call,
+      "sources": sources,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Delete Chat.
@@ -89064,6 +110946,18 @@ class MessagesDeleteChat extends TlMethod<bool> {
     buffer.writeInt64(chatId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5bd0ee50",
+      "chatId": chatId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89115,6 +111009,19 @@ class MessagesDeletePhoneCallHistory
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf9cbe409",
+      "flags": flags,
+      "revoke": revoke,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Check History Import.
@@ -89154,6 +111061,18 @@ class MessagesCheckHistoryImport
     buffer.writeString(importHead);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x43fe19f3",
+      "importHead": importHead,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89209,6 +111128,20 @@ class MessagesInitHistoryImport extends TlMethod<MessagesHistoryImportBase> {
     buffer.writeInt32(mediaCount);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34090c3b",
+      "peer": peer,
+      "file": file,
+      "mediaCount": mediaCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89272,6 +111205,21 @@ class MessagesUploadImportedMedia extends TlMethod<MessageMediaBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2a862092",
+      "peer": peer,
+      "importId": importId,
+      "fileName": fileName,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Start History Import.
@@ -89319,6 +111267,19 @@ class MessagesStartHistoryImport extends TlMethod<bool> {
     buffer.writeInt64(importId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb43df344",
+      "peer": peer,
+      "importId": importId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89416,6 +111377,24 @@ class MessagesGetExportedChatInvites
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2b5a3f6",
+      "flags": flags,
+      "revoked": revoked,
+      "peer": peer,
+      "adminId": adminId,
+      "offsetDate": offsetDate,
+      "offsetLink": offsetLink,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Exported Chat Invite.
@@ -89462,6 +111441,19 @@ class MessagesGetExportedChatInvite
     buffer.writeString(link);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73746f5c",
+      "peer": peer,
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89570,6 +111562,25 @@ class MessagesEditExportedChatInvite
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdca2f75",
+      "flags": flags,
+      "revoked": revoked,
+      "peer": peer,
+      "link": link,
+      "expireDate": expireDate,
+      "usageLimit": usageLimit,
+      "requestNeeded": requestNeeded,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Delete Revoked Exported Chat Invites.
@@ -89617,6 +111628,19 @@ class MessagesDeleteRevokedExportedChatInvites extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56987bd5",
+      "peer": peer,
+      "adminId": adminId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Delete Exported Chat Invite.
@@ -89663,6 +111687,19 @@ class MessagesDeleteExportedChatInvite extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd464a42b",
+      "peer": peer,
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Admins With Invites.
@@ -89702,6 +111739,18 @@ class MessagesGetAdminsWithInvites
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3920e6ef",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89807,6 +111856,25 @@ class MessagesGetChatInviteImporters
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdf04dd4e",
+      "flags": flags,
+      "requested": requested,
+      "peer": peer,
+      "link": link,
+      "q": q,
+      "offsetDate": offsetDate,
+      "offsetUser": offsetUser,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set History T T L.
@@ -89854,6 +111922,19 @@ class MessagesSetHistoryTTL extends TlMethod<UpdatesBase> {
     buffer.writeInt32(period);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb80e5fe4",
+      "peer": peer,
+      "period": period,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89915,6 +111996,21 @@ class AccountReportProfilePhoto extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa8cc6f5",
+      "peer": peer,
+      "photoId": photoId,
+      "reason": reason,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Convert To Gigagroup.
@@ -89953,6 +112049,18 @@ class ChannelsConvertToGigagroup extends TlMethod<UpdatesBase> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0b290c69",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -89993,6 +112101,18 @@ class MessagesCheckHistoryImportPeer
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5dc60f03",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90074,6 +112194,23 @@ class PhoneToggleGroupCallRecord extends TlMethod<UpdatesBase> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf128c708",
+      "flags": flags,
+      "start": start,
+      "video": video,
+      "call": call,
+      "title": title,
+      "videoPortrait": videoPortrait,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90178,6 +112315,26 @@ class PhoneEditGroupCallParticipant extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa5273abf",
+      "flags": flags,
+      "call": call,
+      "participant": participant,
+      "muted": muted,
+      "volume": volume,
+      "raiseHand": raiseHand,
+      "videoStopped": videoStopped,
+      "videoPaused": videoPaused,
+      "presentationPaused": presentationPaused,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Edit Group Call Title.
@@ -90224,6 +112381,19 @@ class PhoneEditGroupCallTitle extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ca6ac0a",
+      "call": call,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Get Group Call Join As.
@@ -90262,6 +112432,18 @@ class PhoneGetGroupCallJoinAs extends TlMethod<PhoneJoinAsPeersBase> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef7c213a",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90320,6 +112502,20 @@ class PhoneExportGroupCallInvite
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6aa647f",
+      "flags": flags,
+      "canSelfUnmute": canSelfUnmute,
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Toggle Group Call Start Subscription.
@@ -90367,6 +112563,19 @@ class PhoneToggleGroupCallStartSubscription extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x219c34e6",
+      "call": call,
+      "subscribed": subscribed,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Start Scheduled Group Call.
@@ -90405,6 +112614,18 @@ class PhoneStartScheduledGroupCall extends TlMethod<UpdatesBase> {
     buffer.writeObject(call);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5680e342",
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90452,6 +112673,19 @@ class PhoneSaveDefaultGroupCallJoinAs extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x575e1f8c",
+      "peer": peer,
+      "joinAs": joinAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Join Group Call Presentation.
@@ -90498,6 +112732,19 @@ class PhoneJoinGroupCallPresentation extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcbea6bc4",
+      "call": call,
+      "params": params,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Phone Leave Group Call Presentation.
@@ -90536,6 +112783,18 @@ class PhoneLeaveGroupCallPresentation extends TlMethod<UpdatesBase> {
     buffer.writeObject(call);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1c50d144",
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90576,6 +112835,18 @@ class StickersCheckShortName extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x284b3639",
+      "shortName": shortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stickers Suggest Short Name.
@@ -90615,6 +112886,18 @@ class StickersSuggestShortName
     buffer.writeString(title);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4dafc503",
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90662,6 +112945,19 @@ class BotsResetBotCommands extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3d8de0f9",
+      "scope": scope,
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Get Bot Commands.
@@ -90708,6 +113004,19 @@ class BotsGetBotCommands extends TlMethod<List<BotCommandBase>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe34c0dd6",
+      "scope": scope,
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reset Password.
@@ -90734,6 +113043,17 @@ class AccountResetPassword extends TlMethod<AccountResetPasswordResultBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9308ce1b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Decline Password Reset.
@@ -90759,6 +113079,17 @@ class AccountDeclinePasswordReset extends TlMethod<bool> {
     buffer.writeInt32(0x4c9409f6);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4c9409f6",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90798,6 +113129,18 @@ class AuthCheckRecoveryPassword extends TlMethod<bool> {
     buffer.writeString(code);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0d36bf79",
+      "code": code,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90839,6 +113182,18 @@ class AccountGetChatThemes extends TlMethod<AccountThemesBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd638de89",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -90886,6 +113241,19 @@ class MessagesSetChatTheme extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe63be13f",
+      "peer": peer,
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels View Sponsored Message.
@@ -90932,6 +113300,19 @@ class ChannelsViewSponsoredMessage extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbeaedb94",
+      "channel": channel,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Sponsored Messages.
@@ -90971,6 +113352,18 @@ class ChannelsGetSponsoredMessages
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec210fbf",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91020,6 +113413,19 @@ class MessagesGetMessageReadParticipants
     buffer.writeInt32(msgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x31c1c44f",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91106,6 +113512,23 @@ class MessagesGetSearchResultsCalendar
     buffer.writeDateTime(offsetDate);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6aa3f6bd",
+      "flags": flags,
+      "peer": peer,
+      "savedPeerId": savedPeerId,
+      "filter": filter,
+      "offsetId": offsetId,
+      "offsetDate": offsetDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91195,6 +113618,23 @@ class MessagesGetSearchResultsPositions
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9c7f2f10",
+      "flags": flags,
+      "peer": peer,
+      "savedPeerId": savedPeerId,
+      "filter": filter,
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Hide Chat Join Request.
@@ -91257,6 +113697,21 @@ class MessagesHideChatJoinRequest extends TlMethod<UpdatesBase> {
     buffer.writeObject(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7fe7e815",
+      "flags": flags,
+      "approved": approved,
+      "peer": peer,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91326,6 +113781,21 @@ class MessagesHideAllChatJoinRequests extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe085f4ea",
+      "flags": flags,
+      "approved": approved,
+      "peer": peer,
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Toggle No Forwards.
@@ -91371,6 +113841,19 @@ class MessagesToggleNoForwards extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb11eafa2",
+      "peer": peer,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91418,6 +113901,19 @@ class MessagesSaveDefaultSendAs extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xccfddf96",
+      "peer": peer,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Send As.
@@ -91456,6 +113952,18 @@ class ChannelsGetSendAs extends TlMethod<ChannelsSendAsPeersBase> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0dc770ee",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91497,6 +114005,18 @@ class AccountSetAuthorizationTTL extends TlMethod<bool> {
     buffer.writeInt32(authorizationTtlDays);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbf899aa0",
+      "authorizationTtlDays": authorizationTtlDays,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91570,6 +114090,22 @@ class AccountChangeAuthorizationSettings extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x40f48462",
+      "flags": flags,
+      "confirmed": confirmed,
+      "hash": hash,
+      "encryptedRequestsDisabled": encryptedRequestsDisabled,
+      "callRequestsDisabled": callRequestsDisabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Delete Participant History.
@@ -91616,6 +114152,19 @@ class ChannelsDeleteParticipantHistory
     buffer.writeObject(participant);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x367544db",
+      "channel": channel,
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91702,6 +114251,23 @@ class MessagesSendReaction extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd30d78d4",
+      "flags": flags,
+      "big": big,
+      "addToRecent": addToRecent,
+      "peer": peer,
+      "msgId": msgId,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Messages Reactions.
@@ -91747,6 +114313,19 @@ class MessagesGetMessagesReactions extends TlMethod<UpdatesBase> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8bba90e6",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -91841,6 +114420,23 @@ class MessagesGetMessageReactionsList
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x461b3f48",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "reaction": reaction,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Chat Available Reactions.
@@ -91887,6 +114483,19 @@ class MessagesSetChatAvailableReactions extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfeb16771",
+      "peer": peer,
+      "availableReactions": availableReactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Available Reactions.
@@ -91929,6 +114538,18 @@ class MessagesGetAvailableReactions
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x18dea0ac",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Default Reaction.
@@ -91967,6 +114588,18 @@ class MessagesSetDefaultReaction extends TlMethod<bool> {
     buffer.writeObject(reaction);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4f47a016",
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92052,6 +114685,22 @@ class MessagesTranslateText extends TlMethod<MessagesTranslatedTextBase> {
     buffer.writeString(toLang);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x63183030",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "text": text,
+      "toLang": toLang,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92159,6 +114808,25 @@ class MessagesGetUnreadReactions extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3223495b",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+      "offsetId": offsetId,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Read Reactions.
@@ -92220,6 +114888,20 @@ class MessagesReadReactions extends TlMethod<MessagesAffectedHistoryBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x54aa7f8e",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Resolve Phone.
@@ -92258,6 +114940,18 @@ class ContactsResolvePhone extends TlMethod<ContactsResolvedPeerBase> {
     buffer.writeString(phone);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8af94344",
+      "phone": phone,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92298,6 +114992,18 @@ class PhoneGetGroupCallStreamChannels
     buffer.writeObject(call);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ab21940",
+      "call": call,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92345,6 +115051,19 @@ class PhoneGetGroupCallStreamRtmpUrl
     buffer.writeBool(revoke);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdeb3abbf",
+      "peer": peer,
+      "revoke": revoke,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92401,6 +115120,20 @@ class MessagesSearchSentMedia extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x107e31a0",
+      "q": q,
+      "filter": filter,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Attach Menu Bots.
@@ -92442,6 +115175,18 @@ class MessagesGetAttachMenuBots extends TlMethod<AttachMenuBotsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x16fcc2cb",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Attach Menu Bot.
@@ -92480,6 +115225,18 @@ class MessagesGetAttachMenuBot extends TlMethod<AttachMenuBotsBotBase> {
     buffer.writeObject(bot);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77216192",
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92543,6 +115300,21 @@ class MessagesToggleBotInAttachMenu extends TlMethod<bool> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x69f59d69",
+      "flags": flags,
+      "writeAllowed": writeAllowed,
+      "bot": bot,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92683,6 +115455,28 @@ class MessagesRequestWebView extends TlMethod<WebViewResultBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x269dc2c1",
+      "flags": flags,
+      "fromBotMenu": fromBotMenu,
+      "silent": silent,
+      "peer": peer,
+      "bot": bot,
+      "url": url,
+      "startParam": startParam,
+      "themeParams": themeParams,
+      "platform": platform,
+      "replyTo": replyTo,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Prolong Web View.
@@ -92779,6 +115573,24 @@ class MessagesProlongWebView extends TlMethod<bool> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb0d81a83",
+      "flags": flags,
+      "silent": silent,
+      "peer": peer,
+      "bot": bot,
+      "queryId": queryId,
+      "replyTo": replyTo,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92887,6 +115699,25 @@ class MessagesRequestSimpleWebView extends TlMethod<SimpleWebViewResultBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1a46500a",
+      "flags": flags,
+      "fromSwitchWebview": fromSwitchWebview,
+      "fromSideMenu": fromSideMenu,
+      "bot": bot,
+      "url": url,
+      "startParam": startParam,
+      "themeParams": themeParams,
+      "platform": platform,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Send Web View Result Message.
@@ -92933,6 +115764,19 @@ class MessagesSendWebViewResultMessage
     buffer.writeObject(result);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a4314f5",
+      "botQueryId": botQueryId,
+      "result": result,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -92996,6 +115840,21 @@ class MessagesSendWebViewData extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdc0242c8",
+      "bot": bot,
+      "randomId": randomId,
+      "buttonText": buttonText,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Set Bot Menu Button.
@@ -93042,6 +115901,19 @@ class BotsSetBotMenuButton extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4504d54f",
+      "userId": userId,
+      "button": button,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Get Bot Menu Button.
@@ -93080,6 +115952,18 @@ class BotsGetBotMenuButton extends TlMethod<BotMenuButtonBase> {
     buffer.writeObject(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9c60eb28",
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93121,6 +116005,18 @@ class AccountGetSavedRingtones extends TlMethod<AccountSavedRingtonesBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe1902288",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93167,6 +116063,19 @@ class AccountSaveRingtone extends TlMethod<AccountSavedRingtoneBase> {
     buffer.writeBool(unsave);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3dea5b03",
+      "id": id,
+      "unsave": unsave,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93221,6 +116130,20 @@ class AccountUploadRingtone extends TlMethod<DocumentBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x831a83a2",
+      "file": file,
+      "fileName": fileName,
+      "mimeType": mimeType,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Set Bot Broadcast Default Admin Rights.
@@ -93261,6 +116184,18 @@ class BotsSetBotBroadcastDefaultAdminRights extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x788464e1",
+      "adminRights": adminRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Set Bot Group Default Admin Rights.
@@ -93299,6 +116234,18 @@ class BotsSetBotGroupDefaultAdminRights extends TlMethod<bool> {
     buffer.writeObject(adminRights);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x925ec9ea",
+      "adminRights": adminRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93346,6 +116293,19 @@ class PhoneSaveCallLog extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x41248786",
+      "peer": peer,
+      "file": file,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Toggle Join To Send.
@@ -93391,6 +116351,19 @@ class ChannelsToggleJoinToSend extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe4cb9580",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93438,6 +116411,19 @@ class ChannelsToggleJoinRequest extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4c2985b6",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Export Invoice.
@@ -93476,6 +116462,18 @@ class PaymentsExportInvoice extends TlMethod<PaymentsExportedInvoiceBase> {
     buffer.writeObject(invoiceMedia);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0f91b065",
+      "invoiceMedia": invoiceMedia,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93524,6 +116522,19 @@ class MessagesTranscribeAudio extends TlMethod<MessagesTranscribedAudioBase> {
     buffer.writeInt32(msgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x269e9a49",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93589,6 +116600,21 @@ class MessagesRateTranscribedAudio extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f1d072f",
+      "peer": peer,
+      "msgId": msgId,
+      "transcriptionId": transcriptionId,
+      "good": good,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Assign App Store Transaction.
@@ -93634,6 +116660,19 @@ class PaymentsAssignAppStoreTransaction extends TlMethod<UpdatesBase> {
     buffer.writeObject(purpose);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x80ed747d",
+      "receipt": receipt,
+      "purpose": purpose,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93681,6 +116720,19 @@ class PaymentsAssignPlayMarketTransaction extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdffd50d3",
+      "receipt": receipt,
+      "purpose": purpose,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Can Purchase Premium.
@@ -93720,6 +116772,18 @@ class PaymentsCanPurchasePremium extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9fc19eb6",
+      "purpose": purpose,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Premium Promo.
@@ -93745,6 +116809,17 @@ class HelpGetPremiumPromo extends TlMethod<HelpPremiumPromoBase> {
     buffer.writeInt32(0xb81b93d4);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb81b93d4",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93784,6 +116859,18 @@ class MessagesGetCustomEmojiDocuments extends TlMethod<List<DocumentBase>> {
     buffer.writeVectorInt64(documentId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd9ab0f54",
+      "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93825,6 +116912,18 @@ class MessagesGetEmojiStickers extends TlMethod<MessagesAllStickersBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfbfca18f",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93868,6 +116967,18 @@ class MessagesGetFeaturedEmojiStickers
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ecf6736",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Update Emoji Status.
@@ -93906,6 +117017,18 @@ class AccountUpdateEmojiStatus extends TlMethod<bool> {
     buffer.writeObject(emojiStatus);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfbd3de6b",
+      "emojiStatus": emojiStatus,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -93949,6 +117072,18 @@ class AccountGetDefaultEmojiStatuses
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd6753386",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Recent Emoji Statuses.
@@ -93990,6 +117125,18 @@ class AccountGetRecentEmojiStatuses extends TlMethod<AccountEmojiStatusesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0f578105",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Clear Recent Emoji Statuses.
@@ -94015,6 +117162,17 @@ class AccountClearRecentEmojiStatuses extends TlMethod<bool> {
     buffer.writeInt32(0x18201aae);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x18201aae",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94071,6 +117229,20 @@ class MessagesReportReaction extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3f64c076",
+      "peer": peer,
+      "id": id,
+      "reactionPeer": reactionPeer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Top Reactions.
@@ -94120,6 +117292,19 @@ class MessagesGetTopReactions extends TlMethod<MessagesReactionsBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb8125ba",
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94171,6 +117356,19 @@ class MessagesGetRecentReactions extends TlMethod<MessagesReactionsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x39461db2",
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Clear Recent Reactions.
@@ -94196,6 +117394,17 @@ class MessagesClearRecentReactions extends TlMethod<bool> {
     buffer.writeInt32(0x9dfeefb4);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9dfeefb4",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94242,6 +117451,19 @@ class MessagesGetExtendedMedia extends TlMethod<UpdatesBase> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x84f80814",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94298,6 +117520,20 @@ class AuthImportWebTokenAuthorization extends TlMethod<AuthAuthorizationBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2db873a9",
+      "apiId": apiId,
+      "apiHash": apiHash,
+      "webAuthToken": webAuthToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Reorder Usernames.
@@ -94336,6 +117572,18 @@ class AccountReorderUsernames extends TlMethod<bool> {
     buffer.writeVectorString(order);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef500eab",
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94383,6 +117631,19 @@ class AccountToggleUsername extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x58d6b376",
+      "username": username,
+      "active": active,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Reorder Usernames.
@@ -94428,6 +117689,19 @@ class ChannelsReorderUsernames extends TlMethod<bool> {
     buffer.writeVectorString(order);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb45ced1d",
+      "channel": channel,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94482,6 +117756,20 @@ class ChannelsToggleUsername extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50f24105",
+      "channel": channel,
+      "username": username,
+      "active": active,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Deactivate All Usernames.
@@ -94520,6 +117808,18 @@ class ChannelsDeactivateAllUsernames extends TlMethod<bool> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a245dd3",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94566,6 +117866,19 @@ class ChannelsToggleForum extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa4298b29",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94668,6 +117981,24 @@ class ChannelsCreateForumTopic extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf40c0224",
+      "flags": flags,
+      "channel": channel,
+      "title": title,
+      "iconColor": iconColor,
+      "iconEmojiId": iconEmojiId,
+      "randomId": randomId,
+      "sendAs": sendAs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Forum Topics.
@@ -94763,6 +118094,24 @@ class ChannelsGetForumTopics extends TlMethod<MessagesForumTopicsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0de560d1",
+      "flags": flags,
+      "channel": channel,
+      "q": q,
+      "offsetDate": offsetDate,
+      "offsetId": offsetId,
+      "offsetTopic": offsetTopic,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Forum Topics By I D.
@@ -94808,6 +118157,19 @@ class ChannelsGetForumTopicsByID extends TlMethod<MessagesForumTopicsBase> {
     buffer.writeVectorInt32(topics);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb0831eb9",
+      "channel": channel,
+      "topics": topics,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -94905,6 +118267,24 @@ class ChannelsEditForumTopic extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf4dfa185",
+      "flags": flags,
+      "channel": channel,
+      "topicId": topicId,
+      "title": title,
+      "iconEmojiId": iconEmojiId,
+      "closed": closed,
+      "hidden": hidden,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Update Pinned Forum Topic.
@@ -94960,6 +118340,20 @@ class ChannelsUpdatePinnedForumTopic extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c2d9026",
+      "channel": channel,
+      "topicId": topicId,
+      "pinned": pinned,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Delete Topic History.
@@ -95007,6 +118401,19 @@ class ChannelsDeleteTopicHistory extends TlMethod<MessagesAffectedHistoryBase> {
     buffer.writeInt32(topMsgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34435f2d",
+      "channel": channel,
+      "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95071,6 +118478,21 @@ class ChannelsReorderPinnedForumTopics extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2950a18f",
+      "flags": flags,
+      "force": force,
+      "channel": channel,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Toggle Anti Spam.
@@ -95116,6 +118538,19 @@ class ChannelsToggleAntiSpam extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x68f3e4eb",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95165,6 +118600,19 @@ class ChannelsReportAntiSpamFalsePositive extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa850a693",
+      "channel": channel,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Set Default History T T L.
@@ -95206,6 +118654,18 @@ class MessagesSetDefaultHistoryTTL extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9eb51445",
+      "period": period,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Default History T T L.
@@ -95232,6 +118692,17 @@ class MessagesGetDefaultHistoryTTL extends TlMethod<DefaultHistoryTTLBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x658b7188",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Export Contact Token.
@@ -95257,6 +118728,17 @@ class ContactsExportContactToken extends TlMethod<ExportedContactTokenBase> {
     buffer.writeInt32(0xf8654027);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf8654027",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95296,6 +118778,18 @@ class ContactsImportContactToken extends TlMethod<UserBase> {
     buffer.writeString(token);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x13005788",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95409,6 +118903,25 @@ class PhotosUploadContactProfilePhoto extends TlMethod<PhotosPhotoBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe14c4a71",
+      "flags": flags,
+      "suggest": suggest,
+      "save": save,
+      "userId": userId,
+      "file": file,
+      "video": video,
+      "videoStartTs": videoStartTs,
+      "videoEmojiMarkup": videoEmojiMarkup,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Toggle Participants Hidden.
@@ -95454,6 +118967,19 @@ class ChannelsToggleParticipantsHidden extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6a6e7854",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95519,6 +119045,21 @@ class MessagesSendBotRequestedPeer extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x91b2d060",
+      "peer": peer,
+      "msgId": msgId,
+      "buttonId": buttonId,
+      "requestedPeers": requestedPeers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Default Profile Photo Emojis.
@@ -95560,6 +119101,18 @@ class AccountGetDefaultProfilePhotoEmojis extends TlMethod<EmojiListBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe2750328",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Default Group Photo Emojis.
@@ -95600,6 +119153,18 @@ class AccountGetDefaultGroupPhotoEmojis extends TlMethod<EmojiListBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x915860ae",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95681,6 +119246,22 @@ class AuthRequestFirebaseSms extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x89464b50",
+      "flags": flags,
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+      "safetyNetToken": safetyNetToken,
+      "iosPushSecret": iosPushSecret,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Emoji Groups.
@@ -95721,6 +119302,18 @@ class MessagesGetEmojiGroups extends TlMethod<MessagesEmojiGroupsBase> {
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7488ce5b",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95763,6 +119356,18 @@ class MessagesGetEmojiStatusGroups extends TlMethod<MessagesEmojiGroupsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ecd56cd",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Emoji Profile Photo Groups.
@@ -95804,6 +119409,18 @@ class MessagesGetEmojiProfilePhotoGroups
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x21a548f3",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95852,6 +119469,19 @@ class MessagesSearchCustomEmoji extends TlMethod<EmojiListBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2c11c0d7",
+      "emoticon": emoticon,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -95909,6 +119539,20 @@ class MessagesTogglePeerTranslations extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe47cb579",
+      "flags": flags,
+      "disabled": disabled,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Auto Save Settings.
@@ -95934,6 +119578,17 @@ class AccountGetAutoSaveSettings extends TlMethod<AccountAutoSaveSettingsBase> {
     buffer.writeInt32(0xadcbbcda);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xadcbbcda",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96017,6 +119672,23 @@ class AccountSaveAutoSaveSettings extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd69b8361",
+      "flags": flags,
+      "users": users,
+      "chats": chats,
+      "broadcasts": broadcasts,
+      "peer": peer,
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Delete Auto Save Exceptions.
@@ -96042,6 +119714,17 @@ class AccountDeleteAutoSaveExceptions extends TlMethod<bool> {
     buffer.writeInt32(0x53bc0020);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53bc0020",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96129,6 +119812,22 @@ class StickersChangeSticker extends TlMethod<MessagesStickerSetBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf5537ebc",
+      "flags": flags,
+      "sticker": sticker,
+      "emoji": emoji,
+      "maskCoords": maskCoords,
+      "keywords": keywords,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stickers Rename Sticker Set.
@@ -96175,6 +119874,19 @@ class StickersRenameStickerSet extends TlMethod<MessagesStickerSetBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x124b1c00",
+      "stickerset": stickerset,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stickers Delete Sticker Set.
@@ -96213,6 +119925,18 @@ class StickersDeleteStickerSet extends TlMethod<bool> {
     buffer.writeObject(stickerset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x87704394",
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96261,6 +119985,19 @@ class MessagesGetBotApp extends TlMethod<MessagesBotAppBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34fdc5c3",
+      "app": app,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96356,6 +120093,24 @@ class MessagesRequestAppWebView extends TlMethod<AppWebViewResultBase> {
     buffer.writeString(platform);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c5a3b3c",
+      "flags": flags,
+      "writeAllowed": writeAllowed,
+      "peer": peer,
+      "app": app,
+      "startParam": startParam,
+      "themeParams": themeParams,
+      "platform": platform,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96454,6 +120209,23 @@ class BotsSetBotInfo extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10cf3123",
+      "flags": flags,
+      "bot": bot,
+      "langCode": langCode,
+      "name": name,
+      "about": about,
+      "description": description,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Get Bot Info.
@@ -96515,6 +120287,20 @@ class BotsGetBotInfo extends TlMethod<BotsBotInfoBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdcd914fd",
+      "flags": flags,
+      "bot": bot,
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Auth Reset Login Email.
@@ -96560,6 +120346,19 @@ class AuthResetLoginEmail extends TlMethod<AuthSentCodeBase> {
     buffer.writeString(phoneCodeHash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7e960193",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96615,6 +120414,20 @@ class ChatlistsExportChatlistInvite
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8472478e",
+      "chatlist": chatlist,
+      "title": title,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Delete Exported Invite.
@@ -96660,6 +120473,19 @@ class ChatlistsDeleteExportedInvite extends TlMethod<bool> {
     buffer.writeString(slug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x719c5c5e",
+      "chatlist": chatlist,
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96742,6 +120568,22 @@ class ChatlistsEditExportedInvite extends TlMethod<ExportedChatlistInviteBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x653db63d",
+      "flags": flags,
+      "chatlist": chatlist,
+      "slug": slug,
+      "title": title,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Get Exported Invites.
@@ -96782,6 +120624,18 @@ class ChatlistsGetExportedInvites
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xce03da83",
+      "chatlist": chatlist,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Check Chatlist Invite.
@@ -96821,6 +120675,18 @@ class ChatlistsCheckChatlistInvite
     buffer.writeString(slug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x41c10fff",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96868,6 +120734,19 @@ class ChatlistsJoinChatlistInvite extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa6b1e39a",
+      "slug": slug,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Get Chatlist Updates.
@@ -96907,6 +120786,18 @@ class ChatlistsGetChatlistUpdates
     buffer.writeObject(chatlist);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x89419521",
+      "chatlist": chatlist,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -96954,6 +120845,19 @@ class ChatlistsJoinChatlistUpdates extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe089f8f5",
+      "chatlist": chatlist,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Chatlists Hide Chatlist Updates.
@@ -96992,6 +120896,18 @@ class ChatlistsHideChatlistUpdates extends TlMethod<bool> {
     buffer.writeObject(chatlist);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x66e486fb",
+      "chatlist": chatlist,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97032,6 +120948,18 @@ class ChatlistsGetLeaveChatlistSuggestions extends TlMethod<List<PeerBase>> {
     buffer.writeObject(chatlist);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfdbcd714",
+      "chatlist": chatlist,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97079,6 +121007,19 @@ class ChatlistsLeaveChatlist extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x74fae13a",
+      "chatlist": chatlist,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Reorder Usernames.
@@ -97124,6 +121065,19 @@ class BotsReorderUsernames extends TlMethod<bool> {
     buffer.writeVectorString(order);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9709b1c2",
+      "bot": bot,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97177,6 +121131,20 @@ class BotsToggleUsername extends TlMethod<bool> {
     buffer.writeBool(active);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x053ca973",
+      "bot": bot,
+      "username": username,
+      "active": active,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97279,6 +121247,24 @@ class MessagesSetChatWallPaper extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ffacae1",
+      "flags": flags,
+      "forBoth": forBoth,
+      "revert": revert,
+      "peer": peer,
+      "wallpaper": wallpaper,
+      "settings": settings,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Invalidate Sign In Codes.
@@ -97317,6 +121303,18 @@ class AccountInvalidateSignInCodes extends TlMethod<bool> {
     buffer.writeVectorString(codes);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xca8ae8ba",
+      "codes": codes,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97364,6 +121362,19 @@ class ChannelsClickSponsoredMessage extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x18afbc93",
+      "channel": channel,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Contacts Edit Close Friends.
@@ -97403,6 +121414,18 @@ class ContactsEditCloseFriends extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xba6705f0",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Can Send Story.
@@ -97441,6 +121464,18 @@ class StoriesCanSendStory extends TlMethod<bool> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc7dfdfdd",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97609,6 +121644,31 @@ class StoriesSendStory extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe4e6694b",
+      "flags": flags,
+      "pinned": pinned,
+      "noforwards": noforwards,
+      "fwdModified": fwdModified,
+      "peer": peer,
+      "media": media,
+      "mediaAreas": mediaAreas,
+      "caption": caption,
+      "entities": entities,
+      "privacyRules": privacyRules,
+      "randomId": randomId,
+      "period": period,
+      "fwdFromId": fwdFromId,
+      "fwdFromStory": fwdFromStory,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Edit Story.
@@ -97730,6 +121790,25 @@ class StoriesEditStory extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb583ba46",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "media": media,
+      "mediaAreas": mediaAreas,
+      "caption": caption,
+      "entities": entities,
+      "privacyRules": privacyRules,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Delete Stories.
@@ -97775,6 +121854,19 @@ class StoriesDeleteStories extends TlMethod<List<int>> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xae59db5f",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97828,6 +121920,20 @@ class StoriesTogglePinned extends TlMethod<List<int>> {
     buffer.writeBool(pinned);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a75a1ef",
+      "peer": peer,
+      "id": id,
+      "pinned": pinned,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -97897,6 +122003,21 @@ class StoriesGetAllStories extends TlMethod<StoriesAllStoriesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeeb0d625",
+      "flags": flags,
+      "next": next,
+      "hidden": hidden,
+      "state": state,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Get Pinned Stories.
@@ -97953,6 +122074,20 @@ class StoriesGetPinnedStories extends TlMethod<StoriesStoriesBase> {
     buffer.writeInt32(limit);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5821a5dc",
+      "peer": peer,
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98011,6 +122146,20 @@ class StoriesGetStoriesArchive extends TlMethod<StoriesStoriesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4352016",
+      "peer": peer,
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Get Stories By I D.
@@ -98057,6 +122206,19 @@ class StoriesGetStoriesByID extends TlMethod<StoriesStoriesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5774ca74",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Toggle All Stories Hidden.
@@ -98095,6 +122257,18 @@ class StoriesToggleAllStoriesHidden extends TlMethod<bool> {
     buffer.writeBool(hidden);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7c2557c4",
+      "hidden": hidden,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98144,6 +122318,19 @@ class StoriesReadStories extends TlMethod<List<int>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa556dac8",
+      "peer": peer,
+      "maxId": maxId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Increment Story Views.
@@ -98189,6 +122376,19 @@ class StoriesIncrementStoryViews extends TlMethod<bool> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb2028afb",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98297,6 +122497,26 @@ class StoriesGetStoryViewsList extends TlMethod<StoriesStoryViewsListBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7ed23c57",
+      "flags": flags,
+      "justContacts": justContacts,
+      "reactionsFirst": reactionsFirst,
+      "forwardsFirst": forwardsFirst,
+      "peer": peer,
+      "q": q,
+      "id": id,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Get Stories Views.
@@ -98342,6 +122562,19 @@ class StoriesGetStoriesViews extends TlMethod<StoriesStoryViewsBase> {
     buffer.writeVectorInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x28e16cc8",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98390,6 +122623,19 @@ class StoriesExportStoryLink extends TlMethod<ExportedStoryLinkBase> {
     buffer.writeInt32(id);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7b8def20",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98451,6 +122697,21 @@ class StoriesReport extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1923fa8c",
+      "peer": peer,
+      "id": id,
+      "reason": reason,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Activate Stealth Mode.
@@ -98506,6 +122767,20 @@ class StoriesActivateStealthMode extends TlMethod<UpdatesBase> {
     buffer.writeInt32(flags);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57bbd166",
+      "flags": flags,
+      "past": past,
+      "future": future,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98571,6 +122846,21 @@ class ContactsSetBlocked extends TlMethod<bool> {
     buffer.writeInt32(limit);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x94c65c76",
+      "flags": flags,
+      "myStoriesFrom": myStoriesFrom,
+      "id": id,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98644,6 +122934,22 @@ class StoriesSendReaction extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7fd736b2",
+      "flags": flags,
+      "addToRecent": addToRecent,
+      "peer": peer,
+      "storyId": storyId,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Can Send Message.
@@ -98683,6 +122989,18 @@ class BotsCanSendMessage extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1359f4e6",
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bots Allow Send Message.
@@ -98721,6 +123039,18 @@ class BotsAllowSendMessage extends TlMethod<UpdatesBase> {
     buffer.writeObject(bot);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf132e3ef",
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98775,6 +123105,20 @@ class BotsInvokeWebViewCustomMethod extends TlMethod<DataJSONBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x087fc5e7",
+      "bot": bot,
+      "customMethod": customMethod,
+      "params": params,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Get Peer Stories.
@@ -98814,6 +123158,18 @@ class StoriesGetPeerStories extends TlMethod<StoriesPeerStoriesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2c4ada50",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Get All Read Peer Stories.
@@ -98839,6 +123195,17 @@ class StoriesGetAllReadPeerStories extends TlMethod<UpdatesBase> {
     buffer.writeInt32(0x9b5ae7f9);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9b5ae7f9",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98879,6 +123246,18 @@ class StoriesGetPeerMaxIDs extends TlMethod<List<int>> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x535983c3",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stories Get Chats To Send.
@@ -98904,6 +123283,17 @@ class StoriesGetChatsToSend extends TlMethod<MessagesChatsBase> {
     buffer.writeInt32(0xa56a8b60);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa56a8b60",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -98950,6 +123340,19 @@ class StoriesTogglePeerStoriesHidden extends TlMethod<bool> {
     buffer.writeBool(hidden);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd0415c4",
+      "peer": peer,
+      "hidden": hidden,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99007,6 +123410,19 @@ class PaymentsGetPremiumGiftCodeOptions
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2757ba54",
+      "flags": flags,
+      "boostPeer": boostPeer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Check Gift Code.
@@ -99046,6 +123462,18 @@ class PaymentsCheckGiftCode extends TlMethod<PaymentsCheckedGiftCodeBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8e51b4c1",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Payments Apply Gift Code.
@@ -99084,6 +123512,18 @@ class PaymentsApplyGiftCode extends TlMethod<UpdatesBase> {
     buffer.writeString(slug);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf6e26854",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99132,6 +123572,19 @@ class PaymentsGetGiveawayInfo extends TlMethod<PaymentsGiveawayInfoBase> {
     buffer.writeInt32(msgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf4239425",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99187,6 +123640,20 @@ class PaymentsLaunchPrepaidGiveaway extends TlMethod<UpdatesBase> {
     buffer.writeObject(purpose);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5ff58f20",
+      "peer": peer,
+      "giveawayId": giveawayId,
+      "purpose": purpose,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99261,6 +123728,21 @@ class AccountUpdateColor extends TlMethod<bool> {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7cefa15d",
+      "flags": flags,
+      "forProfile": forProfile,
+      "color": color,
+      "backgroundEmojiId": backgroundEmojiId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99343,6 +123825,22 @@ class ChannelsUpdateColor extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd8aa3671",
+      "flags": flags,
+      "forProfile": forProfile,
+      "channel": channel,
+      "color": color,
+      "backgroundEmojiId": backgroundEmojiId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Default Background Emojis.
@@ -99383,6 +123881,18 @@ class AccountGetDefaultBackgroundEmojis extends TlMethod<EmojiListBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa60ab9ce",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99456,6 +123966,22 @@ class PremiumGetBoostsList extends TlMethod<PremiumBoostsListBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x60f67660",
+      "flags": flags,
+      "gifts": gifts,
+      "peer": peer,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Premium Get My Boosts.
@@ -99481,6 +124007,17 @@ class PremiumGetMyBoosts extends TlMethod<PremiumMyBoostsBase> {
     buffer.writeInt32(0x0be77b4a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0be77b4a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99543,6 +124080,20 @@ class PremiumApplyBoost extends TlMethod<PremiumMyBoostsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6b7da746",
+      "flags": flags,
+      "slots": slots,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Premium Get Boosts Status.
@@ -99581,6 +124132,18 @@ class PremiumGetBoostsStatus extends TlMethod<PremiumBoostsStatusBase> {
     buffer.writeObject(peer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x042f1f61",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99628,6 +124191,19 @@ class PremiumGetUserBoosts extends TlMethod<PremiumBoostsListBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x39854d1f",
+      "peer": peer,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Toggle View Forum As Messages.
@@ -99673,6 +124249,19 @@ class ChannelsToggleViewForumAsMessages extends TlMethod<UpdatesBase> {
     buffer.writeBool(enabled);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9738bb15",
+      "channel": channel,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99740,6 +124329,21 @@ class MessagesSearchEmojiStickerSets
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x92b4494c",
+      "flags": flags,
+      "excludeFeatured": excludeFeatured,
+      "q": q,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Get Channel Recommendations.
@@ -99778,6 +124382,18 @@ class ChannelsGetChannelRecommendations extends TlMethod<MessagesChatsBase> {
     buffer.writeObject(channel);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x83b70d97",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -99844,6 +124460,21 @@ class StatsGetStoryStats extends TlMethod<StatsStoryStatsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x374fef40",
+      "flags": flags,
+      "dark": dark,
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Stats Get Story Public Forwards.
@@ -99908,6 +124539,21 @@ class StatsGetStoryPublicForwards extends TlMethod<StatsPublicForwardsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa6437ef6",
+      "peer": peer,
+      "id": id,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Peer Colors.
@@ -99949,6 +124595,18 @@ class HelpGetPeerColors extends TlMethod<HelpPeerColorsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xda80f42f",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Help Get Peer Profile Colors.
@@ -99989,6 +124647,18 @@ class HelpGetPeerProfileColors extends TlMethod<HelpPeerColorsBase> {
     buffer.writeInt32(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xabcfa9fd",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -100090,6 +124760,24 @@ class StoriesGetStoryReactionsList
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9b2881f",
+      "flags": flags,
+      "forwardsFirst": forwardsFirst,
+      "peer": peer,
+      "id": id,
+      "reaction": reaction,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Channels Update Emoji Status.
@@ -100136,6 +124824,19 @@ class ChannelsUpdateEmojiStatus extends TlMethod<UpdatesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf0d3e6a8",
+      "channel": channel,
+      "emojiStatus": emojiStatus,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Channel Default Emoji Statuses.
@@ -100179,6 +124880,18 @@ class AccountGetChannelDefaultEmojiStatuses
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7727a7d5",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Account Get Channel Restricted Status Emojis.
@@ -100220,6 +124933,18 @@ class AccountGetChannelRestrictedStatusEmojis extends TlMethod<EmojiListBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35a9e0d5",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -100310,6 +125035,24 @@ class MessagesGetSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
     buffer.writeInt64(hash);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5381d21a",
+      "flags": flags,
+      "excludePinned": excludePinned,
+      "offsetDate": offsetDate,
+      "offsetId": offsetId,
+      "offsetPeer": offsetPeer,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -100411,6 +125154,25 @@ class MessagesGetSavedHistory extends TlMethod<MessagesMessagesBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3d9a414d",
+      "peer": peer,
+      "offsetId": offsetId,
+      "offsetDate": offsetDate,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Delete Saved History.
@@ -100493,6 +125255,22 @@ class MessagesDeleteSavedHistory extends TlMethod<MessagesAffectedHistoryBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6e98102b",
+      "flags": flags,
+      "peer": peer,
+      "maxId": maxId,
+      "minDate": minDate,
+      "maxDate": maxDate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Get Pinned Saved Dialogs.
@@ -100518,6 +125296,17 @@ class MessagesGetPinnedSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
     buffer.writeInt32(0xd63d94e0);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd63d94e0",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -100575,6 +125364,20 @@ class MessagesToggleSavedDialogPin extends TlMethod<bool> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xac81bbde",
+      "flags": flags,
+      "pinned": pinned,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Messages Reorder Pinned Saved Dialogs.
@@ -100630,5 +125433,19 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod<bool> {
     buffer.writeVectorObject(order);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8b716587",
+      "flags": flags,
+      "force": force,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }

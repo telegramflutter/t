@@ -61,6 +61,21 @@ class DecryptedMessage008 extends DecryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1f814f1f",
+      "randomId": randomId,
+      "randomBytes": randomBytes,
+      "message": message,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message.
@@ -125,6 +140,21 @@ class DecryptedMessage017 extends DecryptedMessageBase {
     buffer.writeObject(media);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x204d3878",
+      "randomId": randomId,
+      "ttl": ttl,
+      "message": message,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -243,6 +273,25 @@ class DecryptedMessage045 extends DecryptedMessageBase {
     }
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x36b091de",
+      "flags": flags,
+      "randomId": randomId,
+      "ttl": ttl,
+      "message": message,
+      "media": media,
+      "entities": entities,
+      "viaBotName": viaBotName,
+      "replyToRandomId": replyToRandomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -374,6 +423,26 @@ class DecryptedMessage073 extends DecryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x91cc4674",
+      "flags": flags,
+      "randomId": randomId,
+      "ttl": ttl,
+      "message": message,
+      "media": media,
+      "entities": entities,
+      "viaBotName": viaBotName,
+      "replyToRandomId": replyToRandomId,
+      "groupedId": groupedId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Service.
@@ -430,6 +499,20 @@ class DecryptedMessageService008 extends DecryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xaa48327d",
+      "randomId": randomId,
+      "randomBytes": randomBytes,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Service.
@@ -479,6 +562,19 @@ class DecryptedMessageService017 extends DecryptedMessageBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73164160",
+      "randomId": randomId,
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Media Empty.
@@ -505,6 +601,17 @@ class DecryptedMessageMediaEmpty008 extends DecryptedMessageMediaBase {
     buffer.writeInt32(0x089f5c4a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x089f5c4a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -604,6 +711,25 @@ class DecryptedMessageMediaPhoto008 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x32798a8c",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "w": w,
+      "h": h,
+      "size": size,
+      "key": key,
+      "iv": iv,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -710,6 +836,26 @@ class DecryptedMessageMediaPhoto045 extends DecryptedMessageMediaBase {
     buffer.writeString(caption);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf1fa8d78",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "w": w,
+      "h": h,
+      "size": size,
+      "key": key,
+      "iv": iv,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -818,6 +964,26 @@ class DecryptedMessageMediaVideo008 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4cee6ef3",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "duration": duration,
+      "w": w,
+      "h": h,
+      "size": size,
+      "key": key,
+      "iv": iv,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -933,6 +1099,27 @@ class DecryptedMessageMediaVideo017 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x524a415d",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "duration": duration,
+      "mimeType": mimeType,
+      "w": w,
+      "h": h,
+      "size": size,
+      "key": key,
+      "iv": iv,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1056,6 +1243,28 @@ class DecryptedMessageMediaVideo045 extends DecryptedMessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x970c8c0e",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "duration": duration,
+      "mimeType": mimeType,
+      "w": w,
+      "h": h,
+      "size": size,
+      "key": key,
+      "iv": iv,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Media Geo Point.
@@ -1102,6 +1311,19 @@ class DecryptedMessageMediaGeoPoint008 extends DecryptedMessageMediaBase {
     buffer.writeDouble(long);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x35480a59",
+      "lat": lat,
+      "long": long,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1165,6 +1387,21 @@ class DecryptedMessageMediaContact008 extends DecryptedMessageMediaBase {
     buffer.writeInt32(userId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x588a0a97",
+      "phoneNumber": phoneNumber,
+      "firstName": firstName,
+      "lastName": lastName,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1260,6 +1497,25 @@ class DecryptedMessageMediaDocument008 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb095434b",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "fileName": fileName,
+      "mimeType": mimeType,
+      "size": size,
+      "key": key,
+      "iv": iv,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1363,6 +1619,26 @@ class DecryptedMessageMediaDocument045 extends DecryptedMessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7afe8ae2",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "mimeType": mimeType,
+      "size": size,
+      "key": key,
+      "iv": iv,
+      "attributes": attributes,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Media Document.
@@ -1465,6 +1741,26 @@ class DecryptedMessageMediaDocument143 extends DecryptedMessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6abd9782",
+      "thumb": thumb,
+      "thumbW": thumbW,
+      "thumbH": thumbH,
+      "mimeType": mimeType,
+      "size": size,
+      "key": key,
+      "iv": iv,
+      "attributes": attributes,
+      "caption": caption,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Media Audio.
@@ -1529,6 +1825,21 @@ class DecryptedMessageMediaAudio008 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6080758f",
+      "duration": duration,
+      "size": size,
+      "key": key,
+      "iv": iv,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1601,6 +1912,22 @@ class DecryptedMessageMediaAudio017 extends DecryptedMessageMediaBase {
     buffer.writeBytes(iv);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x57e0a9cb",
+      "duration": duration,
+      "mimeType": mimeType,
+      "size": size,
+      "key": key,
+      "iv": iv,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1701,6 +2028,25 @@ class DecryptedMessageMediaExternalDocument023
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa95b0dd",
+      "id": id,
+      "accessHash": accessHash,
+      "date": date,
+      "mimeType": mimeType,
+      "size": size,
+      "thumb": thumb,
+      "dcId": dcId,
+      "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Media Venue.
@@ -1776,6 +2122,23 @@ class DecryptedMessageMediaVenue045 extends DecryptedMessageMediaBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8a0df56f",
+      "lat": lat,
+      "long": long,
+      "title": title,
+      "address": address,
+      "provider": provider,
+      "venueId": venueId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Media Web Page.
@@ -1815,6 +2178,18 @@ class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
     buffer.writeString(url);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe50511d8",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1860,6 +2235,18 @@ class DecryptedMessageActionSetMessageTTL008
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa1733aec",
+      "ttlSeconds": ttlSeconds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Read Messages.
@@ -1900,6 +2287,18 @@ class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
     buffer.writeVectorInt64(randomIds);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0c4f40be",
+      "randomIds": randomIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1943,6 +2342,18 @@ class DecryptedMessageActionDeleteMessages008
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x65614304",
+      "randomIds": randomIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Screenshot Messages.
@@ -1985,6 +2396,18 @@ class DecryptedMessageActionScreenshotMessages008
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ac1f475",
+      "randomIds": randomIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Flush History.
@@ -2012,6 +2435,17 @@ class DecryptedMessageActionFlushHistory008 extends DecryptedMessageActionBase {
     buffer.writeInt32(0x6719e45c);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6719e45c",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2064,6 +2498,19 @@ class DecryptedMessageActionResend017 extends DecryptedMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x511110b0",
+      "startSeqNo": startSeqNo,
+      "endSeqNo": endSeqNo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Notify Layer.
@@ -2107,6 +2554,18 @@ class DecryptedMessageActionNotifyLayer017 extends DecryptedMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3048883",
+      "layer": layer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Typing.
@@ -2146,6 +2605,18 @@ class DecryptedMessageActionTyping017 extends DecryptedMessageActionBase {
     buffer.writeObject(action);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xccb27641",
+      "action": action,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2195,6 +2666,19 @@ class DecryptedMessageActionRequestKey020 extends DecryptedMessageActionBase {
     buffer.writeBytes(gA);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3c9611b",
+      "exchangeId": exchangeId,
+      "gA": gA,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2254,6 +2738,20 @@ class DecryptedMessageActionAcceptKey020 extends DecryptedMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6fe1735b",
+      "exchangeId": exchangeId,
+      "gB": gB,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Abort Key.
@@ -2295,6 +2793,18 @@ class DecryptedMessageActionAbortKey020 extends DecryptedMessageActionBase {
     buffer.writeInt64(exchangeId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdd05ec6b",
+      "exchangeId": exchangeId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2347,6 +2857,19 @@ class DecryptedMessageActionCommitKey020 extends DecryptedMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec2e0b9b",
+      "exchangeId": exchangeId,
+      "keyFingerprint": keyFingerprint,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Decrypted Message Action Noop.
@@ -2373,6 +2896,17 @@ class DecryptedMessageActionNoop020 extends DecryptedMessageActionBase {
     buffer.writeInt32(0xa82fdd63);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa82fdd63",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2448,6 +2982,22 @@ class DecryptedMessageLayer017 extends DecryptedMessageLayerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1be31789",
+      "randomBytes": randomBytes,
+      "layer": layer,
+      "inSeqNo": inSeqNo,
+      "outSeqNo": outSeqNo,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Typing Action.
@@ -2474,6 +3024,17 @@ class SendMessageTypingAction017 extends SendMessageActionBase {
     buffer.writeInt32(0x16bf744e);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x16bf744e",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2502,6 +3063,17 @@ class SendMessageCancelAction017 extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfd5ec8f5",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Record Video Action.
@@ -2528,6 +3100,17 @@ class SendMessageRecordVideoAction017 extends SendMessageActionBase {
     buffer.writeInt32(0xa187d66f);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa187d66f",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2556,6 +3139,17 @@ class SendMessageUploadVideoAction017 extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x92042ff7",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Record Audio Action.
@@ -2582,6 +3176,17 @@ class SendMessageRecordAudioAction017 extends SendMessageActionBase {
     buffer.writeInt32(0xd52f73f7);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd52f73f7",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2610,6 +3215,17 @@ class SendMessageUploadAudioAction017 extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6ac8a6f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Upload Photo Action.
@@ -2636,6 +3252,17 @@ class SendMessageUploadPhotoAction017 extends SendMessageActionBase {
     buffer.writeInt32(0x990a3c1a);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x990a3c1a",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2664,6 +3291,17 @@ class SendMessageUploadDocumentAction017 extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8faee98e",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Geo Location Action.
@@ -2690,6 +3328,17 @@ class SendMessageGeoLocationAction017 extends SendMessageActionBase {
     buffer.writeInt32(0x176f8ba1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x176f8ba1",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2718,6 +3367,17 @@ class SendMessageChooseContactAction017 extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x628cbc6f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Record Round Action.
@@ -2745,6 +3405,17 @@ class SendMessageRecordRoundAction066 extends SendMessageActionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x88f27fbc",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Send Message Upload Round Action.
@@ -2771,6 +3442,17 @@ class SendMessageUploadRoundAction066 extends SendMessageActionBase {
     buffer.writeInt32(0xbb718624);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb718624",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2823,6 +3505,19 @@ class DocumentAttributeImageSize023 extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c37c15c",
+      "w": w,
+      "h": h,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Animated.
@@ -2850,6 +3545,17 @@ class DocumentAttributeAnimated023 extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11b58939",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Sticker.
@@ -2876,6 +3582,17 @@ class DocumentAttributeSticker023 extends DocumentAttributeBase {
     buffer.writeInt32(0xfb0a5727);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfb0a5727",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2923,6 +3640,19 @@ class DocumentAttributeSticker045 extends DocumentAttributeBase {
     buffer.writeObject(stickerset);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3a556302",
+      "alt": alt,
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2983,6 +3713,20 @@ class DocumentAttributeVideo023 extends DocumentAttributeBase {
     buffer.writeInt32(h);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5910cccb",
+      "duration": duration,
+      "w": w,
+      "h": h,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3053,6 +3797,21 @@ class DocumentAttributeVideo066 extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ef02ce6",
+      "flags": flags,
+      "duration": duration,
+      "w": w,
+      "h": h,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Audio.
@@ -3094,6 +3853,18 @@ class DocumentAttributeAudio023 extends DocumentAttributeBase {
     buffer.writeInt32(duration);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x051448e5",
+      "duration": duration,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3150,6 +3921,20 @@ class DocumentAttributeAudio045 extends DocumentAttributeBase {
     buffer.writeString(performer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xded218e0",
+      "duration": duration,
+      "title": title,
+      "performer": performer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3239,6 +4024,22 @@ class DocumentAttributeAudio046 extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9852f9c6",
+      "flags": flags,
+      "duration": duration,
+      "title": title,
+      "performer": performer,
+      "waveform": waveform,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Document Attribute Filename.
@@ -3279,6 +4080,18 @@ class DocumentAttributeFilename023 extends DocumentAttributeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x15590068",
+      "fileName": fileName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Size Empty.
@@ -3318,6 +4131,18 @@ class PhotoSizeEmpty023 extends PhotoSizeBase {
     buffer.writeString(type);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0e17e23c",
+      "type": type,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3393,6 +4218,22 @@ class PhotoSize023 extends PhotoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77bfb61b",
+      "type": type,
+      "location": location,
+      "w": w,
+      "h": h,
+      "size": size,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Photo Cached Size.
@@ -3465,6 +4306,22 @@ class PhotoCachedSize023 extends PhotoSizeBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe9a734fa",
+      "type": type,
+      "location": location,
+      "w": w,
+      "h": h,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// File Location Unavailable.
@@ -3524,6 +4381,20 @@ class FileLocationUnavailable023 extends FileLocationBase {
     buffer.writeInt64(secret);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7c596b46",
+      "volumeId": volumeId,
+      "localId": localId,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3594,6 +4465,21 @@ class FileLocation023 extends FileLocationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53d69076",
+      "dcId": dcId,
+      "volumeId": volumeId,
+      "localId": localId,
+      "secret": secret,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Unknown.
@@ -3644,6 +4530,19 @@ class MessageEntityUnknown045 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbb92ba95",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3696,6 +4595,19 @@ class MessageEntityMention045 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfa04579d",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Hashtag.
@@ -3746,6 +4658,19 @@ class MessageEntityHashtag045 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f635b0d",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3798,6 +4723,19 @@ class MessageEntityBotCommand045 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6cef8ac7",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Url.
@@ -3848,6 +4786,19 @@ class MessageEntityUrl045 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6ed02538",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -3900,6 +4851,19 @@ class MessageEntityEmail045 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64e475c2",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Bold.
@@ -3950,6 +4914,19 @@ class MessageEntityBold045 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd610bc9",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4002,6 +4979,19 @@ class MessageEntityItalic045 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x826f8b60",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Code.
@@ -4052,6 +5042,19 @@ class MessageEntityCode045 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x28a20571",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4111,6 +5114,20 @@ class MessageEntityPre045 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73924be0",
+      "offset": offset,
+      "length": length,
+      "language": language,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Text Url.
@@ -4169,6 +5186,20 @@ class MessageEntityTextUrl045 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x76a6d327",
+      "offset": offset,
+      "length": length,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Underline.
@@ -4219,6 +5250,19 @@ class MessageEntityUnderline101 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9c4e7e8b",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4271,6 +5315,19 @@ class MessageEntityStrike101 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbf0693d4",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Blockquote.
@@ -4322,6 +5379,19 @@ class MessageEntityBlockquote101 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x020df5d0",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Message Entity Spoiler.
@@ -4372,6 +5442,19 @@ class MessageEntitySpoiler144 extends MessageEntityBase {
     buffer.writeInt32(length);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x32ca960f",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -4433,6 +5516,20 @@ class MessageEntityCustomEmoji144 extends MessageEntityBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc8cf05f8",
+      "offset": offset,
+      "length": length,
+      "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Short Name.
@@ -4473,6 +5570,18 @@ class InputStickerSetShortName045 extends InputStickerSetBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x861cc8a0",
+      "shortName": shortName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Input Sticker Set Empty.
@@ -4499,5 +5608,16 @@ class InputStickerSetEmpty045 extends InputStickerSetBase {
     buffer.writeInt32(0xffb62b95);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xffb62b95",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }

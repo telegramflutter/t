@@ -30,3 +30,12 @@ Uint8List _fromHexToUint8List(String value) {
 
   return r;
 }
+
+String _hex(Iterable<int> v) {
+  final h = v
+      .map((vv) => vv.toRadixString(16).padLeft(2, '0'))
+      .join('')
+      .toUpperCase();
+
+  return h;
+}

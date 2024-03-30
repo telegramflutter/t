@@ -58,6 +58,21 @@ class ResPQ extends ResPQBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x05162463",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "pq": pq,
+      "serverPublicKeyFingerprints": serverPublicKeyFingerprints,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// P Q Inner Data Dc.
@@ -140,6 +155,24 @@ class PQInnerDataDc extends PQInnerDataBase {
     buffer.writeInt32(dc);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa9f55f95",
+      "pq": pq,
+      "p": p,
+      "q": q,
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "newNonce": newNonce.toString(),
+      "dc": dc,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -233,6 +266,25 @@ class PQInnerDataTempDc extends PQInnerDataBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56fddf88",
+      "pq": pq,
+      "p": p,
+      "q": q,
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "newNonce": newNonce.toString(),
+      "dc": dc,
+      "expiresIn": expiresIn,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Server D H Params Ok.
@@ -285,6 +337,20 @@ class ServerDHParamsOk extends ServerDHParamsBase {
     buffer.writeBytes(encryptedAnswer);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd0e8075c",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "encryptedAnswer": encryptedAnswer,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -362,6 +428,23 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb5890dba",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "g": g,
+      "dhPrime": dhPrime,
+      "gA": gA,
+      "serverTime": serverTime,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Client D H Inner Data.
@@ -424,6 +507,21 @@ class ClientDHInnerData extends ClientDHInnerDataBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6643b654",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "retryId": retryId,
+      "gB": gB,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Dh Gen Ok.
@@ -476,6 +574,20 @@ class DhGenOk extends SetClientDHParamsAnswerBase {
     buffer.writeInt128(newNonceHash1);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3bcbf734",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "newNonceHash1": newNonceHash1.toString(),
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -530,6 +642,20 @@ class DhGenRetry extends SetClientDHParamsAnswerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x46dc1fb9",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "newNonceHash2": newNonceHash2.toString(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Dh Gen Fail.
@@ -583,6 +709,20 @@ class DhGenFail extends SetClientDHParamsAnswerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa69dae02",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "newNonceHash3": newNonceHash3.toString(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Bind Auth Key Inner.
@@ -605,7 +745,7 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
     final tempAuthKeyId = reader.readInt64();
     final permAuthKeyId = reader.readInt64();
     final tempSessionId = reader.readInt64();
-    final expiresAt = reader.readInt32();
+    final expiresAt = reader.readDateTime();
 
     // Construct [BindAuthKeyInner] object.
     final returnValue = BindAuthKeyInner(
@@ -641,9 +781,7 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
   final int tempSessionId;
 
   /// Expires At.
-  ///
-  /// Field type is Int32.
-  final int expiresAt;
+  final DateTime expiresAt;
 
   /// Serialize.
   @override
@@ -656,9 +794,25 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
     buffer.writeInt64(tempAuthKeyId);
     buffer.writeInt64(permAuthKeyId);
     buffer.writeInt64(tempSessionId);
-    buffer.writeInt32(expiresAt);
+    buffer.writeDateTime(expiresAt);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x75a3f765",
+      "nonce": nonce,
+      "tempAuthKeyId": tempAuthKeyId,
+      "permAuthKeyId": permAuthKeyId,
+      "tempSessionId": tempSessionId,
+      "expiresAt": expiresAt,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -708,6 +862,19 @@ class RpcResult extends RpcResultBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf35c6d01",
+      "reqMsgId": reqMsgId,
+      "result": result,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Rpc Error.
@@ -756,6 +923,19 @@ class RpcError extends RpcErrorBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2144ca19",
+      "errorCode": errorCode,
+      "errorMessage": errorMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Rpc Answer Unknown.
@@ -782,6 +962,17 @@ class RpcAnswerUnknown extends RpcDropAnswerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e2ad36e",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Rpc Answer Dropped Running.
@@ -807,6 +998,17 @@ class RpcAnswerDroppedRunning extends RpcDropAnswerBase {
     buffer.writeInt32(0xcd78e586);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcd78e586",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -867,6 +1069,20 @@ class RpcAnswerDropped extends RpcDropAnswerBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa43ad8b7",
+      "msgId": msgId,
+      "seqNo": seqNo,
+      "bytes": bytes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Future Salt.
@@ -926,6 +1142,20 @@ class FutureSalt extends FutureSaltBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0949d9dc",
+      "validSince": validSince,
+      "validUntil": validUntil,
+      "salt": salt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Future Salts.
@@ -983,6 +1213,20 @@ class FutureSalts extends FutureSaltsBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xae500895",
+      "reqMsgId": reqMsgId,
+      "now": now,
+      "salts": salts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Pong.
@@ -1033,6 +1277,19 @@ class Pong extends PongBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x347773c5",
+      "msgId": msgId,
+      "pingId": pingId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Destroy Session Ok.
@@ -1074,6 +1331,18 @@ class DestroySessionOk extends DestroySessionResBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe22045fc",
+      "sessionId": sessionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Destroy Session None.
@@ -1114,6 +1383,18 @@ class DestroySessionNone extends DestroySessionResBase {
     buffer.writeInt64(sessionId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x62d350c9",
+      "sessionId": sessionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1174,6 +1455,20 @@ class NewSessionCreated extends NewSessionBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9ec20908",
+      "firstMsgId": firstMsgId,
+      "uniqueId": uniqueId,
+      "serverSalt": serverSalt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msg Container.
@@ -1212,6 +1507,18 @@ class MsgContainer extends MessageContainerBase {
     buffer.writeVectorObject(messages);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x73f1f8dc",
+      "messages": messages,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1279,6 +1586,21 @@ class Msg extends TlConstructor {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5bb8e511",
+      "msgId": msgId,
+      "seqno": seqno,
+      "bytes": bytes,
+      "body": body,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msg Copy.
@@ -1317,6 +1639,18 @@ class MsgCopy extends MessageCopyBase {
     buffer.writeObject(origMessage);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe06046b2",
+      "origMessage": origMessage,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1357,6 +1691,18 @@ class GzipPacked extends TlObject {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3072cfa1",
+      "packedData": packedData,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msgs Ack.
@@ -1395,6 +1741,18 @@ class MsgsAck extends MsgsAckBase {
     buffer.writeVectorInt64(msgIds);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x62d6b459",
+      "msgIds": msgIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1454,6 +1812,20 @@ class BadMsgNotification extends BadMsgNotificationBase {
     buffer.writeInt32(errorCode);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa7eff811",
+      "badMsgId": badMsgId,
+      "badMsgSeqno": badMsgSeqno,
+      "errorCode": errorCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1523,6 +1895,21 @@ class BadServerSalt extends BadMsgNotificationBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xedab447b",
+      "badMsgId": badMsgId,
+      "badMsgSeqno": badMsgSeqno,
+      "errorCode": errorCode,
+      "newServerSalt": newServerSalt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msg Resend Req.
@@ -1562,6 +1949,18 @@ class MsgResendReq extends MsgResendReqBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7d861a08",
+      "msgIds": msgIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msgs State Req.
@@ -1600,6 +1999,18 @@ class MsgsStateReq extends MsgsStateReqBase {
     buffer.writeVectorInt64(msgIds);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xda69fb52",
+      "msgIds": msgIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1649,6 +2060,19 @@ class MsgsStateInfo extends MsgsStateInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x04deb57d",
+      "reqMsgId": reqMsgId,
+      "info": info,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msgs All Info.
@@ -1694,6 +2118,19 @@ class MsgsAllInfo extends MsgsAllInfoBase {
     buffer.writeBytes(info);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8cc0d131",
+      "msgIds": msgIds,
+      "info": info,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1763,6 +2200,21 @@ class MsgDetailedInfo extends MsgDetailedInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x276d3ec6",
+      "msgId": msgId,
+      "answerMsgId": answerMsgId,
+      "bytes": bytes,
+      "status": status,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Msg New Detailed Info.
@@ -1822,6 +2274,20 @@ class MsgNewDetailedInfo extends MsgDetailedInfoBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x809db6df",
+      "answerMsgId": answerMsgId,
+      "bytes": bytes,
+      "status": status,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Destroy Auth Key Ok.
@@ -1847,6 +2313,17 @@ class DestroyAuthKeyOk extends DestroyAuthKeyResBase {
     buffer.writeInt32(0xf660e1d4);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf660e1d4",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1874,6 +2351,17 @@ class DestroyAuthKeyNone extends DestroyAuthKeyResBase {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0a9f2259",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Destroy Auth Key Fail.
@@ -1899,6 +2387,17 @@ class DestroyAuthKeyFail extends DestroyAuthKeyResBase {
     buffer.writeInt32(0xea109b13);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xea109b13",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -1938,6 +2437,18 @@ class ReqPqMulti extends TlMethod<ResPQBase> {
     buffer.writeInt128(nonce);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbe7e8ef1",
+      "nonce": nonce.toString(),
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2015,6 +2526,23 @@ class ReqDHParams extends TlMethod<ServerDHParamsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd712e4be",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "p": p,
+      "q": q,
+      "publicKeyFingerprint": publicKeyFingerprint,
+      "encryptedData": encryptedData,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Set Client D H Params.
@@ -2068,6 +2596,20 @@ class SetClientDHParams extends TlMethod<SetClientDHParamsAnswerBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf5045f1f",
+      "nonce": nonce.toString(),
+      "serverNonce": serverNonce.toString(),
+      "encryptedData": encryptedData,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Rpc Drop Answer.
@@ -2108,6 +2650,18 @@ class RpcDropAnswer extends TlMethod<RpcDropAnswerBase> {
     buffer.writeInt64(reqMsgId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x58e4a740",
+      "reqMsgId": reqMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2150,6 +2704,18 @@ class GetFutureSalts extends TlMethod<FutureSaltsBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb921bd04",
+      "num": num,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Ping.
@@ -2190,6 +2756,18 @@ class Ping extends TlMethod<PongBase> {
     buffer.writeInt64(pingId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7abe77ec",
+      "pingId": pingId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2241,6 +2819,19 @@ class PingDelayDisconnect extends TlMethod<PongBase> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf3427b8c",
+      "pingId": pingId,
+      "disconnectDelay": disconnectDelay,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Destroy Session.
@@ -2281,6 +2872,18 @@ class DestroySession extends TlMethod<DestroySessionResBase> {
     buffer.writeInt64(sessionId);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe7512126",
+      "sessionId": sessionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }
 
@@ -2341,6 +2944,20 @@ class HttpWait extends TlMethod<HttpWait> {
 
     // Finished serialization.
   }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9299359f",
+      "maxDelay": maxDelay,
+      "waitAfter": waitAfter,
+      "maxWait": maxWait,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
 }
 
 /// Destroy Auth Key.
@@ -2366,5 +2983,16 @@ class DestroyAuthKey extends TlMethod<DestroyAuthKeyResBase> {
     buffer.writeInt32(0xd1435160);
 
     // Finished serialization.
+  }
+
+  /// To JSON.
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1435160",
+    };
+
+    // Finished toJson.
+    return returnValue;
   }
 }

@@ -7,6 +7,13 @@ abstract class TlObject {
 
   /// Serialize to MTProto binary.
   void serialize(List<int> buffer);
+
+  Map<String, dynamic> toJson();
+
+  @override
+  String toString() {
+    return JsonEncoder.withIndent('\t').convert(toJson());
+  }
 }
 
 /// Base Constructor class.
@@ -41,6 +48,14 @@ class BoolFalse extends TlObject {
   void serialize(List<int> buffer) {
     buffer.writeInt32(0xbc799737);
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': '0xbc799737',
+      'value': false,
+    };
+  }
 }
 
 /// True value.
@@ -62,6 +77,14 @@ class BoolTrue extends TlObject {
   @override
   void serialize(List<int> buffer) {
     buffer.writeInt32(0x997275b5);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': '0x997275b5',
+      'value': true,
+    };
   }
 }
 
@@ -85,6 +108,14 @@ class True extends TlObject {
   void serialize(List<int> buffer) {
     buffer.writeInt32(0x3fedd339);
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': '0x3fedd339',
+      'value': true,
+    };
+  }
 }
 
 /// Null value.
@@ -106,6 +137,14 @@ class Null extends TlObject {
   @override
   void serialize(List<int> buffer) {
     buffer.writeInt32(0x56730bcc);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': '0x56730bcc',
+      'value': null,
+    };
   }
 }
 
@@ -165,5 +204,14 @@ class RSAPublicKey extends TlConstructor {
     buffer.writeInt32(0x7A19CB76);
     buffer.writeBytes(n);
     buffer.writeBytes(e);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': '0x7a19cb76',
+      'n': _hex(n),
+      'e': _hex(e),
+    };
   }
 }

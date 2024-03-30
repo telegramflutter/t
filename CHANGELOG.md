@@ -1,3 +1,7 @@
+## 0.0.7
+
+- Added `toJson` to every object.
+
 ## 0.0.6
 
 - Parse `Int128` and `Int256` from hex String.
