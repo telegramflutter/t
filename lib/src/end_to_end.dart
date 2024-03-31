@@ -62,7 +62,6 @@ class DecryptedMessage008 extends DecryptedMessageBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -142,7 +141,6 @@ class DecryptedMessage017 extends DecryptedMessageBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -275,7 +273,6 @@ class DecryptedMessage045 extends DecryptedMessageBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -424,7 +421,6 @@ class DecryptedMessage073 extends DecryptedMessageBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -500,7 +496,6 @@ class DecryptedMessageService008 extends DecryptedMessageBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -563,7 +558,6 @@ class DecryptedMessageService017 extends DecryptedMessageBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -603,7 +597,6 @@ class DecryptedMessageMediaEmpty008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -713,7 +706,6 @@ class DecryptedMessageMediaPhoto008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -838,7 +830,6 @@ class DecryptedMessageMediaPhoto045 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -966,7 +957,6 @@ class DecryptedMessageMediaVideo008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1101,7 +1091,6 @@ class DecryptedMessageMediaVideo017 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1244,7 +1233,6 @@ class DecryptedMessageMediaVideo045 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1313,7 +1301,6 @@ class DecryptedMessageMediaGeoPoint008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1389,7 +1376,6 @@ class DecryptedMessageMediaContact008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1499,7 +1485,6 @@ class DecryptedMessageMediaDocument008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1620,7 +1605,6 @@ class DecryptedMessageMediaDocument045 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1742,7 +1726,6 @@ class DecryptedMessageMediaDocument143 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1827,7 +1810,6 @@ class DecryptedMessageMediaAudio008 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1914,7 +1896,6 @@ class DecryptedMessageMediaAudio017 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2029,14 +2010,13 @@ class DecryptedMessageMediaExternalDocument023
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0xfa95b0dd",
       "id": id,
       "accessHash": accessHash,
-      "date": date,
+      "date": date.toIso8601String(),
       "mimeType": mimeType,
       "size": size,
       "thumb": thumb,
@@ -2123,7 +2103,6 @@ class DecryptedMessageMediaVenue045 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2180,7 +2159,6 @@ class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2236,7 +2214,6 @@ class DecryptedMessageActionSetMessageTTL008
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2289,7 +2266,6 @@ class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2343,7 +2319,6 @@ class DecryptedMessageActionDeleteMessages008
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2397,7 +2372,6 @@ class DecryptedMessageActionScreenshotMessages008
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2437,7 +2411,6 @@ class DecryptedMessageActionFlushHistory008 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2499,7 +2472,6 @@ class DecryptedMessageActionResend017 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2555,7 +2527,6 @@ class DecryptedMessageActionNotifyLayer017 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2607,7 +2578,6 @@ class DecryptedMessageActionTyping017 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2668,7 +2638,6 @@ class DecryptedMessageActionRequestKey020 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2739,7 +2708,6 @@ class DecryptedMessageActionAcceptKey020 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2795,7 +2763,6 @@ class DecryptedMessageActionAbortKey020 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2858,7 +2825,6 @@ class DecryptedMessageActionCommitKey020 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2898,7 +2864,6 @@ class DecryptedMessageActionNoop020 extends DecryptedMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2983,7 +2948,6 @@ class DecryptedMessageLayer017 extends DecryptedMessageLayerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3026,7 +2990,6 @@ class SendMessageTypingAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3064,7 +3027,6 @@ class SendMessageCancelAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3102,7 +3064,6 @@ class SendMessageRecordVideoAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3140,7 +3101,6 @@ class SendMessageUploadVideoAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3178,7 +3138,6 @@ class SendMessageRecordAudioAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3216,7 +3175,6 @@ class SendMessageUploadAudioAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3254,7 +3212,6 @@ class SendMessageUploadPhotoAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3292,7 +3249,6 @@ class SendMessageUploadDocumentAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3330,7 +3286,6 @@ class SendMessageGeoLocationAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3368,7 +3323,6 @@ class SendMessageChooseContactAction017 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3406,7 +3360,6 @@ class SendMessageRecordRoundAction066 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3444,7 +3397,6 @@ class SendMessageUploadRoundAction066 extends SendMessageActionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3506,7 +3458,6 @@ class DocumentAttributeImageSize023 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3546,7 +3497,6 @@ class DocumentAttributeAnimated023 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3584,7 +3534,6 @@ class DocumentAttributeSticker023 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3642,7 +3591,6 @@ class DocumentAttributeSticker045 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3715,7 +3663,6 @@ class DocumentAttributeVideo023 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3798,7 +3745,6 @@ class DocumentAttributeVideo066 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3855,7 +3801,6 @@ class DocumentAttributeAudio023 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -3923,7 +3868,6 @@ class DocumentAttributeAudio045 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4025,7 +3969,6 @@ class DocumentAttributeAudio046 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4081,7 +4024,6 @@ class DocumentAttributeFilename023 extends DocumentAttributeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4133,7 +4075,6 @@ class PhotoSizeEmpty023 extends PhotoSizeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4219,7 +4160,6 @@ class PhotoSize023 extends PhotoSizeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4307,7 +4247,6 @@ class PhotoCachedSize023 extends PhotoSizeBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4383,7 +4322,6 @@ class FileLocationUnavailable023 extends FileLocationBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4466,7 +4404,6 @@ class FileLocation023 extends FileLocationBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4532,7 +4469,6 @@ class MessageEntityUnknown045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4596,7 +4532,6 @@ class MessageEntityMention045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4660,7 +4595,6 @@ class MessageEntityHashtag045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4724,7 +4658,6 @@ class MessageEntityBotCommand045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4788,7 +4721,6 @@ class MessageEntityUrl045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4852,7 +4784,6 @@ class MessageEntityEmail045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4916,7 +4847,6 @@ class MessageEntityBold045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -4980,7 +4910,6 @@ class MessageEntityItalic045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5044,7 +4973,6 @@ class MessageEntityCode045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5115,7 +5043,6 @@ class MessageEntityPre045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5187,7 +5114,6 @@ class MessageEntityTextUrl045 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5252,7 +5178,6 @@ class MessageEntityUnderline101 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5316,7 +5241,6 @@ class MessageEntityStrike101 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5380,7 +5304,6 @@ class MessageEntityBlockquote101 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5444,7 +5367,6 @@ class MessageEntitySpoiler144 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5517,7 +5439,6 @@ class MessageEntityCustomEmoji144 extends MessageEntityBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5571,7 +5492,6 @@ class InputStickerSetShortName045 extends InputStickerSetBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -5610,7 +5530,6 @@ class InputStickerSetEmpty045 extends InputStickerSetBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{

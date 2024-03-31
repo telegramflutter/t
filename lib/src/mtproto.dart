@@ -59,7 +59,6 @@ class ResPQ extends ResPQBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -157,7 +156,6 @@ class PQInnerDataDc extends PQInnerDataBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -267,7 +265,6 @@ class PQInnerDataTempDc extends PQInnerDataBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -339,7 +336,6 @@ class ServerDHParamsOk extends ServerDHParamsBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -429,7 +425,6 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -439,7 +434,7 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
       "g": g,
       "dhPrime": dhPrime,
       "gA": gA,
-      "serverTime": serverTime,
+      "serverTime": serverTime.toIso8601String(),
     };
 
     // Finished toJson.
@@ -508,7 +503,6 @@ class ClientDHInnerData extends ClientDHInnerDataBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -576,7 +570,6 @@ class DhGenOk extends SetClientDHParamsAnswerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -643,7 +636,6 @@ class DhGenRetry extends SetClientDHParamsAnswerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -710,7 +702,6 @@ class DhGenFail extends SetClientDHParamsAnswerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -799,7 +790,6 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -808,7 +798,7 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
       "tempAuthKeyId": tempAuthKeyId,
       "permAuthKeyId": permAuthKeyId,
       "tempSessionId": tempSessionId,
-      "expiresAt": expiresAt,
+      "expiresAt": expiresAt.toIso8601String(),
     };
 
     // Finished toJson.
@@ -863,7 +853,6 @@ class RpcResult extends RpcResultBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -924,7 +913,6 @@ class RpcError extends RpcErrorBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -963,7 +951,6 @@ class RpcAnswerUnknown extends RpcDropAnswerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1000,7 +987,6 @@ class RpcAnswerDroppedRunning extends RpcDropAnswerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1070,7 +1056,6 @@ class RpcAnswerDropped extends RpcDropAnswerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1143,7 +1128,6 @@ class FutureSalt extends FutureSaltBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1214,7 +1198,6 @@ class FutureSalts extends FutureSaltsBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1278,7 +1261,6 @@ class Pong extends PongBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1332,7 +1314,6 @@ class DestroySessionOk extends DestroySessionResBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1385,7 +1366,6 @@ class DestroySessionNone extends DestroySessionResBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1456,7 +1436,6 @@ class NewSessionCreated extends NewSessionBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1509,7 +1488,6 @@ class MsgContainer extends MessageContainerBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1587,7 +1565,6 @@ class Msg extends TlConstructor {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1641,7 +1618,6 @@ class MsgCopy extends MessageCopyBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1692,7 +1668,6 @@ class GzipPacked extends TlObject {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1743,7 +1718,6 @@ class MsgsAck extends MsgsAckBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1814,7 +1788,6 @@ class BadMsgNotification extends BadMsgNotificationBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1896,7 +1869,6 @@ class BadServerSalt extends BadMsgNotificationBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -1950,7 +1922,6 @@ class MsgResendReq extends MsgResendReqBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2001,7 +1972,6 @@ class MsgsStateReq extends MsgsStateReqBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2061,7 +2031,6 @@ class MsgsStateInfo extends MsgsStateInfoBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2120,7 +2089,6 @@ class MsgsAllInfo extends MsgsAllInfoBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2201,7 +2169,6 @@ class MsgDetailedInfo extends MsgDetailedInfoBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2275,7 +2242,6 @@ class MsgNewDetailedInfo extends MsgDetailedInfoBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2315,7 +2281,6 @@ class DestroyAuthKeyOk extends DestroyAuthKeyResBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2352,7 +2317,6 @@ class DestroyAuthKeyNone extends DestroyAuthKeyResBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2389,7 +2353,6 @@ class DestroyAuthKeyFail extends DestroyAuthKeyResBase {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2439,7 +2402,6 @@ class ReqPqMulti extends TlMethod<ResPQBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2527,7 +2489,6 @@ class ReqDHParams extends TlMethod<ServerDHParamsBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2597,7 +2558,6 @@ class SetClientDHParams extends TlMethod<SetClientDHParamsAnswerBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2652,7 +2612,6 @@ class RpcDropAnswer extends TlMethod<RpcDropAnswerBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2705,7 +2664,6 @@ class GetFutureSalts extends TlMethod<FutureSaltsBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2758,7 +2716,6 @@ class Ping extends TlMethod<PongBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2820,7 +2777,6 @@ class PingDelayDisconnect extends TlMethod<PongBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2874,7 +2830,6 @@ class DestroySession extends TlMethod<DestroySessionResBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2945,7 +2900,6 @@ class HttpWait extends TlMethod<HttpWait> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
@@ -2985,7 +2939,6 @@ class DestroyAuthKey extends TlMethod<DestroyAuthKeyResBase> {
     // Finished serialization.
   }
 
-  /// To JSON.
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{

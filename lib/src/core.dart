@@ -8,11 +8,12 @@ abstract class TlObject {
   /// Serialize to MTProto binary.
   void serialize(List<int> buffer);
 
+  /// Converts an object to JSON.
   Map<String, dynamic> toJson();
 
   @override
   String toString() {
-    return JsonEncoder.withIndent('\t').convert(toJson());
+    return JsonEncoder.withIndent(' ').convert(toJson());
   }
 }
 
