@@ -1461,16 +1461,17 @@ class MsgContainer extends MessageContainerBase {
 
   /// Deserialize.
   factory MsgContainer.deserialize(BinaryReader reader) {
-    // Read [MsgContainer] fields.
-    final messages = reader.readVectorObject<Msg>();
+    final count = reader.readInt32();
+    final messages = <Msg>[];
 
-    // Construct [MsgContainer] object.
-    final returnValue = MsgContainer(
+    for (var i = 0; i < count; i++) {
+      final msg = Msg.deserialize(reader);
+      messages.add(msg);
+    }
+
+    return MsgContainer(
       messages: messages,
     );
-
-    // Now return the deserialized [MsgContainer].
-    return returnValue;
   }
 
   /// Messages.

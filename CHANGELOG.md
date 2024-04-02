@@ -1,3 +1,7 @@
+## 0.0.9
+
+- `MsgContainer` must be deserialized differently.
+
 ## 0.0.8
 
 - Ditch `TlMethod`'s return type.
