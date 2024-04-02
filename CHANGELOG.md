@@ -1,3 +1,10 @@
+## 0.0.10
+
+- `MsgContainer` must be serialized differently.
+- Use `DateTime` for some field types.
+- Fixes `BinaryReader` when reading a boolean.
+- The `flags` was calculating wrong.
+
 ## 0.0.9
 
 - `MsgContainer` must be deserialized differently.
