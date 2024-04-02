@@ -1,7 +1,10 @@
+## 0.0.8
+
+- Ditch `TlMethod`'s return type.
+
 ## 0.0.7
 
 - Added `toJson` to every object.
-
 ## 0.0.6
 
 - Parse `Int128` and `Int256` from hex String.
