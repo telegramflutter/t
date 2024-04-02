@@ -72,13 +72,11 @@ class BinaryReader {
 
   /// Read boolean.
   bool readBool() {
-    final b = buffer[_position];
+    final b = readInt32();
 
     if (b == 0x997275B5) {
-      _position++;
       return true;
     } else if (b == 0xBC799737) {
-      _position++;
       return false;
     }
 
