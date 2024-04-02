@@ -1480,13 +1480,13 @@ class MsgContainer extends MessageContainerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x73f1f8dc.
-    buffer.writeInt32(0x73f1f8dc);
-
-    // Write fields.
-    buffer.writeVectorObject(messages);
-
-    // Finished serialization.
+    buffer.writeInt32(messages.length);
+    for (final msg in messages) {
+      buffer.writeInt64(msg.msgId);
+      buffer.writeInt32(msg.seqno);
+      buffer.writeInt32(msg.body.asUint8List().length);
+      buffer.writeObject(msg.body);
+    }
   }
 
   @override

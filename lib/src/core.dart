@@ -216,3 +216,12 @@ class RSAPublicKey extends TlConstructor {
     };
   }
 }
+
+extension on TlObject {
+  Uint8List asUint8List() {
+    final buffer = <int>[];
+    serialize(buffer);
+
+    return Uint8List.fromList(buffer);
+  }
+}
