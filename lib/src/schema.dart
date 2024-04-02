@@ -4677,7 +4677,7 @@ class UserStatusOnline extends UserStatusBase {
   /// Deserialize.
   factory UserStatusOnline.deserialize(BinaryReader reader) {
     // Read [UserStatusOnline] fields.
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
 
     // Construct [UserStatusOnline] object.
     final returnValue = UserStatusOnline(
@@ -4689,9 +4689,7 @@ class UserStatusOnline extends UserStatusBase {
   }
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Serialize.
   @override
@@ -4700,7 +4698,7 @@ class UserStatusOnline extends UserStatusBase {
     buffer.writeInt32(0xedb93949);
 
     // Write fields.
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
 
     // Finished serialization.
   }
@@ -4709,7 +4707,7 @@ class UserStatusOnline extends UserStatusBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0xedb93949",
-      "expires": expires,
+      "expires": expires.toIso8601String(),
     };
 
     // Finished toJson.
@@ -27256,7 +27254,7 @@ class Config extends ConfigBase {
     final blockedMode = (flags & 256) != 0;
     final forceTryIpv6 = (flags & 16384) != 0;
     final date = reader.readDateTime();
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final testMode = reader.readBool();
     final thisDc = reader.readInt32();
     final dcOptions = reader.readVectorObject<DcOptionBase>();
@@ -27415,9 +27413,7 @@ class Config extends ConfigBase {
   final DateTime date;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Test Mode.
   final bool testMode;
@@ -27598,7 +27594,7 @@ class Config extends ConfigBase {
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeDateTime(date);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     buffer.writeBool(testMode);
     buffer.writeInt32(thisDc);
     buffer.writeVectorObject(dcOptions);
@@ -27687,7 +27683,7 @@ class Config extends ConfigBase {
       "blockedMode": blockedMode,
       "forceTryIpv6": forceTryIpv6,
       "date": date.toIso8601String(),
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "testMode": testMode,
       "thisDc": thisDc,
       "dcOptions": dcOptions,
@@ -34997,7 +34993,7 @@ class ChatInvitePeek extends ChatInviteBase {
   factory ChatInvitePeek.deserialize(BinaryReader reader) {
     // Read [ChatInvitePeek] fields.
     final chat = reader.readObject() as ChatBase;
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
 
     // Construct [ChatInvitePeek] object.
     final returnValue = ChatInvitePeek(
@@ -35013,9 +35009,7 @@ class ChatInvitePeek extends ChatInviteBase {
   final ChatBase chat;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Serialize.
   @override
@@ -35025,7 +35019,7 @@ class ChatInvitePeek extends ChatInviteBase {
 
     // Write fields.
     buffer.writeObject(chat);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
 
     // Finished serialization.
   }
@@ -35035,7 +35029,7 @@ class ChatInvitePeek extends ChatInviteBase {
     final returnValue = <String, dynamic>{
       "\$": "0x61695cb0",
       "chat": chat,
-      "expires": expires,
+      "expires": expires.toIso8601String(),
     };
 
     // Finished toJson.
@@ -58054,7 +58048,7 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
   /// Deserialize.
   factory HelpTermsOfServiceUpdateEmpty.deserialize(BinaryReader reader) {
     // Read [HelpTermsOfServiceUpdateEmpty] fields.
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
 
     // Construct [HelpTermsOfServiceUpdateEmpty] object.
     final returnValue = HelpTermsOfServiceUpdateEmpty(
@@ -58066,9 +58060,7 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
   }
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Serialize.
   @override
@@ -58077,7 +58069,7 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
     buffer.writeInt32(0xe3309f7f);
 
     // Write fields.
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
 
     // Finished serialization.
   }
@@ -58086,7 +58078,7 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0xe3309f7f",
-      "expires": expires,
+      "expires": expires.toIso8601String(),
     };
 
     // Finished toJson.
@@ -58107,7 +58099,7 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
   /// Deserialize.
   factory HelpTermsOfServiceUpdate.deserialize(BinaryReader reader) {
     // Read [HelpTermsOfServiceUpdate] fields.
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final termsOfService = reader.readObject() as HelpTermsOfServiceBase;
 
     // Construct [HelpTermsOfServiceUpdate] object.
@@ -58121,9 +58113,7 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
   }
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Terms Of Service.
   final HelpTermsOfServiceBase termsOfService;
@@ -58135,7 +58125,7 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
     buffer.writeInt32(0x28ecf961);
 
     // Write fields.
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     buffer.writeObject(termsOfService);
 
     // Finished serialization.
@@ -58145,7 +58135,7 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0x28ecf961",
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "termsOfService": termsOfService,
     };
 
@@ -65032,7 +65022,7 @@ class PeerLocated extends PeerLocatedBase {
   factory PeerLocated.deserialize(BinaryReader reader) {
     // Read [PeerLocated] fields.
     final peer = reader.readObject() as PeerBase;
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final distance = reader.readInt32();
 
     // Construct [PeerLocated] object.
@@ -65050,9 +65040,7 @@ class PeerLocated extends PeerLocatedBase {
   final PeerBase peer;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Distance.
   ///
@@ -65067,7 +65055,7 @@ class PeerLocated extends PeerLocatedBase {
 
     // Write fields.
     buffer.writeObject(peer);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     buffer.writeInt32(distance);
 
     // Finished serialization.
@@ -65078,7 +65066,7 @@ class PeerLocated extends PeerLocatedBase {
     final returnValue = <String, dynamic>{
       "\$": "0xca461b5d",
       "peer": peer,
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "distance": distance,
     };
 
@@ -65099,7 +65087,7 @@ class PeerSelfLocated extends PeerLocatedBase {
   /// Deserialize.
   factory PeerSelfLocated.deserialize(BinaryReader reader) {
     // Read [PeerSelfLocated] fields.
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
 
     // Construct [PeerSelfLocated] object.
     final returnValue = PeerSelfLocated(
@@ -65111,9 +65099,7 @@ class PeerSelfLocated extends PeerLocatedBase {
   }
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Serialize.
   @override
@@ -65122,7 +65108,7 @@ class PeerSelfLocated extends PeerLocatedBase {
     buffer.writeInt32(0xf8ec284b);
 
     // Write fields.
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
 
     // Finished serialization.
   }
@@ -65131,7 +65117,7 @@ class PeerSelfLocated extends PeerLocatedBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0xf8ec284b",
-      "expires": expires,
+      "expires": expires.toIso8601String(),
     };
 
     // Finished toJson.
@@ -65593,7 +65579,7 @@ class AuthLoginToken extends AuthLoginTokenBase {
   /// Deserialize.
   factory AuthLoginToken.deserialize(BinaryReader reader) {
     // Read [AuthLoginToken] fields.
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final token = reader.readBytes();
 
     // Construct [AuthLoginToken] object.
@@ -65607,9 +65593,7 @@ class AuthLoginToken extends AuthLoginTokenBase {
   }
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Token.
   final Uint8List token;
@@ -65621,7 +65605,7 @@ class AuthLoginToken extends AuthLoginTokenBase {
     buffer.writeInt32(0x629f1980);
 
     // Write fields.
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     buffer.writeBytes(token);
 
     // Finished serialization.
@@ -65631,7 +65615,7 @@ class AuthLoginToken extends AuthLoginTokenBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0x629f1980",
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "token": token,
     };
 
@@ -67655,7 +67639,7 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
   /// Deserialize.
   factory HelpPromoDataEmpty.deserialize(BinaryReader reader) {
     // Read [HelpPromoDataEmpty] fields.
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
 
     // Construct [HelpPromoDataEmpty] object.
     final returnValue = HelpPromoDataEmpty(
@@ -67667,9 +67651,7 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
   }
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Serialize.
   @override
@@ -67678,7 +67660,7 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
     buffer.writeInt32(0x98f6ac75);
 
     // Write fields.
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
 
     // Finished serialization.
   }
@@ -67687,7 +67669,7 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0x98f6ac75",
-      "expires": expires,
+      "expires": expires.toIso8601String(),
     };
 
     // Finished toJson.
@@ -67715,7 +67697,7 @@ class HelpPromoData extends HelpPromoDataBase {
     // Read [HelpPromoData] fields.
     final flags = reader.readInt32();
     final proxy = (flags & 1) != 0;
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final peer = reader.readObject() as PeerBase;
     final chats = reader.readVectorObject<ChatBase>();
     final users = reader.readVectorObject<UserBase>();
@@ -67754,9 +67736,7 @@ class HelpPromoData extends HelpPromoDataBase {
   final bool proxy;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Peer.
   final PeerBase peer;
@@ -67781,7 +67761,7 @@ class HelpPromoData extends HelpPromoDataBase {
 
     // Write fields.
     buffer.writeInt32(flags);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     buffer.writeObject(peer);
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
@@ -67803,7 +67783,7 @@ class HelpPromoData extends HelpPromoDataBase {
       "\$": "0x8c39793f",
       "flags": flags,
       "proxy": proxy,
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "peer": peer,
       "chats": chats,
       "users": users,
@@ -78109,7 +78089,7 @@ class ExportedContactToken extends ExportedContactTokenBase {
   factory ExportedContactToken.deserialize(BinaryReader reader) {
     // Read [ExportedContactToken] fields.
     final url = reader.readString();
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
 
     // Construct [ExportedContactToken] object.
     final returnValue = ExportedContactToken(
@@ -78125,9 +78105,7 @@ class ExportedContactToken extends ExportedContactTokenBase {
   final String url;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Serialize.
   @override
@@ -78137,7 +78115,7 @@ class ExportedContactToken extends ExportedContactTokenBase {
 
     // Write fields.
     buffer.writeString(url);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
 
     // Finished serialization.
   }
@@ -78147,7 +78125,7 @@ class ExportedContactToken extends ExportedContactTokenBase {
     final returnValue = <String, dynamic>{
       "\$": "0x41bf109b",
       "url": url,
-      "expires": expires,
+      "expires": expires.toIso8601String(),
     };
 
     // Finished toJson.
@@ -83410,7 +83388,7 @@ class Boost extends BoostBase {
     final hasGiveawayMsgIdField = (flags & 4) != 0;
     final giveawayMsgId = hasGiveawayMsgIdField ? reader.readInt32() : null;
     final date = reader.readDateTime();
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final hasUsedGiftSlugField = (flags & 16) != 0;
     final usedGiftSlug = hasUsedGiftSlugField ? reader.readString() : null;
     final hasMultiplierField = (flags & 32) != 0;
@@ -83470,9 +83448,7 @@ class Boost extends BoostBase {
   final DateTime date;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Used Gift Slug.
   final String? usedGiftSlug;
@@ -83498,7 +83474,7 @@ class Boost extends BoostBase {
       buffer.writeInt32(localGiveawayMsgIdCopy);
     }
     buffer.writeDateTime(date);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     final localUsedGiftSlugCopy = usedGiftSlug;
     if (localUsedGiftSlugCopy != null) {
       buffer.writeString(localUsedGiftSlugCopy);
@@ -83523,7 +83499,7 @@ class Boost extends BoostBase {
       "userId": userId,
       "giveawayMsgId": giveawayMsgId,
       "date": date.toIso8601String(),
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "usedGiftSlug": usedGiftSlug,
       "multiplier": multiplier,
     };
@@ -83646,7 +83622,7 @@ class MyBoost extends MyBoostBase {
     final hasPeerField = (flags & 1) != 0;
     final peer = hasPeerField ? reader.readObject() as PeerBase : null;
     final date = reader.readDateTime();
-    final expires = reader.readInt32();
+    final expires = reader.readDateTime();
     final hasCooldownUntilDateField = (flags & 2) != 0;
     final cooldownUntilDate =
         hasCooldownUntilDateField ? reader.readDateTime() : null;
@@ -83686,9 +83662,7 @@ class MyBoost extends MyBoostBase {
   final DateTime date;
 
   /// Expires.
-  ///
-  /// Field type is Int32.
-  final int expires;
+  final DateTime expires;
 
   /// Cooldown Until Date.
   final DateTime? cooldownUntilDate;
@@ -83707,7 +83681,7 @@ class MyBoost extends MyBoostBase {
       buffer.writeObject(localPeerCopy);
     }
     buffer.writeDateTime(date);
-    buffer.writeInt32(expires);
+    buffer.writeDateTime(expires);
     final localCooldownUntilDateCopy = cooldownUntilDate;
     if (localCooldownUntilDateCopy != null) {
       buffer.writeDateTime(localCooldownUntilDateCopy);
@@ -83724,7 +83698,7 @@ class MyBoost extends MyBoostBase {
       "slot": slot,
       "peer": peer,
       "date": date.toIso8601String(),
-      "expires": expires,
+      "expires": expires.toIso8601String(),
       "cooldownUntilDate": cooldownUntilDate?.toIso8601String(),
     };
 
