@@ -2366,8 +2366,9 @@ class DestroyAuthKeyFail extends DestroyAuthKeyResBase {
 
 /// Req Pq Multi.
 ///
+/// Return Type: `ResPQBase`.
 /// ID: `be7e8ef1`.
-class ReqPqMulti extends TlMethod<ResPQBase> {
+class ReqPqMulti extends TlMethod {
   /// Req Pq Multi constructor.
   const ReqPqMulti({
     required this.nonce,
@@ -2416,8 +2417,9 @@ class ReqPqMulti extends TlMethod<ResPQBase> {
 
 /// Req D H Params.
 ///
+/// Return Type: `ServerDHParamsBase`.
 /// ID: `d712e4be`.
-class ReqDHParams extends TlMethod<ServerDHParamsBase> {
+class ReqDHParams extends TlMethod {
   /// Req D H Params constructor.
   const ReqDHParams({
     required this.nonce,
@@ -2508,8 +2510,9 @@ class ReqDHParams extends TlMethod<ServerDHParamsBase> {
 
 /// Set Client D H Params.
 ///
+/// Return Type: `SetClientDHParamsAnswerBase`.
 /// ID: `f5045f1f`.
-class SetClientDHParams extends TlMethod<SetClientDHParamsAnswerBase> {
+class SetClientDHParams extends TlMethod {
   /// Set Client D H Params constructor.
   const SetClientDHParams({
     required this.nonce,
@@ -2574,8 +2577,9 @@ class SetClientDHParams extends TlMethod<SetClientDHParamsAnswerBase> {
 
 /// Rpc Drop Answer.
 ///
+/// Return Type: `RpcDropAnswerBase`.
 /// ID: `58e4a740`.
-class RpcDropAnswer extends TlMethod<RpcDropAnswerBase> {
+class RpcDropAnswer extends TlMethod {
   /// Rpc Drop Answer constructor.
   const RpcDropAnswer({
     required this.reqMsgId,
@@ -2626,8 +2630,9 @@ class RpcDropAnswer extends TlMethod<RpcDropAnswerBase> {
 
 /// Get Future Salts.
 ///
+/// Return Type: `FutureSaltsBase`.
 /// ID: `b921bd04`.
-class GetFutureSalts extends TlMethod<FutureSaltsBase> {
+class GetFutureSalts extends TlMethod {
   /// Get Future Salts constructor.
   const GetFutureSalts({
     required this.num,
@@ -2678,8 +2683,9 @@ class GetFutureSalts extends TlMethod<FutureSaltsBase> {
 
 /// Ping.
 ///
+/// Return Type: `PongBase`.
 /// ID: `7abe77ec`.
-class Ping extends TlMethod<PongBase> {
+class Ping extends TlMethod {
   /// Ping constructor.
   const Ping({
     required this.pingId,
@@ -2730,8 +2736,9 @@ class Ping extends TlMethod<PongBase> {
 
 /// Ping Delay Disconnect.
 ///
+/// Return Type: `PongBase`.
 /// ID: `f3427b8c`.
-class PingDelayDisconnect extends TlMethod<PongBase> {
+class PingDelayDisconnect extends TlMethod {
   /// Ping Delay Disconnect constructor.
   const PingDelayDisconnect({
     required this.pingId,
@@ -2792,8 +2799,9 @@ class PingDelayDisconnect extends TlMethod<PongBase> {
 
 /// Destroy Session.
 ///
+/// Return Type: `DestroySessionResBase`.
 /// ID: `e7512126`.
-class DestroySession extends TlMethod<DestroySessionResBase> {
+class DestroySession extends TlMethod {
   /// Destroy Session constructor.
   const DestroySession({
     required this.sessionId,
@@ -2844,8 +2852,9 @@ class DestroySession extends TlMethod<DestroySessionResBase> {
 
 /// Http Wait.
 ///
+/// Return Type: `HttpWait`.
 /// ID: `9299359f`.
-class HttpWait extends TlMethod<HttpWait> {
+class HttpWait extends TlMethod {
   /// Http Wait constructor.
   const HttpWait({
     required this.maxDelay,
@@ -2916,8 +2925,9 @@ class HttpWait extends TlMethod<HttpWait> {
 
 /// Destroy Auth Key.
 ///
+/// Return Type: `DestroyAuthKeyResBase`.
 /// ID: `d1435160`.
-class DestroyAuthKey extends TlMethod<DestroyAuthKeyResBase> {
+class DestroyAuthKey extends TlMethod {
   /// Destroy Auth Key constructor.
   const DestroyAuthKey() : super._();
 

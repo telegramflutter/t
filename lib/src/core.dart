@@ -24,7 +24,7 @@ abstract class TlConstructor extends TlObject {
 }
 
 /// Base Method class.
-abstract class TlMethod<ReturnType> extends TlObject {
+abstract class TlMethod extends TlObject {
   /// Constructor.
   const TlMethod._() : super._();
 }

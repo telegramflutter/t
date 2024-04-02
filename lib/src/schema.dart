@@ -85465,8 +85465,9 @@ class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
 
 /// Invoke After Msg.
 ///
+/// Return Type: `X`.
 /// ID: `cb9f372d`.
-class InvokeAfterMsg<X> extends TlMethod<X> {
+class InvokeAfterMsg extends TlMethod {
   /// Invoke After Msg constructor.
   const InvokeAfterMsg({
     required this.msgId,
@@ -85477,7 +85478,7 @@ class InvokeAfterMsg<X> extends TlMethod<X> {
   factory InvokeAfterMsg.deserialize(BinaryReader reader) {
     // Read [InvokeAfterMsg] fields.
     final msgId = reader.readInt64();
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeAfterMsg] object.
     final returnValue = InvokeAfterMsg(
@@ -85495,7 +85496,7 @@ class InvokeAfterMsg<X> extends TlMethod<X> {
   final int msgId;
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -85525,8 +85526,9 @@ class InvokeAfterMsg<X> extends TlMethod<X> {
 
 /// Invoke After Msgs.
 ///
+/// Return Type: `X`.
 /// ID: `3dc4b4f0`.
-class InvokeAfterMsgs<X> extends TlMethod<X> {
+class InvokeAfterMsgs extends TlMethod {
   /// Invoke After Msgs constructor.
   const InvokeAfterMsgs({
     required this.msgIds,
@@ -85537,7 +85539,7 @@ class InvokeAfterMsgs<X> extends TlMethod<X> {
   factory InvokeAfterMsgs.deserialize(BinaryReader reader) {
     // Read [InvokeAfterMsgs] fields.
     final msgIds = reader.readVectorInt64();
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeAfterMsgs] object.
     final returnValue = InvokeAfterMsgs(
@@ -85553,7 +85555,7 @@ class InvokeAfterMsgs<X> extends TlMethod<X> {
   final List<int> msgIds;
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -85583,8 +85585,9 @@ class InvokeAfterMsgs<X> extends TlMethod<X> {
 
 /// Auth Send Code.
 ///
+/// Return Type: `AuthSentCodeBase`.
 /// ID: `a677244f`.
-class AuthSendCode extends TlMethod<AuthSentCodeBase> {
+class AuthSendCode extends TlMethod {
   /// Auth Send Code constructor.
   const AuthSendCode({
     required this.phoneNumber,
@@ -85659,8 +85662,9 @@ class AuthSendCode extends TlMethod<AuthSentCodeBase> {
 
 /// Auth Sign Up.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `80eee427`.
-class AuthSignUp extends TlMethod<AuthAuthorizationBase> {
+class AuthSignUp extends TlMethod {
   /// Auth Sign Up constructor.
   const AuthSignUp({
     required this.phoneNumber,
@@ -85733,8 +85737,9 @@ class AuthSignUp extends TlMethod<AuthAuthorizationBase> {
 
 /// Auth Sign In.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `8d52a951`.
-class AuthSignIn extends TlMethod<AuthAuthorizationBase> {
+class AuthSignIn extends TlMethod {
   /// Auth Sign In constructor.
   const AuthSignIn({
     required this.phoneNumber,
@@ -85830,8 +85835,9 @@ class AuthSignIn extends TlMethod<AuthAuthorizationBase> {
 
 /// Auth Log Out.
 ///
+/// Return Type: `AuthLoggedOutBase`.
 /// ID: `3e72ba19`.
-class AuthLogOut extends TlMethod<AuthLoggedOutBase> {
+class AuthLogOut extends TlMethod {
   /// Auth Log Out constructor.
   const AuthLogOut() : super._();
 
@@ -85866,8 +85872,9 @@ class AuthLogOut extends TlMethod<AuthLoggedOutBase> {
 
 /// Auth Reset Authorizations.
 ///
+/// Return Type: `bool`.
 /// ID: `9fab0d1a`.
-class AuthResetAuthorizations extends TlMethod<bool> {
+class AuthResetAuthorizations extends TlMethod {
   /// Auth Reset Authorizations constructor.
   const AuthResetAuthorizations() : super._();
 
@@ -85902,8 +85909,9 @@ class AuthResetAuthorizations extends TlMethod<bool> {
 
 /// Auth Export Authorization.
 ///
+/// Return Type: `AuthExportedAuthorizationBase`.
 /// ID: `e5bfffcd`.
-class AuthExportAuthorization extends TlMethod<AuthExportedAuthorizationBase> {
+class AuthExportAuthorization extends TlMethod {
   /// Auth Export Authorization constructor.
   const AuthExportAuthorization({
     required this.dcId,
@@ -85954,8 +85962,9 @@ class AuthExportAuthorization extends TlMethod<AuthExportedAuthorizationBase> {
 
 /// Auth Import Authorization.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `a57a7dad`.
-class AuthImportAuthorization extends TlMethod<AuthAuthorizationBase> {
+class AuthImportAuthorization extends TlMethod {
   /// Auth Import Authorization constructor.
   const AuthImportAuthorization({
     required this.id,
@@ -86014,8 +86023,9 @@ class AuthImportAuthorization extends TlMethod<AuthAuthorizationBase> {
 
 /// Auth Bind Temp Auth Key.
 ///
+/// Return Type: `bool`.
 /// ID: `cdd42a05`.
-class AuthBindTempAuthKey extends TlMethod<bool> {
+class AuthBindTempAuthKey extends TlMethod {
   /// Auth Bind Temp Auth Key constructor.
   const AuthBindTempAuthKey({
     required this.permAuthKeyId,
@@ -86092,8 +86102,9 @@ class AuthBindTempAuthKey extends TlMethod<bool> {
 
 /// Account Register Device.
 ///
+/// Return Type: `bool`.
 /// ID: `ec86017a`.
-class AccountRegisterDevice extends TlMethod<bool> {
+class AccountRegisterDevice extends TlMethod {
   /// Account Register Device constructor.
   const AccountRegisterDevice({
     required this.noMuted,
@@ -86195,8 +86206,9 @@ class AccountRegisterDevice extends TlMethod<bool> {
 
 /// Account Unregister Device.
 ///
+/// Return Type: `bool`.
 /// ID: `6a0d3206`.
-class AccountUnregisterDevice extends TlMethod<bool> {
+class AccountUnregisterDevice extends TlMethod {
   /// Account Unregister Device constructor.
   const AccountUnregisterDevice({
     required this.tokenType,
@@ -86263,8 +86275,9 @@ class AccountUnregisterDevice extends TlMethod<bool> {
 
 /// Account Update Notify Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `84be5b93`.
-class AccountUpdateNotifySettings extends TlMethod<bool> {
+class AccountUpdateNotifySettings extends TlMethod {
   /// Account Update Notify Settings constructor.
   const AccountUpdateNotifySettings({
     required this.peer,
@@ -86321,8 +86334,9 @@ class AccountUpdateNotifySettings extends TlMethod<bool> {
 
 /// Account Get Notify Settings.
 ///
+/// Return Type: `PeerNotifySettingsBase`.
 /// ID: `12b3ad31`.
-class AccountGetNotifySettings extends TlMethod<PeerNotifySettingsBase> {
+class AccountGetNotifySettings extends TlMethod {
   /// Account Get Notify Settings constructor.
   const AccountGetNotifySettings({
     required this.peer,
@@ -86371,8 +86385,9 @@ class AccountGetNotifySettings extends TlMethod<PeerNotifySettingsBase> {
 
 /// Account Reset Notify Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `db7e1747`.
-class AccountResetNotifySettings extends TlMethod<bool> {
+class AccountResetNotifySettings extends TlMethod {
   /// Account Reset Notify Settings constructor.
   const AccountResetNotifySettings() : super._();
 
@@ -86407,8 +86422,9 @@ class AccountResetNotifySettings extends TlMethod<bool> {
 
 /// Account Update Profile.
 ///
+/// Return Type: `UserBase`.
 /// ID: `78515775`.
-class AccountUpdateProfile extends TlMethod<UserBase> {
+class AccountUpdateProfile extends TlMethod {
   /// Account Update Profile constructor.
   const AccountUpdateProfile({
     this.firstName,
@@ -86499,8 +86515,9 @@ class AccountUpdateProfile extends TlMethod<UserBase> {
 
 /// Account Update Status.
 ///
+/// Return Type: `bool`.
 /// ID: `6628562c`.
-class AccountUpdateStatus extends TlMethod<bool> {
+class AccountUpdateStatus extends TlMethod {
   /// Account Update Status constructor.
   const AccountUpdateStatus({
     required this.offline,
@@ -86549,8 +86566,9 @@ class AccountUpdateStatus extends TlMethod<bool> {
 
 /// Account Get Wall Papers.
 ///
+/// Return Type: `AccountWallPapersBase`.
 /// ID: `07967d36`.
-class AccountGetWallPapers extends TlMethod<AccountWallPapersBase> {
+class AccountGetWallPapers extends TlMethod {
   /// Account Get Wall Papers constructor.
   const AccountGetWallPapers({
     required this.hash,
@@ -86601,8 +86619,9 @@ class AccountGetWallPapers extends TlMethod<AccountWallPapersBase> {
 
 /// Account Report Peer.
 ///
+/// Return Type: `bool`.
 /// ID: `c5ba3d86`.
-class AccountReportPeer extends TlMethod<bool> {
+class AccountReportPeer extends TlMethod {
   /// Account Report Peer constructor.
   const AccountReportPeer({
     required this.peer,
@@ -86667,8 +86686,9 @@ class AccountReportPeer extends TlMethod<bool> {
 
 /// Users Get Users.
 ///
+/// Return Type: `List<UserBase>`.
 /// ID: `0d91a548`.
-class UsersGetUsers extends TlMethod<List<UserBase>> {
+class UsersGetUsers extends TlMethod {
   /// Users Get Users constructor.
   const UsersGetUsers({
     required this.id,
@@ -86717,8 +86737,9 @@ class UsersGetUsers extends TlMethod<List<UserBase>> {
 
 /// Users Get Full User.
 ///
+/// Return Type: `UsersUserFullBase`.
 /// ID: `b60f5918`.
-class UsersGetFullUser extends TlMethod<UsersUserFullBase> {
+class UsersGetFullUser extends TlMethod {
   /// Users Get Full User constructor.
   const UsersGetFullUser({
     required this.id,
@@ -86767,8 +86788,9 @@ class UsersGetFullUser extends TlMethod<UsersUserFullBase> {
 
 /// Contacts Get Contact I Ds.
 ///
+/// Return Type: `List<int>`.
 /// ID: `7adc669d`.
-class ContactsGetContactIDs extends TlMethod<List<int>> {
+class ContactsGetContactIDs extends TlMethod {
   /// Contacts Get Contact I Ds constructor.
   const ContactsGetContactIDs({
     required this.hash,
@@ -86819,8 +86841,9 @@ class ContactsGetContactIDs extends TlMethod<List<int>> {
 
 /// Contacts Get Statuses.
 ///
+/// Return Type: `List<ContactStatusBase>`.
 /// ID: `c4a353ee`.
-class ContactsGetStatuses extends TlMethod<List<ContactStatusBase>> {
+class ContactsGetStatuses extends TlMethod {
   /// Contacts Get Statuses constructor.
   const ContactsGetStatuses() : super._();
 
@@ -86855,8 +86878,9 @@ class ContactsGetStatuses extends TlMethod<List<ContactStatusBase>> {
 
 /// Contacts Get Contacts.
 ///
+/// Return Type: `ContactsContactsBase`.
 /// ID: `5dd69e12`.
-class ContactsGetContacts extends TlMethod<ContactsContactsBase> {
+class ContactsGetContacts extends TlMethod {
   /// Contacts Get Contacts constructor.
   const ContactsGetContacts({
     required this.hash,
@@ -86907,8 +86931,9 @@ class ContactsGetContacts extends TlMethod<ContactsContactsBase> {
 
 /// Contacts Import Contacts.
 ///
+/// Return Type: `ContactsImportedContactsBase`.
 /// ID: `2c800be5`.
-class ContactsImportContacts extends TlMethod<ContactsImportedContactsBase> {
+class ContactsImportContacts extends TlMethod {
   /// Contacts Import Contacts constructor.
   const ContactsImportContacts({
     required this.contacts,
@@ -86957,8 +86982,9 @@ class ContactsImportContacts extends TlMethod<ContactsImportedContactsBase> {
 
 /// Contacts Delete Contacts.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `096a0e00`.
-class ContactsDeleteContacts extends TlMethod<UpdatesBase> {
+class ContactsDeleteContacts extends TlMethod {
   /// Contacts Delete Contacts constructor.
   const ContactsDeleteContacts({
     required this.id,
@@ -87007,8 +87033,9 @@ class ContactsDeleteContacts extends TlMethod<UpdatesBase> {
 
 /// Contacts Delete By Phones.
 ///
+/// Return Type: `bool`.
 /// ID: `1013fd9e`.
-class ContactsDeleteByPhones extends TlMethod<bool> {
+class ContactsDeleteByPhones extends TlMethod {
   /// Contacts Delete By Phones constructor.
   const ContactsDeleteByPhones({
     required this.phones,
@@ -87057,8 +87084,9 @@ class ContactsDeleteByPhones extends TlMethod<bool> {
 
 /// Contacts Block.
 ///
+/// Return Type: `bool`.
 /// ID: `2e2e8734`.
-class ContactsBlock extends TlMethod<bool> {
+class ContactsBlock extends TlMethod {
   /// Contacts Block constructor.
   const ContactsBlock({
     required this.myStoriesFrom,
@@ -87126,8 +87154,9 @@ class ContactsBlock extends TlMethod<bool> {
 
 /// Contacts Unblock.
 ///
+/// Return Type: `bool`.
 /// ID: `b550d328`.
-class ContactsUnblock extends TlMethod<bool> {
+class ContactsUnblock extends TlMethod {
   /// Contacts Unblock constructor.
   const ContactsUnblock({
     required this.myStoriesFrom,
@@ -87195,8 +87224,9 @@ class ContactsUnblock extends TlMethod<bool> {
 
 /// Contacts Get Blocked.
 ///
+/// Return Type: `ContactsBlockedBase`.
 /// ID: `9a868f80`.
-class ContactsGetBlocked extends TlMethod<ContactsBlockedBase> {
+class ContactsGetBlocked extends TlMethod {
   /// Contacts Get Blocked constructor.
   const ContactsGetBlocked({
     required this.myStoriesFrom,
@@ -87276,8 +87306,9 @@ class ContactsGetBlocked extends TlMethod<ContactsBlockedBase> {
 
 /// Messages Get Messages.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `63c66506`.
-class MessagesGetMessages extends TlMethod<MessagesMessagesBase> {
+class MessagesGetMessages extends TlMethod {
   /// Messages Get Messages constructor.
   const MessagesGetMessages({
     required this.id,
@@ -87326,8 +87357,9 @@ class MessagesGetMessages extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Get Dialogs.
 ///
+/// Return Type: `MessagesDialogsBase`.
 /// ID: `a0f4cb4f`.
-class MessagesGetDialogs extends TlMethod<MessagesDialogsBase> {
+class MessagesGetDialogs extends TlMethod {
   /// Messages Get Dialogs constructor.
   const MessagesGetDialogs({
     required this.excludePinned,
@@ -87446,8 +87478,9 @@ class MessagesGetDialogs extends TlMethod<MessagesDialogsBase> {
 
 /// Messages Get History.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `4423e6c5`.
-class MessagesGetHistory extends TlMethod<MessagesMessagesBase> {
+class MessagesGetHistory extends TlMethod {
   /// Messages Get History constructor.
   const MessagesGetHistory({
     required this.peer,
@@ -87564,8 +87597,9 @@ class MessagesGetHistory extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Search.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `a7b4e929`.
-class MessagesSearch extends TlMethod<MessagesMessagesBase> {
+class MessagesSearch extends TlMethod {
   /// Messages Search constructor.
   const MessagesSearch({
     required this.peer,
@@ -87757,8 +87791,9 @@ class MessagesSearch extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Read History.
 ///
+/// Return Type: `MessagesAffectedMessagesBase`.
 /// ID: `0e306d3a`.
-class MessagesReadHistory extends TlMethod<MessagesAffectedMessagesBase> {
+class MessagesReadHistory extends TlMethod {
   /// Messages Read History constructor.
   const MessagesReadHistory({
     required this.peer,
@@ -87817,8 +87852,9 @@ class MessagesReadHistory extends TlMethod<MessagesAffectedMessagesBase> {
 
 /// Messages Delete History.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `b08f922a`.
-class MessagesDeleteHistory extends TlMethod<MessagesAffectedHistoryBase> {
+class MessagesDeleteHistory extends TlMethod {
   /// Messages Delete History constructor.
   const MessagesDeleteHistory({
     required this.justClear,
@@ -87930,8 +87966,9 @@ class MessagesDeleteHistory extends TlMethod<MessagesAffectedHistoryBase> {
 
 /// Messages Delete Messages.
 ///
+/// Return Type: `MessagesAffectedMessagesBase`.
 /// ID: `e58e95d2`.
-class MessagesDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
+class MessagesDeleteMessages extends TlMethod {
   /// Messages Delete Messages constructor.
   const MessagesDeleteMessages({
     required this.revoke,
@@ -87999,9 +88036,9 @@ class MessagesDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
 
 /// Messages Received Messages.
 ///
+/// Return Type: `List<ReceivedNotifyMessageBase>`.
 /// ID: `05a954c0`.
-class MessagesReceivedMessages
-    extends TlMethod<List<ReceivedNotifyMessageBase>> {
+class MessagesReceivedMessages extends TlMethod {
   /// Messages Received Messages constructor.
   const MessagesReceivedMessages({
     required this.maxId,
@@ -88052,8 +88089,9 @@ class MessagesReceivedMessages
 
 /// Messages Set Typing.
 ///
+/// Return Type: `bool`.
 /// ID: `58943ee2`.
-class MessagesSetTyping extends TlMethod<bool> {
+class MessagesSetTyping extends TlMethod {
   /// Messages Set Typing constructor.
   const MessagesSetTyping({
     required this.peer,
@@ -88134,8 +88172,9 @@ class MessagesSetTyping extends TlMethod<bool> {
 
 /// Messages Send Message.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `280d096f`.
-class MessagesSendMessage extends TlMethod<UpdatesBase> {
+class MessagesSendMessage extends TlMethod {
   /// Messages Send Message constructor.
   const MessagesSendMessage({
     required this.noWebpage,
@@ -88337,8 +88376,9 @@ class MessagesSendMessage extends TlMethod<UpdatesBase> {
 
 /// Messages Send Media.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `72ccc23d`.
-class MessagesSendMedia extends TlMethod<UpdatesBase> {
+class MessagesSendMedia extends TlMethod {
   /// Messages Send Media constructor.
   const MessagesSendMedia({
     required this.silent,
@@ -88540,8 +88580,9 @@ class MessagesSendMedia extends TlMethod<UpdatesBase> {
 
 /// Messages Forward Messages.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `c661bbc4`.
-class MessagesForwardMessages extends TlMethod<UpdatesBase> {
+class MessagesForwardMessages extends TlMethod {
   /// Messages Forward Messages constructor.
   const MessagesForwardMessages({
     required this.silent,
@@ -88712,8 +88753,9 @@ class MessagesForwardMessages extends TlMethod<UpdatesBase> {
 
 /// Messages Report Spam.
 ///
+/// Return Type: `bool`.
 /// ID: `cf1592db`.
-class MessagesReportSpam extends TlMethod<bool> {
+class MessagesReportSpam extends TlMethod {
   /// Messages Report Spam constructor.
   const MessagesReportSpam({
     required this.peer,
@@ -88762,8 +88804,9 @@ class MessagesReportSpam extends TlMethod<bool> {
 
 /// Messages Get Peer Settings.
 ///
+/// Return Type: `MessagesPeerSettingsBase`.
 /// ID: `efd9a6a2`.
-class MessagesGetPeerSettings extends TlMethod<MessagesPeerSettingsBase> {
+class MessagesGetPeerSettings extends TlMethod {
   /// Messages Get Peer Settings constructor.
   const MessagesGetPeerSettings({
     required this.peer,
@@ -88812,8 +88855,9 @@ class MessagesGetPeerSettings extends TlMethod<MessagesPeerSettingsBase> {
 
 /// Messages Report.
 ///
+/// Return Type: `bool`.
 /// ID: `8953ab4e`.
-class MessagesReport extends TlMethod<bool> {
+class MessagesReport extends TlMethod {
   /// Messages Report constructor.
   const MessagesReport({
     required this.peer,
@@ -88886,8 +88930,9 @@ class MessagesReport extends TlMethod<bool> {
 
 /// Messages Get Chats.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `49e9528f`.
-class MessagesGetChats extends TlMethod<MessagesChatsBase> {
+class MessagesGetChats extends TlMethod {
   /// Messages Get Chats constructor.
   const MessagesGetChats({
     required this.id,
@@ -88936,8 +88981,9 @@ class MessagesGetChats extends TlMethod<MessagesChatsBase> {
 
 /// Messages Get Full Chat.
 ///
+/// Return Type: `MessagesChatFullBase`.
 /// ID: `aeb00b34`.
-class MessagesGetFullChat extends TlMethod<MessagesChatFullBase> {
+class MessagesGetFullChat extends TlMethod {
   /// Messages Get Full Chat constructor.
   const MessagesGetFullChat({
     required this.chatId,
@@ -88988,8 +89034,9 @@ class MessagesGetFullChat extends TlMethod<MessagesChatFullBase> {
 
 /// Messages Edit Chat Title.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `73783ffd`.
-class MessagesEditChatTitle extends TlMethod<UpdatesBase> {
+class MessagesEditChatTitle extends TlMethod {
   /// Messages Edit Chat Title constructor.
   const MessagesEditChatTitle({
     required this.chatId,
@@ -89048,8 +89095,9 @@ class MessagesEditChatTitle extends TlMethod<UpdatesBase> {
 
 /// Messages Edit Chat Photo.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `35ddd674`.
-class MessagesEditChatPhoto extends TlMethod<UpdatesBase> {
+class MessagesEditChatPhoto extends TlMethod {
   /// Messages Edit Chat Photo constructor.
   const MessagesEditChatPhoto({
     required this.chatId,
@@ -89108,8 +89156,9 @@ class MessagesEditChatPhoto extends TlMethod<UpdatesBase> {
 
 /// Messages Add Chat User.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f24753e3`.
-class MessagesAddChatUser extends TlMethod<UpdatesBase> {
+class MessagesAddChatUser extends TlMethod {
   /// Messages Add Chat User constructor.
   const MessagesAddChatUser({
     required this.chatId,
@@ -89178,8 +89227,9 @@ class MessagesAddChatUser extends TlMethod<UpdatesBase> {
 
 /// Messages Delete Chat User.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a2185cab`.
-class MessagesDeleteChatUser extends TlMethod<UpdatesBase> {
+class MessagesDeleteChatUser extends TlMethod {
   /// Messages Delete Chat User constructor.
   const MessagesDeleteChatUser({
     required this.revokeHistory,
@@ -89257,8 +89307,9 @@ class MessagesDeleteChatUser extends TlMethod<UpdatesBase> {
 
 /// Messages Create Chat.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `0034a818`.
-class MessagesCreateChat extends TlMethod<UpdatesBase> {
+class MessagesCreateChat extends TlMethod {
   /// Messages Create Chat constructor.
   const MessagesCreateChat({
     required this.users,
@@ -89339,8 +89390,9 @@ class MessagesCreateChat extends TlMethod<UpdatesBase> {
 
 /// Updates Get State.
 ///
+/// Return Type: `UpdatesStateBase`.
 /// ID: `edd4882a`.
-class UpdatesGetState extends TlMethod<UpdatesStateBase> {
+class UpdatesGetState extends TlMethod {
   /// Updates Get State constructor.
   const UpdatesGetState() : super._();
 
@@ -89375,8 +89427,9 @@ class UpdatesGetState extends TlMethod<UpdatesStateBase> {
 
 /// Updates Get Difference.
 ///
+/// Return Type: `UpdatesDifferenceBase`.
 /// ID: `19c2f763`.
-class UpdatesGetDifference extends TlMethod<UpdatesDifferenceBase> {
+class UpdatesGetDifference extends TlMethod {
   /// Updates Get Difference constructor.
   const UpdatesGetDifference({
     required this.pts,
@@ -89495,8 +89548,9 @@ class UpdatesGetDifference extends TlMethod<UpdatesDifferenceBase> {
 
 /// Photos Update Profile Photo.
 ///
+/// Return Type: `PhotosPhotoBase`.
 /// ID: `09e82039`.
-class PhotosUpdateProfilePhoto extends TlMethod<PhotosPhotoBase> {
+class PhotosUpdateProfilePhoto extends TlMethod {
   /// Photos Update Profile Photo constructor.
   const PhotosUpdateProfilePhoto({
     required this.fallback,
@@ -89577,8 +89631,9 @@ class PhotosUpdateProfilePhoto extends TlMethod<PhotosPhotoBase> {
 
 /// Photos Upload Profile Photo.
 ///
+/// Return Type: `PhotosPhotoBase`.
 /// ID: `0388a3b5`.
-class PhotosUploadProfilePhoto extends TlMethod<PhotosPhotoBase> {
+class PhotosUploadProfilePhoto extends TlMethod {
   /// Photos Upload Profile Photo constructor.
   const PhotosUploadProfilePhoto({
     required this.fallback,
@@ -89704,8 +89759,9 @@ class PhotosUploadProfilePhoto extends TlMethod<PhotosPhotoBase> {
 
 /// Photos Delete Photos.
 ///
+/// Return Type: `List<int>`.
 /// ID: `87cf7f2f`.
-class PhotosDeletePhotos extends TlMethod<List<int>> {
+class PhotosDeletePhotos extends TlMethod {
   /// Photos Delete Photos constructor.
   const PhotosDeletePhotos({
     required this.id,
@@ -89754,8 +89810,9 @@ class PhotosDeletePhotos extends TlMethod<List<int>> {
 
 /// Upload Save File Part.
 ///
+/// Return Type: `bool`.
 /// ID: `b304a621`.
-class UploadSaveFilePart extends TlMethod<bool> {
+class UploadSaveFilePart extends TlMethod {
   /// Upload Save File Part constructor.
   const UploadSaveFilePart({
     required this.fileId,
@@ -89824,8 +89881,9 @@ class UploadSaveFilePart extends TlMethod<bool> {
 
 /// Upload Get File.
 ///
+/// Return Type: `UploadFileBase`.
 /// ID: `be5335be`.
-class UploadGetFile extends TlMethod<UploadFileBase> {
+class UploadGetFile extends TlMethod {
   /// Upload Get File constructor.
   const UploadGetFile({
     required this.precise,
@@ -89921,8 +89979,9 @@ class UploadGetFile extends TlMethod<UploadFileBase> {
 
 /// Help Get Config.
 ///
+/// Return Type: `ConfigBase`.
 /// ID: `c4f9186b`.
-class HelpGetConfig extends TlMethod<ConfigBase> {
+class HelpGetConfig extends TlMethod {
   /// Help Get Config constructor.
   const HelpGetConfig() : super._();
 
@@ -89957,8 +90016,9 @@ class HelpGetConfig extends TlMethod<ConfigBase> {
 
 /// Help Get Nearest Dc.
 ///
+/// Return Type: `NearestDcBase`.
 /// ID: `1fb33026`.
-class HelpGetNearestDc extends TlMethod<NearestDcBase> {
+class HelpGetNearestDc extends TlMethod {
   /// Help Get Nearest Dc constructor.
   const HelpGetNearestDc() : super._();
 
@@ -89993,8 +90053,9 @@ class HelpGetNearestDc extends TlMethod<NearestDcBase> {
 
 /// Help Get App Update.
 ///
+/// Return Type: `HelpAppUpdateBase`.
 /// ID: `522d5a7d`.
-class HelpGetAppUpdate extends TlMethod<HelpAppUpdateBase> {
+class HelpGetAppUpdate extends TlMethod {
   /// Help Get App Update constructor.
   const HelpGetAppUpdate({
     required this.source,
@@ -90043,8 +90104,9 @@ class HelpGetAppUpdate extends TlMethod<HelpAppUpdateBase> {
 
 /// Help Get Invite Text.
 ///
+/// Return Type: `HelpInviteTextBase`.
 /// ID: `4d392343`.
-class HelpGetInviteText extends TlMethod<HelpInviteTextBase> {
+class HelpGetInviteText extends TlMethod {
   /// Help Get Invite Text constructor.
   const HelpGetInviteText() : super._();
 
@@ -90079,8 +90141,9 @@ class HelpGetInviteText extends TlMethod<HelpInviteTextBase> {
 
 /// Photos Get User Photos.
 ///
+/// Return Type: `PhotosPhotosBase`.
 /// ID: `91cd32a8`.
-class PhotosGetUserPhotos extends TlMethod<PhotosPhotosBase> {
+class PhotosGetUserPhotos extends TlMethod {
   /// Photos Get User Photos constructor.
   const PhotosGetUserPhotos({
     required this.userId,
@@ -90159,8 +90222,9 @@ class PhotosGetUserPhotos extends TlMethod<PhotosPhotosBase> {
 
 /// Messages Get Dh Config.
 ///
+/// Return Type: `MessagesDhConfigBase`.
 /// ID: `26cf8950`.
-class MessagesGetDhConfig extends TlMethod<MessagesDhConfigBase> {
+class MessagesGetDhConfig extends TlMethod {
   /// Messages Get Dh Config constructor.
   const MessagesGetDhConfig({
     required this.version,
@@ -90221,8 +90285,9 @@ class MessagesGetDhConfig extends TlMethod<MessagesDhConfigBase> {
 
 /// Messages Request Encryption.
 ///
+/// Return Type: `EncryptedChatBase`.
 /// ID: `f64daf43`.
-class MessagesRequestEncryption extends TlMethod<EncryptedChatBase> {
+class MessagesRequestEncryption extends TlMethod {
   /// Messages Request Encryption constructor.
   const MessagesRequestEncryption({
     required this.userId,
@@ -90289,8 +90354,9 @@ class MessagesRequestEncryption extends TlMethod<EncryptedChatBase> {
 
 /// Messages Accept Encryption.
 ///
+/// Return Type: `EncryptedChatBase`.
 /// ID: `3dbc0415`.
-class MessagesAcceptEncryption extends TlMethod<EncryptedChatBase> {
+class MessagesAcceptEncryption extends TlMethod {
   /// Messages Accept Encryption constructor.
   const MessagesAcceptEncryption({
     required this.peer,
@@ -90357,8 +90423,9 @@ class MessagesAcceptEncryption extends TlMethod<EncryptedChatBase> {
 
 /// Messages Discard Encryption.
 ///
+/// Return Type: `bool`.
 /// ID: `f393aea0`.
-class MessagesDiscardEncryption extends TlMethod<bool> {
+class MessagesDiscardEncryption extends TlMethod {
   /// Messages Discard Encryption constructor.
   const MessagesDiscardEncryption({
     required this.deleteHistory,
@@ -90428,8 +90495,9 @@ class MessagesDiscardEncryption extends TlMethod<bool> {
 
 /// Messages Set Encrypted Typing.
 ///
+/// Return Type: `bool`.
 /// ID: `791451ed`.
-class MessagesSetEncryptedTyping extends TlMethod<bool> {
+class MessagesSetEncryptedTyping extends TlMethod {
   /// Messages Set Encrypted Typing constructor.
   const MessagesSetEncryptedTyping({
     required this.peer,
@@ -90486,8 +90554,9 @@ class MessagesSetEncryptedTyping extends TlMethod<bool> {
 
 /// Messages Read Encrypted History.
 ///
+/// Return Type: `bool`.
 /// ID: `7f4b690a`.
-class MessagesReadEncryptedHistory extends TlMethod<bool> {
+class MessagesReadEncryptedHistory extends TlMethod {
   /// Messages Read Encrypted History constructor.
   const MessagesReadEncryptedHistory({
     required this.peer,
@@ -90544,8 +90613,9 @@ class MessagesReadEncryptedHistory extends TlMethod<bool> {
 
 /// Messages Send Encrypted.
 ///
+/// Return Type: `MessagesSentEncryptedMessageBase`.
 /// ID: `44fa7a15`.
-class MessagesSendEncrypted extends TlMethod<MessagesSentEncryptedMessageBase> {
+class MessagesSendEncrypted extends TlMethod {
   /// Messages Send Encrypted constructor.
   const MessagesSendEncrypted({
     required this.silent,
@@ -90631,9 +90701,9 @@ class MessagesSendEncrypted extends TlMethod<MessagesSentEncryptedMessageBase> {
 
 /// Messages Send Encrypted File.
 ///
+/// Return Type: `MessagesSentEncryptedMessageBase`.
 /// ID: `5559481d`.
-class MessagesSendEncryptedFile
-    extends TlMethod<MessagesSentEncryptedMessageBase> {
+class MessagesSendEncryptedFile extends TlMethod {
   /// Messages Send Encrypted File constructor.
   const MessagesSendEncryptedFile({
     required this.silent,
@@ -90727,9 +90797,9 @@ class MessagesSendEncryptedFile
 
 /// Messages Send Encrypted Service.
 ///
+/// Return Type: `MessagesSentEncryptedMessageBase`.
 /// ID: `32d439a4`.
-class MessagesSendEncryptedService
-    extends TlMethod<MessagesSentEncryptedMessageBase> {
+class MessagesSendEncryptedService extends TlMethod {
   /// Messages Send Encrypted Service constructor.
   const MessagesSendEncryptedService({
     required this.peer,
@@ -90796,8 +90866,9 @@ class MessagesSendEncryptedService
 
 /// Messages Received Queue.
 ///
+/// Return Type: `List<int>`.
 /// ID: `55a5bb66`.
-class MessagesReceivedQueue extends TlMethod<List<int>> {
+class MessagesReceivedQueue extends TlMethod {
   /// Messages Received Queue constructor.
   const MessagesReceivedQueue({
     required this.maxQts,
@@ -90848,8 +90919,9 @@ class MessagesReceivedQueue extends TlMethod<List<int>> {
 
 /// Messages Report Encrypted Spam.
 ///
+/// Return Type: `bool`.
 /// ID: `4b0c8c0f`.
-class MessagesReportEncryptedSpam extends TlMethod<bool> {
+class MessagesReportEncryptedSpam extends TlMethod {
   /// Messages Report Encrypted Spam constructor.
   const MessagesReportEncryptedSpam({
     required this.peer,
@@ -90898,8 +90970,9 @@ class MessagesReportEncryptedSpam extends TlMethod<bool> {
 
 /// Upload Save Big File Part.
 ///
+/// Return Type: `bool`.
 /// ID: `de7b673d`.
-class UploadSaveBigFilePart extends TlMethod<bool> {
+class UploadSaveBigFilePart extends TlMethod {
   /// Upload Save Big File Part constructor.
   const UploadSaveBigFilePart({
     required this.fileId,
@@ -90978,8 +91051,9 @@ class UploadSaveBigFilePart extends TlMethod<bool> {
 
 /// Init Connection.
 ///
+/// Return Type: `X`.
 /// ID: `c1cd5ea9`.
-class InitConnection<X> extends TlMethod<X> {
+class InitConnection extends TlMethod {
   /// Init Connection constructor.
   const InitConnection({
     required this.apiId,
@@ -91010,7 +91084,7 @@ class InitConnection<X> extends TlMethod<X> {
         hasProxyField ? reader.readObject() as InputClientProxyBase : null;
     final hasParamsField = (flags & 2) != 0;
     final params = hasParamsField ? reader.readObject() as JSONValueBase : null;
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InitConnection] object.
     final returnValue = InitConnection(
@@ -91070,7 +91144,7 @@ class InitConnection<X> extends TlMethod<X> {
   final JSONValueBase? params;
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -91124,8 +91198,9 @@ class InitConnection<X> extends TlMethod<X> {
 
 /// Help Get Support.
 ///
+/// Return Type: `HelpSupportBase`.
 /// ID: `9cdf08cd`.
-class HelpGetSupport extends TlMethod<HelpSupportBase> {
+class HelpGetSupport extends TlMethod {
   /// Help Get Support constructor.
   const HelpGetSupport() : super._();
 
@@ -91160,9 +91235,9 @@ class HelpGetSupport extends TlMethod<HelpSupportBase> {
 
 /// Messages Read Message Contents.
 ///
+/// Return Type: `MessagesAffectedMessagesBase`.
 /// ID: `36a73f77`.
-class MessagesReadMessageContents
-    extends TlMethod<MessagesAffectedMessagesBase> {
+class MessagesReadMessageContents extends TlMethod {
   /// Messages Read Message Contents constructor.
   const MessagesReadMessageContents({
     required this.id,
@@ -91211,8 +91286,9 @@ class MessagesReadMessageContents
 
 /// Account Check Username.
 ///
+/// Return Type: `bool`.
 /// ID: `2714d86c`.
-class AccountCheckUsername extends TlMethod<bool> {
+class AccountCheckUsername extends TlMethod {
   /// Account Check Username constructor.
   const AccountCheckUsername({
     required this.username,
@@ -91261,8 +91337,9 @@ class AccountCheckUsername extends TlMethod<bool> {
 
 /// Account Update Username.
 ///
+/// Return Type: `UserBase`.
 /// ID: `3e0bdd7c`.
-class AccountUpdateUsername extends TlMethod<UserBase> {
+class AccountUpdateUsername extends TlMethod {
   /// Account Update Username constructor.
   const AccountUpdateUsername({
     required this.username,
@@ -91311,8 +91388,9 @@ class AccountUpdateUsername extends TlMethod<UserBase> {
 
 /// Contacts Search.
 ///
+/// Return Type: `ContactsFoundBase`.
 /// ID: `11f812d8`.
-class ContactsSearch extends TlMethod<ContactsFoundBase> {
+class ContactsSearch extends TlMethod {
   /// Contacts Search constructor.
   const ContactsSearch({
     required this.q,
@@ -91371,8 +91449,9 @@ class ContactsSearch extends TlMethod<ContactsFoundBase> {
 
 /// Account Get Privacy.
 ///
+/// Return Type: `AccountPrivacyRulesBase`.
 /// ID: `dadbc950`.
-class AccountGetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
+class AccountGetPrivacy extends TlMethod {
   /// Account Get Privacy constructor.
   const AccountGetPrivacy({
     required this.key,
@@ -91421,8 +91500,9 @@ class AccountGetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
 
 /// Account Set Privacy.
 ///
+/// Return Type: `AccountPrivacyRulesBase`.
 /// ID: `c9f81ce8`.
-class AccountSetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
+class AccountSetPrivacy extends TlMethod {
   /// Account Set Privacy constructor.
   const AccountSetPrivacy({
     required this.key,
@@ -91479,8 +91559,9 @@ class AccountSetPrivacy extends TlMethod<AccountPrivacyRulesBase> {
 
 /// Account Delete Account.
 ///
+/// Return Type: `bool`.
 /// ID: `a2c0cf74`.
-class AccountDeleteAccount extends TlMethod<bool> {
+class AccountDeleteAccount extends TlMethod {
   /// Account Delete Account constructor.
   const AccountDeleteAccount({
     required this.reason,
@@ -91555,8 +91636,9 @@ class AccountDeleteAccount extends TlMethod<bool> {
 
 /// Account Get Account T T L.
 ///
+/// Return Type: `AccountDaysTTLBase`.
 /// ID: `08fc711d`.
-class AccountGetAccountTTL extends TlMethod<AccountDaysTTLBase> {
+class AccountGetAccountTTL extends TlMethod {
   /// Account Get Account T T L constructor.
   const AccountGetAccountTTL() : super._();
 
@@ -91591,8 +91673,9 @@ class AccountGetAccountTTL extends TlMethod<AccountDaysTTLBase> {
 
 /// Account Set Account T T L.
 ///
+/// Return Type: `bool`.
 /// ID: `2442485e`.
-class AccountSetAccountTTL extends TlMethod<bool> {
+class AccountSetAccountTTL extends TlMethod {
   /// Account Set Account T T L constructor.
   const AccountSetAccountTTL({
     required this.ttl,
@@ -91641,8 +91724,9 @@ class AccountSetAccountTTL extends TlMethod<bool> {
 
 /// Invoke With Layer.
 ///
+/// Return Type: `X`.
 /// ID: `da9b0d0d`.
-class InvokeWithLayer<X> extends TlMethod<X> {
+class InvokeWithLayer extends TlMethod {
   /// Invoke With Layer constructor.
   const InvokeWithLayer({
     required this.layer,
@@ -91653,7 +91737,7 @@ class InvokeWithLayer<X> extends TlMethod<X> {
   factory InvokeWithLayer.deserialize(BinaryReader reader) {
     // Read [InvokeWithLayer] fields.
     final layer = reader.readInt32();
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithLayer] object.
     final returnValue = InvokeWithLayer(
@@ -91671,7 +91755,7 @@ class InvokeWithLayer<X> extends TlMethod<X> {
   final int layer;
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -91701,8 +91785,9 @@ class InvokeWithLayer<X> extends TlMethod<X> {
 
 /// Contacts Resolve Username.
 ///
+/// Return Type: `ContactsResolvedPeerBase`.
 /// ID: `f93ccba3`.
-class ContactsResolveUsername extends TlMethod<ContactsResolvedPeerBase> {
+class ContactsResolveUsername extends TlMethod {
   /// Contacts Resolve Username constructor.
   const ContactsResolveUsername({
     required this.username,
@@ -91751,8 +91836,9 @@ class ContactsResolveUsername extends TlMethod<ContactsResolvedPeerBase> {
 
 /// Account Send Change Phone Code.
 ///
+/// Return Type: `AuthSentCodeBase`.
 /// ID: `82574ae5`.
-class AccountSendChangePhoneCode extends TlMethod<AuthSentCodeBase> {
+class AccountSendChangePhoneCode extends TlMethod {
   /// Account Send Change Phone Code constructor.
   const AccountSendChangePhoneCode({
     required this.phoneNumber,
@@ -91809,8 +91895,9 @@ class AccountSendChangePhoneCode extends TlMethod<AuthSentCodeBase> {
 
 /// Account Change Phone.
 ///
+/// Return Type: `UserBase`.
 /// ID: `70c32edb`.
-class AccountChangePhone extends TlMethod<UserBase> {
+class AccountChangePhone extends TlMethod {
   /// Account Change Phone constructor.
   const AccountChangePhone({
     required this.phoneNumber,
@@ -91875,8 +91962,9 @@ class AccountChangePhone extends TlMethod<UserBase> {
 
 /// Messages Get Stickers.
 ///
+/// Return Type: `MessagesStickersBase`.
 /// ID: `d5a5d3a1`.
-class MessagesGetStickers extends TlMethod<MessagesStickersBase> {
+class MessagesGetStickers extends TlMethod {
   /// Messages Get Stickers constructor.
   const MessagesGetStickers({
     required this.emoticon,
@@ -91935,8 +92023,9 @@ class MessagesGetStickers extends TlMethod<MessagesStickersBase> {
 
 /// Messages Get All Stickers.
 ///
+/// Return Type: `MessagesAllStickersBase`.
 /// ID: `b8a0a1a8`.
-class MessagesGetAllStickers extends TlMethod<MessagesAllStickersBase> {
+class MessagesGetAllStickers extends TlMethod {
   /// Messages Get All Stickers constructor.
   const MessagesGetAllStickers({
     required this.hash,
@@ -91987,8 +92076,9 @@ class MessagesGetAllStickers extends TlMethod<MessagesAllStickersBase> {
 
 /// Account Update Device Locked.
 ///
+/// Return Type: `bool`.
 /// ID: `38df3532`.
-class AccountUpdateDeviceLocked extends TlMethod<bool> {
+class AccountUpdateDeviceLocked extends TlMethod {
   /// Account Update Device Locked constructor.
   const AccountUpdateDeviceLocked({
     required this.period,
@@ -92039,8 +92129,9 @@ class AccountUpdateDeviceLocked extends TlMethod<bool> {
 
 /// Auth Import Bot Authorization.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `67a3ff2c`.
-class AuthImportBotAuthorization extends TlMethod<AuthAuthorizationBase> {
+class AuthImportBotAuthorization extends TlMethod {
   /// Auth Import Bot Authorization constructor.
   const AuthImportBotAuthorization({
     required this.flags,
@@ -92117,8 +92208,9 @@ class AuthImportBotAuthorization extends TlMethod<AuthAuthorizationBase> {
 
 /// Messages Get Web Page Preview.
 ///
+/// Return Type: `MessageMediaBase`.
 /// ID: `8b68b0cc`.
-class MessagesGetWebPagePreview extends TlMethod<MessageMediaBase> {
+class MessagesGetWebPagePreview extends TlMethod {
   /// Messages Get Web Page Preview constructor.
   const MessagesGetWebPagePreview({
     required this.message,
@@ -92192,8 +92284,9 @@ class MessagesGetWebPagePreview extends TlMethod<MessageMediaBase> {
 
 /// Account Get Authorizations.
 ///
+/// Return Type: `AccountAuthorizationsBase`.
 /// ID: `e320c158`.
-class AccountGetAuthorizations extends TlMethod<AccountAuthorizationsBase> {
+class AccountGetAuthorizations extends TlMethod {
   /// Account Get Authorizations constructor.
   const AccountGetAuthorizations() : super._();
 
@@ -92228,8 +92321,9 @@ class AccountGetAuthorizations extends TlMethod<AccountAuthorizationsBase> {
 
 /// Account Reset Authorization.
 ///
+/// Return Type: `bool`.
 /// ID: `df77f3bc`.
-class AccountResetAuthorization extends TlMethod<bool> {
+class AccountResetAuthorization extends TlMethod {
   /// Account Reset Authorization constructor.
   const AccountResetAuthorization({
     required this.hash,
@@ -92280,8 +92374,9 @@ class AccountResetAuthorization extends TlMethod<bool> {
 
 /// Account Get Password.
 ///
+/// Return Type: `AccountPasswordBase`.
 /// ID: `548a30f5`.
-class AccountGetPassword extends TlMethod<AccountPasswordBase> {
+class AccountGetPassword extends TlMethod {
   /// Account Get Password constructor.
   const AccountGetPassword() : super._();
 
@@ -92316,8 +92411,9 @@ class AccountGetPassword extends TlMethod<AccountPasswordBase> {
 
 /// Account Get Password Settings.
 ///
+/// Return Type: `AccountPasswordSettingsBase`.
 /// ID: `9cd4eaf9`.
-class AccountGetPasswordSettings extends TlMethod<AccountPasswordSettingsBase> {
+class AccountGetPasswordSettings extends TlMethod {
   /// Account Get Password Settings constructor.
   const AccountGetPasswordSettings({
     required this.password,
@@ -92366,8 +92462,9 @@ class AccountGetPasswordSettings extends TlMethod<AccountPasswordSettingsBase> {
 
 /// Account Update Password Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `a59b102f`.
-class AccountUpdatePasswordSettings extends TlMethod<bool> {
+class AccountUpdatePasswordSettings extends TlMethod {
   /// Account Update Password Settings constructor.
   const AccountUpdatePasswordSettings({
     required this.password,
@@ -92424,8 +92521,9 @@ class AccountUpdatePasswordSettings extends TlMethod<bool> {
 
 /// Auth Check Password.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `d18b4d16`.
-class AuthCheckPassword extends TlMethod<AuthAuthorizationBase> {
+class AuthCheckPassword extends TlMethod {
   /// Auth Check Password constructor.
   const AuthCheckPassword({
     required this.password,
@@ -92474,8 +92572,9 @@ class AuthCheckPassword extends TlMethod<AuthAuthorizationBase> {
 
 /// Auth Request Password Recovery.
 ///
+/// Return Type: `AuthPasswordRecoveryBase`.
 /// ID: `d897bc66`.
-class AuthRequestPasswordRecovery extends TlMethod<AuthPasswordRecoveryBase> {
+class AuthRequestPasswordRecovery extends TlMethod {
   /// Auth Request Password Recovery constructor.
   const AuthRequestPasswordRecovery() : super._();
 
@@ -92510,8 +92609,9 @@ class AuthRequestPasswordRecovery extends TlMethod<AuthPasswordRecoveryBase> {
 
 /// Auth Recover Password.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `37096c70`.
-class AuthRecoverPassword extends TlMethod<AuthAuthorizationBase> {
+class AuthRecoverPassword extends TlMethod {
   /// Auth Recover Password constructor.
   const AuthRecoverPassword({
     required this.code,
@@ -92586,8 +92686,9 @@ class AuthRecoverPassword extends TlMethod<AuthAuthorizationBase> {
 
 /// Invoke Without Updates.
 ///
+/// Return Type: `X`.
 /// ID: `bf9459b7`.
-class InvokeWithoutUpdates<X> extends TlMethod<X> {
+class InvokeWithoutUpdates extends TlMethod {
   /// Invoke Without Updates constructor.
   const InvokeWithoutUpdates({
     required this.query,
@@ -92596,7 +92697,7 @@ class InvokeWithoutUpdates<X> extends TlMethod<X> {
   /// Deserialize.
   factory InvokeWithoutUpdates.deserialize(BinaryReader reader) {
     // Read [InvokeWithoutUpdates] fields.
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithoutUpdates] object.
     final returnValue = InvokeWithoutUpdates(
@@ -92608,7 +92709,7 @@ class InvokeWithoutUpdates<X> extends TlMethod<X> {
   }
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -92636,8 +92737,9 @@ class InvokeWithoutUpdates<X> extends TlMethod<X> {
 
 /// Messages Export Chat Invite.
 ///
+/// Return Type: `ExportedChatInviteBase`.
 /// ID: `a02ce5d5`.
-class MessagesExportChatInvite extends TlMethod<ExportedChatInviteBase> {
+class MessagesExportChatInvite extends TlMethod {
   /// Messages Export Chat Invite constructor.
   const MessagesExportChatInvite({
     required this.legacyRevokePermanent,
@@ -92752,8 +92854,9 @@ class MessagesExportChatInvite extends TlMethod<ExportedChatInviteBase> {
 
 /// Messages Check Chat Invite.
 ///
+/// Return Type: `ChatInviteBase`.
 /// ID: `3eadb1bb`.
-class MessagesCheckChatInvite extends TlMethod<ChatInviteBase> {
+class MessagesCheckChatInvite extends TlMethod {
   /// Messages Check Chat Invite constructor.
   const MessagesCheckChatInvite({
     required this.hash,
@@ -92802,8 +92905,9 @@ class MessagesCheckChatInvite extends TlMethod<ChatInviteBase> {
 
 /// Messages Import Chat Invite.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `6c50051c`.
-class MessagesImportChatInvite extends TlMethod<UpdatesBase> {
+class MessagesImportChatInvite extends TlMethod {
   /// Messages Import Chat Invite constructor.
   const MessagesImportChatInvite({
     required this.hash,
@@ -92852,8 +92956,9 @@ class MessagesImportChatInvite extends TlMethod<UpdatesBase> {
 
 /// Messages Get Sticker Set.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `c8a0ec74`.
-class MessagesGetStickerSet extends TlMethod<MessagesStickerSetBase> {
+class MessagesGetStickerSet extends TlMethod {
   /// Messages Get Sticker Set constructor.
   const MessagesGetStickerSet({
     required this.stickerset,
@@ -92912,9 +93017,9 @@ class MessagesGetStickerSet extends TlMethod<MessagesStickerSetBase> {
 
 /// Messages Install Sticker Set.
 ///
+/// Return Type: `MessagesStickerSetInstallResultBase`.
 /// ID: `c78fe460`.
-class MessagesInstallStickerSet
-    extends TlMethod<MessagesStickerSetInstallResultBase> {
+class MessagesInstallStickerSet extends TlMethod {
   /// Messages Install Sticker Set constructor.
   const MessagesInstallStickerSet({
     required this.stickerset,
@@ -92971,8 +93076,9 @@ class MessagesInstallStickerSet
 
 /// Messages Uninstall Sticker Set.
 ///
+/// Return Type: `bool`.
 /// ID: `f96e55de`.
-class MessagesUninstallStickerSet extends TlMethod<bool> {
+class MessagesUninstallStickerSet extends TlMethod {
   /// Messages Uninstall Sticker Set constructor.
   const MessagesUninstallStickerSet({
     required this.stickerset,
@@ -93021,8 +93127,9 @@ class MessagesUninstallStickerSet extends TlMethod<bool> {
 
 /// Messages Start Bot.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e6df7378`.
-class MessagesStartBot extends TlMethod<UpdatesBase> {
+class MessagesStartBot extends TlMethod {
   /// Messages Start Bot constructor.
   const MessagesStartBot({
     required this.bot,
@@ -93097,8 +93204,9 @@ class MessagesStartBot extends TlMethod<UpdatesBase> {
 
 /// Messages Get Messages Views.
 ///
+/// Return Type: `MessagesMessageViewsBase`.
 /// ID: `5784d3e1`.
-class MessagesGetMessagesViews extends TlMethod<MessagesMessageViewsBase> {
+class MessagesGetMessagesViews extends TlMethod {
   /// Messages Get Messages Views constructor.
   const MessagesGetMessagesViews({
     required this.peer,
@@ -93163,8 +93271,9 @@ class MessagesGetMessagesViews extends TlMethod<MessagesMessageViewsBase> {
 
 /// Channels Read History.
 ///
+/// Return Type: `bool`.
 /// ID: `cc104937`.
-class ChannelsReadHistory extends TlMethod<bool> {
+class ChannelsReadHistory extends TlMethod {
   /// Channels Read History constructor.
   const ChannelsReadHistory({
     required this.channel,
@@ -93223,8 +93332,9 @@ class ChannelsReadHistory extends TlMethod<bool> {
 
 /// Channels Delete Messages.
 ///
+/// Return Type: `MessagesAffectedMessagesBase`.
 /// ID: `84c1fd4e`.
-class ChannelsDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
+class ChannelsDeleteMessages extends TlMethod {
   /// Channels Delete Messages constructor.
   const ChannelsDeleteMessages({
     required this.channel,
@@ -93281,8 +93391,9 @@ class ChannelsDeleteMessages extends TlMethod<MessagesAffectedMessagesBase> {
 
 /// Channels Report Spam.
 ///
+/// Return Type: `bool`.
 /// ID: `f44a8315`.
-class ChannelsReportSpam extends TlMethod<bool> {
+class ChannelsReportSpam extends TlMethod {
   /// Channels Report Spam constructor.
   const ChannelsReportSpam({
     required this.channel,
@@ -93347,8 +93458,9 @@ class ChannelsReportSpam extends TlMethod<bool> {
 
 /// Channels Get Messages.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `ad8c9a23`.
-class ChannelsGetMessages extends TlMethod<MessagesMessagesBase> {
+class ChannelsGetMessages extends TlMethod {
   /// Channels Get Messages constructor.
   const ChannelsGetMessages({
     required this.channel,
@@ -93405,9 +93517,9 @@ class ChannelsGetMessages extends TlMethod<MessagesMessagesBase> {
 
 /// Channels Get Participants.
 ///
+/// Return Type: `ChannelsChannelParticipantsBase`.
 /// ID: `77ced9d0`.
-class ChannelsGetParticipants
-    extends TlMethod<ChannelsChannelParticipantsBase> {
+class ChannelsGetParticipants extends TlMethod {
   /// Channels Get Participants constructor.
   const ChannelsGetParticipants({
     required this.channel,
@@ -93494,8 +93606,9 @@ class ChannelsGetParticipants
 
 /// Channels Get Participant.
 ///
+/// Return Type: `ChannelsChannelParticipantBase`.
 /// ID: `a0ab6cc6`.
-class ChannelsGetParticipant extends TlMethod<ChannelsChannelParticipantBase> {
+class ChannelsGetParticipant extends TlMethod {
   /// Channels Get Participant constructor.
   const ChannelsGetParticipant({
     required this.channel,
@@ -93552,8 +93665,9 @@ class ChannelsGetParticipant extends TlMethod<ChannelsChannelParticipantBase> {
 
 /// Channels Get Channels.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `0a7f6bbb`.
-class ChannelsGetChannels extends TlMethod<MessagesChatsBase> {
+class ChannelsGetChannels extends TlMethod {
   /// Channels Get Channels constructor.
   const ChannelsGetChannels({
     required this.id,
@@ -93602,8 +93716,9 @@ class ChannelsGetChannels extends TlMethod<MessagesChatsBase> {
 
 /// Channels Get Full Channel.
 ///
+/// Return Type: `MessagesChatFullBase`.
 /// ID: `08736a09`.
-class ChannelsGetFullChannel extends TlMethod<MessagesChatFullBase> {
+class ChannelsGetFullChannel extends TlMethod {
   /// Channels Get Full Channel constructor.
   const ChannelsGetFullChannel({
     required this.channel,
@@ -93652,8 +93767,9 @@ class ChannelsGetFullChannel extends TlMethod<MessagesChatFullBase> {
 
 /// Channels Create Channel.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `91006707`.
-class ChannelsCreateChannel extends TlMethod<UpdatesBase> {
+class ChannelsCreateChannel extends TlMethod {
   /// Channels Create Channel constructor.
   const ChannelsCreateChannel({
     required this.broadcast,
@@ -93792,8 +93908,9 @@ class ChannelsCreateChannel extends TlMethod<UpdatesBase> {
 
 /// Channels Edit Admin.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `d33c8902`.
-class ChannelsEditAdmin extends TlMethod<UpdatesBase> {
+class ChannelsEditAdmin extends TlMethod {
   /// Channels Edit Admin constructor.
   const ChannelsEditAdmin({
     required this.channel,
@@ -93866,8 +93983,9 @@ class ChannelsEditAdmin extends TlMethod<UpdatesBase> {
 
 /// Channels Edit Title.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `566decd0`.
-class ChannelsEditTitle extends TlMethod<UpdatesBase> {
+class ChannelsEditTitle extends TlMethod {
   /// Channels Edit Title constructor.
   const ChannelsEditTitle({
     required this.channel,
@@ -93924,8 +94042,9 @@ class ChannelsEditTitle extends TlMethod<UpdatesBase> {
 
 /// Channels Edit Photo.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f12e57c9`.
-class ChannelsEditPhoto extends TlMethod<UpdatesBase> {
+class ChannelsEditPhoto extends TlMethod {
   /// Channels Edit Photo constructor.
   const ChannelsEditPhoto({
     required this.channel,
@@ -93982,8 +94101,9 @@ class ChannelsEditPhoto extends TlMethod<UpdatesBase> {
 
 /// Channels Check Username.
 ///
+/// Return Type: `bool`.
 /// ID: `10e6bd2c`.
-class ChannelsCheckUsername extends TlMethod<bool> {
+class ChannelsCheckUsername extends TlMethod {
   /// Channels Check Username constructor.
   const ChannelsCheckUsername({
     required this.channel,
@@ -94040,8 +94160,9 @@ class ChannelsCheckUsername extends TlMethod<bool> {
 
 /// Channels Update Username.
 ///
+/// Return Type: `bool`.
 /// ID: `3514b3de`.
-class ChannelsUpdateUsername extends TlMethod<bool> {
+class ChannelsUpdateUsername extends TlMethod {
   /// Channels Update Username constructor.
   const ChannelsUpdateUsername({
     required this.channel,
@@ -94098,8 +94219,9 @@ class ChannelsUpdateUsername extends TlMethod<bool> {
 
 /// Channels Join Channel.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `24b524c5`.
-class ChannelsJoinChannel extends TlMethod<UpdatesBase> {
+class ChannelsJoinChannel extends TlMethod {
   /// Channels Join Channel constructor.
   const ChannelsJoinChannel({
     required this.channel,
@@ -94148,8 +94270,9 @@ class ChannelsJoinChannel extends TlMethod<UpdatesBase> {
 
 /// Channels Leave Channel.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f836aa95`.
-class ChannelsLeaveChannel extends TlMethod<UpdatesBase> {
+class ChannelsLeaveChannel extends TlMethod {
   /// Channels Leave Channel constructor.
   const ChannelsLeaveChannel({
     required this.channel,
@@ -94198,8 +94321,9 @@ class ChannelsLeaveChannel extends TlMethod<UpdatesBase> {
 
 /// Channels Invite To Channel.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `199f3a6c`.
-class ChannelsInviteToChannel extends TlMethod<UpdatesBase> {
+class ChannelsInviteToChannel extends TlMethod {
   /// Channels Invite To Channel constructor.
   const ChannelsInviteToChannel({
     required this.channel,
@@ -94256,8 +94380,9 @@ class ChannelsInviteToChannel extends TlMethod<UpdatesBase> {
 
 /// Channels Delete Channel.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `c0111fe3`.
-class ChannelsDeleteChannel extends TlMethod<UpdatesBase> {
+class ChannelsDeleteChannel extends TlMethod {
   /// Channels Delete Channel constructor.
   const ChannelsDeleteChannel({
     required this.channel,
@@ -94306,9 +94431,9 @@ class ChannelsDeleteChannel extends TlMethod<UpdatesBase> {
 
 /// Updates Get Channel Difference.
 ///
+/// Return Type: `UpdatesChannelDifferenceBase`.
 /// ID: `03173d78`.
-class UpdatesGetChannelDifference
-    extends TlMethod<UpdatesChannelDifferenceBase> {
+class UpdatesGetChannelDifference extends TlMethod {
   /// Updates Get Channel Difference constructor.
   const UpdatesGetChannelDifference({
     required this.force,
@@ -94404,8 +94529,9 @@ class UpdatesGetChannelDifference
 
 /// Messages Edit Chat Admin.
 ///
+/// Return Type: `bool`.
 /// ID: `a85bd1c2`.
-class MessagesEditChatAdmin extends TlMethod<bool> {
+class MessagesEditChatAdmin extends TlMethod {
   /// Messages Edit Chat Admin constructor.
   const MessagesEditChatAdmin({
     required this.chatId,
@@ -94472,8 +94598,9 @@ class MessagesEditChatAdmin extends TlMethod<bool> {
 
 /// Messages Migrate Chat.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a2875319`.
-class MessagesMigrateChat extends TlMethod<UpdatesBase> {
+class MessagesMigrateChat extends TlMethod {
   /// Messages Migrate Chat constructor.
   const MessagesMigrateChat({
     required this.chatId,
@@ -94524,8 +94651,9 @@ class MessagesMigrateChat extends TlMethod<UpdatesBase> {
 
 /// Messages Search Global.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `4bc6589a`.
-class MessagesSearchGlobal extends TlMethod<MessagesMessagesBase> {
+class MessagesSearchGlobal extends TlMethod {
   /// Messages Search Global constructor.
   const MessagesSearchGlobal({
     this.folderId,
@@ -94660,8 +94788,9 @@ class MessagesSearchGlobal extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Reorder Sticker Sets.
 ///
+/// Return Type: `bool`.
 /// ID: `78337739`.
-class MessagesReorderStickerSets extends TlMethod<bool> {
+class MessagesReorderStickerSets extends TlMethod {
   /// Messages Reorder Sticker Sets constructor.
   const MessagesReorderStickerSets({
     required this.masks,
@@ -94737,8 +94866,9 @@ class MessagesReorderStickerSets extends TlMethod<bool> {
 
 /// Messages Get Document By Hash.
 ///
+/// Return Type: `DocumentBase`.
 /// ID: `b1f2061f`.
-class MessagesGetDocumentByHash extends TlMethod<DocumentBase> {
+class MessagesGetDocumentByHash extends TlMethod {
   /// Messages Get Document By Hash constructor.
   const MessagesGetDocumentByHash({
     required this.sha256,
@@ -94805,8 +94935,9 @@ class MessagesGetDocumentByHash extends TlMethod<DocumentBase> {
 
 /// Messages Get Saved Gifs.
 ///
+/// Return Type: `MessagesSavedGifsBase`.
 /// ID: `5cf09635`.
-class MessagesGetSavedGifs extends TlMethod<MessagesSavedGifsBase> {
+class MessagesGetSavedGifs extends TlMethod {
   /// Messages Get Saved Gifs constructor.
   const MessagesGetSavedGifs({
     required this.hash,
@@ -94857,8 +94988,9 @@ class MessagesGetSavedGifs extends TlMethod<MessagesSavedGifsBase> {
 
 /// Messages Save Gif.
 ///
+/// Return Type: `bool`.
 /// ID: `327a30cb`.
-class MessagesSaveGif extends TlMethod<bool> {
+class MessagesSaveGif extends TlMethod {
   /// Messages Save Gif constructor.
   const MessagesSaveGif({
     required this.id,
@@ -94915,8 +95047,9 @@ class MessagesSaveGif extends TlMethod<bool> {
 
 /// Messages Get Inline Bot Results.
 ///
+/// Return Type: `MessagesBotResultsBase`.
 /// ID: `514e999d`.
-class MessagesGetInlineBotResults extends TlMethod<MessagesBotResultsBase> {
+class MessagesGetInlineBotResults extends TlMethod {
   /// Messages Get Inline Bot Results constructor.
   const MessagesGetInlineBotResults({
     required this.bot,
@@ -95014,8 +95147,9 @@ class MessagesGetInlineBotResults extends TlMethod<MessagesBotResultsBase> {
 
 /// Messages Set Inline Bot Results.
 ///
+/// Return Type: `bool`.
 /// ID: `bb12a419`.
-class MessagesSetInlineBotResults extends TlMethod<bool> {
+class MessagesSetInlineBotResults extends TlMethod {
   /// Messages Set Inline Bot Results constructor.
   const MessagesSetInlineBotResults({
     required this.gallery,
@@ -95153,8 +95287,9 @@ class MessagesSetInlineBotResults extends TlMethod<bool> {
 
 /// Messages Send Inline Bot Result.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f7bc68ba`.
-class MessagesSendInlineBotResult extends TlMethod<UpdatesBase> {
+class MessagesSendInlineBotResult extends TlMethod {
   /// Messages Send Inline Bot Result constructor.
   const MessagesSendInlineBotResult({
     required this.silent,
@@ -95314,8 +95449,9 @@ class MessagesSendInlineBotResult extends TlMethod<UpdatesBase> {
 
 /// Channels Export Message Link.
 ///
+/// Return Type: `ExportedMessageLinkBase`.
 /// ID: `e63fadeb`.
-class ChannelsExportMessageLink extends TlMethod<ExportedMessageLinkBase> {
+class ChannelsExportMessageLink extends TlMethod {
   /// Channels Export Message Link constructor.
   const ChannelsExportMessageLink({
     required this.grouped,
@@ -95401,8 +95537,9 @@ class ChannelsExportMessageLink extends TlMethod<ExportedMessageLinkBase> {
 
 /// Channels Toggle Signatures.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `1f69b606`.
-class ChannelsToggleSignatures extends TlMethod<UpdatesBase> {
+class ChannelsToggleSignatures extends TlMethod {
   /// Channels Toggle Signatures constructor.
   const ChannelsToggleSignatures({
     required this.channel,
@@ -95459,8 +95596,9 @@ class ChannelsToggleSignatures extends TlMethod<UpdatesBase> {
 
 /// Auth Resend Code.
 ///
+/// Return Type: `AuthSentCodeBase`.
 /// ID: `3ef1a9bf`.
-class AuthResendCode extends TlMethod<AuthSentCodeBase> {
+class AuthResendCode extends TlMethod {
   /// Auth Resend Code constructor.
   const AuthResendCode({
     required this.phoneNumber,
@@ -95517,8 +95655,9 @@ class AuthResendCode extends TlMethod<AuthSentCodeBase> {
 
 /// Auth Cancel Code.
 ///
+/// Return Type: `bool`.
 /// ID: `1f040578`.
-class AuthCancelCode extends TlMethod<bool> {
+class AuthCancelCode extends TlMethod {
   /// Auth Cancel Code constructor.
   const AuthCancelCode({
     required this.phoneNumber,
@@ -95575,8 +95714,9 @@ class AuthCancelCode extends TlMethod<bool> {
 
 /// Messages Get Message Edit Data.
 ///
+/// Return Type: `MessagesMessageEditDataBase`.
 /// ID: `fda68d36`.
-class MessagesGetMessageEditData extends TlMethod<MessagesMessageEditDataBase> {
+class MessagesGetMessageEditData extends TlMethod {
   /// Messages Get Message Edit Data constructor.
   const MessagesGetMessageEditData({
     required this.peer,
@@ -95635,8 +95775,9 @@ class MessagesGetMessageEditData extends TlMethod<MessagesMessageEditDataBase> {
 
 /// Messages Edit Message.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `48f71778`.
-class MessagesEditMessage extends TlMethod<UpdatesBase> {
+class MessagesEditMessage extends TlMethod {
   /// Messages Edit Message constructor.
   const MessagesEditMessage({
     required this.noWebpage,
@@ -95789,8 +95930,9 @@ class MessagesEditMessage extends TlMethod<UpdatesBase> {
 
 /// Messages Edit Inline Bot Message.
 ///
+/// Return Type: `bool`.
 /// ID: `83557dba`.
-class MessagesEditInlineBotMessage extends TlMethod<bool> {
+class MessagesEditInlineBotMessage extends TlMethod {
   /// Messages Edit Inline Bot Message constructor.
   const MessagesEditInlineBotMessage({
     required this.noWebpage,
@@ -95920,9 +96062,9 @@ class MessagesEditInlineBotMessage extends TlMethod<bool> {
 
 /// Messages Get Bot Callback Answer.
 ///
+/// Return Type: `MessagesBotCallbackAnswerBase`.
 /// ID: `9342ca07`.
-class MessagesGetBotCallbackAnswer
-    extends TlMethod<MessagesBotCallbackAnswerBase> {
+class MessagesGetBotCallbackAnswer extends TlMethod {
   /// Messages Get Bot Callback Answer constructor.
   const MessagesGetBotCallbackAnswer({
     required this.game,
@@ -96028,8 +96170,9 @@ class MessagesGetBotCallbackAnswer
 
 /// Messages Set Bot Callback Answer.
 ///
+/// Return Type: `bool`.
 /// ID: `d58f130a`.
-class MessagesSetBotCallbackAnswer extends TlMethod<bool> {
+class MessagesSetBotCallbackAnswer extends TlMethod {
   /// Messages Set Bot Callback Answer constructor.
   const MessagesSetBotCallbackAnswer({
     required this.alert,
@@ -96135,8 +96278,9 @@ class MessagesSetBotCallbackAnswer extends TlMethod<bool> {
 
 /// Contacts Get Top Peers.
 ///
+/// Return Type: `ContactsTopPeersBase`.
 /// ID: `973478b6`.
-class ContactsGetTopPeers extends TlMethod<ContactsTopPeersBase> {
+class ContactsGetTopPeers extends TlMethod {
   /// Contacts Get Top Peers constructor.
   const ContactsGetTopPeers({
     required this.correspondents,
@@ -96282,8 +96426,9 @@ class ContactsGetTopPeers extends TlMethod<ContactsTopPeersBase> {
 
 /// Contacts Reset Top Peer Rating.
 ///
+/// Return Type: `bool`.
 /// ID: `1ae373ac`.
-class ContactsResetTopPeerRating extends TlMethod<bool> {
+class ContactsResetTopPeerRating extends TlMethod {
   /// Contacts Reset Top Peer Rating constructor.
   const ContactsResetTopPeerRating({
     required this.category,
@@ -96340,8 +96485,9 @@ class ContactsResetTopPeerRating extends TlMethod<bool> {
 
 /// Messages Get Peer Dialogs.
 ///
+/// Return Type: `MessagesPeerDialogsBase`.
 /// ID: `e470bcfd`.
-class MessagesGetPeerDialogs extends TlMethod<MessagesPeerDialogsBase> {
+class MessagesGetPeerDialogs extends TlMethod {
   /// Messages Get Peer Dialogs constructor.
   const MessagesGetPeerDialogs({
     required this.peers,
@@ -96390,8 +96536,9 @@ class MessagesGetPeerDialogs extends TlMethod<MessagesPeerDialogsBase> {
 
 /// Messages Save Draft.
 ///
+/// Return Type: `bool`.
 /// ID: `7ff3b806`.
-class MessagesSaveDraft extends TlMethod<bool> {
+class MessagesSaveDraft extends TlMethod {
   /// Messages Save Draft constructor.
   const MessagesSaveDraft({
     required this.noWebpage,
@@ -96516,8 +96663,9 @@ class MessagesSaveDraft extends TlMethod<bool> {
 
 /// Messages Get All Drafts.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `6a3f8d65`.
-class MessagesGetAllDrafts extends TlMethod<UpdatesBase> {
+class MessagesGetAllDrafts extends TlMethod {
   /// Messages Get All Drafts constructor.
   const MessagesGetAllDrafts() : super._();
 
@@ -96552,9 +96700,9 @@ class MessagesGetAllDrafts extends TlMethod<UpdatesBase> {
 
 /// Messages Get Featured Stickers.
 ///
+/// Return Type: `MessagesFeaturedStickersBase`.
 /// ID: `64780b14`.
-class MessagesGetFeaturedStickers
-    extends TlMethod<MessagesFeaturedStickersBase> {
+class MessagesGetFeaturedStickers extends TlMethod {
   /// Messages Get Featured Stickers constructor.
   const MessagesGetFeaturedStickers({
     required this.hash,
@@ -96605,8 +96753,9 @@ class MessagesGetFeaturedStickers
 
 /// Messages Read Featured Stickers.
 ///
+/// Return Type: `bool`.
 /// ID: `5b118126`.
-class MessagesReadFeaturedStickers extends TlMethod<bool> {
+class MessagesReadFeaturedStickers extends TlMethod {
   /// Messages Read Featured Stickers constructor.
   const MessagesReadFeaturedStickers({
     required this.id,
@@ -96655,8 +96804,9 @@ class MessagesReadFeaturedStickers extends TlMethod<bool> {
 
 /// Messages Get Recent Stickers.
 ///
+/// Return Type: `MessagesRecentStickersBase`.
 /// ID: `9da9403b`.
-class MessagesGetRecentStickers extends TlMethod<MessagesRecentStickersBase> {
+class MessagesGetRecentStickers extends TlMethod {
   /// Messages Get Recent Stickers constructor.
   const MessagesGetRecentStickers({
     required this.attached,
@@ -96726,8 +96876,9 @@ class MessagesGetRecentStickers extends TlMethod<MessagesRecentStickersBase> {
 
 /// Messages Save Recent Sticker.
 ///
+/// Return Type: `bool`.
 /// ID: `392718f8`.
-class MessagesSaveRecentSticker extends TlMethod<bool> {
+class MessagesSaveRecentSticker extends TlMethod {
   /// Messages Save Recent Sticker constructor.
   const MessagesSaveRecentSticker({
     required this.attached,
@@ -96803,8 +96954,9 @@ class MessagesSaveRecentSticker extends TlMethod<bool> {
 
 /// Messages Clear Recent Stickers.
 ///
+/// Return Type: `bool`.
 /// ID: `8999602d`.
-class MessagesClearRecentStickers extends TlMethod<bool> {
+class MessagesClearRecentStickers extends TlMethod {
   /// Messages Clear Recent Stickers constructor.
   const MessagesClearRecentStickers({
     required this.attached,
@@ -96864,9 +97016,9 @@ class MessagesClearRecentStickers extends TlMethod<bool> {
 
 /// Messages Get Archived Stickers.
 ///
+/// Return Type: `MessagesArchivedStickersBase`.
 /// ID: `57f17692`.
-class MessagesGetArchivedStickers
-    extends TlMethod<MessagesArchivedStickersBase> {
+class MessagesGetArchivedStickers extends TlMethod {
   /// Messages Get Archived Stickers constructor.
   const MessagesGetArchivedStickers({
     required this.masks,
@@ -96954,8 +97106,9 @@ class MessagesGetArchivedStickers
 
 /// Account Send Confirm Phone Code.
 ///
+/// Return Type: `AuthSentCodeBase`.
 /// ID: `1b3faa88`.
-class AccountSendConfirmPhoneCode extends TlMethod<AuthSentCodeBase> {
+class AccountSendConfirmPhoneCode extends TlMethod {
   /// Account Send Confirm Phone Code constructor.
   const AccountSendConfirmPhoneCode({
     required this.hash,
@@ -97012,8 +97165,9 @@ class AccountSendConfirmPhoneCode extends TlMethod<AuthSentCodeBase> {
 
 /// Account Confirm Phone.
 ///
+/// Return Type: `bool`.
 /// ID: `5f2178c3`.
-class AccountConfirmPhone extends TlMethod<bool> {
+class AccountConfirmPhone extends TlMethod {
   /// Account Confirm Phone constructor.
   const AccountConfirmPhone({
     required this.phoneCodeHash,
@@ -97070,8 +97224,9 @@ class AccountConfirmPhone extends TlMethod<bool> {
 
 /// Channels Get Admined Public Channels.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `f8b036af`.
-class ChannelsGetAdminedPublicChannels extends TlMethod<MessagesChatsBase> {
+class ChannelsGetAdminedPublicChannels extends TlMethod {
   /// Channels Get Admined Public Channels constructor.
   const ChannelsGetAdminedPublicChannels({
     required this.byLocation,
@@ -97139,8 +97294,9 @@ class ChannelsGetAdminedPublicChannels extends TlMethod<MessagesChatsBase> {
 
 /// Messages Get Mask Stickers.
 ///
+/// Return Type: `MessagesAllStickersBase`.
 /// ID: `640f82b8`.
-class MessagesGetMaskStickers extends TlMethod<MessagesAllStickersBase> {
+class MessagesGetMaskStickers extends TlMethod {
   /// Messages Get Mask Stickers constructor.
   const MessagesGetMaskStickers({
     required this.hash,
@@ -97191,9 +97347,9 @@ class MessagesGetMaskStickers extends TlMethod<MessagesAllStickersBase> {
 
 /// Messages Get Attached Stickers.
 ///
+/// Return Type: `List<StickerSetCoveredBase>`.
 /// ID: `cc5b67cc`.
-class MessagesGetAttachedStickers
-    extends TlMethod<List<StickerSetCoveredBase>> {
+class MessagesGetAttachedStickers extends TlMethod {
   /// Messages Get Attached Stickers constructor.
   const MessagesGetAttachedStickers({
     required this.media,
@@ -97242,8 +97398,9 @@ class MessagesGetAttachedStickers
 
 /// Auth Drop Temp Auth Keys.
 ///
+/// Return Type: `bool`.
 /// ID: `8e48a188`.
-class AuthDropTempAuthKeys extends TlMethod<bool> {
+class AuthDropTempAuthKeys extends TlMethod {
   /// Auth Drop Temp Auth Keys constructor.
   const AuthDropTempAuthKeys({
     required this.exceptAuthKeys,
@@ -97292,8 +97449,9 @@ class AuthDropTempAuthKeys extends TlMethod<bool> {
 
 /// Messages Set Game Score.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `8ef8ecc0`.
-class MessagesSetGameScore extends TlMethod<UpdatesBase> {
+class MessagesSetGameScore extends TlMethod {
   /// Messages Set Game Score constructor.
   const MessagesSetGameScore({
     required this.editMessage,
@@ -97397,8 +97555,9 @@ class MessagesSetGameScore extends TlMethod<UpdatesBase> {
 
 /// Messages Set Inline Game Score.
 ///
+/// Return Type: `bool`.
 /// ID: `15ad9f64`.
-class MessagesSetInlineGameScore extends TlMethod<bool> {
+class MessagesSetInlineGameScore extends TlMethod {
   /// Messages Set Inline Game Score constructor.
   const MessagesSetInlineGameScore({
     required this.editMessage,
@@ -97492,8 +97651,9 @@ class MessagesSetInlineGameScore extends TlMethod<bool> {
 
 /// Messages Get Game High Scores.
 ///
+/// Return Type: `MessagesHighScoresBase`.
 /// ID: `e822649d`.
-class MessagesGetGameHighScores extends TlMethod<MessagesHighScoresBase> {
+class MessagesGetGameHighScores extends TlMethod {
   /// Messages Get Game High Scores constructor.
   const MessagesGetGameHighScores({
     required this.peer,
@@ -97560,8 +97720,9 @@ class MessagesGetGameHighScores extends TlMethod<MessagesHighScoresBase> {
 
 /// Messages Get Inline Game High Scores.
 ///
+/// Return Type: `MessagesHighScoresBase`.
 /// ID: `0f635e1b`.
-class MessagesGetInlineGameHighScores extends TlMethod<MessagesHighScoresBase> {
+class MessagesGetInlineGameHighScores extends TlMethod {
   /// Messages Get Inline Game High Scores constructor.
   const MessagesGetInlineGameHighScores({
     required this.id,
@@ -97618,8 +97779,9 @@ class MessagesGetInlineGameHighScores extends TlMethod<MessagesHighScoresBase> {
 
 /// Messages Get Common Chats.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `e40ca104`.
-class MessagesGetCommonChats extends TlMethod<MessagesChatsBase> {
+class MessagesGetCommonChats extends TlMethod {
   /// Messages Get Common Chats constructor.
   const MessagesGetCommonChats({
     required this.userId,
@@ -97688,8 +97850,9 @@ class MessagesGetCommonChats extends TlMethod<MessagesChatsBase> {
 
 /// Help Set Bot Updates Status.
 ///
+/// Return Type: `bool`.
 /// ID: `ec22cfcd`.
-class HelpSetBotUpdatesStatus extends TlMethod<bool> {
+class HelpSetBotUpdatesStatus extends TlMethod {
   /// Help Set Bot Updates Status constructor.
   const HelpSetBotUpdatesStatus({
     required this.pendingUpdatesCount,
@@ -97748,8 +97911,9 @@ class HelpSetBotUpdatesStatus extends TlMethod<bool> {
 
 /// Messages Get Web Page.
 ///
+/// Return Type: `MessagesWebPageBase`.
 /// ID: `8d9692a3`.
-class MessagesGetWebPage extends TlMethod<MessagesWebPageBase> {
+class MessagesGetWebPage extends TlMethod {
   /// Messages Get Web Page constructor.
   const MessagesGetWebPage({
     required this.url,
@@ -97808,8 +97972,9 @@ class MessagesGetWebPage extends TlMethod<MessagesWebPageBase> {
 
 /// Messages Toggle Dialog Pin.
 ///
+/// Return Type: `bool`.
 /// ID: `a731e257`.
-class MessagesToggleDialogPin extends TlMethod<bool> {
+class MessagesToggleDialogPin extends TlMethod {
   /// Messages Toggle Dialog Pin constructor.
   const MessagesToggleDialogPin({
     required this.pinned,
@@ -97877,8 +98042,9 @@ class MessagesToggleDialogPin extends TlMethod<bool> {
 
 /// Messages Reorder Pinned Dialogs.
 ///
+/// Return Type: `bool`.
 /// ID: `3b1adf37`.
-class MessagesReorderPinnedDialogs extends TlMethod<bool> {
+class MessagesReorderPinnedDialogs extends TlMethod {
   /// Messages Reorder Pinned Dialogs constructor.
   const MessagesReorderPinnedDialogs({
     required this.force,
@@ -97956,8 +98122,9 @@ class MessagesReorderPinnedDialogs extends TlMethod<bool> {
 
 /// Messages Get Pinned Dialogs.
 ///
+/// Return Type: `MessagesPeerDialogsBase`.
 /// ID: `d6b94df2`.
-class MessagesGetPinnedDialogs extends TlMethod<MessagesPeerDialogsBase> {
+class MessagesGetPinnedDialogs extends TlMethod {
   /// Messages Get Pinned Dialogs constructor.
   const MessagesGetPinnedDialogs({
     required this.folderId,
@@ -98008,8 +98175,9 @@ class MessagesGetPinnedDialogs extends TlMethod<MessagesPeerDialogsBase> {
 
 /// Bots Send Custom Request.
 ///
+/// Return Type: `DataJSONBase`.
 /// ID: `aa2769ed`.
-class BotsSendCustomRequest extends TlMethod<DataJSONBase> {
+class BotsSendCustomRequest extends TlMethod {
   /// Bots Send Custom Request constructor.
   const BotsSendCustomRequest({
     required this.customMethod,
@@ -98066,8 +98234,9 @@ class BotsSendCustomRequest extends TlMethod<DataJSONBase> {
 
 /// Bots Answer Webhook J S O N Query.
 ///
+/// Return Type: `bool`.
 /// ID: `e6213f4d`.
-class BotsAnswerWebhookJSONQuery extends TlMethod<bool> {
+class BotsAnswerWebhookJSONQuery extends TlMethod {
   /// Bots Answer Webhook J S O N Query constructor.
   const BotsAnswerWebhookJSONQuery({
     required this.queryId,
@@ -98126,8 +98295,9 @@ class BotsAnswerWebhookJSONQuery extends TlMethod<bool> {
 
 /// Upload Get Web File.
 ///
+/// Return Type: `UploadWebFileBase`.
 /// ID: `24e6818d`.
-class UploadGetWebFile extends TlMethod<UploadWebFileBase> {
+class UploadGetWebFile extends TlMethod {
   /// Upload Get Web File constructor.
   const UploadGetWebFile({
     required this.location,
@@ -98196,8 +98366,9 @@ class UploadGetWebFile extends TlMethod<UploadWebFileBase> {
 
 /// Payments Get Payment Form.
 ///
+/// Return Type: `PaymentsPaymentFormBase`.
 /// ID: `37148dbb`.
-class PaymentsGetPaymentForm extends TlMethod<PaymentsPaymentFormBase> {
+class PaymentsGetPaymentForm extends TlMethod {
   /// Payments Get Payment Form constructor.
   const PaymentsGetPaymentForm({
     required this.invoice,
@@ -98271,8 +98442,9 @@ class PaymentsGetPaymentForm extends TlMethod<PaymentsPaymentFormBase> {
 
 /// Payments Get Payment Receipt.
 ///
+/// Return Type: `PaymentsPaymentReceiptBase`.
 /// ID: `2478d1cc`.
-class PaymentsGetPaymentReceipt extends TlMethod<PaymentsPaymentReceiptBase> {
+class PaymentsGetPaymentReceipt extends TlMethod {
   /// Payments Get Payment Receipt constructor.
   const PaymentsGetPaymentReceipt({
     required this.peer,
@@ -98331,9 +98503,9 @@ class PaymentsGetPaymentReceipt extends TlMethod<PaymentsPaymentReceiptBase> {
 
 /// Payments Validate Requested Info.
 ///
+/// Return Type: `PaymentsValidatedRequestedInfoBase`.
 /// ID: `b6c8f12b`.
-class PaymentsValidateRequestedInfo
-    extends TlMethod<PaymentsValidatedRequestedInfoBase> {
+class PaymentsValidateRequestedInfo extends TlMethod {
   /// Payments Validate Requested Info constructor.
   const PaymentsValidateRequestedInfo({
     required this.save,
@@ -98409,8 +98581,9 @@ class PaymentsValidateRequestedInfo
 
 /// Payments Send Payment Form.
 ///
+/// Return Type: `PaymentsPaymentResultBase`.
 /// ID: `2d03522f`.
-class PaymentsSendPaymentForm extends TlMethod<PaymentsPaymentResultBase> {
+class PaymentsSendPaymentForm extends TlMethod {
   /// Payments Send Payment Form constructor.
   const PaymentsSendPaymentForm({
     required this.formId,
@@ -98529,8 +98702,9 @@ class PaymentsSendPaymentForm extends TlMethod<PaymentsPaymentResultBase> {
 
 /// Account Get Tmp Password.
 ///
+/// Return Type: `AccountTmpPasswordBase`.
 /// ID: `449e0b51`.
-class AccountGetTmpPassword extends TlMethod<AccountTmpPasswordBase> {
+class AccountGetTmpPassword extends TlMethod {
   /// Account Get Tmp Password constructor.
   const AccountGetTmpPassword({
     required this.password,
@@ -98589,8 +98763,9 @@ class AccountGetTmpPassword extends TlMethod<AccountTmpPasswordBase> {
 
 /// Payments Get Saved Info.
 ///
+/// Return Type: `PaymentsSavedInfoBase`.
 /// ID: `227d824b`.
-class PaymentsGetSavedInfo extends TlMethod<PaymentsSavedInfoBase> {
+class PaymentsGetSavedInfo extends TlMethod {
   /// Payments Get Saved Info constructor.
   const PaymentsGetSavedInfo() : super._();
 
@@ -98625,8 +98800,9 @@ class PaymentsGetSavedInfo extends TlMethod<PaymentsSavedInfoBase> {
 
 /// Payments Clear Saved Info.
 ///
+/// Return Type: `bool`.
 /// ID: `d83d70c1`.
-class PaymentsClearSavedInfo extends TlMethod<bool> {
+class PaymentsClearSavedInfo extends TlMethod {
   /// Payments Clear Saved Info constructor.
   const PaymentsClearSavedInfo({
     required this.credentials,
@@ -98694,8 +98870,9 @@ class PaymentsClearSavedInfo extends TlMethod<bool> {
 
 /// Messages Set Bot Shipping Results.
 ///
+/// Return Type: `bool`.
 /// ID: `e5f672fa`.
-class MessagesSetBotShippingResults extends TlMethod<bool> {
+class MessagesSetBotShippingResults extends TlMethod {
   /// Messages Set Bot Shipping Results constructor.
   const MessagesSetBotShippingResults({
     required this.queryId,
@@ -98785,8 +98962,9 @@ class MessagesSetBotShippingResults extends TlMethod<bool> {
 
 /// Messages Set Bot Precheckout Results.
 ///
+/// Return Type: `bool`.
 /// ID: `09c2dd95`.
-class MessagesSetBotPrecheckoutResults extends TlMethod<bool> {
+class MessagesSetBotPrecheckoutResults extends TlMethod {
   /// Messages Set Bot Precheckout Results constructor.
   const MessagesSetBotPrecheckoutResults({
     required this.success,
@@ -98869,8 +99047,9 @@ class MessagesSetBotPrecheckoutResults extends TlMethod<bool> {
 
 /// Stickers Create Sticker Set.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `9021ab67`.
-class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
+class StickersCreateStickerSet extends TlMethod {
   /// Stickers Create Sticker Set constructor.
   const StickersCreateStickerSet({
     required this.masks,
@@ -99021,8 +99200,9 @@ class StickersCreateStickerSet extends TlMethod<MessagesStickerSetBase> {
 
 /// Stickers Remove Sticker From Set.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `f7760f51`.
-class StickersRemoveStickerFromSet extends TlMethod<MessagesStickerSetBase> {
+class StickersRemoveStickerFromSet extends TlMethod {
   /// Stickers Remove Sticker From Set constructor.
   const StickersRemoveStickerFromSet({
     required this.sticker,
@@ -99071,8 +99251,9 @@ class StickersRemoveStickerFromSet extends TlMethod<MessagesStickerSetBase> {
 
 /// Stickers Change Sticker Position.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `ffb6d4ca`.
-class StickersChangeStickerPosition extends TlMethod<MessagesStickerSetBase> {
+class StickersChangeStickerPosition extends TlMethod {
   /// Stickers Change Sticker Position constructor.
   const StickersChangeStickerPosition({
     required this.sticker,
@@ -99131,8 +99312,9 @@ class StickersChangeStickerPosition extends TlMethod<MessagesStickerSetBase> {
 
 /// Stickers Add Sticker To Set.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `8653febe`.
-class StickersAddStickerToSet extends TlMethod<MessagesStickerSetBase> {
+class StickersAddStickerToSet extends TlMethod {
   /// Stickers Add Sticker To Set constructor.
   const StickersAddStickerToSet({
     required this.stickerset,
@@ -99189,8 +99371,9 @@ class StickersAddStickerToSet extends TlMethod<MessagesStickerSetBase> {
 
 /// Messages Upload Media.
 ///
+/// Return Type: `MessageMediaBase`.
 /// ID: `519bc2b1`.
-class MessagesUploadMedia extends TlMethod<MessageMediaBase> {
+class MessagesUploadMedia extends TlMethod {
   /// Messages Upload Media constructor.
   const MessagesUploadMedia({
     required this.peer,
@@ -99247,8 +99430,9 @@ class MessagesUploadMedia extends TlMethod<MessageMediaBase> {
 
 /// Phone Get Call Config.
 ///
+/// Return Type: `DataJSONBase`.
 /// ID: `55451fa9`.
-class PhoneGetCallConfig extends TlMethod<DataJSONBase> {
+class PhoneGetCallConfig extends TlMethod {
   /// Phone Get Call Config constructor.
   const PhoneGetCallConfig() : super._();
 
@@ -99283,8 +99467,9 @@ class PhoneGetCallConfig extends TlMethod<DataJSONBase> {
 
 /// Phone Request Call.
 ///
+/// Return Type: `PhonePhoneCallBase`.
 /// ID: `42ff96ed`.
-class PhoneRequestCall extends TlMethod<PhonePhoneCallBase> {
+class PhoneRequestCall extends TlMethod {
   /// Phone Request Call constructor.
   const PhoneRequestCall({
     required this.video,
@@ -99378,8 +99563,9 @@ class PhoneRequestCall extends TlMethod<PhonePhoneCallBase> {
 
 /// Phone Accept Call.
 ///
+/// Return Type: `PhonePhoneCallBase`.
 /// ID: `3bd2b4a0`.
-class PhoneAcceptCall extends TlMethod<PhonePhoneCallBase> {
+class PhoneAcceptCall extends TlMethod {
   /// Phone Accept Call constructor.
   const PhoneAcceptCall({
     required this.peer,
@@ -99444,8 +99630,9 @@ class PhoneAcceptCall extends TlMethod<PhonePhoneCallBase> {
 
 /// Phone Confirm Call.
 ///
+/// Return Type: `PhonePhoneCallBase`.
 /// ID: `2efe1722`.
-class PhoneConfirmCall extends TlMethod<PhonePhoneCallBase> {
+class PhoneConfirmCall extends TlMethod {
   /// Phone Confirm Call constructor.
   const PhoneConfirmCall({
     required this.peer,
@@ -99520,8 +99707,9 @@ class PhoneConfirmCall extends TlMethod<PhonePhoneCallBase> {
 
 /// Phone Received Call.
 ///
+/// Return Type: `bool`.
 /// ID: `17d54f61`.
-class PhoneReceivedCall extends TlMethod<bool> {
+class PhoneReceivedCall extends TlMethod {
   /// Phone Received Call constructor.
   const PhoneReceivedCall({
     required this.peer,
@@ -99570,8 +99758,9 @@ class PhoneReceivedCall extends TlMethod<bool> {
 
 /// Phone Discard Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `b2cbc1c0`.
-class PhoneDiscardCall extends TlMethod<UpdatesBase> {
+class PhoneDiscardCall extends TlMethod {
   /// Phone Discard Call constructor.
   const PhoneDiscardCall({
     required this.video,
@@ -99667,8 +99856,9 @@ class PhoneDiscardCall extends TlMethod<UpdatesBase> {
 
 /// Phone Set Call Rating.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `59ead627`.
-class PhoneSetCallRating extends TlMethod<UpdatesBase> {
+class PhoneSetCallRating extends TlMethod {
   /// Phone Set Call Rating constructor.
   const PhoneSetCallRating({
     required this.userInitiative,
@@ -99754,8 +99944,9 @@ class PhoneSetCallRating extends TlMethod<UpdatesBase> {
 
 /// Phone Save Call Debug.
 ///
+/// Return Type: `bool`.
 /// ID: `277add7e`.
-class PhoneSaveCallDebug extends TlMethod<bool> {
+class PhoneSaveCallDebug extends TlMethod {
   /// Phone Save Call Debug constructor.
   const PhoneSaveCallDebug({
     required this.peer,
@@ -99812,8 +100003,9 @@ class PhoneSaveCallDebug extends TlMethod<bool> {
 
 /// Upload Get Cdn File.
 ///
+/// Return Type: `UploadCdnFileBase`.
 /// ID: `395f69da`.
-class UploadGetCdnFile extends TlMethod<UploadCdnFileBase> {
+class UploadGetCdnFile extends TlMethod {
   /// Upload Get Cdn File constructor.
   const UploadGetCdnFile({
     required this.fileToken,
@@ -99882,8 +100074,9 @@ class UploadGetCdnFile extends TlMethod<UploadCdnFileBase> {
 
 /// Upload Reupload Cdn File.
 ///
+/// Return Type: `List<FileHashBase>`.
 /// ID: `9b2754a8`.
-class UploadReuploadCdnFile extends TlMethod<List<FileHashBase>> {
+class UploadReuploadCdnFile extends TlMethod {
   /// Upload Reupload Cdn File constructor.
   const UploadReuploadCdnFile({
     required this.fileToken,
@@ -99940,8 +100133,9 @@ class UploadReuploadCdnFile extends TlMethod<List<FileHashBase>> {
 
 /// Help Get Cdn Config.
 ///
+/// Return Type: `CdnConfigBase`.
 /// ID: `52029342`.
-class HelpGetCdnConfig extends TlMethod<CdnConfigBase> {
+class HelpGetCdnConfig extends TlMethod {
   /// Help Get Cdn Config constructor.
   const HelpGetCdnConfig() : super._();
 
@@ -99976,8 +100170,9 @@ class HelpGetCdnConfig extends TlMethod<CdnConfigBase> {
 
 /// Langpack Get Lang Pack.
 ///
+/// Return Type: `LangPackDifferenceBase`.
 /// ID: `f2f2330a`.
-class LangpackGetLangPack extends TlMethod<LangPackDifferenceBase> {
+class LangpackGetLangPack extends TlMethod {
   /// Langpack Get Lang Pack constructor.
   const LangpackGetLangPack({
     required this.langPack,
@@ -100034,8 +100229,9 @@ class LangpackGetLangPack extends TlMethod<LangPackDifferenceBase> {
 
 /// Langpack Get Strings.
 ///
+/// Return Type: `List<LangPackStringBase>`.
 /// ID: `efea3803`.
-class LangpackGetStrings extends TlMethod<List<LangPackStringBase>> {
+class LangpackGetStrings extends TlMethod {
   /// Langpack Get Strings constructor.
   const LangpackGetStrings({
     required this.langPack,
@@ -100100,8 +100296,9 @@ class LangpackGetStrings extends TlMethod<List<LangPackStringBase>> {
 
 /// Langpack Get Difference.
 ///
+/// Return Type: `LangPackDifferenceBase`.
 /// ID: `cd984aa5`.
-class LangpackGetDifference extends TlMethod<LangPackDifferenceBase> {
+class LangpackGetDifference extends TlMethod {
   /// Langpack Get Difference constructor.
   const LangpackGetDifference({
     required this.langPack,
@@ -100168,8 +100365,9 @@ class LangpackGetDifference extends TlMethod<LangPackDifferenceBase> {
 
 /// Langpack Get Languages.
 ///
+/// Return Type: `List<LangPackLanguageBase>`.
 /// ID: `42c6978f`.
-class LangpackGetLanguages extends TlMethod<List<LangPackLanguageBase>> {
+class LangpackGetLanguages extends TlMethod {
   /// Langpack Get Languages constructor.
   const LangpackGetLanguages({
     required this.langPack,
@@ -100218,8 +100416,9 @@ class LangpackGetLanguages extends TlMethod<List<LangPackLanguageBase>> {
 
 /// Channels Edit Banned.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `96e6cd81`.
-class ChannelsEditBanned extends TlMethod<UpdatesBase> {
+class ChannelsEditBanned extends TlMethod {
   /// Channels Edit Banned constructor.
   const ChannelsEditBanned({
     required this.channel,
@@ -100284,8 +100483,9 @@ class ChannelsEditBanned extends TlMethod<UpdatesBase> {
 
 /// Channels Get Admin Log.
 ///
+/// Return Type: `ChannelsAdminLogResultsBase`.
 /// ID: `33ddf480`.
-class ChannelsGetAdminLog extends TlMethod<ChannelsAdminLogResultsBase> {
+class ChannelsGetAdminLog extends TlMethod {
   /// Channels Get Admin Log constructor.
   const ChannelsGetAdminLog({
     required this.channel,
@@ -100412,8 +100612,9 @@ class ChannelsGetAdminLog extends TlMethod<ChannelsAdminLogResultsBase> {
 
 /// Upload Get Cdn File Hashes.
 ///
+/// Return Type: `List<FileHashBase>`.
 /// ID: `91dc3f31`.
-class UploadGetCdnFileHashes extends TlMethod<List<FileHashBase>> {
+class UploadGetCdnFileHashes extends TlMethod {
   /// Upload Get Cdn File Hashes constructor.
   const UploadGetCdnFileHashes({
     required this.fileToken,
@@ -100472,8 +100673,9 @@ class UploadGetCdnFileHashes extends TlMethod<List<FileHashBase>> {
 
 /// Messages Send Screenshot Notification.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a1405817`.
-class MessagesSendScreenshotNotification extends TlMethod<UpdatesBase> {
+class MessagesSendScreenshotNotification extends TlMethod {
   /// Messages Send Screenshot Notification constructor.
   const MessagesSendScreenshotNotification({
     required this.peer,
@@ -100540,8 +100742,9 @@ class MessagesSendScreenshotNotification extends TlMethod<UpdatesBase> {
 
 /// Channels Set Stickers.
 ///
+/// Return Type: `bool`.
 /// ID: `ea8ca4f9`.
-class ChannelsSetStickers extends TlMethod<bool> {
+class ChannelsSetStickers extends TlMethod {
   /// Channels Set Stickers constructor.
   const ChannelsSetStickers({
     required this.channel,
@@ -100598,8 +100801,9 @@ class ChannelsSetStickers extends TlMethod<bool> {
 
 /// Messages Get Faved Stickers.
 ///
+/// Return Type: `MessagesFavedStickersBase`.
 /// ID: `04f1aaa9`.
-class MessagesGetFavedStickers extends TlMethod<MessagesFavedStickersBase> {
+class MessagesGetFavedStickers extends TlMethod {
   /// Messages Get Faved Stickers constructor.
   const MessagesGetFavedStickers({
     required this.hash,
@@ -100650,8 +100854,9 @@ class MessagesGetFavedStickers extends TlMethod<MessagesFavedStickersBase> {
 
 /// Messages Fave Sticker.
 ///
+/// Return Type: `bool`.
 /// ID: `b9ffc55b`.
-class MessagesFaveSticker extends TlMethod<bool> {
+class MessagesFaveSticker extends TlMethod {
   /// Messages Fave Sticker constructor.
   const MessagesFaveSticker({
     required this.id,
@@ -100708,8 +100913,9 @@ class MessagesFaveSticker extends TlMethod<bool> {
 
 /// Channels Read Message Contents.
 ///
+/// Return Type: `bool`.
 /// ID: `eab5dc38`.
-class ChannelsReadMessageContents extends TlMethod<bool> {
+class ChannelsReadMessageContents extends TlMethod {
   /// Channels Read Message Contents constructor.
   const ChannelsReadMessageContents({
     required this.channel,
@@ -100766,8 +100972,9 @@ class ChannelsReadMessageContents extends TlMethod<bool> {
 
 /// Contacts Reset Saved.
 ///
+/// Return Type: `bool`.
 /// ID: `879537f1`.
-class ContactsResetSaved extends TlMethod<bool> {
+class ContactsResetSaved extends TlMethod {
   /// Contacts Reset Saved constructor.
   const ContactsResetSaved() : super._();
 
@@ -100802,8 +101009,9 @@ class ContactsResetSaved extends TlMethod<bool> {
 
 /// Messages Get Unread Mentions.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `f107e790`.
-class MessagesGetUnreadMentions extends TlMethod<MessagesMessagesBase> {
+class MessagesGetUnreadMentions extends TlMethod {
   /// Messages Get Unread Mentions constructor.
   const MessagesGetUnreadMentions({
     required this.peer,
@@ -100926,8 +101134,9 @@ class MessagesGetUnreadMentions extends TlMethod<MessagesMessagesBase> {
 
 /// Channels Delete History.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `9baa9647`.
-class ChannelsDeleteHistory extends TlMethod<UpdatesBase> {
+class ChannelsDeleteHistory extends TlMethod {
   /// Channels Delete History constructor.
   const ChannelsDeleteHistory({
     required this.forEveryone,
@@ -101005,8 +101214,9 @@ class ChannelsDeleteHistory extends TlMethod<UpdatesBase> {
 
 /// Help Get Recent Me Urls.
 ///
+/// Return Type: `HelpRecentMeUrlsBase`.
 /// ID: `3dc0f114`.
-class HelpGetRecentMeUrls extends TlMethod<HelpRecentMeUrlsBase> {
+class HelpGetRecentMeUrls extends TlMethod {
   /// Help Get Recent Me Urls constructor.
   const HelpGetRecentMeUrls({
     required this.referer,
@@ -101055,8 +101265,9 @@ class HelpGetRecentMeUrls extends TlMethod<HelpRecentMeUrlsBase> {
 
 /// Channels Toggle Pre History Hidden.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `eabbb94c`.
-class ChannelsTogglePreHistoryHidden extends TlMethod<UpdatesBase> {
+class ChannelsTogglePreHistoryHidden extends TlMethod {
   /// Channels Toggle Pre History Hidden constructor.
   const ChannelsTogglePreHistoryHidden({
     required this.channel,
@@ -101113,8 +101324,9 @@ class ChannelsTogglePreHistoryHidden extends TlMethod<UpdatesBase> {
 
 /// Messages Read Mentions.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `36e5bf4d`.
-class MessagesReadMentions extends TlMethod<MessagesAffectedHistoryBase> {
+class MessagesReadMentions extends TlMethod {
   /// Messages Read Mentions constructor.
   const MessagesReadMentions({
     required this.peer,
@@ -101187,8 +101399,9 @@ class MessagesReadMentions extends TlMethod<MessagesAffectedHistoryBase> {
 
 /// Messages Get Recent Locations.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `702a40e0`.
-class MessagesGetRecentLocations extends TlMethod<MessagesMessagesBase> {
+class MessagesGetRecentLocations extends TlMethod {
   /// Messages Get Recent Locations constructor.
   const MessagesGetRecentLocations({
     required this.peer,
@@ -101257,8 +101470,9 @@ class MessagesGetRecentLocations extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Send Multi Media.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `456e8987`.
-class MessagesSendMultiMedia extends TlMethod<UpdatesBase> {
+class MessagesSendMultiMedia extends TlMethod {
   /// Messages Send Multi Media constructor.
   const MessagesSendMultiMedia({
     required this.silent,
@@ -101414,8 +101628,9 @@ class MessagesSendMultiMedia extends TlMethod<UpdatesBase> {
 
 /// Messages Upload Encrypted File.
 ///
+/// Return Type: `EncryptedFileBase`.
 /// ID: `5057c497`.
-class MessagesUploadEncryptedFile extends TlMethod<EncryptedFileBase> {
+class MessagesUploadEncryptedFile extends TlMethod {
   /// Messages Upload Encrypted File constructor.
   const MessagesUploadEncryptedFile({
     required this.peer,
@@ -101472,9 +101687,9 @@ class MessagesUploadEncryptedFile extends TlMethod<EncryptedFileBase> {
 
 /// Account Get Web Authorizations.
 ///
+/// Return Type: `AccountWebAuthorizationsBase`.
 /// ID: `182e6d6f`.
-class AccountGetWebAuthorizations
-    extends TlMethod<AccountWebAuthorizationsBase> {
+class AccountGetWebAuthorizations extends TlMethod {
   /// Account Get Web Authorizations constructor.
   const AccountGetWebAuthorizations() : super._();
 
@@ -101509,8 +101724,9 @@ class AccountGetWebAuthorizations
 
 /// Account Reset Web Authorization.
 ///
+/// Return Type: `bool`.
 /// ID: `2d01b9ef`.
-class AccountResetWebAuthorization extends TlMethod<bool> {
+class AccountResetWebAuthorization extends TlMethod {
   /// Account Reset Web Authorization constructor.
   const AccountResetWebAuthorization({
     required this.hash,
@@ -101561,8 +101777,9 @@ class AccountResetWebAuthorization extends TlMethod<bool> {
 
 /// Account Reset Web Authorizations.
 ///
+/// Return Type: `bool`.
 /// ID: `682d2594`.
-class AccountResetWebAuthorizations extends TlMethod<bool> {
+class AccountResetWebAuthorizations extends TlMethod {
   /// Account Reset Web Authorizations constructor.
   const AccountResetWebAuthorizations() : super._();
 
@@ -101597,8 +101814,9 @@ class AccountResetWebAuthorizations extends TlMethod<bool> {
 
 /// Messages Search Sticker Sets.
 ///
+/// Return Type: `MessagesFoundStickerSetsBase`.
 /// ID: `35705b8a`.
-class MessagesSearchStickerSets extends TlMethod<MessagesFoundStickerSetsBase> {
+class MessagesSearchStickerSets extends TlMethod {
   /// Messages Search Sticker Sets constructor.
   const MessagesSearchStickerSets({
     required this.excludeFeatured,
@@ -101676,8 +101894,9 @@ class MessagesSearchStickerSets extends TlMethod<MessagesFoundStickerSetsBase> {
 
 /// Upload Get File Hashes.
 ///
+/// Return Type: `List<FileHashBase>`.
 /// ID: `9156982a`.
-class UploadGetFileHashes extends TlMethod<List<FileHashBase>> {
+class UploadGetFileHashes extends TlMethod {
   /// Upload Get File Hashes constructor.
   const UploadGetFileHashes({
     required this.location,
@@ -101736,9 +101955,9 @@ class UploadGetFileHashes extends TlMethod<List<FileHashBase>> {
 
 /// Help Get Terms Of Service Update.
 ///
+/// Return Type: `HelpTermsOfServiceUpdateBase`.
 /// ID: `2ca51fd1`.
-class HelpGetTermsOfServiceUpdate
-    extends TlMethod<HelpTermsOfServiceUpdateBase> {
+class HelpGetTermsOfServiceUpdate extends TlMethod {
   /// Help Get Terms Of Service Update constructor.
   const HelpGetTermsOfServiceUpdate() : super._();
 
@@ -101773,8 +101992,9 @@ class HelpGetTermsOfServiceUpdate
 
 /// Help Accept Terms Of Service.
 ///
+/// Return Type: `bool`.
 /// ID: `ee72f79a`.
-class HelpAcceptTermsOfService extends TlMethod<bool> {
+class HelpAcceptTermsOfService extends TlMethod {
   /// Help Accept Terms Of Service constructor.
   const HelpAcceptTermsOfService({
     required this.id,
@@ -101823,8 +102043,9 @@ class HelpAcceptTermsOfService extends TlMethod<bool> {
 
 /// Account Get All Secure Values.
 ///
+/// Return Type: `List<SecureValueBase>`.
 /// ID: `b288bc7d`.
-class AccountGetAllSecureValues extends TlMethod<List<SecureValueBase>> {
+class AccountGetAllSecureValues extends TlMethod {
   /// Account Get All Secure Values constructor.
   const AccountGetAllSecureValues() : super._();
 
@@ -101859,8 +102080,9 @@ class AccountGetAllSecureValues extends TlMethod<List<SecureValueBase>> {
 
 /// Account Get Secure Value.
 ///
+/// Return Type: `List<SecureValueBase>`.
 /// ID: `73665bc2`.
-class AccountGetSecureValue extends TlMethod<List<SecureValueBase>> {
+class AccountGetSecureValue extends TlMethod {
   /// Account Get Secure Value constructor.
   const AccountGetSecureValue({
     required this.types,
@@ -101909,8 +102131,9 @@ class AccountGetSecureValue extends TlMethod<List<SecureValueBase>> {
 
 /// Account Save Secure Value.
 ///
+/// Return Type: `SecureValueBase`.
 /// ID: `899fe31d`.
-class AccountSaveSecureValue extends TlMethod<SecureValueBase> {
+class AccountSaveSecureValue extends TlMethod {
   /// Account Save Secure Value constructor.
   const AccountSaveSecureValue({
     required this.value,
@@ -101969,8 +102192,9 @@ class AccountSaveSecureValue extends TlMethod<SecureValueBase> {
 
 /// Account Delete Secure Value.
 ///
+/// Return Type: `bool`.
 /// ID: `b880bc4b`.
-class AccountDeleteSecureValue extends TlMethod<bool> {
+class AccountDeleteSecureValue extends TlMethod {
   /// Account Delete Secure Value constructor.
   const AccountDeleteSecureValue({
     required this.types,
@@ -102019,8 +102243,9 @@ class AccountDeleteSecureValue extends TlMethod<bool> {
 
 /// Users Set Secure Value Errors.
 ///
+/// Return Type: `bool`.
 /// ID: `90c894b5`.
-class UsersSetSecureValueErrors extends TlMethod<bool> {
+class UsersSetSecureValueErrors extends TlMethod {
   /// Users Set Secure Value Errors constructor.
   const UsersSetSecureValueErrors({
     required this.id,
@@ -102077,9 +102302,9 @@ class UsersSetSecureValueErrors extends TlMethod<bool> {
 
 /// Account Get Authorization Form.
 ///
+/// Return Type: `AccountAuthorizationFormBase`.
 /// ID: `a929597a`.
-class AccountGetAuthorizationForm
-    extends TlMethod<AccountAuthorizationFormBase> {
+class AccountGetAuthorizationForm extends TlMethod {
   /// Account Get Authorization Form constructor.
   const AccountGetAuthorizationForm({
     required this.botId,
@@ -102146,8 +102371,9 @@ class AccountGetAuthorizationForm
 
 /// Account Accept Authorization.
 ///
+/// Return Type: `bool`.
 /// ID: `f3ed4c73`.
-class AccountAcceptAuthorization extends TlMethod<bool> {
+class AccountAcceptAuthorization extends TlMethod {
   /// Account Accept Authorization constructor.
   const AccountAcceptAuthorization({
     required this.botId,
@@ -102230,8 +102456,9 @@ class AccountAcceptAuthorization extends TlMethod<bool> {
 
 /// Account Send Verify Phone Code.
 ///
+/// Return Type: `AuthSentCodeBase`.
 /// ID: `a5a356f9`.
-class AccountSendVerifyPhoneCode extends TlMethod<AuthSentCodeBase> {
+class AccountSendVerifyPhoneCode extends TlMethod {
   /// Account Send Verify Phone Code constructor.
   const AccountSendVerifyPhoneCode({
     required this.phoneNumber,
@@ -102288,8 +102515,9 @@ class AccountSendVerifyPhoneCode extends TlMethod<AuthSentCodeBase> {
 
 /// Account Verify Phone.
 ///
+/// Return Type: `bool`.
 /// ID: `4dd3a7f6`.
-class AccountVerifyPhone extends TlMethod<bool> {
+class AccountVerifyPhone extends TlMethod {
   /// Account Verify Phone constructor.
   const AccountVerifyPhone({
     required this.phoneNumber,
@@ -102354,8 +102582,9 @@ class AccountVerifyPhone extends TlMethod<bool> {
 
 /// Account Send Verify Email Code.
 ///
+/// Return Type: `AccountSentEmailCodeBase`.
 /// ID: `98e037bb`.
-class AccountSendVerifyEmailCode extends TlMethod<AccountSentEmailCodeBase> {
+class AccountSendVerifyEmailCode extends TlMethod {
   /// Account Send Verify Email Code constructor.
   const AccountSendVerifyEmailCode({
     required this.purpose,
@@ -102412,8 +102641,9 @@ class AccountSendVerifyEmailCode extends TlMethod<AccountSentEmailCodeBase> {
 
 /// Account Verify Email.
 ///
+/// Return Type: `AccountEmailVerifiedBase`.
 /// ID: `032da4cf`.
-class AccountVerifyEmail extends TlMethod<AccountEmailVerifiedBase> {
+class AccountVerifyEmail extends TlMethod {
   /// Account Verify Email constructor.
   const AccountVerifyEmail({
     required this.purpose,
@@ -102470,8 +102700,9 @@ class AccountVerifyEmail extends TlMethod<AccountEmailVerifiedBase> {
 
 /// Help Get Deep Link Info.
 ///
+/// Return Type: `HelpDeepLinkInfoBase`.
 /// ID: `3fedc75f`.
-class HelpGetDeepLinkInfo extends TlMethod<HelpDeepLinkInfoBase> {
+class HelpGetDeepLinkInfo extends TlMethod {
   /// Help Get Deep Link Info constructor.
   const HelpGetDeepLinkInfo({
     required this.path,
@@ -102520,8 +102751,9 @@ class HelpGetDeepLinkInfo extends TlMethod<HelpDeepLinkInfoBase> {
 
 /// Contacts Get Saved.
 ///
+/// Return Type: `List<SavedContactBase>`.
 /// ID: `82f1e39f`.
-class ContactsGetSaved extends TlMethod<List<SavedContactBase>> {
+class ContactsGetSaved extends TlMethod {
   /// Contacts Get Saved constructor.
   const ContactsGetSaved() : super._();
 
@@ -102556,8 +102788,9 @@ class ContactsGetSaved extends TlMethod<List<SavedContactBase>> {
 
 /// Channels Get Left Channels.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `8341ecc0`.
-class ChannelsGetLeftChannels extends TlMethod<MessagesChatsBase> {
+class ChannelsGetLeftChannels extends TlMethod {
   /// Channels Get Left Channels constructor.
   const ChannelsGetLeftChannels({
     required this.offset,
@@ -102608,8 +102841,9 @@ class ChannelsGetLeftChannels extends TlMethod<MessagesChatsBase> {
 
 /// Account Init Takeout Session.
 ///
+/// Return Type: `AccountTakeoutBase`.
 /// ID: `8ef3eab0`.
-class AccountInitTakeoutSession extends TlMethod<AccountTakeoutBase> {
+class AccountInitTakeoutSession extends TlMethod {
   /// Account Init Takeout Session constructor.
   const AccountInitTakeoutSession({
     required this.contacts,
@@ -102721,8 +102955,9 @@ class AccountInitTakeoutSession extends TlMethod<AccountTakeoutBase> {
 
 /// Account Finish Takeout Session.
 ///
+/// Return Type: `bool`.
 /// ID: `1d2652ee`.
-class AccountFinishTakeoutSession extends TlMethod<bool> {
+class AccountFinishTakeoutSession extends TlMethod {
   /// Account Finish Takeout Session constructor.
   const AccountFinishTakeoutSession({
     required this.success,
@@ -102782,8 +103017,9 @@ class AccountFinishTakeoutSession extends TlMethod<bool> {
 
 /// Messages Get Split Ranges.
 ///
+/// Return Type: `List<MessageRangeBase>`.
 /// ID: `1cff7e08`.
-class MessagesGetSplitRanges extends TlMethod<List<MessageRangeBase>> {
+class MessagesGetSplitRanges extends TlMethod {
   /// Messages Get Split Ranges constructor.
   const MessagesGetSplitRanges() : super._();
 
@@ -102818,8 +103054,9 @@ class MessagesGetSplitRanges extends TlMethod<List<MessageRangeBase>> {
 
 /// Invoke With Messages Range.
 ///
+/// Return Type: `X`.
 /// ID: `365275f2`.
-class InvokeWithMessagesRange<X> extends TlMethod<X> {
+class InvokeWithMessagesRange extends TlMethod {
   /// Invoke With Messages Range constructor.
   const InvokeWithMessagesRange({
     required this.range,
@@ -102830,7 +103067,7 @@ class InvokeWithMessagesRange<X> extends TlMethod<X> {
   factory InvokeWithMessagesRange.deserialize(BinaryReader reader) {
     // Read [InvokeWithMessagesRange] fields.
     final range = reader.readObject() as MessageRangeBase;
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithMessagesRange] object.
     final returnValue = InvokeWithMessagesRange(
@@ -102846,7 +103083,7 @@ class InvokeWithMessagesRange<X> extends TlMethod<X> {
   final MessageRangeBase range;
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -102876,8 +103113,9 @@ class InvokeWithMessagesRange<X> extends TlMethod<X> {
 
 /// Invoke With Takeout.
 ///
+/// Return Type: `X`.
 /// ID: `aca9fd2e`.
-class InvokeWithTakeout<X> extends TlMethod<X> {
+class InvokeWithTakeout extends TlMethod {
   /// Invoke With Takeout constructor.
   const InvokeWithTakeout({
     required this.takeoutId,
@@ -102888,7 +103126,7 @@ class InvokeWithTakeout<X> extends TlMethod<X> {
   factory InvokeWithTakeout.deserialize(BinaryReader reader) {
     // Read [InvokeWithTakeout] fields.
     final takeoutId = reader.readInt64();
-    final query = reader.readObject() as TlMethod<X>;
+    final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithTakeout] object.
     final returnValue = InvokeWithTakeout(
@@ -102906,7 +103144,7 @@ class InvokeWithTakeout<X> extends TlMethod<X> {
   final int takeoutId;
 
   /// Query.
-  final TlMethod<X> query;
+  final TlMethod query;
 
   /// Serialize.
   @override
@@ -102936,8 +103174,9 @@ class InvokeWithTakeout<X> extends TlMethod<X> {
 
 /// Messages Mark Dialog Unread.
 ///
+/// Return Type: `bool`.
 /// ID: `c286d98f`.
-class MessagesMarkDialogUnread extends TlMethod<bool> {
+class MessagesMarkDialogUnread extends TlMethod {
   /// Messages Mark Dialog Unread constructor.
   const MessagesMarkDialogUnread({
     required this.unread,
@@ -103005,8 +103244,9 @@ class MessagesMarkDialogUnread extends TlMethod<bool> {
 
 /// Messages Get Dialog Unread Marks.
 ///
+/// Return Type: `List<DialogPeerBase>`.
 /// ID: `22e24e22`.
-class MessagesGetDialogUnreadMarks extends TlMethod<List<DialogPeerBase>> {
+class MessagesGetDialogUnreadMarks extends TlMethod {
   /// Messages Get Dialog Unread Marks constructor.
   const MessagesGetDialogUnreadMarks() : super._();
 
@@ -103041,8 +103281,9 @@ class MessagesGetDialogUnreadMarks extends TlMethod<List<DialogPeerBase>> {
 
 /// Contacts Toggle Top Peers.
 ///
+/// Return Type: `bool`.
 /// ID: `8514bdda`.
-class ContactsToggleTopPeers extends TlMethod<bool> {
+class ContactsToggleTopPeers extends TlMethod {
   /// Contacts Toggle Top Peers constructor.
   const ContactsToggleTopPeers({
     required this.enabled,
@@ -103091,8 +103332,9 @@ class ContactsToggleTopPeers extends TlMethod<bool> {
 
 /// Messages Clear All Drafts.
 ///
+/// Return Type: `bool`.
 /// ID: `7e58ee9c`.
-class MessagesClearAllDrafts extends TlMethod<bool> {
+class MessagesClearAllDrafts extends TlMethod {
   /// Messages Clear All Drafts constructor.
   const MessagesClearAllDrafts() : super._();
 
@@ -103127,8 +103369,9 @@ class MessagesClearAllDrafts extends TlMethod<bool> {
 
 /// Help Get App Config.
 ///
+/// Return Type: `HelpAppConfigBase`.
 /// ID: `61e3f854`.
-class HelpGetAppConfig extends TlMethod<HelpAppConfigBase> {
+class HelpGetAppConfig extends TlMethod {
   /// Help Get App Config constructor.
   const HelpGetAppConfig({
     required this.hash,
@@ -103179,8 +103422,9 @@ class HelpGetAppConfig extends TlMethod<HelpAppConfigBase> {
 
 /// Help Save App Log.
 ///
+/// Return Type: `bool`.
 /// ID: `6f02f748`.
-class HelpSaveAppLog extends TlMethod<bool> {
+class HelpSaveAppLog extends TlMethod {
   /// Help Save App Log constructor.
   const HelpSaveAppLog({
     required this.events,
@@ -103229,8 +103473,9 @@ class HelpSaveAppLog extends TlMethod<bool> {
 
 /// Help Get Passport Config.
 ///
+/// Return Type: `HelpPassportConfigBase`.
 /// ID: `c661ad08`.
-class HelpGetPassportConfig extends TlMethod<HelpPassportConfigBase> {
+class HelpGetPassportConfig extends TlMethod {
   /// Help Get Passport Config constructor.
   const HelpGetPassportConfig({
     required this.hash,
@@ -103281,8 +103526,9 @@ class HelpGetPassportConfig extends TlMethod<HelpPassportConfigBase> {
 
 /// Langpack Get Language.
 ///
+/// Return Type: `LangPackLanguageBase`.
 /// ID: `6a596502`.
-class LangpackGetLanguage extends TlMethod<LangPackLanguageBase> {
+class LangpackGetLanguage extends TlMethod {
   /// Langpack Get Language constructor.
   const LangpackGetLanguage({
     required this.langPack,
@@ -103339,8 +103585,9 @@ class LangpackGetLanguage extends TlMethod<LangPackLanguageBase> {
 
 /// Messages Update Pinned Message.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `d2aaf7ec`.
-class MessagesUpdatePinnedMessage extends TlMethod<UpdatesBase> {
+class MessagesUpdatePinnedMessage extends TlMethod {
   /// Messages Update Pinned Message constructor.
   const MessagesUpdatePinnedMessage({
     required this.silent,
@@ -103434,8 +103681,9 @@ class MessagesUpdatePinnedMessage extends TlMethod<UpdatesBase> {
 
 /// Account Confirm Password Email.
 ///
+/// Return Type: `bool`.
 /// ID: `8fdf1920`.
-class AccountConfirmPasswordEmail extends TlMethod<bool> {
+class AccountConfirmPasswordEmail extends TlMethod {
   /// Account Confirm Password Email constructor.
   const AccountConfirmPasswordEmail({
     required this.code,
@@ -103484,8 +103732,9 @@ class AccountConfirmPasswordEmail extends TlMethod<bool> {
 
 /// Account Resend Password Email.
 ///
+/// Return Type: `bool`.
 /// ID: `7a7f2a15`.
-class AccountResendPasswordEmail extends TlMethod<bool> {
+class AccountResendPasswordEmail extends TlMethod {
   /// Account Resend Password Email constructor.
   const AccountResendPasswordEmail() : super._();
 
@@ -103520,8 +103769,9 @@ class AccountResendPasswordEmail extends TlMethod<bool> {
 
 /// Account Cancel Password Email.
 ///
+/// Return Type: `bool`.
 /// ID: `c1cbd5b6`.
-class AccountCancelPasswordEmail extends TlMethod<bool> {
+class AccountCancelPasswordEmail extends TlMethod {
   /// Account Cancel Password Email constructor.
   const AccountCancelPasswordEmail() : super._();
 
@@ -103556,8 +103806,9 @@ class AccountCancelPasswordEmail extends TlMethod<bool> {
 
 /// Help Get Support Name.
 ///
+/// Return Type: `HelpSupportNameBase`.
 /// ID: `d360e72c`.
-class HelpGetSupportName extends TlMethod<HelpSupportNameBase> {
+class HelpGetSupportName extends TlMethod {
   /// Help Get Support Name constructor.
   const HelpGetSupportName() : super._();
 
@@ -103592,8 +103843,9 @@ class HelpGetSupportName extends TlMethod<HelpSupportNameBase> {
 
 /// Help Get User Info.
 ///
+/// Return Type: `HelpUserInfoBase`.
 /// ID: `038a08d3`.
-class HelpGetUserInfo extends TlMethod<HelpUserInfoBase> {
+class HelpGetUserInfo extends TlMethod {
   /// Help Get User Info constructor.
   const HelpGetUserInfo({
     required this.userId,
@@ -103642,8 +103894,9 @@ class HelpGetUserInfo extends TlMethod<HelpUserInfoBase> {
 
 /// Help Edit User Info.
 ///
+/// Return Type: `HelpUserInfoBase`.
 /// ID: `66b91b70`.
-class HelpEditUserInfo extends TlMethod<HelpUserInfoBase> {
+class HelpEditUserInfo extends TlMethod {
   /// Help Edit User Info constructor.
   const HelpEditUserInfo({
     required this.userId,
@@ -103708,8 +103961,9 @@ class HelpEditUserInfo extends TlMethod<HelpUserInfoBase> {
 
 /// Account Get Contact Sign Up Notification.
 ///
+/// Return Type: `bool`.
 /// ID: `9f07c728`.
-class AccountGetContactSignUpNotification extends TlMethod<bool> {
+class AccountGetContactSignUpNotification extends TlMethod {
   /// Account Get Contact Sign Up Notification constructor.
   const AccountGetContactSignUpNotification() : super._();
 
@@ -103744,8 +103998,9 @@ class AccountGetContactSignUpNotification extends TlMethod<bool> {
 
 /// Account Set Contact Sign Up Notification.
 ///
+/// Return Type: `bool`.
 /// ID: `cff43f61`.
-class AccountSetContactSignUpNotification extends TlMethod<bool> {
+class AccountSetContactSignUpNotification extends TlMethod {
   /// Account Set Contact Sign Up Notification constructor.
   const AccountSetContactSignUpNotification({
     required this.silent,
@@ -103794,8 +104049,9 @@ class AccountSetContactSignUpNotification extends TlMethod<bool> {
 
 /// Account Get Notify Exceptions.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `53577479`.
-class AccountGetNotifyExceptions extends TlMethod<UpdatesBase> {
+class AccountGetNotifyExceptions extends TlMethod {
   /// Account Get Notify Exceptions constructor.
   const AccountGetNotifyExceptions({
     required this.compareSound,
@@ -103877,8 +104133,9 @@ class AccountGetNotifyExceptions extends TlMethod<UpdatesBase> {
 
 /// Messages Send Vote.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `10ea6184`.
-class MessagesSendVote extends TlMethod<UpdatesBase> {
+class MessagesSendVote extends TlMethod {
   /// Messages Send Vote constructor.
   const MessagesSendVote({
     required this.peer,
@@ -103945,8 +104202,9 @@ class MessagesSendVote extends TlMethod<UpdatesBase> {
 
 /// Messages Get Poll Results.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `73bb643b`.
-class MessagesGetPollResults extends TlMethod<UpdatesBase> {
+class MessagesGetPollResults extends TlMethod {
   /// Messages Get Poll Results constructor.
   const MessagesGetPollResults({
     required this.peer,
@@ -104005,8 +104263,9 @@ class MessagesGetPollResults extends TlMethod<UpdatesBase> {
 
 /// Messages Get Onlines.
 ///
+/// Return Type: `ChatOnlinesBase`.
 /// ID: `6e2be050`.
-class MessagesGetOnlines extends TlMethod<ChatOnlinesBase> {
+class MessagesGetOnlines extends TlMethod {
   /// Messages Get Onlines constructor.
   const MessagesGetOnlines({
     required this.peer,
@@ -104055,8 +104314,9 @@ class MessagesGetOnlines extends TlMethod<ChatOnlinesBase> {
 
 /// Messages Edit Chat About.
 ///
+/// Return Type: `bool`.
 /// ID: `def60797`.
-class MessagesEditChatAbout extends TlMethod<bool> {
+class MessagesEditChatAbout extends TlMethod {
   /// Messages Edit Chat About constructor.
   const MessagesEditChatAbout({
     required this.peer,
@@ -104113,8 +104373,9 @@ class MessagesEditChatAbout extends TlMethod<bool> {
 
 /// Messages Edit Chat Default Banned Rights.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a5866b41`.
-class MessagesEditChatDefaultBannedRights extends TlMethod<UpdatesBase> {
+class MessagesEditChatDefaultBannedRights extends TlMethod {
   /// Messages Edit Chat Default Banned Rights constructor.
   const MessagesEditChatDefaultBannedRights({
     required this.peer,
@@ -104171,8 +104432,9 @@ class MessagesEditChatDefaultBannedRights extends TlMethod<UpdatesBase> {
 
 /// Account Get Wall Paper.
 ///
+/// Return Type: `WallPaperBase`.
 /// ID: `fc8ddbea`.
-class AccountGetWallPaper extends TlMethod<WallPaperBase> {
+class AccountGetWallPaper extends TlMethod {
   /// Account Get Wall Paper constructor.
   const AccountGetWallPaper({
     required this.wallpaper,
@@ -104221,8 +104483,9 @@ class AccountGetWallPaper extends TlMethod<WallPaperBase> {
 
 /// Account Upload Wall Paper.
 ///
+/// Return Type: `WallPaperBase`.
 /// ID: `e39a8f03`.
-class AccountUploadWallPaper extends TlMethod<WallPaperBase> {
+class AccountUploadWallPaper extends TlMethod {
   /// Account Upload Wall Paper constructor.
   const AccountUploadWallPaper({
     required this.forChat,
@@ -104306,8 +104569,9 @@ class AccountUploadWallPaper extends TlMethod<WallPaperBase> {
 
 /// Account Save Wall Paper.
 ///
+/// Return Type: `bool`.
 /// ID: `6c5a5b37`.
-class AccountSaveWallPaper extends TlMethod<bool> {
+class AccountSaveWallPaper extends TlMethod {
   /// Account Save Wall Paper constructor.
   const AccountSaveWallPaper({
     required this.wallpaper,
@@ -104372,8 +104636,9 @@ class AccountSaveWallPaper extends TlMethod<bool> {
 
 /// Account Install Wall Paper.
 ///
+/// Return Type: `bool`.
 /// ID: `feed5769`.
-class AccountInstallWallPaper extends TlMethod<bool> {
+class AccountInstallWallPaper extends TlMethod {
   /// Account Install Wall Paper constructor.
   const AccountInstallWallPaper({
     required this.wallpaper,
@@ -104430,8 +104695,9 @@ class AccountInstallWallPaper extends TlMethod<bool> {
 
 /// Account Reset Wall Papers.
 ///
+/// Return Type: `bool`.
 /// ID: `bb3b9804`.
-class AccountResetWallPapers extends TlMethod<bool> {
+class AccountResetWallPapers extends TlMethod {
   /// Account Reset Wall Papers constructor.
   const AccountResetWallPapers() : super._();
 
@@ -104466,9 +104732,9 @@ class AccountResetWallPapers extends TlMethod<bool> {
 
 /// Account Get Auto Download Settings.
 ///
+/// Return Type: `AccountAutoDownloadSettingsBase`.
 /// ID: `56da0b3f`.
-class AccountGetAutoDownloadSettings
-    extends TlMethod<AccountAutoDownloadSettingsBase> {
+class AccountGetAutoDownloadSettings extends TlMethod {
   /// Account Get Auto Download Settings constructor.
   const AccountGetAutoDownloadSettings() : super._();
 
@@ -104503,8 +104769,9 @@ class AccountGetAutoDownloadSettings
 
 /// Account Save Auto Download Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `76f36233`.
-class AccountSaveAutoDownloadSettings extends TlMethod<bool> {
+class AccountSaveAutoDownloadSettings extends TlMethod {
   /// Account Save Auto Download Settings constructor.
   const AccountSaveAutoDownloadSettings({
     required this.low,
@@ -104580,8 +104847,9 @@ class AccountSaveAutoDownloadSettings extends TlMethod<bool> {
 
 /// Messages Get Emoji Keywords.
 ///
+/// Return Type: `EmojiKeywordsDifferenceBase`.
 /// ID: `35a0e062`.
-class MessagesGetEmojiKeywords extends TlMethod<EmojiKeywordsDifferenceBase> {
+class MessagesGetEmojiKeywords extends TlMethod {
   /// Messages Get Emoji Keywords constructor.
   const MessagesGetEmojiKeywords({
     required this.langCode,
@@ -104630,9 +104898,9 @@ class MessagesGetEmojiKeywords extends TlMethod<EmojiKeywordsDifferenceBase> {
 
 /// Messages Get Emoji Keywords Difference.
 ///
+/// Return Type: `EmojiKeywordsDifferenceBase`.
 /// ID: `1508b6af`.
-class MessagesGetEmojiKeywordsDifference
-    extends TlMethod<EmojiKeywordsDifferenceBase> {
+class MessagesGetEmojiKeywordsDifference extends TlMethod {
   /// Messages Get Emoji Keywords Difference constructor.
   const MessagesGetEmojiKeywordsDifference({
     required this.langCode,
@@ -104691,9 +104959,9 @@ class MessagesGetEmojiKeywordsDifference
 
 /// Messages Get Emoji Keywords Languages.
 ///
+/// Return Type: `List<EmojiLanguageBase>`.
 /// ID: `4e9963b2`.
-class MessagesGetEmojiKeywordsLanguages
-    extends TlMethod<List<EmojiLanguageBase>> {
+class MessagesGetEmojiKeywordsLanguages extends TlMethod {
   /// Messages Get Emoji Keywords Languages constructor.
   const MessagesGetEmojiKeywordsLanguages({
     required this.langCodes,
@@ -104742,8 +105010,9 @@ class MessagesGetEmojiKeywordsLanguages
 
 /// Messages Get Emoji U R L.
 ///
+/// Return Type: `EmojiURLBase`.
 /// ID: `d5b10c26`.
-class MessagesGetEmojiURL extends TlMethod<EmojiURLBase> {
+class MessagesGetEmojiURL extends TlMethod {
   /// Messages Get Emoji U R L constructor.
   const MessagesGetEmojiURL({
     required this.langCode,
@@ -104792,8 +105061,9 @@ class MessagesGetEmojiURL extends TlMethod<EmojiURLBase> {
 
 /// Folders Edit Peer Folders.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `6847d0ab`.
-class FoldersEditPeerFolders extends TlMethod<UpdatesBase> {
+class FoldersEditPeerFolders extends TlMethod {
   /// Folders Edit Peer Folders constructor.
   const FoldersEditPeerFolders({
     required this.folderPeers,
@@ -104842,9 +105112,9 @@ class FoldersEditPeerFolders extends TlMethod<UpdatesBase> {
 
 /// Messages Get Search Counters.
 ///
+/// Return Type: `List<MessagesSearchCounterBase>`.
 /// ID: `1bbcf300`.
-class MessagesGetSearchCounters
-    extends TlMethod<List<MessagesSearchCounterBase>> {
+class MessagesGetSearchCounters extends TlMethod {
   /// Messages Get Search Counters constructor.
   const MessagesGetSearchCounters({
     required this.peer,
@@ -104939,8 +105209,9 @@ class MessagesGetSearchCounters
 
 /// Channels Get Groups For Discussion.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `f5dad378`.
-class ChannelsGetGroupsForDiscussion extends TlMethod<MessagesChatsBase> {
+class ChannelsGetGroupsForDiscussion extends TlMethod {
   /// Channels Get Groups For Discussion constructor.
   const ChannelsGetGroupsForDiscussion() : super._();
 
@@ -104975,8 +105246,9 @@ class ChannelsGetGroupsForDiscussion extends TlMethod<MessagesChatsBase> {
 
 /// Channels Set Discussion Group.
 ///
+/// Return Type: `bool`.
 /// ID: `40582bb2`.
-class ChannelsSetDiscussionGroup extends TlMethod<bool> {
+class ChannelsSetDiscussionGroup extends TlMethod {
   /// Channels Set Discussion Group constructor.
   const ChannelsSetDiscussionGroup({
     required this.broadcast,
@@ -105033,8 +105305,9 @@ class ChannelsSetDiscussionGroup extends TlMethod<bool> {
 
 /// Messages Request Url Auth.
 ///
+/// Return Type: `UrlAuthResultBase`.
 /// ID: `198fb446`.
-class MessagesRequestUrlAuth extends TlMethod<UrlAuthResultBase> {
+class MessagesRequestUrlAuth extends TlMethod {
   /// Messages Request Url Auth constructor.
   const MessagesRequestUrlAuth({
     this.peer,
@@ -105136,8 +105409,9 @@ class MessagesRequestUrlAuth extends TlMethod<UrlAuthResultBase> {
 
 /// Messages Accept Url Auth.
 ///
+/// Return Type: `UrlAuthResultBase`.
 /// ID: `b12c7125`.
-class MessagesAcceptUrlAuth extends TlMethod<UrlAuthResultBase> {
+class MessagesAcceptUrlAuth extends TlMethod {
   /// Messages Accept Url Auth constructor.
   const MessagesAcceptUrlAuth({
     required this.writeAllowed,
@@ -105247,8 +105521,9 @@ class MessagesAcceptUrlAuth extends TlMethod<UrlAuthResultBase> {
 
 /// Messages Hide Peer Settings Bar.
 ///
+/// Return Type: `bool`.
 /// ID: `4facb138`.
-class MessagesHidePeerSettingsBar extends TlMethod<bool> {
+class MessagesHidePeerSettingsBar extends TlMethod {
   /// Messages Hide Peer Settings Bar constructor.
   const MessagesHidePeerSettingsBar({
     required this.peer,
@@ -105297,8 +105572,9 @@ class MessagesHidePeerSettingsBar extends TlMethod<bool> {
 
 /// Contacts Add Contact.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e8f463d0`.
-class ContactsAddContact extends TlMethod<UpdatesBase> {
+class ContactsAddContact extends TlMethod {
   /// Contacts Add Contact constructor.
   const ContactsAddContact({
     required this.addPhonePrivacyException,
@@ -105390,8 +105666,9 @@ class ContactsAddContact extends TlMethod<UpdatesBase> {
 
 /// Contacts Accept Contact.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f831a20f`.
-class ContactsAcceptContact extends TlMethod<UpdatesBase> {
+class ContactsAcceptContact extends TlMethod {
   /// Contacts Accept Contact constructor.
   const ContactsAcceptContact({
     required this.id,
@@ -105440,8 +105717,9 @@ class ContactsAcceptContact extends TlMethod<UpdatesBase> {
 
 /// Channels Edit Creator.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `8f38cd1f`.
-class ChannelsEditCreator extends TlMethod<UpdatesBase> {
+class ChannelsEditCreator extends TlMethod {
   /// Channels Edit Creator constructor.
   const ChannelsEditCreator({
     required this.channel,
@@ -105506,8 +105784,9 @@ class ChannelsEditCreator extends TlMethod<UpdatesBase> {
 
 /// Contacts Get Located.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `d348bc44`.
-class ContactsGetLocated extends TlMethod<UpdatesBase> {
+class ContactsGetLocated extends TlMethod {
   /// Contacts Get Located constructor.
   const ContactsGetLocated({
     required this.background,
@@ -105588,8 +105867,9 @@ class ContactsGetLocated extends TlMethod<UpdatesBase> {
 
 /// Channels Edit Location.
 ///
+/// Return Type: `bool`.
 /// ID: `58e63f6d`.
-class ChannelsEditLocation extends TlMethod<bool> {
+class ChannelsEditLocation extends TlMethod {
   /// Channels Edit Location constructor.
   const ChannelsEditLocation({
     required this.channel,
@@ -105654,8 +105934,9 @@ class ChannelsEditLocation extends TlMethod<bool> {
 
 /// Channels Toggle Slow Mode.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `edd49ef0`.
-class ChannelsToggleSlowMode extends TlMethod<UpdatesBase> {
+class ChannelsToggleSlowMode extends TlMethod {
   /// Channels Toggle Slow Mode constructor.
   const ChannelsToggleSlowMode({
     required this.channel,
@@ -105714,8 +105995,9 @@ class ChannelsToggleSlowMode extends TlMethod<UpdatesBase> {
 
 /// Messages Get Scheduled History.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `f516760b`.
-class MessagesGetScheduledHistory extends TlMethod<MessagesMessagesBase> {
+class MessagesGetScheduledHistory extends TlMethod {
   /// Messages Get Scheduled History constructor.
   const MessagesGetScheduledHistory({
     required this.peer,
@@ -105774,8 +106056,9 @@ class MessagesGetScheduledHistory extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Get Scheduled Messages.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `bdbb0464`.
-class MessagesGetScheduledMessages extends TlMethod<MessagesMessagesBase> {
+class MessagesGetScheduledMessages extends TlMethod {
   /// Messages Get Scheduled Messages constructor.
   const MessagesGetScheduledMessages({
     required this.peer,
@@ -105832,8 +106115,9 @@ class MessagesGetScheduledMessages extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Send Scheduled Messages.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `bd38850a`.
-class MessagesSendScheduledMessages extends TlMethod<UpdatesBase> {
+class MessagesSendScheduledMessages extends TlMethod {
   /// Messages Send Scheduled Messages constructor.
   const MessagesSendScheduledMessages({
     required this.peer,
@@ -105890,8 +106174,9 @@ class MessagesSendScheduledMessages extends TlMethod<UpdatesBase> {
 
 /// Messages Delete Scheduled Messages.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `59ae2b16`.
-class MessagesDeleteScheduledMessages extends TlMethod<UpdatesBase> {
+class MessagesDeleteScheduledMessages extends TlMethod {
   /// Messages Delete Scheduled Messages constructor.
   const MessagesDeleteScheduledMessages({
     required this.peer,
@@ -105948,8 +106233,9 @@ class MessagesDeleteScheduledMessages extends TlMethod<UpdatesBase> {
 
 /// Account Upload Theme.
 ///
+/// Return Type: `DocumentBase`.
 /// ID: `1c3db333`.
-class AccountUploadTheme extends TlMethod<DocumentBase> {
+class AccountUploadTheme extends TlMethod {
   /// Account Upload Theme constructor.
   const AccountUploadTheme({
     required this.file,
@@ -106038,8 +106324,9 @@ class AccountUploadTheme extends TlMethod<DocumentBase> {
 
 /// Account Create Theme.
 ///
+/// Return Type: `ThemeBase`.
 /// ID: `652e4400`.
-class AccountCreateTheme extends TlMethod<ThemeBase> {
+class AccountCreateTheme extends TlMethod {
   /// Account Create Theme constructor.
   const AccountCreateTheme({
     required this.slug,
@@ -106136,8 +106423,9 @@ class AccountCreateTheme extends TlMethod<ThemeBase> {
 
 /// Account Update Theme.
 ///
+/// Return Type: `ThemeBase`.
 /// ID: `2bf40ccc`.
-class AccountUpdateTheme extends TlMethod<ThemeBase> {
+class AccountUpdateTheme extends TlMethod {
   /// Account Update Theme constructor.
   const AccountUpdateTheme({
     required this.format,
@@ -106260,8 +106548,9 @@ class AccountUpdateTheme extends TlMethod<ThemeBase> {
 
 /// Account Save Theme.
 ///
+/// Return Type: `bool`.
 /// ID: `f257106c`.
-class AccountSaveTheme extends TlMethod<bool> {
+class AccountSaveTheme extends TlMethod {
   /// Account Save Theme constructor.
   const AccountSaveTheme({
     required this.theme,
@@ -106318,8 +106607,9 @@ class AccountSaveTheme extends TlMethod<bool> {
 
 /// Account Install Theme.
 ///
+/// Return Type: `bool`.
 /// ID: `c727bb3b`.
-class AccountInstallTheme extends TlMethod<bool> {
+class AccountInstallTheme extends TlMethod {
   /// Account Install Theme constructor.
   const AccountInstallTheme({
     required this.dark,
@@ -106419,8 +106709,9 @@ class AccountInstallTheme extends TlMethod<bool> {
 
 /// Account Get Theme.
 ///
+/// Return Type: `ThemeBase`.
 /// ID: `3a5869ec`.
-class AccountGetTheme extends TlMethod<ThemeBase> {
+class AccountGetTheme extends TlMethod {
   /// Account Get Theme constructor.
   const AccountGetTheme({
     required this.format,
@@ -106477,8 +106768,9 @@ class AccountGetTheme extends TlMethod<ThemeBase> {
 
 /// Account Get Themes.
 ///
+/// Return Type: `AccountThemesBase`.
 /// ID: `7206e458`.
-class AccountGetThemes extends TlMethod<AccountThemesBase> {
+class AccountGetThemes extends TlMethod {
   /// Account Get Themes constructor.
   const AccountGetThemes({
     required this.format,
@@ -106537,8 +106829,9 @@ class AccountGetThemes extends TlMethod<AccountThemesBase> {
 
 /// Auth Export Login Token.
 ///
+/// Return Type: `AuthLoginTokenBase`.
 /// ID: `b7e085fe`.
-class AuthExportLoginToken extends TlMethod<AuthLoginTokenBase> {
+class AuthExportLoginToken extends TlMethod {
   /// Auth Export Login Token constructor.
   const AuthExportLoginToken({
     required this.apiId,
@@ -106605,8 +106898,9 @@ class AuthExportLoginToken extends TlMethod<AuthLoginTokenBase> {
 
 /// Auth Import Login Token.
 ///
+/// Return Type: `AuthLoginTokenBase`.
 /// ID: `95ac5ce4`.
-class AuthImportLoginToken extends TlMethod<AuthLoginTokenBase> {
+class AuthImportLoginToken extends TlMethod {
   /// Auth Import Login Token constructor.
   const AuthImportLoginToken({
     required this.token,
@@ -106655,8 +106949,9 @@ class AuthImportLoginToken extends TlMethod<AuthLoginTokenBase> {
 
 /// Auth Accept Login Token.
 ///
+/// Return Type: `AuthorizationBase`.
 /// ID: `e894ad4d`.
-class AuthAcceptLoginToken extends TlMethod<AuthorizationBase> {
+class AuthAcceptLoginToken extends TlMethod {
   /// Auth Accept Login Token constructor.
   const AuthAcceptLoginToken({
     required this.token,
@@ -106705,8 +107000,9 @@ class AuthAcceptLoginToken extends TlMethod<AuthorizationBase> {
 
 /// Account Set Content Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `b574b16b`.
-class AccountSetContentSettings extends TlMethod<bool> {
+class AccountSetContentSettings extends TlMethod {
   /// Account Set Content Settings constructor.
   const AccountSetContentSettings({
     required this.sensitiveEnabled,
@@ -106766,8 +107062,9 @@ class AccountSetContentSettings extends TlMethod<bool> {
 
 /// Account Get Content Settings.
 ///
+/// Return Type: `AccountContentSettingsBase`.
 /// ID: `8b9b4dae`.
-class AccountGetContentSettings extends TlMethod<AccountContentSettingsBase> {
+class AccountGetContentSettings extends TlMethod {
   /// Account Get Content Settings constructor.
   const AccountGetContentSettings() : super._();
 
@@ -106802,8 +107099,9 @@ class AccountGetContentSettings extends TlMethod<AccountContentSettingsBase> {
 
 /// Channels Get Inactive Channels.
 ///
+/// Return Type: `MessagesInactiveChatsBase`.
 /// ID: `11e831ee`.
-class ChannelsGetInactiveChannels extends TlMethod<MessagesInactiveChatsBase> {
+class ChannelsGetInactiveChannels extends TlMethod {
   /// Channels Get Inactive Channels constructor.
   const ChannelsGetInactiveChannels() : super._();
 
@@ -106838,8 +107136,9 @@ class ChannelsGetInactiveChannels extends TlMethod<MessagesInactiveChatsBase> {
 
 /// Account Get Multi Wall Papers.
 ///
+/// Return Type: `List<WallPaperBase>`.
 /// ID: `65ad71dc`.
-class AccountGetMultiWallPapers extends TlMethod<List<WallPaperBase>> {
+class AccountGetMultiWallPapers extends TlMethod {
   /// Account Get Multi Wall Papers constructor.
   const AccountGetMultiWallPapers({
     required this.wallpapers,
@@ -106888,8 +107187,9 @@ class AccountGetMultiWallPapers extends TlMethod<List<WallPaperBase>> {
 
 /// Messages Get Poll Votes.
 ///
+/// Return Type: `MessagesVotesListBase`.
 /// ID: `b86e380e`.
-class MessagesGetPollVotes extends TlMethod<MessagesVotesListBase> {
+class MessagesGetPollVotes extends TlMethod {
   /// Messages Get Poll Votes constructor.
   const MessagesGetPollVotes({
     required this.peer,
@@ -106995,8 +107295,9 @@ class MessagesGetPollVotes extends TlMethod<MessagesVotesListBase> {
 
 /// Messages Toggle Sticker Sets.
 ///
+/// Return Type: `bool`.
 /// ID: `b5052fea`.
-class MessagesToggleStickerSets extends TlMethod<bool> {
+class MessagesToggleStickerSets extends TlMethod {
   /// Messages Toggle Sticker Sets constructor.
   const MessagesToggleStickerSets({
     required this.uninstall,
@@ -107080,8 +107381,9 @@ class MessagesToggleStickerSets extends TlMethod<bool> {
 
 /// Payments Get Bank Card Data.
 ///
+/// Return Type: `PaymentsBankCardDataBase`.
 /// ID: `2e79d779`.
-class PaymentsGetBankCardData extends TlMethod<PaymentsBankCardDataBase> {
+class PaymentsGetBankCardData extends TlMethod {
   /// Payments Get Bank Card Data constructor.
   const PaymentsGetBankCardData({
     required this.number,
@@ -107130,8 +107432,9 @@ class PaymentsGetBankCardData extends TlMethod<PaymentsBankCardDataBase> {
 
 /// Messages Get Dialog Filters.
 ///
+/// Return Type: `List<DialogFilterBase>`.
 /// ID: `f19ed96d`.
-class MessagesGetDialogFilters extends TlMethod<List<DialogFilterBase>> {
+class MessagesGetDialogFilters extends TlMethod {
   /// Messages Get Dialog Filters constructor.
   const MessagesGetDialogFilters() : super._();
 
@@ -107166,9 +107469,9 @@ class MessagesGetDialogFilters extends TlMethod<List<DialogFilterBase>> {
 
 /// Messages Get Suggested Dialog Filters.
 ///
+/// Return Type: `List<DialogFilterSuggestedBase>`.
 /// ID: `a29cd42c`.
-class MessagesGetSuggestedDialogFilters
-    extends TlMethod<List<DialogFilterSuggestedBase>> {
+class MessagesGetSuggestedDialogFilters extends TlMethod {
   /// Messages Get Suggested Dialog Filters constructor.
   const MessagesGetSuggestedDialogFilters() : super._();
 
@@ -107203,8 +107506,9 @@ class MessagesGetSuggestedDialogFilters
 
 /// Messages Update Dialog Filter.
 ///
+/// Return Type: `bool`.
 /// ID: `1ad4a04a`.
-class MessagesUpdateDialogFilter extends TlMethod<bool> {
+class MessagesUpdateDialogFilter extends TlMethod {
   /// Messages Update Dialog Filter constructor.
   const MessagesUpdateDialogFilter({
     required this.id,
@@ -107280,8 +107584,9 @@ class MessagesUpdateDialogFilter extends TlMethod<bool> {
 
 /// Messages Update Dialog Filters Order.
 ///
+/// Return Type: `bool`.
 /// ID: `c563c1e4`.
-class MessagesUpdateDialogFiltersOrder extends TlMethod<bool> {
+class MessagesUpdateDialogFiltersOrder extends TlMethod {
   /// Messages Update Dialog Filters Order constructor.
   const MessagesUpdateDialogFiltersOrder({
     required this.order,
@@ -107330,8 +107635,9 @@ class MessagesUpdateDialogFiltersOrder extends TlMethod<bool> {
 
 /// Stats Get Broadcast Stats.
 ///
+/// Return Type: `StatsBroadcastStatsBase`.
 /// ID: `ab42441a`.
-class StatsGetBroadcastStats extends TlMethod<StatsBroadcastStatsBase> {
+class StatsGetBroadcastStats extends TlMethod {
   /// Stats Get Broadcast Stats constructor.
   const StatsGetBroadcastStats({
     required this.dark,
@@ -107399,8 +107705,9 @@ class StatsGetBroadcastStats extends TlMethod<StatsBroadcastStatsBase> {
 
 /// Stats Load Async Graph.
 ///
+/// Return Type: `StatsGraphBase`.
 /// ID: `621d5fa0`.
-class StatsLoadAsyncGraph extends TlMethod<StatsGraphBase> {
+class StatsLoadAsyncGraph extends TlMethod {
   /// Stats Load Async Graph constructor.
   const StatsLoadAsyncGraph({
     required this.token,
@@ -107473,8 +107780,9 @@ class StatsLoadAsyncGraph extends TlMethod<StatsGraphBase> {
 
 /// Stickers Set Sticker Set Thumb.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `a76a5392`.
-class StickersSetStickerSetThumb extends TlMethod<MessagesStickerSetBase> {
+class StickersSetStickerSetThumb extends TlMethod {
   /// Stickers Set Sticker Set Thumb constructor.
   const StickersSetStickerSetThumb({
     required this.stickerset,
@@ -107561,8 +107869,9 @@ class StickersSetStickerSetThumb extends TlMethod<MessagesStickerSetBase> {
 
 /// Bots Set Bot Commands.
 ///
+/// Return Type: `bool`.
 /// ID: `0517165a`.
-class BotsSetBotCommands extends TlMethod<bool> {
+class BotsSetBotCommands extends TlMethod {
   /// Bots Set Bot Commands constructor.
   const BotsSetBotCommands({
     required this.scope,
@@ -107627,9 +107936,9 @@ class BotsSetBotCommands extends TlMethod<bool> {
 
 /// Messages Get Old Featured Stickers.
 ///
+/// Return Type: `MessagesFeaturedStickersBase`.
 /// ID: `7ed094a1`.
-class MessagesGetOldFeaturedStickers
-    extends TlMethod<MessagesFeaturedStickersBase> {
+class MessagesGetOldFeaturedStickers extends TlMethod {
   /// Messages Get Old Featured Stickers constructor.
   const MessagesGetOldFeaturedStickers({
     required this.offset,
@@ -107700,8 +108009,9 @@ class MessagesGetOldFeaturedStickers
 
 /// Help Get Promo Data.
 ///
+/// Return Type: `HelpPromoDataBase`.
 /// ID: `c0977421`.
-class HelpGetPromoData extends TlMethod<HelpPromoDataBase> {
+class HelpGetPromoData extends TlMethod {
   /// Help Get Promo Data constructor.
   const HelpGetPromoData() : super._();
 
@@ -107736,8 +108046,9 @@ class HelpGetPromoData extends TlMethod<HelpPromoDataBase> {
 
 /// Help Hide Promo Data.
 ///
+/// Return Type: `bool`.
 /// ID: `1e251c95`.
-class HelpHidePromoData extends TlMethod<bool> {
+class HelpHidePromoData extends TlMethod {
   /// Help Hide Promo Data constructor.
   const HelpHidePromoData({
     required this.peer,
@@ -107786,8 +108097,9 @@ class HelpHidePromoData extends TlMethod<bool> {
 
 /// Phone Send Signaling Data.
 ///
+/// Return Type: `bool`.
 /// ID: `ff7a9383`.
-class PhoneSendSignalingData extends TlMethod<bool> {
+class PhoneSendSignalingData extends TlMethod {
   /// Phone Send Signaling Data constructor.
   const PhoneSendSignalingData({
     required this.peer,
@@ -107844,8 +108156,9 @@ class PhoneSendSignalingData extends TlMethod<bool> {
 
 /// Stats Get Megagroup Stats.
 ///
+/// Return Type: `StatsMegagroupStatsBase`.
 /// ID: `dcdf8607`.
-class StatsGetMegagroupStats extends TlMethod<StatsMegagroupStatsBase> {
+class StatsGetMegagroupStats extends TlMethod {
   /// Stats Get Megagroup Stats constructor.
   const StatsGetMegagroupStats({
     required this.dark,
@@ -107913,9 +108226,9 @@ class StatsGetMegagroupStats extends TlMethod<StatsMegagroupStatsBase> {
 
 /// Account Get Global Privacy Settings.
 ///
+/// Return Type: `GlobalPrivacySettingsBase`.
 /// ID: `eb2b4cf6`.
-class AccountGetGlobalPrivacySettings
-    extends TlMethod<GlobalPrivacySettingsBase> {
+class AccountGetGlobalPrivacySettings extends TlMethod {
   /// Account Get Global Privacy Settings constructor.
   const AccountGetGlobalPrivacySettings() : super._();
 
@@ -107950,9 +108263,9 @@ class AccountGetGlobalPrivacySettings
 
 /// Account Set Global Privacy Settings.
 ///
+/// Return Type: `GlobalPrivacySettingsBase`.
 /// ID: `1edaaac2`.
-class AccountSetGlobalPrivacySettings
-    extends TlMethod<GlobalPrivacySettingsBase> {
+class AccountSetGlobalPrivacySettings extends TlMethod {
   /// Account Set Global Privacy Settings constructor.
   const AccountSetGlobalPrivacySettings({
     required this.settings,
@@ -108001,8 +108314,9 @@ class AccountSetGlobalPrivacySettings
 
 /// Help Dismiss Suggestion.
 ///
+/// Return Type: `bool`.
 /// ID: `f50dbaa1`.
-class HelpDismissSuggestion extends TlMethod<bool> {
+class HelpDismissSuggestion extends TlMethod {
   /// Help Dismiss Suggestion constructor.
   const HelpDismissSuggestion({
     required this.peer,
@@ -108059,8 +108373,9 @@ class HelpDismissSuggestion extends TlMethod<bool> {
 
 /// Help Get Countries List.
 ///
+/// Return Type: `HelpCountriesListBase`.
 /// ID: `735787a8`.
-class HelpGetCountriesList extends TlMethod<HelpCountriesListBase> {
+class HelpGetCountriesList extends TlMethod {
   /// Help Get Countries List constructor.
   const HelpGetCountriesList({
     required this.langCode,
@@ -108119,8 +108434,9 @@ class HelpGetCountriesList extends TlMethod<HelpCountriesListBase> {
 
 /// Messages Get Replies.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `22ddd30c`.
-class MessagesGetReplies extends TlMethod<MessagesMessagesBase> {
+class MessagesGetReplies extends TlMethod {
   /// Messages Get Replies constructor.
   const MessagesGetReplies({
     required this.peer,
@@ -108247,9 +108563,9 @@ class MessagesGetReplies extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Get Discussion Message.
 ///
+/// Return Type: `MessagesDiscussionMessageBase`.
 /// ID: `446972fd`.
-class MessagesGetDiscussionMessage
-    extends TlMethod<MessagesDiscussionMessageBase> {
+class MessagesGetDiscussionMessage extends TlMethod {
   /// Messages Get Discussion Message constructor.
   const MessagesGetDiscussionMessage({
     required this.peer,
@@ -108308,8 +108624,9 @@ class MessagesGetDiscussionMessage
 
 /// Messages Read Discussion.
 ///
+/// Return Type: `bool`.
 /// ID: `f731a9f4`.
-class MessagesReadDiscussion extends TlMethod<bool> {
+class MessagesReadDiscussion extends TlMethod {
   /// Messages Read Discussion constructor.
   const MessagesReadDiscussion({
     required this.peer,
@@ -108378,8 +108695,9 @@ class MessagesReadDiscussion extends TlMethod<bool> {
 
 /// Contacts Block From Replies.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `29a8962c`.
-class ContactsBlockFromReplies extends TlMethod<UpdatesBase> {
+class ContactsBlockFromReplies extends TlMethod {
   /// Contacts Block From Replies constructor.
   const ContactsBlockFromReplies({
     required this.deleteMessage,
@@ -108465,8 +108783,9 @@ class ContactsBlockFromReplies extends TlMethod<UpdatesBase> {
 
 /// Stats Get Message Public Forwards.
 ///
+/// Return Type: `StatsPublicForwardsBase`.
 /// ID: `5f150144`.
-class StatsGetMessagePublicForwards extends TlMethod<StatsPublicForwardsBase> {
+class StatsGetMessagePublicForwards extends TlMethod {
   /// Stats Get Message Public Forwards constructor.
   const StatsGetMessagePublicForwards({
     required this.channel,
@@ -108543,8 +108862,9 @@ class StatsGetMessagePublicForwards extends TlMethod<StatsPublicForwardsBase> {
 
 /// Stats Get Message Stats.
 ///
+/// Return Type: `StatsMessageStatsBase`.
 /// ID: `b6e0a3f5`.
-class StatsGetMessageStats extends TlMethod<StatsMessageStatsBase> {
+class StatsGetMessageStats extends TlMethod {
   /// Stats Get Message Stats constructor.
   const StatsGetMessageStats({
     required this.dark,
@@ -108622,8 +108942,9 @@ class StatsGetMessageStats extends TlMethod<StatsMessageStatsBase> {
 
 /// Messages Unpin All Messages.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `ee22b9a8`.
-class MessagesUnpinAllMessages extends TlMethod<MessagesAffectedHistoryBase> {
+class MessagesUnpinAllMessages extends TlMethod {
   /// Messages Unpin All Messages constructor.
   const MessagesUnpinAllMessages({
     required this.peer,
@@ -108696,8 +109017,9 @@ class MessagesUnpinAllMessages extends TlMethod<MessagesAffectedHistoryBase> {
 
 /// Phone Create Group Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `48cdc6d8`.
-class PhoneCreateGroupCall extends TlMethod<UpdatesBase> {
+class PhoneCreateGroupCall extends TlMethod {
   /// Phone Create Group Call constructor.
   const PhoneCreateGroupCall({
     required this.rtmpStream,
@@ -108801,8 +109123,9 @@ class PhoneCreateGroupCall extends TlMethod<UpdatesBase> {
 
 /// Phone Join Group Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `b132ff7b`.
-class PhoneJoinGroupCall extends TlMethod<UpdatesBase> {
+class PhoneJoinGroupCall extends TlMethod {
   /// Phone Join Group Call constructor.
   const PhoneJoinGroupCall({
     required this.muted,
@@ -108907,8 +109230,9 @@ class PhoneJoinGroupCall extends TlMethod<UpdatesBase> {
 
 /// Phone Leave Group Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `500377f9`.
-class PhoneLeaveGroupCall extends TlMethod<UpdatesBase> {
+class PhoneLeaveGroupCall extends TlMethod {
   /// Phone Leave Group Call constructor.
   const PhoneLeaveGroupCall({
     required this.call,
@@ -108967,8 +109291,9 @@ class PhoneLeaveGroupCall extends TlMethod<UpdatesBase> {
 
 /// Phone Invite To Group Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `7b393160`.
-class PhoneInviteToGroupCall extends TlMethod<UpdatesBase> {
+class PhoneInviteToGroupCall extends TlMethod {
   /// Phone Invite To Group Call constructor.
   const PhoneInviteToGroupCall({
     required this.call,
@@ -109025,8 +109350,9 @@ class PhoneInviteToGroupCall extends TlMethod<UpdatesBase> {
 
 /// Phone Discard Group Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `7a777135`.
-class PhoneDiscardGroupCall extends TlMethod<UpdatesBase> {
+class PhoneDiscardGroupCall extends TlMethod {
   /// Phone Discard Group Call constructor.
   const PhoneDiscardGroupCall({
     required this.call,
@@ -109075,8 +109401,9 @@ class PhoneDiscardGroupCall extends TlMethod<UpdatesBase> {
 
 /// Phone Toggle Group Call Settings.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `74bbb43d`.
-class PhoneToggleGroupCallSettings extends TlMethod<UpdatesBase> {
+class PhoneToggleGroupCallSettings extends TlMethod {
   /// Phone Toggle Group Call Settings constructor.
   const PhoneToggleGroupCallSettings({
     required this.resetInviteHash,
@@ -109152,8 +109479,9 @@ class PhoneToggleGroupCallSettings extends TlMethod<UpdatesBase> {
 
 /// Phone Get Group Call.
 ///
+/// Return Type: `PhoneGroupCallBase`.
 /// ID: `041845db`.
-class PhoneGetGroupCall extends TlMethod<PhoneGroupCallBase> {
+class PhoneGetGroupCall extends TlMethod {
   /// Phone Get Group Call constructor.
   const PhoneGetGroupCall({
     required this.call,
@@ -109212,8 +109540,9 @@ class PhoneGetGroupCall extends TlMethod<PhoneGroupCallBase> {
 
 /// Phone Get Group Participants.
 ///
+/// Return Type: `PhoneGroupParticipantsBase`.
 /// ID: `c558d8ab`.
-class PhoneGetGroupParticipants extends TlMethod<PhoneGroupParticipantsBase> {
+class PhoneGetGroupParticipants extends TlMethod {
   /// Phone Get Group Participants constructor.
   const PhoneGetGroupParticipants({
     required this.call,
@@ -109296,8 +109625,9 @@ class PhoneGetGroupParticipants extends TlMethod<PhoneGroupParticipantsBase> {
 
 /// Phone Check Group Call.
 ///
+/// Return Type: `List<int>`.
 /// ID: `b59cf977`.
-class PhoneCheckGroupCall extends TlMethod<List<int>> {
+class PhoneCheckGroupCall extends TlMethod {
   /// Phone Check Group Call constructor.
   const PhoneCheckGroupCall({
     required this.call,
@@ -109354,8 +109684,9 @@ class PhoneCheckGroupCall extends TlMethod<List<int>> {
 
 /// Messages Delete Chat.
 ///
+/// Return Type: `bool`.
 /// ID: `5bd0ee50`.
-class MessagesDeleteChat extends TlMethod<bool> {
+class MessagesDeleteChat extends TlMethod {
   /// Messages Delete Chat constructor.
   const MessagesDeleteChat({
     required this.chatId,
@@ -109406,9 +109737,9 @@ class MessagesDeleteChat extends TlMethod<bool> {
 
 /// Messages Delete Phone Call History.
 ///
+/// Return Type: `MessagesAffectedFoundMessagesBase`.
 /// ID: `f9cbe409`.
-class MessagesDeletePhoneCallHistory
-    extends TlMethod<MessagesAffectedFoundMessagesBase> {
+class MessagesDeletePhoneCallHistory extends TlMethod {
   /// Messages Delete Phone Call History constructor.
   const MessagesDeletePhoneCallHistory({
     required this.revoke,
@@ -109468,9 +109799,9 @@ class MessagesDeletePhoneCallHistory
 
 /// Messages Check History Import.
 ///
+/// Return Type: `MessagesHistoryImportParsedBase`.
 /// ID: `43fe19f3`.
-class MessagesCheckHistoryImport
-    extends TlMethod<MessagesHistoryImportParsedBase> {
+class MessagesCheckHistoryImport extends TlMethod {
   /// Messages Check History Import constructor.
   const MessagesCheckHistoryImport({
     required this.importHead,
@@ -109519,8 +109850,9 @@ class MessagesCheckHistoryImport
 
 /// Messages Init History Import.
 ///
+/// Return Type: `MessagesHistoryImportBase`.
 /// ID: `34090c3b`.
-class MessagesInitHistoryImport extends TlMethod<MessagesHistoryImportBase> {
+class MessagesInitHistoryImport extends TlMethod {
   /// Messages Init History Import constructor.
   const MessagesInitHistoryImport({
     required this.peer,
@@ -109587,8 +109919,9 @@ class MessagesInitHistoryImport extends TlMethod<MessagesHistoryImportBase> {
 
 /// Messages Upload Imported Media.
 ///
+/// Return Type: `MessageMediaBase`.
 /// ID: `2a862092`.
-class MessagesUploadImportedMedia extends TlMethod<MessageMediaBase> {
+class MessagesUploadImportedMedia extends TlMethod {
   /// Messages Upload Imported Media constructor.
   const MessagesUploadImportedMedia({
     required this.peer,
@@ -109663,8 +109996,9 @@ class MessagesUploadImportedMedia extends TlMethod<MessageMediaBase> {
 
 /// Messages Start History Import.
 ///
+/// Return Type: `bool`.
 /// ID: `b43df344`.
-class MessagesStartHistoryImport extends TlMethod<bool> {
+class MessagesStartHistoryImport extends TlMethod {
   /// Messages Start History Import constructor.
   const MessagesStartHistoryImport({
     required this.peer,
@@ -109723,9 +110057,9 @@ class MessagesStartHistoryImport extends TlMethod<bool> {
 
 /// Messages Get Exported Chat Invites.
 ///
+/// Return Type: `MessagesExportedChatInvitesBase`.
 /// ID: `a2b5a3f6`.
-class MessagesGetExportedChatInvites
-    extends TlMethod<MessagesExportedChatInvitesBase> {
+class MessagesGetExportedChatInvites extends TlMethod {
   /// Messages Get Exported Chat Invites constructor.
   const MessagesGetExportedChatInvites({
     required this.revoked,
@@ -109836,9 +110170,9 @@ class MessagesGetExportedChatInvites
 
 /// Messages Get Exported Chat Invite.
 ///
+/// Return Type: `MessagesExportedChatInviteBase`.
 /// ID: `73746f5c`.
-class MessagesGetExportedChatInvite
-    extends TlMethod<MessagesExportedChatInviteBase> {
+class MessagesGetExportedChatInvite extends TlMethod {
   /// Messages Get Exported Chat Invite constructor.
   const MessagesGetExportedChatInvite({
     required this.peer,
@@ -109895,9 +110229,9 @@ class MessagesGetExportedChatInvite
 
 /// Messages Edit Exported Chat Invite.
 ///
+/// Return Type: `MessagesExportedChatInviteBase`.
 /// ID: `bdca2f75`.
-class MessagesEditExportedChatInvite
-    extends TlMethod<MessagesExportedChatInviteBase> {
+class MessagesEditExportedChatInvite extends TlMethod {
   /// Messages Edit Exported Chat Invite constructor.
   const MessagesEditExportedChatInvite({
     required this.revoked,
@@ -110020,8 +110354,9 @@ class MessagesEditExportedChatInvite
 
 /// Messages Delete Revoked Exported Chat Invites.
 ///
+/// Return Type: `bool`.
 /// ID: `56987bd5`.
-class MessagesDeleteRevokedExportedChatInvites extends TlMethod<bool> {
+class MessagesDeleteRevokedExportedChatInvites extends TlMethod {
   /// Messages Delete Revoked Exported Chat Invites constructor.
   const MessagesDeleteRevokedExportedChatInvites({
     required this.peer,
@@ -110079,8 +110414,9 @@ class MessagesDeleteRevokedExportedChatInvites extends TlMethod<bool> {
 
 /// Messages Delete Exported Chat Invite.
 ///
+/// Return Type: `bool`.
 /// ID: `d464a42b`.
-class MessagesDeleteExportedChatInvite extends TlMethod<bool> {
+class MessagesDeleteExportedChatInvite extends TlMethod {
   /// Messages Delete Exported Chat Invite constructor.
   const MessagesDeleteExportedChatInvite({
     required this.peer,
@@ -110137,9 +110473,9 @@ class MessagesDeleteExportedChatInvite extends TlMethod<bool> {
 
 /// Messages Get Admins With Invites.
 ///
+/// Return Type: `MessagesChatAdminsWithInvitesBase`.
 /// ID: `3920e6ef`.
-class MessagesGetAdminsWithInvites
-    extends TlMethod<MessagesChatAdminsWithInvitesBase> {
+class MessagesGetAdminsWithInvites extends TlMethod {
   /// Messages Get Admins With Invites constructor.
   const MessagesGetAdminsWithInvites({
     required this.peer,
@@ -110188,9 +110524,9 @@ class MessagesGetAdminsWithInvites
 
 /// Messages Get Chat Invite Importers.
 ///
+/// Return Type: `MessagesChatInviteImportersBase`.
 /// ID: `df04dd4e`.
-class MessagesGetChatInviteImporters
-    extends TlMethod<MessagesChatInviteImportersBase> {
+class MessagesGetChatInviteImporters extends TlMethod {
   /// Messages Get Chat Invite Importers constructor.
   const MessagesGetChatInviteImporters({
     required this.requested,
@@ -110310,8 +110646,9 @@ class MessagesGetChatInviteImporters
 
 /// Messages Set History T T L.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `b80e5fe4`.
-class MessagesSetHistoryTTL extends TlMethod<UpdatesBase> {
+class MessagesSetHistoryTTL extends TlMethod {
   /// Messages Set History T T L constructor.
   const MessagesSetHistoryTTL({
     required this.peer,
@@ -110370,8 +110707,9 @@ class MessagesSetHistoryTTL extends TlMethod<UpdatesBase> {
 
 /// Account Report Profile Photo.
 ///
+/// Return Type: `bool`.
 /// ID: `fa8cc6f5`.
-class AccountReportProfilePhoto extends TlMethod<bool> {
+class AccountReportProfilePhoto extends TlMethod {
   /// Account Report Profile Photo constructor.
   const AccountReportProfilePhoto({
     required this.peer,
@@ -110444,8 +110782,9 @@ class AccountReportProfilePhoto extends TlMethod<bool> {
 
 /// Channels Convert To Gigagroup.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `0b290c69`.
-class ChannelsConvertToGigagroup extends TlMethod<UpdatesBase> {
+class ChannelsConvertToGigagroup extends TlMethod {
   /// Channels Convert To Gigagroup constructor.
   const ChannelsConvertToGigagroup({
     required this.channel,
@@ -110494,9 +110833,9 @@ class ChannelsConvertToGigagroup extends TlMethod<UpdatesBase> {
 
 /// Messages Check History Import Peer.
 ///
+/// Return Type: `MessagesCheckedHistoryImportPeerBase`.
 /// ID: `5dc60f03`.
-class MessagesCheckHistoryImportPeer
-    extends TlMethod<MessagesCheckedHistoryImportPeerBase> {
+class MessagesCheckHistoryImportPeer extends TlMethod {
   /// Messages Check History Import Peer constructor.
   const MessagesCheckHistoryImportPeer({
     required this.peer,
@@ -110545,8 +110884,9 @@ class MessagesCheckHistoryImportPeer
 
 /// Phone Toggle Group Call Record.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f128c708`.
-class PhoneToggleGroupCallRecord extends TlMethod<UpdatesBase> {
+class PhoneToggleGroupCallRecord extends TlMethod {
   /// Phone Toggle Group Call Record constructor.
   const PhoneToggleGroupCallRecord({
     required this.start,
@@ -110642,8 +110982,9 @@ class PhoneToggleGroupCallRecord extends TlMethod<UpdatesBase> {
 
 /// Phone Edit Group Call Participant.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a5273abf`.
-class PhoneEditGroupCallParticipant extends TlMethod<UpdatesBase> {
+class PhoneEditGroupCallParticipant extends TlMethod {
   /// Phone Edit Group Call Participant constructor.
   const PhoneEditGroupCallParticipant({
     required this.call,
@@ -110764,8 +111105,9 @@ class PhoneEditGroupCallParticipant extends TlMethod<UpdatesBase> {
 
 /// Phone Edit Group Call Title.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `1ca6ac0a`.
-class PhoneEditGroupCallTitle extends TlMethod<UpdatesBase> {
+class PhoneEditGroupCallTitle extends TlMethod {
   /// Phone Edit Group Call Title constructor.
   const PhoneEditGroupCallTitle({
     required this.call,
@@ -110822,8 +111164,9 @@ class PhoneEditGroupCallTitle extends TlMethod<UpdatesBase> {
 
 /// Phone Get Group Call Join As.
 ///
+/// Return Type: `PhoneJoinAsPeersBase`.
 /// ID: `ef7c213a`.
-class PhoneGetGroupCallJoinAs extends TlMethod<PhoneJoinAsPeersBase> {
+class PhoneGetGroupCallJoinAs extends TlMethod {
   /// Phone Get Group Call Join As constructor.
   const PhoneGetGroupCallJoinAs({
     required this.peer,
@@ -110872,9 +111215,9 @@ class PhoneGetGroupCallJoinAs extends TlMethod<PhoneJoinAsPeersBase> {
 
 /// Phone Export Group Call Invite.
 ///
+/// Return Type: `PhoneExportedGroupCallInviteBase`.
 /// ID: `e6aa647f`.
-class PhoneExportGroupCallInvite
-    extends TlMethod<PhoneExportedGroupCallInviteBase> {
+class PhoneExportGroupCallInvite extends TlMethod {
   /// Phone Export Group Call Invite constructor.
   const PhoneExportGroupCallInvite({
     required this.canSelfUnmute,
@@ -110942,8 +111285,9 @@ class PhoneExportGroupCallInvite
 
 /// Phone Toggle Group Call Start Subscription.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `219c34e6`.
-class PhoneToggleGroupCallStartSubscription extends TlMethod<UpdatesBase> {
+class PhoneToggleGroupCallStartSubscription extends TlMethod {
   /// Phone Toggle Group Call Start Subscription constructor.
   const PhoneToggleGroupCallStartSubscription({
     required this.call,
@@ -111001,8 +111345,9 @@ class PhoneToggleGroupCallStartSubscription extends TlMethod<UpdatesBase> {
 
 /// Phone Start Scheduled Group Call.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `5680e342`.
-class PhoneStartScheduledGroupCall extends TlMethod<UpdatesBase> {
+class PhoneStartScheduledGroupCall extends TlMethod {
   /// Phone Start Scheduled Group Call constructor.
   const PhoneStartScheduledGroupCall({
     required this.call,
@@ -111051,8 +111396,9 @@ class PhoneStartScheduledGroupCall extends TlMethod<UpdatesBase> {
 
 /// Phone Save Default Group Call Join As.
 ///
+/// Return Type: `bool`.
 /// ID: `575e1f8c`.
-class PhoneSaveDefaultGroupCallJoinAs extends TlMethod<bool> {
+class PhoneSaveDefaultGroupCallJoinAs extends TlMethod {
   /// Phone Save Default Group Call Join As constructor.
   const PhoneSaveDefaultGroupCallJoinAs({
     required this.peer,
@@ -111109,8 +111455,9 @@ class PhoneSaveDefaultGroupCallJoinAs extends TlMethod<bool> {
 
 /// Phone Join Group Call Presentation.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `cbea6bc4`.
-class PhoneJoinGroupCallPresentation extends TlMethod<UpdatesBase> {
+class PhoneJoinGroupCallPresentation extends TlMethod {
   /// Phone Join Group Call Presentation constructor.
   const PhoneJoinGroupCallPresentation({
     required this.call,
@@ -111167,8 +111514,9 @@ class PhoneJoinGroupCallPresentation extends TlMethod<UpdatesBase> {
 
 /// Phone Leave Group Call Presentation.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `1c50d144`.
-class PhoneLeaveGroupCallPresentation extends TlMethod<UpdatesBase> {
+class PhoneLeaveGroupCallPresentation extends TlMethod {
   /// Phone Leave Group Call Presentation constructor.
   const PhoneLeaveGroupCallPresentation({
     required this.call,
@@ -111217,8 +111565,9 @@ class PhoneLeaveGroupCallPresentation extends TlMethod<UpdatesBase> {
 
 /// Stickers Check Short Name.
 ///
+/// Return Type: `bool`.
 /// ID: `284b3639`.
-class StickersCheckShortName extends TlMethod<bool> {
+class StickersCheckShortName extends TlMethod {
   /// Stickers Check Short Name constructor.
   const StickersCheckShortName({
     required this.shortName,
@@ -111267,9 +111616,9 @@ class StickersCheckShortName extends TlMethod<bool> {
 
 /// Stickers Suggest Short Name.
 ///
+/// Return Type: `StickersSuggestedShortNameBase`.
 /// ID: `4dafc503`.
-class StickersSuggestShortName
-    extends TlMethod<StickersSuggestedShortNameBase> {
+class StickersSuggestShortName extends TlMethod {
   /// Stickers Suggest Short Name constructor.
   const StickersSuggestShortName({
     required this.title,
@@ -111318,8 +111667,9 @@ class StickersSuggestShortName
 
 /// Bots Reset Bot Commands.
 ///
+/// Return Type: `bool`.
 /// ID: `3d8de0f9`.
-class BotsResetBotCommands extends TlMethod<bool> {
+class BotsResetBotCommands extends TlMethod {
   /// Bots Reset Bot Commands constructor.
   const BotsResetBotCommands({
     required this.scope,
@@ -111376,8 +111726,9 @@ class BotsResetBotCommands extends TlMethod<bool> {
 
 /// Bots Get Bot Commands.
 ///
+/// Return Type: `List<BotCommandBase>`.
 /// ID: `e34c0dd6`.
-class BotsGetBotCommands extends TlMethod<List<BotCommandBase>> {
+class BotsGetBotCommands extends TlMethod {
   /// Bots Get Bot Commands constructor.
   const BotsGetBotCommands({
     required this.scope,
@@ -111434,8 +111785,9 @@ class BotsGetBotCommands extends TlMethod<List<BotCommandBase>> {
 
 /// Account Reset Password.
 ///
+/// Return Type: `AccountResetPasswordResultBase`.
 /// ID: `9308ce1b`.
-class AccountResetPassword extends TlMethod<AccountResetPasswordResultBase> {
+class AccountResetPassword extends TlMethod {
   /// Account Reset Password constructor.
   const AccountResetPassword() : super._();
 
@@ -111470,8 +111822,9 @@ class AccountResetPassword extends TlMethod<AccountResetPasswordResultBase> {
 
 /// Account Decline Password Reset.
 ///
+/// Return Type: `bool`.
 /// ID: `4c9409f6`.
-class AccountDeclinePasswordReset extends TlMethod<bool> {
+class AccountDeclinePasswordReset extends TlMethod {
   /// Account Decline Password Reset constructor.
   const AccountDeclinePasswordReset() : super._();
 
@@ -111506,8 +111859,9 @@ class AccountDeclinePasswordReset extends TlMethod<bool> {
 
 /// Auth Check Recovery Password.
 ///
+/// Return Type: `bool`.
 /// ID: `0d36bf79`.
-class AuthCheckRecoveryPassword extends TlMethod<bool> {
+class AuthCheckRecoveryPassword extends TlMethod {
   /// Auth Check Recovery Password constructor.
   const AuthCheckRecoveryPassword({
     required this.code,
@@ -111556,8 +111910,9 @@ class AuthCheckRecoveryPassword extends TlMethod<bool> {
 
 /// Account Get Chat Themes.
 ///
+/// Return Type: `AccountThemesBase`.
 /// ID: `d638de89`.
-class AccountGetChatThemes extends TlMethod<AccountThemesBase> {
+class AccountGetChatThemes extends TlMethod {
   /// Account Get Chat Themes constructor.
   const AccountGetChatThemes({
     required this.hash,
@@ -111608,8 +111963,9 @@ class AccountGetChatThemes extends TlMethod<AccountThemesBase> {
 
 /// Messages Set Chat Theme.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e63be13f`.
-class MessagesSetChatTheme extends TlMethod<UpdatesBase> {
+class MessagesSetChatTheme extends TlMethod {
   /// Messages Set Chat Theme constructor.
   const MessagesSetChatTheme({
     required this.peer,
@@ -111666,8 +112022,9 @@ class MessagesSetChatTheme extends TlMethod<UpdatesBase> {
 
 /// Channels View Sponsored Message.
 ///
+/// Return Type: `bool`.
 /// ID: `beaedb94`.
-class ChannelsViewSponsoredMessage extends TlMethod<bool> {
+class ChannelsViewSponsoredMessage extends TlMethod {
   /// Channels View Sponsored Message constructor.
   const ChannelsViewSponsoredMessage({
     required this.channel,
@@ -111724,9 +112081,9 @@ class ChannelsViewSponsoredMessage extends TlMethod<bool> {
 
 /// Channels Get Sponsored Messages.
 ///
+/// Return Type: `MessagesSponsoredMessagesBase`.
 /// ID: `ec210fbf`.
-class ChannelsGetSponsoredMessages
-    extends TlMethod<MessagesSponsoredMessagesBase> {
+class ChannelsGetSponsoredMessages extends TlMethod {
   /// Channels Get Sponsored Messages constructor.
   const ChannelsGetSponsoredMessages({
     required this.channel,
@@ -111775,9 +112132,9 @@ class ChannelsGetSponsoredMessages
 
 /// Messages Get Message Read Participants.
 ///
+/// Return Type: `List<ReadParticipantDateBase>`.
 /// ID: `31c1c44f`.
-class MessagesGetMessageReadParticipants
-    extends TlMethod<List<ReadParticipantDateBase>> {
+class MessagesGetMessageReadParticipants extends TlMethod {
   /// Messages Get Message Read Participants constructor.
   const MessagesGetMessageReadParticipants({
     required this.peer,
@@ -111836,9 +112193,9 @@ class MessagesGetMessageReadParticipants
 
 /// Messages Get Search Results Calendar.
 ///
+/// Return Type: `MessagesSearchResultsCalendarBase`.
 /// ID: `6aa3f6bd`.
-class MessagesGetSearchResultsCalendar
-    extends TlMethod<MessagesSearchResultsCalendarBase> {
+class MessagesGetSearchResultsCalendar extends TlMethod {
   /// Messages Get Search Results Calendar constructor.
   const MessagesGetSearchResultsCalendar({
     required this.peer,
@@ -111938,9 +112295,9 @@ class MessagesGetSearchResultsCalendar
 
 /// Messages Get Search Results Positions.
 ///
+/// Return Type: `MessagesSearchResultsPositionsBase`.
 /// ID: `9c7f2f10`.
-class MessagesGetSearchResultsPositions
-    extends TlMethod<MessagesSearchResultsPositionsBase> {
+class MessagesGetSearchResultsPositions extends TlMethod {
   /// Messages Get Search Results Positions constructor.
   const MessagesGetSearchResultsPositions({
     required this.peer,
@@ -112042,8 +112399,9 @@ class MessagesGetSearchResultsPositions
 
 /// Messages Hide Chat Join Request.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `7fe7e815`.
-class MessagesHideChatJoinRequest extends TlMethod<UpdatesBase> {
+class MessagesHideChatJoinRequest extends TlMethod {
   /// Messages Hide Chat Join Request constructor.
   const MessagesHideChatJoinRequest({
     required this.approved,
@@ -112119,8 +112477,9 @@ class MessagesHideChatJoinRequest extends TlMethod<UpdatesBase> {
 
 /// Messages Hide All Chat Join Requests.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e085f4ea`.
-class MessagesHideAllChatJoinRequests extends TlMethod<UpdatesBase> {
+class MessagesHideAllChatJoinRequests extends TlMethod {
   /// Messages Hide All Chat Join Requests constructor.
   const MessagesHideAllChatJoinRequests({
     required this.approved,
@@ -112201,8 +112560,9 @@ class MessagesHideAllChatJoinRequests extends TlMethod<UpdatesBase> {
 
 /// Messages Toggle No Forwards.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `b11eafa2`.
-class MessagesToggleNoForwards extends TlMethod<UpdatesBase> {
+class MessagesToggleNoForwards extends TlMethod {
   /// Messages Toggle No Forwards constructor.
   const MessagesToggleNoForwards({
     required this.peer,
@@ -112259,8 +112619,9 @@ class MessagesToggleNoForwards extends TlMethod<UpdatesBase> {
 
 /// Messages Save Default Send As.
 ///
+/// Return Type: `bool`.
 /// ID: `ccfddf96`.
-class MessagesSaveDefaultSendAs extends TlMethod<bool> {
+class MessagesSaveDefaultSendAs extends TlMethod {
   /// Messages Save Default Send As constructor.
   const MessagesSaveDefaultSendAs({
     required this.peer,
@@ -112317,8 +112678,9 @@ class MessagesSaveDefaultSendAs extends TlMethod<bool> {
 
 /// Channels Get Send As.
 ///
+/// Return Type: `ChannelsSendAsPeersBase`.
 /// ID: `0dc770ee`.
-class ChannelsGetSendAs extends TlMethod<ChannelsSendAsPeersBase> {
+class ChannelsGetSendAs extends TlMethod {
   /// Channels Get Send As constructor.
   const ChannelsGetSendAs({
     required this.peer,
@@ -112367,8 +112729,9 @@ class ChannelsGetSendAs extends TlMethod<ChannelsSendAsPeersBase> {
 
 /// Account Set Authorization T T L.
 ///
+/// Return Type: `bool`.
 /// ID: `bf899aa0`.
-class AccountSetAuthorizationTTL extends TlMethod<bool> {
+class AccountSetAuthorizationTTL extends TlMethod {
   /// Account Set Authorization T T L constructor.
   const AccountSetAuthorizationTTL({
     required this.authorizationTtlDays,
@@ -112419,8 +112782,9 @@ class AccountSetAuthorizationTTL extends TlMethod<bool> {
 
 /// Account Change Authorization Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `40f48462`.
-class AccountChangeAuthorizationSettings extends TlMethod<bool> {
+class AccountChangeAuthorizationSettings extends TlMethod {
   /// Account Change Authorization Settings constructor.
   const AccountChangeAuthorizationSettings({
     required this.confirmed,
@@ -112506,9 +112870,9 @@ class AccountChangeAuthorizationSettings extends TlMethod<bool> {
 
 /// Channels Delete Participant History.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `367544db`.
-class ChannelsDeleteParticipantHistory
-    extends TlMethod<MessagesAffectedHistoryBase> {
+class ChannelsDeleteParticipantHistory extends TlMethod {
   /// Channels Delete Participant History constructor.
   const ChannelsDeleteParticipantHistory({
     required this.channel,
@@ -112565,8 +112929,9 @@ class ChannelsDeleteParticipantHistory
 
 /// Messages Send Reaction.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `d30d78d4`.
-class MessagesSendReaction extends TlMethod<UpdatesBase> {
+class MessagesSendReaction extends TlMethod {
   /// Messages Send Reaction constructor.
   const MessagesSendReaction({
     required this.big,
@@ -112666,8 +113031,9 @@ class MessagesSendReaction extends TlMethod<UpdatesBase> {
 
 /// Messages Get Messages Reactions.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `8bba90e6`.
-class MessagesGetMessagesReactions extends TlMethod<UpdatesBase> {
+class MessagesGetMessagesReactions extends TlMethod {
   /// Messages Get Messages Reactions constructor.
   const MessagesGetMessagesReactions({
     required this.peer,
@@ -112724,9 +113090,9 @@ class MessagesGetMessagesReactions extends TlMethod<UpdatesBase> {
 
 /// Messages Get Message Reactions List.
 ///
+/// Return Type: `MessagesMessageReactionsListBase`.
 /// ID: `461b3f48`.
-class MessagesGetMessageReactionsList
-    extends TlMethod<MessagesMessageReactionsListBase> {
+class MessagesGetMessageReactionsList extends TlMethod {
   /// Messages Get Message Reactions List constructor.
   const MessagesGetMessageReactionsList({
     required this.peer,
@@ -112833,8 +113199,9 @@ class MessagesGetMessageReactionsList
 
 /// Messages Set Chat Available Reactions.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `feb16771`.
-class MessagesSetChatAvailableReactions extends TlMethod<UpdatesBase> {
+class MessagesSetChatAvailableReactions extends TlMethod {
   /// Messages Set Chat Available Reactions constructor.
   const MessagesSetChatAvailableReactions({
     required this.peer,
@@ -112891,9 +113258,9 @@ class MessagesSetChatAvailableReactions extends TlMethod<UpdatesBase> {
 
 /// Messages Get Available Reactions.
 ///
+/// Return Type: `MessagesAvailableReactionsBase`.
 /// ID: `18dea0ac`.
-class MessagesGetAvailableReactions
-    extends TlMethod<MessagesAvailableReactionsBase> {
+class MessagesGetAvailableReactions extends TlMethod {
   /// Messages Get Available Reactions constructor.
   const MessagesGetAvailableReactions({
     required this.hash,
@@ -112944,8 +113311,9 @@ class MessagesGetAvailableReactions
 
 /// Messages Set Default Reaction.
 ///
+/// Return Type: `bool`.
 /// ID: `4f47a016`.
-class MessagesSetDefaultReaction extends TlMethod<bool> {
+class MessagesSetDefaultReaction extends TlMethod {
   /// Messages Set Default Reaction constructor.
   const MessagesSetDefaultReaction({
     required this.reaction,
@@ -112994,8 +113362,9 @@ class MessagesSetDefaultReaction extends TlMethod<bool> {
 
 /// Messages Translate Text.
 ///
+/// Return Type: `MessagesTranslatedTextBase`.
 /// ID: `63183030`.
-class MessagesTranslateText extends TlMethod<MessagesTranslatedTextBase> {
+class MessagesTranslateText extends TlMethod {
   /// Messages Translate Text constructor.
   const MessagesTranslateText({
     this.peer,
@@ -113094,8 +113463,9 @@ class MessagesTranslateText extends TlMethod<MessagesTranslatedTextBase> {
 
 /// Messages Get Unread Reactions.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `3223495b`.
-class MessagesGetUnreadReactions extends TlMethod<MessagesMessagesBase> {
+class MessagesGetUnreadReactions extends TlMethod {
   /// Messages Get Unread Reactions constructor.
   const MessagesGetUnreadReactions({
     required this.peer,
@@ -113218,8 +113588,9 @@ class MessagesGetUnreadReactions extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Read Reactions.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `54aa7f8e`.
-class MessagesReadReactions extends TlMethod<MessagesAffectedHistoryBase> {
+class MessagesReadReactions extends TlMethod {
   /// Messages Read Reactions constructor.
   const MessagesReadReactions({
     required this.peer,
@@ -113292,8 +113663,9 @@ class MessagesReadReactions extends TlMethod<MessagesAffectedHistoryBase> {
 
 /// Contacts Resolve Phone.
 ///
+/// Return Type: `ContactsResolvedPeerBase`.
 /// ID: `8af94344`.
-class ContactsResolvePhone extends TlMethod<ContactsResolvedPeerBase> {
+class ContactsResolvePhone extends TlMethod {
   /// Contacts Resolve Phone constructor.
   const ContactsResolvePhone({
     required this.phone,
@@ -113342,9 +113714,9 @@ class ContactsResolvePhone extends TlMethod<ContactsResolvedPeerBase> {
 
 /// Phone Get Group Call Stream Channels.
 ///
+/// Return Type: `PhoneGroupCallStreamChannelsBase`.
 /// ID: `1ab21940`.
-class PhoneGetGroupCallStreamChannels
-    extends TlMethod<PhoneGroupCallStreamChannelsBase> {
+class PhoneGetGroupCallStreamChannels extends TlMethod {
   /// Phone Get Group Call Stream Channels constructor.
   const PhoneGetGroupCallStreamChannels({
     required this.call,
@@ -113393,9 +113765,9 @@ class PhoneGetGroupCallStreamChannels
 
 /// Phone Get Group Call Stream Rtmp Url.
 ///
+/// Return Type: `PhoneGroupCallStreamRtmpUrlBase`.
 /// ID: `deb3abbf`.
-class PhoneGetGroupCallStreamRtmpUrl
-    extends TlMethod<PhoneGroupCallStreamRtmpUrlBase> {
+class PhoneGetGroupCallStreamRtmpUrl extends TlMethod {
   /// Phone Get Group Call Stream Rtmp Url constructor.
   const PhoneGetGroupCallStreamRtmpUrl({
     required this.peer,
@@ -113452,8 +113824,9 @@ class PhoneGetGroupCallStreamRtmpUrl
 
 /// Messages Search Sent Media.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `107e31a0`.
-class MessagesSearchSentMedia extends TlMethod<MessagesMessagesBase> {
+class MessagesSearchSentMedia extends TlMethod {
   /// Messages Search Sent Media constructor.
   const MessagesSearchSentMedia({
     required this.q,
@@ -113520,8 +113893,9 @@ class MessagesSearchSentMedia extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Get Attach Menu Bots.
 ///
+/// Return Type: `AttachMenuBotsBase`.
 /// ID: `16fcc2cb`.
-class MessagesGetAttachMenuBots extends TlMethod<AttachMenuBotsBase> {
+class MessagesGetAttachMenuBots extends TlMethod {
   /// Messages Get Attach Menu Bots constructor.
   const MessagesGetAttachMenuBots({
     required this.hash,
@@ -113572,8 +113946,9 @@ class MessagesGetAttachMenuBots extends TlMethod<AttachMenuBotsBase> {
 
 /// Messages Get Attach Menu Bot.
 ///
+/// Return Type: `AttachMenuBotsBotBase`.
 /// ID: `77216192`.
-class MessagesGetAttachMenuBot extends TlMethod<AttachMenuBotsBotBase> {
+class MessagesGetAttachMenuBot extends TlMethod {
   /// Messages Get Attach Menu Bot constructor.
   const MessagesGetAttachMenuBot({
     required this.bot,
@@ -113622,8 +113997,9 @@ class MessagesGetAttachMenuBot extends TlMethod<AttachMenuBotsBotBase> {
 
 /// Messages Toggle Bot In Attach Menu.
 ///
+/// Return Type: `bool`.
 /// ID: `69f59d69`.
-class MessagesToggleBotInAttachMenu extends TlMethod<bool> {
+class MessagesToggleBotInAttachMenu extends TlMethod {
   /// Messages Toggle Bot In Attach Menu constructor.
   const MessagesToggleBotInAttachMenu({
     required this.writeAllowed,
@@ -113699,8 +114075,9 @@ class MessagesToggleBotInAttachMenu extends TlMethod<bool> {
 
 /// Messages Request Web View.
 ///
+/// Return Type: `WebViewResultBase`.
 /// ID: `269dc2c1`.
-class MessagesRequestWebView extends TlMethod<WebViewResultBase> {
+class MessagesRequestWebView extends TlMethod {
   /// Messages Request Web View constructor.
   const MessagesRequestWebView({
     required this.fromBotMenu,
@@ -113859,8 +114236,9 @@ class MessagesRequestWebView extends TlMethod<WebViewResultBase> {
 
 /// Messages Prolong Web View.
 ///
+/// Return Type: `bool`.
 /// ID: `b0d81a83`.
-class MessagesProlongWebView extends TlMethod<bool> {
+class MessagesProlongWebView extends TlMethod {
   /// Messages Prolong Web View constructor.
   const MessagesProlongWebView({
     required this.silent,
@@ -113973,8 +114351,9 @@ class MessagesProlongWebView extends TlMethod<bool> {
 
 /// Messages Request Simple Web View.
 ///
+/// Return Type: `SimpleWebViewResultBase`.
 /// ID: `1a46500a`.
-class MessagesRequestSimpleWebView extends TlMethod<SimpleWebViewResultBase> {
+class MessagesRequestSimpleWebView extends TlMethod {
   /// Messages Request Simple Web View constructor.
   const MessagesRequestSimpleWebView({
     required this.fromSwitchWebview,
@@ -114098,9 +114477,9 @@ class MessagesRequestSimpleWebView extends TlMethod<SimpleWebViewResultBase> {
 
 /// Messages Send Web View Result Message.
 ///
+/// Return Type: `WebViewMessageSentBase`.
 /// ID: `0a4314f5`.
-class MessagesSendWebViewResultMessage
-    extends TlMethod<WebViewMessageSentBase> {
+class MessagesSendWebViewResultMessage extends TlMethod {
   /// Messages Send Web View Result Message constructor.
   const MessagesSendWebViewResultMessage({
     required this.botQueryId,
@@ -114157,8 +114536,9 @@ class MessagesSendWebViewResultMessage
 
 /// Messages Send Web View Data.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `dc0242c8`.
-class MessagesSendWebViewData extends TlMethod<UpdatesBase> {
+class MessagesSendWebViewData extends TlMethod {
   /// Messages Send Web View Data constructor.
   const MessagesSendWebViewData({
     required this.bot,
@@ -114233,8 +114613,9 @@ class MessagesSendWebViewData extends TlMethod<UpdatesBase> {
 
 /// Bots Set Bot Menu Button.
 ///
+/// Return Type: `bool`.
 /// ID: `4504d54f`.
-class BotsSetBotMenuButton extends TlMethod<bool> {
+class BotsSetBotMenuButton extends TlMethod {
   /// Bots Set Bot Menu Button constructor.
   const BotsSetBotMenuButton({
     required this.userId,
@@ -114291,8 +114672,9 @@ class BotsSetBotMenuButton extends TlMethod<bool> {
 
 /// Bots Get Bot Menu Button.
 ///
+/// Return Type: `BotMenuButtonBase`.
 /// ID: `9c60eb28`.
-class BotsGetBotMenuButton extends TlMethod<BotMenuButtonBase> {
+class BotsGetBotMenuButton extends TlMethod {
   /// Bots Get Bot Menu Button constructor.
   const BotsGetBotMenuButton({
     required this.userId,
@@ -114341,8 +114723,9 @@ class BotsGetBotMenuButton extends TlMethod<BotMenuButtonBase> {
 
 /// Account Get Saved Ringtones.
 ///
+/// Return Type: `AccountSavedRingtonesBase`.
 /// ID: `e1902288`.
-class AccountGetSavedRingtones extends TlMethod<AccountSavedRingtonesBase> {
+class AccountGetSavedRingtones extends TlMethod {
   /// Account Get Saved Ringtones constructor.
   const AccountGetSavedRingtones({
     required this.hash,
@@ -114393,8 +114776,9 @@ class AccountGetSavedRingtones extends TlMethod<AccountSavedRingtonesBase> {
 
 /// Account Save Ringtone.
 ///
+/// Return Type: `AccountSavedRingtoneBase`.
 /// ID: `3dea5b03`.
-class AccountSaveRingtone extends TlMethod<AccountSavedRingtoneBase> {
+class AccountSaveRingtone extends TlMethod {
   /// Account Save Ringtone constructor.
   const AccountSaveRingtone({
     required this.id,
@@ -114451,8 +114835,9 @@ class AccountSaveRingtone extends TlMethod<AccountSavedRingtoneBase> {
 
 /// Account Upload Ringtone.
 ///
+/// Return Type: `DocumentBase`.
 /// ID: `831a83a2`.
-class AccountUploadRingtone extends TlMethod<DocumentBase> {
+class AccountUploadRingtone extends TlMethod {
   /// Account Upload Ringtone constructor.
   const AccountUploadRingtone({
     required this.file,
@@ -114517,8 +114902,9 @@ class AccountUploadRingtone extends TlMethod<DocumentBase> {
 
 /// Bots Set Bot Broadcast Default Admin Rights.
 ///
+/// Return Type: `bool`.
 /// ID: `788464e1`.
-class BotsSetBotBroadcastDefaultAdminRights extends TlMethod<bool> {
+class BotsSetBotBroadcastDefaultAdminRights extends TlMethod {
   /// Bots Set Bot Broadcast Default Admin Rights constructor.
   const BotsSetBotBroadcastDefaultAdminRights({
     required this.adminRights,
@@ -114568,8 +114954,9 @@ class BotsSetBotBroadcastDefaultAdminRights extends TlMethod<bool> {
 
 /// Bots Set Bot Group Default Admin Rights.
 ///
+/// Return Type: `bool`.
 /// ID: `925ec9ea`.
-class BotsSetBotGroupDefaultAdminRights extends TlMethod<bool> {
+class BotsSetBotGroupDefaultAdminRights extends TlMethod {
   /// Bots Set Bot Group Default Admin Rights constructor.
   const BotsSetBotGroupDefaultAdminRights({
     required this.adminRights,
@@ -114618,8 +115005,9 @@ class BotsSetBotGroupDefaultAdminRights extends TlMethod<bool> {
 
 /// Phone Save Call Log.
 ///
+/// Return Type: `bool`.
 /// ID: `41248786`.
-class PhoneSaveCallLog extends TlMethod<bool> {
+class PhoneSaveCallLog extends TlMethod {
   /// Phone Save Call Log constructor.
   const PhoneSaveCallLog({
     required this.peer,
@@ -114676,8 +115064,9 @@ class PhoneSaveCallLog extends TlMethod<bool> {
 
 /// Channels Toggle Join To Send.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e4cb9580`.
-class ChannelsToggleJoinToSend extends TlMethod<UpdatesBase> {
+class ChannelsToggleJoinToSend extends TlMethod {
   /// Channels Toggle Join To Send constructor.
   const ChannelsToggleJoinToSend({
     required this.channel,
@@ -114734,8 +115123,9 @@ class ChannelsToggleJoinToSend extends TlMethod<UpdatesBase> {
 
 /// Channels Toggle Join Request.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `4c2985b6`.
-class ChannelsToggleJoinRequest extends TlMethod<UpdatesBase> {
+class ChannelsToggleJoinRequest extends TlMethod {
   /// Channels Toggle Join Request constructor.
   const ChannelsToggleJoinRequest({
     required this.channel,
@@ -114792,8 +115182,9 @@ class ChannelsToggleJoinRequest extends TlMethod<UpdatesBase> {
 
 /// Payments Export Invoice.
 ///
+/// Return Type: `PaymentsExportedInvoiceBase`.
 /// ID: `0f91b065`.
-class PaymentsExportInvoice extends TlMethod<PaymentsExportedInvoiceBase> {
+class PaymentsExportInvoice extends TlMethod {
   /// Payments Export Invoice constructor.
   const PaymentsExportInvoice({
     required this.invoiceMedia,
@@ -114842,8 +115233,9 @@ class PaymentsExportInvoice extends TlMethod<PaymentsExportedInvoiceBase> {
 
 /// Messages Transcribe Audio.
 ///
+/// Return Type: `MessagesTranscribedAudioBase`.
 /// ID: `269e9a49`.
-class MessagesTranscribeAudio extends TlMethod<MessagesTranscribedAudioBase> {
+class MessagesTranscribeAudio extends TlMethod {
   /// Messages Transcribe Audio constructor.
   const MessagesTranscribeAudio({
     required this.peer,
@@ -114902,8 +115294,9 @@ class MessagesTranscribeAudio extends TlMethod<MessagesTranscribedAudioBase> {
 
 /// Messages Rate Transcribed Audio.
 ///
+/// Return Type: `bool`.
 /// ID: `7f1d072f`.
-class MessagesRateTranscribedAudio extends TlMethod<bool> {
+class MessagesRateTranscribedAudio extends TlMethod {
   /// Messages Rate Transcribed Audio constructor.
   const MessagesRateTranscribedAudio({
     required this.peer,
@@ -114980,8 +115373,9 @@ class MessagesRateTranscribedAudio extends TlMethod<bool> {
 
 /// Payments Assign App Store Transaction.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `80ed747d`.
-class PaymentsAssignAppStoreTransaction extends TlMethod<UpdatesBase> {
+class PaymentsAssignAppStoreTransaction extends TlMethod {
   /// Payments Assign App Store Transaction constructor.
   const PaymentsAssignAppStoreTransaction({
     required this.receipt,
@@ -115038,8 +115432,9 @@ class PaymentsAssignAppStoreTransaction extends TlMethod<UpdatesBase> {
 
 /// Payments Assign Play Market Transaction.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `dffd50d3`.
-class PaymentsAssignPlayMarketTransaction extends TlMethod<UpdatesBase> {
+class PaymentsAssignPlayMarketTransaction extends TlMethod {
   /// Payments Assign Play Market Transaction constructor.
   const PaymentsAssignPlayMarketTransaction({
     required this.receipt,
@@ -115096,8 +115491,9 @@ class PaymentsAssignPlayMarketTransaction extends TlMethod<UpdatesBase> {
 
 /// Payments Can Purchase Premium.
 ///
+/// Return Type: `bool`.
 /// ID: `9fc19eb6`.
-class PaymentsCanPurchasePremium extends TlMethod<bool> {
+class PaymentsCanPurchasePremium extends TlMethod {
   /// Payments Can Purchase Premium constructor.
   const PaymentsCanPurchasePremium({
     required this.purpose,
@@ -115146,8 +115542,9 @@ class PaymentsCanPurchasePremium extends TlMethod<bool> {
 
 /// Help Get Premium Promo.
 ///
+/// Return Type: `HelpPremiumPromoBase`.
 /// ID: `b81b93d4`.
-class HelpGetPremiumPromo extends TlMethod<HelpPremiumPromoBase> {
+class HelpGetPremiumPromo extends TlMethod {
   /// Help Get Premium Promo constructor.
   const HelpGetPremiumPromo() : super._();
 
@@ -115182,8 +115579,9 @@ class HelpGetPremiumPromo extends TlMethod<HelpPremiumPromoBase> {
 
 /// Messages Get Custom Emoji Documents.
 ///
+/// Return Type: `List<DocumentBase>`.
 /// ID: `d9ab0f54`.
-class MessagesGetCustomEmojiDocuments extends TlMethod<List<DocumentBase>> {
+class MessagesGetCustomEmojiDocuments extends TlMethod {
   /// Messages Get Custom Emoji Documents constructor.
   const MessagesGetCustomEmojiDocuments({
     required this.documentId,
@@ -115232,8 +115630,9 @@ class MessagesGetCustomEmojiDocuments extends TlMethod<List<DocumentBase>> {
 
 /// Messages Get Emoji Stickers.
 ///
+/// Return Type: `MessagesAllStickersBase`.
 /// ID: `fbfca18f`.
-class MessagesGetEmojiStickers extends TlMethod<MessagesAllStickersBase> {
+class MessagesGetEmojiStickers extends TlMethod {
   /// Messages Get Emoji Stickers constructor.
   const MessagesGetEmojiStickers({
     required this.hash,
@@ -115284,9 +115683,9 @@ class MessagesGetEmojiStickers extends TlMethod<MessagesAllStickersBase> {
 
 /// Messages Get Featured Emoji Stickers.
 ///
+/// Return Type: `MessagesFeaturedStickersBase`.
 /// ID: `0ecf6736`.
-class MessagesGetFeaturedEmojiStickers
-    extends TlMethod<MessagesFeaturedStickersBase> {
+class MessagesGetFeaturedEmojiStickers extends TlMethod {
   /// Messages Get Featured Emoji Stickers constructor.
   const MessagesGetFeaturedEmojiStickers({
     required this.hash,
@@ -115337,8 +115736,9 @@ class MessagesGetFeaturedEmojiStickers
 
 /// Account Update Emoji Status.
 ///
+/// Return Type: `bool`.
 /// ID: `fbd3de6b`.
-class AccountUpdateEmojiStatus extends TlMethod<bool> {
+class AccountUpdateEmojiStatus extends TlMethod {
   /// Account Update Emoji Status constructor.
   const AccountUpdateEmojiStatus({
     required this.emojiStatus,
@@ -115387,9 +115787,9 @@ class AccountUpdateEmojiStatus extends TlMethod<bool> {
 
 /// Account Get Default Emoji Statuses.
 ///
+/// Return Type: `AccountEmojiStatusesBase`.
 /// ID: `d6753386`.
-class AccountGetDefaultEmojiStatuses
-    extends TlMethod<AccountEmojiStatusesBase> {
+class AccountGetDefaultEmojiStatuses extends TlMethod {
   /// Account Get Default Emoji Statuses constructor.
   const AccountGetDefaultEmojiStatuses({
     required this.hash,
@@ -115440,8 +115840,9 @@ class AccountGetDefaultEmojiStatuses
 
 /// Account Get Recent Emoji Statuses.
 ///
+/// Return Type: `AccountEmojiStatusesBase`.
 /// ID: `0f578105`.
-class AccountGetRecentEmojiStatuses extends TlMethod<AccountEmojiStatusesBase> {
+class AccountGetRecentEmojiStatuses extends TlMethod {
   /// Account Get Recent Emoji Statuses constructor.
   const AccountGetRecentEmojiStatuses({
     required this.hash,
@@ -115492,8 +115893,9 @@ class AccountGetRecentEmojiStatuses extends TlMethod<AccountEmojiStatusesBase> {
 
 /// Account Clear Recent Emoji Statuses.
 ///
+/// Return Type: `bool`.
 /// ID: `18201aae`.
-class AccountClearRecentEmojiStatuses extends TlMethod<bool> {
+class AccountClearRecentEmojiStatuses extends TlMethod {
   /// Account Clear Recent Emoji Statuses constructor.
   const AccountClearRecentEmojiStatuses() : super._();
 
@@ -115528,8 +115930,9 @@ class AccountClearRecentEmojiStatuses extends TlMethod<bool> {
 
 /// Messages Report Reaction.
 ///
+/// Return Type: `bool`.
 /// ID: `3f64c076`.
-class MessagesReportReaction extends TlMethod<bool> {
+class MessagesReportReaction extends TlMethod {
   /// Messages Report Reaction constructor.
   const MessagesReportReaction({
     required this.peer,
@@ -115596,8 +115999,9 @@ class MessagesReportReaction extends TlMethod<bool> {
 
 /// Messages Get Top Reactions.
 ///
+/// Return Type: `MessagesReactionsBase`.
 /// ID: `bb8125ba`.
-class MessagesGetTopReactions extends TlMethod<MessagesReactionsBase> {
+class MessagesGetTopReactions extends TlMethod {
   /// Messages Get Top Reactions constructor.
   const MessagesGetTopReactions({
     required this.limit,
@@ -115658,8 +116062,9 @@ class MessagesGetTopReactions extends TlMethod<MessagesReactionsBase> {
 
 /// Messages Get Recent Reactions.
 ///
+/// Return Type: `MessagesReactionsBase`.
 /// ID: `39461db2`.
-class MessagesGetRecentReactions extends TlMethod<MessagesReactionsBase> {
+class MessagesGetRecentReactions extends TlMethod {
   /// Messages Get Recent Reactions constructor.
   const MessagesGetRecentReactions({
     required this.limit,
@@ -115720,8 +116125,9 @@ class MessagesGetRecentReactions extends TlMethod<MessagesReactionsBase> {
 
 /// Messages Clear Recent Reactions.
 ///
+/// Return Type: `bool`.
 /// ID: `9dfeefb4`.
-class MessagesClearRecentReactions extends TlMethod<bool> {
+class MessagesClearRecentReactions extends TlMethod {
   /// Messages Clear Recent Reactions constructor.
   const MessagesClearRecentReactions() : super._();
 
@@ -115756,8 +116162,9 @@ class MessagesClearRecentReactions extends TlMethod<bool> {
 
 /// Messages Get Extended Media.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `84f80814`.
-class MessagesGetExtendedMedia extends TlMethod<UpdatesBase> {
+class MessagesGetExtendedMedia extends TlMethod {
   /// Messages Get Extended Media constructor.
   const MessagesGetExtendedMedia({
     required this.peer,
@@ -115814,8 +116221,9 @@ class MessagesGetExtendedMedia extends TlMethod<UpdatesBase> {
 
 /// Auth Import Web Token Authorization.
 ///
+/// Return Type: `AuthAuthorizationBase`.
 /// ID: `2db873a9`.
-class AuthImportWebTokenAuthorization extends TlMethod<AuthAuthorizationBase> {
+class AuthImportWebTokenAuthorization extends TlMethod {
   /// Auth Import Web Token Authorization constructor.
   const AuthImportWebTokenAuthorization({
     required this.apiId,
@@ -115882,8 +116290,9 @@ class AuthImportWebTokenAuthorization extends TlMethod<AuthAuthorizationBase> {
 
 /// Account Reorder Usernames.
 ///
+/// Return Type: `bool`.
 /// ID: `ef500eab`.
-class AccountReorderUsernames extends TlMethod<bool> {
+class AccountReorderUsernames extends TlMethod {
   /// Account Reorder Usernames constructor.
   const AccountReorderUsernames({
     required this.order,
@@ -115932,8 +116341,9 @@ class AccountReorderUsernames extends TlMethod<bool> {
 
 /// Account Toggle Username.
 ///
+/// Return Type: `bool`.
 /// ID: `58d6b376`.
-class AccountToggleUsername extends TlMethod<bool> {
+class AccountToggleUsername extends TlMethod {
   /// Account Toggle Username constructor.
   const AccountToggleUsername({
     required this.username,
@@ -115990,8 +116400,9 @@ class AccountToggleUsername extends TlMethod<bool> {
 
 /// Channels Reorder Usernames.
 ///
+/// Return Type: `bool`.
 /// ID: `b45ced1d`.
-class ChannelsReorderUsernames extends TlMethod<bool> {
+class ChannelsReorderUsernames extends TlMethod {
   /// Channels Reorder Usernames constructor.
   const ChannelsReorderUsernames({
     required this.channel,
@@ -116048,8 +116459,9 @@ class ChannelsReorderUsernames extends TlMethod<bool> {
 
 /// Channels Toggle Username.
 ///
+/// Return Type: `bool`.
 /// ID: `50f24105`.
-class ChannelsToggleUsername extends TlMethod<bool> {
+class ChannelsToggleUsername extends TlMethod {
   /// Channels Toggle Username constructor.
   const ChannelsToggleUsername({
     required this.channel,
@@ -116114,8 +116526,9 @@ class ChannelsToggleUsername extends TlMethod<bool> {
 
 /// Channels Deactivate All Usernames.
 ///
+/// Return Type: `bool`.
 /// ID: `0a245dd3`.
-class ChannelsDeactivateAllUsernames extends TlMethod<bool> {
+class ChannelsDeactivateAllUsernames extends TlMethod {
   /// Channels Deactivate All Usernames constructor.
   const ChannelsDeactivateAllUsernames({
     required this.channel,
@@ -116164,8 +116577,9 @@ class ChannelsDeactivateAllUsernames extends TlMethod<bool> {
 
 /// Channels Toggle Forum.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a4298b29`.
-class ChannelsToggleForum extends TlMethod<UpdatesBase> {
+class ChannelsToggleForum extends TlMethod {
   /// Channels Toggle Forum constructor.
   const ChannelsToggleForum({
     required this.channel,
@@ -116222,8 +116636,9 @@ class ChannelsToggleForum extends TlMethod<UpdatesBase> {
 
 /// Channels Create Forum Topic.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f40c0224`.
-class ChannelsCreateForumTopic extends TlMethod<UpdatesBase> {
+class ChannelsCreateForumTopic extends TlMethod {
   /// Channels Create Forum Topic constructor.
   const ChannelsCreateForumTopic({
     required this.channel,
@@ -116340,8 +116755,9 @@ class ChannelsCreateForumTopic extends TlMethod<UpdatesBase> {
 
 /// Channels Get Forum Topics.
 ///
+/// Return Type: `MessagesForumTopicsBase`.
 /// ID: `0de560d1`.
-class ChannelsGetForumTopics extends TlMethod<MessagesForumTopicsBase> {
+class ChannelsGetForumTopics extends TlMethod {
   /// Channels Get Forum Topics constructor.
   const ChannelsGetForumTopics({
     required this.channel,
@@ -116452,8 +116868,9 @@ class ChannelsGetForumTopics extends TlMethod<MessagesForumTopicsBase> {
 
 /// Channels Get Forum Topics By I D.
 ///
+/// Return Type: `MessagesForumTopicsBase`.
 /// ID: `b0831eb9`.
-class ChannelsGetForumTopicsByID extends TlMethod<MessagesForumTopicsBase> {
+class ChannelsGetForumTopicsByID extends TlMethod {
   /// Channels Get Forum Topics By I D constructor.
   const ChannelsGetForumTopicsByID({
     required this.channel,
@@ -116510,8 +116927,9 @@ class ChannelsGetForumTopicsByID extends TlMethod<MessagesForumTopicsBase> {
 
 /// Channels Edit Forum Topic.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f4dfa185`.
-class ChannelsEditForumTopic extends TlMethod<UpdatesBase> {
+class ChannelsEditForumTopic extends TlMethod {
   /// Channels Edit Forum Topic constructor.
   const ChannelsEditForumTopic({
     required this.channel,
@@ -116623,8 +117041,9 @@ class ChannelsEditForumTopic extends TlMethod<UpdatesBase> {
 
 /// Channels Update Pinned Forum Topic.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `6c2d9026`.
-class ChannelsUpdatePinnedForumTopic extends TlMethod<UpdatesBase> {
+class ChannelsUpdatePinnedForumTopic extends TlMethod {
   /// Channels Update Pinned Forum Topic constructor.
   const ChannelsUpdatePinnedForumTopic({
     required this.channel,
@@ -116691,8 +117110,9 @@ class ChannelsUpdatePinnedForumTopic extends TlMethod<UpdatesBase> {
 
 /// Channels Delete Topic History.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `34435f2d`.
-class ChannelsDeleteTopicHistory extends TlMethod<MessagesAffectedHistoryBase> {
+class ChannelsDeleteTopicHistory extends TlMethod {
   /// Channels Delete Topic History constructor.
   const ChannelsDeleteTopicHistory({
     required this.channel,
@@ -116751,8 +117171,9 @@ class ChannelsDeleteTopicHistory extends TlMethod<MessagesAffectedHistoryBase> {
 
 /// Channels Reorder Pinned Forum Topics.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `2950a18f`.
-class ChannelsReorderPinnedForumTopics extends TlMethod<UpdatesBase> {
+class ChannelsReorderPinnedForumTopics extends TlMethod {
   /// Channels Reorder Pinned Forum Topics constructor.
   const ChannelsReorderPinnedForumTopics({
     required this.force,
@@ -116828,8 +117249,9 @@ class ChannelsReorderPinnedForumTopics extends TlMethod<UpdatesBase> {
 
 /// Channels Toggle Anti Spam.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `68f3e4eb`.
-class ChannelsToggleAntiSpam extends TlMethod<UpdatesBase> {
+class ChannelsToggleAntiSpam extends TlMethod {
   /// Channels Toggle Anti Spam constructor.
   const ChannelsToggleAntiSpam({
     required this.channel,
@@ -116886,8 +117308,9 @@ class ChannelsToggleAntiSpam extends TlMethod<UpdatesBase> {
 
 /// Channels Report Anti Spam False Positive.
 ///
+/// Return Type: `bool`.
 /// ID: `a850a693`.
-class ChannelsReportAntiSpamFalsePositive extends TlMethod<bool> {
+class ChannelsReportAntiSpamFalsePositive extends TlMethod {
   /// Channels Report Anti Spam False Positive constructor.
   const ChannelsReportAntiSpamFalsePositive({
     required this.channel,
@@ -116946,8 +117369,9 @@ class ChannelsReportAntiSpamFalsePositive extends TlMethod<bool> {
 
 /// Messages Set Default History T T L.
 ///
+/// Return Type: `bool`.
 /// ID: `9eb51445`.
-class MessagesSetDefaultHistoryTTL extends TlMethod<bool> {
+class MessagesSetDefaultHistoryTTL extends TlMethod {
   /// Messages Set Default History T T L constructor.
   const MessagesSetDefaultHistoryTTL({
     required this.period,
@@ -116998,8 +117422,9 @@ class MessagesSetDefaultHistoryTTL extends TlMethod<bool> {
 
 /// Messages Get Default History T T L.
 ///
+/// Return Type: `DefaultHistoryTTLBase`.
 /// ID: `658b7188`.
-class MessagesGetDefaultHistoryTTL extends TlMethod<DefaultHistoryTTLBase> {
+class MessagesGetDefaultHistoryTTL extends TlMethod {
   /// Messages Get Default History T T L constructor.
   const MessagesGetDefaultHistoryTTL() : super._();
 
@@ -117034,8 +117459,9 @@ class MessagesGetDefaultHistoryTTL extends TlMethod<DefaultHistoryTTLBase> {
 
 /// Contacts Export Contact Token.
 ///
+/// Return Type: `ExportedContactTokenBase`.
 /// ID: `f8654027`.
-class ContactsExportContactToken extends TlMethod<ExportedContactTokenBase> {
+class ContactsExportContactToken extends TlMethod {
   /// Contacts Export Contact Token constructor.
   const ContactsExportContactToken() : super._();
 
@@ -117070,8 +117496,9 @@ class ContactsExportContactToken extends TlMethod<ExportedContactTokenBase> {
 
 /// Contacts Import Contact Token.
 ///
+/// Return Type: `UserBase`.
 /// ID: `13005788`.
-class ContactsImportContactToken extends TlMethod<UserBase> {
+class ContactsImportContactToken extends TlMethod {
   /// Contacts Import Contact Token constructor.
   const ContactsImportContactToken({
     required this.token,
@@ -117120,8 +117547,9 @@ class ContactsImportContactToken extends TlMethod<UserBase> {
 
 /// Photos Upload Contact Profile Photo.
 ///
+/// Return Type: `PhotosPhotoBase`.
 /// ID: `e14c4a71`.
-class PhotosUploadContactProfilePhoto extends TlMethod<PhotosPhotoBase> {
+class PhotosUploadContactProfilePhoto extends TlMethod {
   /// Photos Upload Contact Profile Photo constructor.
   const PhotosUploadContactProfilePhoto({
     required this.suggest,
@@ -117250,8 +117678,9 @@ class PhotosUploadContactProfilePhoto extends TlMethod<PhotosPhotoBase> {
 
 /// Channels Toggle Participants Hidden.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `6a6e7854`.
-class ChannelsToggleParticipantsHidden extends TlMethod<UpdatesBase> {
+class ChannelsToggleParticipantsHidden extends TlMethod {
   /// Channels Toggle Participants Hidden constructor.
   const ChannelsToggleParticipantsHidden({
     required this.channel,
@@ -117308,8 +117737,9 @@ class ChannelsToggleParticipantsHidden extends TlMethod<UpdatesBase> {
 
 /// Messages Send Bot Requested Peer.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `91b2d060`.
-class MessagesSendBotRequestedPeer extends TlMethod<UpdatesBase> {
+class MessagesSendBotRequestedPeer extends TlMethod {
   /// Messages Send Bot Requested Peer constructor.
   const MessagesSendBotRequestedPeer({
     required this.peer,
@@ -117386,8 +117816,9 @@ class MessagesSendBotRequestedPeer extends TlMethod<UpdatesBase> {
 
 /// Account Get Default Profile Photo Emojis.
 ///
+/// Return Type: `EmojiListBase`.
 /// ID: `e2750328`.
-class AccountGetDefaultProfilePhotoEmojis extends TlMethod<EmojiListBase> {
+class AccountGetDefaultProfilePhotoEmojis extends TlMethod {
   /// Account Get Default Profile Photo Emojis constructor.
   const AccountGetDefaultProfilePhotoEmojis({
     required this.hash,
@@ -117438,8 +117869,9 @@ class AccountGetDefaultProfilePhotoEmojis extends TlMethod<EmojiListBase> {
 
 /// Account Get Default Group Photo Emojis.
 ///
+/// Return Type: `EmojiListBase`.
 /// ID: `915860ae`.
-class AccountGetDefaultGroupPhotoEmojis extends TlMethod<EmojiListBase> {
+class AccountGetDefaultGroupPhotoEmojis extends TlMethod {
   /// Account Get Default Group Photo Emojis constructor.
   const AccountGetDefaultGroupPhotoEmojis({
     required this.hash,
@@ -117490,8 +117922,9 @@ class AccountGetDefaultGroupPhotoEmojis extends TlMethod<EmojiListBase> {
 
 /// Auth Request Firebase Sms.
 ///
+/// Return Type: `bool`.
 /// ID: `89464b50`.
-class AuthRequestFirebaseSms extends TlMethod<bool> {
+class AuthRequestFirebaseSms extends TlMethod {
   /// Auth Request Firebase Sms constructor.
   const AuthRequestFirebaseSms({
     required this.phoneNumber,
@@ -117585,8 +118018,9 @@ class AuthRequestFirebaseSms extends TlMethod<bool> {
 
 /// Messages Get Emoji Groups.
 ///
+/// Return Type: `MessagesEmojiGroupsBase`.
 /// ID: `7488ce5b`.
-class MessagesGetEmojiGroups extends TlMethod<MessagesEmojiGroupsBase> {
+class MessagesGetEmojiGroups extends TlMethod {
   /// Messages Get Emoji Groups constructor.
   const MessagesGetEmojiGroups({
     required this.hash,
@@ -117637,8 +118071,9 @@ class MessagesGetEmojiGroups extends TlMethod<MessagesEmojiGroupsBase> {
 
 /// Messages Get Emoji Status Groups.
 ///
+/// Return Type: `MessagesEmojiGroupsBase`.
 /// ID: `2ecd56cd`.
-class MessagesGetEmojiStatusGroups extends TlMethod<MessagesEmojiGroupsBase> {
+class MessagesGetEmojiStatusGroups extends TlMethod {
   /// Messages Get Emoji Status Groups constructor.
   const MessagesGetEmojiStatusGroups({
     required this.hash,
@@ -117689,9 +118124,9 @@ class MessagesGetEmojiStatusGroups extends TlMethod<MessagesEmojiGroupsBase> {
 
 /// Messages Get Emoji Profile Photo Groups.
 ///
+/// Return Type: `MessagesEmojiGroupsBase`.
 /// ID: `21a548f3`.
-class MessagesGetEmojiProfilePhotoGroups
-    extends TlMethod<MessagesEmojiGroupsBase> {
+class MessagesGetEmojiProfilePhotoGroups extends TlMethod {
   /// Messages Get Emoji Profile Photo Groups constructor.
   const MessagesGetEmojiProfilePhotoGroups({
     required this.hash,
@@ -117742,8 +118177,9 @@ class MessagesGetEmojiProfilePhotoGroups
 
 /// Messages Search Custom Emoji.
 ///
+/// Return Type: `EmojiListBase`.
 /// ID: `2c11c0d7`.
-class MessagesSearchCustomEmoji extends TlMethod<EmojiListBase> {
+class MessagesSearchCustomEmoji extends TlMethod {
   /// Messages Search Custom Emoji constructor.
   const MessagesSearchCustomEmoji({
     required this.emoticon,
@@ -117802,8 +118238,9 @@ class MessagesSearchCustomEmoji extends TlMethod<EmojiListBase> {
 
 /// Messages Toggle Peer Translations.
 ///
+/// Return Type: `bool`.
 /// ID: `e47cb579`.
-class MessagesTogglePeerTranslations extends TlMethod<bool> {
+class MessagesTogglePeerTranslations extends TlMethod {
   /// Messages Toggle Peer Translations constructor.
   const MessagesTogglePeerTranslations({
     required this.disabled,
@@ -117871,8 +118308,9 @@ class MessagesTogglePeerTranslations extends TlMethod<bool> {
 
 /// Account Get Auto Save Settings.
 ///
+/// Return Type: `AccountAutoSaveSettingsBase`.
 /// ID: `adcbbcda`.
-class AccountGetAutoSaveSettings extends TlMethod<AccountAutoSaveSettingsBase> {
+class AccountGetAutoSaveSettings extends TlMethod {
   /// Account Get Auto Save Settings constructor.
   const AccountGetAutoSaveSettings() : super._();
 
@@ -117907,8 +118345,9 @@ class AccountGetAutoSaveSettings extends TlMethod<AccountAutoSaveSettingsBase> {
 
 /// Account Save Auto Save Settings.
 ///
+/// Return Type: `bool`.
 /// ID: `d69b8361`.
-class AccountSaveAutoSaveSettings extends TlMethod<bool> {
+class AccountSaveAutoSaveSettings extends TlMethod {
   /// Account Save Auto Save Settings constructor.
   const AccountSaveAutoSaveSettings({
     required this.users,
@@ -118005,8 +118444,9 @@ class AccountSaveAutoSaveSettings extends TlMethod<bool> {
 
 /// Account Delete Auto Save Exceptions.
 ///
+/// Return Type: `bool`.
 /// ID: `53bc0020`.
-class AccountDeleteAutoSaveExceptions extends TlMethod<bool> {
+class AccountDeleteAutoSaveExceptions extends TlMethod {
   /// Account Delete Auto Save Exceptions constructor.
   const AccountDeleteAutoSaveExceptions() : super._();
 
@@ -118041,8 +118481,9 @@ class AccountDeleteAutoSaveExceptions extends TlMethod<bool> {
 
 /// Stickers Change Sticker.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `f5537ebc`.
-class StickersChangeSticker extends TlMethod<MessagesStickerSetBase> {
+class StickersChangeSticker extends TlMethod {
   /// Stickers Change Sticker constructor.
   const StickersChangeSticker({
     required this.sticker,
@@ -118142,8 +118583,9 @@ class StickersChangeSticker extends TlMethod<MessagesStickerSetBase> {
 
 /// Stickers Rename Sticker Set.
 ///
+/// Return Type: `MessagesStickerSetBase`.
 /// ID: `124b1c00`.
-class StickersRenameStickerSet extends TlMethod<MessagesStickerSetBase> {
+class StickersRenameStickerSet extends TlMethod {
   /// Stickers Rename Sticker Set constructor.
   const StickersRenameStickerSet({
     required this.stickerset,
@@ -118200,8 +118642,9 @@ class StickersRenameStickerSet extends TlMethod<MessagesStickerSetBase> {
 
 /// Stickers Delete Sticker Set.
 ///
+/// Return Type: `bool`.
 /// ID: `87704394`.
-class StickersDeleteStickerSet extends TlMethod<bool> {
+class StickersDeleteStickerSet extends TlMethod {
   /// Stickers Delete Sticker Set constructor.
   const StickersDeleteStickerSet({
     required this.stickerset,
@@ -118250,8 +118693,9 @@ class StickersDeleteStickerSet extends TlMethod<bool> {
 
 /// Messages Get Bot App.
 ///
+/// Return Type: `MessagesBotAppBase`.
 /// ID: `34fdc5c3`.
-class MessagesGetBotApp extends TlMethod<MessagesBotAppBase> {
+class MessagesGetBotApp extends TlMethod {
   /// Messages Get Bot App constructor.
   const MessagesGetBotApp({
     required this.app,
@@ -118310,8 +118754,9 @@ class MessagesGetBotApp extends TlMethod<MessagesBotAppBase> {
 
 /// Messages Request App Web View.
 ///
+/// Return Type: `AppWebViewResultBase`.
 /// ID: `8c5a3b3c`.
-class MessagesRequestAppWebView extends TlMethod<AppWebViewResultBase> {
+class MessagesRequestAppWebView extends TlMethod {
   /// Messages Request App Web View constructor.
   const MessagesRequestAppWebView({
     required this.writeAllowed,
@@ -118422,8 +118867,9 @@ class MessagesRequestAppWebView extends TlMethod<AppWebViewResultBase> {
 
 /// Bots Set Bot Info.
 ///
+/// Return Type: `bool`.
 /// ID: `10cf3123`.
-class BotsSetBotInfo extends TlMethod<bool> {
+class BotsSetBotInfo extends TlMethod {
   /// Bots Set Bot Info constructor.
   const BotsSetBotInfo({
     this.bot,
@@ -118535,8 +118981,9 @@ class BotsSetBotInfo extends TlMethod<bool> {
 
 /// Bots Get Bot Info.
 ///
+/// Return Type: `BotsBotInfoBase`.
 /// ID: `dcd914fd`.
-class BotsGetBotInfo extends TlMethod<BotsBotInfoBase> {
+class BotsGetBotInfo extends TlMethod {
   /// Bots Get Bot Info constructor.
   const BotsGetBotInfo({
     this.bot,
@@ -118609,8 +119056,9 @@ class BotsGetBotInfo extends TlMethod<BotsBotInfoBase> {
 
 /// Auth Reset Login Email.
 ///
+/// Return Type: `AuthSentCodeBase`.
 /// ID: `7e960193`.
-class AuthResetLoginEmail extends TlMethod<AuthSentCodeBase> {
+class AuthResetLoginEmail extends TlMethod {
   /// Auth Reset Login Email constructor.
   const AuthResetLoginEmail({
     required this.phoneNumber,
@@ -118667,9 +119115,9 @@ class AuthResetLoginEmail extends TlMethod<AuthSentCodeBase> {
 
 /// Chatlists Export Chatlist Invite.
 ///
+/// Return Type: `ChatlistsExportedChatlistInviteBase`.
 /// ID: `8472478e`.
-class ChatlistsExportChatlistInvite
-    extends TlMethod<ChatlistsExportedChatlistInviteBase> {
+class ChatlistsExportChatlistInvite extends TlMethod {
   /// Chatlists Export Chatlist Invite constructor.
   const ChatlistsExportChatlistInvite({
     required this.chatlist,
@@ -118734,8 +119182,9 @@ class ChatlistsExportChatlistInvite
 
 /// Chatlists Delete Exported Invite.
 ///
+/// Return Type: `bool`.
 /// ID: `719c5c5e`.
-class ChatlistsDeleteExportedInvite extends TlMethod<bool> {
+class ChatlistsDeleteExportedInvite extends TlMethod {
   /// Chatlists Delete Exported Invite constructor.
   const ChatlistsDeleteExportedInvite({
     required this.chatlist,
@@ -118792,8 +119241,9 @@ class ChatlistsDeleteExportedInvite extends TlMethod<bool> {
 
 /// Chatlists Edit Exported Invite.
 ///
+/// Return Type: `ExportedChatlistInviteBase`.
 /// ID: `653db63d`.
-class ChatlistsEditExportedInvite extends TlMethod<ExportedChatlistInviteBase> {
+class ChatlistsEditExportedInvite extends TlMethod {
   /// Chatlists Edit Exported Invite constructor.
   const ChatlistsEditExportedInvite({
     required this.chatlist,
@@ -118888,9 +119338,9 @@ class ChatlistsEditExportedInvite extends TlMethod<ExportedChatlistInviteBase> {
 
 /// Chatlists Get Exported Invites.
 ///
+/// Return Type: `ChatlistsExportedInvitesBase`.
 /// ID: `ce03da83`.
-class ChatlistsGetExportedInvites
-    extends TlMethod<ChatlistsExportedInvitesBase> {
+class ChatlistsGetExportedInvites extends TlMethod {
   /// Chatlists Get Exported Invites constructor.
   const ChatlistsGetExportedInvites({
     required this.chatlist,
@@ -118939,9 +119389,9 @@ class ChatlistsGetExportedInvites
 
 /// Chatlists Check Chatlist Invite.
 ///
+/// Return Type: `ChatlistsChatlistInviteBase`.
 /// ID: `41c10fff`.
-class ChatlistsCheckChatlistInvite
-    extends TlMethod<ChatlistsChatlistInviteBase> {
+class ChatlistsCheckChatlistInvite extends TlMethod {
   /// Chatlists Check Chatlist Invite constructor.
   const ChatlistsCheckChatlistInvite({
     required this.slug,
@@ -118990,8 +119440,9 @@ class ChatlistsCheckChatlistInvite
 
 /// Chatlists Join Chatlist Invite.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `a6b1e39a`.
-class ChatlistsJoinChatlistInvite extends TlMethod<UpdatesBase> {
+class ChatlistsJoinChatlistInvite extends TlMethod {
   /// Chatlists Join Chatlist Invite constructor.
   const ChatlistsJoinChatlistInvite({
     required this.slug,
@@ -119048,9 +119499,9 @@ class ChatlistsJoinChatlistInvite extends TlMethod<UpdatesBase> {
 
 /// Chatlists Get Chatlist Updates.
 ///
+/// Return Type: `ChatlistsChatlistUpdatesBase`.
 /// ID: `89419521`.
-class ChatlistsGetChatlistUpdates
-    extends TlMethod<ChatlistsChatlistUpdatesBase> {
+class ChatlistsGetChatlistUpdates extends TlMethod {
   /// Chatlists Get Chatlist Updates constructor.
   const ChatlistsGetChatlistUpdates({
     required this.chatlist,
@@ -119099,8 +119550,9 @@ class ChatlistsGetChatlistUpdates
 
 /// Chatlists Join Chatlist Updates.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e089f8f5`.
-class ChatlistsJoinChatlistUpdates extends TlMethod<UpdatesBase> {
+class ChatlistsJoinChatlistUpdates extends TlMethod {
   /// Chatlists Join Chatlist Updates constructor.
   const ChatlistsJoinChatlistUpdates({
     required this.chatlist,
@@ -119157,8 +119609,9 @@ class ChatlistsJoinChatlistUpdates extends TlMethod<UpdatesBase> {
 
 /// Chatlists Hide Chatlist Updates.
 ///
+/// Return Type: `bool`.
 /// ID: `66e486fb`.
-class ChatlistsHideChatlistUpdates extends TlMethod<bool> {
+class ChatlistsHideChatlistUpdates extends TlMethod {
   /// Chatlists Hide Chatlist Updates constructor.
   const ChatlistsHideChatlistUpdates({
     required this.chatlist,
@@ -119207,8 +119660,9 @@ class ChatlistsHideChatlistUpdates extends TlMethod<bool> {
 
 /// Chatlists Get Leave Chatlist Suggestions.
 ///
+/// Return Type: `List<PeerBase>`.
 /// ID: `fdbcd714`.
-class ChatlistsGetLeaveChatlistSuggestions extends TlMethod<List<PeerBase>> {
+class ChatlistsGetLeaveChatlistSuggestions extends TlMethod {
   /// Chatlists Get Leave Chatlist Suggestions constructor.
   const ChatlistsGetLeaveChatlistSuggestions({
     required this.chatlist,
@@ -119258,8 +119712,9 @@ class ChatlistsGetLeaveChatlistSuggestions extends TlMethod<List<PeerBase>> {
 
 /// Chatlists Leave Chatlist.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `74fae13a`.
-class ChatlistsLeaveChatlist extends TlMethod<UpdatesBase> {
+class ChatlistsLeaveChatlist extends TlMethod {
   /// Chatlists Leave Chatlist constructor.
   const ChatlistsLeaveChatlist({
     required this.chatlist,
@@ -119316,8 +119771,9 @@ class ChatlistsLeaveChatlist extends TlMethod<UpdatesBase> {
 
 /// Bots Reorder Usernames.
 ///
+/// Return Type: `bool`.
 /// ID: `9709b1c2`.
-class BotsReorderUsernames extends TlMethod<bool> {
+class BotsReorderUsernames extends TlMethod {
   /// Bots Reorder Usernames constructor.
   const BotsReorderUsernames({
     required this.bot,
@@ -119374,8 +119830,9 @@ class BotsReorderUsernames extends TlMethod<bool> {
 
 /// Bots Toggle Username.
 ///
+/// Return Type: `bool`.
 /// ID: `053ca973`.
-class BotsToggleUsername extends TlMethod<bool> {
+class BotsToggleUsername extends TlMethod {
   /// Bots Toggle Username constructor.
   const BotsToggleUsername({
     required this.bot,
@@ -119440,8 +119897,9 @@ class BotsToggleUsername extends TlMethod<bool> {
 
 /// Messages Set Chat Wall Paper.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `8ffacae1`.
-class MessagesSetChatWallPaper extends TlMethod<UpdatesBase> {
+class MessagesSetChatWallPaper extends TlMethod {
   /// Messages Set Chat Wall Paper constructor.
   const MessagesSetChatWallPaper({
     required this.forBoth,
@@ -119558,8 +120016,9 @@ class MessagesSetChatWallPaper extends TlMethod<UpdatesBase> {
 
 /// Account Invalidate Sign In Codes.
 ///
+/// Return Type: `bool`.
 /// ID: `ca8ae8ba`.
-class AccountInvalidateSignInCodes extends TlMethod<bool> {
+class AccountInvalidateSignInCodes extends TlMethod {
   /// Account Invalidate Sign In Codes constructor.
   const AccountInvalidateSignInCodes({
     required this.codes,
@@ -119608,8 +120067,9 @@ class AccountInvalidateSignInCodes extends TlMethod<bool> {
 
 /// Channels Click Sponsored Message.
 ///
+/// Return Type: `bool`.
 /// ID: `18afbc93`.
-class ChannelsClickSponsoredMessage extends TlMethod<bool> {
+class ChannelsClickSponsoredMessage extends TlMethod {
   /// Channels Click Sponsored Message constructor.
   const ChannelsClickSponsoredMessage({
     required this.channel,
@@ -119666,8 +120126,9 @@ class ChannelsClickSponsoredMessage extends TlMethod<bool> {
 
 /// Contacts Edit Close Friends.
 ///
+/// Return Type: `bool`.
 /// ID: `ba6705f0`.
-class ContactsEditCloseFriends extends TlMethod<bool> {
+class ContactsEditCloseFriends extends TlMethod {
   /// Contacts Edit Close Friends constructor.
   const ContactsEditCloseFriends({
     required this.id,
@@ -119716,8 +120177,9 @@ class ContactsEditCloseFriends extends TlMethod<bool> {
 
 /// Stories Can Send Story.
 ///
+/// Return Type: `bool`.
 /// ID: `c7dfdfdd`.
-class StoriesCanSendStory extends TlMethod<bool> {
+class StoriesCanSendStory extends TlMethod {
   /// Stories Can Send Story constructor.
   const StoriesCanSendStory({
     required this.peer,
@@ -119766,8 +120228,9 @@ class StoriesCanSendStory extends TlMethod<bool> {
 
 /// Stories Send Story.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `e4e6694b`.
-class StoriesSendStory extends TlMethod<UpdatesBase> {
+class StoriesSendStory extends TlMethod {
   /// Stories Send Story constructor.
   const StoriesSendStory({
     required this.pinned,
@@ -119957,8 +120420,9 @@ class StoriesSendStory extends TlMethod<UpdatesBase> {
 
 /// Stories Edit Story.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `b583ba46`.
-class StoriesEditStory extends TlMethod<UpdatesBase> {
+class StoriesEditStory extends TlMethod {
   /// Stories Edit Story constructor.
   const StoriesEditStory({
     required this.peer,
@@ -120096,8 +120560,9 @@ class StoriesEditStory extends TlMethod<UpdatesBase> {
 
 /// Stories Delete Stories.
 ///
+/// Return Type: `List<int>`.
 /// ID: `ae59db5f`.
-class StoriesDeleteStories extends TlMethod<List<int>> {
+class StoriesDeleteStories extends TlMethod {
   /// Stories Delete Stories constructor.
   const StoriesDeleteStories({
     required this.peer,
@@ -120154,8 +120619,9 @@ class StoriesDeleteStories extends TlMethod<List<int>> {
 
 /// Stories Toggle Pinned.
 ///
+/// Return Type: `List<int>`.
 /// ID: `9a75a1ef`.
-class StoriesTogglePinned extends TlMethod<List<int>> {
+class StoriesTogglePinned extends TlMethod {
   /// Stories Toggle Pinned constructor.
   const StoriesTogglePinned({
     required this.peer,
@@ -120220,8 +120686,9 @@ class StoriesTogglePinned extends TlMethod<List<int>> {
 
 /// Stories Get All Stories.
 ///
+/// Return Type: `StoriesAllStoriesBase`.
 /// ID: `eeb0d625`.
-class StoriesGetAllStories extends TlMethod<StoriesAllStoriesBase> {
+class StoriesGetAllStories extends TlMethod {
   /// Stories Get All Stories constructor.
   const StoriesGetAllStories({
     required this.next,
@@ -120302,8 +120769,9 @@ class StoriesGetAllStories extends TlMethod<StoriesAllStoriesBase> {
 
 /// Stories Get Pinned Stories.
 ///
+/// Return Type: `StoriesStoriesBase`.
 /// ID: `5821a5dc`.
-class StoriesGetPinnedStories extends TlMethod<StoriesStoriesBase> {
+class StoriesGetPinnedStories extends TlMethod {
   /// Stories Get Pinned Stories constructor.
   const StoriesGetPinnedStories({
     required this.peer,
@@ -120372,8 +120840,9 @@ class StoriesGetPinnedStories extends TlMethod<StoriesStoriesBase> {
 
 /// Stories Get Stories Archive.
 ///
+/// Return Type: `StoriesStoriesBase`.
 /// ID: `b4352016`.
-class StoriesGetStoriesArchive extends TlMethod<StoriesStoriesBase> {
+class StoriesGetStoriesArchive extends TlMethod {
   /// Stories Get Stories Archive constructor.
   const StoriesGetStoriesArchive({
     required this.peer,
@@ -120442,8 +120911,9 @@ class StoriesGetStoriesArchive extends TlMethod<StoriesStoriesBase> {
 
 /// Stories Get Stories By I D.
 ///
+/// Return Type: `StoriesStoriesBase`.
 /// ID: `5774ca74`.
-class StoriesGetStoriesByID extends TlMethod<StoriesStoriesBase> {
+class StoriesGetStoriesByID extends TlMethod {
   /// Stories Get Stories By I D constructor.
   const StoriesGetStoriesByID({
     required this.peer,
@@ -120500,8 +120970,9 @@ class StoriesGetStoriesByID extends TlMethod<StoriesStoriesBase> {
 
 /// Stories Toggle All Stories Hidden.
 ///
+/// Return Type: `bool`.
 /// ID: `7c2557c4`.
-class StoriesToggleAllStoriesHidden extends TlMethod<bool> {
+class StoriesToggleAllStoriesHidden extends TlMethod {
   /// Stories Toggle All Stories Hidden constructor.
   const StoriesToggleAllStoriesHidden({
     required this.hidden,
@@ -120550,8 +121021,9 @@ class StoriesToggleAllStoriesHidden extends TlMethod<bool> {
 
 /// Stories Read Stories.
 ///
+/// Return Type: `List<int>`.
 /// ID: `a556dac8`.
-class StoriesReadStories extends TlMethod<List<int>> {
+class StoriesReadStories extends TlMethod {
   /// Stories Read Stories constructor.
   const StoriesReadStories({
     required this.peer,
@@ -120610,8 +121082,9 @@ class StoriesReadStories extends TlMethod<List<int>> {
 
 /// Stories Increment Story Views.
 ///
+/// Return Type: `bool`.
 /// ID: `b2028afb`.
-class StoriesIncrementStoryViews extends TlMethod<bool> {
+class StoriesIncrementStoryViews extends TlMethod {
   /// Stories Increment Story Views constructor.
   const StoriesIncrementStoryViews({
     required this.peer,
@@ -120668,8 +121141,9 @@ class StoriesIncrementStoryViews extends TlMethod<bool> {
 
 /// Stories Get Story Views List.
 ///
+/// Return Type: `StoriesStoryViewsListBase`.
 /// ID: `7ed23c57`.
-class StoriesGetStoryViewsList extends TlMethod<StoriesStoryViewsListBase> {
+class StoriesGetStoryViewsList extends TlMethod {
   /// Stories Get Story Views List constructor.
   const StoriesGetStoryViewsList({
     required this.justContacts,
@@ -120794,8 +121268,9 @@ class StoriesGetStoryViewsList extends TlMethod<StoriesStoryViewsListBase> {
 
 /// Stories Get Stories Views.
 ///
+/// Return Type: `StoriesStoryViewsBase`.
 /// ID: `28e16cc8`.
-class StoriesGetStoriesViews extends TlMethod<StoriesStoryViewsBase> {
+class StoriesGetStoriesViews extends TlMethod {
   /// Stories Get Stories Views constructor.
   const StoriesGetStoriesViews({
     required this.peer,
@@ -120852,8 +121327,9 @@ class StoriesGetStoriesViews extends TlMethod<StoriesStoryViewsBase> {
 
 /// Stories Export Story Link.
 ///
+/// Return Type: `ExportedStoryLinkBase`.
 /// ID: `7b8def20`.
-class StoriesExportStoryLink extends TlMethod<ExportedStoryLinkBase> {
+class StoriesExportStoryLink extends TlMethod {
   /// Stories Export Story Link constructor.
   const StoriesExportStoryLink({
     required this.peer,
@@ -120912,8 +121388,9 @@ class StoriesExportStoryLink extends TlMethod<ExportedStoryLinkBase> {
 
 /// Stories Report.
 ///
+/// Return Type: `bool`.
 /// ID: `1923fa8c`.
-class StoriesReport extends TlMethod<bool> {
+class StoriesReport extends TlMethod {
   /// Stories Report constructor.
   const StoriesReport({
     required this.peer,
@@ -120986,8 +121463,9 @@ class StoriesReport extends TlMethod<bool> {
 
 /// Stories Activate Stealth Mode.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `57bbd166`.
-class StoriesActivateStealthMode extends TlMethod<UpdatesBase> {
+class StoriesActivateStealthMode extends TlMethod {
   /// Stories Activate Stealth Mode constructor.
   const StoriesActivateStealthMode({
     required this.past,
@@ -121055,8 +121533,9 @@ class StoriesActivateStealthMode extends TlMethod<UpdatesBase> {
 
 /// Contacts Set Blocked.
 ///
+/// Return Type: `bool`.
 /// ID: `94c65c76`.
-class ContactsSetBlocked extends TlMethod<bool> {
+class ContactsSetBlocked extends TlMethod {
   /// Contacts Set Blocked constructor.
   const ContactsSetBlocked({
     required this.myStoriesFrom,
@@ -121134,8 +121613,9 @@ class ContactsSetBlocked extends TlMethod<bool> {
 
 /// Stories Send Reaction.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `7fd736b2`.
-class StoriesSendReaction extends TlMethod<UpdatesBase> {
+class StoriesSendReaction extends TlMethod {
   /// Stories Send Reaction constructor.
   const StoriesSendReaction({
     required this.addToRecent,
@@ -121221,8 +121701,9 @@ class StoriesSendReaction extends TlMethod<UpdatesBase> {
 
 /// Bots Can Send Message.
 ///
+/// Return Type: `bool`.
 /// ID: `1359f4e6`.
-class BotsCanSendMessage extends TlMethod<bool> {
+class BotsCanSendMessage extends TlMethod {
   /// Bots Can Send Message constructor.
   const BotsCanSendMessage({
     required this.bot,
@@ -121271,8 +121752,9 @@ class BotsCanSendMessage extends TlMethod<bool> {
 
 /// Bots Allow Send Message.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f132e3ef`.
-class BotsAllowSendMessage extends TlMethod<UpdatesBase> {
+class BotsAllowSendMessage extends TlMethod {
   /// Bots Allow Send Message constructor.
   const BotsAllowSendMessage({
     required this.bot,
@@ -121321,8 +121803,9 @@ class BotsAllowSendMessage extends TlMethod<UpdatesBase> {
 
 /// Bots Invoke Web View Custom Method.
 ///
+/// Return Type: `DataJSONBase`.
 /// ID: `087fc5e7`.
-class BotsInvokeWebViewCustomMethod extends TlMethod<DataJSONBase> {
+class BotsInvokeWebViewCustomMethod extends TlMethod {
   /// Bots Invoke Web View Custom Method constructor.
   const BotsInvokeWebViewCustomMethod({
     required this.bot,
@@ -121387,8 +121870,9 @@ class BotsInvokeWebViewCustomMethod extends TlMethod<DataJSONBase> {
 
 /// Stories Get Peer Stories.
 ///
+/// Return Type: `StoriesPeerStoriesBase`.
 /// ID: `2c4ada50`.
-class StoriesGetPeerStories extends TlMethod<StoriesPeerStoriesBase> {
+class StoriesGetPeerStories extends TlMethod {
   /// Stories Get Peer Stories constructor.
   const StoriesGetPeerStories({
     required this.peer,
@@ -121437,8 +121921,9 @@ class StoriesGetPeerStories extends TlMethod<StoriesPeerStoriesBase> {
 
 /// Stories Get All Read Peer Stories.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `9b5ae7f9`.
-class StoriesGetAllReadPeerStories extends TlMethod<UpdatesBase> {
+class StoriesGetAllReadPeerStories extends TlMethod {
   /// Stories Get All Read Peer Stories constructor.
   const StoriesGetAllReadPeerStories() : super._();
 
@@ -121473,8 +121958,9 @@ class StoriesGetAllReadPeerStories extends TlMethod<UpdatesBase> {
 
 /// Stories Get Peer Max I Ds.
 ///
+/// Return Type: `List<int>`.
 /// ID: `535983c3`.
-class StoriesGetPeerMaxIDs extends TlMethod<List<int>> {
+class StoriesGetPeerMaxIDs extends TlMethod {
   /// Stories Get Peer Max I Ds constructor.
   const StoriesGetPeerMaxIDs({
     required this.id,
@@ -121523,8 +122009,9 @@ class StoriesGetPeerMaxIDs extends TlMethod<List<int>> {
 
 /// Stories Get Chats To Send.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `a56a8b60`.
-class StoriesGetChatsToSend extends TlMethod<MessagesChatsBase> {
+class StoriesGetChatsToSend extends TlMethod {
   /// Stories Get Chats To Send constructor.
   const StoriesGetChatsToSend() : super._();
 
@@ -121559,8 +122046,9 @@ class StoriesGetChatsToSend extends TlMethod<MessagesChatsBase> {
 
 /// Stories Toggle Peer Stories Hidden.
 ///
+/// Return Type: `bool`.
 /// ID: `bd0415c4`.
-class StoriesTogglePeerStoriesHidden extends TlMethod<bool> {
+class StoriesTogglePeerStoriesHidden extends TlMethod {
   /// Stories Toggle Peer Stories Hidden constructor.
   const StoriesTogglePeerStoriesHidden({
     required this.peer,
@@ -121617,9 +122105,9 @@ class StoriesTogglePeerStoriesHidden extends TlMethod<bool> {
 
 /// Payments Get Premium Gift Code Options.
 ///
+/// Return Type: `List<PremiumGiftCodeOptionBase>`.
 /// ID: `2757ba54`.
-class PaymentsGetPremiumGiftCodeOptions
-    extends TlMethod<List<PremiumGiftCodeOptionBase>> {
+class PaymentsGetPremiumGiftCodeOptions extends TlMethod {
   /// Payments Get Premium Gift Code Options constructor.
   const PaymentsGetPremiumGiftCodeOptions({
     this.boostPeer,
@@ -121685,8 +122173,9 @@ class PaymentsGetPremiumGiftCodeOptions
 
 /// Payments Check Gift Code.
 ///
+/// Return Type: `PaymentsCheckedGiftCodeBase`.
 /// ID: `8e51b4c1`.
-class PaymentsCheckGiftCode extends TlMethod<PaymentsCheckedGiftCodeBase> {
+class PaymentsCheckGiftCode extends TlMethod {
   /// Payments Check Gift Code constructor.
   const PaymentsCheckGiftCode({
     required this.slug,
@@ -121735,8 +122224,9 @@ class PaymentsCheckGiftCode extends TlMethod<PaymentsCheckedGiftCodeBase> {
 
 /// Payments Apply Gift Code.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f6e26854`.
-class PaymentsApplyGiftCode extends TlMethod<UpdatesBase> {
+class PaymentsApplyGiftCode extends TlMethod {
   /// Payments Apply Gift Code constructor.
   const PaymentsApplyGiftCode({
     required this.slug,
@@ -121785,8 +122275,9 @@ class PaymentsApplyGiftCode extends TlMethod<UpdatesBase> {
 
 /// Payments Get Giveaway Info.
 ///
+/// Return Type: `PaymentsGiveawayInfoBase`.
 /// ID: `f4239425`.
-class PaymentsGetGiveawayInfo extends TlMethod<PaymentsGiveawayInfoBase> {
+class PaymentsGetGiveawayInfo extends TlMethod {
   /// Payments Get Giveaway Info constructor.
   const PaymentsGetGiveawayInfo({
     required this.peer,
@@ -121845,8 +122336,9 @@ class PaymentsGetGiveawayInfo extends TlMethod<PaymentsGiveawayInfoBase> {
 
 /// Payments Launch Prepaid Giveaway.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `5ff58f20`.
-class PaymentsLaunchPrepaidGiveaway extends TlMethod<UpdatesBase> {
+class PaymentsLaunchPrepaidGiveaway extends TlMethod {
   /// Payments Launch Prepaid Giveaway constructor.
   const PaymentsLaunchPrepaidGiveaway({
     required this.peer,
@@ -121913,8 +122405,9 @@ class PaymentsLaunchPrepaidGiveaway extends TlMethod<UpdatesBase> {
 
 /// Account Update Color.
 ///
+/// Return Type: `bool`.
 /// ID: `7cefa15d`.
-class AccountUpdateColor extends TlMethod<bool> {
+class AccountUpdateColor extends TlMethod {
   /// Account Update Color constructor.
   const AccountUpdateColor({
     required this.forProfile,
@@ -122001,8 +122494,9 @@ class AccountUpdateColor extends TlMethod<bool> {
 
 /// Channels Update Color.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `d8aa3671`.
-class ChannelsUpdateColor extends TlMethod<UpdatesBase> {
+class ChannelsUpdateColor extends TlMethod {
   /// Channels Update Color constructor.
   const ChannelsUpdateColor({
     required this.forProfile,
@@ -122097,8 +122591,9 @@ class ChannelsUpdateColor extends TlMethod<UpdatesBase> {
 
 /// Account Get Default Background Emojis.
 ///
+/// Return Type: `EmojiListBase`.
 /// ID: `a60ab9ce`.
-class AccountGetDefaultBackgroundEmojis extends TlMethod<EmojiListBase> {
+class AccountGetDefaultBackgroundEmojis extends TlMethod {
   /// Account Get Default Background Emojis constructor.
   const AccountGetDefaultBackgroundEmojis({
     required this.hash,
@@ -122149,8 +122644,9 @@ class AccountGetDefaultBackgroundEmojis extends TlMethod<EmojiListBase> {
 
 /// Premium Get Boosts List.
 ///
+/// Return Type: `PremiumBoostsListBase`.
 /// ID: `60f67660`.
-class PremiumGetBoostsList extends TlMethod<PremiumBoostsListBase> {
+class PremiumGetBoostsList extends TlMethod {
   /// Premium Get Boosts List constructor.
   const PremiumGetBoostsList({
     required this.gifts,
@@ -122236,8 +122732,9 @@ class PremiumGetBoostsList extends TlMethod<PremiumBoostsListBase> {
 
 /// Premium Get My Boosts.
 ///
+/// Return Type: `PremiumMyBoostsBase`.
 /// ID: `0be77b4a`.
-class PremiumGetMyBoosts extends TlMethod<PremiumMyBoostsBase> {
+class PremiumGetMyBoosts extends TlMethod {
   /// Premium Get My Boosts constructor.
   const PremiumGetMyBoosts() : super._();
 
@@ -122272,8 +122769,9 @@ class PremiumGetMyBoosts extends TlMethod<PremiumMyBoostsBase> {
 
 /// Premium Apply Boost.
 ///
+/// Return Type: `PremiumMyBoostsBase`.
 /// ID: `6b7da746`.
-class PremiumApplyBoost extends TlMethod<PremiumMyBoostsBase> {
+class PremiumApplyBoost extends TlMethod {
   /// Premium Apply Boost constructor.
   const PremiumApplyBoost({
     this.slots,
@@ -122346,8 +122844,9 @@ class PremiumApplyBoost extends TlMethod<PremiumMyBoostsBase> {
 
 /// Premium Get Boosts Status.
 ///
+/// Return Type: `PremiumBoostsStatusBase`.
 /// ID: `042f1f61`.
-class PremiumGetBoostsStatus extends TlMethod<PremiumBoostsStatusBase> {
+class PremiumGetBoostsStatus extends TlMethod {
   /// Premium Get Boosts Status constructor.
   const PremiumGetBoostsStatus({
     required this.peer,
@@ -122396,8 +122895,9 @@ class PremiumGetBoostsStatus extends TlMethod<PremiumBoostsStatusBase> {
 
 /// Premium Get User Boosts.
 ///
+/// Return Type: `PremiumBoostsListBase`.
 /// ID: `39854d1f`.
-class PremiumGetUserBoosts extends TlMethod<PremiumBoostsListBase> {
+class PremiumGetUserBoosts extends TlMethod {
   /// Premium Get User Boosts constructor.
   const PremiumGetUserBoosts({
     required this.peer,
@@ -122454,8 +122954,9 @@ class PremiumGetUserBoosts extends TlMethod<PremiumBoostsListBase> {
 
 /// Channels Toggle View Forum As Messages.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `9738bb15`.
-class ChannelsToggleViewForumAsMessages extends TlMethod<UpdatesBase> {
+class ChannelsToggleViewForumAsMessages extends TlMethod {
   /// Channels Toggle View Forum As Messages constructor.
   const ChannelsToggleViewForumAsMessages({
     required this.channel,
@@ -122512,9 +123013,9 @@ class ChannelsToggleViewForumAsMessages extends TlMethod<UpdatesBase> {
 
 /// Messages Search Emoji Sticker Sets.
 ///
+/// Return Type: `MessagesFoundStickerSetsBase`.
 /// ID: `92b4494c`.
-class MessagesSearchEmojiStickerSets
-    extends TlMethod<MessagesFoundStickerSetsBase> {
+class MessagesSearchEmojiStickerSets extends TlMethod {
   /// Messages Search Emoji Sticker Sets constructor.
   const MessagesSearchEmojiStickerSets({
     required this.excludeFeatured,
@@ -122592,8 +123093,9 @@ class MessagesSearchEmojiStickerSets
 
 /// Channels Get Channel Recommendations.
 ///
+/// Return Type: `MessagesChatsBase`.
 /// ID: `83b70d97`.
-class ChannelsGetChannelRecommendations extends TlMethod<MessagesChatsBase> {
+class ChannelsGetChannelRecommendations extends TlMethod {
   /// Channels Get Channel Recommendations constructor.
   const ChannelsGetChannelRecommendations({
     required this.channel,
@@ -122642,8 +123144,9 @@ class ChannelsGetChannelRecommendations extends TlMethod<MessagesChatsBase> {
 
 /// Stats Get Story Stats.
 ///
+/// Return Type: `StatsStoryStatsBase`.
 /// ID: `374fef40`.
-class StatsGetStoryStats extends TlMethod<StatsStoryStatsBase> {
+class StatsGetStoryStats extends TlMethod {
   /// Stats Get Story Stats constructor.
   const StatsGetStoryStats({
     required this.dark,
@@ -122721,8 +123224,9 @@ class StatsGetStoryStats extends TlMethod<StatsStoryStatsBase> {
 
 /// Stats Get Story Public Forwards.
 ///
+/// Return Type: `StatsPublicForwardsBase`.
 /// ID: `a6437ef6`.
-class StatsGetStoryPublicForwards extends TlMethod<StatsPublicForwardsBase> {
+class StatsGetStoryPublicForwards extends TlMethod {
   /// Stats Get Story Public Forwards constructor.
   const StatsGetStoryPublicForwards({
     required this.peer,
@@ -122799,8 +123303,9 @@ class StatsGetStoryPublicForwards extends TlMethod<StatsPublicForwardsBase> {
 
 /// Help Get Peer Colors.
 ///
+/// Return Type: `HelpPeerColorsBase`.
 /// ID: `da80f42f`.
-class HelpGetPeerColors extends TlMethod<HelpPeerColorsBase> {
+class HelpGetPeerColors extends TlMethod {
   /// Help Get Peer Colors constructor.
   const HelpGetPeerColors({
     required this.hash,
@@ -122851,8 +123356,9 @@ class HelpGetPeerColors extends TlMethod<HelpPeerColorsBase> {
 
 /// Help Get Peer Profile Colors.
 ///
+/// Return Type: `HelpPeerColorsBase`.
 /// ID: `abcfa9fd`.
-class HelpGetPeerProfileColors extends TlMethod<HelpPeerColorsBase> {
+class HelpGetPeerProfileColors extends TlMethod {
   /// Help Get Peer Profile Colors constructor.
   const HelpGetPeerProfileColors({
     required this.hash,
@@ -122903,9 +123409,9 @@ class HelpGetPeerProfileColors extends TlMethod<HelpPeerColorsBase> {
 
 /// Stories Get Story Reactions List.
 ///
+/// Return Type: `StoriesStoryReactionsListBase`.
 /// ID: `b9b2881f`.
-class StoriesGetStoryReactionsList
-    extends TlMethod<StoriesStoryReactionsListBase> {
+class StoriesGetStoryReactionsList extends TlMethod {
   /// Stories Get Story Reactions List constructor.
   const StoriesGetStoryReactionsList({
     required this.forwardsFirst,
@@ -123020,8 +123526,9 @@ class StoriesGetStoryReactionsList
 
 /// Channels Update Emoji Status.
 ///
+/// Return Type: `UpdatesBase`.
 /// ID: `f0d3e6a8`.
-class ChannelsUpdateEmojiStatus extends TlMethod<UpdatesBase> {
+class ChannelsUpdateEmojiStatus extends TlMethod {
   /// Channels Update Emoji Status constructor.
   const ChannelsUpdateEmojiStatus({
     required this.channel,
@@ -123078,9 +123585,9 @@ class ChannelsUpdateEmojiStatus extends TlMethod<UpdatesBase> {
 
 /// Account Get Channel Default Emoji Statuses.
 ///
+/// Return Type: `AccountEmojiStatusesBase`.
 /// ID: `7727a7d5`.
-class AccountGetChannelDefaultEmojiStatuses
-    extends TlMethod<AccountEmojiStatusesBase> {
+class AccountGetChannelDefaultEmojiStatuses extends TlMethod {
   /// Account Get Channel Default Emoji Statuses constructor.
   const AccountGetChannelDefaultEmojiStatuses({
     required this.hash,
@@ -123132,8 +123639,9 @@ class AccountGetChannelDefaultEmojiStatuses
 
 /// Account Get Channel Restricted Status Emojis.
 ///
+/// Return Type: `EmojiListBase`.
 /// ID: `35a9e0d5`.
-class AccountGetChannelRestrictedStatusEmojis extends TlMethod<EmojiListBase> {
+class AccountGetChannelRestrictedStatusEmojis extends TlMethod {
   /// Account Get Channel Restricted Status Emojis constructor.
   const AccountGetChannelRestrictedStatusEmojis({
     required this.hash,
@@ -123185,8 +123693,9 @@ class AccountGetChannelRestrictedStatusEmojis extends TlMethod<EmojiListBase> {
 
 /// Messages Get Saved Dialogs.
 ///
+/// Return Type: `MessagesSavedDialogsBase`.
 /// ID: `5381d21a`.
-class MessagesGetSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
+class MessagesGetSavedDialogs extends TlMethod {
   /// Messages Get Saved Dialogs constructor.
   const MessagesGetSavedDialogs({
     required this.excludePinned,
@@ -123292,8 +123801,9 @@ class MessagesGetSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
 
 /// Messages Get Saved History.
 ///
+/// Return Type: `MessagesMessagesBase`.
 /// ID: `3d9a414d`.
-class MessagesGetSavedHistory extends TlMethod<MessagesMessagesBase> {
+class MessagesGetSavedHistory extends TlMethod {
   /// Messages Get Saved History constructor.
   const MessagesGetSavedHistory({
     required this.peer,
@@ -123410,8 +123920,9 @@ class MessagesGetSavedHistory extends TlMethod<MessagesMessagesBase> {
 
 /// Messages Delete Saved History.
 ///
+/// Return Type: `MessagesAffectedHistoryBase`.
 /// ID: `6e98102b`.
-class MessagesDeleteSavedHistory extends TlMethod<MessagesAffectedHistoryBase> {
+class MessagesDeleteSavedHistory extends TlMethod {
   /// Messages Delete Saved History constructor.
   const MessagesDeleteSavedHistory({
     required this.peer,
@@ -123507,8 +124018,9 @@ class MessagesDeleteSavedHistory extends TlMethod<MessagesAffectedHistoryBase> {
 
 /// Messages Get Pinned Saved Dialogs.
 ///
+/// Return Type: `MessagesSavedDialogsBase`.
 /// ID: `d63d94e0`.
-class MessagesGetPinnedSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
+class MessagesGetPinnedSavedDialogs extends TlMethod {
   /// Messages Get Pinned Saved Dialogs constructor.
   const MessagesGetPinnedSavedDialogs() : super._();
 
@@ -123543,8 +124055,9 @@ class MessagesGetPinnedSavedDialogs extends TlMethod<MessagesSavedDialogsBase> {
 
 /// Messages Toggle Saved Dialog Pin.
 ///
+/// Return Type: `bool`.
 /// ID: `ac81bbde`.
-class MessagesToggleSavedDialogPin extends TlMethod<bool> {
+class MessagesToggleSavedDialogPin extends TlMethod {
   /// Messages Toggle Saved Dialog Pin constructor.
   const MessagesToggleSavedDialogPin({
     required this.pinned,
@@ -123612,8 +124125,9 @@ class MessagesToggleSavedDialogPin extends TlMethod<bool> {
 
 /// Messages Reorder Pinned Saved Dialogs.
 ///
+/// Return Type: `bool`.
 /// ID: `8b716587`.
-class MessagesReorderPinnedSavedDialogs extends TlMethod<bool> {
+class MessagesReorderPinnedSavedDialogs extends TlMethod {
   /// Messages Reorder Pinned Saved Dialogs constructor.
   const MessagesReorderPinnedSavedDialogs({
     required this.force,
