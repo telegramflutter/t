@@ -22,7 +22,7 @@ void main() {
     q.serialize(buffer);
 
     final br = t.BinaryReader(Uint8List.fromList(buffer));
-    final x = br.readObject<t.InitConnection>();
+    final x = br.readObject() as t.InitConnection;
 
     expect(q.deviceModel, x.deviceModel);
   });

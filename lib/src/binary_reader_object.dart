@@ -414,10 +414,6 @@ TlObject _readObject(BinaryReader reader) {
     return Message.deserialize(reader);
   }
 
-  if (id == 0x1e4c8a69) {
-    return Message.deserialize(reader);
-  }
-
   if (id == 0x2b085862) {
     return MessageService.deserialize(reader);
   }
@@ -7632,5 +7628,5 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEntityCustomEmoji144.deserialize(reader);
   }
 
-  throw Exception('Object not recognized.');
+  return Unknown._(id);
 }

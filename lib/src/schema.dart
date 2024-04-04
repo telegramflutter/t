@@ -94630,6 +94630,7 @@ class MessagesMigrateChat extends TlMethod {
 class MessagesSearchGlobal extends TlMethod {
   /// Messages Search Global constructor.
   const MessagesSearchGlobal({
+    required this.broadcastsOnly,
     this.folderId,
     required this.q,
     required this.filter,
@@ -94645,6 +94646,7 @@ class MessagesSearchGlobal extends TlMethod {
   factory MessagesSearchGlobal.deserialize(BinaryReader reader) {
     // Read [MessagesSearchGlobal] fields.
     final flags = reader.readInt32();
+    final broadcastsOnly = (flags & 2) != 0;
     final hasFolderIdField = (flags & 1) != 0;
     final folderId = hasFolderIdField ? reader.readInt32() : null;
     final q = reader.readString();
@@ -94658,6 +94660,7 @@ class MessagesSearchGlobal extends TlMethod {
 
     // Construct [MessagesSearchGlobal] object.
     final returnValue = MessagesSearchGlobal(
+      broadcastsOnly: broadcastsOnly,
       folderId: folderId,
       q: q,
       filter: filter,
@@ -94676,11 +94679,15 @@ class MessagesSearchGlobal extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
+      b01: broadcastsOnly,
       b00: folderId != null,
     );
 
     return v;
   }
+
+  /// broadcasts_only: bit 1 of flags.1?true
+  final bool broadcastsOnly;
 
   /// Folder Id.
   final int? folderId;
@@ -94744,6 +94751,7 @@ class MessagesSearchGlobal extends TlMethod {
     final returnValue = <String, dynamic>{
       "\$": "0x4bc6589a",
       "flags": flags,
+      "broadcastsOnly": broadcastsOnly,
       "folderId": folderId,
       "q": q,
       "filter": filter,

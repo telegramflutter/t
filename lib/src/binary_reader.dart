@@ -100,7 +100,7 @@ class BinaryReader {
     final items = <T>[];
 
     for (int i = 0; i < count; i++) {
-      items.add(readObject<T>());
+      items.add(readObject() as T);
     }
 
     return items;
@@ -207,10 +207,8 @@ class BinaryReader {
   }
 
   /// Read TlObject.
-  T readObject<T extends TlObject>() {
+  TlObject readObject() {
     final obj = _readObject(this);
-    final t = obj as T;
-
-    return t;
+    return obj;
   }
 }

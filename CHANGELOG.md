@@ -1,3 +1,7 @@
+## 0.0.12
+
+- Update repository link.
+
 ## 0.0.11
 
 - Fix deserialization of `Message` type.

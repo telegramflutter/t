@@ -149,6 +149,31 @@ class Null extends TlObject {
   }
 }
 
+/// Unknown object.
+class Unknown extends TlObject {
+  Unknown._(this.id) : super._();
+
+  final int id;
+
+  /// Deserialize.
+  factory Unknown.deserialize(BinaryReader reader) {
+    return _instance;
+  }
+
+  static final _instance = Unknown._(0);
+
+  @override
+  void serialize(List<int> buffer) {}
+
+  @override
+  Map<String, dynamic> toJson() {
+    final idHex = id.toRadixString(16).padLeft(4, '0');
+    return {
+      '\$': '0x$idHex',
+    };
+  }
+}
+
 /// 128 bit Integer.
 class Int128 {
   /// Constructor.
