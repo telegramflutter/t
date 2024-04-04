@@ -1,3 +1,7 @@
+## 0.0.11
+
+- Fix deserialization of `Message` type.
+
 ## 0.0.10
 
 - `MsgContainer` must be serialized differently.
