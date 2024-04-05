@@ -1,4 +1,4 @@
-part of '../t.dart';
+part of '../../t.dart';
 
 TlObject _readObject(BinaryReader reader) {
   final id = reader.readInt32();

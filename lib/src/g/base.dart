@@ -1,4 +1,4 @@
-part of '../t.dart';
+part of '../../t.dart';
 
 /// Predicate Res P Q.
 abstract class ResPQBase extends TlConstructor {

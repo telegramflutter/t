@@ -1,12 +1,9 @@
-part of '../t.dart';
+part of '../../t.dart';
 
 /// Base class for the client.
 abstract class Client {
   /// Constructor.
-  Client({
-    required this.sender,
-    required this.receiver,
-  }) {
+  Client() {
     auth = ClientAuth._(this);
     account = ClientAccount._(this);
     users = ClientUsers._(this);
@@ -29,14 +26,8 @@ abstract class Client {
     premium = ClientPremium._(this);
   }
 
-  /// Data receiver from Telegram servers.
-  final Stream<Uint8List> receiver;
-
-  /// Sends data to the servers.
-  final Sink<Uint8List> sender;
-
   /// Sends [msg] to Telegram servers.
-  Future<Result> invoke(TlObject msg, bool preferEncryption);
+  Future<Result> invoke(TlObject msg);
 
   /// Auth part.
   late final ClientAuth auth;
@@ -112,7 +103,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -132,7 +123,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -168,7 +159,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -188,7 +179,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -206,7 +197,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -226,7 +217,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -246,7 +237,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request, true);
+    final response = await invoke(request);
 
     // Return the result.
     return response._to<T>().result!;
@@ -277,7 +268,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthSentCodeBase>().result!;
@@ -301,7 +292,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -325,7 +316,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -339,7 +330,7 @@ class ClientAuth {
     final request = AuthLogOut();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthLoggedOutBase>().result!;
@@ -357,7 +348,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthExportedAuthorizationBase>().result!;
@@ -377,7 +368,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -401,7 +392,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -419,7 +410,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -433,7 +424,7 @@ class ClientAuth {
     final request = AuthRequestPasswordRecovery();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthPasswordRecoveryBase>().result!;
@@ -453,7 +444,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -473,7 +464,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthSentCodeBase>().result!;
@@ -495,7 +486,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthLoginTokenBase>().result!;
@@ -513,7 +504,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthLoginTokenBase>().result!;
@@ -531,7 +522,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthorizationBase>().result!;
@@ -553,7 +544,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthAuthorizationBase>().result!;
@@ -573,7 +564,7 @@ class ClientAuth {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthSentCodeBase>().result!;
@@ -598,7 +589,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PeerNotifySettingsBase>().result!;
@@ -620,7 +611,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UserBase>().result!;
@@ -638,7 +629,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountWallPapersBase>().result!;
@@ -656,7 +647,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UserBase>().result!;
@@ -674,7 +665,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountPrivacyRulesBase>().result!;
@@ -694,7 +685,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountPrivacyRulesBase>().result!;
@@ -708,7 +699,7 @@ class ClientAccount {
     final request = AccountGetAccountTTL();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountDaysTTLBase>().result!;
@@ -728,7 +719,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthSentCodeBase>().result!;
@@ -750,7 +741,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UserBase>().result!;
@@ -764,7 +755,7 @@ class ClientAccount {
     final request = AccountGetAuthorizations();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountAuthorizationsBase>().result!;
@@ -778,7 +769,7 @@ class ClientAccount {
     final request = AccountGetPassword();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountPasswordBase>().result!;
@@ -796,7 +787,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountPasswordSettingsBase>().result!;
@@ -816,7 +807,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthSentCodeBase>().result!;
@@ -836,7 +827,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountTmpPasswordBase>().result!;
@@ -850,7 +841,7 @@ class ClientAccount {
     final request = AccountGetWebAuthorizations();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountWebAuthorizationsBase>().result!;
@@ -870,7 +861,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<SecureValueBase>().result!;
@@ -892,7 +883,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountAuthorizationFormBase>().result!;
@@ -912,7 +903,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AuthSentCodeBase>().result!;
@@ -932,7 +923,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountSentEmailCodeBase>().result!;
@@ -952,7 +943,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountEmailVerifiedBase>().result!;
@@ -982,7 +973,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountTakeoutBase>().result!;
@@ -1004,7 +995,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -1022,7 +1013,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<WallPaperBase>().result!;
@@ -1046,7 +1037,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<WallPaperBase>().result!;
@@ -1060,7 +1051,7 @@ class ClientAccount {
     final request = AccountGetAutoDownloadSettings();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountAutoDownloadSettingsBase>().result!;
@@ -1084,7 +1075,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DocumentBase>().result!;
@@ -1108,7 +1099,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ThemeBase>().result!;
@@ -1136,7 +1127,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ThemeBase>().result!;
@@ -1156,7 +1147,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ThemeBase>().result!;
@@ -1176,7 +1167,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountThemesBase>().result!;
@@ -1190,7 +1181,7 @@ class ClientAccount {
     final request = AccountGetContentSettings();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountContentSettingsBase>().result!;
@@ -1204,7 +1195,7 @@ class ClientAccount {
     final request = AccountGetGlobalPrivacySettings();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<GlobalPrivacySettingsBase>().result!;
@@ -1222,7 +1213,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<GlobalPrivacySettingsBase>().result!;
@@ -1236,7 +1227,7 @@ class ClientAccount {
     final request = AccountResetPassword();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountResetPasswordResultBase>().result!;
@@ -1254,7 +1245,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountThemesBase>().result!;
@@ -1272,7 +1263,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountSavedRingtonesBase>().result!;
@@ -1292,7 +1283,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountSavedRingtoneBase>().result!;
@@ -1314,7 +1305,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DocumentBase>().result!;
@@ -1332,7 +1323,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountEmojiStatusesBase>().result!;
@@ -1350,7 +1341,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountEmojiStatusesBase>().result!;
@@ -1368,7 +1359,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiListBase>().result!;
@@ -1386,7 +1377,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiListBase>().result!;
@@ -1400,7 +1391,7 @@ class ClientAccount {
     final request = AccountGetAutoSaveSettings();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountAutoSaveSettingsBase>().result!;
@@ -1418,7 +1409,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiListBase>().result!;
@@ -1436,7 +1427,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AccountEmojiStatusesBase>().result!;
@@ -1454,7 +1445,7 @@ class ClientAccount {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiListBase>().result!;
@@ -1479,7 +1470,7 @@ class ClientUsers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UsersUserFullBase>().result!;
@@ -1504,7 +1495,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsContactsBase>().result!;
@@ -1522,7 +1513,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsImportedContactsBase>().result!;
@@ -1540,7 +1531,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -1562,7 +1553,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsBlockedBase>().result!;
@@ -1582,7 +1573,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsFoundBase>().result!;
@@ -1600,7 +1591,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsResolvedPeerBase>().result!;
@@ -1638,7 +1629,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsTopPeersBase>().result!;
@@ -1664,7 +1655,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -1682,7 +1673,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -1704,7 +1695,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -1728,7 +1719,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -1746,7 +1737,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ContactsResolvedPeerBase>().result!;
@@ -1760,7 +1751,7 @@ class ClientContacts {
     final request = ContactsExportContactToken();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ExportedContactTokenBase>().result!;
@@ -1778,7 +1769,7 @@ class ClientContacts {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UserBase>().result!;
@@ -1803,7 +1794,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -1833,7 +1824,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesDialogsBase>().result!;
@@ -1865,7 +1856,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -1909,7 +1900,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -1929,7 +1920,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedMessagesBase>().result!;
@@ -1957,7 +1948,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -1977,7 +1968,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedMessagesBase>().result!;
@@ -2023,7 +2014,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2069,7 +2060,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2111,7 +2102,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2129,7 +2120,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesPeerSettingsBase>().result!;
@@ -2147,7 +2138,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -2165,7 +2156,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatFullBase>().result!;
@@ -2185,7 +2176,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2205,7 +2196,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2227,7 +2218,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2249,7 +2240,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2271,7 +2262,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2291,7 +2282,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesDhConfigBase>().result!;
@@ -2313,7 +2304,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EncryptedChatBase>().result!;
@@ -2335,7 +2326,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EncryptedChatBase>().result!;
@@ -2359,7 +2350,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSentEncryptedMessageBase>().result!;
@@ -2385,7 +2376,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSentEncryptedMessageBase>().result!;
@@ -2407,7 +2398,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSentEncryptedMessageBase>().result!;
@@ -2425,7 +2416,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedMessagesBase>().result!;
@@ -2445,7 +2436,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickersBase>().result!;
@@ -2463,7 +2454,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAllStickersBase>().result!;
@@ -2483,7 +2474,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessageMediaBase>().result!;
@@ -2511,7 +2502,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ExportedChatInviteBase>().result!;
@@ -2529,7 +2520,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChatInviteBase>().result!;
@@ -2547,7 +2538,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2567,7 +2558,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -2587,7 +2578,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetInstallResultBase>().result!;
@@ -2611,7 +2602,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2633,7 +2624,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessageViewsBase>().result!;
@@ -2651,7 +2642,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2687,7 +2678,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -2709,7 +2700,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DocumentBase>().result!;
@@ -2727,7 +2718,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSavedGifsBase>().result!;
@@ -2753,7 +2744,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesBotResultsBase>().result!;
@@ -2791,7 +2782,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2811,7 +2802,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessageEditDataBase>().result!;
@@ -2845,7 +2836,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2871,7 +2862,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesBotCallbackAnswerBase>().result!;
@@ -2889,7 +2880,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesPeerDialogsBase>().result!;
@@ -2903,7 +2894,7 @@ class ClientMessages {
     final request = MessagesGetAllDrafts();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -2921,7 +2912,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesFeaturedStickersBase>().result!;
@@ -2941,7 +2932,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesRecentStickersBase>().result!;
@@ -2965,7 +2956,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesArchivedStickersBase>().result!;
@@ -2983,7 +2974,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAllStickersBase>().result!;
@@ -3011,7 +3002,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3033,7 +3024,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesHighScoresBase>().result!;
@@ -3053,7 +3044,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesHighScoresBase>().result!;
@@ -3075,7 +3066,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -3095,7 +3086,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesWebPageBase>().result!;
@@ -3113,7 +3104,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesPeerDialogsBase>().result!;
@@ -3133,7 +3124,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessageMediaBase>().result!;
@@ -3155,7 +3146,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3173,7 +3164,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesFavedStickersBase>().result!;
@@ -3203,7 +3194,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -3223,7 +3214,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -3245,7 +3236,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -3283,7 +3274,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3303,7 +3294,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EncryptedFileBase>().result!;
@@ -3325,7 +3316,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesFoundStickerSetsBase>().result!;
@@ -3351,7 +3342,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3373,7 +3364,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3393,7 +3384,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3411,7 +3402,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChatOnlinesBase>().result!;
@@ -3431,7 +3422,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3449,7 +3440,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiKeywordsDifferenceBase>().result!;
@@ -3469,7 +3460,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiKeywordsDifferenceBase>().result!;
@@ -3487,7 +3478,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiURLBase>().result!;
@@ -3511,7 +3502,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UrlAuthResultBase>().result!;
@@ -3537,7 +3528,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UrlAuthResultBase>().result!;
@@ -3557,7 +3548,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -3577,7 +3568,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -3597,7 +3588,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3617,7 +3608,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3643,7 +3634,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesVotesListBase>().result!;
@@ -3665,7 +3656,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesFeaturedStickersBase>().result!;
@@ -3699,7 +3690,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -3719,7 +3710,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesDiscussionMessageBase>().result!;
@@ -3739,7 +3730,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -3757,7 +3748,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedFoundMessagesBase>().result!;
@@ -3775,7 +3766,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesHistoryImportParsedBase>().result!;
@@ -3797,7 +3788,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesHistoryImportBase>().result!;
@@ -3821,7 +3812,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessageMediaBase>().result!;
@@ -3849,7 +3840,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesExportedChatInvitesBase>().result!;
@@ -3869,7 +3860,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesExportedChatInviteBase>().result!;
@@ -3899,7 +3890,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesExportedChatInviteBase>().result!;
@@ -3917,7 +3908,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatAdminsWithInvitesBase>().result!;
@@ -3947,7 +3938,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatInviteImportersBase>().result!;
@@ -3967,7 +3958,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -3985,7 +3976,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesCheckedHistoryImportPeerBase>().result!;
@@ -4005,7 +3996,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4031,7 +4022,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSearchResultsCalendarBase>().result!;
@@ -4057,7 +4048,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSearchResultsPositionsBase>().result!;
@@ -4079,7 +4070,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4101,7 +4092,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4121,7 +4112,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4147,7 +4138,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4167,7 +4158,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4193,7 +4184,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessageReactionsListBase>().result!;
@@ -4213,7 +4204,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4231,7 +4222,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAvailableReactionsBase>().result!;
@@ -4255,7 +4246,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesTranslatedTextBase>().result!;
@@ -4285,7 +4276,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -4305,7 +4296,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -4327,7 +4318,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -4345,7 +4336,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AttachMenuBotsBase>().result!;
@@ -4363,7 +4354,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AttachMenuBotsBotBase>().result!;
@@ -4399,7 +4390,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<WebViewResultBase>().result!;
@@ -4429,7 +4420,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<SimpleWebViewResultBase>().result!;
@@ -4449,7 +4440,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<WebViewMessageSentBase>().result!;
@@ -4473,7 +4464,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4493,7 +4484,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesTranscribedAudioBase>().result!;
@@ -4511,7 +4502,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAllStickersBase>().result!;
@@ -4529,7 +4520,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesFeaturedStickersBase>().result!;
@@ -4549,7 +4540,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesReactionsBase>().result!;
@@ -4569,7 +4560,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesReactionsBase>().result!;
@@ -4589,7 +4580,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4603,7 +4594,7 @@ class ClientMessages {
     final request = MessagesGetDefaultHistoryTTL();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DefaultHistoryTTLBase>().result!;
@@ -4627,7 +4618,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4645,7 +4636,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesEmojiGroupsBase>().result!;
@@ -4663,7 +4654,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesEmojiGroupsBase>().result!;
@@ -4681,7 +4672,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesEmojiGroupsBase>().result!;
@@ -4701,7 +4692,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<EmojiListBase>().result!;
@@ -4721,7 +4712,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesBotAppBase>().result!;
@@ -4749,7 +4740,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<AppWebViewResultBase>().result!;
@@ -4777,7 +4768,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -4799,7 +4790,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesFoundStickerSetsBase>().result!;
@@ -4827,7 +4818,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSavedDialogsBase>().result!;
@@ -4859,7 +4850,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -4883,7 +4874,7 @@ class ClientMessages {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -4897,7 +4888,7 @@ class ClientMessages {
     final request = MessagesGetPinnedSavedDialogs();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSavedDialogsBase>().result!;
@@ -4918,7 +4909,7 @@ class ClientUpdates {
     final request = UpdatesGetState();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesStateBase>().result!;
@@ -4946,7 +4937,7 @@ class ClientUpdates {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesDifferenceBase>().result!;
@@ -4972,7 +4963,7 @@ class ClientUpdates {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesChannelDifferenceBase>().result!;
@@ -5001,7 +4992,7 @@ class ClientPhotos {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhotosPhotoBase>().result!;
@@ -5029,7 +5020,7 @@ class ClientPhotos {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhotosPhotoBase>().result!;
@@ -5053,7 +5044,7 @@ class ClientPhotos {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhotosPhotosBase>().result!;
@@ -5083,7 +5074,7 @@ class ClientPhotos {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhotosPhotoBase>().result!;
@@ -5116,7 +5107,7 @@ class ClientUpload {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UploadFileBase>().result!;
@@ -5138,7 +5129,7 @@ class ClientUpload {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UploadWebFileBase>().result!;
@@ -5160,7 +5151,7 @@ class ClientUpload {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UploadCdnFileBase>().result!;
@@ -5181,7 +5172,7 @@ class ClientHelp {
     final request = HelpGetConfig();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ConfigBase>().result!;
@@ -5195,7 +5186,7 @@ class ClientHelp {
     final request = HelpGetNearestDc();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<NearestDcBase>().result!;
@@ -5213,7 +5204,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpAppUpdateBase>().result!;
@@ -5227,7 +5218,7 @@ class ClientHelp {
     final request = HelpGetInviteText();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpInviteTextBase>().result!;
@@ -5241,7 +5232,7 @@ class ClientHelp {
     final request = HelpGetSupport();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpSupportBase>().result!;
@@ -5255,7 +5246,7 @@ class ClientHelp {
     final request = HelpGetCdnConfig();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<CdnConfigBase>().result!;
@@ -5273,7 +5264,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpRecentMeUrlsBase>().result!;
@@ -5287,7 +5278,7 @@ class ClientHelp {
     final request = HelpGetTermsOfServiceUpdate();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpTermsOfServiceUpdateBase>().result!;
@@ -5305,7 +5296,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpDeepLinkInfoBase>().result!;
@@ -5323,7 +5314,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpAppConfigBase>().result!;
@@ -5341,7 +5332,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpPassportConfigBase>().result!;
@@ -5355,7 +5346,7 @@ class ClientHelp {
     final request = HelpGetSupportName();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpSupportNameBase>().result!;
@@ -5373,7 +5364,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpUserInfoBase>().result!;
@@ -5395,7 +5386,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpUserInfoBase>().result!;
@@ -5409,7 +5400,7 @@ class ClientHelp {
     final request = HelpGetPromoData();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpPromoDataBase>().result!;
@@ -5429,7 +5420,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpCountriesListBase>().result!;
@@ -5443,7 +5434,7 @@ class ClientHelp {
     final request = HelpGetPremiumPromo();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpPremiumPromoBase>().result!;
@@ -5461,7 +5452,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpPeerColorsBase>().result!;
@@ -5479,7 +5470,7 @@ class ClientHelp {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<HelpPeerColorsBase>().result!;
@@ -5506,7 +5497,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedMessagesBase>().result!;
@@ -5526,7 +5517,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesMessagesBase>().result!;
@@ -5552,7 +5543,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChannelsChannelParticipantsBase>().result!;
@@ -5572,7 +5563,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChannelsChannelParticipantBase>().result!;
@@ -5590,7 +5581,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -5608,7 +5599,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatFullBase>().result!;
@@ -5642,7 +5633,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5666,7 +5657,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5686,7 +5677,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5706,7 +5697,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5724,7 +5715,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5742,7 +5733,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5762,7 +5753,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5780,7 +5771,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5804,7 +5795,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ExportedMessageLinkBase>().result!;
@@ -5824,7 +5815,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5844,7 +5835,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -5866,7 +5857,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5896,7 +5887,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChannelsAdminLogResultsBase>().result!;
@@ -5918,7 +5909,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5938,7 +5929,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -5956,7 +5947,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -5970,7 +5961,7 @@ class ClientChannels {
     final request = ChannelsGetGroupsForDiscussion();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -5992,7 +5983,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6012,7 +6003,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6026,7 +6017,7 @@ class ClientChannels {
     final request = ChannelsGetInactiveChannels();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesInactiveChatsBase>().result!;
@@ -6044,7 +6035,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6062,7 +6053,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesSponsoredMessagesBase>().result!;
@@ -6080,7 +6071,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChannelsSendAsPeersBase>().result!;
@@ -6100,7 +6091,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -6120,7 +6111,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6140,7 +6131,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6160,7 +6151,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6188,7 +6179,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6216,7 +6207,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesForumTopicsBase>().result!;
@@ -6236,7 +6227,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesForumTopicsBase>().result!;
@@ -6264,7 +6255,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6286,7 +6277,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6306,7 +6297,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>().result!;
@@ -6328,7 +6319,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6348,7 +6339,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6368,7 +6359,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6392,7 +6383,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6412,7 +6403,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6430,7 +6421,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -6450,7 +6441,7 @@ class ClientChannels {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6477,7 +6468,7 @@ class ClientBots {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DataJSONBase>().result!;
@@ -6495,7 +6486,7 @@ class ClientBots {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<BotMenuButtonBase>().result!;
@@ -6515,7 +6506,7 @@ class ClientBots {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<BotsBotInfoBase>().result!;
@@ -6533,7 +6524,7 @@ class ClientBots {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6555,7 +6546,7 @@ class ClientBots {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DataJSONBase>().result!;
@@ -6582,7 +6573,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsPaymentFormBase>().result!;
@@ -6602,7 +6593,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsPaymentReceiptBase>().result!;
@@ -6624,7 +6615,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsValidatedRequestedInfoBase>().result!;
@@ -6652,7 +6643,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsPaymentResultBase>().result!;
@@ -6666,7 +6657,7 @@ class ClientPayments {
     final request = PaymentsGetSavedInfo();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsSavedInfoBase>().result!;
@@ -6684,7 +6675,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsBankCardDataBase>().result!;
@@ -6702,7 +6693,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsExportedInvoiceBase>().result!;
@@ -6722,7 +6713,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6742,7 +6733,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6760,7 +6751,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsCheckedGiftCodeBase>().result!;
@@ -6778,7 +6769,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6798,7 +6789,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsGiveawayInfoBase>().result!;
@@ -6820,7 +6811,7 @@ class ClientPayments {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -6865,7 +6856,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -6883,7 +6874,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -6903,7 +6894,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -6923,7 +6914,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -6945,7 +6936,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -6963,7 +6954,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StickersSuggestedShortNameBase>().result!;
@@ -6987,7 +6978,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -7007,7 +6998,7 @@ class ClientStickers {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesStickerSetBase>().result!;
@@ -7028,7 +7019,7 @@ class ClientPhone {
     final request = PhoneGetCallConfig();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<DataJSONBase>().result!;
@@ -7054,7 +7045,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhonePhoneCallBase>().result!;
@@ -7076,7 +7067,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhonePhoneCallBase>().result!;
@@ -7100,7 +7091,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhonePhoneCallBase>().result!;
@@ -7126,7 +7117,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7150,7 +7141,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7176,7 +7167,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7204,7 +7195,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7224,7 +7215,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7244,7 +7235,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7262,7 +7253,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7284,7 +7275,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7304,7 +7295,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhoneGroupCallBase>().result!;
@@ -7330,7 +7321,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhoneGroupParticipantsBase>().result!;
@@ -7356,7 +7347,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7388,7 +7379,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7408,7 +7399,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7426,7 +7417,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhoneJoinAsPeersBase>().result!;
@@ -7446,7 +7437,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhoneExportedGroupCallInviteBase>().result!;
@@ -7466,7 +7457,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7484,7 +7475,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7504,7 +7495,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7522,7 +7513,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7540,7 +7531,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhoneGroupCallStreamChannelsBase>().result!;
@@ -7560,7 +7551,7 @@ class ClientPhone {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PhoneGroupCallStreamRtmpUrlBase>().result!;
@@ -7587,7 +7578,7 @@ class ClientLangpack {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<LangPackDifferenceBase>().result!;
@@ -7609,7 +7600,7 @@ class ClientLangpack {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<LangPackDifferenceBase>().result!;
@@ -7629,7 +7620,7 @@ class ClientLangpack {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<LangPackLanguageBase>().result!;
@@ -7654,7 +7645,7 @@ class ClientFolders {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7681,7 +7672,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsBroadcastStatsBase>().result!;
@@ -7701,7 +7692,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsGraphBase>().result!;
@@ -7721,7 +7712,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsMegagroupStatsBase>().result!;
@@ -7745,7 +7736,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsPublicForwardsBase>().result!;
@@ -7767,7 +7758,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsMessageStatsBase>().result!;
@@ -7789,7 +7780,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsStoryStatsBase>().result!;
@@ -7813,7 +7804,7 @@ class ClientStats {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StatsPublicForwardsBase>().result!;
@@ -7842,7 +7833,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChatlistsExportedChatlistInviteBase>().result!;
@@ -7866,7 +7857,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ExportedChatlistInviteBase>().result!;
@@ -7884,7 +7875,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChatlistsExportedInvitesBase>().result!;
@@ -7902,7 +7893,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChatlistsChatlistInviteBase>().result!;
@@ -7922,7 +7913,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7940,7 +7931,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ChatlistsChatlistUpdatesBase>().result!;
@@ -7960,7 +7951,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -7980,7 +7971,7 @@ class ClientChatlists {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -8029,7 +8020,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -8059,7 +8050,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -8081,7 +8072,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesAllStoriesBase>().result!;
@@ -8103,7 +8094,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesStoriesBase>().result!;
@@ -8125,7 +8116,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesStoriesBase>().result!;
@@ -8145,7 +8136,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesStoriesBase>().result!;
@@ -8177,7 +8168,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesStoryViewsListBase>().result!;
@@ -8197,7 +8188,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesStoryViewsBase>().result!;
@@ -8217,7 +8208,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<ExportedStoryLinkBase>().result!;
@@ -8237,7 +8228,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -8261,7 +8252,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -8279,7 +8270,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesPeerStoriesBase>().result!;
@@ -8293,7 +8284,7 @@ class ClientStories {
     final request = StoriesGetAllReadPeerStories();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<UpdatesBase>().result!;
@@ -8307,7 +8298,7 @@ class ClientStories {
     final request = StoriesGetChatsToSend();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<MessagesChatsBase>().result!;
@@ -8335,7 +8326,7 @@ class ClientStories {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<StoriesStoryReactionsListBase>().result!;
@@ -8366,7 +8357,7 @@ class ClientPremium {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PremiumBoostsListBase>().result!;
@@ -8380,7 +8371,7 @@ class ClientPremium {
     final request = PremiumGetMyBoosts();
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PremiumMyBoostsBase>().result!;
@@ -8400,7 +8391,7 @@ class ClientPremium {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PremiumMyBoostsBase>().result!;
@@ -8418,7 +8409,7 @@ class ClientPremium {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PremiumBoostsStatusBase>().result!;
@@ -8438,7 +8429,7 @@ class ClientPremium {
     );
 
     // Invoke and wait for response.
-    final response = await _c.invoke(request, true);
+    final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PremiumBoostsListBase>().result!;

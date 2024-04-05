@@ -1,3 +1,7 @@
+## 0.0.14
+
+- AuthorizationKey class.
+
 ## 0.0.13
 
 - Abstract client object.

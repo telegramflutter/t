@@ -1,4 +1,4 @@
-part of '../t.dart';
+part of '../../t.dart';
 
 /// Res P Q.
 ///

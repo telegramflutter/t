@@ -1,9 +1,13 @@
 part of '../t.dart';
 
+/// RPC Result.
 class Result<T extends TlObject> {
   const Result._(this.result, this.error);
 
+  /// Actual result.
   final T? result;
+
+  /// Error.
   final RpcError? error;
 
   Result<S> _to<S extends TlObject>() {
