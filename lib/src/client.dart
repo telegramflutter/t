@@ -3,7 +3,10 @@ part of '../t.dart';
 /// Base class for the client.
 abstract class Client {
   /// Constructor.
-  Client() {
+  Client({
+    required this.sender,
+    required this.receiver,
+  }) {
     auth = ClientAuth._(this);
     account = ClientAccount._(this);
     users = ClientUsers._(this);
@@ -25,6 +28,12 @@ abstract class Client {
     stories = ClientStories._(this);
     premium = ClientPremium._(this);
   }
+
+  /// Data receiver from Telegram servers.
+  final Stream<Uint8List> receiver;
+
+  /// Sends data to the servers.
+  final Sink<Uint8List> sender;
 
   /// Sends [msg] to Telegram servers.
   Future<Result> invoke(TlObject msg, bool preferEncryption);
