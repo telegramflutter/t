@@ -9,6 +9,8 @@ part 'src/base.dart';
 part 'src/binary_reader_object.dart';
 part 'src/binary_reader.dart';
 part 'src/binary_writer.dart';
+part 'src/client.dart';
+part 'src/result.dart';
 part 'src/core.dart';
 part 'src/constants.dart';
 part 'src/schema.dart';

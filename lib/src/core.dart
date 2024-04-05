@@ -119,6 +119,25 @@ class True extends TlObject {
   }
 }
 
+class Vector<T> extends TlObject {
+const Vector(this.items):super._();
+
+  final List<T> items;
+  
+  @override
+  void serialize(List<int> buffer) {
+    buffer.writeInt32(0x1cb5c415);
+  }
+  
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': '0x1cb5c415',
+      'value': items,
+    };
+  }
+}
+
 /// Null value.
 ///
 /// ID: `56730bcc`.

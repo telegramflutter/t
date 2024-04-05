@@ -1,3 +1,7 @@
+## 0.0.13
+
+- Abstract client object.
+
 ## 0.0.12
 
 - Update repository link.
