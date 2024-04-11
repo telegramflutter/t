@@ -13,6 +13,7 @@ part 'src/core.dart';
 part 'src/flag_builder.dart';
 part 'src/private.dart';
 part 'src/result.dart';
+part 'src/session.dart';
 
 // Generated.
 part 'src/g/base.dart';

@@ -202,7 +202,7 @@ class BinaryReader {
   /// Read String.
   String readString() {
     const utf8Decoder = Utf8Decoder(allowMalformed: true);
-    
+
     final codeUnits = readBytes();
     final tmp = utf8Decoder.convert(codeUnits);
     return tmp;

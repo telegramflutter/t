@@ -29,66 +29,6 @@ abstract class TlMethod extends TlObject {
   const TlMethod._() : super._();
 }
 
-/// False value.
-///
-/// ID: `bc799737`.
-class BoolFalse extends TlObject {
-  BoolFalse._() : super._();
-
-  /// Factory.
-  factory BoolFalse() => _instance;
-
-  /// Deserialize.
-  factory BoolFalse.deserialize(BinaryReader reader) {
-    return _instance;
-  }
-
-  static final _instance = BoolFalse._();
-
-  @override
-  void serialize(List<int> buffer) {
-    buffer.writeInt32(0xbc799737);
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      '\$': '0xbc799737',
-      'value': false,
-    };
-  }
-}
-
-/// True value.
-///
-/// ID: `997275b5`.
-class BoolTrue extends TlObject {
-  BoolTrue._() : super._();
-
-  /// Factory.
-  factory BoolTrue() => _instance;
-
-  /// Deserialize.
-  factory BoolTrue.deserialize(BinaryReader reader) {
-    return _instance;
-  }
-
-  static final _instance = BoolTrue._();
-
-  @override
-  void serialize(List<int> buffer) {
-    buffer.writeInt32(0x997275b5);
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      '\$': '0x997275b5',
-      'value': true,
-    };
-  }
-}
-
 /// True value.
 ///
 /// ID: `3fedd339`.
@@ -119,16 +59,19 @@ class True extends TlObject {
   }
 }
 
+/// Vector of values.
 class Vector<T> extends TlObject {
-const Vector(this.items):super._();
+  /// Constructor.
+  const Vector._(this.items) : super._();
 
+  /// Items in the vector.
   final List<T> items;
-  
+
   @override
   void serialize(List<int> buffer) {
     buffer.writeInt32(0x1cb5c415);
   }
-  
+
   @override
   Map<String, dynamic> toJson() {
     return {
@@ -189,6 +132,47 @@ class Unknown extends TlObject {
     final idHex = id.toRadixString(16).padLeft(4, '0');
     return {
       '\$': '0x$idHex',
+    };
+  }
+}
+
+// /// 32 bit unsigned integer.
+// class Uint32 {
+//   /// Constructor.
+//   Uint32(this.value);
+
+//   /// Value.
+//   final int value;
+
+//   @override
+//   String toString() {
+//     return value.toString();
+//   }
+// }
+
+/// Boolean value.
+class Boolean extends TlObject {
+  /// Constructor.
+  Boolean(this.value) : super._();
+
+  /// Value.
+  final bool value;
+
+  @override
+  String toString() {
+    return value.toString();
+  }
+
+  @override
+  void serialize(List<int> buffer) {
+    buffer.writeInt32(value ? 0x997275b5 : 0xbc799737);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      '\$': value ? '0x997275b5' : '0xbc799737',
+      'value': value,
     };
   }
 }
@@ -261,6 +245,7 @@ class RSAPublicKey extends TlConstructor {
   }
 }
 
+/// Extention methods.
 extension on TlObject {
   Uint8List asUint8List() {
     final buffer = <int>[];

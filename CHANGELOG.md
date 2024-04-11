@@ -1,3 +1,7 @@
+## 0.0.15
+
+- Client class is complete.
+
 ## 0.0.14
 
 - AuthorizationKey class.

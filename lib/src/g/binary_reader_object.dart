@@ -197,11 +197,11 @@ TlObject _readObject(BinaryReader reader) {
   // From schema.tl
 
   if (id == 0xbc799737) {
-    return BoolFalse.deserialize(reader);
+    return Boolean(false);
   }
 
   if (id == 0x997275b5) {
-    return BoolTrue.deserialize(reader);
+    return Boolean(true);
   }
 
   if (id == 0x3fedd339) {
