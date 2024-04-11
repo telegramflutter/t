@@ -1,3 +1,7 @@
+## 0.0.16
+
+- Fix connection init.
+
 ## 0.0.15
 
 - Client class is complete.
