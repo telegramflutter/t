@@ -115,6 +115,7 @@ class Null extends TlObject {
 class Unknown extends TlObject {
   Unknown._(this.id) : super._();
 
+  /// Id of the unknown object.
   final int id;
 
   /// Deserialize.
