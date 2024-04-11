@@ -4,6 +4,12 @@ part of '../t.dart';
 class Result<T extends TlObject> {
   const Result._(this.result, this.error);
 
+  /// Creates a successful result.
+  const Result.ok(T this.result) : error = null;
+
+  /// Creates an error result.
+  const Result.error(RpcError this.error) : result = null;
+
   /// Actual result.
   final T? result;
 
