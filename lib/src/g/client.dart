@@ -159,7 +159,10 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invoke(request);
+    final response = await invokeWithLayer(
+      query: request,
+      layer: layer,
+    );
 
     // Return the result.
     return response._to<T>();
