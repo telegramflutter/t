@@ -4,7 +4,10 @@ TlObject _readObject(BinaryReader reader) {
   final id = reader.readInt32();
   // From mtproto.tl
 
-  // if (id == 0x1cb5c415) { return Vector.deserialize(reader); }
+  if (id == 0x1cb5c415) {
+    throw Exception(
+        'This is a bug. Please report at https://github.com/telegramflutter/tg/issues.');
+  }
 
   if (id == 0x05162463) {
     return ResPQ.deserialize(reader);
@@ -208,7 +211,10 @@ TlObject _readObject(BinaryReader reader) {
     return True.deserialize(reader);
   }
 
-  // if (id == 0x1cb5c415) { return Vector.deserialize(reader); }
+  if (id == 0x1cb5c415) {
+    throw Exception(
+        'This is a bug. Please report at https://github.com/telegramflutter/tg/issues.');
+  }
 
   if (id == 0xc4b9f9bb) {
     return Error.deserialize(reader);
@@ -7628,5 +7634,6 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEntityCustomEmoji144.deserialize(reader);
   }
 
-  return Unknown._(id);
+  throw Exception(
+      'This is a bug. Please report at https://github.com/telegramflutter/tg/issues.');
 }
