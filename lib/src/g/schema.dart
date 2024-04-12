@@ -4727,7 +4727,7 @@ class UserStatusOffline extends UserStatusBase {
   /// Deserialize.
   factory UserStatusOffline.deserialize(BinaryReader reader) {
     // Read [UserStatusOffline] fields.
-    final wasOnline = reader.readInt32();
+    final wasOnline = reader.readDateTime();
 
     // Construct [UserStatusOffline] object.
     final returnValue = UserStatusOffline(
@@ -4739,9 +4739,7 @@ class UserStatusOffline extends UserStatusBase {
   }
 
   /// Was Online.
-  ///
-  /// Field type is Int32.
-  final int wasOnline;
+  final DateTime wasOnline;
 
   /// Serialize.
   @override
@@ -4750,7 +4748,7 @@ class UserStatusOffline extends UserStatusBase {
     buffer.writeInt32(0x008c703f);
 
     // Write fields.
-    buffer.writeInt32(wasOnline);
+    buffer.writeDateTime(wasOnline);
 
     // Finished serialization.
   }
@@ -4759,7 +4757,7 @@ class UserStatusOffline extends UserStatusBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0x008c703f",
-      "wasOnline": wasOnline,
+      "wasOnline": wasOnline.toIso8601String(),
     };
 
     // Finished toJson.
