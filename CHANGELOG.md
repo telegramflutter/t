@@ -1,3 +1,7 @@
+## 0.0.17
+
+- Session to/from JSON.
+
 ## 0.0.16
 
 - Fix connection init.
