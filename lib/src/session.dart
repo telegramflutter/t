@@ -49,6 +49,7 @@ class Session {
   @override
   String toString() {
     final json = toJson();
-    return jsonEncode(json);
+    final encoder = JsonEncoder.withIndent(' ');
+    return encoder.convert(json);
   }
 }
