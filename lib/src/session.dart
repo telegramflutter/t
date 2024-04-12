@@ -45,4 +45,10 @@ class Session {
         'seqno': seqno,
         'lastSentMessageId': lastSentMessageId,
       };
+
+  @override
+  String toString() {
+    final json = toJson();
+    return jsonEncode(json);
+  }
 }
