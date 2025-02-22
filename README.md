@@ -10,11 +10,11 @@
 
 Telegram Client API (MTProto) to connect to Telegram and control a user programmatically.
 
-This project is written in 100% Dart language. Over 150,000 lines of code is ported from C++ to Dart. No native binaries, no C++ builds, no bullshit.
+This project is written in 100% Dart language. Over 250,000 lines of code is ported from C++ to Dart. No native binaries, no C++ builds, no bullshit.
 
 ## Features
 
-* Supports Telegram API Layer 170.
+* Supports Telegram API Layer 195.
 * Serialize/Deserialize MTProto objects to binary format to be sent/received throught the transport protocol (TCP, HTTP).
 
 ## Security Guidelines for Client Developers
