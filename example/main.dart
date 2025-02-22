@@ -35,6 +35,7 @@ void main(List<String> arguments) async {
       allowMissedCall: false,
       allowFirebase: false,
       appSandbox: false,
+      unknownNumber: false,
     ),
   );
 

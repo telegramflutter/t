@@ -876,6 +876,56 @@ class InputFileBig extends InputFileBase {
   }
 }
 
+/// Input File Story Document.
+///
+/// ID: `62dc8b48`.
+class InputFileStoryDocument extends InputFileBase {
+  /// Input File Story Document constructor.
+  const InputFileStoryDocument({
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputFileStoryDocument.deserialize(BinaryReader reader) {
+    // Read [InputFileStoryDocument] fields.
+    final id = reader.readObject() as InputDocumentBase;
+
+    // Construct [InputFileStoryDocument] object.
+    final returnValue = InputFileStoryDocument(
+      id: id,
+    );
+
+    // Now return the deserialized [InputFileStoryDocument].
+    return returnValue;
+  }
+
+  /// Id.
+  final InputDocumentBase id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x62dc8b48.
+    buffer.writeInt32(0x62dc8b48);
+
+    // Write fields.
+    buffer.writeObject(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x62dc8b48",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Input Media Empty.
 ///
 /// ID: `9664f57f`.
@@ -1756,7 +1806,7 @@ class InputMediaGame extends InputMediaBase {
 
 /// Input Media Invoice.
 ///
-/// ID: `8eb5a6d5`.
+/// ID: `405fef0d`.
 class InputMediaInvoice extends InputMediaBase {
   /// Input Media Invoice constructor.
   const InputMediaInvoice({
@@ -1765,7 +1815,7 @@ class InputMediaInvoice extends InputMediaBase {
     this.photo,
     required this.invoice,
     required this.payload,
-    required this.provider,
+    this.provider,
     required this.providerData,
     this.startParam,
     this.extendedMedia,
@@ -1782,7 +1832,8 @@ class InputMediaInvoice extends InputMediaBase {
         hasPhotoField ? reader.readObject() as InputWebDocumentBase : null;
     final invoice = reader.readObject() as InvoiceBase;
     final payload = reader.readBytes();
-    final provider = reader.readString();
+    final hasProviderField = (flags & 8) != 0;
+    final provider = hasProviderField ? reader.readString() : null;
     final providerData = reader.readObject() as DataJSONBase;
     final hasStartParamField = (flags & 2) != 0;
     final startParam = hasStartParamField ? reader.readString() : null;
@@ -1811,6 +1862,7 @@ class InputMediaInvoice extends InputMediaBase {
   int get flags {
     final v = _flag(
       b00: photo != null,
+      b03: provider != null,
       b01: startParam != null,
       b02: extendedMedia != null,
     );
@@ -1834,7 +1886,7 @@ class InputMediaInvoice extends InputMediaBase {
   final Uint8List payload;
 
   /// Provider.
-  final String provider;
+  final String? provider;
 
   /// Provider Data.
   final DataJSONBase providerData;
@@ -1848,8 +1900,8 @@ class InputMediaInvoice extends InputMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8eb5a6d5.
-    buffer.writeInt32(0x8eb5a6d5);
+    // Write type-id 0x405fef0d.
+    buffer.writeInt32(0x405fef0d);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -1861,7 +1913,10 @@ class InputMediaInvoice extends InputMediaBase {
     }
     buffer.writeObject(invoice);
     buffer.writeBytes(payload);
-    buffer.writeString(provider);
+    final localProviderCopy = provider;
+    if (localProviderCopy != null) {
+      buffer.writeString(localProviderCopy);
+    }
     buffer.writeObject(providerData);
     final localStartParamCopy = startParam;
     if (localStartParamCopy != null) {
@@ -1878,7 +1933,7 @@ class InputMediaInvoice extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8eb5a6d5",
+      "\$": "0x405fef0d",
       "flags": flags,
       "title": title,
       "description": description,
@@ -2295,6 +2350,90 @@ class InputMediaWebPage extends InputMediaBase {
       "forceSmallMedia": forceSmallMedia,
       "optional": optional,
       "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Media Paid Media.
+///
+/// ID: `c4103386`.
+class InputMediaPaidMedia extends InputMediaBase {
+  /// Input Media Paid Media constructor.
+  const InputMediaPaidMedia({
+    required this.starsAmount,
+    required this.extendedMedia,
+    this.payload,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputMediaPaidMedia.deserialize(BinaryReader reader) {
+    // Read [InputMediaPaidMedia] fields.
+    final flags = reader.readInt32();
+    final starsAmount = reader.readInt64();
+    final extendedMedia = reader.readVectorObject<InputMediaBase>();
+    final hasPayloadField = (flags & 1) != 0;
+    final payload = hasPayloadField ? reader.readString() : null;
+
+    // Construct [InputMediaPaidMedia] object.
+    final returnValue = InputMediaPaidMedia(
+      starsAmount: starsAmount,
+      extendedMedia: extendedMedia,
+      payload: payload,
+    );
+
+    // Now return the deserialized [InputMediaPaidMedia].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: payload != null,
+    );
+
+    return v;
+  }
+
+  /// Stars Amount.
+  ///
+  /// Field type is Int64.
+  final int starsAmount;
+
+  /// Extended Media.
+  final List<InputMediaBase> extendedMedia;
+
+  /// Payload.
+  final String? payload;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc4103386.
+    buffer.writeInt32(0xc4103386);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(starsAmount);
+    buffer.writeVectorObject(extendedMedia);
+    final localPayloadCopy = payload;
+    if (localPayloadCopy != null) {
+      buffer.writeString(localPayloadCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4103386",
+      "flags": flags,
+      "starsAmount": starsAmount,
+      "extendedMedia": extendedMedia,
+      "payload": payload,
     };
 
     // Finished toJson.
@@ -4029,7 +4168,7 @@ class UserEmpty extends UserBase {
 
 /// User.
 ///
-/// ID: `215c4438`.
+/// ID: `83314fca`.
 class User extends UserBase {
   /// User constructor.
   const User({
@@ -4055,6 +4194,9 @@ class User extends UserBase {
     required this.closeFriend,
     required this.storiesHidden,
     required this.storiesUnavailable,
+    required this.contactRequirePremium,
+    required this.botBusiness,
+    required this.botHasMainApp,
     required this.id,
     this.accessHash,
     this.firstName,
@@ -4072,6 +4214,7 @@ class User extends UserBase {
     this.storiesMaxId,
     this.color,
     this.profileColor,
+    this.botActiveUsers,
   }) : super._();
 
   /// Deserialize.
@@ -4101,6 +4244,9 @@ class User extends UserBase {
     final closeFriend = (flags2 & 4) != 0;
     final storiesHidden = (flags2 & 8) != 0;
     final storiesUnavailable = (flags2 & 16) != 0;
+    final contactRequirePremium = (flags2 & 1024) != 0;
+    final botBusiness = (flags2 & 2048) != 0;
+    final botHasMainApp = (flags2 & 8192) != 0;
     final id = reader.readInt64();
     final hasAccessHashField = (flags & 1) != 0;
     final accessHash = hasAccessHashField ? reader.readInt64() : null;
@@ -4142,6 +4288,8 @@ class User extends UserBase {
     final hasProfileColorField = (flags2 & 512) != 0;
     final profileColor =
         hasProfileColorField ? reader.readObject() as PeerColorBase : null;
+    final hasBotActiveUsersField = (flags2 & 4096) != 0;
+    final botActiveUsers = hasBotActiveUsersField ? reader.readInt32() : null;
 
     // Construct [User] object.
     final returnValue = User(
@@ -4167,6 +4315,9 @@ class User extends UserBase {
       closeFriend: closeFriend,
       storiesHidden: storiesHidden,
       storiesUnavailable: storiesUnavailable,
+      contactRequirePremium: contactRequirePremium,
+      botBusiness: botBusiness,
+      botHasMainApp: botHasMainApp,
       id: id,
       accessHash: accessHash,
       firstName: firstName,
@@ -4184,6 +4335,7 @@ class User extends UserBase {
       storiesMaxId: storiesMaxId,
       color: color,
       profileColor: profileColor,
+      botActiveUsers: botActiveUsers,
     );
 
     // Now return the deserialized [User].
@@ -4233,10 +4385,14 @@ class User extends UserBase {
       b02: closeFriend,
       b03: storiesHidden,
       b04: storiesUnavailable,
+      b10: contactRequirePremium,
+      b11: botBusiness,
+      b13: botHasMainApp,
       b00: usernames != null,
       b05: storiesMaxId != null,
       b08: color != null,
       b09: profileColor != null,
+      b12: botActiveUsers != null,
     );
 
     return v;
@@ -4308,6 +4464,15 @@ class User extends UserBase {
   /// stories_unavailable: bit 4 of flags2.4?true
   final bool storiesUnavailable;
 
+  /// contact_require_premium: bit 10 of flags2.10?true
+  final bool contactRequirePremium;
+
+  /// bot_business: bit 11 of flags2.11?true
+  final bool botBusiness;
+
+  /// bot_has_main_app: bit 13 of flags2.13?true
+  final bool botHasMainApp;
+
   /// Id.
   ///
   /// Field type is Int64.
@@ -4361,11 +4526,14 @@ class User extends UserBase {
   /// Profile Color.
   final PeerColorBase? profileColor;
 
+  /// Bot Active Users.
+  final int? botActiveUsers;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x215c4438.
-    buffer.writeInt32(0x215c4438);
+    // Write type-id 0x83314fca.
+    buffer.writeInt32(0x83314fca);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -4435,6 +4603,10 @@ class User extends UserBase {
     if (localProfileColorCopy != null) {
       buffer.writeObject(localProfileColorCopy);
     }
+    final localBotActiveUsersCopy = botActiveUsers;
+    if (localBotActiveUsersCopy != null) {
+      buffer.writeInt32(localBotActiveUsersCopy);
+    }
 
     // Finished serialization.
   }
@@ -4442,7 +4614,7 @@ class User extends UserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x215c4438",
+      "\$": "0x83314fca",
       "flags": flags,
       "self": self,
       "contact": contact,
@@ -4467,6 +4639,9 @@ class User extends UserBase {
       "closeFriend": closeFriend,
       "storiesHidden": storiesHidden,
       "storiesUnavailable": storiesUnavailable,
+      "contactRequirePremium": contactRequirePremium,
+      "botBusiness": botBusiness,
+      "botHasMainApp": botHasMainApp,
       "id": id,
       "accessHash": accessHash,
       "firstName": firstName,
@@ -4484,6 +4659,7 @@ class User extends UserBase {
       "storiesMaxId": storiesMaxId,
       "color": color,
       "profileColor": profileColor,
+      "botActiveUsers": botActiveUsers,
     };
 
     // Finished toJson.
@@ -4767,25 +4943,48 @@ class UserStatusOffline extends UserStatusBase {
 
 /// User Status Recently.
 ///
-/// ID: `e26f42f1`.
+/// ID: `7b197dc8`.
 class UserStatusRecently extends UserStatusBase {
   /// User Status Recently constructor.
-  const UserStatusRecently() : super._();
+  const UserStatusRecently({
+    required this.byMe,
+  }) : super._();
 
   /// Deserialize.
   factory UserStatusRecently.deserialize(BinaryReader reader) {
+    // Read [UserStatusRecently] fields.
+    final flags = reader.readInt32();
+    final byMe = (flags & 1) != 0;
+
     // Construct [UserStatusRecently] object.
-    final returnValue = UserStatusRecently();
+    final returnValue = UserStatusRecently(
+      byMe: byMe,
+    );
 
     // Now return the deserialized [UserStatusRecently].
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: byMe,
+    );
+
+    return v;
+  }
+
+  /// by_me: bit 0 of flags.0?true
+  final bool byMe;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe26f42f1.
-    buffer.writeInt32(0xe26f42f1);
+    // Write type-id 0x7b197dc8.
+    buffer.writeInt32(0x7b197dc8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
 
     // Finished serialization.
   }
@@ -4793,7 +4992,9 @@ class UserStatusRecently extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe26f42f1",
+      "\$": "0x7b197dc8",
+      "flags": flags,
+      "byMe": byMe,
     };
 
     // Finished toJson.
@@ -4803,25 +5004,48 @@ class UserStatusRecently extends UserStatusBase {
 
 /// User Status Last Week.
 ///
-/// ID: `07bf09fc`.
+/// ID: `541a1d1a`.
 class UserStatusLastWeek extends UserStatusBase {
   /// User Status Last Week constructor.
-  const UserStatusLastWeek() : super._();
+  const UserStatusLastWeek({
+    required this.byMe,
+  }) : super._();
 
   /// Deserialize.
   factory UserStatusLastWeek.deserialize(BinaryReader reader) {
+    // Read [UserStatusLastWeek] fields.
+    final flags = reader.readInt32();
+    final byMe = (flags & 1) != 0;
+
     // Construct [UserStatusLastWeek] object.
-    final returnValue = UserStatusLastWeek();
+    final returnValue = UserStatusLastWeek(
+      byMe: byMe,
+    );
 
     // Now return the deserialized [UserStatusLastWeek].
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: byMe,
+    );
+
+    return v;
+  }
+
+  /// by_me: bit 0 of flags.0?true
+  final bool byMe;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x07bf09fc.
-    buffer.writeInt32(0x07bf09fc);
+    // Write type-id 0x541a1d1a.
+    buffer.writeInt32(0x541a1d1a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
 
     // Finished serialization.
   }
@@ -4829,7 +5053,9 @@ class UserStatusLastWeek extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x07bf09fc",
+      "\$": "0x541a1d1a",
+      "flags": flags,
+      "byMe": byMe,
     };
 
     // Finished toJson.
@@ -4839,25 +5065,48 @@ class UserStatusLastWeek extends UserStatusBase {
 
 /// User Status Last Month.
 ///
-/// ID: `77ebc742`.
+/// ID: `65899777`.
 class UserStatusLastMonth extends UserStatusBase {
   /// User Status Last Month constructor.
-  const UserStatusLastMonth() : super._();
+  const UserStatusLastMonth({
+    required this.byMe,
+  }) : super._();
 
   /// Deserialize.
   factory UserStatusLastMonth.deserialize(BinaryReader reader) {
+    // Read [UserStatusLastMonth] fields.
+    final flags = reader.readInt32();
+    final byMe = (flags & 1) != 0;
+
     // Construct [UserStatusLastMonth] object.
-    final returnValue = UserStatusLastMonth();
+    final returnValue = UserStatusLastMonth(
+      byMe: byMe,
+    );
 
     // Now return the deserialized [UserStatusLastMonth].
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: byMe,
+    );
+
+    return v;
+  }
+
+  /// by_me: bit 0 of flags.0?true
+  final bool byMe;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x77ebc742.
-    buffer.writeInt32(0x77ebc742);
+    // Write type-id 0x65899777.
+    buffer.writeInt32(0x65899777);
+
+    // Write fields.
+    buffer.writeInt32(flags);
 
     // Finished serialization.
   }
@@ -4865,7 +5114,9 @@ class UserStatusLastMonth extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77ebc742",
+      "\$": "0x65899777",
+      "flags": flags,
+      "byMe": byMe,
     };
 
     // Finished toJson.
@@ -5185,7 +5436,7 @@ class ChatForbidden extends ChatBase {
 
 /// Channel.
 ///
-/// ID: `0aadfc8f`.
+/// ID: `fe4478bd`.
 class Channel extends ChatBase {
   /// Channel constructor.
   const Channel({
@@ -5212,6 +5463,7 @@ class Channel extends ChatBase {
     required this.storiesHidden,
     required this.storiesHiddenMin,
     required this.storiesUnavailable,
+    required this.signatureProfiles,
     required this.id,
     this.accessHash,
     required this.title,
@@ -5229,6 +5481,7 @@ class Channel extends ChatBase {
     this.profileColor,
     this.emojiStatus,
     this.level,
+    this.subscriptionUntilDate,
   }) : super._();
 
   /// Deserialize.
@@ -5259,6 +5512,7 @@ class Channel extends ChatBase {
     final storiesHidden = (flags2 & 2) != 0;
     final storiesHiddenMin = (flags2 & 4) != 0;
     final storiesUnavailable = (flags2 & 8) != 0;
+    final signatureProfiles = (flags2 & 4096) != 0;
     final id = reader.readInt64();
     final hasAccessHashField = (flags & 8192) != 0;
     final accessHash = hasAccessHashField ? reader.readInt64() : null;
@@ -5300,6 +5554,9 @@ class Channel extends ChatBase {
         hasEmojiStatusField ? reader.readObject() as EmojiStatusBase : null;
     final hasLevelField = (flags2 & 1024) != 0;
     final level = hasLevelField ? reader.readInt32() : null;
+    final hasSubscriptionUntilDateField = (flags2 & 2048) != 0;
+    final subscriptionUntilDate =
+        hasSubscriptionUntilDateField ? reader.readDateTime() : null;
 
     // Construct [Channel] object.
     final returnValue = Channel(
@@ -5326,6 +5583,7 @@ class Channel extends ChatBase {
       storiesHidden: storiesHidden,
       storiesHiddenMin: storiesHiddenMin,
       storiesUnavailable: storiesUnavailable,
+      signatureProfiles: signatureProfiles,
       id: id,
       accessHash: accessHash,
       title: title,
@@ -5343,6 +5601,7 @@ class Channel extends ChatBase {
       profileColor: profileColor,
       emojiStatus: emojiStatus,
       level: level,
+      subscriptionUntilDate: subscriptionUntilDate,
     );
 
     // Now return the deserialized [Channel].
@@ -5389,12 +5648,14 @@ class Channel extends ChatBase {
       b01: storiesHidden,
       b02: storiesHiddenMin,
       b03: storiesUnavailable,
+      b12: signatureProfiles,
       b00: usernames != null,
       b04: storiesMaxId != null,
       b07: color != null,
       b08: profileColor != null,
       b09: emojiStatus != null,
       b10: level != null,
+      b11: subscriptionUntilDate != null,
     );
 
     return v;
@@ -5469,6 +5730,9 @@ class Channel extends ChatBase {
   /// stories_unavailable: bit 3 of flags2.3?true
   final bool storiesUnavailable;
 
+  /// signature_profiles: bit 12 of flags2.12?true
+  final bool signatureProfiles;
+
   /// Id.
   ///
   /// Field type is Int64.
@@ -5522,11 +5786,14 @@ class Channel extends ChatBase {
   /// Level.
   final int? level;
 
+  /// Subscription Until Date.
+  final DateTime? subscriptionUntilDate;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x0aadfc8f.
-    buffer.writeInt32(0x0aadfc8f);
+    // Write type-id 0xfe4478bd.
+    buffer.writeInt32(0xfe4478bd);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -5587,6 +5854,10 @@ class Channel extends ChatBase {
     if (localLevelCopy != null) {
       buffer.writeInt32(localLevelCopy);
     }
+    final localSubscriptionUntilDateCopy = subscriptionUntilDate;
+    if (localSubscriptionUntilDateCopy != null) {
+      buffer.writeDateTime(localSubscriptionUntilDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -5594,7 +5865,7 @@ class Channel extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0aadfc8f",
+      "\$": "0xfe4478bd",
       "flags": flags,
       "creator": creator,
       "left": left,
@@ -5620,6 +5891,7 @@ class Channel extends ChatBase {
       "storiesHidden": storiesHidden,
       "storiesHiddenMin": storiesHiddenMin,
       "storiesUnavailable": storiesUnavailable,
+      "signatureProfiles": signatureProfiles,
       "id": id,
       "accessHash": accessHash,
       "title": title,
@@ -5637,6 +5909,7 @@ class Channel extends ChatBase {
       "profileColor": profileColor,
       "emojiStatus": emojiStatus,
       "level": level,
+      "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
     };
 
     // Finished toJson.
@@ -5756,7 +6029,7 @@ class ChannelForbidden extends ChatBase {
 
 /// Chat Full.
 ///
-/// ID: `c9d31138`.
+/// ID: `2633421b`.
 class ChatFull extends ChatFullBase {
   /// Chat Full constructor.
   const ChatFull({
@@ -5779,6 +6052,7 @@ class ChatFull extends ChatFullBase {
     this.requestsPending,
     this.recentRequesters,
     this.availableReactions,
+    this.reactionsLimit,
   }) : super._();
 
   /// Deserialize.
@@ -5825,6 +6099,8 @@ class ChatFull extends ChatFullBase {
     final availableReactions = hasAvailableReactionsField
         ? reader.readObject() as ChatReactionsBase
         : null;
+    final hasReactionsLimitField = (flags & 1048576) != 0;
+    final reactionsLimit = hasReactionsLimitField ? reader.readInt32() : null;
 
     // Construct [ChatFull] object.
     final returnValue = ChatFull(
@@ -5847,6 +6123,7 @@ class ChatFull extends ChatFullBase {
       requestsPending: requestsPending,
       recentRequesters: recentRequesters,
       availableReactions: availableReactions,
+      reactionsLimit: reactionsLimit,
     );
 
     // Now return the deserialized [ChatFull].
@@ -5870,6 +6147,7 @@ class ChatFull extends ChatFullBase {
       b16: themeEmoticon != null,
       b17: requestsPending != null || recentRequesters != null,
       b18: availableReactions != null,
+      b20: reactionsLimit != null,
     );
 
     return v;
@@ -5934,11 +6212,14 @@ class ChatFull extends ChatFullBase {
   /// Available Reactions.
   final ChatReactionsBase? availableReactions;
 
+  /// Reactions Limit.
+  final int? reactionsLimit;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc9d31138.
-    buffer.writeInt32(0xc9d31138);
+    // Write type-id 0x2633421b.
+    buffer.writeInt32(0x2633421b);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -5994,6 +6275,10 @@ class ChatFull extends ChatFullBase {
     if (localAvailableReactionsCopy != null) {
       buffer.writeObject(localAvailableReactionsCopy);
     }
+    final localReactionsLimitCopy = reactionsLimit;
+    if (localReactionsLimitCopy != null) {
+      buffer.writeInt32(localReactionsLimitCopy);
+    }
 
     // Finished serialization.
   }
@@ -6001,7 +6286,7 @@ class ChatFull extends ChatFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9d31138",
+      "\$": "0x2633421b",
       "flags": flags,
       "canSetUsername": canSetUsername,
       "hasScheduled": hasScheduled,
@@ -6022,6 +6307,7 @@ class ChatFull extends ChatFullBase {
       "requestsPending": requestsPending,
       "recentRequesters": recentRequesters,
       "availableReactions": availableReactions,
+      "reactionsLimit": reactionsLimit,
     };
 
     // Finished toJson.
@@ -6031,7 +6317,7 @@ class ChatFull extends ChatFullBase {
 
 /// Channel Full.
 ///
-/// ID: `0f2bcb6f`.
+/// ID: `bbab348d`.
 class ChannelFull extends ChatFullBase {
   /// Channel Full constructor.
   const ChannelFull({
@@ -6049,6 +6335,11 @@ class ChannelFull extends ChatFullBase {
     required this.translationsDisabled,
     required this.storiesPinnedAvailable,
     required this.viewForumAsMessages,
+    required this.restrictedSponsored,
+    required this.canViewRevenue,
+    required this.paidMediaAllowed,
+    required this.canViewStarsRevenue,
+    required this.paidReactionsAvailable,
     required this.id,
     required this.about,
     this.participantsCount,
@@ -6084,8 +6375,12 @@ class ChannelFull extends ChatFullBase {
     this.recentRequesters,
     this.defaultSendAs,
     this.availableReactions,
+    this.reactionsLimit,
     this.stories,
     this.wallpaper,
+    this.boostsApplied,
+    this.boostsUnrestrict,
+    this.emojiset,
   }) : super._();
 
   /// Deserialize.
@@ -6107,6 +6402,11 @@ class ChannelFull extends ChatFullBase {
     final translationsDisabled = (flags2 & 8) != 0;
     final storiesPinnedAvailable = (flags2 & 32) != 0;
     final viewForumAsMessages = (flags2 & 64) != 0;
+    final restrictedSponsored = (flags2 & 2048) != 0;
+    final canViewRevenue = (flags2 & 4096) != 0;
+    final paidMediaAllowed = (flags2 & 16384) != 0;
+    final canViewStarsRevenue = (flags2 & 32768) != 0;
+    final paidReactionsAvailable = (flags2 & 65536) != 0;
     final id = reader.readInt64();
     final about = reader.readString();
     final hasParticipantsCountField = (flags & 1) != 0;
@@ -6183,12 +6483,22 @@ class ChannelFull extends ChatFullBase {
     final availableReactions = hasAvailableReactionsField
         ? reader.readObject() as ChatReactionsBase
         : null;
+    final hasReactionsLimitField = (flags2 & 8192) != 0;
+    final reactionsLimit = hasReactionsLimitField ? reader.readInt32() : null;
     final hasStoriesField = (flags2 & 16) != 0;
     final stories =
         hasStoriesField ? reader.readObject() as PeerStoriesBase : null;
     final hasWallpaperField = (flags2 & 128) != 0;
     final wallpaper =
         hasWallpaperField ? reader.readObject() as WallPaperBase : null;
+    final hasBoostsAppliedField = (flags2 & 256) != 0;
+    final boostsApplied = hasBoostsAppliedField ? reader.readInt32() : null;
+    final hasBoostsUnrestrictField = (flags2 & 512) != 0;
+    final boostsUnrestrict =
+        hasBoostsUnrestrictField ? reader.readInt32() : null;
+    final hasEmojisetField = (flags2 & 1024) != 0;
+    final emojiset =
+        hasEmojisetField ? reader.readObject() as StickerSetBase : null;
 
     // Construct [ChannelFull] object.
     final returnValue = ChannelFull(
@@ -6206,6 +6516,11 @@ class ChannelFull extends ChatFullBase {
       translationsDisabled: translationsDisabled,
       storiesPinnedAvailable: storiesPinnedAvailable,
       viewForumAsMessages: viewForumAsMessages,
+      restrictedSponsored: restrictedSponsored,
+      canViewRevenue: canViewRevenue,
+      paidMediaAllowed: paidMediaAllowed,
+      canViewStarsRevenue: canViewStarsRevenue,
+      paidReactionsAvailable: paidReactionsAvailable,
       id: id,
       about: about,
       participantsCount: participantsCount,
@@ -6241,8 +6556,12 @@ class ChannelFull extends ChatFullBase {
       recentRequesters: recentRequesters,
       defaultSendAs: defaultSendAs,
       availableReactions: availableReactions,
+      reactionsLimit: reactionsLimit,
       stories: stories,
       wallpaper: wallpaper,
+      boostsApplied: boostsApplied,
+      boostsUnrestrict: boostsUnrestrict,
+      emojiset: emojiset,
     );
 
     // Now return the deserialized [ChannelFull].
@@ -6297,8 +6616,17 @@ class ChannelFull extends ChatFullBase {
       b03: translationsDisabled,
       b05: storiesPinnedAvailable,
       b06: viewForumAsMessages,
+      b11: restrictedSponsored,
+      b12: canViewRevenue,
+      b14: paidMediaAllowed,
+      b15: canViewStarsRevenue,
+      b16: paidReactionsAvailable,
+      b13: reactionsLimit != null,
       b04: stories != null,
       b07: wallpaper != null,
+      b08: boostsApplied != null,
+      b09: boostsUnrestrict != null,
+      b10: emojiset != null,
     );
 
     return v;
@@ -6345,6 +6673,21 @@ class ChannelFull extends ChatFullBase {
 
   /// view_forum_as_messages: bit 6 of flags2.6?true
   final bool viewForumAsMessages;
+
+  /// restricted_sponsored: bit 11 of flags2.11?true
+  final bool restrictedSponsored;
+
+  /// can_view_revenue: bit 12 of flags2.12?true
+  final bool canViewRevenue;
+
+  /// paid_media_allowed: bit 14 of flags2.14?true
+  final bool paidMediaAllowed;
+
+  /// can_view_stars_revenue: bit 15 of flags2.15?true
+  final bool canViewStarsRevenue;
+
+  /// paid_reactions_available: bit 16 of flags2.16?true
+  final bool paidReactionsAvailable;
 
   /// Id.
   ///
@@ -6461,17 +6804,29 @@ class ChannelFull extends ChatFullBase {
   /// Available Reactions.
   final ChatReactionsBase? availableReactions;
 
+  /// Reactions Limit.
+  final int? reactionsLimit;
+
   /// Stories.
   final PeerStoriesBase? stories;
 
   /// Wallpaper.
   final WallPaperBase? wallpaper;
 
+  /// Boosts Applied.
+  final int? boostsApplied;
+
+  /// Boosts Unrestrict.
+  final int? boostsUnrestrict;
+
+  /// Emojiset.
+  final StickerSetBase? emojiset;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x0f2bcb6f.
-    buffer.writeInt32(0x0f2bcb6f);
+    // Write type-id 0xbbab348d.
+    buffer.writeInt32(0xbbab348d);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -6589,6 +6944,10 @@ class ChannelFull extends ChatFullBase {
     if (localAvailableReactionsCopy != null) {
       buffer.writeObject(localAvailableReactionsCopy);
     }
+    final localReactionsLimitCopy = reactionsLimit;
+    if (localReactionsLimitCopy != null) {
+      buffer.writeInt32(localReactionsLimitCopy);
+    }
     final localStoriesCopy = stories;
     if (localStoriesCopy != null) {
       buffer.writeObject(localStoriesCopy);
@@ -6597,6 +6956,18 @@ class ChannelFull extends ChatFullBase {
     if (localWallpaperCopy != null) {
       buffer.writeObject(localWallpaperCopy);
     }
+    final localBoostsAppliedCopy = boostsApplied;
+    if (localBoostsAppliedCopy != null) {
+      buffer.writeInt32(localBoostsAppliedCopy);
+    }
+    final localBoostsUnrestrictCopy = boostsUnrestrict;
+    if (localBoostsUnrestrictCopy != null) {
+      buffer.writeInt32(localBoostsUnrestrictCopy);
+    }
+    final localEmojisetCopy = emojiset;
+    if (localEmojisetCopy != null) {
+      buffer.writeObject(localEmojisetCopy);
+    }
 
     // Finished serialization.
   }
@@ -6604,7 +6975,7 @@ class ChannelFull extends ChatFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0f2bcb6f",
+      "\$": "0xbbab348d",
       "flags": flags,
       "canViewParticipants": canViewParticipants,
       "canSetUsername": canSetUsername,
@@ -6621,6 +6992,11 @@ class ChannelFull extends ChatFullBase {
       "translationsDisabled": translationsDisabled,
       "storiesPinnedAvailable": storiesPinnedAvailable,
       "viewForumAsMessages": viewForumAsMessages,
+      "restrictedSponsored": restrictedSponsored,
+      "canViewRevenue": canViewRevenue,
+      "paidMediaAllowed": paidMediaAllowed,
+      "canViewStarsRevenue": canViewStarsRevenue,
+      "paidReactionsAvailable": paidReactionsAvailable,
       "id": id,
       "about": about,
       "participantsCount": participantsCount,
@@ -6656,8 +7032,12 @@ class ChannelFull extends ChatFullBase {
       "recentRequesters": recentRequesters,
       "defaultSendAs": defaultSendAs,
       "availableReactions": availableReactions,
+      "reactionsLimit": reactionsLimit,
       "stories": stories,
       "wallpaper": wallpaper,
+      "boostsApplied": boostsApplied,
+      "boostsUnrestrict": boostsUnrestrict,
+      "emojiset": emojiset,
     };
 
     // Finished toJson.
@@ -7213,7 +7593,7 @@ class MessageEmpty extends MessageBase {
 
 /// Message.
 ///
-/// ID: `76bec211`.
+/// ID: `94345242`.
 class Message extends MessageBase {
   /// Message constructor.
   const Message({
@@ -7228,12 +7608,16 @@ class Message extends MessageBase {
     required this.pinned,
     required this.noforwards,
     required this.invertMedia,
+    required this.offline,
+    required this.videoProcessingPending,
     required this.id,
     this.fromId,
+    this.fromBoostsApplied,
     required this.peerId,
     this.savedPeerId,
     this.fwdFrom,
     this.viaBotId,
+    this.viaBusinessBotId,
     this.replyTo,
     required this.date,
     required this.message,
@@ -7249,6 +7633,9 @@ class Message extends MessageBase {
     this.reactions,
     this.restrictionReason,
     this.ttlPeriod,
+    this.quickReplyShortcutId,
+    this.effect,
+    this.factcheck,
   }) : super._();
 
   /// Deserialize.
@@ -7266,9 +7653,15 @@ class Message extends MessageBase {
     final pinned = (flags & 16777216) != 0;
     final noforwards = (flags & 67108864) != 0;
     final invertMedia = (flags & 134217728) != 0;
+    final flags2 = reader.readInt32();
+    final offline = (flags2 & 2) != 0;
+    final videoProcessingPending = (flags2 & 16) != 0;
     final id = reader.readInt32();
     final hasFromIdField = (flags & 256) != 0;
     final fromId = hasFromIdField ? reader.readObject() as PeerBase : null;
+    final hasFromBoostsAppliedField = (flags & 536870912) != 0;
+    final fromBoostsApplied =
+        hasFromBoostsAppliedField ? reader.readInt32() : null;
     final peerId = reader.readObject() as PeerBase;
     final hasSavedPeerIdField = (flags & 268435456) != 0;
     final savedPeerId =
@@ -7278,6 +7671,9 @@ class Message extends MessageBase {
         hasFwdFromField ? reader.readObject() as MessageFwdHeaderBase : null;
     final hasViaBotIdField = (flags & 2048) != 0;
     final viaBotId = hasViaBotIdField ? reader.readInt64() : null;
+    final hasViaBusinessBotIdField = (flags2 & 1) != 0;
+    final viaBusinessBotId =
+        hasViaBusinessBotIdField ? reader.readInt64() : null;
     final hasReplyToField = (flags & 8) != 0;
     final replyTo =
         hasReplyToField ? reader.readObject() as MessageReplyHeaderBase : null;
@@ -7314,6 +7710,14 @@ class Message extends MessageBase {
         : null;
     final hasTtlPeriodField = (flags & 33554432) != 0;
     final ttlPeriod = hasTtlPeriodField ? reader.readInt32() : null;
+    final hasQuickReplyShortcutIdField = (flags & 1073741824) != 0;
+    final quickReplyShortcutId =
+        hasQuickReplyShortcutIdField ? reader.readInt32() : null;
+    final hasEffectField = (flags2 & 4) != 0;
+    final effect = hasEffectField ? reader.readInt64() : null;
+    final hasFactcheckField = (flags2 & 8) != 0;
+    final factcheck =
+        hasFactcheckField ? reader.readObject() as FactCheckBase : null;
 
     // Construct [Message] object.
     final returnValue = Message(
@@ -7328,12 +7732,16 @@ class Message extends MessageBase {
       pinned: pinned,
       noforwards: noforwards,
       invertMedia: invertMedia,
+      offline: offline,
+      videoProcessingPending: videoProcessingPending,
       id: id,
       fromId: fromId,
+      fromBoostsApplied: fromBoostsApplied,
       peerId: peerId,
       savedPeerId: savedPeerId,
       fwdFrom: fwdFrom,
       viaBotId: viaBotId,
+      viaBusinessBotId: viaBusinessBotId,
       replyTo: replyTo,
       date: date,
       message: message,
@@ -7349,6 +7757,9 @@ class Message extends MessageBase {
       reactions: reactions,
       restrictionReason: restrictionReason,
       ttlPeriod: ttlPeriod,
+      quickReplyShortcutId: quickReplyShortcutId,
+      effect: effect,
+      factcheck: factcheck,
     );
 
     // Now return the deserialized [Message].
@@ -7370,6 +7781,7 @@ class Message extends MessageBase {
       b26: noforwards,
       b27: invertMedia,
       b08: fromId != null,
+      b29: fromBoostsApplied != null,
       b28: savedPeerId != null,
       b02: fwdFrom != null,
       b11: viaBotId != null,
@@ -7385,6 +7797,20 @@ class Message extends MessageBase {
       b20: reactions != null,
       b22: restrictionReason != null,
       b25: ttlPeriod != null,
+      b30: quickReplyShortcutId != null,
+    );
+
+    return v;
+  }
+
+  /// Flags2.
+  int get flags2 {
+    final v = _flag(
+      b01: offline,
+      b04: videoProcessingPending,
+      b00: viaBusinessBotId != null,
+      b02: effect != null,
+      b03: factcheck != null,
     );
 
     return v;
@@ -7423,6 +7849,12 @@ class Message extends MessageBase {
   /// invert_media: bit 27 of flags.27?true
   final bool invertMedia;
 
+  /// offline: bit 1 of flags2.1?true
+  final bool offline;
+
+  /// video_processing_pending: bit 4 of flags2.4?true
+  final bool videoProcessingPending;
+
   /// Id.
   ///
   /// Field type is Int32.
@@ -7430,6 +7862,9 @@ class Message extends MessageBase {
 
   /// From Id.
   final PeerBase? fromId;
+
+  /// From Boosts Applied.
+  final int? fromBoostsApplied;
 
   /// Peer Id.
   final PeerBase peerId;
@@ -7442,6 +7877,9 @@ class Message extends MessageBase {
 
   /// Via Bot Id.
   final int? viaBotId;
+
+  /// Via Business Bot Id.
+  final int? viaBusinessBotId;
 
   /// Reply To.
   final MessageReplyHeaderBase? replyTo;
@@ -7488,18 +7926,32 @@ class Message extends MessageBase {
   /// Ttl Period.
   final int? ttlPeriod;
 
+  /// Quick Reply Shortcut Id.
+  final int? quickReplyShortcutId;
+
+  /// Effect.
+  final int? effect;
+
+  /// Factcheck.
+  final FactCheckBase? factcheck;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x76bec211.
-    buffer.writeInt32(0x76bec211);
+    // Write type-id 0x94345242.
+    buffer.writeInt32(0x94345242);
 
     // Write fields.
     buffer.writeInt32(flags);
+    buffer.writeInt32(flags2);
     buffer.writeInt32(id);
     final localFromIdCopy = fromId;
     if (localFromIdCopy != null) {
       buffer.writeObject(localFromIdCopy);
+    }
+    final localFromBoostsAppliedCopy = fromBoostsApplied;
+    if (localFromBoostsAppliedCopy != null) {
+      buffer.writeInt32(localFromBoostsAppliedCopy);
     }
     buffer.writeObject(peerId);
     final localSavedPeerIdCopy = savedPeerId;
@@ -7513,6 +7965,10 @@ class Message extends MessageBase {
     final localViaBotIdCopy = viaBotId;
     if (localViaBotIdCopy != null) {
       buffer.writeInt64(localViaBotIdCopy);
+    }
+    final localViaBusinessBotIdCopy = viaBusinessBotId;
+    if (localViaBusinessBotIdCopy != null) {
+      buffer.writeInt64(localViaBusinessBotIdCopy);
     }
     final localReplyToCopy = replyTo;
     if (localReplyToCopy != null) {
@@ -7568,6 +8024,18 @@ class Message extends MessageBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
+    final localQuickReplyShortcutIdCopy = quickReplyShortcutId;
+    if (localQuickReplyShortcutIdCopy != null) {
+      buffer.writeInt32(localQuickReplyShortcutIdCopy);
+    }
+    final localEffectCopy = effect;
+    if (localEffectCopy != null) {
+      buffer.writeInt64(localEffectCopy);
+    }
+    final localFactcheckCopy = factcheck;
+    if (localFactcheckCopy != null) {
+      buffer.writeObject(localFactcheckCopy);
+    }
 
     // Finished serialization.
   }
@@ -7575,7 +8043,7 @@ class Message extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x76bec211",
+      "\$": "0x94345242",
       "flags": flags,
       "out": out,
       "mentioned": mentioned,
@@ -7588,12 +8056,17 @@ class Message extends MessageBase {
       "pinned": pinned,
       "noforwards": noforwards,
       "invertMedia": invertMedia,
+      "flags2": flags2,
+      "offline": offline,
+      "videoProcessingPending": videoProcessingPending,
       "id": id,
       "fromId": fromId,
+      "fromBoostsApplied": fromBoostsApplied,
       "peerId": peerId,
       "savedPeerId": savedPeerId,
       "fwdFrom": fwdFrom,
       "viaBotId": viaBotId,
+      "viaBusinessBotId": viaBusinessBotId,
       "replyTo": replyTo,
       "date": date.toIso8601String(),
       "message": message,
@@ -7609,6 +8082,9 @@ class Message extends MessageBase {
       "reactions": reactions,
       "restrictionReason": restrictionReason,
       "ttlPeriod": ttlPeriod,
+      "quickReplyShortcutId": quickReplyShortcutId,
+      "effect": effect,
+      "factcheck": factcheck,
     };
 
     // Finished toJson.
@@ -8086,7 +8562,7 @@ class MessageMediaUnsupported extends MessageMediaBase {
 
 /// Message Media Document.
 ///
-/// ID: `4cf4d72d`.
+/// ID: `dd570bd5`.
 class MessageMediaDocument extends MessageMediaBase {
   /// Message Media Document constructor.
   const MessageMediaDocument({
@@ -8096,7 +8572,7 @@ class MessageMediaDocument extends MessageMediaBase {
     required this.round,
     required this.voice,
     this.document,
-    this.altDocument,
+    this.altDocuments,
     this.ttlSeconds,
   }) : super._();
 
@@ -8112,9 +8588,9 @@ class MessageMediaDocument extends MessageMediaBase {
     final hasDocumentField = (flags & 1) != 0;
     final document =
         hasDocumentField ? reader.readObject() as DocumentBase : null;
-    final hasAltDocumentField = (flags & 32) != 0;
-    final altDocument =
-        hasAltDocumentField ? reader.readObject() as DocumentBase : null;
+    final hasAltDocumentsField = (flags & 32) != 0;
+    final altDocuments =
+        hasAltDocumentsField ? reader.readVectorObject<DocumentBase>() : null;
     final hasTtlSecondsField = (flags & 4) != 0;
     final ttlSeconds = hasTtlSecondsField ? reader.readInt32() : null;
 
@@ -8126,7 +8602,7 @@ class MessageMediaDocument extends MessageMediaBase {
       round: round,
       voice: voice,
       document: document,
-      altDocument: altDocument,
+      altDocuments: altDocuments,
       ttlSeconds: ttlSeconds,
     );
 
@@ -8143,7 +8619,7 @@ class MessageMediaDocument extends MessageMediaBase {
       b07: round,
       b08: voice,
       b00: document != null,
-      b05: altDocument != null,
+      b05: altDocuments != null,
       b02: ttlSeconds != null,
     );
 
@@ -8168,8 +8644,8 @@ class MessageMediaDocument extends MessageMediaBase {
   /// Document.
   final DocumentBase? document;
 
-  /// Alt Document.
-  final DocumentBase? altDocument;
+  /// Alt Documents.
+  final List<DocumentBase>? altDocuments;
 
   /// Ttl Seconds.
   final int? ttlSeconds;
@@ -8177,8 +8653,8 @@ class MessageMediaDocument extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x4cf4d72d.
-    buffer.writeInt32(0x4cf4d72d);
+    // Write type-id 0xdd570bd5.
+    buffer.writeInt32(0xdd570bd5);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -8186,9 +8662,9 @@ class MessageMediaDocument extends MessageMediaBase {
     if (localDocumentCopy != null) {
       buffer.writeObject(localDocumentCopy);
     }
-    final localAltDocumentCopy = altDocument;
-    if (localAltDocumentCopy != null) {
-      buffer.writeObject(localAltDocumentCopy);
+    final localAltDocumentsCopy = altDocuments;
+    if (localAltDocumentsCopy != null) {
+      buffer.writeVectorObject(localAltDocumentsCopy);
     }
     final localTtlSecondsCopy = ttlSeconds;
     if (localTtlSecondsCopy != null) {
@@ -8201,7 +8677,7 @@ class MessageMediaDocument extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4cf4d72d",
+      "\$": "0xdd570bd5",
       "flags": flags,
       "nopremium": nopremium,
       "spoiler": spoiler,
@@ -8209,7 +8685,7 @@ class MessageMediaDocument extends MessageMediaBase {
       "round": round,
       "voice": voice,
       "document": document,
-      "altDocument": altDocument,
+      "altDocuments": altDocuments,
       "ttlSeconds": ttlSeconds,
     };
 
@@ -8913,7 +9389,7 @@ class MessageMediaStory extends MessageMediaBase {
 
 /// Message Media Giveaway.
 ///
-/// ID: `daad85b0`.
+/// ID: `aa073beb`.
 class MessageMediaGiveaway extends MessageMediaBase {
   /// Message Media Giveaway constructor.
   const MessageMediaGiveaway({
@@ -8923,7 +9399,8 @@ class MessageMediaGiveaway extends MessageMediaBase {
     this.countriesIso2,
     this.prizeDescription,
     required this.quantity,
-    required this.months,
+    this.months,
+    this.stars,
     required this.untilDate,
   }) : super._();
 
@@ -8941,7 +9418,10 @@ class MessageMediaGiveaway extends MessageMediaBase {
     final prizeDescription =
         hasPrizeDescriptionField ? reader.readString() : null;
     final quantity = reader.readInt32();
-    final months = reader.readInt32();
+    final hasMonthsField = (flags & 16) != 0;
+    final months = hasMonthsField ? reader.readInt32() : null;
+    final hasStarsField = (flags & 32) != 0;
+    final stars = hasStarsField ? reader.readInt64() : null;
     final untilDate = reader.readDateTime();
 
     // Construct [MessageMediaGiveaway] object.
@@ -8953,6 +9433,7 @@ class MessageMediaGiveaway extends MessageMediaBase {
       prizeDescription: prizeDescription,
       quantity: quantity,
       months: months,
+      stars: stars,
       untilDate: untilDate,
     );
 
@@ -8967,6 +9448,8 @@ class MessageMediaGiveaway extends MessageMediaBase {
       b02: winnersAreVisible,
       b01: countriesIso2 != null,
       b03: prizeDescription != null,
+      b04: months != null,
+      b05: stars != null,
     );
 
     return v;
@@ -8993,9 +9476,10 @@ class MessageMediaGiveaway extends MessageMediaBase {
   final int quantity;
 
   /// Months.
-  ///
-  /// Field type is Int32.
-  final int months;
+  final int? months;
+
+  /// Stars.
+  final int? stars;
 
   /// Until Date.
   final DateTime untilDate;
@@ -9003,8 +9487,8 @@ class MessageMediaGiveaway extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xdaad85b0.
-    buffer.writeInt32(0xdaad85b0);
+    // Write type-id 0xaa073beb.
+    buffer.writeInt32(0xaa073beb);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -9018,7 +9502,14 @@ class MessageMediaGiveaway extends MessageMediaBase {
       buffer.writeString(localPrizeDescriptionCopy);
     }
     buffer.writeInt32(quantity);
-    buffer.writeInt32(months);
+    final localMonthsCopy = months;
+    if (localMonthsCopy != null) {
+      buffer.writeInt32(localMonthsCopy);
+    }
+    final localStarsCopy = stars;
+    if (localStarsCopy != null) {
+      buffer.writeInt64(localStarsCopy);
+    }
     buffer.writeDateTime(untilDate);
 
     // Finished serialization.
@@ -9027,7 +9518,7 @@ class MessageMediaGiveaway extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdaad85b0",
+      "\$": "0xaa073beb",
       "flags": flags,
       "onlyNewSubscribers": onlyNewSubscribers,
       "winnersAreVisible": winnersAreVisible,
@@ -9036,6 +9527,7 @@ class MessageMediaGiveaway extends MessageMediaBase {
       "prizeDescription": prizeDescription,
       "quantity": quantity,
       "months": months,
+      "stars": stars,
       "untilDate": untilDate.toIso8601String(),
     };
 
@@ -9046,7 +9538,7 @@ class MessageMediaGiveaway extends MessageMediaBase {
 
 /// Message Media Giveaway Results.
 ///
-/// ID: `c6991068`.
+/// ID: `ceaa3ea1`.
 class MessageMediaGiveawayResults extends MessageMediaBase {
   /// Message Media Giveaway Results constructor.
   const MessageMediaGiveawayResults({
@@ -9058,7 +9550,8 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
     required this.winnersCount,
     required this.unclaimedCount,
     required this.winners,
-    required this.months,
+    this.months,
+    this.stars,
     this.prizeDescription,
     required this.untilDate,
   }) : super._();
@@ -9077,7 +9570,10 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
     final winnersCount = reader.readInt32();
     final unclaimedCount = reader.readInt32();
     final winners = reader.readVectorInt64();
-    final months = reader.readInt32();
+    final hasMonthsField = (flags & 16) != 0;
+    final months = hasMonthsField ? reader.readInt32() : null;
+    final hasStarsField = (flags & 32) != 0;
+    final stars = hasStarsField ? reader.readInt64() : null;
     final hasPrizeDescriptionField = (flags & 2) != 0;
     final prizeDescription =
         hasPrizeDescriptionField ? reader.readString() : null;
@@ -9094,6 +9590,7 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
       unclaimedCount: unclaimedCount,
       winners: winners,
       months: months,
+      stars: stars,
       prizeDescription: prizeDescription,
       untilDate: untilDate,
     );
@@ -9108,6 +9605,8 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
       b00: onlyNewSubscribers,
       b02: refunded,
       b03: additionalPeersCount != null,
+      b04: months != null,
+      b05: stars != null,
       b01: prizeDescription != null,
     );
 
@@ -9147,9 +9646,10 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
   final List<int> winners;
 
   /// Months.
-  ///
-  /// Field type is Int32.
-  final int months;
+  final int? months;
+
+  /// Stars.
+  final int? stars;
 
   /// Prize Description.
   final String? prizeDescription;
@@ -9160,8 +9660,8 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc6991068.
-    buffer.writeInt32(0xc6991068);
+    // Write type-id 0xceaa3ea1.
+    buffer.writeInt32(0xceaa3ea1);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -9174,7 +9674,14 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
     buffer.writeInt32(winnersCount);
     buffer.writeInt32(unclaimedCount);
     buffer.writeVectorInt64(winners);
-    buffer.writeInt32(months);
+    final localMonthsCopy = months;
+    if (localMonthsCopy != null) {
+      buffer.writeInt32(localMonthsCopy);
+    }
+    final localStarsCopy = stars;
+    if (localStarsCopy != null) {
+      buffer.writeInt64(localStarsCopy);
+    }
     final localPrizeDescriptionCopy = prizeDescription;
     if (localPrizeDescriptionCopy != null) {
       buffer.writeString(localPrizeDescriptionCopy);
@@ -9187,7 +9694,7 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc6991068",
+      "\$": "0xceaa3ea1",
       "flags": flags,
       "onlyNewSubscribers": onlyNewSubscribers,
       "refunded": refunded,
@@ -9198,8 +9705,69 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
       "unclaimedCount": unclaimedCount,
       "winners": winners,
       "months": months,
+      "stars": stars,
       "prizeDescription": prizeDescription,
       "untilDate": untilDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Media Paid Media.
+///
+/// ID: `a8852491`.
+class MessageMediaPaidMedia extends MessageMediaBase {
+  /// Message Media Paid Media constructor.
+  const MessageMediaPaidMedia({
+    required this.starsAmount,
+    required this.extendedMedia,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageMediaPaidMedia.deserialize(BinaryReader reader) {
+    // Read [MessageMediaPaidMedia] fields.
+    final starsAmount = reader.readInt64();
+    final extendedMedia = reader.readVectorObject<MessageExtendedMediaBase>();
+
+    // Construct [MessageMediaPaidMedia] object.
+    final returnValue = MessageMediaPaidMedia(
+      starsAmount: starsAmount,
+      extendedMedia: extendedMedia,
+    );
+
+    // Now return the deserialized [MessageMediaPaidMedia].
+    return returnValue;
+  }
+
+  /// Stars Amount.
+  ///
+  /// Field type is Int64.
+  final int starsAmount;
+
+  /// Extended Media.
+  final List<MessageExtendedMediaBase> extendedMedia;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa8852491.
+    buffer.writeInt32(0xa8852491);
+
+    // Write fields.
+    buffer.writeInt64(starsAmount);
+    buffer.writeVectorObject(extendedMedia);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa8852491",
+      "starsAmount": starsAmount,
+      "extendedMedia": extendedMedia,
     };
 
     // Finished toJson.
@@ -9889,7 +10457,7 @@ class MessageActionGameScore extends MessageActionBase {
 
 /// Message Action Payment Sent Me.
 ///
-/// ID: `8f31b327`.
+/// ID: `ffa00ccc`.
 class MessageActionPaymentSentMe extends MessageActionBase {
   /// Message Action Payment Sent Me constructor.
   const MessageActionPaymentSentMe({
@@ -9901,6 +10469,7 @@ class MessageActionPaymentSentMe extends MessageActionBase {
     this.info,
     this.shippingOptionId,
     required this.charge,
+    this.subscriptionUntilDate,
   }) : super._();
 
   /// Deserialize.
@@ -9919,6 +10488,9 @@ class MessageActionPaymentSentMe extends MessageActionBase {
     final shippingOptionId =
         hasShippingOptionIdField ? reader.readString() : null;
     final charge = reader.readObject() as PaymentChargeBase;
+    final hasSubscriptionUntilDateField = (flags & 16) != 0;
+    final subscriptionUntilDate =
+        hasSubscriptionUntilDateField ? reader.readDateTime() : null;
 
     // Construct [MessageActionPaymentSentMe] object.
     final returnValue = MessageActionPaymentSentMe(
@@ -9930,6 +10502,7 @@ class MessageActionPaymentSentMe extends MessageActionBase {
       info: info,
       shippingOptionId: shippingOptionId,
       charge: charge,
+      subscriptionUntilDate: subscriptionUntilDate,
     );
 
     // Now return the deserialized [MessageActionPaymentSentMe].
@@ -9943,6 +10516,7 @@ class MessageActionPaymentSentMe extends MessageActionBase {
       b03: recurringUsed,
       b00: info != null,
       b01: shippingOptionId != null,
+      b04: subscriptionUntilDate != null,
     );
 
     return v;
@@ -9974,11 +10548,14 @@ class MessageActionPaymentSentMe extends MessageActionBase {
   /// Charge.
   final PaymentChargeBase charge;
 
+  /// Subscription Until Date.
+  final DateTime? subscriptionUntilDate;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8f31b327.
-    buffer.writeInt32(0x8f31b327);
+    // Write type-id 0xffa00ccc.
+    buffer.writeInt32(0xffa00ccc);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -9994,6 +10571,10 @@ class MessageActionPaymentSentMe extends MessageActionBase {
       buffer.writeString(localShippingOptionIdCopy);
     }
     buffer.writeObject(charge);
+    final localSubscriptionUntilDateCopy = subscriptionUntilDate;
+    if (localSubscriptionUntilDateCopy != null) {
+      buffer.writeDateTime(localSubscriptionUntilDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -10001,7 +10582,7 @@ class MessageActionPaymentSentMe extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8f31b327",
+      "\$": "0xffa00ccc",
       "flags": flags,
       "recurringInit": recurringInit,
       "recurringUsed": recurringUsed,
@@ -10011,6 +10592,7 @@ class MessageActionPaymentSentMe extends MessageActionBase {
       "info": info,
       "shippingOptionId": shippingOptionId,
       "charge": charge,
+      "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
     };
 
     // Finished toJson.
@@ -10020,7 +10602,7 @@ class MessageActionPaymentSentMe extends MessageActionBase {
 
 /// Message Action Payment Sent.
 ///
-/// ID: `96163f56`.
+/// ID: `c624b16e`.
 class MessageActionPaymentSent extends MessageActionBase {
   /// Message Action Payment Sent constructor.
   const MessageActionPaymentSent({
@@ -10029,6 +10611,7 @@ class MessageActionPaymentSent extends MessageActionBase {
     required this.currency,
     required this.totalAmount,
     this.invoiceSlug,
+    this.subscriptionUntilDate,
   }) : super._();
 
   /// Deserialize.
@@ -10041,6 +10624,9 @@ class MessageActionPaymentSent extends MessageActionBase {
     final totalAmount = reader.readInt64();
     final hasInvoiceSlugField = (flags & 1) != 0;
     final invoiceSlug = hasInvoiceSlugField ? reader.readString() : null;
+    final hasSubscriptionUntilDateField = (flags & 16) != 0;
+    final subscriptionUntilDate =
+        hasSubscriptionUntilDateField ? reader.readDateTime() : null;
 
     // Construct [MessageActionPaymentSent] object.
     final returnValue = MessageActionPaymentSent(
@@ -10049,6 +10635,7 @@ class MessageActionPaymentSent extends MessageActionBase {
       currency: currency,
       totalAmount: totalAmount,
       invoiceSlug: invoiceSlug,
+      subscriptionUntilDate: subscriptionUntilDate,
     );
 
     // Now return the deserialized [MessageActionPaymentSent].
@@ -10061,6 +10648,7 @@ class MessageActionPaymentSent extends MessageActionBase {
       b02: recurringInit,
       b03: recurringUsed,
       b00: invoiceSlug != null,
+      b04: subscriptionUntilDate != null,
     );
 
     return v;
@@ -10083,11 +10671,14 @@ class MessageActionPaymentSent extends MessageActionBase {
   /// Invoice Slug.
   final String? invoiceSlug;
 
+  /// Subscription Until Date.
+  final DateTime? subscriptionUntilDate;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x96163f56.
-    buffer.writeInt32(0x96163f56);
+    // Write type-id 0xc624b16e.
+    buffer.writeInt32(0xc624b16e);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -10097,6 +10688,10 @@ class MessageActionPaymentSent extends MessageActionBase {
     if (localInvoiceSlugCopy != null) {
       buffer.writeString(localInvoiceSlugCopy);
     }
+    final localSubscriptionUntilDateCopy = subscriptionUntilDate;
+    if (localSubscriptionUntilDateCopy != null) {
+      buffer.writeDateTime(localSubscriptionUntilDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -10104,13 +10699,14 @@ class MessageActionPaymentSent extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x96163f56",
+      "\$": "0xc624b16e",
       "flags": flags,
       "recurringInit": recurringInit,
       "recurringUsed": recurringUsed,
       "currency": currency,
       "totalAmount": totalAmount,
       "invoiceSlug": invoiceSlug,
+      "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
     };
 
     // Finished toJson.
@@ -11072,7 +11668,7 @@ class MessageActionWebViewDataSent extends MessageActionBase {
 
 /// Message Action Gift Premium.
 ///
-/// ID: `c83d6aec`.
+/// ID: `6c6274fa`.
 class MessageActionGiftPremium extends MessageActionBase {
   /// Message Action Gift Premium constructor.
   const MessageActionGiftPremium({
@@ -11081,6 +11677,7 @@ class MessageActionGiftPremium extends MessageActionBase {
     required this.months,
     this.cryptoCurrency,
     this.cryptoAmount,
+    this.message,
   }) : super._();
 
   /// Deserialize.
@@ -11094,6 +11691,9 @@ class MessageActionGiftPremium extends MessageActionBase {
     final cryptoCurrency = hasCryptoCurrencyField ? reader.readString() : null;
     final hasCryptoAmountField = (flags & 1) != 0;
     final cryptoAmount = hasCryptoAmountField ? reader.readInt64() : null;
+    final hasMessageField = (flags & 2) != 0;
+    final message =
+        hasMessageField ? reader.readObject() as TextWithEntitiesBase : null;
 
     // Construct [MessageActionGiftPremium] object.
     final returnValue = MessageActionGiftPremium(
@@ -11102,6 +11702,7 @@ class MessageActionGiftPremium extends MessageActionBase {
       months: months,
       cryptoCurrency: cryptoCurrency,
       cryptoAmount: cryptoAmount,
+      message: message,
     );
 
     // Now return the deserialized [MessageActionGiftPremium].
@@ -11112,6 +11713,7 @@ class MessageActionGiftPremium extends MessageActionBase {
   int get flags {
     final v = _flag(
       b00: cryptoCurrency != null || cryptoAmount != null,
+      b01: message != null,
     );
 
     return v;
@@ -11136,11 +11738,14 @@ class MessageActionGiftPremium extends MessageActionBase {
   /// Crypto Amount.
   final int? cryptoAmount;
 
+  /// Message.
+  final TextWithEntitiesBase? message;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc83d6aec.
-    buffer.writeInt32(0xc83d6aec);
+    // Write type-id 0x6c6274fa.
+    buffer.writeInt32(0x6c6274fa);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -11155,6 +11760,10 @@ class MessageActionGiftPremium extends MessageActionBase {
     if (localCryptoAmountCopy != null) {
       buffer.writeInt64(localCryptoAmountCopy);
     }
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
 
     // Finished serialization.
   }
@@ -11162,13 +11771,14 @@ class MessageActionGiftPremium extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc83d6aec",
+      "\$": "0x6c6274fa",
       "flags": flags,
       "currency": currency,
       "amount": amount,
       "months": months,
       "cryptoCurrency": cryptoCurrency,
       "cryptoAmount": cryptoAmount,
+      "message": message,
     };
 
     // Finished toJson.
@@ -11544,7 +12154,7 @@ class MessageActionSetChatWallPaper extends MessageActionBase {
 
 /// Message Action Gift Code.
 ///
-/// ID: `678c2e09`.
+/// ID: `56d03994`.
 class MessageActionGiftCode extends MessageActionBase {
   /// Message Action Gift Code constructor.
   const MessageActionGiftCode({
@@ -11557,6 +12167,7 @@ class MessageActionGiftCode extends MessageActionBase {
     this.amount,
     this.cryptoCurrency,
     this.cryptoAmount,
+    this.message,
   }) : super._();
 
   /// Deserialize.
@@ -11564,7 +12175,7 @@ class MessageActionGiftCode extends MessageActionBase {
     // Read [MessageActionGiftCode] fields.
     final flags = reader.readInt32();
     final viaGiveaway = (flags & 1) != 0;
-    final unclaimed = (flags & 4) != 0;
+    final unclaimed = (flags & 32) != 0;
     final hasBoostPeerField = (flags & 2) != 0;
     final boostPeer =
         hasBoostPeerField ? reader.readObject() as PeerBase : null;
@@ -11578,6 +12189,9 @@ class MessageActionGiftCode extends MessageActionBase {
     final cryptoCurrency = hasCryptoCurrencyField ? reader.readString() : null;
     final hasCryptoAmountField = (flags & 8) != 0;
     final cryptoAmount = hasCryptoAmountField ? reader.readInt64() : null;
+    final hasMessageField = (flags & 16) != 0;
+    final message =
+        hasMessageField ? reader.readObject() as TextWithEntitiesBase : null;
 
     // Construct [MessageActionGiftCode] object.
     final returnValue = MessageActionGiftCode(
@@ -11590,6 +12204,7 @@ class MessageActionGiftCode extends MessageActionBase {
       amount: amount,
       cryptoCurrency: cryptoCurrency,
       cryptoAmount: cryptoAmount,
+      message: message,
     );
 
     // Now return the deserialized [MessageActionGiftCode].
@@ -11600,9 +12215,11 @@ class MessageActionGiftCode extends MessageActionBase {
   int get flags {
     final v = _flag(
       b00: viaGiveaway,
-      b02: unclaimed || currency != null || amount != null,
+      b05: unclaimed,
       b01: boostPeer != null,
+      b02: currency != null || amount != null,
       b03: cryptoCurrency != null || cryptoAmount != null,
+      b04: message != null,
     );
 
     return v;
@@ -11611,7 +12228,7 @@ class MessageActionGiftCode extends MessageActionBase {
   /// via_giveaway: bit 0 of flags.0?true
   final bool viaGiveaway;
 
-  /// unclaimed: bit 2 of flags.2?true
+  /// unclaimed: bit 5 of flags.5?true
   final bool unclaimed;
 
   /// Boost Peer.
@@ -11637,11 +12254,14 @@ class MessageActionGiftCode extends MessageActionBase {
   /// Crypto Amount.
   final int? cryptoAmount;
 
+  /// Message.
+  final TextWithEntitiesBase? message;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x678c2e09.
-    buffer.writeInt32(0x678c2e09);
+    // Write type-id 0x56d03994.
+    buffer.writeInt32(0x56d03994);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -11667,6 +12287,10 @@ class MessageActionGiftCode extends MessageActionBase {
     if (localCryptoAmountCopy != null) {
       buffer.writeInt64(localCryptoAmountCopy);
     }
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
 
     // Finished serialization.
   }
@@ -11674,7 +12298,7 @@ class MessageActionGiftCode extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x678c2e09",
+      "\$": "0x56d03994",
       "flags": flags,
       "viaGiveaway": viaGiveaway,
       "unclaimed": unclaimed,
@@ -11685,6 +12309,7 @@ class MessageActionGiftCode extends MessageActionBase {
       "amount": amount,
       "cryptoCurrency": cryptoCurrency,
       "cryptoAmount": cryptoAmount,
+      "message": message,
     };
 
     // Finished toJson.
@@ -11694,25 +12319,53 @@ class MessageActionGiftCode extends MessageActionBase {
 
 /// Message Action Giveaway Launch.
 ///
-/// ID: `332ba9ed`.
+/// ID: `a80f51e4`.
 class MessageActionGiveawayLaunch extends MessageActionBase {
   /// Message Action Giveaway Launch constructor.
-  const MessageActionGiveawayLaunch() : super._();
+  const MessageActionGiveawayLaunch({
+    this.stars,
+  }) : super._();
 
   /// Deserialize.
   factory MessageActionGiveawayLaunch.deserialize(BinaryReader reader) {
+    // Read [MessageActionGiveawayLaunch] fields.
+    final flags = reader.readInt32();
+    final hasStarsField = (flags & 1) != 0;
+    final stars = hasStarsField ? reader.readInt64() : null;
+
     // Construct [MessageActionGiveawayLaunch] object.
-    final returnValue = MessageActionGiveawayLaunch();
+    final returnValue = MessageActionGiveawayLaunch(
+      stars: stars,
+    );
 
     // Now return the deserialized [MessageActionGiveawayLaunch].
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: stars != null,
+    );
+
+    return v;
+  }
+
+  /// Stars.
+  final int? stars;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x332ba9ed.
-    buffer.writeInt32(0x332ba9ed);
+    // Write type-id 0xa80f51e4.
+    buffer.writeInt32(0xa80f51e4);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localStarsCopy = stars;
+    if (localStarsCopy != null) {
+      buffer.writeInt64(localStarsCopy);
+    }
 
     // Finished serialization.
   }
@@ -11720,7 +12373,9 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x332ba9ed",
+      "\$": "0xa80f51e4",
+      "flags": flags,
+      "stars": stars,
     };
 
     // Finished toJson.
@@ -11730,10 +12385,11 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
 
 /// Message Action Giveaway Results.
 ///
-/// ID: `2a9fadc5`.
+/// ID: `87e2f155`.
 class MessageActionGiveawayResults extends MessageActionBase {
   /// Message Action Giveaway Results constructor.
   const MessageActionGiveawayResults({
+    required this.stars,
     required this.winnersCount,
     required this.unclaimedCount,
   }) : super._();
@@ -11741,11 +12397,14 @@ class MessageActionGiveawayResults extends MessageActionBase {
   /// Deserialize.
   factory MessageActionGiveawayResults.deserialize(BinaryReader reader) {
     // Read [MessageActionGiveawayResults] fields.
+    final flags = reader.readInt32();
+    final stars = (flags & 1) != 0;
     final winnersCount = reader.readInt32();
     final unclaimedCount = reader.readInt32();
 
     // Construct [MessageActionGiveawayResults] object.
     final returnValue = MessageActionGiveawayResults(
+      stars: stars,
       winnersCount: winnersCount,
       unclaimedCount: unclaimedCount,
     );
@@ -11753,6 +12412,18 @@ class MessageActionGiveawayResults extends MessageActionBase {
     // Now return the deserialized [MessageActionGiveawayResults].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: stars,
+    );
+
+    return v;
+  }
+
+  /// stars: bit 0 of flags.0?true
+  final bool stars;
 
   /// Winners Count.
   ///
@@ -11767,10 +12438,11 @@ class MessageActionGiveawayResults extends MessageActionBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x2a9fadc5.
-    buffer.writeInt32(0x2a9fadc5);
+    // Write type-id 0x87e2f155.
+    buffer.writeInt32(0x87e2f155);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt32(winnersCount);
     buffer.writeInt32(unclaimedCount);
 
@@ -11780,9 +12452,551 @@ class MessageActionGiveawayResults extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2a9fadc5",
+      "\$": "0x87e2f155",
+      "flags": flags,
+      "stars": stars,
       "winnersCount": winnersCount,
       "unclaimedCount": unclaimedCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Boost Apply.
+///
+/// ID: `cc02aa6d`.
+class MessageActionBoostApply extends MessageActionBase {
+  /// Message Action Boost Apply constructor.
+  const MessageActionBoostApply({
+    required this.boosts,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionBoostApply.deserialize(BinaryReader reader) {
+    // Read [MessageActionBoostApply] fields.
+    final boosts = reader.readInt32();
+
+    // Construct [MessageActionBoostApply] object.
+    final returnValue = MessageActionBoostApply(
+      boosts: boosts,
+    );
+
+    // Now return the deserialized [MessageActionBoostApply].
+    return returnValue;
+  }
+
+  /// Boosts.
+  ///
+  /// Field type is Int32.
+  final int boosts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcc02aa6d.
+    buffer.writeInt32(0xcc02aa6d);
+
+    // Write fields.
+    buffer.writeInt32(boosts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc02aa6d",
+      "boosts": boosts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Requested Peer Sent Me.
+///
+/// ID: `93b31848`.
+class MessageActionRequestedPeerSentMe extends MessageActionBase {
+  /// Message Action Requested Peer Sent Me constructor.
+  const MessageActionRequestedPeerSentMe({
+    required this.buttonId,
+    required this.peers,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionRequestedPeerSentMe.deserialize(BinaryReader reader) {
+    // Read [MessageActionRequestedPeerSentMe] fields.
+    final buttonId = reader.readInt32();
+    final peers = reader.readVectorObject<RequestedPeerBase>();
+
+    // Construct [MessageActionRequestedPeerSentMe] object.
+    final returnValue = MessageActionRequestedPeerSentMe(
+      buttonId: buttonId,
+      peers: peers,
+    );
+
+    // Now return the deserialized [MessageActionRequestedPeerSentMe].
+    return returnValue;
+  }
+
+  /// Button Id.
+  ///
+  /// Field type is Int32.
+  final int buttonId;
+
+  /// Peers.
+  final List<RequestedPeerBase> peers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x93b31848.
+    buffer.writeInt32(0x93b31848);
+
+    // Write fields.
+    buffer.writeInt32(buttonId);
+    buffer.writeVectorObject(peers);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93b31848",
+      "buttonId": buttonId,
+      "peers": peers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Payment Refunded.
+///
+/// ID: `41b3e202`.
+class MessageActionPaymentRefunded extends MessageActionBase {
+  /// Message Action Payment Refunded constructor.
+  const MessageActionPaymentRefunded({
+    required this.peer,
+    required this.currency,
+    required this.totalAmount,
+    this.payload,
+    required this.charge,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionPaymentRefunded.deserialize(BinaryReader reader) {
+    // Read [MessageActionPaymentRefunded] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as PeerBase;
+    final currency = reader.readString();
+    final totalAmount = reader.readInt64();
+    final hasPayloadField = (flags & 1) != 0;
+    final payload = hasPayloadField ? reader.readBytes() : null;
+    final charge = reader.readObject() as PaymentChargeBase;
+
+    // Construct [MessageActionPaymentRefunded] object.
+    final returnValue = MessageActionPaymentRefunded(
+      peer: peer,
+      currency: currency,
+      totalAmount: totalAmount,
+      payload: payload,
+      charge: charge,
+    );
+
+    // Now return the deserialized [MessageActionPaymentRefunded].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: payload != null,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Currency.
+  final String currency;
+
+  /// Total Amount.
+  ///
+  /// Field type is Int64.
+  final int totalAmount;
+
+  /// Payload.
+  final Uint8List? payload;
+
+  /// Charge.
+  final PaymentChargeBase charge;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x41b3e202.
+    buffer.writeInt32(0x41b3e202);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeString(currency);
+    buffer.writeInt64(totalAmount);
+    final localPayloadCopy = payload;
+    if (localPayloadCopy != null) {
+      buffer.writeBytes(localPayloadCopy);
+    }
+    buffer.writeObject(charge);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x41b3e202",
+      "flags": flags,
+      "peer": peer,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "payload": payload,
+      "charge": charge,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Gift Stars.
+///
+/// ID: `45d5b021`.
+class MessageActionGiftStars extends MessageActionBase {
+  /// Message Action Gift Stars constructor.
+  const MessageActionGiftStars({
+    required this.currency,
+    required this.amount,
+    required this.stars,
+    this.cryptoCurrency,
+    this.cryptoAmount,
+    this.transactionId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionGiftStars.deserialize(BinaryReader reader) {
+    // Read [MessageActionGiftStars] fields.
+    final flags = reader.readInt32();
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+    final stars = reader.readInt64();
+    final hasCryptoCurrencyField = (flags & 1) != 0;
+    final cryptoCurrency = hasCryptoCurrencyField ? reader.readString() : null;
+    final hasCryptoAmountField = (flags & 1) != 0;
+    final cryptoAmount = hasCryptoAmountField ? reader.readInt64() : null;
+    final hasTransactionIdField = (flags & 2) != 0;
+    final transactionId = hasTransactionIdField ? reader.readString() : null;
+
+    // Construct [MessageActionGiftStars] object.
+    final returnValue = MessageActionGiftStars(
+      currency: currency,
+      amount: amount,
+      stars: stars,
+      cryptoCurrency: cryptoCurrency,
+      cryptoAmount: cryptoAmount,
+      transactionId: transactionId,
+    );
+
+    // Now return the deserialized [MessageActionGiftStars].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: cryptoCurrency != null || cryptoAmount != null,
+      b01: transactionId != null,
+    );
+
+    return v;
+  }
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Crypto Currency.
+  final String? cryptoCurrency;
+
+  /// Crypto Amount.
+  final int? cryptoAmount;
+
+  /// Transaction Id.
+  final String? transactionId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x45d5b021.
+    buffer.writeInt32(0x45d5b021);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+    buffer.writeInt64(stars);
+    final localCryptoCurrencyCopy = cryptoCurrency;
+    if (localCryptoCurrencyCopy != null) {
+      buffer.writeString(localCryptoCurrencyCopy);
+    }
+    final localCryptoAmountCopy = cryptoAmount;
+    if (localCryptoAmountCopy != null) {
+      buffer.writeInt64(localCryptoAmountCopy);
+    }
+    final localTransactionIdCopy = transactionId;
+    if (localTransactionIdCopy != null) {
+      buffer.writeString(localTransactionIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x45d5b021",
+      "flags": flags,
+      "currency": currency,
+      "amount": amount,
+      "stars": stars,
+      "cryptoCurrency": cryptoCurrency,
+      "cryptoAmount": cryptoAmount,
+      "transactionId": transactionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Prize Stars.
+///
+/// ID: `b00c47a2`.
+class MessageActionPrizeStars extends MessageActionBase {
+  /// Message Action Prize Stars constructor.
+  const MessageActionPrizeStars({
+    required this.unclaimed,
+    required this.stars,
+    required this.transactionId,
+    required this.boostPeer,
+    required this.giveawayMsgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionPrizeStars.deserialize(BinaryReader reader) {
+    // Read [MessageActionPrizeStars] fields.
+    final flags = reader.readInt32();
+    final unclaimed = (flags & 1) != 0;
+    final stars = reader.readInt64();
+    final transactionId = reader.readString();
+    final boostPeer = reader.readObject() as PeerBase;
+    final giveawayMsgId = reader.readInt32();
+
+    // Construct [MessageActionPrizeStars] object.
+    final returnValue = MessageActionPrizeStars(
+      unclaimed: unclaimed,
+      stars: stars,
+      transactionId: transactionId,
+      boostPeer: boostPeer,
+      giveawayMsgId: giveawayMsgId,
+    );
+
+    // Now return the deserialized [MessageActionPrizeStars].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: unclaimed,
+    );
+
+    return v;
+  }
+
+  /// unclaimed: bit 0 of flags.0?true
+  final bool unclaimed;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Transaction Id.
+  final String transactionId;
+
+  /// Boost Peer.
+  final PeerBase boostPeer;
+
+  /// Giveaway Msg Id.
+  ///
+  /// Field type is Int32.
+  final int giveawayMsgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb00c47a2.
+    buffer.writeInt32(0xb00c47a2);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(stars);
+    buffer.writeString(transactionId);
+    buffer.writeObject(boostPeer);
+    buffer.writeInt32(giveawayMsgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb00c47a2",
+      "flags": flags,
+      "unclaimed": unclaimed,
+      "stars": stars,
+      "transactionId": transactionId,
+      "boostPeer": boostPeer,
+      "giveawayMsgId": giveawayMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Star Gift.
+///
+/// ID: `08557637`.
+class MessageActionStarGift extends MessageActionBase {
+  /// Message Action Star Gift constructor.
+  const MessageActionStarGift({
+    required this.nameHidden,
+    required this.saved,
+    required this.converted,
+    required this.gift,
+    this.message,
+    this.convertStars,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionStarGift.deserialize(BinaryReader reader) {
+    // Read [MessageActionStarGift] fields.
+    final flags = reader.readInt32();
+    final nameHidden = (flags & 1) != 0;
+    final saved = (flags & 4) != 0;
+    final converted = (flags & 8) != 0;
+    final gift = reader.readObject() as StarGiftBase;
+    final hasMessageField = (flags & 2) != 0;
+    final message =
+        hasMessageField ? reader.readObject() as TextWithEntitiesBase : null;
+    final hasConvertStarsField = (flags & 16) != 0;
+    final convertStars = hasConvertStarsField ? reader.readInt64() : null;
+
+    // Construct [MessageActionStarGift] object.
+    final returnValue = MessageActionStarGift(
+      nameHidden: nameHidden,
+      saved: saved,
+      converted: converted,
+      gift: gift,
+      message: message,
+      convertStars: convertStars,
+    );
+
+    // Now return the deserialized [MessageActionStarGift].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nameHidden,
+      b02: saved,
+      b03: converted,
+      b01: message != null,
+      b04: convertStars != null,
+    );
+
+    return v;
+  }
+
+  /// name_hidden: bit 0 of flags.0?true
+  final bool nameHidden;
+
+  /// saved: bit 2 of flags.2?true
+  final bool saved;
+
+  /// converted: bit 3 of flags.3?true
+  final bool converted;
+
+  /// Gift.
+  final StarGiftBase gift;
+
+  /// Message.
+  final TextWithEntitiesBase? message;
+
+  /// Convert Stars.
+  final int? convertStars;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x08557637.
+    buffer.writeInt32(0x08557637);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(gift);
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
+    final localConvertStarsCopy = convertStars;
+    if (localConvertStarsCopy != null) {
+      buffer.writeInt64(localConvertStarsCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x08557637",
+      "flags": flags,
+      "nameHidden": nameHidden,
+      "saved": saved,
+      "converted": converted,
+      "gift": gift,
+      "message": message,
+      "convertStars": convertStars,
     };
 
     // Finished toJson.
@@ -13750,7 +14964,7 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
 
 /// Peer Settings.
 ///
-/// ID: `a518110d`.
+/// ID: `acd66c5e`.
 class PeerSettings extends PeerSettingsBase {
   /// Peer Settings constructor.
   const PeerSettings({
@@ -13763,9 +14977,13 @@ class PeerSettings extends PeerSettingsBase {
     required this.autoarchived,
     required this.inviteMembers,
     required this.requestChatBroadcast,
+    required this.businessBotPaused,
+    required this.businessBotCanReply,
     this.geoDistance,
     this.requestChatTitle,
     this.requestChatDate,
+    this.businessBotId,
+    this.businessBotManageUrl,
   }) : super._();
 
   /// Deserialize.
@@ -13781,6 +14999,8 @@ class PeerSettings extends PeerSettingsBase {
     final autoarchived = (flags & 128) != 0;
     final inviteMembers = (flags & 256) != 0;
     final requestChatBroadcast = (flags & 1024) != 0;
+    final businessBotPaused = (flags & 2048) != 0;
+    final businessBotCanReply = (flags & 4096) != 0;
     final hasGeoDistanceField = (flags & 64) != 0;
     final geoDistance = hasGeoDistanceField ? reader.readInt32() : null;
     final hasRequestChatTitleField = (flags & 512) != 0;
@@ -13789,6 +15009,11 @@ class PeerSettings extends PeerSettingsBase {
     final hasRequestChatDateField = (flags & 512) != 0;
     final requestChatDate =
         hasRequestChatDateField ? reader.readDateTime() : null;
+    final hasBusinessBotIdField = (flags & 8192) != 0;
+    final businessBotId = hasBusinessBotIdField ? reader.readInt64() : null;
+    final hasBusinessBotManageUrlField = (flags & 8192) != 0;
+    final businessBotManageUrl =
+        hasBusinessBotManageUrlField ? reader.readString() : null;
 
     // Construct [PeerSettings] object.
     final returnValue = PeerSettings(
@@ -13801,9 +15026,13 @@ class PeerSettings extends PeerSettingsBase {
       autoarchived: autoarchived,
       inviteMembers: inviteMembers,
       requestChatBroadcast: requestChatBroadcast,
+      businessBotPaused: businessBotPaused,
+      businessBotCanReply: businessBotCanReply,
       geoDistance: geoDistance,
       requestChatTitle: requestChatTitle,
       requestChatDate: requestChatDate,
+      businessBotId: businessBotId,
+      businessBotManageUrl: businessBotManageUrl,
     );
 
     // Now return the deserialized [PeerSettings].
@@ -13822,8 +15051,11 @@ class PeerSettings extends PeerSettingsBase {
       b07: autoarchived,
       b08: inviteMembers,
       b10: requestChatBroadcast,
+      b11: businessBotPaused,
+      b12: businessBotCanReply,
       b06: geoDistance != null,
       b09: requestChatTitle != null || requestChatDate != null,
+      b13: businessBotId != null || businessBotManageUrl != null,
     );
 
     return v;
@@ -13856,6 +15088,12 @@ class PeerSettings extends PeerSettingsBase {
   /// request_chat_broadcast: bit 10 of flags.10?true
   final bool requestChatBroadcast;
 
+  /// business_bot_paused: bit 11 of flags.11?true
+  final bool businessBotPaused;
+
+  /// business_bot_can_reply: bit 12 of flags.12?true
+  final bool businessBotCanReply;
+
   /// Geo Distance.
   final int? geoDistance;
 
@@ -13865,11 +15103,17 @@ class PeerSettings extends PeerSettingsBase {
   /// Request Chat Date.
   final DateTime? requestChatDate;
 
+  /// Business Bot Id.
+  final int? businessBotId;
+
+  /// Business Bot Manage Url.
+  final String? businessBotManageUrl;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa518110d.
-    buffer.writeInt32(0xa518110d);
+    // Write type-id 0xacd66c5e.
+    buffer.writeInt32(0xacd66c5e);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -13885,6 +15129,14 @@ class PeerSettings extends PeerSettingsBase {
     if (localRequestChatDateCopy != null) {
       buffer.writeDateTime(localRequestChatDateCopy);
     }
+    final localBusinessBotIdCopy = businessBotId;
+    if (localBusinessBotIdCopy != null) {
+      buffer.writeInt64(localBusinessBotIdCopy);
+    }
+    final localBusinessBotManageUrlCopy = businessBotManageUrl;
+    if (localBusinessBotManageUrlCopy != null) {
+      buffer.writeString(localBusinessBotManageUrlCopy);
+    }
 
     // Finished serialization.
   }
@@ -13892,7 +15144,7 @@ class PeerSettings extends PeerSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa518110d",
+      "\$": "0xacd66c5e",
       "flags": flags,
       "reportSpam": reportSpam,
       "addContact": addContact,
@@ -13903,9 +15155,13 @@ class PeerSettings extends PeerSettingsBase {
       "autoarchived": autoarchived,
       "inviteMembers": inviteMembers,
       "requestChatBroadcast": requestChatBroadcast,
+      "businessBotPaused": businessBotPaused,
+      "businessBotCanReply": businessBotCanReply,
       "geoDistance": geoDistance,
       "requestChatTitle": requestChatTitle,
       "requestChatDate": requestChatDate?.toIso8601String(),
+      "businessBotId": businessBotId,
+      "businessBotManageUrl": businessBotManageUrl,
     };
 
     // Finished toJson.
@@ -14503,7 +15759,7 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
 
 /// User Full.
 ///
-/// ID: `b9b12c6c`.
+/// ID: `979d2376`.
 class UserFull extends UserFullBase {
   /// User Full constructor.
   const UserFull({
@@ -14518,6 +15774,11 @@ class UserFull extends UserFullBase {
     required this.storiesPinnedAvailable,
     required this.blockedMyStoriesFrom,
     required this.wallpaperOverridden,
+    required this.contactRequirePremium,
+    required this.readDatesPrivate,
+    required this.sponsoredEnabled,
+    required this.canViewRevenue,
+    required this.botCanManageEmojiStatus,
     required this.id,
     this.about,
     required this.settings,
@@ -14537,6 +15798,16 @@ class UserFull extends UserFullBase {
     this.premiumGifts,
     this.wallpaper,
     this.stories,
+    this.businessWorkHours,
+    this.businessLocation,
+    this.businessGreetingMessage,
+    this.businessAwayMessage,
+    this.businessIntro,
+    this.birthday,
+    this.personalChannelId,
+    this.personalChannelMessage,
+    this.stargiftsCount,
+    this.starrefProgram,
   }) : super._();
 
   /// Deserialize.
@@ -14554,6 +15825,12 @@ class UserFull extends UserFullBase {
     final storiesPinnedAvailable = (flags & 67108864) != 0;
     final blockedMyStoriesFrom = (flags & 134217728) != 0;
     final wallpaperOverridden = (flags & 268435456) != 0;
+    final contactRequirePremium = (flags & 536870912) != 0;
+    final readDatesPrivate = (flags & 1073741824) != 0;
+    final flags2 = reader.readInt32();
+    final sponsoredEnabled = (flags2 & 128) != 0;
+    final canViewRevenue = (flags2 & 512) != 0;
+    final botCanManageEmojiStatus = (flags2 & 1024) != 0;
     final id = reader.readInt64();
     final hasAboutField = (flags & 2) != 0;
     final about = hasAboutField ? reader.readString() : null;
@@ -14600,6 +15877,40 @@ class UserFull extends UserFullBase {
     final hasStoriesField = (flags & 33554432) != 0;
     final stories =
         hasStoriesField ? reader.readObject() as PeerStoriesBase : null;
+    final hasBusinessWorkHoursField = (flags2 & 1) != 0;
+    final businessWorkHours = hasBusinessWorkHoursField
+        ? reader.readObject() as BusinessWorkHoursBase
+        : null;
+    final hasBusinessLocationField = (flags2 & 2) != 0;
+    final businessLocation = hasBusinessLocationField
+        ? reader.readObject() as BusinessLocationBase
+        : null;
+    final hasBusinessGreetingMessageField = (flags2 & 4) != 0;
+    final businessGreetingMessage = hasBusinessGreetingMessageField
+        ? reader.readObject() as BusinessGreetingMessageBase
+        : null;
+    final hasBusinessAwayMessageField = (flags2 & 8) != 0;
+    final businessAwayMessage = hasBusinessAwayMessageField
+        ? reader.readObject() as BusinessAwayMessageBase
+        : null;
+    final hasBusinessIntroField = (flags2 & 16) != 0;
+    final businessIntro =
+        hasBusinessIntroField ? reader.readObject() as BusinessIntroBase : null;
+    final hasBirthdayField = (flags2 & 32) != 0;
+    final birthday =
+        hasBirthdayField ? reader.readObject() as BirthdayBase : null;
+    final hasPersonalChannelIdField = (flags2 & 64) != 0;
+    final personalChannelId =
+        hasPersonalChannelIdField ? reader.readInt64() : null;
+    final hasPersonalChannelMessageField = (flags2 & 64) != 0;
+    final personalChannelMessage =
+        hasPersonalChannelMessageField ? reader.readInt32() : null;
+    final hasStargiftsCountField = (flags2 & 256) != 0;
+    final stargiftsCount = hasStargiftsCountField ? reader.readInt32() : null;
+    final hasStarrefProgramField = (flags2 & 2048) != 0;
+    final starrefProgram = hasStarrefProgramField
+        ? reader.readObject() as StarRefProgramBase
+        : null;
 
     // Construct [UserFull] object.
     final returnValue = UserFull(
@@ -14614,6 +15925,11 @@ class UserFull extends UserFullBase {
       storiesPinnedAvailable: storiesPinnedAvailable,
       blockedMyStoriesFrom: blockedMyStoriesFrom,
       wallpaperOverridden: wallpaperOverridden,
+      contactRequirePremium: contactRequirePremium,
+      readDatesPrivate: readDatesPrivate,
+      sponsoredEnabled: sponsoredEnabled,
+      canViewRevenue: canViewRevenue,
+      botCanManageEmojiStatus: botCanManageEmojiStatus,
       id: id,
       about: about,
       settings: settings,
@@ -14633,6 +15949,16 @@ class UserFull extends UserFullBase {
       premiumGifts: premiumGifts,
       wallpaper: wallpaper,
       stories: stories,
+      businessWorkHours: businessWorkHours,
+      businessLocation: businessLocation,
+      businessGreetingMessage: businessGreetingMessage,
+      businessAwayMessage: businessAwayMessage,
+      businessIntro: businessIntro,
+      birthday: birthday,
+      personalChannelId: personalChannelId,
+      personalChannelMessage: personalChannelMessage,
+      stargiftsCount: stargiftsCount,
+      starrefProgram: starrefProgram,
     );
 
     // Now return the deserialized [UserFull].
@@ -14653,6 +15979,8 @@ class UserFull extends UserFullBase {
       b26: storiesPinnedAvailable,
       b27: blockedMyStoriesFrom,
       b28: wallpaperOverridden,
+      b29: contactRequirePremium,
+      b30: readDatesPrivate,
       b01: about != null,
       b21: personalPhoto != null,
       b02: profilePhoto != null,
@@ -14668,6 +15996,26 @@ class UserFull extends UserFullBase {
       b19: premiumGifts != null,
       b24: wallpaper != null,
       b25: stories != null,
+    );
+
+    return v;
+  }
+
+  /// Flags2.
+  int get flags2 {
+    final v = _flag(
+      b07: sponsoredEnabled,
+      b09: canViewRevenue,
+      b10: botCanManageEmojiStatus,
+      b00: businessWorkHours != null,
+      b01: businessLocation != null,
+      b02: businessGreetingMessage != null,
+      b03: businessAwayMessage != null,
+      b04: businessIntro != null,
+      b05: birthday != null,
+      b06: personalChannelId != null || personalChannelMessage != null,
+      b08: stargiftsCount != null,
+      b11: starrefProgram != null,
     );
 
     return v;
@@ -14705,6 +16053,21 @@ class UserFull extends UserFullBase {
 
   /// wallpaper_overridden: bit 28 of flags.28?true
   final bool wallpaperOverridden;
+
+  /// contact_require_premium: bit 29 of flags.29?true
+  final bool contactRequirePremium;
+
+  /// read_dates_private: bit 30 of flags.30?true
+  final bool readDatesPrivate;
+
+  /// sponsored_enabled: bit 7 of flags2.7?true
+  final bool sponsoredEnabled;
+
+  /// can_view_revenue: bit 9 of flags2.9?true
+  final bool canViewRevenue;
+
+  /// bot_can_manage_emoji_status: bit 10 of flags2.10?true
+  final bool botCanManageEmojiStatus;
 
   /// Id.
   ///
@@ -14767,14 +16130,45 @@ class UserFull extends UserFullBase {
   /// Stories.
   final PeerStoriesBase? stories;
 
+  /// Business Work Hours.
+  final BusinessWorkHoursBase? businessWorkHours;
+
+  /// Business Location.
+  final BusinessLocationBase? businessLocation;
+
+  /// Business Greeting Message.
+  final BusinessGreetingMessageBase? businessGreetingMessage;
+
+  /// Business Away Message.
+  final BusinessAwayMessageBase? businessAwayMessage;
+
+  /// Business Intro.
+  final BusinessIntroBase? businessIntro;
+
+  /// Birthday.
+  final BirthdayBase? birthday;
+
+  /// Personal Channel Id.
+  final int? personalChannelId;
+
+  /// Personal Channel Message.
+  final int? personalChannelMessage;
+
+  /// Stargifts Count.
+  final int? stargiftsCount;
+
+  /// Starref Program.
+  final StarRefProgramBase? starrefProgram;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb9b12c6c.
-    buffer.writeInt32(0xb9b12c6c);
+    // Write type-id 0x979d2376.
+    buffer.writeInt32(0x979d2376);
 
     // Write fields.
     buffer.writeInt32(flags);
+    buffer.writeInt32(flags2);
     buffer.writeInt64(id);
     final localAboutCopy = about;
     if (localAboutCopy != null) {
@@ -14839,6 +16233,46 @@ class UserFull extends UserFullBase {
     if (localStoriesCopy != null) {
       buffer.writeObject(localStoriesCopy);
     }
+    final localBusinessWorkHoursCopy = businessWorkHours;
+    if (localBusinessWorkHoursCopy != null) {
+      buffer.writeObject(localBusinessWorkHoursCopy);
+    }
+    final localBusinessLocationCopy = businessLocation;
+    if (localBusinessLocationCopy != null) {
+      buffer.writeObject(localBusinessLocationCopy);
+    }
+    final localBusinessGreetingMessageCopy = businessGreetingMessage;
+    if (localBusinessGreetingMessageCopy != null) {
+      buffer.writeObject(localBusinessGreetingMessageCopy);
+    }
+    final localBusinessAwayMessageCopy = businessAwayMessage;
+    if (localBusinessAwayMessageCopy != null) {
+      buffer.writeObject(localBusinessAwayMessageCopy);
+    }
+    final localBusinessIntroCopy = businessIntro;
+    if (localBusinessIntroCopy != null) {
+      buffer.writeObject(localBusinessIntroCopy);
+    }
+    final localBirthdayCopy = birthday;
+    if (localBirthdayCopy != null) {
+      buffer.writeObject(localBirthdayCopy);
+    }
+    final localPersonalChannelIdCopy = personalChannelId;
+    if (localPersonalChannelIdCopy != null) {
+      buffer.writeInt64(localPersonalChannelIdCopy);
+    }
+    final localPersonalChannelMessageCopy = personalChannelMessage;
+    if (localPersonalChannelMessageCopy != null) {
+      buffer.writeInt32(localPersonalChannelMessageCopy);
+    }
+    final localStargiftsCountCopy = stargiftsCount;
+    if (localStargiftsCountCopy != null) {
+      buffer.writeInt32(localStargiftsCountCopy);
+    }
+    final localStarrefProgramCopy = starrefProgram;
+    if (localStarrefProgramCopy != null) {
+      buffer.writeObject(localStarrefProgramCopy);
+    }
 
     // Finished serialization.
   }
@@ -14846,7 +16280,7 @@ class UserFull extends UserFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9b12c6c",
+      "\$": "0x979d2376",
       "flags": flags,
       "blocked": blocked,
       "phoneCallsAvailable": phoneCallsAvailable,
@@ -14859,6 +16293,12 @@ class UserFull extends UserFullBase {
       "storiesPinnedAvailable": storiesPinnedAvailable,
       "blockedMyStoriesFrom": blockedMyStoriesFrom,
       "wallpaperOverridden": wallpaperOverridden,
+      "contactRequirePremium": contactRequirePremium,
+      "readDatesPrivate": readDatesPrivate,
+      "flags2": flags2,
+      "sponsoredEnabled": sponsoredEnabled,
+      "canViewRevenue": canViewRevenue,
+      "botCanManageEmojiStatus": botCanManageEmojiStatus,
       "id": id,
       "about": about,
       "settings": settings,
@@ -14878,6 +16318,16 @@ class UserFull extends UserFullBase {
       "premiumGifts": premiumGifts,
       "wallpaper": wallpaper,
       "stories": stories,
+      "businessWorkHours": businessWorkHours,
+      "businessLocation": businessLocation,
+      "businessGreetingMessage": businessGreetingMessage,
+      "businessAwayMessage": businessAwayMessage,
+      "businessIntro": businessIntro,
+      "birthday": birthday,
+      "personalChannelId": personalChannelId,
+      "personalChannelMessage": personalChannelMessage,
+      "stargiftsCount": stargiftsCount,
+      "starrefProgram": starrefProgram,
     };
 
     // Finished toJson.
@@ -21618,28 +23068,42 @@ class UpdateNewScheduledMessage extends UpdateBase {
 
 /// Update Delete Scheduled Messages.
 ///
-/// ID: `90866cee`.
+/// ID: `f2a71983`.
 class UpdateDeleteScheduledMessages extends UpdateBase {
   /// Update Delete Scheduled Messages constructor.
   const UpdateDeleteScheduledMessages({
     required this.peer,
     required this.messages,
+    this.sentMessages,
   }) : super._();
 
   /// Deserialize.
   factory UpdateDeleteScheduledMessages.deserialize(BinaryReader reader) {
     // Read [UpdateDeleteScheduledMessages] fields.
+    final flags = reader.readInt32();
     final peer = reader.readObject() as PeerBase;
     final messages = reader.readVectorInt32();
+    final hasSentMessagesField = (flags & 1) != 0;
+    final sentMessages = hasSentMessagesField ? reader.readVectorInt32() : null;
 
     // Construct [UpdateDeleteScheduledMessages] object.
     final returnValue = UpdateDeleteScheduledMessages(
       peer: peer,
       messages: messages,
+      sentMessages: sentMessages,
     );
 
     // Now return the deserialized [UpdateDeleteScheduledMessages].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: sentMessages != null,
+    );
+
+    return v;
   }
 
   /// Peer.
@@ -21648,15 +23112,23 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
   /// Messages.
   final List<int> messages;
 
+  /// Sent Messages.
+  final List<int>? sentMessages;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x90866cee.
-    buffer.writeInt32(0x90866cee);
+    // Write type-id 0xf2a71983.
+    buffer.writeInt32(0xf2a71983);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeVectorInt32(messages);
+    final localSentMessagesCopy = sentMessages;
+    if (localSentMessagesCopy != null) {
+      buffer.writeVectorInt32(localSentMessagesCopy);
+    }
 
     // Finished serialization.
   }
@@ -21664,9 +23136,11 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x90866cee",
+      "\$": "0xf2a71983",
+      "flags": flags,
       "peer": peer,
       "messages": messages,
+      "sentMessages": sentMessages,
     };
 
     // Finished toJson.
@@ -24289,7 +25763,7 @@ class UpdateMoveStickerSetToTop extends UpdateBase {
 
 /// Update Message Extended Media.
 ///
-/// ID: `5a73a98c`.
+/// ID: `d5a41724`.
 class UpdateMessageExtendedMedia extends UpdateBase {
   /// Update Message Extended Media constructor.
   const UpdateMessageExtendedMedia({
@@ -24303,7 +25777,7 @@ class UpdateMessageExtendedMedia extends UpdateBase {
     // Read [UpdateMessageExtendedMedia] fields.
     final peer = reader.readObject() as PeerBase;
     final msgId = reader.readInt32();
-    final extendedMedia = reader.readObject() as MessageExtendedMediaBase;
+    final extendedMedia = reader.readVectorObject<MessageExtendedMediaBase>();
 
     // Construct [UpdateMessageExtendedMedia] object.
     final returnValue = UpdateMessageExtendedMedia(
@@ -24325,18 +25799,18 @@ class UpdateMessageExtendedMedia extends UpdateBase {
   final int msgId;
 
   /// Extended Media.
-  final MessageExtendedMediaBase extendedMedia;
+  final List<MessageExtendedMediaBase> extendedMedia;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x5a73a98c.
-    buffer.writeInt32(0x5a73a98c);
+    // Write type-id 0xd5a41724.
+    buffer.writeInt32(0xd5a41724);
 
     // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
-    buffer.writeObject(extendedMedia);
+    buffer.writeVectorObject(extendedMedia);
 
     // Finished serialization.
   }
@@ -24344,7 +25818,7 @@ class UpdateMessageExtendedMedia extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a73a98c",
+      "\$": "0xd5a41724",
       "peer": peer,
       "msgId": msgId,
       "extendedMedia": extendedMedia,
@@ -24593,58 +26067,6 @@ class UpdateAutoSaveSettings extends UpdateBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0xec05b097",
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
-/// Update Group Invite Privacy Forbidden.
-///
-/// ID: `ccf08ad6`.
-class UpdateGroupInvitePrivacyForbidden extends UpdateBase {
-  /// Update Group Invite Privacy Forbidden constructor.
-  const UpdateGroupInvitePrivacyForbidden({
-    required this.userId,
-  }) : super._();
-
-  /// Deserialize.
-  factory UpdateGroupInvitePrivacyForbidden.deserialize(BinaryReader reader) {
-    // Read [UpdateGroupInvitePrivacyForbidden] fields.
-    final userId = reader.readInt64();
-
-    // Construct [UpdateGroupInvitePrivacyForbidden] object.
-    final returnValue = UpdateGroupInvitePrivacyForbidden(
-      userId: userId,
-    );
-
-    // Now return the deserialized [UpdateGroupInvitePrivacyForbidden].
-    return returnValue;
-  }
-
-  /// User Id.
-  ///
-  /// Field type is Int64.
-  final int userId;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0xccf08ad6.
-    buffer.writeInt32(0xccf08ad6);
-
-    // Write fields.
-    buffer.writeInt64(userId);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0xccf08ad6",
-      "userId": userId,
     };
 
     // Finished toJson.
@@ -25478,6 +26900,1156 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
       "\$": "0x686c85a6",
       "flags": flags,
       "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Saved Reaction Tags.
+///
+/// ID: `39c67432`.
+class UpdateSavedReactionTags extends UpdateBase {
+  /// Update Saved Reaction Tags constructor.
+  const UpdateSavedReactionTags() : super._();
+
+  /// Deserialize.
+  factory UpdateSavedReactionTags.deserialize(BinaryReader reader) {
+    // Construct [UpdateSavedReactionTags] object.
+    final returnValue = UpdateSavedReactionTags();
+
+    // Now return the deserialized [UpdateSavedReactionTags].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x39c67432.
+    buffer.writeInt32(0x39c67432);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x39c67432",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Sms Job.
+///
+/// ID: `f16269d4`.
+class UpdateSmsJob extends UpdateBase {
+  /// Update Sms Job constructor.
+  const UpdateSmsJob({
+    required this.jobId,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateSmsJob.deserialize(BinaryReader reader) {
+    // Read [UpdateSmsJob] fields.
+    final jobId = reader.readString();
+
+    // Construct [UpdateSmsJob] object.
+    final returnValue = UpdateSmsJob(
+      jobId: jobId,
+    );
+
+    // Now return the deserialized [UpdateSmsJob].
+    return returnValue;
+  }
+
+  /// Job Id.
+  final String jobId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf16269d4.
+    buffer.writeInt32(0xf16269d4);
+
+    // Write fields.
+    buffer.writeString(jobId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf16269d4",
+      "jobId": jobId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Quick Replies.
+///
+/// ID: `f9470ab2`.
+class UpdateQuickReplies extends UpdateBase {
+  /// Update Quick Replies constructor.
+  const UpdateQuickReplies({
+    required this.quickReplies,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateQuickReplies.deserialize(BinaryReader reader) {
+    // Read [UpdateQuickReplies] fields.
+    final quickReplies = reader.readVectorObject<QuickReplyBase>();
+
+    // Construct [UpdateQuickReplies] object.
+    final returnValue = UpdateQuickReplies(
+      quickReplies: quickReplies,
+    );
+
+    // Now return the deserialized [UpdateQuickReplies].
+    return returnValue;
+  }
+
+  /// Quick Replies.
+  final List<QuickReplyBase> quickReplies;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf9470ab2.
+    buffer.writeInt32(0xf9470ab2);
+
+    // Write fields.
+    buffer.writeVectorObject(quickReplies);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf9470ab2",
+      "quickReplies": quickReplies,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update New Quick Reply.
+///
+/// ID: `f53da717`.
+class UpdateNewQuickReply extends UpdateBase {
+  /// Update New Quick Reply constructor.
+  const UpdateNewQuickReply({
+    required this.quickReply,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateNewQuickReply.deserialize(BinaryReader reader) {
+    // Read [UpdateNewQuickReply] fields.
+    final quickReply = reader.readObject() as QuickReplyBase;
+
+    // Construct [UpdateNewQuickReply] object.
+    final returnValue = UpdateNewQuickReply(
+      quickReply: quickReply,
+    );
+
+    // Now return the deserialized [UpdateNewQuickReply].
+    return returnValue;
+  }
+
+  /// Quick Reply.
+  final QuickReplyBase quickReply;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf53da717.
+    buffer.writeInt32(0xf53da717);
+
+    // Write fields.
+    buffer.writeObject(quickReply);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf53da717",
+      "quickReply": quickReply,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Delete Quick Reply.
+///
+/// ID: `53e6f1ec`.
+class UpdateDeleteQuickReply extends UpdateBase {
+  /// Update Delete Quick Reply constructor.
+  const UpdateDeleteQuickReply({
+    required this.shortcutId,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateDeleteQuickReply.deserialize(BinaryReader reader) {
+    // Read [UpdateDeleteQuickReply] fields.
+    final shortcutId = reader.readInt32();
+
+    // Construct [UpdateDeleteQuickReply] object.
+    final returnValue = UpdateDeleteQuickReply(
+      shortcutId: shortcutId,
+    );
+
+    // Now return the deserialized [UpdateDeleteQuickReply].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x53e6f1ec.
+    buffer.writeInt32(0x53e6f1ec);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x53e6f1ec",
+      "shortcutId": shortcutId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Quick Reply Message.
+///
+/// ID: `3e050d0f`.
+class UpdateQuickReplyMessage extends UpdateBase {
+  /// Update Quick Reply Message constructor.
+  const UpdateQuickReplyMessage({
+    required this.message,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateQuickReplyMessage.deserialize(BinaryReader reader) {
+    // Read [UpdateQuickReplyMessage] fields.
+    final message = reader.readObject() as MessageBase;
+
+    // Construct [UpdateQuickReplyMessage] object.
+    final returnValue = UpdateQuickReplyMessage(
+      message: message,
+    );
+
+    // Now return the deserialized [UpdateQuickReplyMessage].
+    return returnValue;
+  }
+
+  /// Message.
+  final MessageBase message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3e050d0f.
+    buffer.writeInt32(0x3e050d0f);
+
+    // Write fields.
+    buffer.writeObject(message);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e050d0f",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Delete Quick Reply Messages.
+///
+/// ID: `566fe7cd`.
+class UpdateDeleteQuickReplyMessages extends UpdateBase {
+  /// Update Delete Quick Reply Messages constructor.
+  const UpdateDeleteQuickReplyMessages({
+    required this.shortcutId,
+    required this.messages,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateDeleteQuickReplyMessages.deserialize(BinaryReader reader) {
+    // Read [UpdateDeleteQuickReplyMessages] fields.
+    final shortcutId = reader.readInt32();
+    final messages = reader.readVectorInt32();
+
+    // Construct [UpdateDeleteQuickReplyMessages] object.
+    final returnValue = UpdateDeleteQuickReplyMessages(
+      shortcutId: shortcutId,
+      messages: messages,
+    );
+
+    // Now return the deserialized [UpdateDeleteQuickReplyMessages].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Messages.
+  final List<int> messages;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x566fe7cd.
+    buffer.writeInt32(0x566fe7cd);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+    buffer.writeVectorInt32(messages);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x566fe7cd",
+      "shortcutId": shortcutId,
+      "messages": messages,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot Business Connect.
+///
+/// ID: `8ae5c97a`.
+class UpdateBotBusinessConnect extends UpdateBase {
+  /// Update Bot Business Connect constructor.
+  const UpdateBotBusinessConnect({
+    required this.connection,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotBusinessConnect.deserialize(BinaryReader reader) {
+    // Read [UpdateBotBusinessConnect] fields.
+    final connection = reader.readObject() as BotBusinessConnectionBase;
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotBusinessConnect] object.
+    final returnValue = UpdateBotBusinessConnect(
+      connection: connection,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotBusinessConnect].
+    return returnValue;
+  }
+
+  /// Connection.
+  final BotBusinessConnectionBase connection;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8ae5c97a.
+    buffer.writeInt32(0x8ae5c97a);
+
+    // Write fields.
+    buffer.writeObject(connection);
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ae5c97a",
+      "connection": connection,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot New Business Message.
+///
+/// ID: `9ddb347c`.
+class UpdateBotNewBusinessMessage extends UpdateBase {
+  /// Update Bot New Business Message constructor.
+  const UpdateBotNewBusinessMessage({
+    required this.connectionId,
+    required this.message,
+    this.replyToMessage,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotNewBusinessMessage.deserialize(BinaryReader reader) {
+    // Read [UpdateBotNewBusinessMessage] fields.
+    final flags = reader.readInt32();
+    final connectionId = reader.readString();
+    final message = reader.readObject() as MessageBase;
+    final hasReplyToMessageField = (flags & 1) != 0;
+    final replyToMessage =
+        hasReplyToMessageField ? reader.readObject() as MessageBase : null;
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotNewBusinessMessage] object.
+    final returnValue = UpdateBotNewBusinessMessage(
+      connectionId: connectionId,
+      message: message,
+      replyToMessage: replyToMessage,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotNewBusinessMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: replyToMessage != null,
+    );
+
+    return v;
+  }
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// Message.
+  final MessageBase message;
+
+  /// Reply To Message.
+  final MessageBase? replyToMessage;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9ddb347c.
+    buffer.writeInt32(0x9ddb347c);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(connectionId);
+    buffer.writeObject(message);
+    final localReplyToMessageCopy = replyToMessage;
+    if (localReplyToMessageCopy != null) {
+      buffer.writeObject(localReplyToMessageCopy);
+    }
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9ddb347c",
+      "flags": flags,
+      "connectionId": connectionId,
+      "message": message,
+      "replyToMessage": replyToMessage,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot Edit Business Message.
+///
+/// ID: `07df587c`.
+class UpdateBotEditBusinessMessage extends UpdateBase {
+  /// Update Bot Edit Business Message constructor.
+  const UpdateBotEditBusinessMessage({
+    required this.connectionId,
+    required this.message,
+    this.replyToMessage,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotEditBusinessMessage.deserialize(BinaryReader reader) {
+    // Read [UpdateBotEditBusinessMessage] fields.
+    final flags = reader.readInt32();
+    final connectionId = reader.readString();
+    final message = reader.readObject() as MessageBase;
+    final hasReplyToMessageField = (flags & 1) != 0;
+    final replyToMessage =
+        hasReplyToMessageField ? reader.readObject() as MessageBase : null;
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotEditBusinessMessage] object.
+    final returnValue = UpdateBotEditBusinessMessage(
+      connectionId: connectionId,
+      message: message,
+      replyToMessage: replyToMessage,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotEditBusinessMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: replyToMessage != null,
+    );
+
+    return v;
+  }
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// Message.
+  final MessageBase message;
+
+  /// Reply To Message.
+  final MessageBase? replyToMessage;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x07df587c.
+    buffer.writeInt32(0x07df587c);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(connectionId);
+    buffer.writeObject(message);
+    final localReplyToMessageCopy = replyToMessage;
+    if (localReplyToMessageCopy != null) {
+      buffer.writeObject(localReplyToMessageCopy);
+    }
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x07df587c",
+      "flags": flags,
+      "connectionId": connectionId,
+      "message": message,
+      "replyToMessage": replyToMessage,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot Delete Business Message.
+///
+/// ID: `a02a982e`.
+class UpdateBotDeleteBusinessMessage extends UpdateBase {
+  /// Update Bot Delete Business Message constructor.
+  const UpdateBotDeleteBusinessMessage({
+    required this.connectionId,
+    required this.peer,
+    required this.messages,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotDeleteBusinessMessage.deserialize(BinaryReader reader) {
+    // Read [UpdateBotDeleteBusinessMessage] fields.
+    final connectionId = reader.readString();
+    final peer = reader.readObject() as PeerBase;
+    final messages = reader.readVectorInt32();
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotDeleteBusinessMessage] object.
+    final returnValue = UpdateBotDeleteBusinessMessage(
+      connectionId: connectionId,
+      peer: peer,
+      messages: messages,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotDeleteBusinessMessage].
+    return returnValue;
+  }
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Messages.
+  final List<int> messages;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa02a982e.
+    buffer.writeInt32(0xa02a982e);
+
+    // Write fields.
+    buffer.writeString(connectionId);
+    buffer.writeObject(peer);
+    buffer.writeVectorInt32(messages);
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa02a982e",
+      "connectionId": connectionId,
+      "peer": peer,
+      "messages": messages,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update New Story Reaction.
+///
+/// ID: `1824e40b`.
+class UpdateNewStoryReaction extends UpdateBase {
+  /// Update New Story Reaction constructor.
+  const UpdateNewStoryReaction({
+    required this.storyId,
+    required this.peer,
+    required this.reaction,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateNewStoryReaction.deserialize(BinaryReader reader) {
+    // Read [UpdateNewStoryReaction] fields.
+    final storyId = reader.readInt32();
+    final peer = reader.readObject() as PeerBase;
+    final reaction = reader.readObject() as ReactionBase;
+
+    // Construct [UpdateNewStoryReaction] object.
+    final returnValue = UpdateNewStoryReaction(
+      storyId: storyId,
+      peer: peer,
+      reaction: reaction,
+    );
+
+    // Now return the deserialized [UpdateNewStoryReaction].
+    return returnValue;
+  }
+
+  /// Story Id.
+  ///
+  /// Field type is Int32.
+  final int storyId;
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Reaction.
+  final ReactionBase reaction;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1824e40b.
+    buffer.writeInt32(0x1824e40b);
+
+    // Write fields.
+    buffer.writeInt32(storyId);
+    buffer.writeObject(peer);
+    buffer.writeObject(reaction);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1824e40b",
+      "storyId": storyId,
+      "peer": peer,
+      "reaction": reaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Broadcast Revenue Transactions.
+///
+/// ID: `dfd961f5`.
+class UpdateBroadcastRevenueTransactions extends UpdateBase {
+  /// Update Broadcast Revenue Transactions constructor.
+  const UpdateBroadcastRevenueTransactions({
+    required this.peer,
+    required this.balances,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBroadcastRevenueTransactions.deserialize(BinaryReader reader) {
+    // Read [UpdateBroadcastRevenueTransactions] fields.
+    final peer = reader.readObject() as PeerBase;
+    final balances = reader.readObject() as BroadcastRevenueBalancesBase;
+
+    // Construct [UpdateBroadcastRevenueTransactions] object.
+    final returnValue = UpdateBroadcastRevenueTransactions(
+      peer: peer,
+      balances: balances,
+    );
+
+    // Now return the deserialized [UpdateBroadcastRevenueTransactions].
+    return returnValue;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Balances.
+  final BroadcastRevenueBalancesBase balances;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdfd961f5.
+    buffer.writeInt32(0xdfd961f5);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(balances);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdfd961f5",
+      "peer": peer,
+      "balances": balances,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Stars Balance.
+///
+/// ID: `4e80a379`.
+class UpdateStarsBalance extends UpdateBase {
+  /// Update Stars Balance constructor.
+  const UpdateStarsBalance({
+    required this.balance,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateStarsBalance.deserialize(BinaryReader reader) {
+    // Read [UpdateStarsBalance] fields.
+    final balance = reader.readObject() as StarsAmountBase;
+
+    // Construct [UpdateStarsBalance] object.
+    final returnValue = UpdateStarsBalance(
+      balance: balance,
+    );
+
+    // Now return the deserialized [UpdateStarsBalance].
+    return returnValue;
+  }
+
+  /// Balance.
+  final StarsAmountBase balance;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4e80a379.
+    buffer.writeInt32(0x4e80a379);
+
+    // Write fields.
+    buffer.writeObject(balance);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4e80a379",
+      "balance": balance,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Business Bot Callback Query.
+///
+/// ID: `1ea2fda7`.
+class UpdateBusinessBotCallbackQuery extends UpdateBase {
+  /// Update Business Bot Callback Query constructor.
+  const UpdateBusinessBotCallbackQuery({
+    required this.queryId,
+    required this.userId,
+    required this.connectionId,
+    required this.message,
+    this.replyToMessage,
+    required this.chatInstance,
+    this.data,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBusinessBotCallbackQuery.deserialize(BinaryReader reader) {
+    // Read [UpdateBusinessBotCallbackQuery] fields.
+    final flags = reader.readInt32();
+    final queryId = reader.readInt64();
+    final userId = reader.readInt64();
+    final connectionId = reader.readString();
+    final message = reader.readObject() as MessageBase;
+    final hasReplyToMessageField = (flags & 4) != 0;
+    final replyToMessage =
+        hasReplyToMessageField ? reader.readObject() as MessageBase : null;
+    final chatInstance = reader.readInt64();
+    final hasDataField = (flags & 1) != 0;
+    final data = hasDataField ? reader.readBytes() : null;
+
+    // Construct [UpdateBusinessBotCallbackQuery] object.
+    final returnValue = UpdateBusinessBotCallbackQuery(
+      queryId: queryId,
+      userId: userId,
+      connectionId: connectionId,
+      message: message,
+      replyToMessage: replyToMessage,
+      chatInstance: chatInstance,
+      data: data,
+    );
+
+    // Now return the deserialized [UpdateBusinessBotCallbackQuery].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b02: replyToMessage != null,
+      b00: data != null,
+    );
+
+    return v;
+  }
+
+  /// Query Id.
+  ///
+  /// Field type is Int64.
+  final int queryId;
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// Message.
+  final MessageBase message;
+
+  /// Reply To Message.
+  final MessageBase? replyToMessage;
+
+  /// Chat Instance.
+  ///
+  /// Field type is Int64.
+  final int chatInstance;
+
+  /// Data.
+  final Uint8List? data;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1ea2fda7.
+    buffer.writeInt32(0x1ea2fda7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(queryId);
+    buffer.writeInt64(userId);
+    buffer.writeString(connectionId);
+    buffer.writeObject(message);
+    final localReplyToMessageCopy = replyToMessage;
+    if (localReplyToMessageCopy != null) {
+      buffer.writeObject(localReplyToMessageCopy);
+    }
+    buffer.writeInt64(chatInstance);
+    final localDataCopy = data;
+    if (localDataCopy != null) {
+      buffer.writeBytes(localDataCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1ea2fda7",
+      "flags": flags,
+      "queryId": queryId,
+      "userId": userId,
+      "connectionId": connectionId,
+      "message": message,
+      "replyToMessage": replyToMessage,
+      "chatInstance": chatInstance,
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Stars Revenue Status.
+///
+/// ID: `a584b019`.
+class UpdateStarsRevenueStatus extends UpdateBase {
+  /// Update Stars Revenue Status constructor.
+  const UpdateStarsRevenueStatus({
+    required this.peer,
+    required this.status,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateStarsRevenueStatus.deserialize(BinaryReader reader) {
+    // Read [UpdateStarsRevenueStatus] fields.
+    final peer = reader.readObject() as PeerBase;
+    final status = reader.readObject() as StarsRevenueStatusBase;
+
+    // Construct [UpdateStarsRevenueStatus] object.
+    final returnValue = UpdateStarsRevenueStatus(
+      peer: peer,
+      status: status,
+    );
+
+    // Now return the deserialized [UpdateStarsRevenueStatus].
+    return returnValue;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Status.
+  final StarsRevenueStatusBase status;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa584b019.
+    buffer.writeInt32(0xa584b019);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(status);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa584b019",
+      "peer": peer,
+      "status": status,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot Purchased Paid Media.
+///
+/// ID: `283bd312`.
+class UpdateBotPurchasedPaidMedia extends UpdateBase {
+  /// Update Bot Purchased Paid Media constructor.
+  const UpdateBotPurchasedPaidMedia({
+    required this.userId,
+    required this.payload,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotPurchasedPaidMedia.deserialize(BinaryReader reader) {
+    // Read [UpdateBotPurchasedPaidMedia] fields.
+    final userId = reader.readInt64();
+    final payload = reader.readString();
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotPurchasedPaidMedia] object.
+    final returnValue = UpdateBotPurchasedPaidMedia(
+      userId: userId,
+      payload: payload,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotPurchasedPaidMedia].
+    return returnValue;
+  }
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Payload.
+  final String payload;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x283bd312.
+    buffer.writeInt32(0x283bd312);
+
+    // Write fields.
+    buffer.writeInt64(userId);
+    buffer.writeString(payload);
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x283bd312",
+      "userId": userId,
+      "payload": payload,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Paid Reaction Privacy.
+///
+/// ID: `51ca7aec`.
+class UpdatePaidReactionPrivacy extends UpdateBase {
+  /// Update Paid Reaction Privacy constructor.
+  const UpdatePaidReactionPrivacy({
+    required this.private,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdatePaidReactionPrivacy.deserialize(BinaryReader reader) {
+    // Read [UpdatePaidReactionPrivacy] fields.
+    final private = reader.readBool();
+
+    // Construct [UpdatePaidReactionPrivacy] object.
+    final returnValue = UpdatePaidReactionPrivacy(
+      private: private,
+    );
+
+    // Now return the deserialized [UpdatePaidReactionPrivacy].
+    return returnValue;
+  }
+
+  /// Private.
+  final bool private;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x51ca7aec.
+    buffer.writeInt32(0x51ca7aec);
+
+    // Write fields.
+    buffer.writeBool(private);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x51ca7aec",
+      "private": private,
     };
 
     // Finished toJson.
@@ -31115,6 +33687,78 @@ class InputPrivacyKeyAbout extends InputPrivacyKeyBase {
   }
 }
 
+/// Input Privacy Key Birthday.
+///
+/// ID: `d65a11cc`.
+class InputPrivacyKeyBirthday extends InputPrivacyKeyBase {
+  /// Input Privacy Key Birthday constructor.
+  const InputPrivacyKeyBirthday() : super._();
+
+  /// Deserialize.
+  factory InputPrivacyKeyBirthday.deserialize(BinaryReader reader) {
+    // Construct [InputPrivacyKeyBirthday] object.
+    final returnValue = InputPrivacyKeyBirthday();
+
+    // Now return the deserialized [InputPrivacyKeyBirthday].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd65a11cc.
+    buffer.writeInt32(0xd65a11cc);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd65a11cc",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Privacy Key Star Gifts Auto Save.
+///
+/// ID: `e1732341`.
+class InputPrivacyKeyStarGiftsAutoSave extends InputPrivacyKeyBase {
+  /// Input Privacy Key Star Gifts Auto Save constructor.
+  const InputPrivacyKeyStarGiftsAutoSave() : super._();
+
+  /// Deserialize.
+  factory InputPrivacyKeyStarGiftsAutoSave.deserialize(BinaryReader reader) {
+    // Construct [InputPrivacyKeyStarGiftsAutoSave] object.
+    final returnValue = InputPrivacyKeyStarGiftsAutoSave();
+
+    // Now return the deserialized [InputPrivacyKeyStarGiftsAutoSave].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe1732341.
+    buffer.writeInt32(0xe1732341);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe1732341",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Privacy Key Status Timestamp.
 ///
 /// ID: `bc2eab30`.
@@ -31468,6 +34112,78 @@ class PrivacyKeyAbout extends PrivacyKeyBase {
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
       "\$": "0xa486b761",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Privacy Key Birthday.
+///
+/// ID: `2000a518`.
+class PrivacyKeyBirthday extends PrivacyKeyBase {
+  /// Privacy Key Birthday constructor.
+  const PrivacyKeyBirthday() : super._();
+
+  /// Deserialize.
+  factory PrivacyKeyBirthday.deserialize(BinaryReader reader) {
+    // Construct [PrivacyKeyBirthday] object.
+    final returnValue = PrivacyKeyBirthday();
+
+    // Now return the deserialized [PrivacyKeyBirthday].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2000a518.
+    buffer.writeInt32(0x2000a518);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2000a518",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Privacy Key Star Gifts Auto Save.
+///
+/// ID: `2ca4fdf8`.
+class PrivacyKeyStarGiftsAutoSave extends PrivacyKeyBase {
+  /// Privacy Key Star Gifts Auto Save constructor.
+  const PrivacyKeyStarGiftsAutoSave() : super._();
+
+  /// Deserialize.
+  factory PrivacyKeyStarGiftsAutoSave.deserialize(BinaryReader reader) {
+    // Construct [PrivacyKeyStarGiftsAutoSave] object.
+    final returnValue = PrivacyKeyStarGiftsAutoSave();
+
+    // Now return the deserialized [PrivacyKeyStarGiftsAutoSave].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2ca4fdf8.
+    buffer.writeInt32(0x2ca4fdf8);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ca4fdf8",
     };
 
     // Finished toJson.
@@ -31857,6 +34573,114 @@ class InputPrivacyValueAllowCloseFriends extends InputPrivacyRuleBase {
   }
 }
 
+/// Input Privacy Value Allow Premium.
+///
+/// ID: `77cdc9f1`.
+class InputPrivacyValueAllowPremium extends InputPrivacyRuleBase {
+  /// Input Privacy Value Allow Premium constructor.
+  const InputPrivacyValueAllowPremium() : super._();
+
+  /// Deserialize.
+  factory InputPrivacyValueAllowPremium.deserialize(BinaryReader reader) {
+    // Construct [InputPrivacyValueAllowPremium] object.
+    final returnValue = InputPrivacyValueAllowPremium();
+
+    // Now return the deserialized [InputPrivacyValueAllowPremium].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x77cdc9f1.
+    buffer.writeInt32(0x77cdc9f1);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x77cdc9f1",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Privacy Value Allow Bots.
+///
+/// ID: `5a4fcce5`.
+class InputPrivacyValueAllowBots extends InputPrivacyRuleBase {
+  /// Input Privacy Value Allow Bots constructor.
+  const InputPrivacyValueAllowBots() : super._();
+
+  /// Deserialize.
+  factory InputPrivacyValueAllowBots.deserialize(BinaryReader reader) {
+    // Construct [InputPrivacyValueAllowBots] object.
+    final returnValue = InputPrivacyValueAllowBots();
+
+    // Now return the deserialized [InputPrivacyValueAllowBots].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5a4fcce5.
+    buffer.writeInt32(0x5a4fcce5);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a4fcce5",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Privacy Value Disallow Bots.
+///
+/// ID: `c4e57915`.
+class InputPrivacyValueDisallowBots extends InputPrivacyRuleBase {
+  /// Input Privacy Value Disallow Bots constructor.
+  const InputPrivacyValueDisallowBots() : super._();
+
+  /// Deserialize.
+  factory InputPrivacyValueDisallowBots.deserialize(BinaryReader reader) {
+    // Construct [InputPrivacyValueDisallowBots] object.
+    final returnValue = InputPrivacyValueDisallowBots();
+
+    // Now return the deserialized [InputPrivacyValueDisallowBots].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc4e57915.
+    buffer.writeInt32(0xc4e57915);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4e57915",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Privacy Value Allow Contacts.
 ///
 /// ID: `fffe1bac`.
@@ -32238,6 +35062,114 @@ class PrivacyValueAllowCloseFriends extends PrivacyRuleBase {
   }
 }
 
+/// Privacy Value Allow Premium.
+///
+/// ID: `ece9814b`.
+class PrivacyValueAllowPremium extends PrivacyRuleBase {
+  /// Privacy Value Allow Premium constructor.
+  const PrivacyValueAllowPremium() : super._();
+
+  /// Deserialize.
+  factory PrivacyValueAllowPremium.deserialize(BinaryReader reader) {
+    // Construct [PrivacyValueAllowPremium] object.
+    final returnValue = PrivacyValueAllowPremium();
+
+    // Now return the deserialized [PrivacyValueAllowPremium].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xece9814b.
+    buffer.writeInt32(0xece9814b);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xece9814b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Privacy Value Allow Bots.
+///
+/// ID: `21461b5d`.
+class PrivacyValueAllowBots extends PrivacyRuleBase {
+  /// Privacy Value Allow Bots constructor.
+  const PrivacyValueAllowBots() : super._();
+
+  /// Deserialize.
+  factory PrivacyValueAllowBots.deserialize(BinaryReader reader) {
+    // Construct [PrivacyValueAllowBots] object.
+    final returnValue = PrivacyValueAllowBots();
+
+    // Now return the deserialized [PrivacyValueAllowBots].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x21461b5d.
+    buffer.writeInt32(0x21461b5d);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x21461b5d",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Privacy Value Disallow Bots.
+///
+/// ID: `f6a5f82f`.
+class PrivacyValueDisallowBots extends PrivacyRuleBase {
+  /// Privacy Value Disallow Bots constructor.
+  const PrivacyValueDisallowBots() : super._();
+
+  /// Deserialize.
+  factory PrivacyValueDisallowBots.deserialize(BinaryReader reader) {
+    // Construct [PrivacyValueDisallowBots] object.
+    final returnValue = PrivacyValueDisallowBots();
+
+    // Now return the deserialized [PrivacyValueDisallowBots].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf6a5f82f.
+    buffer.writeInt32(0xf6a5f82f);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf6a5f82f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Account Privacy Rules.
 ///
 /// ID: `50a04e45`.
@@ -32547,7 +35479,7 @@ class DocumentAttributeSticker extends DocumentAttributeBase {
 
 /// Document Attribute Video.
 ///
-/// ID: `d38ff1c2`.
+/// ID: `43c57c48`.
 class DocumentAttributeVideo extends DocumentAttributeBase {
   /// Document Attribute Video constructor.
   const DocumentAttributeVideo({
@@ -32558,6 +35490,8 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
     required this.w,
     required this.h,
     this.preloadPrefixSize,
+    this.videoStartTs,
+    this.videoCodec,
   }) : super._();
 
   /// Deserialize.
@@ -32573,6 +35507,10 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
     final hasPreloadPrefixSizeField = (flags & 4) != 0;
     final preloadPrefixSize =
         hasPreloadPrefixSizeField ? reader.readInt32() : null;
+    final hasVideoStartTsField = (flags & 16) != 0;
+    final videoStartTs = hasVideoStartTsField ? reader.readFloat64() : null;
+    final hasVideoCodecField = (flags & 32) != 0;
+    final videoCodec = hasVideoCodecField ? reader.readString() : null;
 
     // Construct [DocumentAttributeVideo] object.
     final returnValue = DocumentAttributeVideo(
@@ -32583,6 +35521,8 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
       w: w,
       h: h,
       preloadPrefixSize: preloadPrefixSize,
+      videoStartTs: videoStartTs,
+      videoCodec: videoCodec,
     );
 
     // Now return the deserialized [DocumentAttributeVideo].
@@ -32596,6 +35536,8 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
       b01: supportsStreaming,
       b03: nosound,
       b02: preloadPrefixSize != null,
+      b04: videoStartTs != null,
+      b05: videoCodec != null,
     );
 
     return v;
@@ -32626,11 +35568,17 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
   /// Preload Prefix Size.
   final int? preloadPrefixSize;
 
+  /// Video Start Ts.
+  final double? videoStartTs;
+
+  /// Video Codec.
+  final String? videoCodec;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd38ff1c2.
-    buffer.writeInt32(0xd38ff1c2);
+    // Write type-id 0x43c57c48.
+    buffer.writeInt32(0x43c57c48);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -32641,6 +35589,14 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
     if (localPreloadPrefixSizeCopy != null) {
       buffer.writeInt32(localPreloadPrefixSizeCopy);
     }
+    final localVideoStartTsCopy = videoStartTs;
+    if (localVideoStartTsCopy != null) {
+      buffer.writeDouble(localVideoStartTsCopy);
+    }
+    final localVideoCodecCopy = videoCodec;
+    if (localVideoCodecCopy != null) {
+      buffer.writeString(localVideoCodecCopy);
+    }
 
     // Finished serialization.
   }
@@ -32648,7 +35604,7 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd38ff1c2",
+      "\$": "0x43c57c48",
       "flags": flags,
       "roundMessage": roundMessage,
       "supportsStreaming": supportsStreaming,
@@ -32657,6 +35613,8 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
       "w": w,
       "h": h,
       "preloadPrefixSize": preloadPrefixSize,
+      "videoStartTs": videoStartTs,
+      "videoCodec": videoCodec,
     };
 
     // Finished toJson.
@@ -33424,6 +36382,7 @@ class WebPage extends WebPageBase {
   /// Web Page constructor.
   const WebPage({
     required this.hasLargeMedia,
+    required this.videoCoverPhoto,
     required this.id,
     required this.url,
     required this.displayUrl,
@@ -33449,6 +36408,7 @@ class WebPage extends WebPageBase {
     // Read [WebPage] fields.
     final flags = reader.readInt32();
     final hasLargeMedia = (flags & 8192) != 0;
+    final videoCoverPhoto = (flags & 16384) != 0;
     final id = reader.readInt64();
     final url = reader.readString();
     final displayUrl = reader.readString();
@@ -33489,6 +36449,7 @@ class WebPage extends WebPageBase {
     // Construct [WebPage] object.
     final returnValue = WebPage(
       hasLargeMedia: hasLargeMedia,
+      videoCoverPhoto: videoCoverPhoto,
       id: id,
       url: url,
       displayUrl: displayUrl,
@@ -33517,6 +36478,7 @@ class WebPage extends WebPageBase {
   int get flags {
     final v = _flag(
       b13: hasLargeMedia,
+      b14: videoCoverPhoto,
       b00: type != null,
       b01: siteName != null,
       b02: title != null,
@@ -33536,6 +36498,9 @@ class WebPage extends WebPageBase {
 
   /// has_large_media: bit 13 of flags.13?true
   final bool hasLargeMedia;
+
+  /// video_cover_photo: bit 14 of flags.14?true
+  final bool videoCoverPhoto;
 
   /// Id.
   ///
@@ -33673,6 +36638,7 @@ class WebPage extends WebPageBase {
       "\$": "0xe89c45b2",
       "flags": flags,
       "hasLargeMedia": hasLargeMedia,
+      "videoCoverPhoto": videoCoverPhoto,
       "id": id,
       "url": url,
       "displayUrl": displayUrl,
@@ -34532,7 +37498,7 @@ class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
 
 /// Chat Invite Exported.
 ///
-/// ID: `0ab4a819`.
+/// ID: `a22cbd96`.
 class ChatInviteExported extends ExportedChatInviteBase {
   /// Chat Invite Exported constructor.
   const ChatInviteExported({
@@ -34547,7 +37513,9 @@ class ChatInviteExported extends ExportedChatInviteBase {
     this.usageLimit,
     this.usage,
     this.requested,
+    this.subscriptionExpired,
     this.title,
+    this.subscriptionPricing,
   }) : super._();
 
   /// Deserialize.
@@ -34570,8 +37538,15 @@ class ChatInviteExported extends ExportedChatInviteBase {
     final usage = hasUsageField ? reader.readInt32() : null;
     final hasRequestedField = (flags & 128) != 0;
     final requested = hasRequestedField ? reader.readInt32() : null;
+    final hasSubscriptionExpiredField = (flags & 1024) != 0;
+    final subscriptionExpired =
+        hasSubscriptionExpiredField ? reader.readInt32() : null;
     final hasTitleField = (flags & 256) != 0;
     final title = hasTitleField ? reader.readString() : null;
+    final hasSubscriptionPricingField = (flags & 512) != 0;
+    final subscriptionPricing = hasSubscriptionPricingField
+        ? reader.readObject() as StarsSubscriptionPricingBase
+        : null;
 
     // Construct [ChatInviteExported] object.
     final returnValue = ChatInviteExported(
@@ -34586,7 +37561,9 @@ class ChatInviteExported extends ExportedChatInviteBase {
       usageLimit: usageLimit,
       usage: usage,
       requested: requested,
+      subscriptionExpired: subscriptionExpired,
       title: title,
+      subscriptionPricing: subscriptionPricing,
     );
 
     // Now return the deserialized [ChatInviteExported].
@@ -34604,7 +37581,9 @@ class ChatInviteExported extends ExportedChatInviteBase {
       b02: usageLimit != null,
       b03: usage != null,
       b07: requested != null,
+      b10: subscriptionExpired != null,
       b08: title != null,
+      b09: subscriptionPricing != null,
     );
 
     return v;
@@ -34645,14 +37624,20 @@ class ChatInviteExported extends ExportedChatInviteBase {
   /// Requested.
   final int? requested;
 
+  /// Subscription Expired.
+  final int? subscriptionExpired;
+
   /// Title.
   final String? title;
+
+  /// Subscription Pricing.
+  final StarsSubscriptionPricingBase? subscriptionPricing;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x0ab4a819.
-    buffer.writeInt32(0x0ab4a819);
+    // Write type-id 0xa22cbd96.
+    buffer.writeInt32(0xa22cbd96);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -34679,9 +37664,17 @@ class ChatInviteExported extends ExportedChatInviteBase {
     if (localRequestedCopy != null) {
       buffer.writeInt32(localRequestedCopy);
     }
+    final localSubscriptionExpiredCopy = subscriptionExpired;
+    if (localSubscriptionExpiredCopy != null) {
+      buffer.writeInt32(localSubscriptionExpiredCopy);
+    }
     final localTitleCopy = title;
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
+    }
+    final localSubscriptionPricingCopy = subscriptionPricing;
+    if (localSubscriptionPricingCopy != null) {
+      buffer.writeObject(localSubscriptionPricingCopy);
     }
 
     // Finished serialization.
@@ -34690,7 +37683,7 @@ class ChatInviteExported extends ExportedChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ab4a819",
+      "\$": "0xa22cbd96",
       "flags": flags,
       "revoked": revoked,
       "permanent": permanent,
@@ -34703,7 +37696,9 @@ class ChatInviteExported extends ExportedChatInviteBase {
       "usageLimit": usageLimit,
       "usage": usage,
       "requested": requested,
+      "subscriptionExpired": subscriptionExpired,
       "title": title,
+      "subscriptionPricing": subscriptionPricing,
     };
 
     // Finished toJson.
@@ -34799,7 +37794,7 @@ class ChatInviteAlready extends ChatInviteBase {
 
 /// Chat Invite.
 ///
-/// ID: `cde0ec40`.
+/// ID: `fe65389d`.
 class ChatInvite extends ChatInviteBase {
   /// Chat Invite constructor.
   const ChatInvite({
@@ -34811,12 +37806,15 @@ class ChatInvite extends ChatInviteBase {
     required this.verified,
     required this.scam,
     required this.fake,
+    required this.canRefulfillSubscription,
     required this.title,
     this.about,
     required this.photo,
     required this.participantsCount,
     this.participants,
     required this.color,
+    this.subscriptionPricing,
+    this.subscriptionFormId,
   }) : super._();
 
   /// Deserialize.
@@ -34831,6 +37829,7 @@ class ChatInvite extends ChatInviteBase {
     final verified = (flags & 128) != 0;
     final scam = (flags & 256) != 0;
     final fake = (flags & 512) != 0;
+    final canRefulfillSubscription = (flags & 2048) != 0;
     final title = reader.readString();
     final hasAboutField = (flags & 32) != 0;
     final about = hasAboutField ? reader.readString() : null;
@@ -34840,6 +37839,13 @@ class ChatInvite extends ChatInviteBase {
     final participants =
         hasParticipantsField ? reader.readVectorObject<UserBase>() : null;
     final color = reader.readInt32();
+    final hasSubscriptionPricingField = (flags & 1024) != 0;
+    final subscriptionPricing = hasSubscriptionPricingField
+        ? reader.readObject() as StarsSubscriptionPricingBase
+        : null;
+    final hasSubscriptionFormIdField = (flags & 4096) != 0;
+    final subscriptionFormId =
+        hasSubscriptionFormIdField ? reader.readInt64() : null;
 
     // Construct [ChatInvite] object.
     final returnValue = ChatInvite(
@@ -34851,12 +37857,15 @@ class ChatInvite extends ChatInviteBase {
       verified: verified,
       scam: scam,
       fake: fake,
+      canRefulfillSubscription: canRefulfillSubscription,
       title: title,
       about: about,
       photo: photo,
       participantsCount: participantsCount,
       participants: participants,
       color: color,
+      subscriptionPricing: subscriptionPricing,
+      subscriptionFormId: subscriptionFormId,
     );
 
     // Now return the deserialized [ChatInvite].
@@ -34874,8 +37883,11 @@ class ChatInvite extends ChatInviteBase {
       b07: verified,
       b08: scam,
       b09: fake,
+      b11: canRefulfillSubscription,
       b05: about != null,
       b04: participants != null,
+      b10: subscriptionPricing != null,
+      b12: subscriptionFormId != null,
     );
 
     return v;
@@ -34905,6 +37917,9 @@ class ChatInvite extends ChatInviteBase {
   /// fake: bit 9 of flags.9?true
   final bool fake;
 
+  /// can_refulfill_subscription: bit 11 of flags.11?true
+  final bool canRefulfillSubscription;
+
   /// Title.
   final String title;
 
@@ -34927,11 +37942,17 @@ class ChatInvite extends ChatInviteBase {
   /// Field type is Int32.
   final int color;
 
+  /// Subscription Pricing.
+  final StarsSubscriptionPricingBase? subscriptionPricing;
+
+  /// Subscription Form Id.
+  final int? subscriptionFormId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xcde0ec40.
-    buffer.writeInt32(0xcde0ec40);
+    // Write type-id 0xfe65389d.
+    buffer.writeInt32(0xfe65389d);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -34947,6 +37968,14 @@ class ChatInvite extends ChatInviteBase {
       buffer.writeVectorObject(localParticipantsCopy);
     }
     buffer.writeInt32(color);
+    final localSubscriptionPricingCopy = subscriptionPricing;
+    if (localSubscriptionPricingCopy != null) {
+      buffer.writeObject(localSubscriptionPricingCopy);
+    }
+    final localSubscriptionFormIdCopy = subscriptionFormId;
+    if (localSubscriptionFormIdCopy != null) {
+      buffer.writeInt64(localSubscriptionFormIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -34954,7 +37983,7 @@ class ChatInvite extends ChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcde0ec40",
+      "\$": "0xfe65389d",
       "flags": flags,
       "channel": channel,
       "broadcast": broadcast,
@@ -34964,12 +37993,15 @@ class ChatInvite extends ChatInviteBase {
       "verified": verified,
       "scam": scam,
       "fake": fake,
+      "canRefulfillSubscription": canRefulfillSubscription,
       "title": title,
       "about": about,
       "photo": photo,
       "participantsCount": participantsCount,
       "participants": participants,
       "color": color,
+      "subscriptionPricing": subscriptionPricing,
+      "subscriptionFormId": subscriptionFormId,
     };
 
     // Finished toJson.
@@ -35498,11 +38530,10 @@ class StickerSet extends StickerSetBase {
     required this.archived,
     required this.official,
     required this.masks,
-    required this.animated,
-    required this.videos,
     required this.emojis,
     required this.textColor,
     required this.channelEmojiStatus,
+    required this.creator,
     this.installedDate,
     required this.id,
     required this.accessHash,
@@ -35523,11 +38554,10 @@ class StickerSet extends StickerSetBase {
     final archived = (flags & 2) != 0;
     final official = (flags & 4) != 0;
     final masks = (flags & 8) != 0;
-    final animated = (flags & 32) != 0;
-    final videos = (flags & 64) != 0;
     final emojis = (flags & 128) != 0;
     final textColor = (flags & 512) != 0;
     final channelEmojiStatus = (flags & 1024) != 0;
+    final creator = (flags & 2048) != 0;
     final hasInstalledDateField = (flags & 1) != 0;
     final installedDate = hasInstalledDateField ? reader.readDateTime() : null;
     final id = reader.readInt64();
@@ -35551,11 +38581,10 @@ class StickerSet extends StickerSetBase {
       archived: archived,
       official: official,
       masks: masks,
-      animated: animated,
-      videos: videos,
       emojis: emojis,
       textColor: textColor,
       channelEmojiStatus: channelEmojiStatus,
+      creator: creator,
       installedDate: installedDate,
       id: id,
       accessHash: accessHash,
@@ -35579,11 +38608,10 @@ class StickerSet extends StickerSetBase {
       b01: archived,
       b02: official,
       b03: masks,
-      b05: animated,
-      b06: videos,
       b07: emojis,
       b09: textColor,
       b10: channelEmojiStatus,
+      b11: creator,
       b00: installedDate != null,
       b04: thumbs != null || thumbDcId != null || thumbVersion != null,
       b08: thumbDocumentId != null,
@@ -35601,12 +38629,6 @@ class StickerSet extends StickerSetBase {
   /// masks: bit 3 of flags.3?true
   final bool masks;
 
-  /// animated: bit 5 of flags.5?true
-  final bool animated;
-
-  /// videos: bit 6 of flags.6?true
-  final bool videos;
-
   /// emojis: bit 7 of flags.7?true
   final bool emojis;
 
@@ -35615,6 +38637,9 @@ class StickerSet extends StickerSetBase {
 
   /// channel_emoji_status: bit 10 of flags.10?true
   final bool channelEmojiStatus;
+
+  /// creator: bit 11 of flags.11?true
+  final bool creator;
 
   /// Installed Date.
   final DateTime? installedDate;
@@ -35703,11 +38728,10 @@ class StickerSet extends StickerSetBase {
       "archived": archived,
       "official": official,
       "masks": masks,
-      "animated": animated,
-      "videos": videos,
       "emojis": emojis,
       "textColor": textColor,
       "channelEmojiStatus": channelEmojiStatus,
+      "creator": creator,
       "installedDate": installedDate?.toIso8601String(),
       "id": id,
       "accessHash": accessHash,
@@ -35896,22 +38920,26 @@ class BotCommand extends BotCommandBase {
 
 /// Bot Info.
 ///
-/// ID: `8f300b57`.
+/// ID: `36607333`.
 class BotInfo extends BotInfoBase {
   /// Bot Info constructor.
   const BotInfo({
+    required this.hasPreviewMedias,
     this.userId,
     this.description,
     this.descriptionPhoto,
     this.descriptionDocument,
     this.commands,
     this.menuButton,
+    this.privacyPolicyUrl,
+    this.appSettings,
   }) : super._();
 
   /// Deserialize.
   factory BotInfo.deserialize(BinaryReader reader) {
     // Read [BotInfo] fields.
     final flags = reader.readInt32();
+    final hasPreviewMedias = (flags & 64) != 0;
     final hasUserIdField = (flags & 1) != 0;
     final userId = hasUserIdField ? reader.readInt64() : null;
     final hasDescriptionField = (flags & 2) != 0;
@@ -35929,15 +38957,24 @@ class BotInfo extends BotInfoBase {
     final hasMenuButtonField = (flags & 8) != 0;
     final menuButton =
         hasMenuButtonField ? reader.readObject() as BotMenuButtonBase : null;
+    final hasPrivacyPolicyUrlField = (flags & 128) != 0;
+    final privacyPolicyUrl =
+        hasPrivacyPolicyUrlField ? reader.readString() : null;
+    final hasAppSettingsField = (flags & 256) != 0;
+    final appSettings =
+        hasAppSettingsField ? reader.readObject() as BotAppSettingsBase : null;
 
     // Construct [BotInfo] object.
     final returnValue = BotInfo(
+      hasPreviewMedias: hasPreviewMedias,
       userId: userId,
       description: description,
       descriptionPhoto: descriptionPhoto,
       descriptionDocument: descriptionDocument,
       commands: commands,
       menuButton: menuButton,
+      privacyPolicyUrl: privacyPolicyUrl,
+      appSettings: appSettings,
     );
 
     // Now return the deserialized [BotInfo].
@@ -35947,16 +38984,22 @@ class BotInfo extends BotInfoBase {
   /// Flags.
   int get flags {
     final v = _flag(
+      b06: hasPreviewMedias,
       b00: userId != null,
       b01: description != null,
       b04: descriptionPhoto != null,
       b05: descriptionDocument != null,
       b02: commands != null,
       b03: menuButton != null,
+      b07: privacyPolicyUrl != null,
+      b08: appSettings != null,
     );
 
     return v;
   }
+
+  /// has_preview_medias: bit 6 of flags.6?true
+  final bool hasPreviewMedias;
 
   /// User Id.
   final int? userId;
@@ -35976,11 +39019,17 @@ class BotInfo extends BotInfoBase {
   /// Menu Button.
   final BotMenuButtonBase? menuButton;
 
+  /// Privacy Policy Url.
+  final String? privacyPolicyUrl;
+
+  /// App Settings.
+  final BotAppSettingsBase? appSettings;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8f300b57.
-    buffer.writeInt32(0x8f300b57);
+    // Write type-id 0x36607333.
+    buffer.writeInt32(0x36607333);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -36008,6 +39057,14 @@ class BotInfo extends BotInfoBase {
     if (localMenuButtonCopy != null) {
       buffer.writeObject(localMenuButtonCopy);
     }
+    final localPrivacyPolicyUrlCopy = privacyPolicyUrl;
+    if (localPrivacyPolicyUrlCopy != null) {
+      buffer.writeString(localPrivacyPolicyUrlCopy);
+    }
+    final localAppSettingsCopy = appSettings;
+    if (localAppSettingsCopy != null) {
+      buffer.writeObject(localAppSettingsCopy);
+    }
 
     // Finished serialization.
   }
@@ -36015,14 +39072,17 @@ class BotInfo extends BotInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8f300b57",
+      "\$": "0x36607333",
       "flags": flags,
+      "hasPreviewMedias": hasPreviewMedias,
       "userId": userId,
       "description": description,
       "descriptionPhoto": descriptionPhoto,
       "descriptionDocument": descriptionDocument,
       "commands": commands,
       "menuButton": menuButton,
+      "privacyPolicyUrl": privacyPolicyUrl,
+      "appSettings": appSettings,
     };
 
     // Finished toJson.
@@ -37071,6 +40131,177 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
       "buttonId": buttonId,
       "peerType": peerType,
       "maxQuantity": maxQuantity,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Keyboard Button Request Peer.
+///
+/// ID: `c9662d05`.
+class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
+  /// Input Keyboard Button Request Peer constructor.
+  const InputKeyboardButtonRequestPeer({
+    required this.nameRequested,
+    required this.usernameRequested,
+    required this.photoRequested,
+    required this.text,
+    required this.buttonId,
+    required this.peerType,
+    required this.maxQuantity,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputKeyboardButtonRequestPeer.deserialize(BinaryReader reader) {
+    // Read [InputKeyboardButtonRequestPeer] fields.
+    final flags = reader.readInt32();
+    final nameRequested = (flags & 1) != 0;
+    final usernameRequested = (flags & 2) != 0;
+    final photoRequested = (flags & 4) != 0;
+    final text = reader.readString();
+    final buttonId = reader.readInt32();
+    final peerType = reader.readObject() as RequestPeerTypeBase;
+    final maxQuantity = reader.readInt32();
+
+    // Construct [InputKeyboardButtonRequestPeer] object.
+    final returnValue = InputKeyboardButtonRequestPeer(
+      nameRequested: nameRequested,
+      usernameRequested: usernameRequested,
+      photoRequested: photoRequested,
+      text: text,
+      buttonId: buttonId,
+      peerType: peerType,
+      maxQuantity: maxQuantity,
+    );
+
+    // Now return the deserialized [InputKeyboardButtonRequestPeer].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nameRequested,
+      b01: usernameRequested,
+      b02: photoRequested,
+    );
+
+    return v;
+  }
+
+  /// name_requested: bit 0 of flags.0?true
+  final bool nameRequested;
+
+  /// username_requested: bit 1 of flags.1?true
+  final bool usernameRequested;
+
+  /// photo_requested: bit 2 of flags.2?true
+  final bool photoRequested;
+
+  /// Text.
+  final String text;
+
+  /// Button Id.
+  ///
+  /// Field type is Int32.
+  final int buttonId;
+
+  /// Peer Type.
+  final RequestPeerTypeBase peerType;
+
+  /// Max Quantity.
+  ///
+  /// Field type is Int32.
+  final int maxQuantity;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc9662d05.
+    buffer.writeInt32(0xc9662d05);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(text);
+    buffer.writeInt32(buttonId);
+    buffer.writeObject(peerType);
+    buffer.writeInt32(maxQuantity);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9662d05",
+      "flags": flags,
+      "nameRequested": nameRequested,
+      "usernameRequested": usernameRequested,
+      "photoRequested": photoRequested,
+      "text": text,
+      "buttonId": buttonId,
+      "peerType": peerType,
+      "maxQuantity": maxQuantity,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Keyboard Button Copy.
+///
+/// ID: `75d2698e`.
+class KeyboardButtonCopy extends KeyboardButtonBase {
+  /// Keyboard Button Copy constructor.
+  const KeyboardButtonCopy({
+    required this.text,
+    required this.copyText,
+  }) : super._();
+
+  /// Deserialize.
+  factory KeyboardButtonCopy.deserialize(BinaryReader reader) {
+    // Read [KeyboardButtonCopy] fields.
+    final text = reader.readString();
+    final copyText = reader.readString();
+
+    // Construct [KeyboardButtonCopy] object.
+    final returnValue = KeyboardButtonCopy(
+      text: text,
+      copyText: copyText,
+    );
+
+    // Now return the deserialized [KeyboardButtonCopy].
+    return returnValue;
+  }
+
+  /// Text.
+  final String text;
+
+  /// Copy Text.
+  final String copyText;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x75d2698e.
+    buffer.writeInt32(0x75d2698e);
+
+    // Write fields.
+    buffer.writeString(text);
+    buffer.writeString(copyText);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x75d2698e",
+      "text": text,
+      "copyText": copyText,
     };
 
     // Finished toJson.
@@ -38713,10 +41944,11 @@ class MessageEntityCustomEmoji extends MessageEntityBase {
 
 /// Message Entity Blockquote.
 ///
-/// ID: `020df5d0`.
+/// ID: `f1ccaaac`.
 class MessageEntityBlockquote extends MessageEntityBase {
   /// Message Entity Blockquote constructor.
   const MessageEntityBlockquote({
+    required this.collapsed,
     required this.offset,
     required this.length,
   }) : super._();
@@ -38724,11 +41956,14 @@ class MessageEntityBlockquote extends MessageEntityBase {
   /// Deserialize.
   factory MessageEntityBlockquote.deserialize(BinaryReader reader) {
     // Read [MessageEntityBlockquote] fields.
+    final flags = reader.readInt32();
+    final collapsed = (flags & 1) != 0;
     final offset = reader.readInt32();
     final length = reader.readInt32();
 
     // Construct [MessageEntityBlockquote] object.
     final returnValue = MessageEntityBlockquote(
+      collapsed: collapsed,
       offset: offset,
       length: length,
     );
@@ -38736,6 +41971,18 @@ class MessageEntityBlockquote extends MessageEntityBase {
     // Now return the deserialized [MessageEntityBlockquote].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: collapsed,
+    );
+
+    return v;
+  }
+
+  /// collapsed: bit 0 of flags.0?true
+  final bool collapsed;
 
   /// Offset.
   ///
@@ -38750,10 +41997,11 @@ class MessageEntityBlockquote extends MessageEntityBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x020df5d0.
-    buffer.writeInt32(0x020df5d0);
+    // Write type-id 0xf1ccaaac.
+    buffer.writeInt32(0xf1ccaaac);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt32(offset);
     buffer.writeInt32(length);
 
@@ -38763,7 +42011,9 @@ class MessageEntityBlockquote extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x020df5d0",
+      "\$": "0xf1ccaaac",
+      "flags": flags,
+      "collapsed": collapsed,
       "offset": offset,
       "length": length,
     };
@@ -39482,28 +42732,43 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
 
 /// Channel Participant.
 ///
-/// ID: `c00c07c0`.
+/// ID: `cb397619`.
 class ChannelParticipant extends ChannelParticipantBase {
   /// Channel Participant constructor.
   const ChannelParticipant({
     required this.userId,
     required this.date,
+    this.subscriptionUntilDate,
   }) : super._();
 
   /// Deserialize.
   factory ChannelParticipant.deserialize(BinaryReader reader) {
     // Read [ChannelParticipant] fields.
+    final flags = reader.readInt32();
     final userId = reader.readInt64();
     final date = reader.readDateTime();
+    final hasSubscriptionUntilDateField = (flags & 1) != 0;
+    final subscriptionUntilDate =
+        hasSubscriptionUntilDateField ? reader.readDateTime() : null;
 
     // Construct [ChannelParticipant] object.
     final returnValue = ChannelParticipant(
       userId: userId,
       date: date,
+      subscriptionUntilDate: subscriptionUntilDate,
     );
 
     // Now return the deserialized [ChannelParticipant].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: subscriptionUntilDate != null,
+    );
+
+    return v;
   }
 
   /// User Id.
@@ -39514,15 +42779,23 @@ class ChannelParticipant extends ChannelParticipantBase {
   /// Date.
   final DateTime date;
 
+  /// Subscription Until Date.
+  final DateTime? subscriptionUntilDate;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc00c07c0.
-    buffer.writeInt32(0xc00c07c0);
+    // Write type-id 0xcb397619.
+    buffer.writeInt32(0xcb397619);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeDateTime(date);
+    final localSubscriptionUntilDateCopy = subscriptionUntilDate;
+    if (localSubscriptionUntilDateCopy != null) {
+      buffer.writeDateTime(localSubscriptionUntilDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -39530,9 +42803,11 @@ class ChannelParticipant extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc00c07c0",
+      "\$": "0xcb397619",
+      "flags": flags,
       "userId": userId,
       "date": date.toIso8601String(),
+      "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
     };
 
     // Finished toJson.
@@ -39542,7 +42817,7 @@ class ChannelParticipant extends ChannelParticipantBase {
 
 /// Channel Participant Self.
 ///
-/// ID: `35a8bfa7`.
+/// ID: `4f607bef`.
 class ChannelParticipantSelf extends ChannelParticipantBase {
   /// Channel Participant Self constructor.
   const ChannelParticipantSelf({
@@ -39550,6 +42825,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
     required this.userId,
     required this.inviterId,
     required this.date,
+    this.subscriptionUntilDate,
   }) : super._();
 
   /// Deserialize.
@@ -39560,6 +42836,9 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
     final userId = reader.readInt64();
     final inviterId = reader.readInt64();
     final date = reader.readDateTime();
+    final hasSubscriptionUntilDateField = (flags & 2) != 0;
+    final subscriptionUntilDate =
+        hasSubscriptionUntilDateField ? reader.readDateTime() : null;
 
     // Construct [ChannelParticipantSelf] object.
     final returnValue = ChannelParticipantSelf(
@@ -39567,6 +42846,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
       userId: userId,
       inviterId: inviterId,
       date: date,
+      subscriptionUntilDate: subscriptionUntilDate,
     );
 
     // Now return the deserialized [ChannelParticipantSelf].
@@ -39577,6 +42857,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   int get flags {
     final v = _flag(
       b00: viaRequest,
+      b01: subscriptionUntilDate != null,
     );
 
     return v;
@@ -39598,17 +42879,24 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   /// Date.
   final DateTime date;
 
+  /// Subscription Until Date.
+  final DateTime? subscriptionUntilDate;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x35a8bfa7.
-    buffer.writeInt32(0x35a8bfa7);
+    // Write type-id 0x4f607bef.
+    buffer.writeInt32(0x4f607bef);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
+    final localSubscriptionUntilDateCopy = subscriptionUntilDate;
+    if (localSubscriptionUntilDateCopy != null) {
+      buffer.writeDateTime(localSubscriptionUntilDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -39616,12 +42904,13 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35a8bfa7",
+      "\$": "0x4f607bef",
       "flags": flags,
       "viaRequest": viaRequest,
       "userId": userId,
       "inviterId": inviterId,
       "date": date.toIso8601String(),
+      "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
     };
 
     // Finished toJson.
@@ -44168,11 +47457,13 @@ class AuthSentCodeTypeFragmentSms extends AuthSentCodeTypeBase {
 
 /// Auth Sent Code Type Firebase Sms.
 ///
-/// ID: `e57b1432`.
+/// ID: `009fd736`.
 class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Firebase Sms constructor.
   const AuthSentCodeTypeFirebaseSms({
     this.nonce,
+    this.playIntegrityProjectId,
+    this.playIntegrityNonce,
     this.receipt,
     this.pushTimeout,
     required this.length,
@@ -44184,6 +47475,12 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
     final flags = reader.readInt32();
     final hasNonceField = (flags & 1) != 0;
     final nonce = hasNonceField ? reader.readBytes() : null;
+    final hasPlayIntegrityProjectIdField = (flags & 4) != 0;
+    final playIntegrityProjectId =
+        hasPlayIntegrityProjectIdField ? reader.readInt64() : null;
+    final hasPlayIntegrityNonceField = (flags & 4) != 0;
+    final playIntegrityNonce =
+        hasPlayIntegrityNonceField ? reader.readBytes() : null;
     final hasReceiptField = (flags & 2) != 0;
     final receipt = hasReceiptField ? reader.readString() : null;
     final hasPushTimeoutField = (flags & 2) != 0;
@@ -44193,6 +47490,8 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
     // Construct [AuthSentCodeTypeFirebaseSms] object.
     final returnValue = AuthSentCodeTypeFirebaseSms(
       nonce: nonce,
+      playIntegrityProjectId: playIntegrityProjectId,
+      playIntegrityNonce: playIntegrityNonce,
       receipt: receipt,
       pushTimeout: pushTimeout,
       length: length,
@@ -44206,6 +47505,7 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   int get flags {
     final v = _flag(
       b00: nonce != null,
+      b02: playIntegrityProjectId != null || playIntegrityNonce != null,
       b01: receipt != null || pushTimeout != null,
     );
 
@@ -44214,6 +47514,12 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
 
   /// Nonce.
   final Uint8List? nonce;
+
+  /// Play Integrity Project Id.
+  final int? playIntegrityProjectId;
+
+  /// Play Integrity Nonce.
+  final Uint8List? playIntegrityNonce;
 
   /// Receipt.
   final String? receipt;
@@ -44229,14 +47535,22 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe57b1432.
-    buffer.writeInt32(0xe57b1432);
+    // Write type-id 0x009fd736.
+    buffer.writeInt32(0x009fd736);
 
     // Write fields.
     buffer.writeInt32(flags);
     final localNonceCopy = nonce;
     if (localNonceCopy != null) {
       buffer.writeBytes(localNonceCopy);
+    }
+    final localPlayIntegrityProjectIdCopy = playIntegrityProjectId;
+    if (localPlayIntegrityProjectIdCopy != null) {
+      buffer.writeInt64(localPlayIntegrityProjectIdCopy);
+    }
+    final localPlayIntegrityNonceCopy = playIntegrityNonce;
+    if (localPlayIntegrityNonceCopy != null) {
+      buffer.writeBytes(localPlayIntegrityNonceCopy);
     }
     final localReceiptCopy = receipt;
     if (localReceiptCopy != null) {
@@ -44254,12 +47568,146 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe57b1432",
+      "\$": "0x009fd736",
       "flags": flags,
       "nonce": nonce,
+      "playIntegrityProjectId": playIntegrityProjectId,
+      "playIntegrityNonce": playIntegrityNonce,
       "receipt": receipt,
       "pushTimeout": pushTimeout,
       "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Auth Sent Code Type Sms Word.
+///
+/// ID: `a416ac81`.
+class AuthSentCodeTypeSmsWord extends AuthSentCodeTypeBase {
+  /// Auth Sent Code Type Sms Word constructor.
+  const AuthSentCodeTypeSmsWord({
+    this.beginning,
+  }) : super._();
+
+  /// Deserialize.
+  factory AuthSentCodeTypeSmsWord.deserialize(BinaryReader reader) {
+    // Read [AuthSentCodeTypeSmsWord] fields.
+    final flags = reader.readInt32();
+    final hasBeginningField = (flags & 1) != 0;
+    final beginning = hasBeginningField ? reader.readString() : null;
+
+    // Construct [AuthSentCodeTypeSmsWord] object.
+    final returnValue = AuthSentCodeTypeSmsWord(
+      beginning: beginning,
+    );
+
+    // Now return the deserialized [AuthSentCodeTypeSmsWord].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: beginning != null,
+    );
+
+    return v;
+  }
+
+  /// Beginning.
+  final String? beginning;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa416ac81.
+    buffer.writeInt32(0xa416ac81);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localBeginningCopy = beginning;
+    if (localBeginningCopy != null) {
+      buffer.writeString(localBeginningCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa416ac81",
+      "flags": flags,
+      "beginning": beginning,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Auth Sent Code Type Sms Phrase.
+///
+/// ID: `b37794af`.
+class AuthSentCodeTypeSmsPhrase extends AuthSentCodeTypeBase {
+  /// Auth Sent Code Type Sms Phrase constructor.
+  const AuthSentCodeTypeSmsPhrase({
+    this.beginning,
+  }) : super._();
+
+  /// Deserialize.
+  factory AuthSentCodeTypeSmsPhrase.deserialize(BinaryReader reader) {
+    // Read [AuthSentCodeTypeSmsPhrase] fields.
+    final flags = reader.readInt32();
+    final hasBeginningField = (flags & 1) != 0;
+    final beginning = hasBeginningField ? reader.readString() : null;
+
+    // Construct [AuthSentCodeTypeSmsPhrase] object.
+    final returnValue = AuthSentCodeTypeSmsPhrase(
+      beginning: beginning,
+    );
+
+    // Now return the deserialized [AuthSentCodeTypeSmsPhrase].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: beginning != null,
+    );
+
+    return v;
+  }
+
+  /// Beginning.
+  final String? beginning;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb37794af.
+    buffer.writeInt32(0xb37794af);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localBeginningCopy = beginning;
+    if (localBeginningCopy != null) {
+      buffer.writeString(localBeginningCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb37794af",
+      "flags": flags,
+      "beginning": beginning,
     };
 
     // Finished toJson.
@@ -45081,6 +48529,42 @@ class TopPeerCategoryForwardChats extends TopPeerCategoryBase {
   }
 }
 
+/// Top Peer Category Bots App.
+///
+/// ID: `fd9e7bec`.
+class TopPeerCategoryBotsApp extends TopPeerCategoryBase {
+  /// Top Peer Category Bots App constructor.
+  const TopPeerCategoryBotsApp() : super._();
+
+  /// Deserialize.
+  factory TopPeerCategoryBotsApp.deserialize(BinaryReader reader) {
+    // Construct [TopPeerCategoryBotsApp] object.
+    final returnValue = TopPeerCategoryBotsApp();
+
+    // Now return the deserialized [TopPeerCategoryBotsApp].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfd9e7bec.
+    buffer.writeInt32(0xfd9e7bec);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfd9e7bec",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Top Peer Category Peers.
 ///
 /// ID: `fb834291`.
@@ -45355,7 +48839,7 @@ class DraftMessageEmpty extends DraftMessageBase {
 
 /// Draft Message.
 ///
-/// ID: `3fccf7ef`.
+/// ID: `2d65321f`.
 class DraftMessage extends DraftMessageBase {
   /// Draft Message constructor.
   const DraftMessage({
@@ -45366,6 +48850,7 @@ class DraftMessage extends DraftMessageBase {
     this.entities,
     this.media,
     required this.date,
+    this.effect,
   }) : super._();
 
   /// Deserialize.
@@ -45384,6 +48869,8 @@ class DraftMessage extends DraftMessageBase {
     final hasMediaField = (flags & 32) != 0;
     final media = hasMediaField ? reader.readObject() as InputMediaBase : null;
     final date = reader.readDateTime();
+    final hasEffectField = (flags & 128) != 0;
+    final effect = hasEffectField ? reader.readInt64() : null;
 
     // Construct [DraftMessage] object.
     final returnValue = DraftMessage(
@@ -45394,6 +48881,7 @@ class DraftMessage extends DraftMessageBase {
       entities: entities,
       media: media,
       date: date,
+      effect: effect,
     );
 
     // Now return the deserialized [DraftMessage].
@@ -45408,6 +48896,7 @@ class DraftMessage extends DraftMessageBase {
       b04: replyTo != null,
       b03: entities != null,
       b05: media != null,
+      b07: effect != null,
     );
 
     return v;
@@ -45434,11 +48923,14 @@ class DraftMessage extends DraftMessageBase {
   /// Date.
   final DateTime date;
 
+  /// Effect.
+  final int? effect;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x3fccf7ef.
-    buffer.writeInt32(0x3fccf7ef);
+    // Write type-id 0x2d65321f.
+    buffer.writeInt32(0x2d65321f);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -45456,6 +48948,10 @@ class DraftMessage extends DraftMessageBase {
       buffer.writeObject(localMediaCopy);
     }
     buffer.writeDateTime(date);
+    final localEffectCopy = effect;
+    if (localEffectCopy != null) {
+      buffer.writeInt64(localEffectCopy);
+    }
 
     // Finished serialization.
   }
@@ -45463,7 +48959,7 @@ class DraftMessage extends DraftMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3fccf7ef",
+      "\$": "0x2d65321f",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -45472,6 +48968,7 @@ class DraftMessage extends DraftMessageBase {
       "entities": entities,
       "media": media,
       "date": date.toIso8601String(),
+      "effect": effect,
     };
 
     // Finished toJson.
@@ -49595,7 +53092,7 @@ class LabeledPrice extends LabeledPriceBase {
 
 /// Invoice.
 ///
-/// ID: `5db95a15`.
+/// ID: `049ee584`.
 class Invoice extends InvoiceBase {
   /// Invoice constructor.
   const Invoice({
@@ -49613,6 +53110,7 @@ class Invoice extends InvoiceBase {
     this.maxTipAmount,
     this.suggestedTipAmounts,
     this.termsUrl,
+    this.subscriptionPeriod,
   }) : super._();
 
   /// Deserialize.
@@ -49637,6 +53135,9 @@ class Invoice extends InvoiceBase {
         hasSuggestedTipAmountsField ? reader.readVectorInt64() : null;
     final hasTermsUrlField = (flags & 1024) != 0;
     final termsUrl = hasTermsUrlField ? reader.readString() : null;
+    final hasSubscriptionPeriodField = (flags & 2048) != 0;
+    final subscriptionPeriod =
+        hasSubscriptionPeriodField ? reader.readInt32() : null;
 
     // Construct [Invoice] object.
     final returnValue = Invoice(
@@ -49654,6 +53155,7 @@ class Invoice extends InvoiceBase {
       maxTipAmount: maxTipAmount,
       suggestedTipAmounts: suggestedTipAmounts,
       termsUrl: termsUrl,
+      subscriptionPeriod: subscriptionPeriod,
     );
 
     // Now return the deserialized [Invoice].
@@ -49674,6 +53176,7 @@ class Invoice extends InvoiceBase {
       b09: recurring,
       b08: maxTipAmount != null || suggestedTipAmounts != null,
       b10: termsUrl != null,
+      b11: subscriptionPeriod != null,
     );
 
     return v;
@@ -49721,11 +53224,14 @@ class Invoice extends InvoiceBase {
   /// Terms Url.
   final String? termsUrl;
 
+  /// Subscription Period.
+  final int? subscriptionPeriod;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x5db95a15.
-    buffer.writeInt32(0x5db95a15);
+    // Write type-id 0x049ee584.
+    buffer.writeInt32(0x049ee584);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -49743,6 +53249,10 @@ class Invoice extends InvoiceBase {
     if (localTermsUrlCopy != null) {
       buffer.writeString(localTermsUrlCopy);
     }
+    final localSubscriptionPeriodCopy = subscriptionPeriod;
+    if (localSubscriptionPeriodCopy != null) {
+      buffer.writeInt32(localSubscriptionPeriodCopy);
+    }
 
     // Finished serialization.
   }
@@ -49750,7 +53260,7 @@ class Invoice extends InvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5db95a15",
+      "\$": "0x049ee584",
       "flags": flags,
       "test": test,
       "nameRequested": nameRequested,
@@ -49766,6 +53276,7 @@ class Invoice extends InvoiceBase {
       "maxTipAmount": maxTipAmount,
       "suggestedTipAmounts": suggestedTipAmounts,
       "termsUrl": termsUrl,
+      "subscriptionPeriod": subscriptionPeriod,
     };
 
     // Finished toJson.
@@ -50892,6 +54403,184 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
   }
 }
 
+/// Payments Payment Form Stars.
+///
+/// ID: `7bf6b15c`.
+class PaymentsPaymentFormStars extends PaymentsPaymentFormBase {
+  /// Payments Payment Form Stars constructor.
+  const PaymentsPaymentFormStars({
+    required this.formId,
+    required this.botId,
+    required this.title,
+    required this.description,
+    this.photo,
+    required this.invoice,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsPaymentFormStars.deserialize(BinaryReader reader) {
+    // Read [PaymentsPaymentFormStars] fields.
+    final flags = reader.readInt32();
+    final formId = reader.readInt64();
+    final botId = reader.readInt64();
+    final title = reader.readString();
+    final description = reader.readString();
+    final hasPhotoField = (flags & 32) != 0;
+    final photo = hasPhotoField ? reader.readObject() as WebDocumentBase : null;
+    final invoice = reader.readObject() as InvoiceBase;
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [PaymentsPaymentFormStars] object.
+    final returnValue = PaymentsPaymentFormStars(
+      formId: formId,
+      botId: botId,
+      title: title,
+      description: description,
+      photo: photo,
+      invoice: invoice,
+      users: users,
+    );
+
+    // Now return the deserialized [PaymentsPaymentFormStars].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b05: photo != null,
+    );
+
+    return v;
+  }
+
+  /// Form Id.
+  ///
+  /// Field type is Int64.
+  final int formId;
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Title.
+  final String title;
+
+  /// Description.
+  final String description;
+
+  /// Photo.
+  final WebDocumentBase? photo;
+
+  /// Invoice.
+  final InvoiceBase invoice;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7bf6b15c.
+    buffer.writeInt32(0x7bf6b15c);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(formId);
+    buffer.writeInt64(botId);
+    buffer.writeString(title);
+    buffer.writeString(description);
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+    buffer.writeObject(invoice);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7bf6b15c",
+      "flags": flags,
+      "formId": formId,
+      "botId": botId,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "invoice": invoice,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Payment Form Star Gift.
+///
+/// ID: `b425cfe1`.
+class PaymentsPaymentFormStarGift extends PaymentsPaymentFormBase {
+  /// Payments Payment Form Star Gift constructor.
+  const PaymentsPaymentFormStarGift({
+    required this.formId,
+    required this.invoice,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsPaymentFormStarGift.deserialize(BinaryReader reader) {
+    // Read [PaymentsPaymentFormStarGift] fields.
+    final formId = reader.readInt64();
+    final invoice = reader.readObject() as InvoiceBase;
+
+    // Construct [PaymentsPaymentFormStarGift] object.
+    final returnValue = PaymentsPaymentFormStarGift(
+      formId: formId,
+      invoice: invoice,
+    );
+
+    // Now return the deserialized [PaymentsPaymentFormStarGift].
+    return returnValue;
+  }
+
+  /// Form Id.
+  ///
+  /// Field type is Int64.
+  final int formId;
+
+  /// Invoice.
+  final InvoiceBase invoice;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb425cfe1.
+    buffer.writeInt32(0xb425cfe1);
+
+    // Write fields.
+    buffer.writeInt64(formId);
+    buffer.writeObject(invoice);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb425cfe1",
+      "formId": formId,
+      "invoice": invoice,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Payments Validated Requested Info.
 ///
 /// ID: `d1451883`.
@@ -51259,6 +54948,148 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
       "currency": currency,
       "totalAmount": totalAmount,
       "credentialsTitle": credentialsTitle,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Payment Receipt Stars.
+///
+/// ID: `dabbf83a`.
+class PaymentsPaymentReceiptStars extends PaymentsPaymentReceiptBase {
+  /// Payments Payment Receipt Stars constructor.
+  const PaymentsPaymentReceiptStars({
+    required this.date,
+    required this.botId,
+    required this.title,
+    required this.description,
+    this.photo,
+    required this.invoice,
+    required this.currency,
+    required this.totalAmount,
+    required this.transactionId,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsPaymentReceiptStars.deserialize(BinaryReader reader) {
+    // Read [PaymentsPaymentReceiptStars] fields.
+    final flags = reader.readInt32();
+    final date = reader.readDateTime();
+    final botId = reader.readInt64();
+    final title = reader.readString();
+    final description = reader.readString();
+    final hasPhotoField = (flags & 4) != 0;
+    final photo = hasPhotoField ? reader.readObject() as WebDocumentBase : null;
+    final invoice = reader.readObject() as InvoiceBase;
+    final currency = reader.readString();
+    final totalAmount = reader.readInt64();
+    final transactionId = reader.readString();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [PaymentsPaymentReceiptStars] object.
+    final returnValue = PaymentsPaymentReceiptStars(
+      date: date,
+      botId: botId,
+      title: title,
+      description: description,
+      photo: photo,
+      invoice: invoice,
+      currency: currency,
+      totalAmount: totalAmount,
+      transactionId: transactionId,
+      users: users,
+    );
+
+    // Now return the deserialized [PaymentsPaymentReceiptStars].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b02: photo != null,
+    );
+
+    return v;
+  }
+
+  /// Date.
+  final DateTime date;
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Title.
+  final String title;
+
+  /// Description.
+  final String description;
+
+  /// Photo.
+  final WebDocumentBase? photo;
+
+  /// Invoice.
+  final InvoiceBase invoice;
+
+  /// Currency.
+  final String currency;
+
+  /// Total Amount.
+  ///
+  /// Field type is Int64.
+  final int totalAmount;
+
+  /// Transaction Id.
+  final String transactionId;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdabbf83a.
+    buffer.writeInt32(0xdabbf83a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeDateTime(date);
+    buffer.writeInt64(botId);
+    buffer.writeString(title);
+    buffer.writeString(description);
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+    buffer.writeObject(invoice);
+    buffer.writeString(currency);
+    buffer.writeInt64(totalAmount);
+    buffer.writeString(transactionId);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdabbf83a",
+      "flags": flags,
+      "date": date.toIso8601String(),
+      "botId": botId,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "invoice": invoice,
+      "currency": currency,
+      "totalAmount": totalAmount,
+      "transactionId": transactionId,
       "users": users,
     };
 
@@ -52288,7 +56119,7 @@ class PhoneCallAccepted extends PhoneCallBase {
 
 /// Phone Call.
 ///
-/// ID: `967f7c67`.
+/// ID: `30535af5`.
 class PhoneCall extends PhoneCallBase {
   /// Phone Call constructor.
   const PhoneCall({
@@ -52304,6 +56135,7 @@ class PhoneCall extends PhoneCallBase {
     required this.protocol,
     required this.connections,
     required this.startDate,
+    this.customParameters,
   }) : super._();
 
   /// Deserialize.
@@ -52322,6 +56154,9 @@ class PhoneCall extends PhoneCallBase {
     final protocol = reader.readObject() as PhoneCallProtocolBase;
     final connections = reader.readVectorObject<PhoneConnectionBase>();
     final startDate = reader.readDateTime();
+    final hasCustomParametersField = (flags & 128) != 0;
+    final customParameters =
+        hasCustomParametersField ? reader.readObject() as DataJSONBase : null;
 
     // Construct [PhoneCall] object.
     final returnValue = PhoneCall(
@@ -52337,6 +56172,7 @@ class PhoneCall extends PhoneCallBase {
       protocol: protocol,
       connections: connections,
       startDate: startDate,
+      customParameters: customParameters,
     );
 
     // Now return the deserialized [PhoneCall].
@@ -52348,6 +56184,7 @@ class PhoneCall extends PhoneCallBase {
     final v = _flag(
       b05: p2pAllowed,
       b06: video,
+      b07: customParameters != null,
     );
 
     return v;
@@ -52399,11 +56236,14 @@ class PhoneCall extends PhoneCallBase {
   /// Start Date.
   final DateTime startDate;
 
+  /// Custom Parameters.
+  final DataJSONBase? customParameters;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x967f7c67.
-    buffer.writeInt32(0x967f7c67);
+    // Write type-id 0x30535af5.
+    buffer.writeInt32(0x30535af5);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -52417,6 +56257,10 @@ class PhoneCall extends PhoneCallBase {
     buffer.writeObject(protocol);
     buffer.writeVectorObject(connections);
     buffer.writeDateTime(startDate);
+    final localCustomParametersCopy = customParameters;
+    if (localCustomParametersCopy != null) {
+      buffer.writeObject(localCustomParametersCopy);
+    }
 
     // Finished serialization.
   }
@@ -52424,7 +56268,7 @@ class PhoneCall extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x967f7c67",
+      "\$": "0x30535af5",
       "flags": flags,
       "p2pAllowed": p2pAllowed,
       "video": video,
@@ -52438,6 +56282,7 @@ class PhoneCall extends PhoneCallBase {
       "protocol": protocol,
       "connections": connections,
       "startDate": startDate.toIso8601String(),
+      "customParameters": customParameters,
     };
 
     // Finished toJson.
@@ -56274,6 +60119,178 @@ class ChannelAdminLogEventActionChangeEmojiStatus
   }
 }
 
+/// Channel Admin Log Event Action Change Emoji Sticker Set.
+///
+/// ID: `46d840ab`.
+class ChannelAdminLogEventActionChangeEmojiStickerSet
+    extends ChannelAdminLogEventActionBase {
+  /// Channel Admin Log Event Action Change Emoji Sticker Set constructor.
+  const ChannelAdminLogEventActionChangeEmojiStickerSet({
+    required this.prevStickerset,
+    required this.newStickerset,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelAdminLogEventActionChangeEmojiStickerSet.deserialize(
+      BinaryReader reader) {
+    // Read [ChannelAdminLogEventActionChangeEmojiStickerSet] fields.
+    final prevStickerset = reader.readObject() as InputStickerSetBase;
+    final newStickerset = reader.readObject() as InputStickerSetBase;
+
+    // Construct [ChannelAdminLogEventActionChangeEmojiStickerSet] object.
+    final returnValue = ChannelAdminLogEventActionChangeEmojiStickerSet(
+      prevStickerset: prevStickerset,
+      newStickerset: newStickerset,
+    );
+
+    // Now return the deserialized [ChannelAdminLogEventActionChangeEmojiStickerSet].
+    return returnValue;
+  }
+
+  /// Prev Stickerset.
+  final InputStickerSetBase prevStickerset;
+
+  /// New Stickerset.
+  final InputStickerSetBase newStickerset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x46d840ab.
+    buffer.writeInt32(0x46d840ab);
+
+    // Write fields.
+    buffer.writeObject(prevStickerset);
+    buffer.writeObject(newStickerset);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x46d840ab",
+      "prevStickerset": prevStickerset,
+      "newStickerset": newStickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channel Admin Log Event Action Toggle Signature Profiles.
+///
+/// ID: `60a79c79`.
+class ChannelAdminLogEventActionToggleSignatureProfiles
+    extends ChannelAdminLogEventActionBase {
+  /// Channel Admin Log Event Action Toggle Signature Profiles constructor.
+  const ChannelAdminLogEventActionToggleSignatureProfiles({
+    required this.newValue,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelAdminLogEventActionToggleSignatureProfiles.deserialize(
+      BinaryReader reader) {
+    // Read [ChannelAdminLogEventActionToggleSignatureProfiles] fields.
+    final newValue = reader.readBool();
+
+    // Construct [ChannelAdminLogEventActionToggleSignatureProfiles] object.
+    final returnValue = ChannelAdminLogEventActionToggleSignatureProfiles(
+      newValue: newValue,
+    );
+
+    // Now return the deserialized [ChannelAdminLogEventActionToggleSignatureProfiles].
+    return returnValue;
+  }
+
+  /// New Value.
+  final bool newValue;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x60a79c79.
+    buffer.writeInt32(0x60a79c79);
+
+    // Write fields.
+    buffer.writeBool(newValue);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x60a79c79",
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channel Admin Log Event Action Participant Sub Extend.
+///
+/// ID: `64642db3`.
+class ChannelAdminLogEventActionParticipantSubExtend
+    extends ChannelAdminLogEventActionBase {
+  /// Channel Admin Log Event Action Participant Sub Extend constructor.
+  const ChannelAdminLogEventActionParticipantSubExtend({
+    required this.prevParticipant,
+    required this.newParticipant,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelAdminLogEventActionParticipantSubExtend.deserialize(
+      BinaryReader reader) {
+    // Read [ChannelAdminLogEventActionParticipantSubExtend] fields.
+    final prevParticipant = reader.readObject() as ChannelParticipantBase;
+    final newParticipant = reader.readObject() as ChannelParticipantBase;
+
+    // Construct [ChannelAdminLogEventActionParticipantSubExtend] object.
+    final returnValue = ChannelAdminLogEventActionParticipantSubExtend(
+      prevParticipant: prevParticipant,
+      newParticipant: newParticipant,
+    );
+
+    // Now return the deserialized [ChannelAdminLogEventActionParticipantSubExtend].
+    return returnValue;
+  }
+
+  /// Prev Participant.
+  final ChannelParticipantBase prevParticipant;
+
+  /// New Participant.
+  final ChannelParticipantBase newParticipant;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x64642db3.
+    buffer.writeInt32(0x64642db3);
+
+    // Write fields.
+    buffer.writeObject(prevParticipant);
+    buffer.writeObject(newParticipant);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64642db3",
+      "prevParticipant": prevParticipant,
+      "newParticipant": newParticipant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Channel Admin Log Event.
 ///
 /// ID: `1fad68cd`.
@@ -56442,6 +60459,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
     required this.invites,
     required this.send,
     required this.forums,
+    required this.subExtend,
   }) : super._();
 
   /// Deserialize.
@@ -56466,6 +60484,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
     final invites = (flags & 32768) != 0;
     final send = (flags & 65536) != 0;
     final forums = (flags & 131072) != 0;
+    final subExtend = (flags & 262144) != 0;
 
     // Construct [ChannelAdminLogEventsFilter] object.
     final returnValue = ChannelAdminLogEventsFilter(
@@ -56487,6 +60506,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
       invites: invites,
       send: send,
       forums: forums,
+      subExtend: subExtend,
     );
 
     // Now return the deserialized [ChannelAdminLogEventsFilter].
@@ -56514,6 +60534,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
       b15: invites,
       b16: send,
       b17: forums,
+      b18: subExtend,
     );
 
     return v;
@@ -56573,6 +60594,9 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
   /// forums: bit 17 of flags.17?true
   final bool forums;
 
+  /// sub_extend: bit 18 of flags.18?true
+  final bool subExtend;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
@@ -56608,6 +60632,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
       "invites": invites,
       "send": send,
       "forums": forums,
+      "subExtend": subExtend,
     };
 
     // Finished toJson.
@@ -62474,7 +66499,7 @@ class HelpUserInfo extends HelpUserInfoBase {
 
 /// Poll Answer.
 ///
-/// ID: `6ca9c2e9`.
+/// ID: `ff16e2ca`.
 class PollAnswer extends PollAnswerBase {
   /// Poll Answer constructor.
   const PollAnswer({
@@ -62485,7 +66510,7 @@ class PollAnswer extends PollAnswerBase {
   /// Deserialize.
   factory PollAnswer.deserialize(BinaryReader reader) {
     // Read [PollAnswer] fields.
-    final text = reader.readString();
+    final text = reader.readObject() as TextWithEntitiesBase;
     final option = reader.readBytes();
 
     // Construct [PollAnswer] object.
@@ -62499,7 +66524,7 @@ class PollAnswer extends PollAnswerBase {
   }
 
   /// Text.
-  final String text;
+  final TextWithEntitiesBase text;
 
   /// Option.
   final Uint8List option;
@@ -62507,11 +66532,11 @@ class PollAnswer extends PollAnswerBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x6ca9c2e9.
-    buffer.writeInt32(0x6ca9c2e9);
+    // Write type-id 0xff16e2ca.
+    buffer.writeInt32(0xff16e2ca);
 
     // Write fields.
-    buffer.writeString(text);
+    buffer.writeObject(text);
     buffer.writeBytes(option);
 
     // Finished serialization.
@@ -62520,7 +66545,7 @@ class PollAnswer extends PollAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6ca9c2e9",
+      "\$": "0xff16e2ca",
       "text": text,
       "option": option,
     };
@@ -62532,7 +66557,7 @@ class PollAnswer extends PollAnswerBase {
 
 /// Poll.
 ///
-/// ID: `86e18161`.
+/// ID: `58747131`.
 class Poll extends PollBase {
   /// Poll constructor.
   const Poll({
@@ -62556,7 +66581,7 @@ class Poll extends PollBase {
     final publicVoters = (flags & 2) != 0;
     final multipleChoice = (flags & 4) != 0;
     final quiz = (flags & 8) != 0;
-    final question = reader.readString();
+    final question = reader.readObject() as TextWithEntitiesBase;
     final answers = reader.readVectorObject<PollAnswerBase>();
     final hasClosePeriodField = (flags & 16) != 0;
     final closePeriod = hasClosePeriodField ? reader.readInt32() : null;
@@ -62612,7 +66637,7 @@ class Poll extends PollBase {
   final bool quiz;
 
   /// Question.
-  final String question;
+  final TextWithEntitiesBase question;
 
   /// Answers.
   final List<PollAnswerBase> answers;
@@ -62626,13 +66651,13 @@ class Poll extends PollBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x86e18161.
-    buffer.writeInt32(0x86e18161);
+    // Write type-id 0x58747131.
+    buffer.writeInt32(0x58747131);
 
     // Write fields.
     buffer.writeInt64(id);
     buffer.writeInt32(flags);
-    buffer.writeString(question);
+    buffer.writeObject(question);
     buffer.writeVectorObject(answers);
     final localClosePeriodCopy = closePeriod;
     if (localClosePeriodCopy != null) {
@@ -62649,7 +66674,7 @@ class Poll extends PollBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x86e18161",
+      "\$": "0x58747131",
       "id": id,
       "flags": flags,
       "closed": closed,
@@ -63651,6 +67676,7 @@ class CodeSettings extends CodeSettingsBase {
     required this.allowAppHash,
     required this.allowMissedCall,
     required this.allowFirebase,
+    required this.unknownNumber,
     this.logoutTokens,
     this.token,
     required this.appSandbox,
@@ -63665,6 +67691,7 @@ class CodeSettings extends CodeSettingsBase {
     final allowAppHash = (flags & 16) != 0;
     final allowMissedCall = (flags & 32) != 0;
     final allowFirebase = (flags & 128) != 0;
+    final unknownNumber = (flags & 512) != 0;
     final hasLogoutTokensField = (flags & 64) != 0;
     final logoutTokens = hasLogoutTokensField ? reader.readVectorBytes() : null;
     final hasTokenField = (flags & 256) != 0;
@@ -63678,6 +67705,7 @@ class CodeSettings extends CodeSettingsBase {
       allowAppHash: allowAppHash,
       allowMissedCall: allowMissedCall,
       allowFirebase: allowFirebase,
+      unknownNumber: unknownNumber,
       logoutTokens: logoutTokens,
       token: token,
       appSandbox: appSandbox,
@@ -63695,6 +67723,7 @@ class CodeSettings extends CodeSettingsBase {
       b04: allowAppHash,
       b05: allowMissedCall,
       b07: allowFirebase,
+      b09: unknownNumber,
       b06: logoutTokens != null,
       b08: token != null || appSandbox,
     );
@@ -63716,6 +67745,9 @@ class CodeSettings extends CodeSettingsBase {
 
   /// allow_firebase: bit 7 of flags.7?true
   final bool allowFirebase;
+
+  /// unknown_number: bit 9 of flags.9?true
+  final bool unknownNumber;
 
   /// Logout Tokens.
   final List<Uint8List>? logoutTokens;
@@ -63756,6 +67788,7 @@ class CodeSettings extends CodeSettingsBase {
       "allowAppHash": allowAppHash,
       "allowMissedCall": allowMissedCall,
       "allowFirebase": allowFirebase,
+      "unknownNumber": unknownNumber,
       "logoutTokens": logoutTokens,
       "token": token,
       "appSandbox": appSandbox,
@@ -66468,6 +70501,83 @@ class WebPageAttributeStory extends WebPageAttributeBase {
   }
 }
 
+/// Web Page Attribute Sticker Set.
+///
+/// ID: `50cc03d3`.
+class WebPageAttributeStickerSet extends WebPageAttributeBase {
+  /// Web Page Attribute Sticker Set constructor.
+  const WebPageAttributeStickerSet({
+    required this.emojis,
+    required this.textColor,
+    required this.stickers,
+  }) : super._();
+
+  /// Deserialize.
+  factory WebPageAttributeStickerSet.deserialize(BinaryReader reader) {
+    // Read [WebPageAttributeStickerSet] fields.
+    final flags = reader.readInt32();
+    final emojis = (flags & 1) != 0;
+    final textColor = (flags & 2) != 0;
+    final stickers = reader.readVectorObject<DocumentBase>();
+
+    // Construct [WebPageAttributeStickerSet] object.
+    final returnValue = WebPageAttributeStickerSet(
+      emojis: emojis,
+      textColor: textColor,
+      stickers: stickers,
+    );
+
+    // Now return the deserialized [WebPageAttributeStickerSet].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: emojis,
+      b01: textColor,
+    );
+
+    return v;
+  }
+
+  /// emojis: bit 0 of flags.0?true
+  final bool emojis;
+
+  /// text_color: bit 1 of flags.1?true
+  final bool textColor;
+
+  /// Stickers.
+  final List<DocumentBase> stickers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x50cc03d3.
+    buffer.writeInt32(0x50cc03d3);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeVectorObject(stickers);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50cc03d3",
+      "flags": flags,
+      "emojis": emojis,
+      "textColor": textColor,
+      "stickers": stickers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Messages Votes List.
 ///
 /// ID: `4899484e`.
@@ -66686,7 +70796,7 @@ class PaymentsBankCardData extends PaymentsBankCardDataBase {
 
 /// Dialog Filter.
 ///
-/// ID: `7438f7e8`.
+/// ID: `5fb5523b`.
 class DialogFilter extends DialogFilterBase {
   /// Dialog Filter constructor.
   const DialogFilter({
@@ -66701,6 +70811,7 @@ class DialogFilter extends DialogFilterBase {
     required this.id,
     required this.title,
     this.emoticon,
+    this.color,
     required this.pinnedPeers,
     required this.includePeers,
     required this.excludePeers,
@@ -66722,6 +70833,8 @@ class DialogFilter extends DialogFilterBase {
     final title = reader.readString();
     final hasEmoticonField = (flags & 33554432) != 0;
     final emoticon = hasEmoticonField ? reader.readString() : null;
+    final hasColorField = (flags & 134217728) != 0;
+    final color = hasColorField ? reader.readInt32() : null;
     final pinnedPeers = reader.readVectorObject<InputPeerBase>();
     final includePeers = reader.readVectorObject<InputPeerBase>();
     final excludePeers = reader.readVectorObject<InputPeerBase>();
@@ -66739,6 +70852,7 @@ class DialogFilter extends DialogFilterBase {
       id: id,
       title: title,
       emoticon: emoticon,
+      color: color,
       pinnedPeers: pinnedPeers,
       includePeers: includePeers,
       excludePeers: excludePeers,
@@ -66760,6 +70874,7 @@ class DialogFilter extends DialogFilterBase {
       b12: excludeRead,
       b13: excludeArchived,
       b25: emoticon != null,
+      b27: color != null,
     );
 
     return v;
@@ -66800,6 +70915,9 @@ class DialogFilter extends DialogFilterBase {
   /// Emoticon.
   final String? emoticon;
 
+  /// Color.
+  final int? color;
+
   /// Pinned Peers.
   final List<InputPeerBase> pinnedPeers;
 
@@ -66812,8 +70930,8 @@ class DialogFilter extends DialogFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x7438f7e8.
-    buffer.writeInt32(0x7438f7e8);
+    // Write type-id 0x5fb5523b.
+    buffer.writeInt32(0x5fb5523b);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -66822,6 +70940,10 @@ class DialogFilter extends DialogFilterBase {
     final localEmoticonCopy = emoticon;
     if (localEmoticonCopy != null) {
       buffer.writeString(localEmoticonCopy);
+    }
+    final localColorCopy = color;
+    if (localColorCopy != null) {
+      buffer.writeInt32(localColorCopy);
     }
     buffer.writeVectorObject(pinnedPeers);
     buffer.writeVectorObject(includePeers);
@@ -66833,7 +70955,7 @@ class DialogFilter extends DialogFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7438f7e8",
+      "\$": "0x5fb5523b",
       "flags": flags,
       "contacts": contacts,
       "nonContacts": nonContacts,
@@ -66846,6 +70968,7 @@ class DialogFilter extends DialogFilterBase {
       "id": id,
       "title": title,
       "emoticon": emoticon,
+      "color": color,
       "pinnedPeers": pinnedPeers,
       "includePeers": includePeers,
       "excludePeers": excludePeers,
@@ -66894,7 +71017,7 @@ class DialogFilterDefault extends DialogFilterBase {
 
 /// Dialog Filter Chatlist.
 ///
-/// ID: `d64a04a8`.
+/// ID: `9fe28ea4`.
 class DialogFilterChatlist extends DialogFilterBase {
   /// Dialog Filter Chatlist constructor.
   const DialogFilterChatlist({
@@ -66902,6 +71025,7 @@ class DialogFilterChatlist extends DialogFilterBase {
     required this.id,
     required this.title,
     this.emoticon,
+    this.color,
     required this.pinnedPeers,
     required this.includePeers,
   }) : super._();
@@ -66915,6 +71039,8 @@ class DialogFilterChatlist extends DialogFilterBase {
     final title = reader.readString();
     final hasEmoticonField = (flags & 33554432) != 0;
     final emoticon = hasEmoticonField ? reader.readString() : null;
+    final hasColorField = (flags & 134217728) != 0;
+    final color = hasColorField ? reader.readInt32() : null;
     final pinnedPeers = reader.readVectorObject<InputPeerBase>();
     final includePeers = reader.readVectorObject<InputPeerBase>();
 
@@ -66924,6 +71050,7 @@ class DialogFilterChatlist extends DialogFilterBase {
       id: id,
       title: title,
       emoticon: emoticon,
+      color: color,
       pinnedPeers: pinnedPeers,
       includePeers: includePeers,
     );
@@ -66937,6 +71064,7 @@ class DialogFilterChatlist extends DialogFilterBase {
     final v = _flag(
       b26: hasMyInvites,
       b25: emoticon != null,
+      b27: color != null,
     );
 
     return v;
@@ -66956,6 +71084,9 @@ class DialogFilterChatlist extends DialogFilterBase {
   /// Emoticon.
   final String? emoticon;
 
+  /// Color.
+  final int? color;
+
   /// Pinned Peers.
   final List<InputPeerBase> pinnedPeers;
 
@@ -66965,8 +71096,8 @@ class DialogFilterChatlist extends DialogFilterBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd64a04a8.
-    buffer.writeInt32(0xd64a04a8);
+    // Write type-id 0x9fe28ea4.
+    buffer.writeInt32(0x9fe28ea4);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -66975,6 +71106,10 @@ class DialogFilterChatlist extends DialogFilterBase {
     final localEmoticonCopy = emoticon;
     if (localEmoticonCopy != null) {
       buffer.writeString(localEmoticonCopy);
+    }
+    final localColorCopy = color;
+    if (localColorCopy != null) {
+      buffer.writeInt32(localColorCopy);
     }
     buffer.writeVectorObject(pinnedPeers);
     buffer.writeVectorObject(includePeers);
@@ -66985,12 +71120,13 @@ class DialogFilterChatlist extends DialogFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd64a04a8",
+      "\$": "0x9fe28ea4",
       "flags": flags,
       "hasMyInvites": hasMyInvites,
       "id": id,
       "title": title,
       "emoticon": emoticon,
+      "color": color,
       "pinnedPeers": pinnedPeers,
       "includePeers": includePeers,
     };
@@ -68429,6 +72565,8 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
     required this.archiveAndMuteNewNoncontactPeers,
     required this.keepArchivedUnmuted,
     required this.keepArchivedFolders,
+    required this.hideReadMarks,
+    required this.newNoncontactPeersRequirePremium,
   }) : super._();
 
   /// Deserialize.
@@ -68438,12 +72576,16 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
     final archiveAndMuteNewNoncontactPeers = (flags & 1) != 0;
     final keepArchivedUnmuted = (flags & 2) != 0;
     final keepArchivedFolders = (flags & 4) != 0;
+    final hideReadMarks = (flags & 8) != 0;
+    final newNoncontactPeersRequirePremium = (flags & 16) != 0;
 
     // Construct [GlobalPrivacySettings] object.
     final returnValue = GlobalPrivacySettings(
       archiveAndMuteNewNoncontactPeers: archiveAndMuteNewNoncontactPeers,
       keepArchivedUnmuted: keepArchivedUnmuted,
       keepArchivedFolders: keepArchivedFolders,
+      hideReadMarks: hideReadMarks,
+      newNoncontactPeersRequirePremium: newNoncontactPeersRequirePremium,
     );
 
     // Now return the deserialized [GlobalPrivacySettings].
@@ -68456,6 +72598,8 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
       b00: archiveAndMuteNewNoncontactPeers,
       b01: keepArchivedUnmuted,
       b02: keepArchivedFolders,
+      b03: hideReadMarks,
+      b04: newNoncontactPeersRequirePremium,
     );
 
     return v;
@@ -68469,6 +72613,12 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
 
   /// keep_archived_folders: bit 2 of flags.2?true
   final bool keepArchivedFolders;
+
+  /// hide_read_marks: bit 3 of flags.3?true
+  final bool hideReadMarks;
+
+  /// new_noncontact_peers_require_premium: bit 4 of flags.4?true
+  final bool newNoncontactPeersRequirePremium;
 
   /// Serialize.
   @override
@@ -68490,6 +72640,8 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
       "archiveAndMuteNewNoncontactPeers": archiveAndMuteNewNoncontactPeers,
       "keepArchivedUnmuted": keepArchivedUnmuted,
       "keepArchivedFolders": keepArchivedFolders,
+      "hideReadMarks": hideReadMarks,
+      "newNoncontactPeersRequirePremium": newNoncontactPeersRequirePremium,
     };
 
     // Finished toJson.
@@ -69251,23 +73403,23 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
 
 /// Message Reply Story Header.
 ///
-/// ID: `9c98bfc1`.
+/// ID: `0e5af939`.
 class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   /// Message Reply Story Header constructor.
   const MessageReplyStoryHeader({
-    required this.userId,
+    required this.peer,
     required this.storyId,
   }) : super._();
 
   /// Deserialize.
   factory MessageReplyStoryHeader.deserialize(BinaryReader reader) {
     // Read [MessageReplyStoryHeader] fields.
-    final userId = reader.readInt64();
+    final peer = reader.readObject() as PeerBase;
     final storyId = reader.readInt32();
 
     // Construct [MessageReplyStoryHeader] object.
     final returnValue = MessageReplyStoryHeader(
-      userId: userId,
+      peer: peer,
       storyId: storyId,
     );
 
@@ -69275,10 +73427,8 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
     return returnValue;
   }
 
-  /// User Id.
-  ///
-  /// Field type is Int64.
-  final int userId;
+  /// Peer.
+  final PeerBase peer;
 
   /// Story Id.
   ///
@@ -69288,11 +73438,11 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x9c98bfc1.
-    buffer.writeInt32(0x9c98bfc1);
+    // Write type-id 0x0e5af939.
+    buffer.writeInt32(0x0e5af939);
 
     // Write fields.
-    buffer.writeInt64(userId);
+    buffer.writeObject(peer);
     buffer.writeInt32(storyId);
 
     // Finished serialization.
@@ -69301,8 +73451,8 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9c98bfc1",
-      "userId": userId,
+      "\$": "0x0e5af939",
+      "peer": peer,
       "storyId": storyId,
     };
 
@@ -72087,23 +76237,21 @@ class AccountResetPasswordOk extends AccountResetPasswordResultBase {
 
 /// Sponsored Message.
 ///
-/// ID: `ed5383f7`.
+/// ID: `4d93a990`.
 class SponsoredMessage extends SponsoredMessageBase {
   /// Sponsored Message constructor.
   const SponsoredMessage({
     required this.recommended,
-    required this.showPeerPhoto,
+    required this.canReport,
     required this.randomId,
-    this.fromId,
-    this.chatInvite,
-    this.chatInviteHash,
-    this.channelPost,
-    this.startParam,
-    this.webpage,
-    this.app,
+    required this.url,
+    required this.title,
     required this.message,
     this.entities,
-    this.buttonText,
+    this.photo,
+    this.media,
+    this.color,
+    required this.buttonText,
     this.sponsorInfo,
     this.additionalInfo,
   }) : super._();
@@ -72113,30 +76261,22 @@ class SponsoredMessage extends SponsoredMessageBase {
     // Read [SponsoredMessage] fields.
     final flags = reader.readInt32();
     final recommended = (flags & 32) != 0;
-    final showPeerPhoto = (flags & 64) != 0;
+    final canReport = (flags & 4096) != 0;
     final randomId = reader.readBytes();
-    final hasFromIdField = (flags & 8) != 0;
-    final fromId = hasFromIdField ? reader.readObject() as PeerBase : null;
-    final hasChatInviteField = (flags & 16) != 0;
-    final chatInvite =
-        hasChatInviteField ? reader.readObject() as ChatInviteBase : null;
-    final hasChatInviteHashField = (flags & 16) != 0;
-    final chatInviteHash = hasChatInviteHashField ? reader.readString() : null;
-    final hasChannelPostField = (flags & 4) != 0;
-    final channelPost = hasChannelPostField ? reader.readInt32() : null;
-    final hasStartParamField = (flags & 1) != 0;
-    final startParam = hasStartParamField ? reader.readString() : null;
-    final hasWebpageField = (flags & 512) != 0;
-    final webpage =
-        hasWebpageField ? reader.readObject() as SponsoredWebPageBase : null;
-    final hasAppField = (flags & 1024) != 0;
-    final app = hasAppField ? reader.readObject() as BotAppBase : null;
+    final url = reader.readString();
+    final title = reader.readString();
     final message = reader.readString();
     final hasEntitiesField = (flags & 2) != 0;
     final entities =
         hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
-    final hasButtonTextField = (flags & 2048) != 0;
-    final buttonText = hasButtonTextField ? reader.readString() : null;
+    final hasPhotoField = (flags & 64) != 0;
+    final photo = hasPhotoField ? reader.readObject() as PhotoBase : null;
+    final hasMediaField = (flags & 16384) != 0;
+    final media =
+        hasMediaField ? reader.readObject() as MessageMediaBase : null;
+    final hasColorField = (flags & 8192) != 0;
+    final color = hasColorField ? reader.readObject() as PeerColorBase : null;
+    final buttonText = reader.readString();
     final hasSponsorInfoField = (flags & 128) != 0;
     final sponsorInfo = hasSponsorInfoField ? reader.readString() : null;
     final hasAdditionalInfoField = (flags & 256) != 0;
@@ -72145,17 +76285,15 @@ class SponsoredMessage extends SponsoredMessageBase {
     // Construct [SponsoredMessage] object.
     final returnValue = SponsoredMessage(
       recommended: recommended,
-      showPeerPhoto: showPeerPhoto,
+      canReport: canReport,
       randomId: randomId,
-      fromId: fromId,
-      chatInvite: chatInvite,
-      chatInviteHash: chatInviteHash,
-      channelPost: channelPost,
-      startParam: startParam,
-      webpage: webpage,
-      app: app,
+      url: url,
+      title: title,
       message: message,
       entities: entities,
+      photo: photo,
+      media: media,
+      color: color,
       buttonText: buttonText,
       sponsorInfo: sponsorInfo,
       additionalInfo: additionalInfo,
@@ -72169,15 +76307,11 @@ class SponsoredMessage extends SponsoredMessageBase {
   int get flags {
     final v = _flag(
       b05: recommended,
-      b06: showPeerPhoto,
-      b03: fromId != null,
-      b04: chatInvite != null || chatInviteHash != null,
-      b02: channelPost != null,
-      b00: startParam != null,
-      b09: webpage != null,
-      b10: app != null,
+      b12: canReport,
       b01: entities != null,
-      b11: buttonText != null,
+      b06: photo != null,
+      b14: media != null,
+      b13: color != null,
       b07: sponsorInfo != null,
       b08: additionalInfo != null,
     );
@@ -72188,32 +76322,17 @@ class SponsoredMessage extends SponsoredMessageBase {
   /// recommended: bit 5 of flags.5?true
   final bool recommended;
 
-  /// show_peer_photo: bit 6 of flags.6?true
-  final bool showPeerPhoto;
+  /// can_report: bit 12 of flags.12?true
+  final bool canReport;
 
   /// Random Id.
   final Uint8List randomId;
 
-  /// From Id.
-  final PeerBase? fromId;
+  /// Url.
+  final String url;
 
-  /// Chat Invite.
-  final ChatInviteBase? chatInvite;
-
-  /// Chat Invite Hash.
-  final String? chatInviteHash;
-
-  /// Channel Post.
-  final int? channelPost;
-
-  /// Start Param.
-  final String? startParam;
-
-  /// Webpage.
-  final SponsoredWebPageBase? webpage;
-
-  /// App.
-  final BotAppBase? app;
+  /// Title.
+  final String title;
 
   /// Message.
   final String message;
@@ -72221,8 +76340,17 @@ class SponsoredMessage extends SponsoredMessageBase {
   /// Entities.
   final List<MessageEntityBase>? entities;
 
+  /// Photo.
+  final PhotoBase? photo;
+
+  /// Media.
+  final MessageMediaBase? media;
+
+  /// Color.
+  final PeerColorBase? color;
+
   /// Button Text.
-  final String? buttonText;
+  final String buttonText;
 
   /// Sponsor Info.
   final String? sponsorInfo;
@@ -72233,49 +76361,32 @@ class SponsoredMessage extends SponsoredMessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xed5383f7.
-    buffer.writeInt32(0xed5383f7);
+    // Write type-id 0x4d93a990.
+    buffer.writeInt32(0x4d93a990);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeBytes(randomId);
-    final localFromIdCopy = fromId;
-    if (localFromIdCopy != null) {
-      buffer.writeObject(localFromIdCopy);
-    }
-    final localChatInviteCopy = chatInvite;
-    if (localChatInviteCopy != null) {
-      buffer.writeObject(localChatInviteCopy);
-    }
-    final localChatInviteHashCopy = chatInviteHash;
-    if (localChatInviteHashCopy != null) {
-      buffer.writeString(localChatInviteHashCopy);
-    }
-    final localChannelPostCopy = channelPost;
-    if (localChannelPostCopy != null) {
-      buffer.writeInt32(localChannelPostCopy);
-    }
-    final localStartParamCopy = startParam;
-    if (localStartParamCopy != null) {
-      buffer.writeString(localStartParamCopy);
-    }
-    final localWebpageCopy = webpage;
-    if (localWebpageCopy != null) {
-      buffer.writeObject(localWebpageCopy);
-    }
-    final localAppCopy = app;
-    if (localAppCopy != null) {
-      buffer.writeObject(localAppCopy);
-    }
+    buffer.writeString(url);
+    buffer.writeString(title);
     buffer.writeString(message);
     final localEntitiesCopy = entities;
     if (localEntitiesCopy != null) {
       buffer.writeVectorObject(localEntitiesCopy);
     }
-    final localButtonTextCopy = buttonText;
-    if (localButtonTextCopy != null) {
-      buffer.writeString(localButtonTextCopy);
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
     }
+    final localMediaCopy = media;
+    if (localMediaCopy != null) {
+      buffer.writeObject(localMediaCopy);
+    }
+    final localColorCopy = color;
+    if (localColorCopy != null) {
+      buffer.writeObject(localColorCopy);
+    }
+    buffer.writeString(buttonText);
     final localSponsorInfoCopy = sponsorInfo;
     if (localSponsorInfoCopy != null) {
       buffer.writeString(localSponsorInfoCopy);
@@ -72291,20 +76402,18 @@ class SponsoredMessage extends SponsoredMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed5383f7",
+      "\$": "0x4d93a990",
       "flags": flags,
       "recommended": recommended,
-      "showPeerPhoto": showPeerPhoto,
+      "canReport": canReport,
       "randomId": randomId,
-      "fromId": fromId,
-      "chatInvite": chatInvite,
-      "chatInviteHash": chatInviteHash,
-      "channelPost": channelPost,
-      "startParam": startParam,
-      "webpage": webpage,
-      "app": app,
+      "url": url,
+      "title": title,
       "message": message,
       "entities": entities,
+      "photo": photo,
+      "media": media,
+      "color": color,
       "buttonText": buttonText,
       "sponsorInfo": sponsorInfo,
       "additionalInfo": additionalInfo,
@@ -73136,14 +77245,16 @@ class ReactionCount extends ReactionCountBase {
 
 /// Message Reactions.
 ///
-/// ID: `4f2b9479`.
+/// ID: `0a339f0b`.
 class MessageReactions extends MessageReactionsBase {
   /// Message Reactions constructor.
   const MessageReactions({
     required this.min,
     required this.canSeeList,
+    required this.reactionsAsTags,
     required this.results,
     this.recentReactions,
+    this.topReactors,
   }) : super._();
 
   /// Deserialize.
@@ -73152,18 +77263,25 @@ class MessageReactions extends MessageReactionsBase {
     final flags = reader.readInt32();
     final min = (flags & 1) != 0;
     final canSeeList = (flags & 4) != 0;
+    final reactionsAsTags = (flags & 8) != 0;
     final results = reader.readVectorObject<ReactionCountBase>();
     final hasRecentReactionsField = (flags & 2) != 0;
     final recentReactions = hasRecentReactionsField
         ? reader.readVectorObject<MessagePeerReactionBase>()
+        : null;
+    final hasTopReactorsField = (flags & 16) != 0;
+    final topReactors = hasTopReactorsField
+        ? reader.readVectorObject<MessageReactorBase>()
         : null;
 
     // Construct [MessageReactions] object.
     final returnValue = MessageReactions(
       min: min,
       canSeeList: canSeeList,
+      reactionsAsTags: reactionsAsTags,
       results: results,
       recentReactions: recentReactions,
+      topReactors: topReactors,
     );
 
     // Now return the deserialized [MessageReactions].
@@ -73175,7 +77293,9 @@ class MessageReactions extends MessageReactionsBase {
     final v = _flag(
       b00: min,
       b02: canSeeList,
+      b03: reactionsAsTags,
       b01: recentReactions != null,
+      b04: topReactors != null,
     );
 
     return v;
@@ -73187,17 +77307,23 @@ class MessageReactions extends MessageReactionsBase {
   /// can_see_list: bit 2 of flags.2?true
   final bool canSeeList;
 
+  /// reactions_as_tags: bit 3 of flags.3?true
+  final bool reactionsAsTags;
+
   /// Results.
   final List<ReactionCountBase> results;
 
   /// Recent Reactions.
   final List<MessagePeerReactionBase>? recentReactions;
 
+  /// Top Reactors.
+  final List<MessageReactorBase>? topReactors;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x4f2b9479.
-    buffer.writeInt32(0x4f2b9479);
+    // Write type-id 0x0a339f0b.
+    buffer.writeInt32(0x0a339f0b);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -73206,6 +77332,10 @@ class MessageReactions extends MessageReactionsBase {
     if (localRecentReactionsCopy != null) {
       buffer.writeVectorObject(localRecentReactionsCopy);
     }
+    final localTopReactorsCopy = topReactors;
+    if (localTopReactorsCopy != null) {
+      buffer.writeVectorObject(localTopReactorsCopy);
+    }
 
     // Finished serialization.
   }
@@ -73213,12 +77343,14 @@ class MessageReactions extends MessageReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f2b9479",
+      "\$": "0x0a339f0b",
       "flags": flags,
       "min": min,
       "canSeeList": canSeeList,
+      "reactionsAsTags": reactionsAsTags,
       "results": results,
       "recentReactions": recentReactions,
+      "topReactors": topReactors,
     };
 
     // Finished toJson.
@@ -74306,22 +78438,30 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
 
 /// Web View Result Url.
 ///
-/// ID: `0c14557c`.
+/// ID: `4d22ff98`.
 class WebViewResultUrl extends WebViewResultBase {
   /// Web View Result Url constructor.
   const WebViewResultUrl({
-    required this.queryId,
+    required this.fullsize,
+    required this.fullscreen,
+    this.queryId,
     required this.url,
   }) : super._();
 
   /// Deserialize.
   factory WebViewResultUrl.deserialize(BinaryReader reader) {
     // Read [WebViewResultUrl] fields.
-    final queryId = reader.readInt64();
+    final flags = reader.readInt32();
+    final fullsize = (flags & 2) != 0;
+    final fullscreen = (flags & 4) != 0;
+    final hasQueryIdField = (flags & 1) != 0;
+    final queryId = hasQueryIdField ? reader.readInt64() : null;
     final url = reader.readString();
 
     // Construct [WebViewResultUrl] object.
     final returnValue = WebViewResultUrl(
+      fullsize: fullsize,
+      fullscreen: fullscreen,
       queryId: queryId,
       url: url,
     );
@@ -74330,62 +78470,25 @@ class WebViewResultUrl extends WebViewResultBase {
     return returnValue;
   }
 
-  /// Query Id.
-  ///
-  /// Field type is Int64.
-  final int queryId;
-
-  /// Url.
-  final String url;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0x0c14557c.
-    buffer.writeInt32(0x0c14557c);
-
-    // Write fields.
-    buffer.writeInt64(queryId);
-    buffer.writeString(url);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0x0c14557c",
-      "queryId": queryId,
-      "url": url,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
-/// Simple Web View Result Url.
-///
-/// ID: `882f76bb`.
-class SimpleWebViewResultUrl extends SimpleWebViewResultBase {
-  /// Simple Web View Result Url constructor.
-  const SimpleWebViewResultUrl({
-    required this.url,
-  }) : super._();
-
-  /// Deserialize.
-  factory SimpleWebViewResultUrl.deserialize(BinaryReader reader) {
-    // Read [SimpleWebViewResultUrl] fields.
-    final url = reader.readString();
-
-    // Construct [SimpleWebViewResultUrl] object.
-    final returnValue = SimpleWebViewResultUrl(
-      url: url,
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: fullsize,
+      b02: fullscreen,
+      b00: queryId != null,
     );
 
-    // Now return the deserialized [SimpleWebViewResultUrl].
-    return returnValue;
+    return v;
   }
+
+  /// fullsize: bit 1 of flags.1?true
+  final bool fullsize;
+
+  /// fullscreen: bit 2 of flags.2?true
+  final bool fullscreen;
+
+  /// Query Id.
+  final int? queryId;
 
   /// Url.
   final String url;
@@ -74393,10 +78496,15 @@ class SimpleWebViewResultUrl extends SimpleWebViewResultBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x882f76bb.
-    buffer.writeInt32(0x882f76bb);
+    // Write type-id 0x4d22ff98.
+    buffer.writeInt32(0x4d22ff98);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localQueryIdCopy = queryId;
+    if (localQueryIdCopy != null) {
+      buffer.writeInt64(localQueryIdCopy);
+    }
     buffer.writeString(url);
 
     // Finished serialization.
@@ -74405,7 +78513,11 @@ class SimpleWebViewResultUrl extends SimpleWebViewResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x882f76bb",
+      "\$": "0x4d22ff98",
+      "flags": flags,
+      "fullsize": fullsize,
+      "fullscreen": fullscreen,
+      "queryId": queryId,
       "url": url,
     };
 
@@ -75324,6 +79436,199 @@ class InputInvoicePremiumGiftCode extends InputInvoiceBase {
   }
 }
 
+/// Input Invoice Stars.
+///
+/// ID: `65f00ce3`.
+class InputInvoiceStars extends InputInvoiceBase {
+  /// Input Invoice Stars constructor.
+  const InputInvoiceStars({
+    required this.purpose,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputInvoiceStars.deserialize(BinaryReader reader) {
+    // Read [InputInvoiceStars] fields.
+    final purpose = reader.readObject() as InputStorePaymentPurposeBase;
+
+    // Construct [InputInvoiceStars] object.
+    final returnValue = InputInvoiceStars(
+      purpose: purpose,
+    );
+
+    // Now return the deserialized [InputInvoiceStars].
+    return returnValue;
+  }
+
+  /// Purpose.
+  final InputStorePaymentPurposeBase purpose;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x65f00ce3.
+    buffer.writeInt32(0x65f00ce3);
+
+    // Write fields.
+    buffer.writeObject(purpose);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x65f00ce3",
+      "purpose": purpose,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Invoice Chat Invite Subscription.
+///
+/// ID: `34e793f1`.
+class InputInvoiceChatInviteSubscription extends InputInvoiceBase {
+  /// Input Invoice Chat Invite Subscription constructor.
+  const InputInvoiceChatInviteSubscription({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputInvoiceChatInviteSubscription.deserialize(BinaryReader reader) {
+    // Read [InputInvoiceChatInviteSubscription] fields.
+    final hash = reader.readString();
+
+    // Construct [InputInvoiceChatInviteSubscription] object.
+    final returnValue = InputInvoiceChatInviteSubscription(
+      hash: hash,
+    );
+
+    // Now return the deserialized [InputInvoiceChatInviteSubscription].
+    return returnValue;
+  }
+
+  /// Hash.
+  final String hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x34e793f1.
+    buffer.writeInt32(0x34e793f1);
+
+    // Write fields.
+    buffer.writeString(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x34e793f1",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Invoice Star Gift.
+///
+/// ID: `25d8c1d8`.
+class InputInvoiceStarGift extends InputInvoiceBase {
+  /// Input Invoice Star Gift constructor.
+  const InputInvoiceStarGift({
+    required this.hideName,
+    required this.userId,
+    required this.giftId,
+    this.message,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputInvoiceStarGift.deserialize(BinaryReader reader) {
+    // Read [InputInvoiceStarGift] fields.
+    final flags = reader.readInt32();
+    final hideName = (flags & 1) != 0;
+    final userId = reader.readObject() as InputUserBase;
+    final giftId = reader.readInt64();
+    final hasMessageField = (flags & 2) != 0;
+    final message =
+        hasMessageField ? reader.readObject() as TextWithEntitiesBase : null;
+
+    // Construct [InputInvoiceStarGift] object.
+    final returnValue = InputInvoiceStarGift(
+      hideName: hideName,
+      userId: userId,
+      giftId: giftId,
+      message: message,
+    );
+
+    // Now return the deserialized [InputInvoiceStarGift].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: hideName,
+      b01: message != null,
+    );
+
+    return v;
+  }
+
+  /// hide_name: bit 0 of flags.0?true
+  final bool hideName;
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Gift Id.
+  ///
+  /// Field type is Int64.
+  final int giftId;
+
+  /// Message.
+  final TextWithEntitiesBase? message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x25d8c1d8.
+    buffer.writeInt32(0x25d8c1d8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(userId);
+    buffer.writeInt64(giftId);
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x25d8c1d8",
+      "flags": flags,
+      "hideName": hideName,
+      "userId": userId,
+      "giftId": giftId,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Payments Exported Invoice.
 ///
 /// ID: `aed0cbd9`.
@@ -75711,7 +80016,7 @@ class InputStorePaymentGiftPremium extends InputStorePaymentPurposeBase {
 
 /// Input Store Payment Premium Gift Code.
 ///
-/// ID: `a3805f3f`.
+/// ID: `fb790393`.
 class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
   /// Input Store Payment Premium Gift Code constructor.
   const InputStorePaymentPremiumGiftCode({
@@ -75719,6 +80024,7 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
     this.boostPeer,
     required this.currency,
     required this.amount,
+    this.message,
   }) : super._();
 
   /// Deserialize.
@@ -75731,6 +80037,9 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
         hasBoostPeerField ? reader.readObject() as InputPeerBase : null;
     final currency = reader.readString();
     final amount = reader.readInt64();
+    final hasMessageField = (flags & 2) != 0;
+    final message =
+        hasMessageField ? reader.readObject() as TextWithEntitiesBase : null;
 
     // Construct [InputStorePaymentPremiumGiftCode] object.
     final returnValue = InputStorePaymentPremiumGiftCode(
@@ -75738,6 +80047,7 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
       boostPeer: boostPeer,
       currency: currency,
       amount: amount,
+      message: message,
     );
 
     // Now return the deserialized [InputStorePaymentPremiumGiftCode].
@@ -75748,6 +80058,7 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
   int get flags {
     final v = _flag(
       b00: boostPeer != null,
+      b01: message != null,
     );
 
     return v;
@@ -75767,11 +80078,14 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
   /// Field type is Int64.
   final int amount;
 
+  /// Message.
+  final TextWithEntitiesBase? message;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa3805f3f.
-    buffer.writeInt32(0xa3805f3f);
+    // Write type-id 0xfb790393.
+    buffer.writeInt32(0xfb790393);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -75782,6 +80096,10 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
     }
     buffer.writeString(currency);
     buffer.writeInt64(amount);
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
 
     // Finished serialization.
   }
@@ -75789,12 +80107,13 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa3805f3f",
+      "\$": "0xfb790393",
       "flags": flags,
       "users": users,
       "boostPeer": boostPeer,
       "currency": currency,
       "amount": amount,
+      "message": message,
     };
 
     // Finished toJson.
@@ -75951,6 +80270,330 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
       "untilDate": untilDate.toIso8601String(),
       "currency": currency,
       "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Store Payment Stars Topup.
+///
+/// ID: `dddd0f56`.
+class InputStorePaymentStarsTopup extends InputStorePaymentPurposeBase {
+  /// Input Store Payment Stars Topup constructor.
+  const InputStorePaymentStarsTopup({
+    required this.stars,
+    required this.currency,
+    required this.amount,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputStorePaymentStarsTopup.deserialize(BinaryReader reader) {
+    // Read [InputStorePaymentStarsTopup] fields.
+    final stars = reader.readInt64();
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+
+    // Construct [InputStorePaymentStarsTopup] object.
+    final returnValue = InputStorePaymentStarsTopup(
+      stars: stars,
+      currency: currency,
+      amount: amount,
+    );
+
+    // Now return the deserialized [InputStorePaymentStarsTopup].
+    return returnValue;
+  }
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdddd0f56.
+    buffer.writeInt32(0xdddd0f56);
+
+    // Write fields.
+    buffer.writeInt64(stars);
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdddd0f56",
+      "stars": stars,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Store Payment Stars Gift.
+///
+/// ID: `1d741ef7`.
+class InputStorePaymentStarsGift extends InputStorePaymentPurposeBase {
+  /// Input Store Payment Stars Gift constructor.
+  const InputStorePaymentStarsGift({
+    required this.userId,
+    required this.stars,
+    required this.currency,
+    required this.amount,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputStorePaymentStarsGift.deserialize(BinaryReader reader) {
+    // Read [InputStorePaymentStarsGift] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final stars = reader.readInt64();
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+
+    // Construct [InputStorePaymentStarsGift] object.
+    final returnValue = InputStorePaymentStarsGift(
+      userId: userId,
+      stars: stars,
+      currency: currency,
+      amount: amount,
+    );
+
+    // Now return the deserialized [InputStorePaymentStarsGift].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1d741ef7.
+    buffer.writeInt32(0x1d741ef7);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeInt64(stars);
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1d741ef7",
+      "userId": userId,
+      "stars": stars,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Store Payment Stars Giveaway.
+///
+/// ID: `751f08fa`.
+class InputStorePaymentStarsGiveaway extends InputStorePaymentPurposeBase {
+  /// Input Store Payment Stars Giveaway constructor.
+  const InputStorePaymentStarsGiveaway({
+    required this.onlyNewSubscribers,
+    required this.winnersAreVisible,
+    required this.stars,
+    required this.boostPeer,
+    this.additionalPeers,
+    this.countriesIso2,
+    this.prizeDescription,
+    required this.randomId,
+    required this.untilDate,
+    required this.currency,
+    required this.amount,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputStorePaymentStarsGiveaway.deserialize(BinaryReader reader) {
+    // Read [InputStorePaymentStarsGiveaway] fields.
+    final flags = reader.readInt32();
+    final onlyNewSubscribers = (flags & 1) != 0;
+    final winnersAreVisible = (flags & 8) != 0;
+    final stars = reader.readInt64();
+    final boostPeer = reader.readObject() as InputPeerBase;
+    final hasAdditionalPeersField = (flags & 2) != 0;
+    final additionalPeers = hasAdditionalPeersField
+        ? reader.readVectorObject<InputPeerBase>()
+        : null;
+    final hasCountriesIso2Field = (flags & 4) != 0;
+    final countriesIso2 =
+        hasCountriesIso2Field ? reader.readVectorString() : null;
+    final hasPrizeDescriptionField = (flags & 16) != 0;
+    final prizeDescription =
+        hasPrizeDescriptionField ? reader.readString() : null;
+    final randomId = reader.readInt64();
+    final untilDate = reader.readDateTime();
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+    final users = reader.readInt32();
+
+    // Construct [InputStorePaymentStarsGiveaway] object.
+    final returnValue = InputStorePaymentStarsGiveaway(
+      onlyNewSubscribers: onlyNewSubscribers,
+      winnersAreVisible: winnersAreVisible,
+      stars: stars,
+      boostPeer: boostPeer,
+      additionalPeers: additionalPeers,
+      countriesIso2: countriesIso2,
+      prizeDescription: prizeDescription,
+      randomId: randomId,
+      untilDate: untilDate,
+      currency: currency,
+      amount: amount,
+      users: users,
+    );
+
+    // Now return the deserialized [InputStorePaymentStarsGiveaway].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: onlyNewSubscribers,
+      b03: winnersAreVisible,
+      b01: additionalPeers != null,
+      b02: countriesIso2 != null,
+      b04: prizeDescription != null,
+    );
+
+    return v;
+  }
+
+  /// only_new_subscribers: bit 0 of flags.0?true
+  final bool onlyNewSubscribers;
+
+  /// winners_are_visible: bit 3 of flags.3?true
+  final bool winnersAreVisible;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Boost Peer.
+  final InputPeerBase boostPeer;
+
+  /// Additional Peers.
+  final List<InputPeerBase>? additionalPeers;
+
+  /// Countries Iso2.
+  final List<String>? countriesIso2;
+
+  /// Prize Description.
+  final String? prizeDescription;
+
+  /// Random Id.
+  ///
+  /// Field type is Int64.
+  final int randomId;
+
+  /// Until Date.
+  final DateTime untilDate;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Users.
+  ///
+  /// Field type is Int32.
+  final int users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x751f08fa.
+    buffer.writeInt32(0x751f08fa);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(stars);
+    buffer.writeObject(boostPeer);
+    final localAdditionalPeersCopy = additionalPeers;
+    if (localAdditionalPeersCopy != null) {
+      buffer.writeVectorObject(localAdditionalPeersCopy);
+    }
+    final localCountriesIso2Copy = countriesIso2;
+    if (localCountriesIso2Copy != null) {
+      buffer.writeVectorString(localCountriesIso2Copy);
+    }
+    final localPrizeDescriptionCopy = prizeDescription;
+    if (localPrizeDescriptionCopy != null) {
+      buffer.writeString(localPrizeDescriptionCopy);
+    }
+    buffer.writeInt64(randomId);
+    buffer.writeDateTime(untilDate);
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+    buffer.writeInt32(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x751f08fa",
+      "flags": flags,
+      "onlyNewSubscribers": onlyNewSubscribers,
+      "winnersAreVisible": winnersAreVisible,
+      "stars": stars,
+      "boostPeer": boostPeer,
+      "additionalPeers": additionalPeers,
+      "countriesIso2": countriesIso2,
+      "prizeDescription": prizeDescription,
+      "randomId": randomId,
+      "untilDate": untilDate.toIso8601String(),
+      "currency": currency,
+      "amount": amount,
+      "users": users,
     };
 
     // Finished toJson.
@@ -76495,6 +81138,42 @@ class ReactionCustomEmoji extends ReactionBase {
     final returnValue = <String, dynamic>{
       "\$": "0x8935fc73",
       "documentId": documentId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Reaction Paid.
+///
+/// ID: `523da4eb`.
+class ReactionPaid extends ReactionBase {
+  /// Reaction Paid constructor.
+  const ReactionPaid() : super._();
+
+  /// Deserialize.
+  factory ReactionPaid.deserialize(BinaryReader reader) {
+    // Construct [ReactionPaid] object.
+    final returnValue = ReactionPaid();
+
+    // Now return the deserialized [ReactionPaid].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x523da4eb.
+    buffer.writeInt32(0x523da4eb);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x523da4eb",
     };
 
     // Finished toJson.
@@ -78578,6 +83257,134 @@ class EmojiGroup extends EmojiGroupBase {
   }
 }
 
+/// Emoji Group Greeting.
+///
+/// ID: `80d26cc7`.
+class EmojiGroupGreeting extends EmojiGroupBase {
+  /// Emoji Group Greeting constructor.
+  const EmojiGroupGreeting({
+    required this.title,
+    required this.iconEmojiId,
+    required this.emoticons,
+  }) : super._();
+
+  /// Deserialize.
+  factory EmojiGroupGreeting.deserialize(BinaryReader reader) {
+    // Read [EmojiGroupGreeting] fields.
+    final title = reader.readString();
+    final iconEmojiId = reader.readInt64();
+    final emoticons = reader.readVectorString();
+
+    // Construct [EmojiGroupGreeting] object.
+    final returnValue = EmojiGroupGreeting(
+      title: title,
+      iconEmojiId: iconEmojiId,
+      emoticons: emoticons,
+    );
+
+    // Now return the deserialized [EmojiGroupGreeting].
+    return returnValue;
+  }
+
+  /// Title.
+  final String title;
+
+  /// Icon Emoji Id.
+  ///
+  /// Field type is Int64.
+  final int iconEmojiId;
+
+  /// Emoticons.
+  final List<String> emoticons;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x80d26cc7.
+    buffer.writeInt32(0x80d26cc7);
+
+    // Write fields.
+    buffer.writeString(title);
+    buffer.writeInt64(iconEmojiId);
+    buffer.writeVectorString(emoticons);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x80d26cc7",
+      "title": title,
+      "iconEmojiId": iconEmojiId,
+      "emoticons": emoticons,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Emoji Group Premium.
+///
+/// ID: `093bcf34`.
+class EmojiGroupPremium extends EmojiGroupBase {
+  /// Emoji Group Premium constructor.
+  const EmojiGroupPremium({
+    required this.title,
+    required this.iconEmojiId,
+  }) : super._();
+
+  /// Deserialize.
+  factory EmojiGroupPremium.deserialize(BinaryReader reader) {
+    // Read [EmojiGroupPremium] fields.
+    final title = reader.readString();
+    final iconEmojiId = reader.readInt64();
+
+    // Construct [EmojiGroupPremium] object.
+    final returnValue = EmojiGroupPremium(
+      title: title,
+      iconEmojiId: iconEmojiId,
+    );
+
+    // Now return the deserialized [EmojiGroupPremium].
+    return returnValue;
+  }
+
+  /// Title.
+  final String title;
+
+  /// Icon Emoji Id.
+  ///
+  /// Field type is Int64.
+  final int iconEmojiId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x093bcf34.
+    buffer.writeInt32(0x093bcf34);
+
+    // Write fields.
+    buffer.writeString(title);
+    buffer.writeInt64(iconEmojiId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x093bcf34",
+      "title": title,
+      "iconEmojiId": iconEmojiId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Messages Emoji Groups Not Modified.
 ///
 /// ID: `6fb4ad87`.
@@ -79478,56 +84285,6 @@ class MessagesBotApp extends MessagesBotAppBase {
   }
 }
 
-/// App Web View Result Url.
-///
-/// ID: `3c1b4f0d`.
-class AppWebViewResultUrl extends AppWebViewResultBase {
-  /// App Web View Result Url constructor.
-  const AppWebViewResultUrl({
-    required this.url,
-  }) : super._();
-
-  /// Deserialize.
-  factory AppWebViewResultUrl.deserialize(BinaryReader reader) {
-    // Read [AppWebViewResultUrl] fields.
-    final url = reader.readString();
-
-    // Construct [AppWebViewResultUrl] object.
-    final returnValue = AppWebViewResultUrl(
-      url: url,
-    );
-
-    // Now return the deserialized [AppWebViewResultUrl].
-    return returnValue;
-  }
-
-  /// Url.
-  final String url;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0x3c1b4f0d.
-    buffer.writeInt32(0x3c1b4f0d);
-
-    // Write fields.
-    buffer.writeString(url);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0x3c1b4f0d",
-      "url": url,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
 /// Inline Bot Web View.
 ///
 /// ID: `b57295d5`.
@@ -80403,88 +85160,6 @@ class MessagePeerVoteMultiple extends MessagePeerVoteBase {
   }
 }
 
-/// Sponsored Web Page.
-///
-/// ID: `3db8ec63`.
-class SponsoredWebPage extends SponsoredWebPageBase {
-  /// Sponsored Web Page constructor.
-  const SponsoredWebPage({
-    required this.url,
-    required this.siteName,
-    this.photo,
-  }) : super._();
-
-  /// Deserialize.
-  factory SponsoredWebPage.deserialize(BinaryReader reader) {
-    // Read [SponsoredWebPage] fields.
-    final flags = reader.readInt32();
-    final url = reader.readString();
-    final siteName = reader.readString();
-    final hasPhotoField = (flags & 1) != 0;
-    final photo = hasPhotoField ? reader.readObject() as PhotoBase : null;
-
-    // Construct [SponsoredWebPage] object.
-    final returnValue = SponsoredWebPage(
-      url: url,
-      siteName: siteName,
-      photo: photo,
-    );
-
-    // Now return the deserialized [SponsoredWebPage].
-    return returnValue;
-  }
-
-  /// Flags.
-  int get flags {
-    final v = _flag(
-      b00: photo != null,
-    );
-
-    return v;
-  }
-
-  /// Url.
-  final String url;
-
-  /// Site Name.
-  final String siteName;
-
-  /// Photo.
-  final PhotoBase? photo;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0x3db8ec63.
-    buffer.writeInt32(0x3db8ec63);
-
-    // Write fields.
-    buffer.writeInt32(flags);
-    buffer.writeString(url);
-    buffer.writeString(siteName);
-    final localPhotoCopy = photo;
-    if (localPhotoCopy != null) {
-      buffer.writeObject(localPhotoCopy);
-    }
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0x3db8ec63",
-      "flags": flags,
-      "url": url,
-      "siteName": siteName,
-      "photo": photo,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
 /// Story Views.
 ///
 /// ID: `8d595cd6`.
@@ -80751,7 +85426,7 @@ class StoryItemSkipped extends StoryItemBase {
 
 /// Story Item.
 ///
-/// ID: `af6365a1`.
+/// ID: `79b26a24`.
 class StoryItem extends StoryItemBase {
   /// Story Item constructor.
   const StoryItem({
@@ -80766,6 +85441,7 @@ class StoryItem extends StoryItemBase {
     required this.out,
     required this.id,
     required this.date,
+    this.fromId,
     this.fwdFrom,
     required this.expireDate,
     this.caption,
@@ -80792,6 +85468,8 @@ class StoryItem extends StoryItemBase {
     final out = (flags & 65536) != 0;
     final id = reader.readInt32();
     final date = reader.readDateTime();
+    final hasFromIdField = (flags & 262144) != 0;
+    final fromId = hasFromIdField ? reader.readObject() as PeerBase : null;
     final hasFwdFromField = (flags & 131072) != 0;
     final fwdFrom =
         hasFwdFromField ? reader.readObject() as StoryFwdHeaderBase : null;
@@ -80827,6 +85505,7 @@ class StoryItem extends StoryItemBase {
       out: out,
       id: id,
       date: date,
+      fromId: fromId,
       fwdFrom: fwdFrom,
       expireDate: expireDate,
       caption: caption,
@@ -80854,6 +85533,7 @@ class StoryItem extends StoryItemBase {
       b12: contacts,
       b13: selectedContacts,
       b16: out,
+      b18: fromId != null,
       b17: fwdFrom != null,
       b00: caption != null,
       b01: entities != null,
@@ -80901,6 +85581,9 @@ class StoryItem extends StoryItemBase {
   /// Date.
   final DateTime date;
 
+  /// From Id.
+  final PeerBase? fromId;
+
   /// Fwd From.
   final StoryFwdHeaderBase? fwdFrom;
 
@@ -80931,13 +85614,17 @@ class StoryItem extends StoryItemBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xaf6365a1.
-    buffer.writeInt32(0xaf6365a1);
+    // Write type-id 0x79b26a24.
+    buffer.writeInt32(0x79b26a24);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt32(id);
     buffer.writeDateTime(date);
+    final localFromIdCopy = fromId;
+    if (localFromIdCopy != null) {
+      buffer.writeObject(localFromIdCopy);
+    }
     final localFwdFromCopy = fwdFrom;
     if (localFwdFromCopy != null) {
       buffer.writeObject(localFwdFromCopy);
@@ -80975,7 +85662,7 @@ class StoryItem extends StoryItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaf6365a1",
+      "\$": "0x79b26a24",
       "flags": flags,
       "pinned": pinned,
       "public": public,
@@ -80988,6 +85675,7 @@ class StoryItem extends StoryItemBase {
       "out": out,
       "id": id,
       "date": date.toIso8601String(),
+      "fromId": fromId,
       "fwdFrom": fwdFrom,
       "expireDate": expireDate.toIso8601String(),
       "caption": caption,
@@ -81185,12 +85873,13 @@ class StoriesAllStories extends StoriesAllStoriesBase {
 
 /// Stories Stories.
 ///
-/// ID: `5dd8c3c8`.
+/// ID: `63c3dd0a`.
 class StoriesStories extends StoriesStoriesBase {
   /// Stories Stories constructor.
   const StoriesStories({
     required this.count,
     required this.stories,
+    this.pinnedToTop,
     required this.chats,
     required this.users,
   }) : super._();
@@ -81198,8 +85887,11 @@ class StoriesStories extends StoriesStoriesBase {
   /// Deserialize.
   factory StoriesStories.deserialize(BinaryReader reader) {
     // Read [StoriesStories] fields.
+    final flags = reader.readInt32();
     final count = reader.readInt32();
     final stories = reader.readVectorObject<StoryItemBase>();
+    final hasPinnedToTopField = (flags & 1) != 0;
+    final pinnedToTop = hasPinnedToTopField ? reader.readVectorInt32() : null;
     final chats = reader.readVectorObject<ChatBase>();
     final users = reader.readVectorObject<UserBase>();
 
@@ -81207,12 +85899,22 @@ class StoriesStories extends StoriesStoriesBase {
     final returnValue = StoriesStories(
       count: count,
       stories: stories,
+      pinnedToTop: pinnedToTop,
       chats: chats,
       users: users,
     );
 
     // Now return the deserialized [StoriesStories].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: pinnedToTop != null,
+    );
+
+    return v;
   }
 
   /// Count.
@@ -81223,6 +85925,9 @@ class StoriesStories extends StoriesStoriesBase {
   /// Stories.
   final List<StoryItemBase> stories;
 
+  /// Pinned To Top.
+  final List<int>? pinnedToTop;
+
   /// Chats.
   final List<ChatBase> chats;
 
@@ -81232,12 +85937,17 @@ class StoriesStories extends StoriesStoriesBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x5dd8c3c8.
-    buffer.writeInt32(0x5dd8c3c8);
+    // Write type-id 0x63c3dd0a.
+    buffer.writeInt32(0x63c3dd0a);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt32(count);
     buffer.writeVectorObject(stories);
+    final localPinnedToTopCopy = pinnedToTop;
+    if (localPinnedToTopCopy != null) {
+      buffer.writeVectorInt32(localPinnedToTopCopy);
+    }
     buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
 
@@ -81247,9 +85957,11 @@ class StoriesStories extends StoriesStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5dd8c3c8",
+      "\$": "0x63c3dd0a",
+      "flags": flags,
       "count": count,
       "stories": stories,
+      "pinnedToTop": pinnedToTop,
       "chats": chats,
       "users": users,
     };
@@ -81843,23 +86555,23 @@ class InputReplyToMessage extends InputReplyToBase {
 
 /// Input Reply To Story.
 ///
-/// ID: `15b0f283`.
+/// ID: `5881323a`.
 class InputReplyToStory extends InputReplyToBase {
   /// Input Reply To Story constructor.
   const InputReplyToStory({
-    required this.userId,
+    required this.peer,
     required this.storyId,
   }) : super._();
 
   /// Deserialize.
   factory InputReplyToStory.deserialize(BinaryReader reader) {
     // Read [InputReplyToStory] fields.
-    final userId = reader.readObject() as InputUserBase;
+    final peer = reader.readObject() as InputPeerBase;
     final storyId = reader.readInt32();
 
     // Construct [InputReplyToStory] object.
     final returnValue = InputReplyToStory(
-      userId: userId,
+      peer: peer,
       storyId: storyId,
     );
 
@@ -81867,8 +86579,8 @@ class InputReplyToStory extends InputReplyToBase {
     return returnValue;
   }
 
-  /// User Id.
-  final InputUserBase userId;
+  /// Peer.
+  final InputPeerBase peer;
 
   /// Story Id.
   ///
@@ -81878,11 +86590,11 @@ class InputReplyToStory extends InputReplyToBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x15b0f283.
-    buffer.writeInt32(0x15b0f283);
+    // Write type-id 0x5881323a.
+    buffer.writeInt32(0x5881323a);
 
     // Write fields.
-    buffer.writeObject(userId);
+    buffer.writeObject(peer);
     buffer.writeInt32(storyId);
 
     // Finished serialization.
@@ -81891,8 +86603,8 @@ class InputReplyToStory extends InputReplyToBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15b0f283",
-      "userId": userId,
+      "\$": "0x5881323a",
+      "peer": peer,
       "storyId": storyId,
     };
 
@@ -82034,7 +86746,7 @@ class StoriesStealthMode extends StoriesStealthModeBase {
 
 /// Media Area Coordinates.
 ///
-/// ID: `03d1ea4e`.
+/// ID: `cfc9e002`.
 class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
   /// Media Area Coordinates constructor.
   const MediaAreaCoordinates({
@@ -82043,16 +86755,20 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
     required this.w,
     required this.h,
     required this.rotation,
+    this.radius,
   }) : super._();
 
   /// Deserialize.
   factory MediaAreaCoordinates.deserialize(BinaryReader reader) {
     // Read [MediaAreaCoordinates] fields.
+    final flags = reader.readInt32();
     final x = reader.readFloat64();
     final y = reader.readFloat64();
     final w = reader.readFloat64();
     final h = reader.readFloat64();
     final rotation = reader.readFloat64();
+    final hasRadiusField = (flags & 1) != 0;
+    final radius = hasRadiusField ? reader.readFloat64() : null;
 
     // Construct [MediaAreaCoordinates] object.
     final returnValue = MediaAreaCoordinates(
@@ -82061,10 +86777,20 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
       w: w,
       h: h,
       rotation: rotation,
+      radius: radius,
     );
 
     // Now return the deserialized [MediaAreaCoordinates].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: radius != null,
+    );
+
+    return v;
   }
 
   /// X.
@@ -82082,18 +86808,26 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
   /// Rotation.
   final double rotation;
 
+  /// Radius.
+  final double? radius;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x03d1ea4e.
-    buffer.writeInt32(0x03d1ea4e);
+    // Write type-id 0xcfc9e002.
+    buffer.writeInt32(0xcfc9e002);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeDouble(x);
     buffer.writeDouble(y);
     buffer.writeDouble(w);
     buffer.writeDouble(h);
     buffer.writeDouble(rotation);
+    final localRadiusCopy = radius;
+    if (localRadiusCopy != null) {
+      buffer.writeDouble(localRadiusCopy);
+    }
 
     // Finished serialization.
   }
@@ -82101,12 +86835,14 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x03d1ea4e",
+      "\$": "0xcfc9e002",
+      "flags": flags,
       "x": x,
       "y": y,
       "w": w,
       "h": h,
       "rotation": rotation,
+      "radius": radius,
     };
 
     // Finished toJson.
@@ -82282,28 +87018,43 @@ class InputMediaAreaVenue extends MediaAreaBase {
 
 /// Media Area Geo Point.
 ///
-/// ID: `df8b3b22`.
+/// ID: `cad5452d`.
 class MediaAreaGeoPoint extends MediaAreaBase {
   /// Media Area Geo Point constructor.
   const MediaAreaGeoPoint({
     required this.coordinates,
     required this.geo,
+    this.address,
   }) : super._();
 
   /// Deserialize.
   factory MediaAreaGeoPoint.deserialize(BinaryReader reader) {
     // Read [MediaAreaGeoPoint] fields.
+    final flags = reader.readInt32();
     final coordinates = reader.readObject() as MediaAreaCoordinatesBase;
     final geo = reader.readObject() as GeoPointBase;
+    final hasAddressField = (flags & 1) != 0;
+    final address =
+        hasAddressField ? reader.readObject() as GeoPointAddressBase : null;
 
     // Construct [MediaAreaGeoPoint] object.
     final returnValue = MediaAreaGeoPoint(
       coordinates: coordinates,
       geo: geo,
+      address: address,
     );
 
     // Now return the deserialized [MediaAreaGeoPoint].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: address != null,
+    );
+
+    return v;
   }
 
   /// Coordinates.
@@ -82312,15 +87063,23 @@ class MediaAreaGeoPoint extends MediaAreaBase {
   /// Geo.
   final GeoPointBase geo;
 
+  /// Address.
+  final GeoPointAddressBase? address;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xdf8b3b22.
-    buffer.writeInt32(0xdf8b3b22);
+    // Write type-id 0xcad5452d.
+    buffer.writeInt32(0xcad5452d);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(coordinates);
     buffer.writeObject(geo);
+    final localAddressCopy = address;
+    if (localAddressCopy != null) {
+      buffer.writeObject(localAddressCopy);
+    }
 
     // Finished serialization.
   }
@@ -82328,9 +87087,11 @@ class MediaAreaGeoPoint extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdf8b3b22",
+      "\$": "0xcad5452d",
+      "flags": flags,
       "coordinates": coordinates,
       "geo": geo,
+      "address": address,
     };
 
     // Finished toJson.
@@ -82554,6 +87315,140 @@ class InputMediaAreaChannelPost extends MediaAreaBase {
       "coordinates": coordinates,
       "channel": channel,
       "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Media Area Url.
+///
+/// ID: `37381085`.
+class MediaAreaUrl extends MediaAreaBase {
+  /// Media Area Url constructor.
+  const MediaAreaUrl({
+    required this.coordinates,
+    required this.url,
+  }) : super._();
+
+  /// Deserialize.
+  factory MediaAreaUrl.deserialize(BinaryReader reader) {
+    // Read [MediaAreaUrl] fields.
+    final coordinates = reader.readObject() as MediaAreaCoordinatesBase;
+    final url = reader.readString();
+
+    // Construct [MediaAreaUrl] object.
+    final returnValue = MediaAreaUrl(
+      coordinates: coordinates,
+      url: url,
+    );
+
+    // Now return the deserialized [MediaAreaUrl].
+    return returnValue;
+  }
+
+  /// Coordinates.
+  final MediaAreaCoordinatesBase coordinates;
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x37381085.
+    buffer.writeInt32(0x37381085);
+
+    // Write fields.
+    buffer.writeObject(coordinates);
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x37381085",
+      "coordinates": coordinates,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Media Area Weather.
+///
+/// ID: `49a6549c`.
+class MediaAreaWeather extends MediaAreaBase {
+  /// Media Area Weather constructor.
+  const MediaAreaWeather({
+    required this.coordinates,
+    required this.emoji,
+    required this.temperatureC,
+    required this.color,
+  }) : super._();
+
+  /// Deserialize.
+  factory MediaAreaWeather.deserialize(BinaryReader reader) {
+    // Read [MediaAreaWeather] fields.
+    final coordinates = reader.readObject() as MediaAreaCoordinatesBase;
+    final emoji = reader.readString();
+    final temperatureC = reader.readFloat64();
+    final color = reader.readInt32();
+
+    // Construct [MediaAreaWeather] object.
+    final returnValue = MediaAreaWeather(
+      coordinates: coordinates,
+      emoji: emoji,
+      temperatureC: temperatureC,
+      color: color,
+    );
+
+    // Now return the deserialized [MediaAreaWeather].
+    return returnValue;
+  }
+
+  /// Coordinates.
+  final MediaAreaCoordinatesBase coordinates;
+
+  /// Emoji.
+  final String emoji;
+
+  /// Temperature C.
+  final double temperatureC;
+
+  /// Color.
+  ///
+  /// Field type is Int32.
+  final int color;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x49a6549c.
+    buffer.writeInt32(0x49a6549c);
+
+    // Write fields.
+    buffer.writeObject(coordinates);
+    buffer.writeString(emoji);
+    buffer.writeDouble(temperatureC);
+    buffer.writeInt32(color);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x49a6549c",
+      "coordinates": coordinates,
+      "emoji": emoji,
+      "temperatureC": temperatureC,
+      "color": color,
     };
 
     // Finished toJson.
@@ -83160,7 +88055,7 @@ class PaymentsGiveawayInfo extends PaymentsGiveawayInfoBase {
 
 /// Payments Giveaway Info Results.
 ///
-/// ID: `00cd5570`.
+/// ID: `e175e66f`.
 class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   /// Payments Giveaway Info Results constructor.
   const PaymentsGiveawayInfoResults({
@@ -83168,9 +88063,10 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
     required this.refunded,
     required this.startDate,
     this.giftCodeSlug,
+    this.starsPrize,
     required this.finishDate,
     required this.winnersCount,
-    required this.activatedCount,
+    this.activatedCount,
   }) : super._();
 
   /// Deserialize.
@@ -83180,11 +88076,14 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
     final winner = (flags & 1) != 0;
     final refunded = (flags & 2) != 0;
     final startDate = reader.readDateTime();
-    final hasGiftCodeSlugField = (flags & 1) != 0;
+    final hasGiftCodeSlugField = (flags & 8) != 0;
     final giftCodeSlug = hasGiftCodeSlugField ? reader.readString() : null;
+    final hasStarsPrizeField = (flags & 16) != 0;
+    final starsPrize = hasStarsPrizeField ? reader.readInt64() : null;
     final finishDate = reader.readDateTime();
     final winnersCount = reader.readInt32();
-    final activatedCount = reader.readInt32();
+    final hasActivatedCountField = (flags & 4) != 0;
+    final activatedCount = hasActivatedCountField ? reader.readInt32() : null;
 
     // Construct [PaymentsGiveawayInfoResults] object.
     final returnValue = PaymentsGiveawayInfoResults(
@@ -83192,6 +88091,7 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
       refunded: refunded,
       startDate: startDate,
       giftCodeSlug: giftCodeSlug,
+      starsPrize: starsPrize,
       finishDate: finishDate,
       winnersCount: winnersCount,
       activatedCount: activatedCount,
@@ -83204,8 +88104,11 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: winner || giftCodeSlug != null,
+      b00: winner,
       b01: refunded,
+      b03: giftCodeSlug != null,
+      b04: starsPrize != null,
+      b02: activatedCount != null,
     );
 
     return v;
@@ -83223,6 +88126,9 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   /// Gift Code Slug.
   final String? giftCodeSlug;
 
+  /// Stars Prize.
+  final int? starsPrize;
+
   /// Finish Date.
   final DateTime finishDate;
 
@@ -83232,15 +88138,13 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   final int winnersCount;
 
   /// Activated Count.
-  ///
-  /// Field type is Int32.
-  final int activatedCount;
+  final int? activatedCount;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x00cd5570.
-    buffer.writeInt32(0x00cd5570);
+    // Write type-id 0xe175e66f.
+    buffer.writeInt32(0xe175e66f);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -83249,9 +88153,16 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
     if (localGiftCodeSlugCopy != null) {
       buffer.writeString(localGiftCodeSlugCopy);
     }
+    final localStarsPrizeCopy = starsPrize;
+    if (localStarsPrizeCopy != null) {
+      buffer.writeInt64(localStarsPrizeCopy);
+    }
     buffer.writeDateTime(finishDate);
     buffer.writeInt32(winnersCount);
-    buffer.writeInt32(activatedCount);
+    final localActivatedCountCopy = activatedCount;
+    if (localActivatedCountCopy != null) {
+      buffer.writeInt32(localActivatedCountCopy);
+    }
 
     // Finished serialization.
   }
@@ -83259,12 +88170,13 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x00cd5570",
+      "\$": "0xe175e66f",
       "flags": flags,
       "winner": winner,
       "refunded": refunded,
       "startDate": startDate.toIso8601String(),
       "giftCodeSlug": giftCodeSlug,
+      "starsPrize": starsPrize,
       "finishDate": finishDate.toIso8601String(),
       "winnersCount": winnersCount,
       "activatedCount": activatedCount,
@@ -83355,9 +88267,99 @@ class PrepaidGiveaway extends PrepaidGiveawayBase {
   }
 }
 
+/// Prepaid Stars Giveaway.
+///
+/// ID: `9a9d77e0`.
+class PrepaidStarsGiveaway extends PrepaidGiveawayBase {
+  /// Prepaid Stars Giveaway constructor.
+  const PrepaidStarsGiveaway({
+    required this.id,
+    required this.stars,
+    required this.quantity,
+    required this.boosts,
+    required this.date,
+  }) : super._();
+
+  /// Deserialize.
+  factory PrepaidStarsGiveaway.deserialize(BinaryReader reader) {
+    // Read [PrepaidStarsGiveaway] fields.
+    final id = reader.readInt64();
+    final stars = reader.readInt64();
+    final quantity = reader.readInt32();
+    final boosts = reader.readInt32();
+    final date = reader.readDateTime();
+
+    // Construct [PrepaidStarsGiveaway] object.
+    final returnValue = PrepaidStarsGiveaway(
+      id: id,
+      stars: stars,
+      quantity: quantity,
+      boosts: boosts,
+      date: date,
+    );
+
+    // Now return the deserialized [PrepaidStarsGiveaway].
+    return returnValue;
+  }
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Quantity.
+  ///
+  /// Field type is Int32.
+  final int quantity;
+
+  /// Boosts.
+  ///
+  /// Field type is Int32.
+  final int boosts;
+
+  /// Date.
+  final DateTime date;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9a9d77e0.
+    buffer.writeInt32(0x9a9d77e0);
+
+    // Write fields.
+    buffer.writeInt64(id);
+    buffer.writeInt64(stars);
+    buffer.writeInt32(quantity);
+    buffer.writeInt32(boosts);
+    buffer.writeDateTime(date);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a9d77e0",
+      "id": id,
+      "stars": stars,
+      "quantity": quantity,
+      "boosts": boosts,
+      "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Boost.
 ///
-/// ID: `2a1c8c71`.
+/// ID: `4b3e14d6`.
 class Boost extends BoostBase {
   /// Boost constructor.
   const Boost({
@@ -83371,6 +88373,7 @@ class Boost extends BoostBase {
     required this.expires,
     this.usedGiftSlug,
     this.multiplier,
+    this.stars,
   }) : super._();
 
   /// Deserialize.
@@ -83391,6 +88394,8 @@ class Boost extends BoostBase {
     final usedGiftSlug = hasUsedGiftSlugField ? reader.readString() : null;
     final hasMultiplierField = (flags & 32) != 0;
     final multiplier = hasMultiplierField ? reader.readInt32() : null;
+    final hasStarsField = (flags & 64) != 0;
+    final stars = hasStarsField ? reader.readInt64() : null;
 
     // Construct [Boost] object.
     final returnValue = Boost(
@@ -83404,6 +88409,7 @@ class Boost extends BoostBase {
       expires: expires,
       usedGiftSlug: usedGiftSlug,
       multiplier: multiplier,
+      stars: stars,
     );
 
     // Now return the deserialized [Boost].
@@ -83419,6 +88425,7 @@ class Boost extends BoostBase {
       b00: userId != null,
       b04: usedGiftSlug != null,
       b05: multiplier != null,
+      b06: stars != null,
     );
 
     return v;
@@ -83454,11 +88461,14 @@ class Boost extends BoostBase {
   /// Multiplier.
   final int? multiplier;
 
+  /// Stars.
+  final int? stars;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x2a1c8c71.
-    buffer.writeInt32(0x2a1c8c71);
+    // Write type-id 0x4b3e14d6.
+    buffer.writeInt32(0x4b3e14d6);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -83481,6 +88491,10 @@ class Boost extends BoostBase {
     if (localMultiplierCopy != null) {
       buffer.writeInt32(localMultiplierCopy);
     }
+    final localStarsCopy = stars;
+    if (localStarsCopy != null) {
+      buffer.writeInt64(localStarsCopy);
+    }
 
     // Finished serialization.
   }
@@ -83488,7 +88502,7 @@ class Boost extends BoostBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2a1c8c71",
+      "\$": "0x4b3e14d6",
       "flags": flags,
       "gift": gift,
       "giveaway": giveaway,
@@ -83500,6 +88514,7 @@ class Boost extends BoostBase {
       "expires": expires.toIso8601String(),
       "usedGiftSlug": usedGiftSlug,
       "multiplier": multiplier,
+      "stars": stars,
     };
 
     // Finished toJson.
@@ -84666,7 +89681,7 @@ class HelpPeerColorProfileSet extends HelpPeerColorSetBase {
 
 /// Help Peer Color Option.
 ///
-/// ID: `ef8430ab`.
+/// ID: `adec6ebe`.
 class HelpPeerColorOption extends HelpPeerColorOptionBase {
   /// Help Peer Color Option constructor.
   const HelpPeerColorOption({
@@ -84675,6 +89690,7 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
     this.colors,
     this.darkColors,
     this.channelMinLevel,
+    this.groupMinLevel,
   }) : super._();
 
   /// Deserialize.
@@ -84691,6 +89707,8 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
         hasDarkColorsField ? reader.readObject() as HelpPeerColorSetBase : null;
     final hasChannelMinLevelField = (flags & 8) != 0;
     final channelMinLevel = hasChannelMinLevelField ? reader.readInt32() : null;
+    final hasGroupMinLevelField = (flags & 16) != 0;
+    final groupMinLevel = hasGroupMinLevelField ? reader.readInt32() : null;
 
     // Construct [HelpPeerColorOption] object.
     final returnValue = HelpPeerColorOption(
@@ -84699,6 +89717,7 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
       colors: colors,
       darkColors: darkColors,
       channelMinLevel: channelMinLevel,
+      groupMinLevel: groupMinLevel,
     );
 
     // Now return the deserialized [HelpPeerColorOption].
@@ -84712,6 +89731,7 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
       b01: colors != null,
       b02: darkColors != null,
       b03: channelMinLevel != null,
+      b04: groupMinLevel != null,
     );
 
     return v;
@@ -84734,11 +89754,14 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
   /// Channel Min Level.
   final int? channelMinLevel;
 
+  /// Group Min Level.
+  final int? groupMinLevel;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xef8430ab.
-    buffer.writeInt32(0xef8430ab);
+    // Write type-id 0xadec6ebe.
+    buffer.writeInt32(0xadec6ebe);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -84755,6 +89778,10 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
     if (localChannelMinLevelCopy != null) {
       buffer.writeInt32(localChannelMinLevelCopy);
     }
+    final localGroupMinLevelCopy = groupMinLevel;
+    if (localGroupMinLevelCopy != null) {
+      buffer.writeInt32(localGroupMinLevelCopy);
+    }
 
     // Finished serialization.
   }
@@ -84762,13 +89789,14 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef8430ab",
+      "\$": "0xadec6ebe",
       "flags": flags,
       "hidden": hidden,
       "colorId": colorId,
       "colors": colors,
       "darkColors": darkColors,
       "channelMinLevel": channelMinLevel,
+      "groupMinLevel": groupMinLevel,
     };
 
     // Finished toJson.
@@ -85435,6 +90463,8921 @@ class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
   }
 }
 
+/// Saved Reaction Tag.
+///
+/// ID: `cb6ff828`.
+class SavedReactionTag extends SavedReactionTagBase {
+  /// Saved Reaction Tag constructor.
+  const SavedReactionTag({
+    required this.reaction,
+    this.title,
+    required this.count,
+  }) : super._();
+
+  /// Deserialize.
+  factory SavedReactionTag.deserialize(BinaryReader reader) {
+    // Read [SavedReactionTag] fields.
+    final flags = reader.readInt32();
+    final reaction = reader.readObject() as ReactionBase;
+    final hasTitleField = (flags & 1) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final count = reader.readInt32();
+
+    // Construct [SavedReactionTag] object.
+    final returnValue = SavedReactionTag(
+      reaction: reaction,
+      title: title,
+      count: count,
+    );
+
+    // Now return the deserialized [SavedReactionTag].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: title != null,
+    );
+
+    return v;
+  }
+
+  /// Reaction.
+  final ReactionBase reaction;
+
+  /// Title.
+  final String? title;
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcb6ff828.
+    buffer.writeInt32(0xcb6ff828);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(reaction);
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    buffer.writeInt32(count);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcb6ff828",
+      "flags": flags,
+      "reaction": reaction,
+      "title": title,
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Saved Reaction Tags Not Modified.
+///
+/// ID: `889b59ef`.
+class MessagesSavedReactionTagsNotModified
+    extends MessagesSavedReactionTagsBase {
+  /// Messages Saved Reaction Tags Not Modified constructor.
+  const MessagesSavedReactionTagsNotModified() : super._();
+
+  /// Deserialize.
+  factory MessagesSavedReactionTagsNotModified.deserialize(
+      BinaryReader reader) {
+    // Construct [MessagesSavedReactionTagsNotModified] object.
+    final returnValue = MessagesSavedReactionTagsNotModified();
+
+    // Now return the deserialized [MessagesSavedReactionTagsNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x889b59ef.
+    buffer.writeInt32(0x889b59ef);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x889b59ef",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Saved Reaction Tags.
+///
+/// ID: `3259950a`.
+class MessagesSavedReactionTags extends MessagesSavedReactionTagsBase {
+  /// Messages Saved Reaction Tags constructor.
+  const MessagesSavedReactionTags({
+    required this.tags,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSavedReactionTags.deserialize(BinaryReader reader) {
+    // Read [MessagesSavedReactionTags] fields.
+    final tags = reader.readVectorObject<SavedReactionTagBase>();
+    final hash = reader.readInt64();
+
+    // Construct [MessagesSavedReactionTags] object.
+    final returnValue = MessagesSavedReactionTags(
+      tags: tags,
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesSavedReactionTags].
+    return returnValue;
+  }
+
+  /// Tags.
+  final List<SavedReactionTagBase> tags;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3259950a.
+    buffer.writeInt32(0x3259950a);
+
+    // Write fields.
+    buffer.writeVectorObject(tags);
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3259950a",
+      "tags": tags,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Outbox Read Date.
+///
+/// ID: `3bb842ac`.
+class OutboxReadDate extends OutboxReadDateBase {
+  /// Outbox Read Date constructor.
+  const OutboxReadDate({
+    required this.date,
+  }) : super._();
+
+  /// Deserialize.
+  factory OutboxReadDate.deserialize(BinaryReader reader) {
+    // Read [OutboxReadDate] fields.
+    final date = reader.readDateTime();
+
+    // Construct [OutboxReadDate] object.
+    final returnValue = OutboxReadDate(
+      date: date,
+    );
+
+    // Now return the deserialized [OutboxReadDate].
+    return returnValue;
+  }
+
+  /// Date.
+  final DateTime date;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3bb842ac.
+    buffer.writeInt32(0x3bb842ac);
+
+    // Write fields.
+    buffer.writeDateTime(date);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3bb842ac",
+      "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Eligible To Join.
+///
+/// ID: `dc8b44cf`.
+class SmsjobsEligibleToJoin extends SmsjobsEligibilityToJoinBase {
+  /// Smsjobs Eligible To Join constructor.
+  const SmsjobsEligibleToJoin({
+    required this.termsUrl,
+    required this.monthlySentSms,
+  }) : super._();
+
+  /// Deserialize.
+  factory SmsjobsEligibleToJoin.deserialize(BinaryReader reader) {
+    // Read [SmsjobsEligibleToJoin] fields.
+    final termsUrl = reader.readString();
+    final monthlySentSms = reader.readInt32();
+
+    // Construct [SmsjobsEligibleToJoin] object.
+    final returnValue = SmsjobsEligibleToJoin(
+      termsUrl: termsUrl,
+      monthlySentSms: monthlySentSms,
+    );
+
+    // Now return the deserialized [SmsjobsEligibleToJoin].
+    return returnValue;
+  }
+
+  /// Terms Url.
+  final String termsUrl;
+
+  /// Monthly Sent Sms.
+  ///
+  /// Field type is Int32.
+  final int monthlySentSms;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdc8b44cf.
+    buffer.writeInt32(0xdc8b44cf);
+
+    // Write fields.
+    buffer.writeString(termsUrl);
+    buffer.writeInt32(monthlySentSms);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdc8b44cf",
+      "termsUrl": termsUrl,
+      "monthlySentSms": monthlySentSms,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Status.
+///
+/// ID: `2aee9191`.
+class SmsjobsStatus extends SmsjobsStatusBase {
+  /// Smsjobs Status constructor.
+  const SmsjobsStatus({
+    required this.allowInternational,
+    required this.recentSent,
+    required this.recentSince,
+    required this.recentRemains,
+    required this.totalSent,
+    required this.totalSince,
+    this.lastGiftSlug,
+    required this.termsUrl,
+  }) : super._();
+
+  /// Deserialize.
+  factory SmsjobsStatus.deserialize(BinaryReader reader) {
+    // Read [SmsjobsStatus] fields.
+    final flags = reader.readInt32();
+    final allowInternational = (flags & 1) != 0;
+    final recentSent = reader.readInt32();
+    final recentSince = reader.readInt32();
+    final recentRemains = reader.readInt32();
+    final totalSent = reader.readInt32();
+    final totalSince = reader.readInt32();
+    final hasLastGiftSlugField = (flags & 2) != 0;
+    final lastGiftSlug = hasLastGiftSlugField ? reader.readString() : null;
+    final termsUrl = reader.readString();
+
+    // Construct [SmsjobsStatus] object.
+    final returnValue = SmsjobsStatus(
+      allowInternational: allowInternational,
+      recentSent: recentSent,
+      recentSince: recentSince,
+      recentRemains: recentRemains,
+      totalSent: totalSent,
+      totalSince: totalSince,
+      lastGiftSlug: lastGiftSlug,
+      termsUrl: termsUrl,
+    );
+
+    // Now return the deserialized [SmsjobsStatus].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: allowInternational,
+      b01: lastGiftSlug != null,
+    );
+
+    return v;
+  }
+
+  /// allow_international: bit 0 of flags.0?true
+  final bool allowInternational;
+
+  /// Recent Sent.
+  ///
+  /// Field type is Int32.
+  final int recentSent;
+
+  /// Recent Since.
+  ///
+  /// Field type is Int32.
+  final int recentSince;
+
+  /// Recent Remains.
+  ///
+  /// Field type is Int32.
+  final int recentRemains;
+
+  /// Total Sent.
+  ///
+  /// Field type is Int32.
+  final int totalSent;
+
+  /// Total Since.
+  ///
+  /// Field type is Int32.
+  final int totalSince;
+
+  /// Last Gift Slug.
+  final String? lastGiftSlug;
+
+  /// Terms Url.
+  final String termsUrl;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2aee9191.
+    buffer.writeInt32(0x2aee9191);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(recentSent);
+    buffer.writeInt32(recentSince);
+    buffer.writeInt32(recentRemains);
+    buffer.writeInt32(totalSent);
+    buffer.writeInt32(totalSince);
+    final localLastGiftSlugCopy = lastGiftSlug;
+    if (localLastGiftSlugCopy != null) {
+      buffer.writeString(localLastGiftSlugCopy);
+    }
+    buffer.writeString(termsUrl);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2aee9191",
+      "flags": flags,
+      "allowInternational": allowInternational,
+      "recentSent": recentSent,
+      "recentSince": recentSince,
+      "recentRemains": recentRemains,
+      "totalSent": totalSent,
+      "totalSince": totalSince,
+      "lastGiftSlug": lastGiftSlug,
+      "termsUrl": termsUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Sms Job.
+///
+/// ID: `e6a1eeb8`.
+class SmsJob extends SmsJobBase {
+  /// Sms Job constructor.
+  const SmsJob({
+    required this.jobId,
+    required this.phoneNumber,
+    required this.text,
+  }) : super._();
+
+  /// Deserialize.
+  factory SmsJob.deserialize(BinaryReader reader) {
+    // Read [SmsJob] fields.
+    final jobId = reader.readString();
+    final phoneNumber = reader.readString();
+    final text = reader.readString();
+
+    // Construct [SmsJob] object.
+    final returnValue = SmsJob(
+      jobId: jobId,
+      phoneNumber: phoneNumber,
+      text: text,
+    );
+
+    // Now return the deserialized [SmsJob].
+    return returnValue;
+  }
+
+  /// Job Id.
+  final String jobId;
+
+  /// Phone Number.
+  final String phoneNumber;
+
+  /// Text.
+  final String text;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe6a1eeb8.
+    buffer.writeInt32(0xe6a1eeb8);
+
+    // Write fields.
+    buffer.writeString(jobId);
+    buffer.writeString(phoneNumber);
+    buffer.writeString(text);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe6a1eeb8",
+      "jobId": jobId,
+      "phoneNumber": phoneNumber,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Weekly Open.
+///
+/// ID: `120b1ab9`.
+class BusinessWeeklyOpen extends BusinessWeeklyOpenBase {
+  /// Business Weekly Open constructor.
+  const BusinessWeeklyOpen({
+    required this.startMinute,
+    required this.endMinute,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessWeeklyOpen.deserialize(BinaryReader reader) {
+    // Read [BusinessWeeklyOpen] fields.
+    final startMinute = reader.readInt32();
+    final endMinute = reader.readInt32();
+
+    // Construct [BusinessWeeklyOpen] object.
+    final returnValue = BusinessWeeklyOpen(
+      startMinute: startMinute,
+      endMinute: endMinute,
+    );
+
+    // Now return the deserialized [BusinessWeeklyOpen].
+    return returnValue;
+  }
+
+  /// Start Minute.
+  ///
+  /// Field type is Int32.
+  final int startMinute;
+
+  /// End Minute.
+  ///
+  /// Field type is Int32.
+  final int endMinute;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x120b1ab9.
+    buffer.writeInt32(0x120b1ab9);
+
+    // Write fields.
+    buffer.writeInt32(startMinute);
+    buffer.writeInt32(endMinute);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x120b1ab9",
+      "startMinute": startMinute,
+      "endMinute": endMinute,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Work Hours.
+///
+/// ID: `8c92b098`.
+class BusinessWorkHours extends BusinessWorkHoursBase {
+  /// Business Work Hours constructor.
+  const BusinessWorkHours({
+    required this.openNow,
+    required this.timezoneId,
+    required this.weeklyOpen,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessWorkHours.deserialize(BinaryReader reader) {
+    // Read [BusinessWorkHours] fields.
+    final flags = reader.readInt32();
+    final openNow = (flags & 1) != 0;
+    final timezoneId = reader.readString();
+    final weeklyOpen = reader.readVectorObject<BusinessWeeklyOpenBase>();
+
+    // Construct [BusinessWorkHours] object.
+    final returnValue = BusinessWorkHours(
+      openNow: openNow,
+      timezoneId: timezoneId,
+      weeklyOpen: weeklyOpen,
+    );
+
+    // Now return the deserialized [BusinessWorkHours].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: openNow,
+    );
+
+    return v;
+  }
+
+  /// open_now: bit 0 of flags.0?true
+  final bool openNow;
+
+  /// Timezone Id.
+  final String timezoneId;
+
+  /// Weekly Open.
+  final List<BusinessWeeklyOpenBase> weeklyOpen;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8c92b098.
+    buffer.writeInt32(0x8c92b098);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(timezoneId);
+    buffer.writeVectorObject(weeklyOpen);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c92b098",
+      "flags": flags,
+      "openNow": openNow,
+      "timezoneId": timezoneId,
+      "weeklyOpen": weeklyOpen,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Location.
+///
+/// ID: `ac5c1af7`.
+class BusinessLocation extends BusinessLocationBase {
+  /// Business Location constructor.
+  const BusinessLocation({
+    this.geoPoint,
+    required this.address,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessLocation.deserialize(BinaryReader reader) {
+    // Read [BusinessLocation] fields.
+    final flags = reader.readInt32();
+    final hasGeoPointField = (flags & 1) != 0;
+    final geoPoint =
+        hasGeoPointField ? reader.readObject() as GeoPointBase : null;
+    final address = reader.readString();
+
+    // Construct [BusinessLocation] object.
+    final returnValue = BusinessLocation(
+      geoPoint: geoPoint,
+      address: address,
+    );
+
+    // Now return the deserialized [BusinessLocation].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: geoPoint != null,
+    );
+
+    return v;
+  }
+
+  /// Geo Point.
+  final GeoPointBase? geoPoint;
+
+  /// Address.
+  final String address;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xac5c1af7.
+    buffer.writeInt32(0xac5c1af7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localGeoPointCopy = geoPoint;
+    if (localGeoPointCopy != null) {
+      buffer.writeObject(localGeoPointCopy);
+    }
+    buffer.writeString(address);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xac5c1af7",
+      "flags": flags,
+      "geoPoint": geoPoint,
+      "address": address,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Business Recipients.
+///
+/// ID: `6f8b32aa`.
+class InputBusinessRecipients extends InputBusinessRecipientsBase {
+  /// Input Business Recipients constructor.
+  const InputBusinessRecipients({
+    required this.existingChats,
+    required this.newChats,
+    required this.contacts,
+    required this.nonContacts,
+    required this.excludeSelected,
+    this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputBusinessRecipients.deserialize(BinaryReader reader) {
+    // Read [InputBusinessRecipients] fields.
+    final flags = reader.readInt32();
+    final existingChats = (flags & 1) != 0;
+    final newChats = (flags & 2) != 0;
+    final contacts = (flags & 4) != 0;
+    final nonContacts = (flags & 8) != 0;
+    final excludeSelected = (flags & 32) != 0;
+    final hasUsersField = (flags & 16) != 0;
+    final users =
+        hasUsersField ? reader.readVectorObject<InputUserBase>() : null;
+
+    // Construct [InputBusinessRecipients] object.
+    final returnValue = InputBusinessRecipients(
+      existingChats: existingChats,
+      newChats: newChats,
+      contacts: contacts,
+      nonContacts: nonContacts,
+      excludeSelected: excludeSelected,
+      users: users,
+    );
+
+    // Now return the deserialized [InputBusinessRecipients].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: existingChats,
+      b01: newChats,
+      b02: contacts,
+      b03: nonContacts,
+      b05: excludeSelected,
+      b04: users != null,
+    );
+
+    return v;
+  }
+
+  /// existing_chats: bit 0 of flags.0?true
+  final bool existingChats;
+
+  /// new_chats: bit 1 of flags.1?true
+  final bool newChats;
+
+  /// contacts: bit 2 of flags.2?true
+  final bool contacts;
+
+  /// non_contacts: bit 3 of flags.3?true
+  final bool nonContacts;
+
+  /// exclude_selected: bit 5 of flags.5?true
+  final bool excludeSelected;
+
+  /// Users.
+  final List<InputUserBase>? users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6f8b32aa.
+    buffer.writeInt32(0x6f8b32aa);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localUsersCopy = users;
+    if (localUsersCopy != null) {
+      buffer.writeVectorObject(localUsersCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f8b32aa",
+      "flags": flags,
+      "existingChats": existingChats,
+      "newChats": newChats,
+      "contacts": contacts,
+      "nonContacts": nonContacts,
+      "excludeSelected": excludeSelected,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Recipients.
+///
+/// ID: `21108ff7`.
+class BusinessRecipients extends BusinessRecipientsBase {
+  /// Business Recipients constructor.
+  const BusinessRecipients({
+    required this.existingChats,
+    required this.newChats,
+    required this.contacts,
+    required this.nonContacts,
+    required this.excludeSelected,
+    this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessRecipients.deserialize(BinaryReader reader) {
+    // Read [BusinessRecipients] fields.
+    final flags = reader.readInt32();
+    final existingChats = (flags & 1) != 0;
+    final newChats = (flags & 2) != 0;
+    final contacts = (flags & 4) != 0;
+    final nonContacts = (flags & 8) != 0;
+    final excludeSelected = (flags & 32) != 0;
+    final hasUsersField = (flags & 16) != 0;
+    final users = hasUsersField ? reader.readVectorInt64() : null;
+
+    // Construct [BusinessRecipients] object.
+    final returnValue = BusinessRecipients(
+      existingChats: existingChats,
+      newChats: newChats,
+      contacts: contacts,
+      nonContacts: nonContacts,
+      excludeSelected: excludeSelected,
+      users: users,
+    );
+
+    // Now return the deserialized [BusinessRecipients].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: existingChats,
+      b01: newChats,
+      b02: contacts,
+      b03: nonContacts,
+      b05: excludeSelected,
+      b04: users != null,
+    );
+
+    return v;
+  }
+
+  /// existing_chats: bit 0 of flags.0?true
+  final bool existingChats;
+
+  /// new_chats: bit 1 of flags.1?true
+  final bool newChats;
+
+  /// contacts: bit 2 of flags.2?true
+  final bool contacts;
+
+  /// non_contacts: bit 3 of flags.3?true
+  final bool nonContacts;
+
+  /// exclude_selected: bit 5 of flags.5?true
+  final bool excludeSelected;
+
+  /// Users.
+  final List<int>? users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x21108ff7.
+    buffer.writeInt32(0x21108ff7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localUsersCopy = users;
+    if (localUsersCopy != null) {
+      buffer.writeVectorInt64(localUsersCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x21108ff7",
+      "flags": flags,
+      "existingChats": existingChats,
+      "newChats": newChats,
+      "contacts": contacts,
+      "nonContacts": nonContacts,
+      "excludeSelected": excludeSelected,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Away Message Schedule Always.
+///
+/// ID: `c9b9e2b9`.
+class BusinessAwayMessageScheduleAlways
+    extends BusinessAwayMessageScheduleBase {
+  /// Business Away Message Schedule Always constructor.
+  const BusinessAwayMessageScheduleAlways() : super._();
+
+  /// Deserialize.
+  factory BusinessAwayMessageScheduleAlways.deserialize(BinaryReader reader) {
+    // Construct [BusinessAwayMessageScheduleAlways] object.
+    final returnValue = BusinessAwayMessageScheduleAlways();
+
+    // Now return the deserialized [BusinessAwayMessageScheduleAlways].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc9b9e2b9.
+    buffer.writeInt32(0xc9b9e2b9);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9b9e2b9",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Away Message Schedule Outside Work Hours.
+///
+/// ID: `c3f2f501`.
+class BusinessAwayMessageScheduleOutsideWorkHours
+    extends BusinessAwayMessageScheduleBase {
+  /// Business Away Message Schedule Outside Work Hours constructor.
+  const BusinessAwayMessageScheduleOutsideWorkHours() : super._();
+
+  /// Deserialize.
+  factory BusinessAwayMessageScheduleOutsideWorkHours.deserialize(
+      BinaryReader reader) {
+    // Construct [BusinessAwayMessageScheduleOutsideWorkHours] object.
+    final returnValue = BusinessAwayMessageScheduleOutsideWorkHours();
+
+    // Now return the deserialized [BusinessAwayMessageScheduleOutsideWorkHours].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc3f2f501.
+    buffer.writeInt32(0xc3f2f501);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc3f2f501",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Away Message Schedule Custom.
+///
+/// ID: `cc4d9ecc`.
+class BusinessAwayMessageScheduleCustom
+    extends BusinessAwayMessageScheduleBase {
+  /// Business Away Message Schedule Custom constructor.
+  const BusinessAwayMessageScheduleCustom({
+    required this.startDate,
+    required this.endDate,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessAwayMessageScheduleCustom.deserialize(BinaryReader reader) {
+    // Read [BusinessAwayMessageScheduleCustom] fields.
+    final startDate = reader.readDateTime();
+    final endDate = reader.readDateTime();
+
+    // Construct [BusinessAwayMessageScheduleCustom] object.
+    final returnValue = BusinessAwayMessageScheduleCustom(
+      startDate: startDate,
+      endDate: endDate,
+    );
+
+    // Now return the deserialized [BusinessAwayMessageScheduleCustom].
+    return returnValue;
+  }
+
+  /// Start Date.
+  final DateTime startDate;
+
+  /// End Date.
+  final DateTime endDate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcc4d9ecc.
+    buffer.writeInt32(0xcc4d9ecc);
+
+    // Write fields.
+    buffer.writeDateTime(startDate);
+    buffer.writeDateTime(endDate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc4d9ecc",
+      "startDate": startDate.toIso8601String(),
+      "endDate": endDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Business Greeting Message.
+///
+/// ID: `0194cb3b`.
+class InputBusinessGreetingMessage extends InputBusinessGreetingMessageBase {
+  /// Input Business Greeting Message constructor.
+  const InputBusinessGreetingMessage({
+    required this.shortcutId,
+    required this.recipients,
+    required this.noActivityDays,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputBusinessGreetingMessage.deserialize(BinaryReader reader) {
+    // Read [InputBusinessGreetingMessage] fields.
+    final shortcutId = reader.readInt32();
+    final recipients = reader.readObject() as InputBusinessRecipientsBase;
+    final noActivityDays = reader.readInt32();
+
+    // Construct [InputBusinessGreetingMessage] object.
+    final returnValue = InputBusinessGreetingMessage(
+      shortcutId: shortcutId,
+      recipients: recipients,
+      noActivityDays: noActivityDays,
+    );
+
+    // Now return the deserialized [InputBusinessGreetingMessage].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Recipients.
+  final InputBusinessRecipientsBase recipients;
+
+  /// No Activity Days.
+  ///
+  /// Field type is Int32.
+  final int noActivityDays;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0194cb3b.
+    buffer.writeInt32(0x0194cb3b);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+    buffer.writeObject(recipients);
+    buffer.writeInt32(noActivityDays);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0194cb3b",
+      "shortcutId": shortcutId,
+      "recipients": recipients,
+      "noActivityDays": noActivityDays,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Greeting Message.
+///
+/// ID: `e519abab`.
+class BusinessGreetingMessage extends BusinessGreetingMessageBase {
+  /// Business Greeting Message constructor.
+  const BusinessGreetingMessage({
+    required this.shortcutId,
+    required this.recipients,
+    required this.noActivityDays,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessGreetingMessage.deserialize(BinaryReader reader) {
+    // Read [BusinessGreetingMessage] fields.
+    final shortcutId = reader.readInt32();
+    final recipients = reader.readObject() as BusinessRecipientsBase;
+    final noActivityDays = reader.readInt32();
+
+    // Construct [BusinessGreetingMessage] object.
+    final returnValue = BusinessGreetingMessage(
+      shortcutId: shortcutId,
+      recipients: recipients,
+      noActivityDays: noActivityDays,
+    );
+
+    // Now return the deserialized [BusinessGreetingMessage].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Recipients.
+  final BusinessRecipientsBase recipients;
+
+  /// No Activity Days.
+  ///
+  /// Field type is Int32.
+  final int noActivityDays;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe519abab.
+    buffer.writeInt32(0xe519abab);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+    buffer.writeObject(recipients);
+    buffer.writeInt32(noActivityDays);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe519abab",
+      "shortcutId": shortcutId,
+      "recipients": recipients,
+      "noActivityDays": noActivityDays,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Business Away Message.
+///
+/// ID: `832175e0`.
+class InputBusinessAwayMessage extends InputBusinessAwayMessageBase {
+  /// Input Business Away Message constructor.
+  const InputBusinessAwayMessage({
+    required this.offlineOnly,
+    required this.shortcutId,
+    required this.schedule,
+    required this.recipients,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputBusinessAwayMessage.deserialize(BinaryReader reader) {
+    // Read [InputBusinessAwayMessage] fields.
+    final flags = reader.readInt32();
+    final offlineOnly = (flags & 1) != 0;
+    final shortcutId = reader.readInt32();
+    final schedule = reader.readObject() as BusinessAwayMessageScheduleBase;
+    final recipients = reader.readObject() as InputBusinessRecipientsBase;
+
+    // Construct [InputBusinessAwayMessage] object.
+    final returnValue = InputBusinessAwayMessage(
+      offlineOnly: offlineOnly,
+      shortcutId: shortcutId,
+      schedule: schedule,
+      recipients: recipients,
+    );
+
+    // Now return the deserialized [InputBusinessAwayMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: offlineOnly,
+    );
+
+    return v;
+  }
+
+  /// offline_only: bit 0 of flags.0?true
+  final bool offlineOnly;
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Schedule.
+  final BusinessAwayMessageScheduleBase schedule;
+
+  /// Recipients.
+  final InputBusinessRecipientsBase recipients;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x832175e0.
+    buffer.writeInt32(0x832175e0);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(shortcutId);
+    buffer.writeObject(schedule);
+    buffer.writeObject(recipients);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x832175e0",
+      "flags": flags,
+      "offlineOnly": offlineOnly,
+      "shortcutId": shortcutId,
+      "schedule": schedule,
+      "recipients": recipients,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Away Message.
+///
+/// ID: `ef156a5c`.
+class BusinessAwayMessage extends BusinessAwayMessageBase {
+  /// Business Away Message constructor.
+  const BusinessAwayMessage({
+    required this.offlineOnly,
+    required this.shortcutId,
+    required this.schedule,
+    required this.recipients,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessAwayMessage.deserialize(BinaryReader reader) {
+    // Read [BusinessAwayMessage] fields.
+    final flags = reader.readInt32();
+    final offlineOnly = (flags & 1) != 0;
+    final shortcutId = reader.readInt32();
+    final schedule = reader.readObject() as BusinessAwayMessageScheduleBase;
+    final recipients = reader.readObject() as BusinessRecipientsBase;
+
+    // Construct [BusinessAwayMessage] object.
+    final returnValue = BusinessAwayMessage(
+      offlineOnly: offlineOnly,
+      shortcutId: shortcutId,
+      schedule: schedule,
+      recipients: recipients,
+    );
+
+    // Now return the deserialized [BusinessAwayMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: offlineOnly,
+    );
+
+    return v;
+  }
+
+  /// offline_only: bit 0 of flags.0?true
+  final bool offlineOnly;
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Schedule.
+  final BusinessAwayMessageScheduleBase schedule;
+
+  /// Recipients.
+  final BusinessRecipientsBase recipients;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xef156a5c.
+    buffer.writeInt32(0xef156a5c);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(shortcutId);
+    buffer.writeObject(schedule);
+    buffer.writeObject(recipients);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xef156a5c",
+      "flags": flags,
+      "offlineOnly": offlineOnly,
+      "shortcutId": shortcutId,
+      "schedule": schedule,
+      "recipients": recipients,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Timezone.
+///
+/// ID: `ff9289f5`.
+class Timezone extends TimezoneBase {
+  /// Timezone constructor.
+  const Timezone({
+    required this.id,
+    required this.name,
+    required this.utcOffset,
+  }) : super._();
+
+  /// Deserialize.
+  factory Timezone.deserialize(BinaryReader reader) {
+    // Read [Timezone] fields.
+    final id = reader.readString();
+    final name = reader.readString();
+    final utcOffset = reader.readInt32();
+
+    // Construct [Timezone] object.
+    final returnValue = Timezone(
+      id: id,
+      name: name,
+      utcOffset: utcOffset,
+    );
+
+    // Now return the deserialized [Timezone].
+    return returnValue;
+  }
+
+  /// Id.
+  final String id;
+
+  /// Name.
+  final String name;
+
+  /// Utc Offset.
+  ///
+  /// Field type is Int32.
+  final int utcOffset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xff9289f5.
+    buffer.writeInt32(0xff9289f5);
+
+    // Write fields.
+    buffer.writeString(id);
+    buffer.writeString(name);
+    buffer.writeInt32(utcOffset);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xff9289f5",
+      "id": id,
+      "name": name,
+      "utcOffset": utcOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Help Timezones List Not Modified.
+///
+/// ID: `970708cc`.
+class HelpTimezonesListNotModified extends HelpTimezonesListBase {
+  /// Help Timezones List Not Modified constructor.
+  const HelpTimezonesListNotModified() : super._();
+
+  /// Deserialize.
+  factory HelpTimezonesListNotModified.deserialize(BinaryReader reader) {
+    // Construct [HelpTimezonesListNotModified] object.
+    final returnValue = HelpTimezonesListNotModified();
+
+    // Now return the deserialized [HelpTimezonesListNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x970708cc.
+    buffer.writeInt32(0x970708cc);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x970708cc",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Help Timezones List.
+///
+/// ID: `7b74ed71`.
+class HelpTimezonesList extends HelpTimezonesListBase {
+  /// Help Timezones List constructor.
+  const HelpTimezonesList({
+    required this.timezones,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory HelpTimezonesList.deserialize(BinaryReader reader) {
+    // Read [HelpTimezonesList] fields.
+    final timezones = reader.readVectorObject<TimezoneBase>();
+    final hash = reader.readInt32();
+
+    // Construct [HelpTimezonesList] object.
+    final returnValue = HelpTimezonesList(
+      timezones: timezones,
+      hash: hash,
+    );
+
+    // Now return the deserialized [HelpTimezonesList].
+    return returnValue;
+  }
+
+  /// Timezones.
+  final List<TimezoneBase> timezones;
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7b74ed71.
+    buffer.writeInt32(0x7b74ed71);
+
+    // Write fields.
+    buffer.writeVectorObject(timezones);
+    buffer.writeInt32(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7b74ed71",
+      "timezones": timezones,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Quick Reply.
+///
+/// ID: `0697102b`.
+class QuickReply extends QuickReplyBase {
+  /// Quick Reply constructor.
+  const QuickReply({
+    required this.shortcutId,
+    required this.shortcut,
+    required this.topMessage,
+    required this.count,
+  }) : super._();
+
+  /// Deserialize.
+  factory QuickReply.deserialize(BinaryReader reader) {
+    // Read [QuickReply] fields.
+    final shortcutId = reader.readInt32();
+    final shortcut = reader.readString();
+    final topMessage = reader.readInt32();
+    final count = reader.readInt32();
+
+    // Construct [QuickReply] object.
+    final returnValue = QuickReply(
+      shortcutId: shortcutId,
+      shortcut: shortcut,
+      topMessage: topMessage,
+      count: count,
+    );
+
+    // Now return the deserialized [QuickReply].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Shortcut.
+  final String shortcut;
+
+  /// Top Message.
+  ///
+  /// Field type is Int32.
+  final int topMessage;
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0697102b.
+    buffer.writeInt32(0x0697102b);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+    buffer.writeString(shortcut);
+    buffer.writeInt32(topMessage);
+    buffer.writeInt32(count);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0697102b",
+      "shortcutId": shortcutId,
+      "shortcut": shortcut,
+      "topMessage": topMessage,
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Quick Reply Shortcut.
+///
+/// ID: `24596d41`.
+class InputQuickReplyShortcut extends InputQuickReplyShortcutBase {
+  /// Input Quick Reply Shortcut constructor.
+  const InputQuickReplyShortcut({
+    required this.shortcut,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputQuickReplyShortcut.deserialize(BinaryReader reader) {
+    // Read [InputQuickReplyShortcut] fields.
+    final shortcut = reader.readString();
+
+    // Construct [InputQuickReplyShortcut] object.
+    final returnValue = InputQuickReplyShortcut(
+      shortcut: shortcut,
+    );
+
+    // Now return the deserialized [InputQuickReplyShortcut].
+    return returnValue;
+  }
+
+  /// Shortcut.
+  final String shortcut;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x24596d41.
+    buffer.writeInt32(0x24596d41);
+
+    // Write fields.
+    buffer.writeString(shortcut);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x24596d41",
+      "shortcut": shortcut,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Quick Reply Shortcut Id.
+///
+/// ID: `01190cf1`.
+class InputQuickReplyShortcutId extends InputQuickReplyShortcutBase {
+  /// Input Quick Reply Shortcut Id constructor.
+  const InputQuickReplyShortcutId({
+    required this.shortcutId,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputQuickReplyShortcutId.deserialize(BinaryReader reader) {
+    // Read [InputQuickReplyShortcutId] fields.
+    final shortcutId = reader.readInt32();
+
+    // Construct [InputQuickReplyShortcutId] object.
+    final returnValue = InputQuickReplyShortcutId(
+      shortcutId: shortcutId,
+    );
+
+    // Now return the deserialized [InputQuickReplyShortcutId].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x01190cf1.
+    buffer.writeInt32(0x01190cf1);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x01190cf1",
+      "shortcutId": shortcutId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Quick Replies.
+///
+/// ID: `c68d6695`.
+class MessagesQuickReplies extends MessagesQuickRepliesBase {
+  /// Messages Quick Replies constructor.
+  const MessagesQuickReplies({
+    required this.quickReplies,
+    required this.messages,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesQuickReplies.deserialize(BinaryReader reader) {
+    // Read [MessagesQuickReplies] fields.
+    final quickReplies = reader.readVectorObject<QuickReplyBase>();
+    final messages = reader.readVectorObject<MessageBase>();
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [MessagesQuickReplies] object.
+    final returnValue = MessagesQuickReplies(
+      quickReplies: quickReplies,
+      messages: messages,
+      chats: chats,
+      users: users,
+    );
+
+    // Now return the deserialized [MessagesQuickReplies].
+    return returnValue;
+  }
+
+  /// Quick Replies.
+  final List<QuickReplyBase> quickReplies;
+
+  /// Messages.
+  final List<MessageBase> messages;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc68d6695.
+    buffer.writeInt32(0xc68d6695);
+
+    // Write fields.
+    buffer.writeVectorObject(quickReplies);
+    buffer.writeVectorObject(messages);
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc68d6695",
+      "quickReplies": quickReplies,
+      "messages": messages,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Quick Replies Not Modified.
+///
+/// ID: `5f91eb5b`.
+class MessagesQuickRepliesNotModified extends MessagesQuickRepliesBase {
+  /// Messages Quick Replies Not Modified constructor.
+  const MessagesQuickRepliesNotModified() : super._();
+
+  /// Deserialize.
+  factory MessagesQuickRepliesNotModified.deserialize(BinaryReader reader) {
+    // Construct [MessagesQuickRepliesNotModified] object.
+    final returnValue = MessagesQuickRepliesNotModified();
+
+    // Now return the deserialized [MessagesQuickRepliesNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5f91eb5b.
+    buffer.writeInt32(0x5f91eb5b);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5f91eb5b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Connected Bot.
+///
+/// ID: `bd068601`.
+class ConnectedBot extends ConnectedBotBase {
+  /// Connected Bot constructor.
+  const ConnectedBot({
+    required this.canReply,
+    required this.botId,
+    required this.recipients,
+  }) : super._();
+
+  /// Deserialize.
+  factory ConnectedBot.deserialize(BinaryReader reader) {
+    // Read [ConnectedBot] fields.
+    final flags = reader.readInt32();
+    final canReply = (flags & 1) != 0;
+    final botId = reader.readInt64();
+    final recipients = reader.readObject() as BusinessBotRecipientsBase;
+
+    // Construct [ConnectedBot] object.
+    final returnValue = ConnectedBot(
+      canReply: canReply,
+      botId: botId,
+      recipients: recipients,
+    );
+
+    // Now return the deserialized [ConnectedBot].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: canReply,
+    );
+
+    return v;
+  }
+
+  /// can_reply: bit 0 of flags.0?true
+  final bool canReply;
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Recipients.
+  final BusinessBotRecipientsBase recipients;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbd068601.
+    buffer.writeInt32(0xbd068601);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(botId);
+    buffer.writeObject(recipients);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd068601",
+      "flags": flags,
+      "canReply": canReply,
+      "botId": botId,
+      "recipients": recipients,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Connected Bots.
+///
+/// ID: `17d7f87b`.
+class AccountConnectedBots extends AccountConnectedBotsBase {
+  /// Account Connected Bots constructor.
+  const AccountConnectedBots({
+    required this.connectedBots,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountConnectedBots.deserialize(BinaryReader reader) {
+    // Read [AccountConnectedBots] fields.
+    final connectedBots = reader.readVectorObject<ConnectedBotBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [AccountConnectedBots] object.
+    final returnValue = AccountConnectedBots(
+      connectedBots: connectedBots,
+      users: users,
+    );
+
+    // Now return the deserialized [AccountConnectedBots].
+    return returnValue;
+  }
+
+  /// Connected Bots.
+  final List<ConnectedBotBase> connectedBots;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x17d7f87b.
+    buffer.writeInt32(0x17d7f87b);
+
+    // Write fields.
+    buffer.writeVectorObject(connectedBots);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17d7f87b",
+      "connectedBots": connectedBots,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Dialog Filters.
+///
+/// ID: `2ad93719`.
+class MessagesDialogFilters extends MessagesDialogFiltersBase {
+  /// Messages Dialog Filters constructor.
+  const MessagesDialogFilters({
+    required this.tagsEnabled,
+    required this.filters,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDialogFilters.deserialize(BinaryReader reader) {
+    // Read [MessagesDialogFilters] fields.
+    final flags = reader.readInt32();
+    final tagsEnabled = (flags & 1) != 0;
+    final filters = reader.readVectorObject<DialogFilterBase>();
+
+    // Construct [MessagesDialogFilters] object.
+    final returnValue = MessagesDialogFilters(
+      tagsEnabled: tagsEnabled,
+      filters: filters,
+    );
+
+    // Now return the deserialized [MessagesDialogFilters].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: tagsEnabled,
+    );
+
+    return v;
+  }
+
+  /// tags_enabled: bit 0 of flags.0?true
+  final bool tagsEnabled;
+
+  /// Filters.
+  final List<DialogFilterBase> filters;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2ad93719.
+    buffer.writeInt32(0x2ad93719);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeVectorObject(filters);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2ad93719",
+      "flags": flags,
+      "tagsEnabled": tagsEnabled,
+      "filters": filters,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Birthday.
+///
+/// ID: `6c8e1e06`.
+class Birthday extends BirthdayBase {
+  /// Birthday constructor.
+  const Birthday({
+    required this.day,
+    required this.month,
+    this.year,
+  }) : super._();
+
+  /// Deserialize.
+  factory Birthday.deserialize(BinaryReader reader) {
+    // Read [Birthday] fields.
+    final flags = reader.readInt32();
+    final day = reader.readInt32();
+    final month = reader.readInt32();
+    final hasYearField = (flags & 1) != 0;
+    final year = hasYearField ? reader.readInt32() : null;
+
+    // Construct [Birthday] object.
+    final returnValue = Birthday(
+      day: day,
+      month: month,
+      year: year,
+    );
+
+    // Now return the deserialized [Birthday].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: year != null,
+    );
+
+    return v;
+  }
+
+  /// Day.
+  ///
+  /// Field type is Int32.
+  final int day;
+
+  /// Month.
+  ///
+  /// Field type is Int32.
+  final int month;
+
+  /// Year.
+  final int? year;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6c8e1e06.
+    buffer.writeInt32(0x6c8e1e06);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(day);
+    buffer.writeInt32(month);
+    final localYearCopy = year;
+    if (localYearCopy != null) {
+      buffer.writeInt32(localYearCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c8e1e06",
+      "flags": flags,
+      "day": day,
+      "month": month,
+      "year": year,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bot Business Connection.
+///
+/// ID: `896433b4`.
+class BotBusinessConnection extends BotBusinessConnectionBase {
+  /// Bot Business Connection constructor.
+  const BotBusinessConnection({
+    required this.canReply,
+    required this.disabled,
+    required this.connectionId,
+    required this.userId,
+    required this.dcId,
+    required this.date,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotBusinessConnection.deserialize(BinaryReader reader) {
+    // Read [BotBusinessConnection] fields.
+    final flags = reader.readInt32();
+    final canReply = (flags & 1) != 0;
+    final disabled = (flags & 2) != 0;
+    final connectionId = reader.readString();
+    final userId = reader.readInt64();
+    final dcId = reader.readInt32();
+    final date = reader.readDateTime();
+
+    // Construct [BotBusinessConnection] object.
+    final returnValue = BotBusinessConnection(
+      canReply: canReply,
+      disabled: disabled,
+      connectionId: connectionId,
+      userId: userId,
+      dcId: dcId,
+      date: date,
+    );
+
+    // Now return the deserialized [BotBusinessConnection].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: canReply,
+      b01: disabled,
+    );
+
+    return v;
+  }
+
+  /// can_reply: bit 0 of flags.0?true
+  final bool canReply;
+
+  /// disabled: bit 1 of flags.1?true
+  final bool disabled;
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Dc Id.
+  ///
+  /// Field type is Int32.
+  final int dcId;
+
+  /// Date.
+  final DateTime date;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x896433b4.
+    buffer.writeInt32(0x896433b4);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(connectionId);
+    buffer.writeInt64(userId);
+    buffer.writeInt32(dcId);
+    buffer.writeDateTime(date);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x896433b4",
+      "flags": flags,
+      "canReply": canReply,
+      "disabled": disabled,
+      "connectionId": connectionId,
+      "userId": userId,
+      "dcId": dcId,
+      "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Business Intro.
+///
+/// ID: `09c469cd`.
+class InputBusinessIntro extends InputBusinessIntroBase {
+  /// Input Business Intro constructor.
+  const InputBusinessIntro({
+    required this.title,
+    required this.description,
+    this.sticker,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputBusinessIntro.deserialize(BinaryReader reader) {
+    // Read [InputBusinessIntro] fields.
+    final flags = reader.readInt32();
+    final title = reader.readString();
+    final description = reader.readString();
+    final hasStickerField = (flags & 1) != 0;
+    final sticker =
+        hasStickerField ? reader.readObject() as InputDocumentBase : null;
+
+    // Construct [InputBusinessIntro] object.
+    final returnValue = InputBusinessIntro(
+      title: title,
+      description: description,
+      sticker: sticker,
+    );
+
+    // Now return the deserialized [InputBusinessIntro].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: sticker != null,
+    );
+
+    return v;
+  }
+
+  /// Title.
+  final String title;
+
+  /// Description.
+  final String description;
+
+  /// Sticker.
+  final InputDocumentBase? sticker;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x09c469cd.
+    buffer.writeInt32(0x09c469cd);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(title);
+    buffer.writeString(description);
+    final localStickerCopy = sticker;
+    if (localStickerCopy != null) {
+      buffer.writeObject(localStickerCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x09c469cd",
+      "flags": flags,
+      "title": title,
+      "description": description,
+      "sticker": sticker,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Intro.
+///
+/// ID: `5a0a066d`.
+class BusinessIntro extends BusinessIntroBase {
+  /// Business Intro constructor.
+  const BusinessIntro({
+    required this.title,
+    required this.description,
+    this.sticker,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessIntro.deserialize(BinaryReader reader) {
+    // Read [BusinessIntro] fields.
+    final flags = reader.readInt32();
+    final title = reader.readString();
+    final description = reader.readString();
+    final hasStickerField = (flags & 1) != 0;
+    final sticker =
+        hasStickerField ? reader.readObject() as DocumentBase : null;
+
+    // Construct [BusinessIntro] object.
+    final returnValue = BusinessIntro(
+      title: title,
+      description: description,
+      sticker: sticker,
+    );
+
+    // Now return the deserialized [BusinessIntro].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: sticker != null,
+    );
+
+    return v;
+  }
+
+  /// Title.
+  final String title;
+
+  /// Description.
+  final String description;
+
+  /// Sticker.
+  final DocumentBase? sticker;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5a0a066d.
+    buffer.writeInt32(0x5a0a066d);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(title);
+    buffer.writeString(description);
+    final localStickerCopy = sticker;
+    if (localStickerCopy != null) {
+      buffer.writeObject(localStickerCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a0a066d",
+      "flags": flags,
+      "title": title,
+      "description": description,
+      "sticker": sticker,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages My Stickers.
+///
+/// ID: `faff629d`.
+class MessagesMyStickers extends MessagesMyStickersBase {
+  /// Messages My Stickers constructor.
+  const MessagesMyStickers({
+    required this.count,
+    required this.sets,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesMyStickers.deserialize(BinaryReader reader) {
+    // Read [MessagesMyStickers] fields.
+    final count = reader.readInt32();
+    final sets = reader.readVectorObject<StickerSetCoveredBase>();
+
+    // Construct [MessagesMyStickers] object.
+    final returnValue = MessagesMyStickers(
+      count: count,
+      sets: sets,
+    );
+
+    // Now return the deserialized [MessagesMyStickers].
+    return returnValue;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Sets.
+  final List<StickerSetCoveredBase> sets;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfaff629d.
+    buffer.writeInt32(0xfaff629d);
+
+    // Write fields.
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(sets);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfaff629d",
+      "count": count,
+      "sets": sets,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Collectible Username.
+///
+/// ID: `e39460a9`.
+class InputCollectibleUsername extends InputCollectibleBase {
+  /// Input Collectible Username constructor.
+  const InputCollectibleUsername({
+    required this.username,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputCollectibleUsername.deserialize(BinaryReader reader) {
+    // Read [InputCollectibleUsername] fields.
+    final username = reader.readString();
+
+    // Construct [InputCollectibleUsername] object.
+    final returnValue = InputCollectibleUsername(
+      username: username,
+    );
+
+    // Now return the deserialized [InputCollectibleUsername].
+    return returnValue;
+  }
+
+  /// Username.
+  final String username;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe39460a9.
+    buffer.writeInt32(0xe39460a9);
+
+    // Write fields.
+    buffer.writeString(username);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe39460a9",
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Collectible Phone.
+///
+/// ID: `a2e214a4`.
+class InputCollectiblePhone extends InputCollectibleBase {
+  /// Input Collectible Phone constructor.
+  const InputCollectiblePhone({
+    required this.phone,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputCollectiblePhone.deserialize(BinaryReader reader) {
+    // Read [InputCollectiblePhone] fields.
+    final phone = reader.readString();
+
+    // Construct [InputCollectiblePhone] object.
+    final returnValue = InputCollectiblePhone(
+      phone: phone,
+    );
+
+    // Now return the deserialized [InputCollectiblePhone].
+    return returnValue;
+  }
+
+  /// Phone.
+  final String phone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa2e214a4.
+    buffer.writeInt32(0xa2e214a4);
+
+    // Write fields.
+    buffer.writeString(phone);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2e214a4",
+      "phone": phone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Fragment Collectible Info.
+///
+/// ID: `6ebdff91`.
+class FragmentCollectibleInfo extends FragmentCollectibleInfoBase {
+  /// Fragment Collectible Info constructor.
+  const FragmentCollectibleInfo({
+    required this.purchaseDate,
+    required this.currency,
+    required this.amount,
+    required this.cryptoCurrency,
+    required this.cryptoAmount,
+    required this.url,
+  }) : super._();
+
+  /// Deserialize.
+  factory FragmentCollectibleInfo.deserialize(BinaryReader reader) {
+    // Read [FragmentCollectibleInfo] fields.
+    final purchaseDate = reader.readDateTime();
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+    final cryptoCurrency = reader.readString();
+    final cryptoAmount = reader.readInt64();
+    final url = reader.readString();
+
+    // Construct [FragmentCollectibleInfo] object.
+    final returnValue = FragmentCollectibleInfo(
+      purchaseDate: purchaseDate,
+      currency: currency,
+      amount: amount,
+      cryptoCurrency: cryptoCurrency,
+      cryptoAmount: cryptoAmount,
+      url: url,
+    );
+
+    // Now return the deserialized [FragmentCollectibleInfo].
+    return returnValue;
+  }
+
+  /// Purchase Date.
+  final DateTime purchaseDate;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Crypto Amount.
+  ///
+  /// Field type is Int64.
+  final int cryptoAmount;
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6ebdff91.
+    buffer.writeInt32(0x6ebdff91);
+
+    // Write fields.
+    buffer.writeDateTime(purchaseDate);
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+    buffer.writeString(cryptoCurrency);
+    buffer.writeInt64(cryptoAmount);
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6ebdff91",
+      "purchaseDate": purchaseDate.toIso8601String(),
+      "currency": currency,
+      "amount": amount,
+      "cryptoCurrency": cryptoCurrency,
+      "cryptoAmount": cryptoAmount,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Business Bot Recipients.
+///
+/// ID: `c4e5921e`.
+class InputBusinessBotRecipients extends InputBusinessBotRecipientsBase {
+  /// Input Business Bot Recipients constructor.
+  const InputBusinessBotRecipients({
+    required this.existingChats,
+    required this.newChats,
+    required this.contacts,
+    required this.nonContacts,
+    required this.excludeSelected,
+    this.users,
+    this.excludeUsers,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputBusinessBotRecipients.deserialize(BinaryReader reader) {
+    // Read [InputBusinessBotRecipients] fields.
+    final flags = reader.readInt32();
+    final existingChats = (flags & 1) != 0;
+    final newChats = (flags & 2) != 0;
+    final contacts = (flags & 4) != 0;
+    final nonContacts = (flags & 8) != 0;
+    final excludeSelected = (flags & 32) != 0;
+    final hasUsersField = (flags & 16) != 0;
+    final users =
+        hasUsersField ? reader.readVectorObject<InputUserBase>() : null;
+    final hasExcludeUsersField = (flags & 64) != 0;
+    final excludeUsers =
+        hasExcludeUsersField ? reader.readVectorObject<InputUserBase>() : null;
+
+    // Construct [InputBusinessBotRecipients] object.
+    final returnValue = InputBusinessBotRecipients(
+      existingChats: existingChats,
+      newChats: newChats,
+      contacts: contacts,
+      nonContacts: nonContacts,
+      excludeSelected: excludeSelected,
+      users: users,
+      excludeUsers: excludeUsers,
+    );
+
+    // Now return the deserialized [InputBusinessBotRecipients].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: existingChats,
+      b01: newChats,
+      b02: contacts,
+      b03: nonContacts,
+      b05: excludeSelected,
+      b04: users != null,
+      b06: excludeUsers != null,
+    );
+
+    return v;
+  }
+
+  /// existing_chats: bit 0 of flags.0?true
+  final bool existingChats;
+
+  /// new_chats: bit 1 of flags.1?true
+  final bool newChats;
+
+  /// contacts: bit 2 of flags.2?true
+  final bool contacts;
+
+  /// non_contacts: bit 3 of flags.3?true
+  final bool nonContacts;
+
+  /// exclude_selected: bit 5 of flags.5?true
+  final bool excludeSelected;
+
+  /// Users.
+  final List<InputUserBase>? users;
+
+  /// Exclude Users.
+  final List<InputUserBase>? excludeUsers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc4e5921e.
+    buffer.writeInt32(0xc4e5921e);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localUsersCopy = users;
+    if (localUsersCopy != null) {
+      buffer.writeVectorObject(localUsersCopy);
+    }
+    final localExcludeUsersCopy = excludeUsers;
+    if (localExcludeUsersCopy != null) {
+      buffer.writeVectorObject(localExcludeUsersCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4e5921e",
+      "flags": flags,
+      "existingChats": existingChats,
+      "newChats": newChats,
+      "contacts": contacts,
+      "nonContacts": nonContacts,
+      "excludeSelected": excludeSelected,
+      "users": users,
+      "excludeUsers": excludeUsers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Bot Recipients.
+///
+/// ID: `b88cf373`.
+class BusinessBotRecipients extends BusinessBotRecipientsBase {
+  /// Business Bot Recipients constructor.
+  const BusinessBotRecipients({
+    required this.existingChats,
+    required this.newChats,
+    required this.contacts,
+    required this.nonContacts,
+    required this.excludeSelected,
+    this.users,
+    this.excludeUsers,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessBotRecipients.deserialize(BinaryReader reader) {
+    // Read [BusinessBotRecipients] fields.
+    final flags = reader.readInt32();
+    final existingChats = (flags & 1) != 0;
+    final newChats = (flags & 2) != 0;
+    final contacts = (flags & 4) != 0;
+    final nonContacts = (flags & 8) != 0;
+    final excludeSelected = (flags & 32) != 0;
+    final hasUsersField = (flags & 16) != 0;
+    final users = hasUsersField ? reader.readVectorInt64() : null;
+    final hasExcludeUsersField = (flags & 64) != 0;
+    final excludeUsers = hasExcludeUsersField ? reader.readVectorInt64() : null;
+
+    // Construct [BusinessBotRecipients] object.
+    final returnValue = BusinessBotRecipients(
+      existingChats: existingChats,
+      newChats: newChats,
+      contacts: contacts,
+      nonContacts: nonContacts,
+      excludeSelected: excludeSelected,
+      users: users,
+      excludeUsers: excludeUsers,
+    );
+
+    // Now return the deserialized [BusinessBotRecipients].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: existingChats,
+      b01: newChats,
+      b02: contacts,
+      b03: nonContacts,
+      b05: excludeSelected,
+      b04: users != null,
+      b06: excludeUsers != null,
+    );
+
+    return v;
+  }
+
+  /// existing_chats: bit 0 of flags.0?true
+  final bool existingChats;
+
+  /// new_chats: bit 1 of flags.1?true
+  final bool newChats;
+
+  /// contacts: bit 2 of flags.2?true
+  final bool contacts;
+
+  /// non_contacts: bit 3 of flags.3?true
+  final bool nonContacts;
+
+  /// exclude_selected: bit 5 of flags.5?true
+  final bool excludeSelected;
+
+  /// Users.
+  final List<int>? users;
+
+  /// Exclude Users.
+  final List<int>? excludeUsers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb88cf373.
+    buffer.writeInt32(0xb88cf373);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localUsersCopy = users;
+    if (localUsersCopy != null) {
+      buffer.writeVectorInt64(localUsersCopy);
+    }
+    final localExcludeUsersCopy = excludeUsers;
+    if (localExcludeUsersCopy != null) {
+      buffer.writeVectorInt64(localExcludeUsersCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb88cf373",
+      "flags": flags,
+      "existingChats": existingChats,
+      "newChats": newChats,
+      "contacts": contacts,
+      "nonContacts": nonContacts,
+      "excludeSelected": excludeSelected,
+      "users": users,
+      "excludeUsers": excludeUsers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Contact Birthday.
+///
+/// ID: `1d998733`.
+class ContactBirthday extends ContactBirthdayBase {
+  /// Contact Birthday constructor.
+  const ContactBirthday({
+    required this.contactId,
+    required this.birthday,
+  }) : super._();
+
+  /// Deserialize.
+  factory ContactBirthday.deserialize(BinaryReader reader) {
+    // Read [ContactBirthday] fields.
+    final contactId = reader.readInt64();
+    final birthday = reader.readObject() as BirthdayBase;
+
+    // Construct [ContactBirthday] object.
+    final returnValue = ContactBirthday(
+      contactId: contactId,
+      birthday: birthday,
+    );
+
+    // Now return the deserialized [ContactBirthday].
+    return returnValue;
+  }
+
+  /// Contact Id.
+  ///
+  /// Field type is Int64.
+  final int contactId;
+
+  /// Birthday.
+  final BirthdayBase birthday;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1d998733.
+    buffer.writeInt32(0x1d998733);
+
+    // Write fields.
+    buffer.writeInt64(contactId);
+    buffer.writeObject(birthday);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1d998733",
+      "contactId": contactId,
+      "birthday": birthday,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Contacts Contact Birthdays.
+///
+/// ID: `114ff30d`.
+class ContactsContactBirthdays extends ContactsContactBirthdaysBase {
+  /// Contacts Contact Birthdays constructor.
+  const ContactsContactBirthdays({
+    required this.contacts,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory ContactsContactBirthdays.deserialize(BinaryReader reader) {
+    // Read [ContactsContactBirthdays] fields.
+    final contacts = reader.readVectorObject<ContactBirthdayBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [ContactsContactBirthdays] object.
+    final returnValue = ContactsContactBirthdays(
+      contacts: contacts,
+      users: users,
+    );
+
+    // Now return the deserialized [ContactsContactBirthdays].
+    return returnValue;
+  }
+
+  /// Contacts.
+  final List<ContactBirthdayBase> contacts;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x114ff30d.
+    buffer.writeInt32(0x114ff30d);
+
+    // Write fields.
+    buffer.writeVectorObject(contacts);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x114ff30d",
+      "contacts": contacts,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Missing Invitee.
+///
+/// ID: `628c9224`.
+class MissingInvitee extends MissingInviteeBase {
+  /// Missing Invitee constructor.
+  const MissingInvitee({
+    required this.premiumWouldAllowInvite,
+    required this.premiumRequiredForPm,
+    required this.userId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MissingInvitee.deserialize(BinaryReader reader) {
+    // Read [MissingInvitee] fields.
+    final flags = reader.readInt32();
+    final premiumWouldAllowInvite = (flags & 1) != 0;
+    final premiumRequiredForPm = (flags & 2) != 0;
+    final userId = reader.readInt64();
+
+    // Construct [MissingInvitee] object.
+    final returnValue = MissingInvitee(
+      premiumWouldAllowInvite: premiumWouldAllowInvite,
+      premiumRequiredForPm: premiumRequiredForPm,
+      userId: userId,
+    );
+
+    // Now return the deserialized [MissingInvitee].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: premiumWouldAllowInvite,
+      b01: premiumRequiredForPm,
+    );
+
+    return v;
+  }
+
+  /// premium_would_allow_invite: bit 0 of flags.0?true
+  final bool premiumWouldAllowInvite;
+
+  /// premium_required_for_pm: bit 1 of flags.1?true
+  final bool premiumRequiredForPm;
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x628c9224.
+    buffer.writeInt32(0x628c9224);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(userId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x628c9224",
+      "flags": flags,
+      "premiumWouldAllowInvite": premiumWouldAllowInvite,
+      "premiumRequiredForPm": premiumRequiredForPm,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Invited Users.
+///
+/// ID: `7f5defa6`.
+class MessagesInvitedUsers extends MessagesInvitedUsersBase {
+  /// Messages Invited Users constructor.
+  const MessagesInvitedUsers({
+    required this.updates,
+    required this.missingInvitees,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesInvitedUsers.deserialize(BinaryReader reader) {
+    // Read [MessagesInvitedUsers] fields.
+    final updates = reader.readObject() as UpdatesBase;
+    final missingInvitees = reader.readVectorObject<MissingInviteeBase>();
+
+    // Construct [MessagesInvitedUsers] object.
+    final returnValue = MessagesInvitedUsers(
+      updates: updates,
+      missingInvitees: missingInvitees,
+    );
+
+    // Now return the deserialized [MessagesInvitedUsers].
+    return returnValue;
+  }
+
+  /// Updates.
+  final UpdatesBase updates;
+
+  /// Missing Invitees.
+  final List<MissingInviteeBase> missingInvitees;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7f5defa6.
+    buffer.writeInt32(0x7f5defa6);
+
+    // Write fields.
+    buffer.writeObject(updates);
+    buffer.writeVectorObject(missingInvitees);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7f5defa6",
+      "updates": updates,
+      "missingInvitees": missingInvitees,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Business Chat Link.
+///
+/// ID: `11679fa7`.
+class InputBusinessChatLink extends InputBusinessChatLinkBase {
+  /// Input Business Chat Link constructor.
+  const InputBusinessChatLink({
+    required this.message,
+    this.entities,
+    this.title,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputBusinessChatLink.deserialize(BinaryReader reader) {
+    // Read [InputBusinessChatLink] fields.
+    final flags = reader.readInt32();
+    final message = reader.readString();
+    final hasEntitiesField = (flags & 1) != 0;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
+    final hasTitleField = (flags & 2) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+
+    // Construct [InputBusinessChatLink] object.
+    final returnValue = InputBusinessChatLink(
+      message: message,
+      entities: entities,
+      title: title,
+    );
+
+    // Now return the deserialized [InputBusinessChatLink].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: entities != null,
+      b01: title != null,
+    );
+
+    return v;
+  }
+
+  /// Message.
+  final String message;
+
+  /// Entities.
+  final List<MessageEntityBase>? entities;
+
+  /// Title.
+  final String? title;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x11679fa7.
+    buffer.writeInt32(0x11679fa7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(message);
+    final localEntitiesCopy = entities;
+    if (localEntitiesCopy != null) {
+      buffer.writeVectorObject(localEntitiesCopy);
+    }
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x11679fa7",
+      "flags": flags,
+      "message": message,
+      "entities": entities,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Business Chat Link.
+///
+/// ID: `b4ae666f`.
+class BusinessChatLink extends BusinessChatLinkBase {
+  /// Business Chat Link constructor.
+  const BusinessChatLink({
+    required this.link,
+    required this.message,
+    this.entities,
+    this.title,
+    required this.views,
+  }) : super._();
+
+  /// Deserialize.
+  factory BusinessChatLink.deserialize(BinaryReader reader) {
+    // Read [BusinessChatLink] fields.
+    final flags = reader.readInt32();
+    final link = reader.readString();
+    final message = reader.readString();
+    final hasEntitiesField = (flags & 1) != 0;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
+    final hasTitleField = (flags & 2) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final views = reader.readInt32();
+
+    // Construct [BusinessChatLink] object.
+    final returnValue = BusinessChatLink(
+      link: link,
+      message: message,
+      entities: entities,
+      title: title,
+      views: views,
+    );
+
+    // Now return the deserialized [BusinessChatLink].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: entities != null,
+      b01: title != null,
+    );
+
+    return v;
+  }
+
+  /// Link.
+  final String link;
+
+  /// Message.
+  final String message;
+
+  /// Entities.
+  final List<MessageEntityBase>? entities;
+
+  /// Title.
+  final String? title;
+
+  /// Views.
+  ///
+  /// Field type is Int32.
+  final int views;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb4ae666f.
+    buffer.writeInt32(0xb4ae666f);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(link);
+    buffer.writeString(message);
+    final localEntitiesCopy = entities;
+    if (localEntitiesCopy != null) {
+      buffer.writeVectorObject(localEntitiesCopy);
+    }
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    buffer.writeInt32(views);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4ae666f",
+      "flags": flags,
+      "link": link,
+      "message": message,
+      "entities": entities,
+      "title": title,
+      "views": views,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Business Chat Links.
+///
+/// ID: `ec43a2d1`.
+class AccountBusinessChatLinks extends AccountBusinessChatLinksBase {
+  /// Account Business Chat Links constructor.
+  const AccountBusinessChatLinks({
+    required this.links,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountBusinessChatLinks.deserialize(BinaryReader reader) {
+    // Read [AccountBusinessChatLinks] fields.
+    final links = reader.readVectorObject<BusinessChatLinkBase>();
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [AccountBusinessChatLinks] object.
+    final returnValue = AccountBusinessChatLinks(
+      links: links,
+      chats: chats,
+      users: users,
+    );
+
+    // Now return the deserialized [AccountBusinessChatLinks].
+    return returnValue;
+  }
+
+  /// Links.
+  final List<BusinessChatLinkBase> links;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xec43a2d1.
+    buffer.writeInt32(0xec43a2d1);
+
+    // Write fields.
+    buffer.writeVectorObject(links);
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec43a2d1",
+      "links": links,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Resolved Business Chat Links.
+///
+/// ID: `9a23af21`.
+class AccountResolvedBusinessChatLinks
+    extends AccountResolvedBusinessChatLinksBase {
+  /// Account Resolved Business Chat Links constructor.
+  const AccountResolvedBusinessChatLinks({
+    required this.peer,
+    required this.message,
+    this.entities,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountResolvedBusinessChatLinks.deserialize(BinaryReader reader) {
+    // Read [AccountResolvedBusinessChatLinks] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as PeerBase;
+    final message = reader.readString();
+    final hasEntitiesField = (flags & 1) != 0;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [AccountResolvedBusinessChatLinks] object.
+    final returnValue = AccountResolvedBusinessChatLinks(
+      peer: peer,
+      message: message,
+      entities: entities,
+      chats: chats,
+      users: users,
+    );
+
+    // Now return the deserialized [AccountResolvedBusinessChatLinks].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: entities != null,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Message.
+  final String message;
+
+  /// Entities.
+  final List<MessageEntityBase>? entities;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9a23af21.
+    buffer.writeInt32(0x9a23af21);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeString(message);
+    final localEntitiesCopy = entities;
+    if (localEntitiesCopy != null) {
+      buffer.writeVectorObject(localEntitiesCopy);
+    }
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9a23af21",
+      "flags": flags,
+      "peer": peer,
+      "message": message,
+      "entities": entities,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Requested Peer User.
+///
+/// ID: `d62ff46a`.
+class RequestedPeerUser extends RequestedPeerBase {
+  /// Requested Peer User constructor.
+  const RequestedPeerUser({
+    required this.userId,
+    this.firstName,
+    this.lastName,
+    this.username,
+    this.photo,
+  }) : super._();
+
+  /// Deserialize.
+  factory RequestedPeerUser.deserialize(BinaryReader reader) {
+    // Read [RequestedPeerUser] fields.
+    final flags = reader.readInt32();
+    final userId = reader.readInt64();
+    final hasFirstNameField = (flags & 1) != 0;
+    final firstName = hasFirstNameField ? reader.readString() : null;
+    final hasLastNameField = (flags & 1) != 0;
+    final lastName = hasLastNameField ? reader.readString() : null;
+    final hasUsernameField = (flags & 2) != 0;
+    final username = hasUsernameField ? reader.readString() : null;
+    final hasPhotoField = (flags & 4) != 0;
+    final photo = hasPhotoField ? reader.readObject() as PhotoBase : null;
+
+    // Construct [RequestedPeerUser] object.
+    final returnValue = RequestedPeerUser(
+      userId: userId,
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      photo: photo,
+    );
+
+    // Now return the deserialized [RequestedPeerUser].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: firstName != null || lastName != null,
+      b01: username != null,
+      b02: photo != null,
+    );
+
+    return v;
+  }
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// First Name.
+  final String? firstName;
+
+  /// Last Name.
+  final String? lastName;
+
+  /// Username.
+  final String? username;
+
+  /// Photo.
+  final PhotoBase? photo;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd62ff46a.
+    buffer.writeInt32(0xd62ff46a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(userId);
+    final localFirstNameCopy = firstName;
+    if (localFirstNameCopy != null) {
+      buffer.writeString(localFirstNameCopy);
+    }
+    final localLastNameCopy = lastName;
+    if (localLastNameCopy != null) {
+      buffer.writeString(localLastNameCopy);
+    }
+    final localUsernameCopy = username;
+    if (localUsernameCopy != null) {
+      buffer.writeString(localUsernameCopy);
+    }
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd62ff46a",
+      "flags": flags,
+      "userId": userId,
+      "firstName": firstName,
+      "lastName": lastName,
+      "username": username,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Requested Peer Chat.
+///
+/// ID: `7307544f`.
+class RequestedPeerChat extends RequestedPeerBase {
+  /// Requested Peer Chat constructor.
+  const RequestedPeerChat({
+    required this.chatId,
+    this.title,
+    this.photo,
+  }) : super._();
+
+  /// Deserialize.
+  factory RequestedPeerChat.deserialize(BinaryReader reader) {
+    // Read [RequestedPeerChat] fields.
+    final flags = reader.readInt32();
+    final chatId = reader.readInt64();
+    final hasTitleField = (flags & 1) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final hasPhotoField = (flags & 4) != 0;
+    final photo = hasPhotoField ? reader.readObject() as PhotoBase : null;
+
+    // Construct [RequestedPeerChat] object.
+    final returnValue = RequestedPeerChat(
+      chatId: chatId,
+      title: title,
+      photo: photo,
+    );
+
+    // Now return the deserialized [RequestedPeerChat].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: title != null,
+      b02: photo != null,
+    );
+
+    return v;
+  }
+
+  /// Chat Id.
+  ///
+  /// Field type is Int64.
+  final int chatId;
+
+  /// Title.
+  final String? title;
+
+  /// Photo.
+  final PhotoBase? photo;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7307544f.
+    buffer.writeInt32(0x7307544f);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(chatId);
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7307544f",
+      "flags": flags,
+      "chatId": chatId,
+      "title": title,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Requested Peer Channel.
+///
+/// ID: `8ba403e4`.
+class RequestedPeerChannel extends RequestedPeerBase {
+  /// Requested Peer Channel constructor.
+  const RequestedPeerChannel({
+    required this.channelId,
+    this.title,
+    this.username,
+    this.photo,
+  }) : super._();
+
+  /// Deserialize.
+  factory RequestedPeerChannel.deserialize(BinaryReader reader) {
+    // Read [RequestedPeerChannel] fields.
+    final flags = reader.readInt32();
+    final channelId = reader.readInt64();
+    final hasTitleField = (flags & 1) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final hasUsernameField = (flags & 2) != 0;
+    final username = hasUsernameField ? reader.readString() : null;
+    final hasPhotoField = (flags & 4) != 0;
+    final photo = hasPhotoField ? reader.readObject() as PhotoBase : null;
+
+    // Construct [RequestedPeerChannel] object.
+    final returnValue = RequestedPeerChannel(
+      channelId: channelId,
+      title: title,
+      username: username,
+      photo: photo,
+    );
+
+    // Now return the deserialized [RequestedPeerChannel].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: title != null,
+      b01: username != null,
+      b02: photo != null,
+    );
+
+    return v;
+  }
+
+  /// Channel Id.
+  ///
+  /// Field type is Int64.
+  final int channelId;
+
+  /// Title.
+  final String? title;
+
+  /// Username.
+  final String? username;
+
+  /// Photo.
+  final PhotoBase? photo;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8ba403e4.
+    buffer.writeInt32(0x8ba403e4);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(channelId);
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    final localUsernameCopy = username;
+    if (localUsernameCopy != null) {
+      buffer.writeString(localUsernameCopy);
+    }
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ba403e4",
+      "flags": flags,
+      "channelId": channelId,
+      "title": title,
+      "username": username,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Sponsored Message Report Option.
+///
+/// ID: `430d3150`.
+class SponsoredMessageReportOption extends SponsoredMessageReportOptionBase {
+  /// Sponsored Message Report Option constructor.
+  const SponsoredMessageReportOption({
+    required this.text,
+    required this.option,
+  }) : super._();
+
+  /// Deserialize.
+  factory SponsoredMessageReportOption.deserialize(BinaryReader reader) {
+    // Read [SponsoredMessageReportOption] fields.
+    final text = reader.readString();
+    final option = reader.readBytes();
+
+    // Construct [SponsoredMessageReportOption] object.
+    final returnValue = SponsoredMessageReportOption(
+      text: text,
+      option: option,
+    );
+
+    // Now return the deserialized [SponsoredMessageReportOption].
+    return returnValue;
+  }
+
+  /// Text.
+  final String text;
+
+  /// Option.
+  final Uint8List option;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x430d3150.
+    buffer.writeInt32(0x430d3150);
+
+    // Write fields.
+    buffer.writeString(text);
+    buffer.writeBytes(option);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x430d3150",
+      "text": text,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Sponsored Message Report Result Choose Option.
+///
+/// ID: `846f9e42`.
+class ChannelsSponsoredMessageReportResultChooseOption
+    extends ChannelsSponsoredMessageReportResultBase {
+  /// Channels Sponsored Message Report Result Choose Option constructor.
+  const ChannelsSponsoredMessageReportResultChooseOption({
+    required this.title,
+    required this.options,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelsSponsoredMessageReportResultChooseOption.deserialize(
+      BinaryReader reader) {
+    // Read [ChannelsSponsoredMessageReportResultChooseOption] fields.
+    final title = reader.readString();
+    final options = reader.readVectorObject<SponsoredMessageReportOptionBase>();
+
+    // Construct [ChannelsSponsoredMessageReportResultChooseOption] object.
+    final returnValue = ChannelsSponsoredMessageReportResultChooseOption(
+      title: title,
+      options: options,
+    );
+
+    // Now return the deserialized [ChannelsSponsoredMessageReportResultChooseOption].
+    return returnValue;
+  }
+
+  /// Title.
+  final String title;
+
+  /// Options.
+  final List<SponsoredMessageReportOptionBase> options;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x846f9e42.
+    buffer.writeInt32(0x846f9e42);
+
+    // Write fields.
+    buffer.writeString(title);
+    buffer.writeVectorObject(options);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x846f9e42",
+      "title": title,
+      "options": options,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Sponsored Message Report Result Ads Hidden.
+///
+/// ID: `3e3bcf2f`.
+class ChannelsSponsoredMessageReportResultAdsHidden
+    extends ChannelsSponsoredMessageReportResultBase {
+  /// Channels Sponsored Message Report Result Ads Hidden constructor.
+  const ChannelsSponsoredMessageReportResultAdsHidden() : super._();
+
+  /// Deserialize.
+  factory ChannelsSponsoredMessageReportResultAdsHidden.deserialize(
+      BinaryReader reader) {
+    // Construct [ChannelsSponsoredMessageReportResultAdsHidden] object.
+    final returnValue = ChannelsSponsoredMessageReportResultAdsHidden();
+
+    // Now return the deserialized [ChannelsSponsoredMessageReportResultAdsHidden].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3e3bcf2f.
+    buffer.writeInt32(0x3e3bcf2f);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3e3bcf2f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Sponsored Message Report Result Reported.
+///
+/// ID: `ad798849`.
+class ChannelsSponsoredMessageReportResultReported
+    extends ChannelsSponsoredMessageReportResultBase {
+  /// Channels Sponsored Message Report Result Reported constructor.
+  const ChannelsSponsoredMessageReportResultReported() : super._();
+
+  /// Deserialize.
+  factory ChannelsSponsoredMessageReportResultReported.deserialize(
+      BinaryReader reader) {
+    // Construct [ChannelsSponsoredMessageReportResultReported] object.
+    final returnValue = ChannelsSponsoredMessageReportResultReported();
+
+    // Now return the deserialized [ChannelsSponsoredMessageReportResultReported].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xad798849.
+    buffer.writeInt32(0xad798849);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad798849",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stats Broadcast Revenue Stats.
+///
+/// ID: `5407e297`.
+class StatsBroadcastRevenueStats extends StatsBroadcastRevenueStatsBase {
+  /// Stats Broadcast Revenue Stats constructor.
+  const StatsBroadcastRevenueStats({
+    required this.topHoursGraph,
+    required this.revenueGraph,
+    required this.balances,
+    required this.usdRate,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsBroadcastRevenueStats.deserialize(BinaryReader reader) {
+    // Read [StatsBroadcastRevenueStats] fields.
+    final topHoursGraph = reader.readObject() as StatsGraphBase;
+    final revenueGraph = reader.readObject() as StatsGraphBase;
+    final balances = reader.readObject() as BroadcastRevenueBalancesBase;
+    final usdRate = reader.readFloat64();
+
+    // Construct [StatsBroadcastRevenueStats] object.
+    final returnValue = StatsBroadcastRevenueStats(
+      topHoursGraph: topHoursGraph,
+      revenueGraph: revenueGraph,
+      balances: balances,
+      usdRate: usdRate,
+    );
+
+    // Now return the deserialized [StatsBroadcastRevenueStats].
+    return returnValue;
+  }
+
+  /// Top Hours Graph.
+  final StatsGraphBase topHoursGraph;
+
+  /// Revenue Graph.
+  final StatsGraphBase revenueGraph;
+
+  /// Balances.
+  final BroadcastRevenueBalancesBase balances;
+
+  /// Usd Rate.
+  final double usdRate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5407e297.
+    buffer.writeInt32(0x5407e297);
+
+    // Write fields.
+    buffer.writeObject(topHoursGraph);
+    buffer.writeObject(revenueGraph);
+    buffer.writeObject(balances);
+    buffer.writeDouble(usdRate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5407e297",
+      "topHoursGraph": topHoursGraph,
+      "revenueGraph": revenueGraph,
+      "balances": balances,
+      "usdRate": usdRate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stats Broadcast Revenue Withdrawal Url.
+///
+/// ID: `ec659737`.
+class StatsBroadcastRevenueWithdrawalUrl
+    extends StatsBroadcastRevenueWithdrawalUrlBase {
+  /// Stats Broadcast Revenue Withdrawal Url constructor.
+  const StatsBroadcastRevenueWithdrawalUrl({
+    required this.url,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsBroadcastRevenueWithdrawalUrl.deserialize(BinaryReader reader) {
+    // Read [StatsBroadcastRevenueWithdrawalUrl] fields.
+    final url = reader.readString();
+
+    // Construct [StatsBroadcastRevenueWithdrawalUrl] object.
+    final returnValue = StatsBroadcastRevenueWithdrawalUrl(
+      url: url,
+    );
+
+    // Now return the deserialized [StatsBroadcastRevenueWithdrawalUrl].
+    return returnValue;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xec659737.
+    buffer.writeInt32(0xec659737);
+
+    // Write fields.
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xec659737",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Broadcast Revenue Transaction Proceeds.
+///
+/// ID: `557e2cc4`.
+class BroadcastRevenueTransactionProceeds
+    extends BroadcastRevenueTransactionBase {
+  /// Broadcast Revenue Transaction Proceeds constructor.
+  const BroadcastRevenueTransactionProceeds({
+    required this.amount,
+    required this.fromDate,
+    required this.toDate,
+  }) : super._();
+
+  /// Deserialize.
+  factory BroadcastRevenueTransactionProceeds.deserialize(BinaryReader reader) {
+    // Read [BroadcastRevenueTransactionProceeds] fields.
+    final amount = reader.readInt64();
+    final fromDate = reader.readDateTime();
+    final toDate = reader.readDateTime();
+
+    // Construct [BroadcastRevenueTransactionProceeds] object.
+    final returnValue = BroadcastRevenueTransactionProceeds(
+      amount: amount,
+      fromDate: fromDate,
+      toDate: toDate,
+    );
+
+    // Now return the deserialized [BroadcastRevenueTransactionProceeds].
+    return returnValue;
+  }
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// From Date.
+  final DateTime fromDate;
+
+  /// To Date.
+  final DateTime toDate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x557e2cc4.
+    buffer.writeInt32(0x557e2cc4);
+
+    // Write fields.
+    buffer.writeInt64(amount);
+    buffer.writeDateTime(fromDate);
+    buffer.writeDateTime(toDate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x557e2cc4",
+      "amount": amount,
+      "fromDate": fromDate.toIso8601String(),
+      "toDate": toDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Broadcast Revenue Transaction Withdrawal.
+///
+/// ID: `5a590978`.
+class BroadcastRevenueTransactionWithdrawal
+    extends BroadcastRevenueTransactionBase {
+  /// Broadcast Revenue Transaction Withdrawal constructor.
+  const BroadcastRevenueTransactionWithdrawal({
+    required this.pending,
+    required this.failed,
+    required this.amount,
+    required this.date,
+    required this.provider,
+    this.transactionDate,
+    this.transactionUrl,
+  }) : super._();
+
+  /// Deserialize.
+  factory BroadcastRevenueTransactionWithdrawal.deserialize(
+      BinaryReader reader) {
+    // Read [BroadcastRevenueTransactionWithdrawal] fields.
+    final flags = reader.readInt32();
+    final pending = (flags & 1) != 0;
+    final failed = (flags & 4) != 0;
+    final amount = reader.readInt64();
+    final date = reader.readDateTime();
+    final provider = reader.readString();
+    final hasTransactionDateField = (flags & 2) != 0;
+    final transactionDate =
+        hasTransactionDateField ? reader.readDateTime() : null;
+    final hasTransactionUrlField = (flags & 2) != 0;
+    final transactionUrl = hasTransactionUrlField ? reader.readString() : null;
+
+    // Construct [BroadcastRevenueTransactionWithdrawal] object.
+    final returnValue = BroadcastRevenueTransactionWithdrawal(
+      pending: pending,
+      failed: failed,
+      amount: amount,
+      date: date,
+      provider: provider,
+      transactionDate: transactionDate,
+      transactionUrl: transactionUrl,
+    );
+
+    // Now return the deserialized [BroadcastRevenueTransactionWithdrawal].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: pending,
+      b02: failed,
+      b01: transactionDate != null || transactionUrl != null,
+    );
+
+    return v;
+  }
+
+  /// pending: bit 0 of flags.0?true
+  final bool pending;
+
+  /// failed: bit 2 of flags.2?true
+  final bool failed;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Date.
+  final DateTime date;
+
+  /// Provider.
+  final String provider;
+
+  /// Transaction Date.
+  final DateTime? transactionDate;
+
+  /// Transaction Url.
+  final String? transactionUrl;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5a590978.
+    buffer.writeInt32(0x5a590978);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(amount);
+    buffer.writeDateTime(date);
+    buffer.writeString(provider);
+    final localTransactionDateCopy = transactionDate;
+    if (localTransactionDateCopy != null) {
+      buffer.writeDateTime(localTransactionDateCopy);
+    }
+    final localTransactionUrlCopy = transactionUrl;
+    if (localTransactionUrlCopy != null) {
+      buffer.writeString(localTransactionUrlCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5a590978",
+      "flags": flags,
+      "pending": pending,
+      "failed": failed,
+      "amount": amount,
+      "date": date.toIso8601String(),
+      "provider": provider,
+      "transactionDate": transactionDate?.toIso8601String(),
+      "transactionUrl": transactionUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Broadcast Revenue Transaction Refund.
+///
+/// ID: `42d30d2e`.
+class BroadcastRevenueTransactionRefund
+    extends BroadcastRevenueTransactionBase {
+  /// Broadcast Revenue Transaction Refund constructor.
+  const BroadcastRevenueTransactionRefund({
+    required this.amount,
+    required this.date,
+    required this.provider,
+  }) : super._();
+
+  /// Deserialize.
+  factory BroadcastRevenueTransactionRefund.deserialize(BinaryReader reader) {
+    // Read [BroadcastRevenueTransactionRefund] fields.
+    final amount = reader.readInt64();
+    final date = reader.readDateTime();
+    final provider = reader.readString();
+
+    // Construct [BroadcastRevenueTransactionRefund] object.
+    final returnValue = BroadcastRevenueTransactionRefund(
+      amount: amount,
+      date: date,
+      provider: provider,
+    );
+
+    // Now return the deserialized [BroadcastRevenueTransactionRefund].
+    return returnValue;
+  }
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Date.
+  final DateTime date;
+
+  /// Provider.
+  final String provider;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x42d30d2e.
+    buffer.writeInt32(0x42d30d2e);
+
+    // Write fields.
+    buffer.writeInt64(amount);
+    buffer.writeDateTime(date);
+    buffer.writeString(provider);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x42d30d2e",
+      "amount": amount,
+      "date": date.toIso8601String(),
+      "provider": provider,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stats Broadcast Revenue Transactions.
+///
+/// ID: `87158466`.
+class StatsBroadcastRevenueTransactions
+    extends StatsBroadcastRevenueTransactionsBase {
+  /// Stats Broadcast Revenue Transactions constructor.
+  const StatsBroadcastRevenueTransactions({
+    required this.count,
+    required this.transactions,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsBroadcastRevenueTransactions.deserialize(BinaryReader reader) {
+    // Read [StatsBroadcastRevenueTransactions] fields.
+    final count = reader.readInt32();
+    final transactions =
+        reader.readVectorObject<BroadcastRevenueTransactionBase>();
+
+    // Construct [StatsBroadcastRevenueTransactions] object.
+    final returnValue = StatsBroadcastRevenueTransactions(
+      count: count,
+      transactions: transactions,
+    );
+
+    // Now return the deserialized [StatsBroadcastRevenueTransactions].
+    return returnValue;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Transactions.
+  final List<BroadcastRevenueTransactionBase> transactions;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x87158466.
+    buffer.writeInt32(0x87158466);
+
+    // Write fields.
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(transactions);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x87158466",
+      "count": count,
+      "transactions": transactions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Reaction Notifications From Contacts.
+///
+/// ID: `bac3a61a`.
+class ReactionNotificationsFromContacts extends ReactionNotificationsFromBase {
+  /// Reaction Notifications From Contacts constructor.
+  const ReactionNotificationsFromContacts() : super._();
+
+  /// Deserialize.
+  factory ReactionNotificationsFromContacts.deserialize(BinaryReader reader) {
+    // Construct [ReactionNotificationsFromContacts] object.
+    final returnValue = ReactionNotificationsFromContacts();
+
+    // Now return the deserialized [ReactionNotificationsFromContacts].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbac3a61a.
+    buffer.writeInt32(0xbac3a61a);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbac3a61a",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Reaction Notifications From All.
+///
+/// ID: `4b9e22a0`.
+class ReactionNotificationsFromAll extends ReactionNotificationsFromBase {
+  /// Reaction Notifications From All constructor.
+  const ReactionNotificationsFromAll() : super._();
+
+  /// Deserialize.
+  factory ReactionNotificationsFromAll.deserialize(BinaryReader reader) {
+    // Construct [ReactionNotificationsFromAll] object.
+    final returnValue = ReactionNotificationsFromAll();
+
+    // Now return the deserialized [ReactionNotificationsFromAll].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4b9e22a0.
+    buffer.writeInt32(0x4b9e22a0);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4b9e22a0",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Reactions Notify Settings.
+///
+/// ID: `56e34970`.
+class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
+  /// Reactions Notify Settings constructor.
+  const ReactionsNotifySettings({
+    this.messagesNotifyFrom,
+    this.storiesNotifyFrom,
+    required this.sound,
+    required this.showPreviews,
+  }) : super._();
+
+  /// Deserialize.
+  factory ReactionsNotifySettings.deserialize(BinaryReader reader) {
+    // Read [ReactionsNotifySettings] fields.
+    final flags = reader.readInt32();
+    final hasMessagesNotifyFromField = (flags & 1) != 0;
+    final messagesNotifyFrom = hasMessagesNotifyFromField
+        ? reader.readObject() as ReactionNotificationsFromBase
+        : null;
+    final hasStoriesNotifyFromField = (flags & 2) != 0;
+    final storiesNotifyFrom = hasStoriesNotifyFromField
+        ? reader.readObject() as ReactionNotificationsFromBase
+        : null;
+    final sound = reader.readObject() as NotificationSoundBase;
+    final showPreviews = reader.readBool();
+
+    // Construct [ReactionsNotifySettings] object.
+    final returnValue = ReactionsNotifySettings(
+      messagesNotifyFrom: messagesNotifyFrom,
+      storiesNotifyFrom: storiesNotifyFrom,
+      sound: sound,
+      showPreviews: showPreviews,
+    );
+
+    // Now return the deserialized [ReactionsNotifySettings].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: messagesNotifyFrom != null,
+      b01: storiesNotifyFrom != null,
+    );
+
+    return v;
+  }
+
+  /// Messages Notify From.
+  final ReactionNotificationsFromBase? messagesNotifyFrom;
+
+  /// Stories Notify From.
+  final ReactionNotificationsFromBase? storiesNotifyFrom;
+
+  /// Sound.
+  final NotificationSoundBase sound;
+
+  /// Show Previews.
+  final bool showPreviews;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x56e34970.
+    buffer.writeInt32(0x56e34970);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localMessagesNotifyFromCopy = messagesNotifyFrom;
+    if (localMessagesNotifyFromCopy != null) {
+      buffer.writeObject(localMessagesNotifyFromCopy);
+    }
+    final localStoriesNotifyFromCopy = storiesNotifyFrom;
+    if (localStoriesNotifyFromCopy != null) {
+      buffer.writeObject(localStoriesNotifyFromCopy);
+    }
+    buffer.writeObject(sound);
+    buffer.writeBool(showPreviews);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x56e34970",
+      "flags": flags,
+      "messagesNotifyFrom": messagesNotifyFrom,
+      "storiesNotifyFrom": storiesNotifyFrom,
+      "sound": sound,
+      "showPreviews": showPreviews,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Broadcast Revenue Balances.
+///
+/// ID: `c3ff71e7`.
+class BroadcastRevenueBalances extends BroadcastRevenueBalancesBase {
+  /// Broadcast Revenue Balances constructor.
+  const BroadcastRevenueBalances({
+    required this.withdrawalEnabled,
+    required this.currentBalance,
+    required this.availableBalance,
+    required this.overallRevenue,
+  }) : super._();
+
+  /// Deserialize.
+  factory BroadcastRevenueBalances.deserialize(BinaryReader reader) {
+    // Read [BroadcastRevenueBalances] fields.
+    final flags = reader.readInt32();
+    final withdrawalEnabled = (flags & 1) != 0;
+    final currentBalance = reader.readInt64();
+    final availableBalance = reader.readInt64();
+    final overallRevenue = reader.readInt64();
+
+    // Construct [BroadcastRevenueBalances] object.
+    final returnValue = BroadcastRevenueBalances(
+      withdrawalEnabled: withdrawalEnabled,
+      currentBalance: currentBalance,
+      availableBalance: availableBalance,
+      overallRevenue: overallRevenue,
+    );
+
+    // Now return the deserialized [BroadcastRevenueBalances].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: withdrawalEnabled,
+    );
+
+    return v;
+  }
+
+  /// withdrawal_enabled: bit 0 of flags.0?true
+  final bool withdrawalEnabled;
+
+  /// Current Balance.
+  ///
+  /// Field type is Int64.
+  final int currentBalance;
+
+  /// Available Balance.
+  ///
+  /// Field type is Int64.
+  final int availableBalance;
+
+  /// Overall Revenue.
+  ///
+  /// Field type is Int64.
+  final int overallRevenue;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc3ff71e7.
+    buffer.writeInt32(0xc3ff71e7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(currentBalance);
+    buffer.writeInt64(availableBalance);
+    buffer.writeInt64(overallRevenue);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc3ff71e7",
+      "flags": flags,
+      "withdrawalEnabled": withdrawalEnabled,
+      "currentBalance": currentBalance,
+      "availableBalance": availableBalance,
+      "overallRevenue": overallRevenue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Available Effect.
+///
+/// ID: `93c3e27e`.
+class AvailableEffect extends AvailableEffectBase {
+  /// Available Effect constructor.
+  const AvailableEffect({
+    required this.premiumRequired,
+    required this.id,
+    required this.emoticon,
+    this.staticIconId,
+    required this.effectStickerId,
+    this.effectAnimationId,
+  }) : super._();
+
+  /// Deserialize.
+  factory AvailableEffect.deserialize(BinaryReader reader) {
+    // Read [AvailableEffect] fields.
+    final flags = reader.readInt32();
+    final premiumRequired = (flags & 4) != 0;
+    final id = reader.readInt64();
+    final emoticon = reader.readString();
+    final hasStaticIconIdField = (flags & 1) != 0;
+    final staticIconId = hasStaticIconIdField ? reader.readInt64() : null;
+    final effectStickerId = reader.readInt64();
+    final hasEffectAnimationIdField = (flags & 2) != 0;
+    final effectAnimationId =
+        hasEffectAnimationIdField ? reader.readInt64() : null;
+
+    // Construct [AvailableEffect] object.
+    final returnValue = AvailableEffect(
+      premiumRequired: premiumRequired,
+      id: id,
+      emoticon: emoticon,
+      staticIconId: staticIconId,
+      effectStickerId: effectStickerId,
+      effectAnimationId: effectAnimationId,
+    );
+
+    // Now return the deserialized [AvailableEffect].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b02: premiumRequired,
+      b00: staticIconId != null,
+      b01: effectAnimationId != null,
+    );
+
+    return v;
+  }
+
+  /// premium_required: bit 2 of flags.2?true
+  final bool premiumRequired;
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Emoticon.
+  final String emoticon;
+
+  /// Static Icon Id.
+  final int? staticIconId;
+
+  /// Effect Sticker Id.
+  ///
+  /// Field type is Int64.
+  final int effectStickerId;
+
+  /// Effect Animation Id.
+  final int? effectAnimationId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x93c3e27e.
+    buffer.writeInt32(0x93c3e27e);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(id);
+    buffer.writeString(emoticon);
+    final localStaticIconIdCopy = staticIconId;
+    if (localStaticIconIdCopy != null) {
+      buffer.writeInt64(localStaticIconIdCopy);
+    }
+    buffer.writeInt64(effectStickerId);
+    final localEffectAnimationIdCopy = effectAnimationId;
+    if (localEffectAnimationIdCopy != null) {
+      buffer.writeInt64(localEffectAnimationIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x93c3e27e",
+      "flags": flags,
+      "premiumRequired": premiumRequired,
+      "id": id,
+      "emoticon": emoticon,
+      "staticIconId": staticIconId,
+      "effectStickerId": effectStickerId,
+      "effectAnimationId": effectAnimationId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Available Effects Not Modified.
+///
+/// ID: `d1ed9a5b`.
+class MessagesAvailableEffectsNotModified extends MessagesAvailableEffectsBase {
+  /// Messages Available Effects Not Modified constructor.
+  const MessagesAvailableEffectsNotModified() : super._();
+
+  /// Deserialize.
+  factory MessagesAvailableEffectsNotModified.deserialize(BinaryReader reader) {
+    // Construct [MessagesAvailableEffectsNotModified] object.
+    final returnValue = MessagesAvailableEffectsNotModified();
+
+    // Now return the deserialized [MessagesAvailableEffectsNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1ed9a5b.
+    buffer.writeInt32(0xd1ed9a5b);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1ed9a5b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Available Effects.
+///
+/// ID: `bddb616e`.
+class MessagesAvailableEffects extends MessagesAvailableEffectsBase {
+  /// Messages Available Effects constructor.
+  const MessagesAvailableEffects({
+    required this.hash,
+    required this.effects,
+    required this.documents,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesAvailableEffects.deserialize(BinaryReader reader) {
+    // Read [MessagesAvailableEffects] fields.
+    final hash = reader.readInt32();
+    final effects = reader.readVectorObject<AvailableEffectBase>();
+    final documents = reader.readVectorObject<DocumentBase>();
+
+    // Construct [MessagesAvailableEffects] object.
+    final returnValue = MessagesAvailableEffects(
+      hash: hash,
+      effects: effects,
+      documents: documents,
+    );
+
+    // Now return the deserialized [MessagesAvailableEffects].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Effects.
+  final List<AvailableEffectBase> effects;
+
+  /// Documents.
+  final List<DocumentBase> documents;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbddb616e.
+    buffer.writeInt32(0xbddb616e);
+
+    // Write fields.
+    buffer.writeInt32(hash);
+    buffer.writeVectorObject(effects);
+    buffer.writeVectorObject(documents);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbddb616e",
+      "hash": hash,
+      "effects": effects,
+      "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Fact Check.
+///
+/// ID: `b89bfccf`.
+class FactCheck extends FactCheckBase {
+  /// Fact Check constructor.
+  const FactCheck({
+    required this.needCheck,
+    this.country,
+    this.text,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory FactCheck.deserialize(BinaryReader reader) {
+    // Read [FactCheck] fields.
+    final flags = reader.readInt32();
+    final needCheck = (flags & 1) != 0;
+    final hasCountryField = (flags & 2) != 0;
+    final country = hasCountryField ? reader.readString() : null;
+    final hasTextField = (flags & 2) != 0;
+    final text =
+        hasTextField ? reader.readObject() as TextWithEntitiesBase : null;
+    final hash = reader.readInt64();
+
+    // Construct [FactCheck] object.
+    final returnValue = FactCheck(
+      needCheck: needCheck,
+      country: country,
+      text: text,
+      hash: hash,
+    );
+
+    // Now return the deserialized [FactCheck].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: needCheck,
+      b01: country != null || text != null,
+    );
+
+    return v;
+  }
+
+  /// need_check: bit 0 of flags.0?true
+  final bool needCheck;
+
+  /// Country.
+  final String? country;
+
+  /// Text.
+  final TextWithEntitiesBase? text;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb89bfccf.
+    buffer.writeInt32(0xb89bfccf);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localCountryCopy = country;
+    if (localCountryCopy != null) {
+      buffer.writeString(localCountryCopy);
+    }
+    final localTextCopy = text;
+    if (localTextCopy != null) {
+      buffer.writeObject(localTextCopy);
+    }
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb89bfccf",
+      "flags": flags,
+      "needCheck": needCheck,
+      "country": country,
+      "text": text,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer Unsupported.
+///
+/// ID: `95f2bfe4`.
+class StarsTransactionPeerUnsupported extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer Unsupported constructor.
+  const StarsTransactionPeerUnsupported() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerUnsupported.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerUnsupported] object.
+    final returnValue = StarsTransactionPeerUnsupported();
+
+    // Now return the deserialized [StarsTransactionPeerUnsupported].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x95f2bfe4.
+    buffer.writeInt32(0x95f2bfe4);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x95f2bfe4",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer App Store.
+///
+/// ID: `b457b375`.
+class StarsTransactionPeerAppStore extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer App Store constructor.
+  const StarsTransactionPeerAppStore() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerAppStore.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerAppStore] object.
+    final returnValue = StarsTransactionPeerAppStore();
+
+    // Now return the deserialized [StarsTransactionPeerAppStore].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb457b375.
+    buffer.writeInt32(0xb457b375);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb457b375",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer Play Market.
+///
+/// ID: `7b560a0b`.
+class StarsTransactionPeerPlayMarket extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer Play Market constructor.
+  const StarsTransactionPeerPlayMarket() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerPlayMarket.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerPlayMarket] object.
+    final returnValue = StarsTransactionPeerPlayMarket();
+
+    // Now return the deserialized [StarsTransactionPeerPlayMarket].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7b560a0b.
+    buffer.writeInt32(0x7b560a0b);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7b560a0b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer Premium Bot.
+///
+/// ID: `250dbaf8`.
+class StarsTransactionPeerPremiumBot extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer Premium Bot constructor.
+  const StarsTransactionPeerPremiumBot() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerPremiumBot.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerPremiumBot] object.
+    final returnValue = StarsTransactionPeerPremiumBot();
+
+    // Now return the deserialized [StarsTransactionPeerPremiumBot].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x250dbaf8.
+    buffer.writeInt32(0x250dbaf8);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x250dbaf8",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer Fragment.
+///
+/// ID: `e92fd902`.
+class StarsTransactionPeerFragment extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer Fragment constructor.
+  const StarsTransactionPeerFragment() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerFragment.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerFragment] object.
+    final returnValue = StarsTransactionPeerFragment();
+
+    // Now return the deserialized [StarsTransactionPeerFragment].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe92fd902.
+    buffer.writeInt32(0xe92fd902);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe92fd902",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer.
+///
+/// ID: `d80da15d`.
+class StarsTransactionPeer extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer constructor.
+  const StarsTransactionPeer({
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeer.deserialize(BinaryReader reader) {
+    // Read [StarsTransactionPeer] fields.
+    final peer = reader.readObject() as PeerBase;
+
+    // Construct [StarsTransactionPeer] object.
+    final returnValue = StarsTransactionPeer(
+      peer: peer,
+    );
+
+    // Now return the deserialized [StarsTransactionPeer].
+    return returnValue;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd80da15d.
+    buffer.writeInt32(0xd80da15d);
+
+    // Write fields.
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd80da15d",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer Ads.
+///
+/// ID: `60682812`.
+class StarsTransactionPeerAds extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer Ads constructor.
+  const StarsTransactionPeerAds() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerAds.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerAds] object.
+    final returnValue = StarsTransactionPeerAds();
+
+    // Now return the deserialized [StarsTransactionPeerAds].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x60682812.
+    buffer.writeInt32(0x60682812);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x60682812",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction Peer A P I.
+///
+/// ID: `f9677aad`.
+class StarsTransactionPeerAPI extends StarsTransactionPeerBase {
+  /// Stars Transaction Peer A P I constructor.
+  const StarsTransactionPeerAPI() : super._();
+
+  /// Deserialize.
+  factory StarsTransactionPeerAPI.deserialize(BinaryReader reader) {
+    // Construct [StarsTransactionPeerAPI] object.
+    final returnValue = StarsTransactionPeerAPI();
+
+    // Now return the deserialized [StarsTransactionPeerAPI].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf9677aad.
+    buffer.writeInt32(0xf9677aad);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf9677aad",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Topup Option.
+///
+/// ID: `0bd915c0`.
+class StarsTopupOption extends StarsTopupOptionBase {
+  /// Stars Topup Option constructor.
+  const StarsTopupOption({
+    required this.extended,
+    required this.stars,
+    this.storeProduct,
+    required this.currency,
+    required this.amount,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsTopupOption.deserialize(BinaryReader reader) {
+    // Read [StarsTopupOption] fields.
+    final flags = reader.readInt32();
+    final extended = (flags & 2) != 0;
+    final stars = reader.readInt64();
+    final hasStoreProductField = (flags & 1) != 0;
+    final storeProduct = hasStoreProductField ? reader.readString() : null;
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+
+    // Construct [StarsTopupOption] object.
+    final returnValue = StarsTopupOption(
+      extended: extended,
+      stars: stars,
+      storeProduct: storeProduct,
+      currency: currency,
+      amount: amount,
+    );
+
+    // Now return the deserialized [StarsTopupOption].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: extended,
+      b00: storeProduct != null,
+    );
+
+    return v;
+  }
+
+  /// extended: bit 1 of flags.1?true
+  final bool extended;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Store Product.
+  final String? storeProduct;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0bd915c0.
+    buffer.writeInt32(0x0bd915c0);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(stars);
+    final localStoreProductCopy = storeProduct;
+    if (localStoreProductCopy != null) {
+      buffer.writeString(localStoreProductCopy);
+    }
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0bd915c0",
+      "flags": flags,
+      "extended": extended,
+      "stars": stars,
+      "storeProduct": storeProduct,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Transaction.
+///
+/// ID: `64dfc926`.
+class StarsTransaction extends StarsTransactionBase {
+  /// Stars Transaction constructor.
+  const StarsTransaction({
+    required this.refund,
+    required this.pending,
+    required this.failed,
+    required this.gift,
+    required this.reaction,
+    required this.id,
+    required this.stars,
+    required this.date,
+    required this.peer,
+    this.title,
+    this.description,
+    this.photo,
+    this.transactionDate,
+    this.transactionUrl,
+    this.botPayload,
+    this.msgId,
+    this.extendedMedia,
+    this.subscriptionPeriod,
+    this.giveawayPostId,
+    this.stargift,
+    this.floodskipNumber,
+    this.starrefCommissionPermille,
+    this.starrefPeer,
+    this.starrefAmount,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsTransaction.deserialize(BinaryReader reader) {
+    // Read [StarsTransaction] fields.
+    final flags = reader.readInt32();
+    final refund = (flags & 8) != 0;
+    final pending = (flags & 16) != 0;
+    final failed = (flags & 64) != 0;
+    final gift = (flags & 1024) != 0;
+    final reaction = (flags & 2048) != 0;
+    final id = reader.readString();
+    final stars = reader.readObject() as StarsAmountBase;
+    final date = reader.readDateTime();
+    final peer = reader.readObject() as StarsTransactionPeerBase;
+    final hasTitleField = (flags & 1) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final hasDescriptionField = (flags & 2) != 0;
+    final description = hasDescriptionField ? reader.readString() : null;
+    final hasPhotoField = (flags & 4) != 0;
+    final photo = hasPhotoField ? reader.readObject() as WebDocumentBase : null;
+    final hasTransactionDateField = (flags & 32) != 0;
+    final transactionDate =
+        hasTransactionDateField ? reader.readDateTime() : null;
+    final hasTransactionUrlField = (flags & 32) != 0;
+    final transactionUrl = hasTransactionUrlField ? reader.readString() : null;
+    final hasBotPayloadField = (flags & 128) != 0;
+    final botPayload = hasBotPayloadField ? reader.readBytes() : null;
+    final hasMsgIdField = (flags & 256) != 0;
+    final msgId = hasMsgIdField ? reader.readInt32() : null;
+    final hasExtendedMediaField = (flags & 512) != 0;
+    final extendedMedia = hasExtendedMediaField
+        ? reader.readVectorObject<MessageMediaBase>()
+        : null;
+    final hasSubscriptionPeriodField = (flags & 4096) != 0;
+    final subscriptionPeriod =
+        hasSubscriptionPeriodField ? reader.readInt32() : null;
+    final hasGiveawayPostIdField = (flags & 8192) != 0;
+    final giveawayPostId = hasGiveawayPostIdField ? reader.readInt32() : null;
+    final hasStargiftField = (flags & 16384) != 0;
+    final stargift =
+        hasStargiftField ? reader.readObject() as StarGiftBase : null;
+    final hasFloodskipNumberField = (flags & 32768) != 0;
+    final floodskipNumber = hasFloodskipNumberField ? reader.readInt32() : null;
+    final hasStarrefCommissionPermilleField = (flags & 65536) != 0;
+    final starrefCommissionPermille =
+        hasStarrefCommissionPermilleField ? reader.readInt32() : null;
+    final hasStarrefPeerField = (flags & 131072) != 0;
+    final starrefPeer =
+        hasStarrefPeerField ? reader.readObject() as PeerBase : null;
+    final hasStarrefAmountField = (flags & 131072) != 0;
+    final starrefAmount =
+        hasStarrefAmountField ? reader.readObject() as StarsAmountBase : null;
+
+    // Construct [StarsTransaction] object.
+    final returnValue = StarsTransaction(
+      refund: refund,
+      pending: pending,
+      failed: failed,
+      gift: gift,
+      reaction: reaction,
+      id: id,
+      stars: stars,
+      date: date,
+      peer: peer,
+      title: title,
+      description: description,
+      photo: photo,
+      transactionDate: transactionDate,
+      transactionUrl: transactionUrl,
+      botPayload: botPayload,
+      msgId: msgId,
+      extendedMedia: extendedMedia,
+      subscriptionPeriod: subscriptionPeriod,
+      giveawayPostId: giveawayPostId,
+      stargift: stargift,
+      floodskipNumber: floodskipNumber,
+      starrefCommissionPermille: starrefCommissionPermille,
+      starrefPeer: starrefPeer,
+      starrefAmount: starrefAmount,
+    );
+
+    // Now return the deserialized [StarsTransaction].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b03: refund,
+      b04: pending,
+      b06: failed,
+      b10: gift,
+      b11: reaction,
+      b00: title != null,
+      b01: description != null,
+      b02: photo != null,
+      b05: transactionDate != null || transactionUrl != null,
+      b07: botPayload != null,
+      b08: msgId != null,
+      b09: extendedMedia != null,
+      b12: subscriptionPeriod != null,
+      b13: giveawayPostId != null,
+      b14: stargift != null,
+      b15: floodskipNumber != null,
+      b16: starrefCommissionPermille != null,
+      b17: starrefPeer != null || starrefAmount != null,
+    );
+
+    return v;
+  }
+
+  /// refund: bit 3 of flags.3?true
+  final bool refund;
+
+  /// pending: bit 4 of flags.4?true
+  final bool pending;
+
+  /// failed: bit 6 of flags.6?true
+  final bool failed;
+
+  /// gift: bit 10 of flags.10?true
+  final bool gift;
+
+  /// reaction: bit 11 of flags.11?true
+  final bool reaction;
+
+  /// Id.
+  final String id;
+
+  /// Stars.
+  final StarsAmountBase stars;
+
+  /// Date.
+  final DateTime date;
+
+  /// Peer.
+  final StarsTransactionPeerBase peer;
+
+  /// Title.
+  final String? title;
+
+  /// Description.
+  final String? description;
+
+  /// Photo.
+  final WebDocumentBase? photo;
+
+  /// Transaction Date.
+  final DateTime? transactionDate;
+
+  /// Transaction Url.
+  final String? transactionUrl;
+
+  /// Bot Payload.
+  final Uint8List? botPayload;
+
+  /// Msg Id.
+  final int? msgId;
+
+  /// Extended Media.
+  final List<MessageMediaBase>? extendedMedia;
+
+  /// Subscription Period.
+  final int? subscriptionPeriod;
+
+  /// Giveaway Post Id.
+  final int? giveawayPostId;
+
+  /// Stargift.
+  final StarGiftBase? stargift;
+
+  /// Floodskip Number.
+  final int? floodskipNumber;
+
+  /// Starref Commission Permille.
+  final int? starrefCommissionPermille;
+
+  /// Starref Peer.
+  final PeerBase? starrefPeer;
+
+  /// Starref Amount.
+  final StarsAmountBase? starrefAmount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x64dfc926.
+    buffer.writeInt32(0x64dfc926);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(id);
+    buffer.writeObject(stars);
+    buffer.writeDateTime(date);
+    buffer.writeObject(peer);
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    final localDescriptionCopy = description;
+    if (localDescriptionCopy != null) {
+      buffer.writeString(localDescriptionCopy);
+    }
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+    final localTransactionDateCopy = transactionDate;
+    if (localTransactionDateCopy != null) {
+      buffer.writeDateTime(localTransactionDateCopy);
+    }
+    final localTransactionUrlCopy = transactionUrl;
+    if (localTransactionUrlCopy != null) {
+      buffer.writeString(localTransactionUrlCopy);
+    }
+    final localBotPayloadCopy = botPayload;
+    if (localBotPayloadCopy != null) {
+      buffer.writeBytes(localBotPayloadCopy);
+    }
+    final localMsgIdCopy = msgId;
+    if (localMsgIdCopy != null) {
+      buffer.writeInt32(localMsgIdCopy);
+    }
+    final localExtendedMediaCopy = extendedMedia;
+    if (localExtendedMediaCopy != null) {
+      buffer.writeVectorObject(localExtendedMediaCopy);
+    }
+    final localSubscriptionPeriodCopy = subscriptionPeriod;
+    if (localSubscriptionPeriodCopy != null) {
+      buffer.writeInt32(localSubscriptionPeriodCopy);
+    }
+    final localGiveawayPostIdCopy = giveawayPostId;
+    if (localGiveawayPostIdCopy != null) {
+      buffer.writeInt32(localGiveawayPostIdCopy);
+    }
+    final localStargiftCopy = stargift;
+    if (localStargiftCopy != null) {
+      buffer.writeObject(localStargiftCopy);
+    }
+    final localFloodskipNumberCopy = floodskipNumber;
+    if (localFloodskipNumberCopy != null) {
+      buffer.writeInt32(localFloodskipNumberCopy);
+    }
+    final localStarrefCommissionPermilleCopy = starrefCommissionPermille;
+    if (localStarrefCommissionPermilleCopy != null) {
+      buffer.writeInt32(localStarrefCommissionPermilleCopy);
+    }
+    final localStarrefPeerCopy = starrefPeer;
+    if (localStarrefPeerCopy != null) {
+      buffer.writeObject(localStarrefPeerCopy);
+    }
+    final localStarrefAmountCopy = starrefAmount;
+    if (localStarrefAmountCopy != null) {
+      buffer.writeObject(localStarrefAmountCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x64dfc926",
+      "flags": flags,
+      "refund": refund,
+      "pending": pending,
+      "failed": failed,
+      "gift": gift,
+      "reaction": reaction,
+      "id": id,
+      "stars": stars,
+      "date": date.toIso8601String(),
+      "peer": peer,
+      "title": title,
+      "description": description,
+      "photo": photo,
+      "transactionDate": transactionDate?.toIso8601String(),
+      "transactionUrl": transactionUrl,
+      "botPayload": botPayload,
+      "msgId": msgId,
+      "extendedMedia": extendedMedia,
+      "subscriptionPeriod": subscriptionPeriod,
+      "giveawayPostId": giveawayPostId,
+      "stargift": stargift,
+      "floodskipNumber": floodskipNumber,
+      "starrefCommissionPermille": starrefCommissionPermille,
+      "starrefPeer": starrefPeer,
+      "starrefAmount": starrefAmount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Stars Status.
+///
+/// ID: `6c9ce8ed`.
+class PaymentsStarsStatus extends PaymentsStarsStatusBase {
+  /// Payments Stars Status constructor.
+  const PaymentsStarsStatus({
+    required this.balance,
+    this.subscriptions,
+    this.subscriptionsNextOffset,
+    this.subscriptionsMissingBalance,
+    this.history,
+    this.nextOffset,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsStarsStatus.deserialize(BinaryReader reader) {
+    // Read [PaymentsStarsStatus] fields.
+    final flags = reader.readInt32();
+    final balance = reader.readObject() as StarsAmountBase;
+    final hasSubscriptionsField = (flags & 2) != 0;
+    final subscriptions = hasSubscriptionsField
+        ? reader.readVectorObject<StarsSubscriptionBase>()
+        : null;
+    final hasSubscriptionsNextOffsetField = (flags & 4) != 0;
+    final subscriptionsNextOffset =
+        hasSubscriptionsNextOffsetField ? reader.readString() : null;
+    final hasSubscriptionsMissingBalanceField = (flags & 16) != 0;
+    final subscriptionsMissingBalance =
+        hasSubscriptionsMissingBalanceField ? reader.readInt64() : null;
+    final hasHistoryField = (flags & 8) != 0;
+    final history = hasHistoryField
+        ? reader.readVectorObject<StarsTransactionBase>()
+        : null;
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [PaymentsStarsStatus] object.
+    final returnValue = PaymentsStarsStatus(
+      balance: balance,
+      subscriptions: subscriptions,
+      subscriptionsNextOffset: subscriptionsNextOffset,
+      subscriptionsMissingBalance: subscriptionsMissingBalance,
+      history: history,
+      nextOffset: nextOffset,
+      chats: chats,
+      users: users,
+    );
+
+    // Now return the deserialized [PaymentsStarsStatus].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: subscriptions != null,
+      b02: subscriptionsNextOffset != null,
+      b04: subscriptionsMissingBalance != null,
+      b03: history != null,
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Balance.
+  final StarsAmountBase balance;
+
+  /// Subscriptions.
+  final List<StarsSubscriptionBase>? subscriptions;
+
+  /// Subscriptions Next Offset.
+  final String? subscriptionsNextOffset;
+
+  /// Subscriptions Missing Balance.
+  final int? subscriptionsMissingBalance;
+
+  /// History.
+  final List<StarsTransactionBase>? history;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6c9ce8ed.
+    buffer.writeInt32(0x6c9ce8ed);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(balance);
+    final localSubscriptionsCopy = subscriptions;
+    if (localSubscriptionsCopy != null) {
+      buffer.writeVectorObject(localSubscriptionsCopy);
+    }
+    final localSubscriptionsNextOffsetCopy = subscriptionsNextOffset;
+    if (localSubscriptionsNextOffsetCopy != null) {
+      buffer.writeString(localSubscriptionsNextOffsetCopy);
+    }
+    final localSubscriptionsMissingBalanceCopy = subscriptionsMissingBalance;
+    if (localSubscriptionsMissingBalanceCopy != null) {
+      buffer.writeInt64(localSubscriptionsMissingBalanceCopy);
+    }
+    final localHistoryCopy = history;
+    if (localHistoryCopy != null) {
+      buffer.writeVectorObject(localHistoryCopy);
+    }
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c9ce8ed",
+      "flags": flags,
+      "balance": balance,
+      "subscriptions": subscriptions,
+      "subscriptionsNextOffset": subscriptionsNextOffset,
+      "subscriptionsMissingBalance": subscriptionsMissingBalance,
+      "history": history,
+      "nextOffset": nextOffset,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Found Story.
+///
+/// ID: `e87acbc0`.
+class FoundStory extends FoundStoryBase {
+  /// Found Story constructor.
+  const FoundStory({
+    required this.peer,
+    required this.story,
+  }) : super._();
+
+  /// Deserialize.
+  factory FoundStory.deserialize(BinaryReader reader) {
+    // Read [FoundStory] fields.
+    final peer = reader.readObject() as PeerBase;
+    final story = reader.readObject() as StoryItemBase;
+
+    // Construct [FoundStory] object.
+    final returnValue = FoundStory(
+      peer: peer,
+      story: story,
+    );
+
+    // Now return the deserialized [FoundStory].
+    return returnValue;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Story.
+  final StoryItemBase story;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe87acbc0.
+    buffer.writeInt32(0xe87acbc0);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(story);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe87acbc0",
+      "peer": peer,
+      "story": story,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stories Found Stories.
+///
+/// ID: `e2de7737`.
+class StoriesFoundStories extends StoriesFoundStoriesBase {
+  /// Stories Found Stories constructor.
+  const StoriesFoundStories({
+    required this.count,
+    required this.stories,
+    this.nextOffset,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory StoriesFoundStories.deserialize(BinaryReader reader) {
+    // Read [StoriesFoundStories] fields.
+    final flags = reader.readInt32();
+    final count = reader.readInt32();
+    final stories = reader.readVectorObject<FoundStoryBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [StoriesFoundStories] object.
+    final returnValue = StoriesFoundStories(
+      count: count,
+      stories: stories,
+      nextOffset: nextOffset,
+      chats: chats,
+      users: users,
+    );
+
+    // Now return the deserialized [StoriesFoundStories].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Stories.
+  final List<FoundStoryBase> stories;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe2de7737.
+    buffer.writeInt32(0xe2de7737);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(stories);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe2de7737",
+      "flags": flags,
+      "count": count,
+      "stories": stories,
+      "nextOffset": nextOffset,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Geo Point Address.
+///
+/// ID: `de4c5d93`.
+class GeoPointAddress extends GeoPointAddressBase {
+  /// Geo Point Address constructor.
+  const GeoPointAddress({
+    required this.countryIso2,
+    this.state,
+    this.city,
+    this.street,
+  }) : super._();
+
+  /// Deserialize.
+  factory GeoPointAddress.deserialize(BinaryReader reader) {
+    // Read [GeoPointAddress] fields.
+    final flags = reader.readInt32();
+    final countryIso2 = reader.readString();
+    final hasStateField = (flags & 1) != 0;
+    final state = hasStateField ? reader.readString() : null;
+    final hasCityField = (flags & 2) != 0;
+    final city = hasCityField ? reader.readString() : null;
+    final hasStreetField = (flags & 4) != 0;
+    final street = hasStreetField ? reader.readString() : null;
+
+    // Construct [GeoPointAddress] object.
+    final returnValue = GeoPointAddress(
+      countryIso2: countryIso2,
+      state: state,
+      city: city,
+      street: street,
+    );
+
+    // Now return the deserialized [GeoPointAddress].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: state != null,
+      b01: city != null,
+      b02: street != null,
+    );
+
+    return v;
+  }
+
+  /// Country Iso2.
+  final String countryIso2;
+
+  /// State.
+  final String? state;
+
+  /// City.
+  final String? city;
+
+  /// Street.
+  final String? street;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xde4c5d93.
+    buffer.writeInt32(0xde4c5d93);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(countryIso2);
+    final localStateCopy = state;
+    if (localStateCopy != null) {
+      buffer.writeString(localStateCopy);
+    }
+    final localCityCopy = city;
+    if (localCityCopy != null) {
+      buffer.writeString(localCityCopy);
+    }
+    final localStreetCopy = street;
+    if (localStreetCopy != null) {
+      buffer.writeString(localStreetCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xde4c5d93",
+      "flags": flags,
+      "countryIso2": countryIso2,
+      "state": state,
+      "city": city,
+      "street": street,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Revenue Status.
+///
+/// ID: `febe5491`.
+class StarsRevenueStatus extends StarsRevenueStatusBase {
+  /// Stars Revenue Status constructor.
+  const StarsRevenueStatus({
+    required this.withdrawalEnabled,
+    required this.currentBalance,
+    required this.availableBalance,
+    required this.overallRevenue,
+    this.nextWithdrawalAt,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsRevenueStatus.deserialize(BinaryReader reader) {
+    // Read [StarsRevenueStatus] fields.
+    final flags = reader.readInt32();
+    final withdrawalEnabled = (flags & 1) != 0;
+    final currentBalance = reader.readObject() as StarsAmountBase;
+    final availableBalance = reader.readObject() as StarsAmountBase;
+    final overallRevenue = reader.readObject() as StarsAmountBase;
+    final hasNextWithdrawalAtField = (flags & 2) != 0;
+    final nextWithdrawalAt =
+        hasNextWithdrawalAtField ? reader.readInt32() : null;
+
+    // Construct [StarsRevenueStatus] object.
+    final returnValue = StarsRevenueStatus(
+      withdrawalEnabled: withdrawalEnabled,
+      currentBalance: currentBalance,
+      availableBalance: availableBalance,
+      overallRevenue: overallRevenue,
+      nextWithdrawalAt: nextWithdrawalAt,
+    );
+
+    // Now return the deserialized [StarsRevenueStatus].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: withdrawalEnabled,
+      b01: nextWithdrawalAt != null,
+    );
+
+    return v;
+  }
+
+  /// withdrawal_enabled: bit 0 of flags.0?true
+  final bool withdrawalEnabled;
+
+  /// Current Balance.
+  final StarsAmountBase currentBalance;
+
+  /// Available Balance.
+  final StarsAmountBase availableBalance;
+
+  /// Overall Revenue.
+  final StarsAmountBase overallRevenue;
+
+  /// Next Withdrawal At.
+  final int? nextWithdrawalAt;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfebe5491.
+    buffer.writeInt32(0xfebe5491);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(currentBalance);
+    buffer.writeObject(availableBalance);
+    buffer.writeObject(overallRevenue);
+    final localNextWithdrawalAtCopy = nextWithdrawalAt;
+    if (localNextWithdrawalAtCopy != null) {
+      buffer.writeInt32(localNextWithdrawalAtCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfebe5491",
+      "flags": flags,
+      "withdrawalEnabled": withdrawalEnabled,
+      "currentBalance": currentBalance,
+      "availableBalance": availableBalance,
+      "overallRevenue": overallRevenue,
+      "nextWithdrawalAt": nextWithdrawalAt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Stars Revenue Stats.
+///
+/// ID: `c92bb73b`.
+class PaymentsStarsRevenueStats extends PaymentsStarsRevenueStatsBase {
+  /// Payments Stars Revenue Stats constructor.
+  const PaymentsStarsRevenueStats({
+    required this.revenueGraph,
+    required this.status,
+    required this.usdRate,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsStarsRevenueStats.deserialize(BinaryReader reader) {
+    // Read [PaymentsStarsRevenueStats] fields.
+    final revenueGraph = reader.readObject() as StatsGraphBase;
+    final status = reader.readObject() as StarsRevenueStatusBase;
+    final usdRate = reader.readFloat64();
+
+    // Construct [PaymentsStarsRevenueStats] object.
+    final returnValue = PaymentsStarsRevenueStats(
+      revenueGraph: revenueGraph,
+      status: status,
+      usdRate: usdRate,
+    );
+
+    // Now return the deserialized [PaymentsStarsRevenueStats].
+    return returnValue;
+  }
+
+  /// Revenue Graph.
+  final StatsGraphBase revenueGraph;
+
+  /// Status.
+  final StarsRevenueStatusBase status;
+
+  /// Usd Rate.
+  final double usdRate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc92bb73b.
+    buffer.writeInt32(0xc92bb73b);
+
+    // Write fields.
+    buffer.writeObject(revenueGraph);
+    buffer.writeObject(status);
+    buffer.writeDouble(usdRate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc92bb73b",
+      "revenueGraph": revenueGraph,
+      "status": status,
+      "usdRate": usdRate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Stars Revenue Withdrawal Url.
+///
+/// ID: `1dab80b7`.
+class PaymentsStarsRevenueWithdrawalUrl
+    extends PaymentsStarsRevenueWithdrawalUrlBase {
+  /// Payments Stars Revenue Withdrawal Url constructor.
+  const PaymentsStarsRevenueWithdrawalUrl({
+    required this.url,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsStarsRevenueWithdrawalUrl.deserialize(BinaryReader reader) {
+    // Read [PaymentsStarsRevenueWithdrawalUrl] fields.
+    final url = reader.readString();
+
+    // Construct [PaymentsStarsRevenueWithdrawalUrl] object.
+    final returnValue = PaymentsStarsRevenueWithdrawalUrl(
+      url: url,
+    );
+
+    // Now return the deserialized [PaymentsStarsRevenueWithdrawalUrl].
+    return returnValue;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1dab80b7.
+    buffer.writeInt32(0x1dab80b7);
+
+    // Write fields.
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1dab80b7",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Stars Revenue Ads Account Url.
+///
+/// ID: `394e7f21`.
+class PaymentsStarsRevenueAdsAccountUrl
+    extends PaymentsStarsRevenueAdsAccountUrlBase {
+  /// Payments Stars Revenue Ads Account Url constructor.
+  const PaymentsStarsRevenueAdsAccountUrl({
+    required this.url,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsStarsRevenueAdsAccountUrl.deserialize(BinaryReader reader) {
+    // Read [PaymentsStarsRevenueAdsAccountUrl] fields.
+    final url = reader.readString();
+
+    // Construct [PaymentsStarsRevenueAdsAccountUrl] object.
+    final returnValue = PaymentsStarsRevenueAdsAccountUrl(
+      url: url,
+    );
+
+    // Now return the deserialized [PaymentsStarsRevenueAdsAccountUrl].
+    return returnValue;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x394e7f21.
+    buffer.writeInt32(0x394e7f21);
+
+    // Write fields.
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x394e7f21",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Stars Transaction.
+///
+/// ID: `206ae6d1`.
+class InputStarsTransaction extends InputStarsTransactionBase {
+  /// Input Stars Transaction constructor.
+  const InputStarsTransaction({
+    required this.refund,
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputStarsTransaction.deserialize(BinaryReader reader) {
+    // Read [InputStarsTransaction] fields.
+    final flags = reader.readInt32();
+    final refund = (flags & 1) != 0;
+    final id = reader.readString();
+
+    // Construct [InputStarsTransaction] object.
+    final returnValue = InputStarsTransaction(
+      refund: refund,
+      id: id,
+    );
+
+    // Now return the deserialized [InputStarsTransaction].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: refund,
+    );
+
+    return v;
+  }
+
+  /// refund: bit 0 of flags.0?true
+  final bool refund;
+
+  /// Id.
+  final String id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x206ae6d1.
+    buffer.writeInt32(0x206ae6d1);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x206ae6d1",
+      "flags": flags,
+      "refund": refund,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Gift Option.
+///
+/// ID: `5e0589f1`.
+class StarsGiftOption extends StarsGiftOptionBase {
+  /// Stars Gift Option constructor.
+  const StarsGiftOption({
+    required this.extended,
+    required this.stars,
+    this.storeProduct,
+    required this.currency,
+    required this.amount,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsGiftOption.deserialize(BinaryReader reader) {
+    // Read [StarsGiftOption] fields.
+    final flags = reader.readInt32();
+    final extended = (flags & 2) != 0;
+    final stars = reader.readInt64();
+    final hasStoreProductField = (flags & 1) != 0;
+    final storeProduct = hasStoreProductField ? reader.readString() : null;
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+
+    // Construct [StarsGiftOption] object.
+    final returnValue = StarsGiftOption(
+      extended: extended,
+      stars: stars,
+      storeProduct: storeProduct,
+      currency: currency,
+      amount: amount,
+    );
+
+    // Now return the deserialized [StarsGiftOption].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: extended,
+      b00: storeProduct != null,
+    );
+
+    return v;
+  }
+
+  /// extended: bit 1 of flags.1?true
+  final bool extended;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Store Product.
+  final String? storeProduct;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5e0589f1.
+    buffer.writeInt32(0x5e0589f1);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(stars);
+    final localStoreProductCopy = storeProduct;
+    if (localStoreProductCopy != null) {
+      buffer.writeString(localStoreProductCopy);
+    }
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e0589f1",
+      "flags": flags,
+      "extended": extended,
+      "stars": stars,
+      "storeProduct": storeProduct,
+      "currency": currency,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Popular App Bots.
+///
+/// ID: `1991b13b`.
+class BotsPopularAppBots extends BotsPopularAppBotsBase {
+  /// Bots Popular App Bots constructor.
+  const BotsPopularAppBots({
+    this.nextOffset,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsPopularAppBots.deserialize(BinaryReader reader) {
+    // Read [BotsPopularAppBots] fields.
+    final flags = reader.readInt32();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [BotsPopularAppBots] object.
+    final returnValue = BotsPopularAppBots(
+      nextOffset: nextOffset,
+      users: users,
+    );
+
+    // Now return the deserialized [BotsPopularAppBots].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1991b13b.
+    buffer.writeInt32(0x1991b13b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1991b13b",
+      "flags": flags,
+      "nextOffset": nextOffset,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bot Preview Media.
+///
+/// ID: `23e91ba3`.
+class BotPreviewMedia extends BotPreviewMediaBase {
+  /// Bot Preview Media constructor.
+  const BotPreviewMedia({
+    required this.date,
+    required this.media,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotPreviewMedia.deserialize(BinaryReader reader) {
+    // Read [BotPreviewMedia] fields.
+    final date = reader.readDateTime();
+    final media = reader.readObject() as MessageMediaBase;
+
+    // Construct [BotPreviewMedia] object.
+    final returnValue = BotPreviewMedia(
+      date: date,
+      media: media,
+    );
+
+    // Now return the deserialized [BotPreviewMedia].
+    return returnValue;
+  }
+
+  /// Date.
+  final DateTime date;
+
+  /// Media.
+  final MessageMediaBase media;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x23e91ba3.
+    buffer.writeInt32(0x23e91ba3);
+
+    // Write fields.
+    buffer.writeDateTime(date);
+    buffer.writeObject(media);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x23e91ba3",
+      "date": date.toIso8601String(),
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Preview Info.
+///
+/// ID: `0ca71d64`.
+class BotsPreviewInfo extends BotsPreviewInfoBase {
+  /// Bots Preview Info constructor.
+  const BotsPreviewInfo({
+    required this.media,
+    required this.langCodes,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsPreviewInfo.deserialize(BinaryReader reader) {
+    // Read [BotsPreviewInfo] fields.
+    final media = reader.readVectorObject<BotPreviewMediaBase>();
+    final langCodes = reader.readVectorString();
+
+    // Construct [BotsPreviewInfo] object.
+    final returnValue = BotsPreviewInfo(
+      media: media,
+      langCodes: langCodes,
+    );
+
+    // Now return the deserialized [BotsPreviewInfo].
+    return returnValue;
+  }
+
+  /// Media.
+  final List<BotPreviewMediaBase> media;
+
+  /// Lang Codes.
+  final List<String> langCodes;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0ca71d64.
+    buffer.writeInt32(0x0ca71d64);
+
+    // Write fields.
+    buffer.writeVectorObject(media);
+    buffer.writeVectorString(langCodes);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0ca71d64",
+      "media": media,
+      "langCodes": langCodes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Subscription Pricing.
+///
+/// ID: `05416d58`.
+class StarsSubscriptionPricing extends StarsSubscriptionPricingBase {
+  /// Stars Subscription Pricing constructor.
+  const StarsSubscriptionPricing({
+    required this.period,
+    required this.amount,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsSubscriptionPricing.deserialize(BinaryReader reader) {
+    // Read [StarsSubscriptionPricing] fields.
+    final period = reader.readInt32();
+    final amount = reader.readInt64();
+
+    // Construct [StarsSubscriptionPricing] object.
+    final returnValue = StarsSubscriptionPricing(
+      period: period,
+      amount: amount,
+    );
+
+    // Now return the deserialized [StarsSubscriptionPricing].
+    return returnValue;
+  }
+
+  /// Period.
+  ///
+  /// Field type is Int32.
+  final int period;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x05416d58.
+    buffer.writeInt32(0x05416d58);
+
+    // Write fields.
+    buffer.writeInt32(period);
+    buffer.writeInt64(amount);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x05416d58",
+      "period": period,
+      "amount": amount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Subscription.
+///
+/// ID: `2e6eab1a`.
+class StarsSubscription extends StarsSubscriptionBase {
+  /// Stars Subscription constructor.
+  const StarsSubscription({
+    required this.canceled,
+    required this.canRefulfill,
+    required this.missingBalance,
+    required this.botCanceled,
+    required this.id,
+    required this.peer,
+    required this.untilDate,
+    required this.pricing,
+    this.chatInviteHash,
+    this.title,
+    this.photo,
+    this.invoiceSlug,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsSubscription.deserialize(BinaryReader reader) {
+    // Read [StarsSubscription] fields.
+    final flags = reader.readInt32();
+    final canceled = (flags & 1) != 0;
+    final canRefulfill = (flags & 2) != 0;
+    final missingBalance = (flags & 4) != 0;
+    final botCanceled = (flags & 128) != 0;
+    final id = reader.readString();
+    final peer = reader.readObject() as PeerBase;
+    final untilDate = reader.readDateTime();
+    final pricing = reader.readObject() as StarsSubscriptionPricingBase;
+    final hasChatInviteHashField = (flags & 8) != 0;
+    final chatInviteHash = hasChatInviteHashField ? reader.readString() : null;
+    final hasTitleField = (flags & 16) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final hasPhotoField = (flags & 32) != 0;
+    final photo = hasPhotoField ? reader.readObject() as WebDocumentBase : null;
+    final hasInvoiceSlugField = (flags & 64) != 0;
+    final invoiceSlug = hasInvoiceSlugField ? reader.readString() : null;
+
+    // Construct [StarsSubscription] object.
+    final returnValue = StarsSubscription(
+      canceled: canceled,
+      canRefulfill: canRefulfill,
+      missingBalance: missingBalance,
+      botCanceled: botCanceled,
+      id: id,
+      peer: peer,
+      untilDate: untilDate,
+      pricing: pricing,
+      chatInviteHash: chatInviteHash,
+      title: title,
+      photo: photo,
+      invoiceSlug: invoiceSlug,
+    );
+
+    // Now return the deserialized [StarsSubscription].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: canceled,
+      b01: canRefulfill,
+      b02: missingBalance,
+      b07: botCanceled,
+      b03: chatInviteHash != null,
+      b04: title != null,
+      b05: photo != null,
+      b06: invoiceSlug != null,
+    );
+
+    return v;
+  }
+
+  /// canceled: bit 0 of flags.0?true
+  final bool canceled;
+
+  /// can_refulfill: bit 1 of flags.1?true
+  final bool canRefulfill;
+
+  /// missing_balance: bit 2 of flags.2?true
+  final bool missingBalance;
+
+  /// bot_canceled: bit 7 of flags.7?true
+  final bool botCanceled;
+
+  /// Id.
+  final String id;
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Until Date.
+  final DateTime untilDate;
+
+  /// Pricing.
+  final StarsSubscriptionPricingBase pricing;
+
+  /// Chat Invite Hash.
+  final String? chatInviteHash;
+
+  /// Title.
+  final String? title;
+
+  /// Photo.
+  final WebDocumentBase? photo;
+
+  /// Invoice Slug.
+  final String? invoiceSlug;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2e6eab1a.
+    buffer.writeInt32(0x2e6eab1a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(id);
+    buffer.writeObject(peer);
+    buffer.writeDateTime(untilDate);
+    buffer.writeObject(pricing);
+    final localChatInviteHashCopy = chatInviteHash;
+    if (localChatInviteHashCopy != null) {
+      buffer.writeString(localChatInviteHashCopy);
+    }
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    final localPhotoCopy = photo;
+    if (localPhotoCopy != null) {
+      buffer.writeObject(localPhotoCopy);
+    }
+    final localInvoiceSlugCopy = invoiceSlug;
+    if (localInvoiceSlugCopy != null) {
+      buffer.writeString(localInvoiceSlugCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2e6eab1a",
+      "flags": flags,
+      "canceled": canceled,
+      "canRefulfill": canRefulfill,
+      "missingBalance": missingBalance,
+      "botCanceled": botCanceled,
+      "id": id,
+      "peer": peer,
+      "untilDate": untilDate.toIso8601String(),
+      "pricing": pricing,
+      "chatInviteHash": chatInviteHash,
+      "title": title,
+      "photo": photo,
+      "invoiceSlug": invoiceSlug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Reactor.
+///
+/// ID: `4ba3a95a`.
+class MessageReactor extends MessageReactorBase {
+  /// Message Reactor constructor.
+  const MessageReactor({
+    required this.top,
+    required this.my,
+    required this.anonymous,
+    this.peerId,
+    required this.count,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageReactor.deserialize(BinaryReader reader) {
+    // Read [MessageReactor] fields.
+    final flags = reader.readInt32();
+    final top = (flags & 1) != 0;
+    final my = (flags & 2) != 0;
+    final anonymous = (flags & 4) != 0;
+    final hasPeerIdField = (flags & 8) != 0;
+    final peerId = hasPeerIdField ? reader.readObject() as PeerBase : null;
+    final count = reader.readInt32();
+
+    // Construct [MessageReactor] object.
+    final returnValue = MessageReactor(
+      top: top,
+      my: my,
+      anonymous: anonymous,
+      peerId: peerId,
+      count: count,
+    );
+
+    // Now return the deserialized [MessageReactor].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: top,
+      b01: my,
+      b02: anonymous,
+      b03: peerId != null,
+    );
+
+    return v;
+  }
+
+  /// top: bit 0 of flags.0?true
+  final bool top;
+
+  /// my: bit 1 of flags.1?true
+  final bool my;
+
+  /// anonymous: bit 2 of flags.2?true
+  final bool anonymous;
+
+  /// Peer Id.
+  final PeerBase? peerId;
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4ba3a95a.
+    buffer.writeInt32(0x4ba3a95a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localPeerIdCopy = peerId;
+    if (localPeerIdCopy != null) {
+      buffer.writeObject(localPeerIdCopy);
+    }
+    buffer.writeInt32(count);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4ba3a95a",
+      "flags": flags,
+      "top": top,
+      "my": my,
+      "anonymous": anonymous,
+      "peerId": peerId,
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Giveaway Option.
+///
+/// ID: `94ce852a`.
+class StarsGiveawayOption extends StarsGiveawayOptionBase {
+  /// Stars Giveaway Option constructor.
+  const StarsGiveawayOption({
+    required this.extended,
+    required this.ddefault,
+    required this.stars,
+    required this.yearlyBoosts,
+    this.storeProduct,
+    required this.currency,
+    required this.amount,
+    required this.winners,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsGiveawayOption.deserialize(BinaryReader reader) {
+    // Read [StarsGiveawayOption] fields.
+    final flags = reader.readInt32();
+    final extended = (flags & 1) != 0;
+    final ddefault = (flags & 2) != 0;
+    final stars = reader.readInt64();
+    final yearlyBoosts = reader.readInt32();
+    final hasStoreProductField = (flags & 4) != 0;
+    final storeProduct = hasStoreProductField ? reader.readString() : null;
+    final currency = reader.readString();
+    final amount = reader.readInt64();
+    final winners = reader.readVectorObject<StarsGiveawayWinnersOptionBase>();
+
+    // Construct [StarsGiveawayOption] object.
+    final returnValue = StarsGiveawayOption(
+      extended: extended,
+      ddefault: ddefault,
+      stars: stars,
+      yearlyBoosts: yearlyBoosts,
+      storeProduct: storeProduct,
+      currency: currency,
+      amount: amount,
+      winners: winners,
+    );
+
+    // Now return the deserialized [StarsGiveawayOption].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: extended,
+      b01: ddefault,
+      b02: storeProduct != null,
+    );
+
+    return v;
+  }
+
+  /// extended: bit 0 of flags.0?true
+  final bool extended;
+
+  /// default: bit 1 of flags.1?true
+  final bool ddefault;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Yearly Boosts.
+  ///
+  /// Field type is Int32.
+  final int yearlyBoosts;
+
+  /// Store Product.
+  final String? storeProduct;
+
+  /// Currency.
+  final String currency;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Winners.
+  final List<StarsGiveawayWinnersOptionBase> winners;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x94ce852a.
+    buffer.writeInt32(0x94ce852a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(stars);
+    buffer.writeInt32(yearlyBoosts);
+    final localStoreProductCopy = storeProduct;
+    if (localStoreProductCopy != null) {
+      buffer.writeString(localStoreProductCopy);
+    }
+    buffer.writeString(currency);
+    buffer.writeInt64(amount);
+    buffer.writeVectorObject(winners);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x94ce852a",
+      "flags": flags,
+      "extended": extended,
+      "ddefault": ddefault,
+      "stars": stars,
+      "yearlyBoosts": yearlyBoosts,
+      "storeProduct": storeProduct,
+      "currency": currency,
+      "amount": amount,
+      "winners": winners,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Giveaway Winners Option.
+///
+/// ID: `54236209`.
+class StarsGiveawayWinnersOption extends StarsGiveawayWinnersOptionBase {
+  /// Stars Giveaway Winners Option constructor.
+  const StarsGiveawayWinnersOption({
+    required this.ddefault,
+    required this.users,
+    required this.perUserStars,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsGiveawayWinnersOption.deserialize(BinaryReader reader) {
+    // Read [StarsGiveawayWinnersOption] fields.
+    final flags = reader.readInt32();
+    final ddefault = (flags & 1) != 0;
+    final users = reader.readInt32();
+    final perUserStars = reader.readInt64();
+
+    // Construct [StarsGiveawayWinnersOption] object.
+    final returnValue = StarsGiveawayWinnersOption(
+      ddefault: ddefault,
+      users: users,
+      perUserStars: perUserStars,
+    );
+
+    // Now return the deserialized [StarsGiveawayWinnersOption].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: ddefault,
+    );
+
+    return v;
+  }
+
+  /// default: bit 0 of flags.0?true
+  final bool ddefault;
+
+  /// Users.
+  ///
+  /// Field type is Int32.
+  final int users;
+
+  /// Per User Stars.
+  ///
+  /// Field type is Int64.
+  final int perUserStars;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x54236209.
+    buffer.writeInt32(0x54236209);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(users);
+    buffer.writeInt64(perUserStars);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x54236209",
+      "flags": flags,
+      "ddefault": ddefault,
+      "users": users,
+      "perUserStars": perUserStars,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Gift.
+///
+/// ID: `49c577cd`.
+class StarGift extends StarGiftBase {
+  /// Star Gift constructor.
+  const StarGift({
+    required this.limited,
+    required this.soldOut,
+    required this.birthday,
+    required this.id,
+    required this.sticker,
+    required this.stars,
+    this.availabilityRemains,
+    this.availabilityTotal,
+    required this.convertStars,
+    this.firstSaleDate,
+    this.lastSaleDate,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarGift.deserialize(BinaryReader reader) {
+    // Read [StarGift] fields.
+    final flags = reader.readInt32();
+    final limited = (flags & 1) != 0;
+    final soldOut = (flags & 2) != 0;
+    final birthday = (flags & 4) != 0;
+    final id = reader.readInt64();
+    final sticker = reader.readObject() as DocumentBase;
+    final stars = reader.readInt64();
+    final hasAvailabilityRemainsField = (flags & 1) != 0;
+    final availabilityRemains =
+        hasAvailabilityRemainsField ? reader.readInt32() : null;
+    final hasAvailabilityTotalField = (flags & 1) != 0;
+    final availabilityTotal =
+        hasAvailabilityTotalField ? reader.readInt32() : null;
+    final convertStars = reader.readInt64();
+    final hasFirstSaleDateField = (flags & 2) != 0;
+    final firstSaleDate = hasFirstSaleDateField ? reader.readDateTime() : null;
+    final hasLastSaleDateField = (flags & 2) != 0;
+    final lastSaleDate = hasLastSaleDateField ? reader.readDateTime() : null;
+
+    // Construct [StarGift] object.
+    final returnValue = StarGift(
+      limited: limited,
+      soldOut: soldOut,
+      birthday: birthday,
+      id: id,
+      sticker: sticker,
+      stars: stars,
+      availabilityRemains: availabilityRemains,
+      availabilityTotal: availabilityTotal,
+      convertStars: convertStars,
+      firstSaleDate: firstSaleDate,
+      lastSaleDate: lastSaleDate,
+    );
+
+    // Now return the deserialized [StarGift].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: limited || availabilityRemains != null || availabilityTotal != null,
+      b01: soldOut || firstSaleDate != null || lastSaleDate != null,
+      b02: birthday,
+    );
+
+    return v;
+  }
+
+  /// limited: bit 0 of flags.0?true
+  final bool limited;
+
+  /// sold_out: bit 1 of flags.1?true
+  final bool soldOut;
+
+  /// birthday: bit 2 of flags.2?true
+  final bool birthday;
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Sticker.
+  final DocumentBase sticker;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Availability Remains.
+  final int? availabilityRemains;
+
+  /// Availability Total.
+  final int? availabilityTotal;
+
+  /// Convert Stars.
+  ///
+  /// Field type is Int64.
+  final int convertStars;
+
+  /// First Sale Date.
+  final DateTime? firstSaleDate;
+
+  /// Last Sale Date.
+  final DateTime? lastSaleDate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x49c577cd.
+    buffer.writeInt32(0x49c577cd);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(id);
+    buffer.writeObject(sticker);
+    buffer.writeInt64(stars);
+    final localAvailabilityRemainsCopy = availabilityRemains;
+    if (localAvailabilityRemainsCopy != null) {
+      buffer.writeInt32(localAvailabilityRemainsCopy);
+    }
+    final localAvailabilityTotalCopy = availabilityTotal;
+    if (localAvailabilityTotalCopy != null) {
+      buffer.writeInt32(localAvailabilityTotalCopy);
+    }
+    buffer.writeInt64(convertStars);
+    final localFirstSaleDateCopy = firstSaleDate;
+    if (localFirstSaleDateCopy != null) {
+      buffer.writeDateTime(localFirstSaleDateCopy);
+    }
+    final localLastSaleDateCopy = lastSaleDate;
+    if (localLastSaleDateCopy != null) {
+      buffer.writeDateTime(localLastSaleDateCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x49c577cd",
+      "flags": flags,
+      "limited": limited,
+      "soldOut": soldOut,
+      "birthday": birthday,
+      "id": id,
+      "sticker": sticker,
+      "stars": stars,
+      "availabilityRemains": availabilityRemains,
+      "availabilityTotal": availabilityTotal,
+      "convertStars": convertStars,
+      "firstSaleDate": firstSaleDate?.toIso8601String(),
+      "lastSaleDate": lastSaleDate?.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Star Gifts Not Modified.
+///
+/// ID: `a388a368`.
+class PaymentsStarGiftsNotModified extends PaymentsStarGiftsBase {
+  /// Payments Star Gifts Not Modified constructor.
+  const PaymentsStarGiftsNotModified() : super._();
+
+  /// Deserialize.
+  factory PaymentsStarGiftsNotModified.deserialize(BinaryReader reader) {
+    // Construct [PaymentsStarGiftsNotModified] object.
+    final returnValue = PaymentsStarGiftsNotModified();
+
+    // Now return the deserialized [PaymentsStarGiftsNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa388a368.
+    buffer.writeInt32(0xa388a368);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa388a368",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Star Gifts.
+///
+/// ID: `901689ea`.
+class PaymentsStarGifts extends PaymentsStarGiftsBase {
+  /// Payments Star Gifts constructor.
+  const PaymentsStarGifts({
+    required this.hash,
+    required this.gifts,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsStarGifts.deserialize(BinaryReader reader) {
+    // Read [PaymentsStarGifts] fields.
+    final hash = reader.readInt32();
+    final gifts = reader.readVectorObject<StarGiftBase>();
+
+    // Construct [PaymentsStarGifts] object.
+    final returnValue = PaymentsStarGifts(
+      hash: hash,
+      gifts: gifts,
+    );
+
+    // Now return the deserialized [PaymentsStarGifts].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Gifts.
+  final List<StarGiftBase> gifts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x901689ea.
+    buffer.writeInt32(0x901689ea);
+
+    // Write fields.
+    buffer.writeInt32(hash);
+    buffer.writeVectorObject(gifts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x901689ea",
+      "hash": hash,
+      "gifts": gifts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// User Star Gift.
+///
+/// ID: `eea49a6e`.
+class UserStarGift extends UserStarGiftBase {
+  /// User Star Gift constructor.
+  const UserStarGift({
+    required this.nameHidden,
+    required this.unsaved,
+    this.fromId,
+    required this.date,
+    required this.gift,
+    this.message,
+    this.msgId,
+    this.convertStars,
+  }) : super._();
+
+  /// Deserialize.
+  factory UserStarGift.deserialize(BinaryReader reader) {
+    // Read [UserStarGift] fields.
+    final flags = reader.readInt32();
+    final nameHidden = (flags & 1) != 0;
+    final unsaved = (flags & 32) != 0;
+    final hasFromIdField = (flags & 2) != 0;
+    final fromId = hasFromIdField ? reader.readInt64() : null;
+    final date = reader.readDateTime();
+    final gift = reader.readObject() as StarGiftBase;
+    final hasMessageField = (flags & 4) != 0;
+    final message =
+        hasMessageField ? reader.readObject() as TextWithEntitiesBase : null;
+    final hasMsgIdField = (flags & 8) != 0;
+    final msgId = hasMsgIdField ? reader.readInt32() : null;
+    final hasConvertStarsField = (flags & 16) != 0;
+    final convertStars = hasConvertStarsField ? reader.readInt64() : null;
+
+    // Construct [UserStarGift] object.
+    final returnValue = UserStarGift(
+      nameHidden: nameHidden,
+      unsaved: unsaved,
+      fromId: fromId,
+      date: date,
+      gift: gift,
+      message: message,
+      msgId: msgId,
+      convertStars: convertStars,
+    );
+
+    // Now return the deserialized [UserStarGift].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nameHidden,
+      b05: unsaved,
+      b01: fromId != null,
+      b02: message != null,
+      b03: msgId != null,
+      b04: convertStars != null,
+    );
+
+    return v;
+  }
+
+  /// name_hidden: bit 0 of flags.0?true
+  final bool nameHidden;
+
+  /// unsaved: bit 5 of flags.5?true
+  final bool unsaved;
+
+  /// From Id.
+  final int? fromId;
+
+  /// Date.
+  final DateTime date;
+
+  /// Gift.
+  final StarGiftBase gift;
+
+  /// Message.
+  final TextWithEntitiesBase? message;
+
+  /// Msg Id.
+  final int? msgId;
+
+  /// Convert Stars.
+  final int? convertStars;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xeea49a6e.
+    buffer.writeInt32(0xeea49a6e);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localFromIdCopy = fromId;
+    if (localFromIdCopy != null) {
+      buffer.writeInt64(localFromIdCopy);
+    }
+    buffer.writeDateTime(date);
+    buffer.writeObject(gift);
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
+    final localMsgIdCopy = msgId;
+    if (localMsgIdCopy != null) {
+      buffer.writeInt32(localMsgIdCopy);
+    }
+    final localConvertStarsCopy = convertStars;
+    if (localConvertStarsCopy != null) {
+      buffer.writeInt64(localConvertStarsCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xeea49a6e",
+      "flags": flags,
+      "nameHidden": nameHidden,
+      "unsaved": unsaved,
+      "fromId": fromId,
+      "date": date.toIso8601String(),
+      "gift": gift,
+      "message": message,
+      "msgId": msgId,
+      "convertStars": convertStars,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments User Star Gifts.
+///
+/// ID: `6b65b517`.
+class PaymentsUserStarGifts extends PaymentsUserStarGiftsBase {
+  /// Payments User Star Gifts constructor.
+  const PaymentsUserStarGifts({
+    required this.count,
+    required this.gifts,
+    this.nextOffset,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsUserStarGifts.deserialize(BinaryReader reader) {
+    // Read [PaymentsUserStarGifts] fields.
+    final flags = reader.readInt32();
+    final count = reader.readInt32();
+    final gifts = reader.readVectorObject<UserStarGiftBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [PaymentsUserStarGifts] object.
+    final returnValue = PaymentsUserStarGifts(
+      count: count,
+      gifts: gifts,
+      nextOffset: nextOffset,
+      users: users,
+    );
+
+    // Now return the deserialized [PaymentsUserStarGifts].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Gifts.
+  final List<UserStarGiftBase> gifts;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6b65b517.
+    buffer.writeInt32(0x6b65b517);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(gifts);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6b65b517",
+      "flags": flags,
+      "count": count,
+      "gifts": gifts,
+      "nextOffset": nextOffset,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Report Option.
+///
+/// ID: `7903e3d9`.
+class MessageReportOption extends MessageReportOptionBase {
+  /// Message Report Option constructor.
+  const MessageReportOption({
+    required this.text,
+    required this.option,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageReportOption.deserialize(BinaryReader reader) {
+    // Read [MessageReportOption] fields.
+    final text = reader.readString();
+    final option = reader.readBytes();
+
+    // Construct [MessageReportOption] object.
+    final returnValue = MessageReportOption(
+      text: text,
+      option: option,
+    );
+
+    // Now return the deserialized [MessageReportOption].
+    return returnValue;
+  }
+
+  /// Text.
+  final String text;
+
+  /// Option.
+  final Uint8List option;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7903e3d9.
+    buffer.writeInt32(0x7903e3d9);
+
+    // Write fields.
+    buffer.writeString(text);
+    buffer.writeBytes(option);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7903e3d9",
+      "text": text,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Report Result Choose Option.
+///
+/// ID: `f0e4e0b6`.
+class ReportResultChooseOption extends ReportResultBase {
+  /// Report Result Choose Option constructor.
+  const ReportResultChooseOption({
+    required this.title,
+    required this.options,
+  }) : super._();
+
+  /// Deserialize.
+  factory ReportResultChooseOption.deserialize(BinaryReader reader) {
+    // Read [ReportResultChooseOption] fields.
+    final title = reader.readString();
+    final options = reader.readVectorObject<MessageReportOptionBase>();
+
+    // Construct [ReportResultChooseOption] object.
+    final returnValue = ReportResultChooseOption(
+      title: title,
+      options: options,
+    );
+
+    // Now return the deserialized [ReportResultChooseOption].
+    return returnValue;
+  }
+
+  /// Title.
+  final String title;
+
+  /// Options.
+  final List<MessageReportOptionBase> options;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf0e4e0b6.
+    buffer.writeInt32(0xf0e4e0b6);
+
+    // Write fields.
+    buffer.writeString(title);
+    buffer.writeVectorObject(options);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf0e4e0b6",
+      "title": title,
+      "options": options,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Report Result Add Comment.
+///
+/// ID: `6f09ac31`.
+class ReportResultAddComment extends ReportResultBase {
+  /// Report Result Add Comment constructor.
+  const ReportResultAddComment({
+    required this.optional,
+    required this.option,
+  }) : super._();
+
+  /// Deserialize.
+  factory ReportResultAddComment.deserialize(BinaryReader reader) {
+    // Read [ReportResultAddComment] fields.
+    final flags = reader.readInt32();
+    final optional = (flags & 1) != 0;
+    final option = reader.readBytes();
+
+    // Construct [ReportResultAddComment] object.
+    final returnValue = ReportResultAddComment(
+      optional: optional,
+      option: option,
+    );
+
+    // Now return the deserialized [ReportResultAddComment].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: optional,
+    );
+
+    return v;
+  }
+
+  /// optional: bit 0 of flags.0?true
+  final bool optional;
+
+  /// Option.
+  final Uint8List option;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6f09ac31.
+    buffer.writeInt32(0x6f09ac31);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeBytes(option);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f09ac31",
+      "flags": flags,
+      "optional": optional,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Report Result Reported.
+///
+/// ID: `8db33c4b`.
+class ReportResultReported extends ReportResultBase {
+  /// Report Result Reported constructor.
+  const ReportResultReported() : super._();
+
+  /// Deserialize.
+  factory ReportResultReported.deserialize(BinaryReader reader) {
+    // Construct [ReportResultReported] object.
+    final returnValue = ReportResultReported();
+
+    // Now return the deserialized [ReportResultReported].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8db33c4b.
+    buffer.writeInt32(0x8db33c4b);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8db33c4b",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Bot Prepared Inline Message.
+///
+/// ID: `8ecf0511`.
+class MessagesBotPreparedInlineMessage
+    extends MessagesBotPreparedInlineMessageBase {
+  /// Messages Bot Prepared Inline Message constructor.
+  const MessagesBotPreparedInlineMessage({
+    required this.id,
+    required this.expireDate,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesBotPreparedInlineMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesBotPreparedInlineMessage] fields.
+    final id = reader.readString();
+    final expireDate = reader.readDateTime();
+
+    // Construct [MessagesBotPreparedInlineMessage] object.
+    final returnValue = MessagesBotPreparedInlineMessage(
+      id: id,
+      expireDate: expireDate,
+    );
+
+    // Now return the deserialized [MessagesBotPreparedInlineMessage].
+    return returnValue;
+  }
+
+  /// Id.
+  final String id;
+
+  /// Expire Date.
+  final DateTime expireDate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8ecf0511.
+    buffer.writeInt32(0x8ecf0511);
+
+    // Write fields.
+    buffer.writeString(id);
+    buffer.writeDateTime(expireDate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8ecf0511",
+      "id": id,
+      "expireDate": expireDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Prepared Inline Message.
+///
+/// ID: `ff57708d`.
+class MessagesPreparedInlineMessage extends MessagesPreparedInlineMessageBase {
+  /// Messages Prepared Inline Message constructor.
+  const MessagesPreparedInlineMessage({
+    required this.queryId,
+    required this.result,
+    required this.peerTypes,
+    required this.cacheTime,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesPreparedInlineMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesPreparedInlineMessage] fields.
+    final queryId = reader.readInt64();
+    final result = reader.readObject() as BotInlineResultBase;
+    final peerTypes = reader.readVectorObject<InlineQueryPeerTypeBase>();
+    final cacheTime = reader.readInt32();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [MessagesPreparedInlineMessage] object.
+    final returnValue = MessagesPreparedInlineMessage(
+      queryId: queryId,
+      result: result,
+      peerTypes: peerTypes,
+      cacheTime: cacheTime,
+      users: users,
+    );
+
+    // Now return the deserialized [MessagesPreparedInlineMessage].
+    return returnValue;
+  }
+
+  /// Query Id.
+  ///
+  /// Field type is Int64.
+  final int queryId;
+
+  /// Result.
+  final BotInlineResultBase result;
+
+  /// Peer Types.
+  final List<InlineQueryPeerTypeBase> peerTypes;
+
+  /// Cache Time.
+  ///
+  /// Field type is Int32.
+  final int cacheTime;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xff57708d.
+    buffer.writeInt32(0xff57708d);
+
+    // Write fields.
+    buffer.writeInt64(queryId);
+    buffer.writeObject(result);
+    buffer.writeVectorObject(peerTypes);
+    buffer.writeInt32(cacheTime);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xff57708d",
+      "queryId": queryId,
+      "result": result,
+      "peerTypes": peerTypes,
+      "cacheTime": cacheTime,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bot App Settings.
+///
+/// ID: `c99b1950`.
+class BotAppSettings extends BotAppSettingsBase {
+  /// Bot App Settings constructor.
+  const BotAppSettings({
+    this.placeholderPath,
+    this.backgroundColor,
+    this.backgroundDarkColor,
+    this.headerColor,
+    this.headerDarkColor,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotAppSettings.deserialize(BinaryReader reader) {
+    // Read [BotAppSettings] fields.
+    final flags = reader.readInt32();
+    final hasPlaceholderPathField = (flags & 1) != 0;
+    final placeholderPath = hasPlaceholderPathField ? reader.readBytes() : null;
+    final hasBackgroundColorField = (flags & 2) != 0;
+    final backgroundColor = hasBackgroundColorField ? reader.readInt32() : null;
+    final hasBackgroundDarkColorField = (flags & 4) != 0;
+    final backgroundDarkColor =
+        hasBackgroundDarkColorField ? reader.readInt32() : null;
+    final hasHeaderColorField = (flags & 8) != 0;
+    final headerColor = hasHeaderColorField ? reader.readInt32() : null;
+    final hasHeaderDarkColorField = (flags & 16) != 0;
+    final headerDarkColor = hasHeaderDarkColorField ? reader.readInt32() : null;
+
+    // Construct [BotAppSettings] object.
+    final returnValue = BotAppSettings(
+      placeholderPath: placeholderPath,
+      backgroundColor: backgroundColor,
+      backgroundDarkColor: backgroundDarkColor,
+      headerColor: headerColor,
+      headerDarkColor: headerDarkColor,
+    );
+
+    // Now return the deserialized [BotAppSettings].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: placeholderPath != null,
+      b01: backgroundColor != null,
+      b02: backgroundDarkColor != null,
+      b03: headerColor != null,
+      b04: headerDarkColor != null,
+    );
+
+    return v;
+  }
+
+  /// Placeholder Path.
+  final Uint8List? placeholderPath;
+
+  /// Background Color.
+  final int? backgroundColor;
+
+  /// Background Dark Color.
+  final int? backgroundDarkColor;
+
+  /// Header Color.
+  final int? headerColor;
+
+  /// Header Dark Color.
+  final int? headerDarkColor;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc99b1950.
+    buffer.writeInt32(0xc99b1950);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localPlaceholderPathCopy = placeholderPath;
+    if (localPlaceholderPathCopy != null) {
+      buffer.writeBytes(localPlaceholderPathCopy);
+    }
+    final localBackgroundColorCopy = backgroundColor;
+    if (localBackgroundColorCopy != null) {
+      buffer.writeInt32(localBackgroundColorCopy);
+    }
+    final localBackgroundDarkColorCopy = backgroundDarkColor;
+    if (localBackgroundDarkColorCopy != null) {
+      buffer.writeInt32(localBackgroundDarkColorCopy);
+    }
+    final localHeaderColorCopy = headerColor;
+    if (localHeaderColorCopy != null) {
+      buffer.writeInt32(localHeaderColorCopy);
+    }
+    final localHeaderDarkColorCopy = headerDarkColor;
+    if (localHeaderDarkColorCopy != null) {
+      buffer.writeInt32(localHeaderDarkColorCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc99b1950",
+      "flags": flags,
+      "placeholderPath": placeholderPath,
+      "backgroundColor": backgroundColor,
+      "backgroundDarkColor": backgroundDarkColor,
+      "headerColor": headerColor,
+      "headerDarkColor": headerDarkColor,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Ref Program.
+///
+/// ID: `dd0c66f2`.
+class StarRefProgram extends StarRefProgramBase {
+  /// Star Ref Program constructor.
+  const StarRefProgram({
+    required this.botId,
+    required this.commissionPermille,
+    this.durationMonths,
+    this.endDate,
+    this.dailyRevenuePerUser,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarRefProgram.deserialize(BinaryReader reader) {
+    // Read [StarRefProgram] fields.
+    final flags = reader.readInt32();
+    final botId = reader.readInt64();
+    final commissionPermille = reader.readInt32();
+    final hasDurationMonthsField = (flags & 1) != 0;
+    final durationMonths = hasDurationMonthsField ? reader.readInt32() : null;
+    final hasEndDateField = (flags & 2) != 0;
+    final endDate = hasEndDateField ? reader.readDateTime() : null;
+    final hasDailyRevenuePerUserField = (flags & 4) != 0;
+    final dailyRevenuePerUser = hasDailyRevenuePerUserField
+        ? reader.readObject() as StarsAmountBase
+        : null;
+
+    // Construct [StarRefProgram] object.
+    final returnValue = StarRefProgram(
+      botId: botId,
+      commissionPermille: commissionPermille,
+      durationMonths: durationMonths,
+      endDate: endDate,
+      dailyRevenuePerUser: dailyRevenuePerUser,
+    );
+
+    // Now return the deserialized [StarRefProgram].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: durationMonths != null,
+      b01: endDate != null,
+      b02: dailyRevenuePerUser != null,
+    );
+
+    return v;
+  }
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Commission Permille.
+  ///
+  /// Field type is Int32.
+  final int commissionPermille;
+
+  /// Duration Months.
+  final int? durationMonths;
+
+  /// End Date.
+  final DateTime? endDate;
+
+  /// Daily Revenue Per User.
+  final StarsAmountBase? dailyRevenuePerUser;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdd0c66f2.
+    buffer.writeInt32(0xdd0c66f2);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(botId);
+    buffer.writeInt32(commissionPermille);
+    final localDurationMonthsCopy = durationMonths;
+    if (localDurationMonthsCopy != null) {
+      buffer.writeInt32(localDurationMonthsCopy);
+    }
+    final localEndDateCopy = endDate;
+    if (localEndDateCopy != null) {
+      buffer.writeDateTime(localEndDateCopy);
+    }
+    final localDailyRevenuePerUserCopy = dailyRevenuePerUser;
+    if (localDailyRevenuePerUserCopy != null) {
+      buffer.writeObject(localDailyRevenuePerUserCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdd0c66f2",
+      "flags": flags,
+      "botId": botId,
+      "commissionPermille": commissionPermille,
+      "durationMonths": durationMonths,
+      "endDate": endDate?.toIso8601String(),
+      "dailyRevenuePerUser": dailyRevenuePerUser,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Connected Bot Star Ref.
+///
+/// ID: `19a13f71`.
+class ConnectedBotStarRef extends ConnectedBotStarRefBase {
+  /// Connected Bot Star Ref constructor.
+  const ConnectedBotStarRef({
+    required this.revoked,
+    required this.url,
+    required this.date,
+    required this.botId,
+    required this.commissionPermille,
+    this.durationMonths,
+    required this.participants,
+    required this.revenue,
+  }) : super._();
+
+  /// Deserialize.
+  factory ConnectedBotStarRef.deserialize(BinaryReader reader) {
+    // Read [ConnectedBotStarRef] fields.
+    final flags = reader.readInt32();
+    final revoked = (flags & 2) != 0;
+    final url = reader.readString();
+    final date = reader.readDateTime();
+    final botId = reader.readInt64();
+    final commissionPermille = reader.readInt32();
+    final hasDurationMonthsField = (flags & 1) != 0;
+    final durationMonths = hasDurationMonthsField ? reader.readInt32() : null;
+    final participants = reader.readInt64();
+    final revenue = reader.readInt64();
+
+    // Construct [ConnectedBotStarRef] object.
+    final returnValue = ConnectedBotStarRef(
+      revoked: revoked,
+      url: url,
+      date: date,
+      botId: botId,
+      commissionPermille: commissionPermille,
+      durationMonths: durationMonths,
+      participants: participants,
+      revenue: revenue,
+    );
+
+    // Now return the deserialized [ConnectedBotStarRef].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: revoked,
+      b00: durationMonths != null,
+    );
+
+    return v;
+  }
+
+  /// revoked: bit 1 of flags.1?true
+  final bool revoked;
+
+  /// Url.
+  final String url;
+
+  /// Date.
+  final DateTime date;
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Commission Permille.
+  ///
+  /// Field type is Int32.
+  final int commissionPermille;
+
+  /// Duration Months.
+  final int? durationMonths;
+
+  /// Participants.
+  ///
+  /// Field type is Int64.
+  final int participants;
+
+  /// Revenue.
+  ///
+  /// Field type is Int64.
+  final int revenue;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x19a13f71.
+    buffer.writeInt32(0x19a13f71);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(url);
+    buffer.writeDateTime(date);
+    buffer.writeInt64(botId);
+    buffer.writeInt32(commissionPermille);
+    final localDurationMonthsCopy = durationMonths;
+    if (localDurationMonthsCopy != null) {
+      buffer.writeInt32(localDurationMonthsCopy);
+    }
+    buffer.writeInt64(participants);
+    buffer.writeInt64(revenue);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x19a13f71",
+      "flags": flags,
+      "revoked": revoked,
+      "url": url,
+      "date": date.toIso8601String(),
+      "botId": botId,
+      "commissionPermille": commissionPermille,
+      "durationMonths": durationMonths,
+      "participants": participants,
+      "revenue": revenue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Connected Star Ref Bots.
+///
+/// ID: `98d5ea1d`.
+class PaymentsConnectedStarRefBots extends PaymentsConnectedStarRefBotsBase {
+  /// Payments Connected Star Ref Bots constructor.
+  const PaymentsConnectedStarRefBots({
+    required this.count,
+    required this.connectedBots,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsConnectedStarRefBots.deserialize(BinaryReader reader) {
+    // Read [PaymentsConnectedStarRefBots] fields.
+    final count = reader.readInt32();
+    final connectedBots = reader.readVectorObject<ConnectedBotStarRefBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [PaymentsConnectedStarRefBots] object.
+    final returnValue = PaymentsConnectedStarRefBots(
+      count: count,
+      connectedBots: connectedBots,
+      users: users,
+    );
+
+    // Now return the deserialized [PaymentsConnectedStarRefBots].
+    return returnValue;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Connected Bots.
+  final List<ConnectedBotStarRefBase> connectedBots;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x98d5ea1d.
+    buffer.writeInt32(0x98d5ea1d);
+
+    // Write fields.
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(connectedBots);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x98d5ea1d",
+      "count": count,
+      "connectedBots": connectedBots,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Suggested Star Ref Bots.
+///
+/// ID: `b4d5d859`.
+class PaymentsSuggestedStarRefBots extends PaymentsSuggestedStarRefBotsBase {
+  /// Payments Suggested Star Ref Bots constructor.
+  const PaymentsSuggestedStarRefBots({
+    required this.count,
+    required this.suggestedBots,
+    required this.users,
+    this.nextOffset,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsSuggestedStarRefBots.deserialize(BinaryReader reader) {
+    // Read [PaymentsSuggestedStarRefBots] fields.
+    final flags = reader.readInt32();
+    final count = reader.readInt32();
+    final suggestedBots = reader.readVectorObject<StarRefProgramBase>();
+    final users = reader.readVectorObject<UserBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+
+    // Construct [PaymentsSuggestedStarRefBots] object.
+    final returnValue = PaymentsSuggestedStarRefBots(
+      count: count,
+      suggestedBots: suggestedBots,
+      users: users,
+      nextOffset: nextOffset,
+    );
+
+    // Now return the deserialized [PaymentsSuggestedStarRefBots].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Suggested Bots.
+  final List<StarRefProgramBase> suggestedBots;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb4d5d859.
+    buffer.writeInt32(0xb4d5d859);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(suggestedBots);
+    buffer.writeVectorObject(users);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb4d5d859",
+      "flags": flags,
+      "count": count,
+      "suggestedBots": suggestedBots,
+      "users": users,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stars Amount.
+///
+/// ID: `bbb6b4a3`.
+class StarsAmount extends StarsAmountBase {
+  /// Stars Amount constructor.
+  const StarsAmount({
+    required this.amount,
+    required this.nanos,
+  }) : super._();
+
+  /// Deserialize.
+  factory StarsAmount.deserialize(BinaryReader reader) {
+    // Read [StarsAmount] fields.
+    final amount = reader.readInt64();
+    final nanos = reader.readInt32();
+
+    // Construct [StarsAmount] object.
+    final returnValue = StarsAmount(
+      amount: amount,
+      nanos: nanos,
+    );
+
+    // Now return the deserialized [StarsAmount].
+    return returnValue;
+  }
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Nanos.
+  ///
+  /// Field type is Int32.
+  final int nanos;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbbb6b4a3.
+    buffer.writeInt32(0xbbb6b4a3);
+
+    // Write fields.
+    buffer.writeInt64(amount);
+    buffer.writeInt32(nanos);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbbb6b4a3",
+      "amount": amount,
+      "nanos": nanos,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Found Stickers Not Modified.
+///
+/// ID: `6010c534`.
+class MessagesFoundStickersNotModified extends MessagesFoundStickersBase {
+  /// Messages Found Stickers Not Modified constructor.
+  const MessagesFoundStickersNotModified({
+    this.nextOffset,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesFoundStickersNotModified.deserialize(BinaryReader reader) {
+    // Read [MessagesFoundStickersNotModified] fields.
+    final flags = reader.readInt32();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readInt32() : null;
+
+    // Construct [MessagesFoundStickersNotModified] object.
+    final returnValue = MessagesFoundStickersNotModified(
+      nextOffset: nextOffset,
+    );
+
+    // Now return the deserialized [MessagesFoundStickersNotModified].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Next Offset.
+  final int? nextOffset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6010c534.
+    buffer.writeInt32(0x6010c534);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeInt32(localNextOffsetCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6010c534",
+      "flags": flags,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Found Stickers.
+///
+/// ID: `82c9e290`.
+class MessagesFoundStickers extends MessagesFoundStickersBase {
+  /// Messages Found Stickers constructor.
+  const MessagesFoundStickers({
+    this.nextOffset,
+    required this.hash,
+    required this.stickers,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesFoundStickers.deserialize(BinaryReader reader) {
+    // Read [MessagesFoundStickers] fields.
+    final flags = reader.readInt32();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readInt32() : null;
+    final hash = reader.readInt64();
+    final stickers = reader.readVectorObject<DocumentBase>();
+
+    // Construct [MessagesFoundStickers] object.
+    final returnValue = MessagesFoundStickers(
+      nextOffset: nextOffset,
+      hash: hash,
+      stickers: stickers,
+    );
+
+    // Now return the deserialized [MessagesFoundStickers].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: nextOffset != null,
+    );
+
+    return v;
+  }
+
+  /// Next Offset.
+  final int? nextOffset;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Stickers.
+  final List<DocumentBase> stickers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x82c9e290.
+    buffer.writeInt32(0x82c9e290);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeInt32(localNextOffsetCopy);
+    }
+    buffer.writeInt64(hash);
+    buffer.writeVectorObject(stickers);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x82c9e290",
+      "flags": flags,
+      "nextOffset": nextOffset,
+      "hash": hash,
+      "stickers": stickers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Invoke After Msg.
 ///
 /// Return Type: `X`.
@@ -85635,10 +99578,11 @@ class AuthSendCode extends TlMethod {
 /// Auth Sign Up.
 ///
 /// Return Type: `AuthAuthorizationBase`.
-/// ID: `80eee427`.
+/// ID: `aac7b717`.
 class AuthSignUp extends TlMethod {
   /// Auth Sign Up constructor.
   const AuthSignUp({
+    required this.noJoinedNotifications,
     required this.phoneNumber,
     required this.phoneCodeHash,
     required this.firstName,
@@ -85648,6 +99592,8 @@ class AuthSignUp extends TlMethod {
   /// Deserialize.
   factory AuthSignUp.deserialize(BinaryReader reader) {
     // Read [AuthSignUp] fields.
+    final flags = reader.readInt32();
+    final noJoinedNotifications = (flags & 1) != 0;
     final phoneNumber = reader.readString();
     final phoneCodeHash = reader.readString();
     final firstName = reader.readString();
@@ -85655,6 +99601,7 @@ class AuthSignUp extends TlMethod {
 
     // Construct [AuthSignUp] object.
     final returnValue = AuthSignUp(
+      noJoinedNotifications: noJoinedNotifications,
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
       firstName: firstName,
@@ -85664,6 +99611,18 @@ class AuthSignUp extends TlMethod {
     // Now return the deserialized [AuthSignUp].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: noJoinedNotifications,
+    );
+
+    return v;
+  }
+
+  /// no_joined_notifications: bit 0 of flags.0?true
+  final bool noJoinedNotifications;
 
   /// Phone Number.
   final String phoneNumber;
@@ -85680,10 +99639,11 @@ class AuthSignUp extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x80eee427.
-    buffer.writeInt32(0x80eee427);
+    // Write type-id 0xaac7b717.
+    buffer.writeInt32(0xaac7b717);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
     buffer.writeString(firstName);
@@ -85695,7 +99655,9 @@ class AuthSignUp extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x80eee427",
+      "\$": "0xaac7b717",
+      "flags": flags,
+      "noJoinedNotifications": noJoinedNotifications,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
       "firstName": firstName,
@@ -87570,7 +101532,7 @@ class MessagesGetHistory extends TlMethod {
 /// Messages Search.
 ///
 /// Return Type: `MessagesMessagesBase`.
-/// ID: `a7b4e929`.
+/// ID: `29ee847a`.
 class MessagesSearch extends TlMethod {
   /// Messages Search constructor.
   const MessagesSearch({
@@ -87578,6 +101540,7 @@ class MessagesSearch extends TlMethod {
     required this.q,
     this.fromId,
     this.savedPeerId,
+    this.savedReaction,
     this.topMsgId,
     required this.filter,
     required this.minDate,
@@ -87601,6 +101564,9 @@ class MessagesSearch extends TlMethod {
     final hasSavedPeerIdField = (flags & 4) != 0;
     final savedPeerId =
         hasSavedPeerIdField ? reader.readObject() as InputPeerBase : null;
+    final hasSavedReactionField = (flags & 8) != 0;
+    final savedReaction =
+        hasSavedReactionField ? reader.readVectorObject<ReactionBase>() : null;
     final hasTopMsgIdField = (flags & 2) != 0;
     final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
     final filter = reader.readObject() as MessagesFilterBase;
@@ -87619,6 +101585,7 @@ class MessagesSearch extends TlMethod {
       q: q,
       fromId: fromId,
       savedPeerId: savedPeerId,
+      savedReaction: savedReaction,
       topMsgId: topMsgId,
       filter: filter,
       minDate: minDate,
@@ -87640,6 +101607,7 @@ class MessagesSearch extends TlMethod {
     final v = _flag(
       b00: fromId != null,
       b02: savedPeerId != null,
+      b03: savedReaction != null,
       b01: topMsgId != null,
     );
 
@@ -87657,6 +101625,9 @@ class MessagesSearch extends TlMethod {
 
   /// Saved Peer Id.
   final InputPeerBase? savedPeerId;
+
+  /// Saved Reaction.
+  final List<ReactionBase>? savedReaction;
 
   /// Top Msg Id.
   final int? topMsgId;
@@ -87703,8 +101674,8 @@ class MessagesSearch extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa7b4e929.
-    buffer.writeInt32(0xa7b4e929);
+    // Write type-id 0x29ee847a.
+    buffer.writeInt32(0x29ee847a);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -87717,6 +101688,10 @@ class MessagesSearch extends TlMethod {
     final localSavedPeerIdCopy = savedPeerId;
     if (localSavedPeerIdCopy != null) {
       buffer.writeObject(localSavedPeerIdCopy);
+    }
+    final localSavedReactionCopy = savedReaction;
+    if (localSavedReactionCopy != null) {
+      buffer.writeVectorObject(localSavedReactionCopy);
     }
     final localTopMsgIdCopy = topMsgId;
     if (localTopMsgIdCopy != null) {
@@ -87738,12 +101713,13 @@ class MessagesSearch extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa7b4e929",
+      "\$": "0x29ee847a",
       "flags": flags,
       "peer": peer,
       "q": q,
       "fromId": fromId,
       "savedPeerId": savedPeerId,
+      "savedReaction": savedReaction,
       "topMsgId": topMsgId,
       "filter": filter,
       "minDate": minDate.toIso8601String(),
@@ -88145,7 +102121,7 @@ class MessagesSetTyping extends TlMethod {
 /// Messages Send Message.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `280d096f`.
+/// ID: `983f9745`.
 class MessagesSendMessage extends TlMethod {
   /// Messages Send Message constructor.
   const MessagesSendMessage({
@@ -88156,6 +102132,7 @@ class MessagesSendMessage extends TlMethod {
     required this.noforwards,
     required this.updateStickersetsOrder,
     required this.invertMedia,
+    required this.allowPaidFloodskip,
     required this.peer,
     this.replyTo,
     required this.message,
@@ -88164,6 +102141,8 @@ class MessagesSendMessage extends TlMethod {
     this.entities,
     this.scheduleDate,
     this.sendAs,
+    this.quickReplyShortcut,
+    this.effect,
   }) : super._();
 
   /// Deserialize.
@@ -88177,6 +102156,7 @@ class MessagesSendMessage extends TlMethod {
     final noforwards = (flags & 16384) != 0;
     final updateStickersetsOrder = (flags & 32768) != 0;
     final invertMedia = (flags & 65536) != 0;
+    final allowPaidFloodskip = (flags & 524288) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final hasReplyToField = (flags & 1) != 0;
     final replyTo =
@@ -88193,6 +102173,12 @@ class MessagesSendMessage extends TlMethod {
     final scheduleDate = hasScheduleDateField ? reader.readDateTime() : null;
     final hasSendAsField = (flags & 8192) != 0;
     final sendAs = hasSendAsField ? reader.readObject() as InputPeerBase : null;
+    final hasQuickReplyShortcutField = (flags & 131072) != 0;
+    final quickReplyShortcut = hasQuickReplyShortcutField
+        ? reader.readObject() as InputQuickReplyShortcutBase
+        : null;
+    final hasEffectField = (flags & 262144) != 0;
+    final effect = hasEffectField ? reader.readInt64() : null;
 
     // Construct [MessagesSendMessage] object.
     final returnValue = MessagesSendMessage(
@@ -88203,6 +102189,7 @@ class MessagesSendMessage extends TlMethod {
       noforwards: noforwards,
       updateStickersetsOrder: updateStickersetsOrder,
       invertMedia: invertMedia,
+      allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
       message: message,
@@ -88211,6 +102198,8 @@ class MessagesSendMessage extends TlMethod {
       entities: entities,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
     );
 
     // Now return the deserialized [MessagesSendMessage].
@@ -88227,11 +102216,14 @@ class MessagesSendMessage extends TlMethod {
       b14: noforwards,
       b15: updateStickersetsOrder,
       b16: invertMedia,
+      b19: allowPaidFloodskip,
       b00: replyTo != null,
       b02: replyMarkup != null,
       b03: entities != null,
       b10: scheduleDate != null,
       b13: sendAs != null,
+      b17: quickReplyShortcut != null,
+      b18: effect != null,
     );
 
     return v;
@@ -88257,6 +102249,9 @@ class MessagesSendMessage extends TlMethod {
 
   /// invert_media: bit 16 of flags.16?true
   final bool invertMedia;
+
+  /// allow_paid_floodskip: bit 19 of flags.19?true
+  final bool allowPaidFloodskip;
 
   /// Peer.
   final InputPeerBase peer;
@@ -88284,11 +102279,17 @@ class MessagesSendMessage extends TlMethod {
   /// Send As.
   final InputPeerBase? sendAs;
 
+  /// Quick Reply Shortcut.
+  final InputQuickReplyShortcutBase? quickReplyShortcut;
+
+  /// Effect.
+  final int? effect;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x280d096f.
-    buffer.writeInt32(0x280d096f);
+    // Write type-id 0x983f9745.
+    buffer.writeInt32(0x983f9745);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -88315,6 +102316,14 @@ class MessagesSendMessage extends TlMethod {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+    final localQuickReplyShortcutCopy = quickReplyShortcut;
+    if (localQuickReplyShortcutCopy != null) {
+      buffer.writeObject(localQuickReplyShortcutCopy);
+    }
+    final localEffectCopy = effect;
+    if (localEffectCopy != null) {
+      buffer.writeInt64(localEffectCopy);
+    }
 
     // Finished serialization.
   }
@@ -88322,7 +102331,7 @@ class MessagesSendMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x280d096f",
+      "\$": "0x983f9745",
       "flags": flags,
       "noWebpage": noWebpage,
       "silent": silent,
@@ -88331,6 +102340,7 @@ class MessagesSendMessage extends TlMethod {
       "noforwards": noforwards,
       "updateStickersetsOrder": updateStickersetsOrder,
       "invertMedia": invertMedia,
+      "allowPaidFloodskip": allowPaidFloodskip,
       "peer": peer,
       "replyTo": replyTo,
       "message": message,
@@ -88339,6 +102349,8 @@ class MessagesSendMessage extends TlMethod {
       "entities": entities,
       "scheduleDate": scheduleDate?.toIso8601String(),
       "sendAs": sendAs,
+      "quickReplyShortcut": quickReplyShortcut,
+      "effect": effect,
     };
 
     // Finished toJson.
@@ -88349,7 +102361,7 @@ class MessagesSendMessage extends TlMethod {
 /// Messages Send Media.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `72ccc23d`.
+/// ID: `7852834e`.
 class MessagesSendMedia extends TlMethod {
   /// Messages Send Media constructor.
   const MessagesSendMedia({
@@ -88359,6 +102371,7 @@ class MessagesSendMedia extends TlMethod {
     required this.noforwards,
     required this.updateStickersetsOrder,
     required this.invertMedia,
+    required this.allowPaidFloodskip,
     required this.peer,
     this.replyTo,
     required this.media,
@@ -88368,6 +102381,8 @@ class MessagesSendMedia extends TlMethod {
     this.entities,
     this.scheduleDate,
     this.sendAs,
+    this.quickReplyShortcut,
+    this.effect,
   }) : super._();
 
   /// Deserialize.
@@ -88380,6 +102395,7 @@ class MessagesSendMedia extends TlMethod {
     final noforwards = (flags & 16384) != 0;
     final updateStickersetsOrder = (flags & 32768) != 0;
     final invertMedia = (flags & 65536) != 0;
+    final allowPaidFloodskip = (flags & 524288) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final hasReplyToField = (flags & 1) != 0;
     final replyTo =
@@ -88397,6 +102413,12 @@ class MessagesSendMedia extends TlMethod {
     final scheduleDate = hasScheduleDateField ? reader.readDateTime() : null;
     final hasSendAsField = (flags & 8192) != 0;
     final sendAs = hasSendAsField ? reader.readObject() as InputPeerBase : null;
+    final hasQuickReplyShortcutField = (flags & 131072) != 0;
+    final quickReplyShortcut = hasQuickReplyShortcutField
+        ? reader.readObject() as InputQuickReplyShortcutBase
+        : null;
+    final hasEffectField = (flags & 262144) != 0;
+    final effect = hasEffectField ? reader.readInt64() : null;
 
     // Construct [MessagesSendMedia] object.
     final returnValue = MessagesSendMedia(
@@ -88406,6 +102428,7 @@ class MessagesSendMedia extends TlMethod {
       noforwards: noforwards,
       updateStickersetsOrder: updateStickersetsOrder,
       invertMedia: invertMedia,
+      allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
       media: media,
@@ -88415,6 +102438,8 @@ class MessagesSendMedia extends TlMethod {
       entities: entities,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
     );
 
     // Now return the deserialized [MessagesSendMedia].
@@ -88430,11 +102455,14 @@ class MessagesSendMedia extends TlMethod {
       b14: noforwards,
       b15: updateStickersetsOrder,
       b16: invertMedia,
+      b19: allowPaidFloodskip,
       b00: replyTo != null,
       b02: replyMarkup != null,
       b03: entities != null,
       b10: scheduleDate != null,
       b13: sendAs != null,
+      b17: quickReplyShortcut != null,
+      b18: effect != null,
     );
 
     return v;
@@ -88457,6 +102485,9 @@ class MessagesSendMedia extends TlMethod {
 
   /// invert_media: bit 16 of flags.16?true
   final bool invertMedia;
+
+  /// allow_paid_floodskip: bit 19 of flags.19?true
+  final bool allowPaidFloodskip;
 
   /// Peer.
   final InputPeerBase peer;
@@ -88487,11 +102518,17 @@ class MessagesSendMedia extends TlMethod {
   /// Send As.
   final InputPeerBase? sendAs;
 
+  /// Quick Reply Shortcut.
+  final InputQuickReplyShortcutBase? quickReplyShortcut;
+
+  /// Effect.
+  final int? effect;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x72ccc23d.
-    buffer.writeInt32(0x72ccc23d);
+    // Write type-id 0x7852834e.
+    buffer.writeInt32(0x7852834e);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -88519,6 +102556,14 @@ class MessagesSendMedia extends TlMethod {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+    final localQuickReplyShortcutCopy = quickReplyShortcut;
+    if (localQuickReplyShortcutCopy != null) {
+      buffer.writeObject(localQuickReplyShortcutCopy);
+    }
+    final localEffectCopy = effect;
+    if (localEffectCopy != null) {
+      buffer.writeInt64(localEffectCopy);
+    }
 
     // Finished serialization.
   }
@@ -88526,7 +102571,7 @@ class MessagesSendMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x72ccc23d",
+      "\$": "0x7852834e",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -88534,6 +102579,7 @@ class MessagesSendMedia extends TlMethod {
       "noforwards": noforwards,
       "updateStickersetsOrder": updateStickersetsOrder,
       "invertMedia": invertMedia,
+      "allowPaidFloodskip": allowPaidFloodskip,
       "peer": peer,
       "replyTo": replyTo,
       "media": media,
@@ -88543,6 +102589,8 @@ class MessagesSendMedia extends TlMethod {
       "entities": entities,
       "scheduleDate": scheduleDate?.toIso8601String(),
       "sendAs": sendAs,
+      "quickReplyShortcut": quickReplyShortcut,
+      "effect": effect,
     };
 
     // Finished toJson.
@@ -88553,7 +102601,7 @@ class MessagesSendMedia extends TlMethod {
 /// Messages Forward Messages.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `c661bbc4`.
+/// ID: `d5039208`.
 class MessagesForwardMessages extends TlMethod {
   /// Messages Forward Messages constructor.
   const MessagesForwardMessages({
@@ -88563,6 +102611,7 @@ class MessagesForwardMessages extends TlMethod {
     required this.dropAuthor,
     required this.dropMediaCaptions,
     required this.noforwards,
+    required this.allowPaidFloodskip,
     required this.fromPeer,
     required this.id,
     required this.randomId,
@@ -88570,6 +102619,7 @@ class MessagesForwardMessages extends TlMethod {
     this.topMsgId,
     this.scheduleDate,
     this.sendAs,
+    this.quickReplyShortcut,
   }) : super._();
 
   /// Deserialize.
@@ -88582,6 +102632,7 @@ class MessagesForwardMessages extends TlMethod {
     final dropAuthor = (flags & 2048) != 0;
     final dropMediaCaptions = (flags & 4096) != 0;
     final noforwards = (flags & 16384) != 0;
+    final allowPaidFloodskip = (flags & 524288) != 0;
     final fromPeer = reader.readObject() as InputPeerBase;
     final id = reader.readVectorInt32();
     final randomId = reader.readVectorInt64();
@@ -88592,6 +102643,10 @@ class MessagesForwardMessages extends TlMethod {
     final scheduleDate = hasScheduleDateField ? reader.readDateTime() : null;
     final hasSendAsField = (flags & 8192) != 0;
     final sendAs = hasSendAsField ? reader.readObject() as InputPeerBase : null;
+    final hasQuickReplyShortcutField = (flags & 131072) != 0;
+    final quickReplyShortcut = hasQuickReplyShortcutField
+        ? reader.readObject() as InputQuickReplyShortcutBase
+        : null;
 
     // Construct [MessagesForwardMessages] object.
     final returnValue = MessagesForwardMessages(
@@ -88601,6 +102656,7 @@ class MessagesForwardMessages extends TlMethod {
       dropAuthor: dropAuthor,
       dropMediaCaptions: dropMediaCaptions,
       noforwards: noforwards,
+      allowPaidFloodskip: allowPaidFloodskip,
       fromPeer: fromPeer,
       id: id,
       randomId: randomId,
@@ -88608,6 +102664,7 @@ class MessagesForwardMessages extends TlMethod {
       topMsgId: topMsgId,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
     );
 
     // Now return the deserialized [MessagesForwardMessages].
@@ -88623,9 +102680,11 @@ class MessagesForwardMessages extends TlMethod {
       b11: dropAuthor,
       b12: dropMediaCaptions,
       b14: noforwards,
+      b19: allowPaidFloodskip,
       b09: topMsgId != null,
       b10: scheduleDate != null,
       b13: sendAs != null,
+      b17: quickReplyShortcut != null,
     );
 
     return v;
@@ -88649,6 +102708,9 @@ class MessagesForwardMessages extends TlMethod {
   /// noforwards: bit 14 of flags.14?true
   final bool noforwards;
 
+  /// allow_paid_floodskip: bit 19 of flags.19?true
+  final bool allowPaidFloodskip;
+
   /// From Peer.
   final InputPeerBase fromPeer;
 
@@ -88670,11 +102732,14 @@ class MessagesForwardMessages extends TlMethod {
   /// Send As.
   final InputPeerBase? sendAs;
 
+  /// Quick Reply Shortcut.
+  final InputQuickReplyShortcutBase? quickReplyShortcut;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc661bbc4.
-    buffer.writeInt32(0xc661bbc4);
+    // Write type-id 0xd5039208.
+    buffer.writeInt32(0xd5039208);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -88694,6 +102759,10 @@ class MessagesForwardMessages extends TlMethod {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+    final localQuickReplyShortcutCopy = quickReplyShortcut;
+    if (localQuickReplyShortcutCopy != null) {
+      buffer.writeObject(localQuickReplyShortcutCopy);
+    }
 
     // Finished serialization.
   }
@@ -88701,7 +102770,7 @@ class MessagesForwardMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc661bbc4",
+      "\$": "0xd5039208",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -88709,6 +102778,7 @@ class MessagesForwardMessages extends TlMethod {
       "dropAuthor": dropAuthor,
       "dropMediaCaptions": dropMediaCaptions,
       "noforwards": noforwards,
+      "allowPaidFloodskip": allowPaidFloodskip,
       "fromPeer": fromPeer,
       "id": id,
       "randomId": randomId,
@@ -88716,6 +102786,7 @@ class MessagesForwardMessages extends TlMethod {
       "topMsgId": topMsgId,
       "scheduleDate": scheduleDate?.toIso8601String(),
       "sendAs": sendAs,
+      "quickReplyShortcut": quickReplyShortcut,
     };
 
     // Finished toJson.
@@ -88827,14 +102898,14 @@ class MessagesGetPeerSettings extends TlMethod {
 
 /// Messages Report.
 ///
-/// Return Type: `bool`.
-/// ID: `8953ab4e`.
+/// Return Type: `ReportResultBase`.
+/// ID: `fc78af9b`.
 class MessagesReport extends TlMethod {
   /// Messages Report constructor.
   const MessagesReport({
     required this.peer,
     required this.id,
-    required this.reason,
+    required this.option,
     required this.message,
   }) : super._();
 
@@ -88843,14 +102914,14 @@ class MessagesReport extends TlMethod {
     // Read [MessagesReport] fields.
     final peer = reader.readObject() as InputPeerBase;
     final id = reader.readVectorInt32();
-    final reason = reader.readObject() as ReportReasonBase;
+    final option = reader.readBytes();
     final message = reader.readString();
 
     // Construct [MessagesReport] object.
     final returnValue = MessagesReport(
       peer: peer,
       id: id,
-      reason: reason,
+      option: option,
       message: message,
     );
 
@@ -88864,8 +102935,8 @@ class MessagesReport extends TlMethod {
   /// Id.
   final List<int> id;
 
-  /// Reason.
-  final ReportReasonBase reason;
+  /// Option.
+  final Uint8List option;
 
   /// Message.
   final String message;
@@ -88873,13 +102944,13 @@ class MessagesReport extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8953ab4e.
-    buffer.writeInt32(0x8953ab4e);
+    // Write type-id 0xfc78af9b.
+    buffer.writeInt32(0xfc78af9b);
 
     // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
-    buffer.writeObject(reason);
+    buffer.writeBytes(option);
     buffer.writeString(message);
 
     // Finished serialization.
@@ -88888,10 +102959,10 @@ class MessagesReport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8953ab4e",
+      "\$": "0xfc78af9b",
       "peer": peer,
       "id": id,
-      "reason": reason,
+      "option": option,
       "message": message,
     };
 
@@ -89128,8 +103199,8 @@ class MessagesEditChatPhoto extends TlMethod {
 
 /// Messages Add Chat User.
 ///
-/// Return Type: `UpdatesBase`.
-/// ID: `f24753e3`.
+/// Return Type: `MessagesInvitedUsersBase`.
+/// ID: `cbc6d107`.
 class MessagesAddChatUser extends TlMethod {
   /// Messages Add Chat User constructor.
   const MessagesAddChatUser({
@@ -89172,8 +103243,8 @@ class MessagesAddChatUser extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xf24753e3.
-    buffer.writeInt32(0xf24753e3);
+    // Write type-id 0xcbc6d107.
+    buffer.writeInt32(0xcbc6d107);
 
     // Write fields.
     buffer.writeInt64(chatId);
@@ -89186,7 +103257,7 @@ class MessagesAddChatUser extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf24753e3",
+      "\$": "0xcbc6d107",
       "chatId": chatId,
       "userId": userId,
       "fwdLimit": fwdLimit,
@@ -89279,8 +103350,8 @@ class MessagesDeleteChatUser extends TlMethod {
 
 /// Messages Create Chat.
 ///
-/// Return Type: `UpdatesBase`.
-/// ID: `0034a818`.
+/// Return Type: `MessagesInvitedUsersBase`.
+/// ID: `92ceddd4`.
 class MessagesCreateChat extends TlMethod {
   /// Messages Create Chat constructor.
   const MessagesCreateChat({
@@ -89330,8 +103401,8 @@ class MessagesCreateChat extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x0034a818.
-    buffer.writeInt32(0x0034a818);
+    // Write type-id 0x92ceddd4.
+    buffer.writeInt32(0x92ceddd4);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -89348,7 +103419,7 @@ class MessagesCreateChat extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0034a818",
+      "\$": "0x92ceddd4",
       "flags": flags,
       "users": users,
       "title": title,
@@ -91758,38 +105829,60 @@ class InvokeWithLayer extends TlMethod {
 /// Contacts Resolve Username.
 ///
 /// Return Type: `ContactsResolvedPeerBase`.
-/// ID: `f93ccba3`.
+/// ID: `725afbbc`.
 class ContactsResolveUsername extends TlMethod {
   /// Contacts Resolve Username constructor.
   const ContactsResolveUsername({
     required this.username,
+    this.referer,
   }) : super._();
 
   /// Deserialize.
   factory ContactsResolveUsername.deserialize(BinaryReader reader) {
     // Read [ContactsResolveUsername] fields.
+    final flags = reader.readInt32();
     final username = reader.readString();
+    final hasRefererField = (flags & 1) != 0;
+    final referer = hasRefererField ? reader.readString() : null;
 
     // Construct [ContactsResolveUsername] object.
     final returnValue = ContactsResolveUsername(
       username: username,
+      referer: referer,
     );
 
     // Now return the deserialized [ContactsResolveUsername].
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: referer != null,
+    );
+
+    return v;
+  }
+
   /// Username.
   final String username;
+
+  /// Referer.
+  final String? referer;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xf93ccba3.
-    buffer.writeInt32(0xf93ccba3);
+    // Write type-id 0x725afbbc.
+    buffer.writeInt32(0x725afbbc);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeString(username);
+    final localRefererCopy = referer;
+    if (localRefererCopy != null) {
+      buffer.writeString(localRefererCopy);
+    }
 
     // Finished serialization.
   }
@@ -91797,8 +105890,10 @@ class ContactsResolveUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf93ccba3",
+      "\$": "0x725afbbc",
+      "flags": flags,
       "username": username,
+      "referer": referer,
     };
 
     // Finished toJson.
@@ -92710,7 +106805,7 @@ class InvokeWithoutUpdates extends TlMethod {
 /// Messages Export Chat Invite.
 ///
 /// Return Type: `ExportedChatInviteBase`.
-/// ID: `a02ce5d5`.
+/// ID: `a455de90`.
 class MessagesExportChatInvite extends TlMethod {
   /// Messages Export Chat Invite constructor.
   const MessagesExportChatInvite({
@@ -92720,6 +106815,7 @@ class MessagesExportChatInvite extends TlMethod {
     this.expireDate,
     this.usageLimit,
     this.title,
+    this.subscriptionPricing,
   }) : super._();
 
   /// Deserialize.
@@ -92735,6 +106831,10 @@ class MessagesExportChatInvite extends TlMethod {
     final usageLimit = hasUsageLimitField ? reader.readInt32() : null;
     final hasTitleField = (flags & 16) != 0;
     final title = hasTitleField ? reader.readString() : null;
+    final hasSubscriptionPricingField = (flags & 32) != 0;
+    final subscriptionPricing = hasSubscriptionPricingField
+        ? reader.readObject() as StarsSubscriptionPricingBase
+        : null;
 
     // Construct [MessagesExportChatInvite] object.
     final returnValue = MessagesExportChatInvite(
@@ -92744,6 +106844,7 @@ class MessagesExportChatInvite extends TlMethod {
       expireDate: expireDate,
       usageLimit: usageLimit,
       title: title,
+      subscriptionPricing: subscriptionPricing,
     );
 
     // Now return the deserialized [MessagesExportChatInvite].
@@ -92758,6 +106859,7 @@ class MessagesExportChatInvite extends TlMethod {
       b00: expireDate != null,
       b01: usageLimit != null,
       b04: title != null,
+      b05: subscriptionPricing != null,
     );
 
     return v;
@@ -92781,11 +106883,14 @@ class MessagesExportChatInvite extends TlMethod {
   /// Title.
   final String? title;
 
+  /// Subscription Pricing.
+  final StarsSubscriptionPricingBase? subscriptionPricing;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa02ce5d5.
-    buffer.writeInt32(0xa02ce5d5);
+    // Write type-id 0xa455de90.
+    buffer.writeInt32(0xa455de90);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -92802,6 +106907,10 @@ class MessagesExportChatInvite extends TlMethod {
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+    final localSubscriptionPricingCopy = subscriptionPricing;
+    if (localSubscriptionPricingCopy != null) {
+      buffer.writeObject(localSubscriptionPricingCopy);
+    }
 
     // Finished serialization.
   }
@@ -92809,7 +106918,7 @@ class MessagesExportChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa02ce5d5",
+      "\$": "0xa455de90",
       "flags": flags,
       "legacyRevokePermanent": legacyRevokePermanent,
       "requestNeeded": requestNeeded,
@@ -92817,6 +106926,7 @@ class MessagesExportChatInvite extends TlMethod {
       "expireDate": expireDate?.toIso8601String(),
       "usageLimit": usageLimit,
       "title": title,
+      "subscriptionPricing": subscriptionPricing,
     };
 
     // Finished toJson.
@@ -94293,8 +108403,8 @@ class ChannelsLeaveChannel extends TlMethod {
 
 /// Channels Invite To Channel.
 ///
-/// Return Type: `UpdatesBase`.
-/// ID: `199f3a6c`.
+/// Return Type: `MessagesInvitedUsersBase`.
+/// ID: `c9e33d54`.
 class ChannelsInviteToChannel extends TlMethod {
   /// Channels Invite To Channel constructor.
   const ChannelsInviteToChannel({
@@ -94327,8 +108437,8 @@ class ChannelsInviteToChannel extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x199f3a6c.
-    buffer.writeInt32(0x199f3a6c);
+    // Write type-id 0xc9e33d54.
+    buffer.writeInt32(0xc9e33d54);
 
     // Write fields.
     buffer.writeObject(channel);
@@ -94340,7 +108450,7 @@ class ChannelsInviteToChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x199f3a6c",
+      "\$": "0xc9e33d54",
       "channel": channel,
       "users": users,
     };
@@ -94629,6 +108739,8 @@ class MessagesSearchGlobal extends TlMethod {
   /// Messages Search Global constructor.
   const MessagesSearchGlobal({
     required this.broadcastsOnly,
+    required this.groupsOnly,
+    required this.usersOnly,
     this.folderId,
     required this.q,
     required this.filter,
@@ -94645,6 +108757,8 @@ class MessagesSearchGlobal extends TlMethod {
     // Read [MessagesSearchGlobal] fields.
     final flags = reader.readInt32();
     final broadcastsOnly = (flags & 2) != 0;
+    final groupsOnly = (flags & 4) != 0;
+    final usersOnly = (flags & 8) != 0;
     final hasFolderIdField = (flags & 1) != 0;
     final folderId = hasFolderIdField ? reader.readInt32() : null;
     final q = reader.readString();
@@ -94659,6 +108773,8 @@ class MessagesSearchGlobal extends TlMethod {
     // Construct [MessagesSearchGlobal] object.
     final returnValue = MessagesSearchGlobal(
       broadcastsOnly: broadcastsOnly,
+      groupsOnly: groupsOnly,
+      usersOnly: usersOnly,
       folderId: folderId,
       q: q,
       filter: filter,
@@ -94678,6 +108794,8 @@ class MessagesSearchGlobal extends TlMethod {
   int get flags {
     final v = _flag(
       b01: broadcastsOnly,
+      b02: groupsOnly,
+      b03: usersOnly,
       b00: folderId != null,
     );
 
@@ -94686,6 +108804,12 @@ class MessagesSearchGlobal extends TlMethod {
 
   /// broadcasts_only: bit 1 of flags.1?true
   final bool broadcastsOnly;
+
+  /// groups_only: bit 2 of flags.2?true
+  final bool groupsOnly;
+
+  /// users_only: bit 3 of flags.3?true
+  final bool usersOnly;
 
   /// Folder Id.
   final int? folderId;
@@ -94750,6 +108874,8 @@ class MessagesSearchGlobal extends TlMethod {
       "\$": "0x4bc6589a",
       "flags": flags,
       "broadcastsOnly": broadcastsOnly,
+      "groupsOnly": groupsOnly,
+      "usersOnly": usersOnly,
       "folderId": folderId,
       "q": q,
       "filter": filter,
@@ -95268,7 +109394,7 @@ class MessagesSetInlineBotResults extends TlMethod {
 /// Messages Send Inline Bot Result.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `f7bc68ba`.
+/// ID: `3ebee86a`.
 class MessagesSendInlineBotResult extends TlMethod {
   /// Messages Send Inline Bot Result constructor.
   const MessagesSendInlineBotResult({
@@ -95283,6 +109409,7 @@ class MessagesSendInlineBotResult extends TlMethod {
     required this.id,
     this.scheduleDate,
     this.sendAs,
+    this.quickReplyShortcut,
   }) : super._();
 
   /// Deserialize.
@@ -95304,6 +109431,10 @@ class MessagesSendInlineBotResult extends TlMethod {
     final scheduleDate = hasScheduleDateField ? reader.readDateTime() : null;
     final hasSendAsField = (flags & 8192) != 0;
     final sendAs = hasSendAsField ? reader.readObject() as InputPeerBase : null;
+    final hasQuickReplyShortcutField = (flags & 131072) != 0;
+    final quickReplyShortcut = hasQuickReplyShortcutField
+        ? reader.readObject() as InputQuickReplyShortcutBase
+        : null;
 
     // Construct [MessagesSendInlineBotResult] object.
     final returnValue = MessagesSendInlineBotResult(
@@ -95318,6 +109449,7 @@ class MessagesSendInlineBotResult extends TlMethod {
       id: id,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
     );
 
     // Now return the deserialized [MessagesSendInlineBotResult].
@@ -95334,6 +109466,7 @@ class MessagesSendInlineBotResult extends TlMethod {
       b00: replyTo != null,
       b10: scheduleDate != null,
       b13: sendAs != null,
+      b17: quickReplyShortcut != null,
     );
 
     return v;
@@ -95376,11 +109509,14 @@ class MessagesSendInlineBotResult extends TlMethod {
   /// Send As.
   final InputPeerBase? sendAs;
 
+  /// Quick Reply Shortcut.
+  final InputQuickReplyShortcutBase? quickReplyShortcut;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xf7bc68ba.
-    buffer.writeInt32(0xf7bc68ba);
+    // Write type-id 0x3ebee86a.
+    buffer.writeInt32(0x3ebee86a);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -95400,6 +109536,10 @@ class MessagesSendInlineBotResult extends TlMethod {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+    final localQuickReplyShortcutCopy = quickReplyShortcut;
+    if (localQuickReplyShortcutCopy != null) {
+      buffer.writeObject(localQuickReplyShortcutCopy);
+    }
 
     // Finished serialization.
   }
@@ -95407,7 +109547,7 @@ class MessagesSendInlineBotResult extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf7bc68ba",
+      "\$": "0x3ebee86a",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -95420,6 +109560,7 @@ class MessagesSendInlineBotResult extends TlMethod {
       "id": id,
       "scheduleDate": scheduleDate?.toIso8601String(),
       "sendAs": sendAs,
+      "quickReplyShortcut": quickReplyShortcut,
     };
 
     // Finished toJson.
@@ -95518,45 +109659,62 @@ class ChannelsExportMessageLink extends TlMethod {
 /// Channels Toggle Signatures.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `1f69b606`.
+/// ID: `418d549c`.
 class ChannelsToggleSignatures extends TlMethod {
   /// Channels Toggle Signatures constructor.
   const ChannelsToggleSignatures({
+    required this.signaturesEnabled,
+    required this.profilesEnabled,
     required this.channel,
-    required this.enabled,
   }) : super._();
 
   /// Deserialize.
   factory ChannelsToggleSignatures.deserialize(BinaryReader reader) {
     // Read [ChannelsToggleSignatures] fields.
+    final flags = reader.readInt32();
+    final signaturesEnabled = (flags & 1) != 0;
+    final profilesEnabled = (flags & 2) != 0;
     final channel = reader.readObject() as InputChannelBase;
-    final enabled = reader.readBool();
 
     // Construct [ChannelsToggleSignatures] object.
     final returnValue = ChannelsToggleSignatures(
+      signaturesEnabled: signaturesEnabled,
+      profilesEnabled: profilesEnabled,
       channel: channel,
-      enabled: enabled,
     );
 
     // Now return the deserialized [ChannelsToggleSignatures].
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: signaturesEnabled,
+      b01: profilesEnabled,
+    );
+
+    return v;
+  }
+
+  /// signatures_enabled: bit 0 of flags.0?true
+  final bool signaturesEnabled;
+
+  /// profiles_enabled: bit 1 of flags.1?true
+  final bool profilesEnabled;
+
   /// Channel.
   final InputChannelBase channel;
-
-  /// Enabled.
-  final bool enabled;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x1f69b606.
-    buffer.writeInt32(0x1f69b606);
+    // Write type-id 0x418d549c.
+    buffer.writeInt32(0x418d549c);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(channel);
-    buffer.writeBool(enabled);
 
     // Finished serialization.
   }
@@ -95564,9 +109722,11 @@ class ChannelsToggleSignatures extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1f69b606",
+      "\$": "0x418d549c",
+      "flags": flags,
+      "signaturesEnabled": signaturesEnabled,
+      "profilesEnabled": profilesEnabled,
       "channel": channel,
-      "enabled": enabled,
     };
 
     // Finished toJson.
@@ -95577,28 +109737,42 @@ class ChannelsToggleSignatures extends TlMethod {
 /// Auth Resend Code.
 ///
 /// Return Type: `AuthSentCodeBase`.
-/// ID: `3ef1a9bf`.
+/// ID: `cae47523`.
 class AuthResendCode extends TlMethod {
   /// Auth Resend Code constructor.
   const AuthResendCode({
     required this.phoneNumber,
     required this.phoneCodeHash,
+    this.reason,
   }) : super._();
 
   /// Deserialize.
   factory AuthResendCode.deserialize(BinaryReader reader) {
     // Read [AuthResendCode] fields.
+    final flags = reader.readInt32();
     final phoneNumber = reader.readString();
     final phoneCodeHash = reader.readString();
+    final hasReasonField = (flags & 1) != 0;
+    final reason = hasReasonField ? reader.readString() : null;
 
     // Construct [AuthResendCode] object.
     final returnValue = AuthResendCode(
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
+      reason: reason,
     );
 
     // Now return the deserialized [AuthResendCode].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: reason != null,
+    );
+
+    return v;
   }
 
   /// Phone Number.
@@ -95607,15 +109781,23 @@ class AuthResendCode extends TlMethod {
   /// Phone Code Hash.
   final String phoneCodeHash;
 
+  /// Reason.
+  final String? reason;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x3ef1a9bf.
-    buffer.writeInt32(0x3ef1a9bf);
+    // Write type-id 0xcae47523.
+    buffer.writeInt32(0xcae47523);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
+    final localReasonCopy = reason;
+    if (localReasonCopy != null) {
+      buffer.writeString(localReasonCopy);
+    }
 
     // Finished serialization.
   }
@@ -95623,9 +109805,11 @@ class AuthResendCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3ef1a9bf",
+      "\$": "0xcae47523",
+      "flags": flags,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
+      "reason": reason,
     };
 
     // Finished toJson.
@@ -95756,7 +109940,7 @@ class MessagesGetMessageEditData extends TlMethod {
 /// Messages Edit Message.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `48f71778`.
+/// ID: `dfd14005`.
 class MessagesEditMessage extends TlMethod {
   /// Messages Edit Message constructor.
   const MessagesEditMessage({
@@ -95769,6 +109953,7 @@ class MessagesEditMessage extends TlMethod {
     this.replyMarkup,
     this.entities,
     this.scheduleDate,
+    this.quickReplyShortcutId,
   }) : super._();
 
   /// Deserialize.
@@ -95791,6 +109976,9 @@ class MessagesEditMessage extends TlMethod {
         hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
     final hasScheduleDateField = (flags & 32768) != 0;
     final scheduleDate = hasScheduleDateField ? reader.readDateTime() : null;
+    final hasQuickReplyShortcutIdField = (flags & 131072) != 0;
+    final quickReplyShortcutId =
+        hasQuickReplyShortcutIdField ? reader.readInt32() : null;
 
     // Construct [MessagesEditMessage] object.
     final returnValue = MessagesEditMessage(
@@ -95803,6 +109991,7 @@ class MessagesEditMessage extends TlMethod {
       replyMarkup: replyMarkup,
       entities: entities,
       scheduleDate: scheduleDate,
+      quickReplyShortcutId: quickReplyShortcutId,
     );
 
     // Now return the deserialized [MessagesEditMessage].
@@ -95819,6 +110008,7 @@ class MessagesEditMessage extends TlMethod {
       b02: replyMarkup != null,
       b03: entities != null,
       b15: scheduleDate != null,
+      b17: quickReplyShortcutId != null,
     );
 
     return v;
@@ -95853,11 +110043,14 @@ class MessagesEditMessage extends TlMethod {
   /// Schedule Date.
   final DateTime? scheduleDate;
 
+  /// Quick Reply Shortcut Id.
+  final int? quickReplyShortcutId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x48f71778.
-    buffer.writeInt32(0x48f71778);
+    // Write type-id 0xdfd14005.
+    buffer.writeInt32(0xdfd14005);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -95883,6 +110076,10 @@ class MessagesEditMessage extends TlMethod {
     if (localScheduleDateCopy != null) {
       buffer.writeDateTime(localScheduleDateCopy);
     }
+    final localQuickReplyShortcutIdCopy = quickReplyShortcutId;
+    if (localQuickReplyShortcutIdCopy != null) {
+      buffer.writeInt32(localQuickReplyShortcutIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -95890,7 +110087,7 @@ class MessagesEditMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x48f71778",
+      "\$": "0xdfd14005",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -95901,6 +110098,7 @@ class MessagesEditMessage extends TlMethod {
       "replyMarkup": replyMarkup,
       "entities": entities,
       "scheduleDate": scheduleDate?.toIso8601String(),
+      "quickReplyShortcutId": quickReplyShortcutId,
     };
 
     // Finished toJson.
@@ -96271,6 +110469,7 @@ class ContactsGetTopPeers extends TlMethod {
     required this.forwardChats,
     required this.groups,
     required this.channels,
+    required this.botsApp,
     required this.offset,
     required this.limit,
     required this.hash,
@@ -96288,6 +110487,7 @@ class ContactsGetTopPeers extends TlMethod {
     final forwardChats = (flags & 32) != 0;
     final groups = (flags & 1024) != 0;
     final channels = (flags & 32768) != 0;
+    final botsApp = (flags & 65536) != 0;
     final offset = reader.readInt32();
     final limit = reader.readInt32();
     final hash = reader.readInt64();
@@ -96302,6 +110502,7 @@ class ContactsGetTopPeers extends TlMethod {
       forwardChats: forwardChats,
       groups: groups,
       channels: channels,
+      botsApp: botsApp,
       offset: offset,
       limit: limit,
       hash: hash,
@@ -96322,6 +110523,7 @@ class ContactsGetTopPeers extends TlMethod {
       b05: forwardChats,
       b10: groups,
       b15: channels,
+      b16: botsApp,
     );
 
     return v;
@@ -96350,6 +110552,9 @@ class ContactsGetTopPeers extends TlMethod {
 
   /// channels: bit 15 of flags.15?true
   final bool channels;
+
+  /// bots_app: bit 16 of flags.16?true
+  final bool botsApp;
 
   /// Offset.
   ///
@@ -96394,6 +110599,7 @@ class ContactsGetTopPeers extends TlMethod {
       "forwardChats": forwardChats,
       "groups": groups,
       "channels": channels,
+      "botsApp": botsApp,
       "offset": offset,
       "limit": limit,
       "hash": hash,
@@ -96517,7 +110723,7 @@ class MessagesGetPeerDialogs extends TlMethod {
 /// Messages Save Draft.
 ///
 /// Return Type: `bool`.
-/// ID: `7ff3b806`.
+/// ID: `d372c5ce`.
 class MessagesSaveDraft extends TlMethod {
   /// Messages Save Draft constructor.
   const MessagesSaveDraft({
@@ -96528,6 +110734,7 @@ class MessagesSaveDraft extends TlMethod {
     required this.message,
     this.entities,
     this.media,
+    this.effect,
   }) : super._();
 
   /// Deserialize.
@@ -96546,6 +110753,8 @@ class MessagesSaveDraft extends TlMethod {
         hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
     final hasMediaField = (flags & 32) != 0;
     final media = hasMediaField ? reader.readObject() as InputMediaBase : null;
+    final hasEffectField = (flags & 128) != 0;
+    final effect = hasEffectField ? reader.readInt64() : null;
 
     // Construct [MessagesSaveDraft] object.
     final returnValue = MessagesSaveDraft(
@@ -96556,6 +110765,7 @@ class MessagesSaveDraft extends TlMethod {
       message: message,
       entities: entities,
       media: media,
+      effect: effect,
     );
 
     // Now return the deserialized [MessagesSaveDraft].
@@ -96570,6 +110780,7 @@ class MessagesSaveDraft extends TlMethod {
       b04: replyTo != null,
       b03: entities != null,
       b05: media != null,
+      b07: effect != null,
     );
 
     return v;
@@ -96596,11 +110807,14 @@ class MessagesSaveDraft extends TlMethod {
   /// Media.
   final InputMediaBase? media;
 
+  /// Effect.
+  final int? effect;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x7ff3b806.
-    buffer.writeInt32(0x7ff3b806);
+    // Write type-id 0xd372c5ce.
+    buffer.writeInt32(0xd372c5ce);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -96618,6 +110832,10 @@ class MessagesSaveDraft extends TlMethod {
     if (localMediaCopy != null) {
       buffer.writeObject(localMediaCopy);
     }
+    final localEffectCopy = effect;
+    if (localEffectCopy != null) {
+      buffer.writeInt64(localEffectCopy);
+    }
 
     // Finished serialization.
   }
@@ -96625,7 +110843,7 @@ class MessagesSaveDraft extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7ff3b806",
+      "\$": "0xd372c5ce",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -96634,6 +110852,7 @@ class MessagesSaveDraft extends TlMethod {
       "message": message,
       "entities": entities,
       "media": media,
+      "effect": effect,
     };
 
     // Finished toJson.
@@ -97211,6 +111430,7 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
   const ChannelsGetAdminedPublicChannels({
     required this.byLocation,
     required this.checkLimit,
+    required this.forPersonal,
   }) : super._();
 
   /// Deserialize.
@@ -97219,11 +111439,13 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
     final flags = reader.readInt32();
     final byLocation = (flags & 1) != 0;
     final checkLimit = (flags & 2) != 0;
+    final forPersonal = (flags & 4) != 0;
 
     // Construct [ChannelsGetAdminedPublicChannels] object.
     final returnValue = ChannelsGetAdminedPublicChannels(
       byLocation: byLocation,
       checkLimit: checkLimit,
+      forPersonal: forPersonal,
     );
 
     // Now return the deserialized [ChannelsGetAdminedPublicChannels].
@@ -97235,6 +111457,7 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
     final v = _flag(
       b00: byLocation,
       b01: checkLimit,
+      b02: forPersonal,
     );
 
     return v;
@@ -97245,6 +111468,9 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
 
   /// check_limit: bit 1 of flags.1?true
   final bool checkLimit;
+
+  /// for_personal: bit 2 of flags.2?true
+  final bool forPersonal;
 
   /// Serialize.
   @override
@@ -97265,6 +111491,7 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
       "flags": flags,
       "byLocation": byLocation,
       "checkLimit": checkLimit,
+      "forPersonal": forPersonal,
     };
 
     // Finished toJson.
@@ -99033,8 +113260,6 @@ class StickersCreateStickerSet extends TlMethod {
   /// Stickers Create Sticker Set constructor.
   const StickersCreateStickerSet({
     required this.masks,
-    required this.animated,
-    required this.videos,
     required this.emojis,
     required this.textColor,
     required this.userId,
@@ -99050,8 +113275,6 @@ class StickersCreateStickerSet extends TlMethod {
     // Read [StickersCreateStickerSet] fields.
     final flags = reader.readInt32();
     final masks = (flags & 1) != 0;
-    final animated = (flags & 2) != 0;
-    final videos = (flags & 16) != 0;
     final emojis = (flags & 32) != 0;
     final textColor = (flags & 64) != 0;
     final userId = reader.readObject() as InputUserBase;
@@ -99067,8 +113290,6 @@ class StickersCreateStickerSet extends TlMethod {
     // Construct [StickersCreateStickerSet] object.
     final returnValue = StickersCreateStickerSet(
       masks: masks,
-      animated: animated,
-      videos: videos,
       emojis: emojis,
       textColor: textColor,
       userId: userId,
@@ -99087,8 +113308,6 @@ class StickersCreateStickerSet extends TlMethod {
   int get flags {
     final v = _flag(
       b00: masks,
-      b01: animated,
-      b04: videos,
       b05: emojis,
       b06: textColor,
       b02: thumb != null,
@@ -99100,12 +113319,6 @@ class StickersCreateStickerSet extends TlMethod {
 
   /// masks: bit 0 of flags.0?true
   final bool masks;
-
-  /// animated: bit 1 of flags.1?true
-  final bool animated;
-
-  /// videos: bit 4 of flags.4?true
-  final bool videos;
 
   /// emojis: bit 5 of flags.5?true
   final bool emojis;
@@ -99161,8 +113374,6 @@ class StickersCreateStickerSet extends TlMethod {
       "\$": "0x9021ab67",
       "flags": flags,
       "masks": masks,
-      "animated": animated,
-      "videos": videos,
       "emojis": emojis,
       "textColor": textColor,
       "userId": userId,
@@ -99352,10 +113563,11 @@ class StickersAddStickerToSet extends TlMethod {
 /// Messages Upload Media.
 ///
 /// Return Type: `MessageMediaBase`.
-/// ID: `519bc2b1`.
+/// ID: `14967978`.
 class MessagesUploadMedia extends TlMethod {
   /// Messages Upload Media constructor.
   const MessagesUploadMedia({
+    this.businessConnectionId,
     required this.peer,
     required this.media,
   }) : super._();
@@ -99363,11 +113575,16 @@ class MessagesUploadMedia extends TlMethod {
   /// Deserialize.
   factory MessagesUploadMedia.deserialize(BinaryReader reader) {
     // Read [MessagesUploadMedia] fields.
+    final flags = reader.readInt32();
+    final hasBusinessConnectionIdField = (flags & 1) != 0;
+    final businessConnectionId =
+        hasBusinessConnectionIdField ? reader.readString() : null;
     final peer = reader.readObject() as InputPeerBase;
     final media = reader.readObject() as InputMediaBase;
 
     // Construct [MessagesUploadMedia] object.
     final returnValue = MessagesUploadMedia(
+      businessConnectionId: businessConnectionId,
       peer: peer,
       media: media,
     );
@@ -99375,6 +113592,18 @@ class MessagesUploadMedia extends TlMethod {
     // Now return the deserialized [MessagesUploadMedia].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: businessConnectionId != null,
+    );
+
+    return v;
+  }
+
+  /// Business Connection Id.
+  final String? businessConnectionId;
 
   /// Peer.
   final InputPeerBase peer;
@@ -99385,10 +113614,15 @@ class MessagesUploadMedia extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x519bc2b1.
-    buffer.writeInt32(0x519bc2b1);
+    // Write type-id 0x14967978.
+    buffer.writeInt32(0x14967978);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localBusinessConnectionIdCopy = businessConnectionId;
+    if (localBusinessConnectionIdCopy != null) {
+      buffer.writeString(localBusinessConnectionIdCopy);
+    }
     buffer.writeObject(peer);
     buffer.writeObject(media);
 
@@ -99398,7 +113632,9 @@ class MessagesUploadMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x519bc2b1",
+      "\$": "0x14967978",
+      "flags": flags,
+      "businessConnectionId": businessConnectionId,
       "peer": peer,
       "media": media,
     };
@@ -101451,7 +115687,7 @@ class MessagesGetRecentLocations extends TlMethod {
 /// Messages Send Multi Media.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `456e8987`.
+/// ID: `37b74355`.
 class MessagesSendMultiMedia extends TlMethod {
   /// Messages Send Multi Media constructor.
   const MessagesSendMultiMedia({
@@ -101461,11 +115697,14 @@ class MessagesSendMultiMedia extends TlMethod {
     required this.noforwards,
     required this.updateStickersetsOrder,
     required this.invertMedia,
+    required this.allowPaidFloodskip,
     required this.peer,
     this.replyTo,
     required this.multiMedia,
     this.scheduleDate,
     this.sendAs,
+    this.quickReplyShortcut,
+    this.effect,
   }) : super._();
 
   /// Deserialize.
@@ -101478,6 +115717,7 @@ class MessagesSendMultiMedia extends TlMethod {
     final noforwards = (flags & 16384) != 0;
     final updateStickersetsOrder = (flags & 32768) != 0;
     final invertMedia = (flags & 65536) != 0;
+    final allowPaidFloodskip = (flags & 524288) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final hasReplyToField = (flags & 1) != 0;
     final replyTo =
@@ -101487,6 +115727,12 @@ class MessagesSendMultiMedia extends TlMethod {
     final scheduleDate = hasScheduleDateField ? reader.readDateTime() : null;
     final hasSendAsField = (flags & 8192) != 0;
     final sendAs = hasSendAsField ? reader.readObject() as InputPeerBase : null;
+    final hasQuickReplyShortcutField = (flags & 131072) != 0;
+    final quickReplyShortcut = hasQuickReplyShortcutField
+        ? reader.readObject() as InputQuickReplyShortcutBase
+        : null;
+    final hasEffectField = (flags & 262144) != 0;
+    final effect = hasEffectField ? reader.readInt64() : null;
 
     // Construct [MessagesSendMultiMedia] object.
     final returnValue = MessagesSendMultiMedia(
@@ -101496,11 +115742,14 @@ class MessagesSendMultiMedia extends TlMethod {
       noforwards: noforwards,
       updateStickersetsOrder: updateStickersetsOrder,
       invertMedia: invertMedia,
+      allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
       multiMedia: multiMedia,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
     );
 
     // Now return the deserialized [MessagesSendMultiMedia].
@@ -101516,9 +115765,12 @@ class MessagesSendMultiMedia extends TlMethod {
       b14: noforwards,
       b15: updateStickersetsOrder,
       b16: invertMedia,
+      b19: allowPaidFloodskip,
       b00: replyTo != null,
       b10: scheduleDate != null,
       b13: sendAs != null,
+      b17: quickReplyShortcut != null,
+      b18: effect != null,
     );
 
     return v;
@@ -101542,6 +115794,9 @@ class MessagesSendMultiMedia extends TlMethod {
   /// invert_media: bit 16 of flags.16?true
   final bool invertMedia;
 
+  /// allow_paid_floodskip: bit 19 of flags.19?true
+  final bool allowPaidFloodskip;
+
   /// Peer.
   final InputPeerBase peer;
 
@@ -101557,11 +115812,17 @@ class MessagesSendMultiMedia extends TlMethod {
   /// Send As.
   final InputPeerBase? sendAs;
 
+  /// Quick Reply Shortcut.
+  final InputQuickReplyShortcutBase? quickReplyShortcut;
+
+  /// Effect.
+  final int? effect;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x456e8987.
-    buffer.writeInt32(0x456e8987);
+    // Write type-id 0x37b74355.
+    buffer.writeInt32(0x37b74355);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -101579,6 +115840,14 @@ class MessagesSendMultiMedia extends TlMethod {
     if (localSendAsCopy != null) {
       buffer.writeObject(localSendAsCopy);
     }
+    final localQuickReplyShortcutCopy = quickReplyShortcut;
+    if (localQuickReplyShortcutCopy != null) {
+      buffer.writeObject(localQuickReplyShortcutCopy);
+    }
+    final localEffectCopy = effect;
+    if (localEffectCopy != null) {
+      buffer.writeInt64(localEffectCopy);
+    }
 
     // Finished serialization.
   }
@@ -101586,7 +115855,7 @@ class MessagesSendMultiMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x456e8987",
+      "\$": "0x37b74355",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -101594,11 +115863,14 @@ class MessagesSendMultiMedia extends TlMethod {
       "noforwards": noforwards,
       "updateStickersetsOrder": updateStickersetsOrder,
       "invertMedia": invertMedia,
+      "allowPaidFloodskip": allowPaidFloodskip,
       "peer": peer,
       "replyTo": replyTo,
       "multiMedia": multiMedia,
       "scheduleDate": scheduleDate?.toIso8601String(),
       "sendAs": sendAs,
+      "quickReplyShortcut": quickReplyShortcut,
+      "effect": effect,
     };
 
     // Finished toJson.
@@ -107412,8 +121684,8 @@ class PaymentsGetBankCardData extends TlMethod {
 
 /// Messages Get Dialog Filters.
 ///
-/// Return Type: `List<DialogFilterBase>`.
-/// ID: `f19ed96d`.
+/// Return Type: `MessagesDialogFiltersBase`.
+/// ID: `efd48c89`.
 class MessagesGetDialogFilters extends TlMethod {
   /// Messages Get Dialog Filters constructor.
   const MessagesGetDialogFilters() : super._();
@@ -107430,8 +121702,8 @@ class MessagesGetDialogFilters extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xf19ed96d.
-    buffer.writeInt32(0xf19ed96d);
+    // Write type-id 0xefd48c89.
+    buffer.writeInt32(0xefd48c89);
 
     // Finished serialization.
   }
@@ -107439,7 +121711,7 @@ class MessagesGetDialogFilters extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf19ed96d",
+      "\$": "0xefd48c89",
     };
 
     // Finished toJson.
@@ -110510,6 +124782,7 @@ class MessagesGetChatInviteImporters extends TlMethod {
   /// Messages Get Chat Invite Importers constructor.
   const MessagesGetChatInviteImporters({
     required this.requested,
+    required this.subscriptionExpired,
     required this.peer,
     this.link,
     this.q,
@@ -110523,6 +124796,7 @@ class MessagesGetChatInviteImporters extends TlMethod {
     // Read [MessagesGetChatInviteImporters] fields.
     final flags = reader.readInt32();
     final requested = (flags & 1) != 0;
+    final subscriptionExpired = (flags & 8) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final hasLinkField = (flags & 2) != 0;
     final link = hasLinkField ? reader.readString() : null;
@@ -110535,6 +124809,7 @@ class MessagesGetChatInviteImporters extends TlMethod {
     // Construct [MessagesGetChatInviteImporters] object.
     final returnValue = MessagesGetChatInviteImporters(
       requested: requested,
+      subscriptionExpired: subscriptionExpired,
       peer: peer,
       link: link,
       q: q,
@@ -110551,6 +124826,7 @@ class MessagesGetChatInviteImporters extends TlMethod {
   int get flags {
     final v = _flag(
       b00: requested,
+      b03: subscriptionExpired,
       b01: link != null,
       b02: q != null,
     );
@@ -110560,6 +124836,9 @@ class MessagesGetChatInviteImporters extends TlMethod {
 
   /// requested: bit 0 of flags.0?true
   final bool requested;
+
+  /// subscription_expired: bit 3 of flags.3?true
+  final bool subscriptionExpired;
 
   /// Peer.
   final InputPeerBase peer;
@@ -110611,6 +124890,7 @@ class MessagesGetChatInviteImporters extends TlMethod {
       "\$": "0xdf04dd4e",
       "flags": flags,
       "requested": requested,
+      "subscriptionExpired": subscriptionExpired,
       "peer": peer,
       "link": link,
       "q": q,
@@ -112000,116 +126280,6 @@ class MessagesSetChatTheme extends TlMethod {
   }
 }
 
-/// Channels View Sponsored Message.
-///
-/// Return Type: `bool`.
-/// ID: `beaedb94`.
-class ChannelsViewSponsoredMessage extends TlMethod {
-  /// Channels View Sponsored Message constructor.
-  const ChannelsViewSponsoredMessage({
-    required this.channel,
-    required this.randomId,
-  }) : super._();
-
-  /// Deserialize.
-  factory ChannelsViewSponsoredMessage.deserialize(BinaryReader reader) {
-    // Read [ChannelsViewSponsoredMessage] fields.
-    final channel = reader.readObject() as InputChannelBase;
-    final randomId = reader.readBytes();
-
-    // Construct [ChannelsViewSponsoredMessage] object.
-    final returnValue = ChannelsViewSponsoredMessage(
-      channel: channel,
-      randomId: randomId,
-    );
-
-    // Now return the deserialized [ChannelsViewSponsoredMessage].
-    return returnValue;
-  }
-
-  /// Channel.
-  final InputChannelBase channel;
-
-  /// Random Id.
-  final Uint8List randomId;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0xbeaedb94.
-    buffer.writeInt32(0xbeaedb94);
-
-    // Write fields.
-    buffer.writeObject(channel);
-    buffer.writeBytes(randomId);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0xbeaedb94",
-      "channel": channel,
-      "randomId": randomId,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
-/// Channels Get Sponsored Messages.
-///
-/// Return Type: `MessagesSponsoredMessagesBase`.
-/// ID: `ec210fbf`.
-class ChannelsGetSponsoredMessages extends TlMethod {
-  /// Channels Get Sponsored Messages constructor.
-  const ChannelsGetSponsoredMessages({
-    required this.channel,
-  }) : super._();
-
-  /// Deserialize.
-  factory ChannelsGetSponsoredMessages.deserialize(BinaryReader reader) {
-    // Read [ChannelsGetSponsoredMessages] fields.
-    final channel = reader.readObject() as InputChannelBase;
-
-    // Construct [ChannelsGetSponsoredMessages] object.
-    final returnValue = ChannelsGetSponsoredMessages(
-      channel: channel,
-    );
-
-    // Now return the deserialized [ChannelsGetSponsoredMessages].
-    return returnValue;
-  }
-
-  /// Channel.
-  final InputChannelBase channel;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0xec210fbf.
-    buffer.writeInt32(0xec210fbf);
-
-    // Write fields.
-    buffer.writeObject(channel);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0xec210fbf",
-      "channel": channel,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
 /// Messages Get Message Read Participants.
 ///
 /// Return Type: `List<ReadParticipantDateBase>`.
@@ -113180,28 +127350,46 @@ class MessagesGetMessageReactionsList extends TlMethod {
 /// Messages Set Chat Available Reactions.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `feb16771`.
+/// ID: `864b2581`.
 class MessagesSetChatAvailableReactions extends TlMethod {
   /// Messages Set Chat Available Reactions constructor.
   const MessagesSetChatAvailableReactions({
     required this.peer,
     required this.availableReactions,
+    this.reactionsLimit,
+    required this.paidEnabled,
   }) : super._();
 
   /// Deserialize.
   factory MessagesSetChatAvailableReactions.deserialize(BinaryReader reader) {
     // Read [MessagesSetChatAvailableReactions] fields.
+    final flags = reader.readInt32();
     final peer = reader.readObject() as InputPeerBase;
     final availableReactions = reader.readObject() as ChatReactionsBase;
+    final hasReactionsLimitField = (flags & 1) != 0;
+    final reactionsLimit = hasReactionsLimitField ? reader.readInt32() : null;
+    final paidEnabled = (flags & 2) != 0;
 
     // Construct [MessagesSetChatAvailableReactions] object.
     final returnValue = MessagesSetChatAvailableReactions(
       peer: peer,
       availableReactions: availableReactions,
+      reactionsLimit: reactionsLimit,
+      paidEnabled: paidEnabled,
     );
 
     // Now return the deserialized [MessagesSetChatAvailableReactions].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: reactionsLimit != null,
+      b01: paidEnabled,
+    );
+
+    return v;
   }
 
   /// Peer.
@@ -113210,15 +127398,26 @@ class MessagesSetChatAvailableReactions extends TlMethod {
   /// Available Reactions.
   final ChatReactionsBase availableReactions;
 
+  /// Reactions Limit.
+  final int? reactionsLimit;
+
+  /// paid_enabled: bit 1 of flags.1?Bool
+  final bool paidEnabled;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xfeb16771.
-    buffer.writeInt32(0xfeb16771);
+    // Write type-id 0x864b2581.
+    buffer.writeInt32(0x864b2581);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeObject(availableReactions);
+    final localReactionsLimitCopy = reactionsLimit;
+    if (localReactionsLimitCopy != null) {
+      buffer.writeInt32(localReactionsLimitCopy);
+    }
 
     // Finished serialization.
   }
@@ -113226,9 +127425,12 @@ class MessagesSetChatAvailableReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfeb16771",
+      "\$": "0x864b2581",
+      "flags": flags,
       "peer": peer,
       "availableReactions": availableReactions,
+      "reactionsLimit": reactionsLimit,
+      "paidEnabled": paidEnabled,
     };
 
     // Finished toJson.
@@ -114062,6 +128264,8 @@ class MessagesRequestWebView extends TlMethod {
   const MessagesRequestWebView({
     required this.fromBotMenu,
     required this.silent,
+    required this.compact,
+    required this.fullscreen,
     required this.peer,
     required this.bot,
     this.url,
@@ -114078,6 +128282,8 @@ class MessagesRequestWebView extends TlMethod {
     final flags = reader.readInt32();
     final fromBotMenu = (flags & 16) != 0;
     final silent = (flags & 32) != 0;
+    final compact = (flags & 128) != 0;
+    final fullscreen = (flags & 256) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final bot = reader.readObject() as InputUserBase;
     final hasUrlField = (flags & 2) != 0;
@@ -114098,6 +128304,8 @@ class MessagesRequestWebView extends TlMethod {
     final returnValue = MessagesRequestWebView(
       fromBotMenu: fromBotMenu,
       silent: silent,
+      compact: compact,
+      fullscreen: fullscreen,
       peer: peer,
       bot: bot,
       url: url,
@@ -114117,6 +128325,8 @@ class MessagesRequestWebView extends TlMethod {
     final v = _flag(
       b04: fromBotMenu,
       b05: silent,
+      b07: compact,
+      b08: fullscreen,
       b01: url != null,
       b03: startParam != null,
       b02: themeParams != null,
@@ -114132,6 +128342,12 @@ class MessagesRequestWebView extends TlMethod {
 
   /// silent: bit 5 of flags.5?true
   final bool silent;
+
+  /// compact: bit 7 of flags.7?true
+  final bool compact;
+
+  /// fullscreen: bit 8 of flags.8?true
+  final bool fullscreen;
 
   /// Peer.
   final InputPeerBase peer;
@@ -114199,6 +128415,8 @@ class MessagesRequestWebView extends TlMethod {
       "flags": flags,
       "fromBotMenu": fromBotMenu,
       "silent": silent,
+      "compact": compact,
+      "fullscreen": fullscreen,
       "peer": peer,
       "bot": bot,
       "url": url,
@@ -114331,13 +128549,15 @@ class MessagesProlongWebView extends TlMethod {
 
 /// Messages Request Simple Web View.
 ///
-/// Return Type: `SimpleWebViewResultBase`.
-/// ID: `1a46500a`.
+/// Return Type: `WebViewResultBase`.
+/// ID: `413a3e73`.
 class MessagesRequestSimpleWebView extends TlMethod {
   /// Messages Request Simple Web View constructor.
   const MessagesRequestSimpleWebView({
     required this.fromSwitchWebview,
     required this.fromSideMenu,
+    required this.compact,
+    required this.fullscreen,
     required this.bot,
     this.url,
     this.startParam,
@@ -114351,6 +128571,8 @@ class MessagesRequestSimpleWebView extends TlMethod {
     final flags = reader.readInt32();
     final fromSwitchWebview = (flags & 2) != 0;
     final fromSideMenu = (flags & 4) != 0;
+    final compact = (flags & 128) != 0;
+    final fullscreen = (flags & 256) != 0;
     final bot = reader.readObject() as InputUserBase;
     final hasUrlField = (flags & 8) != 0;
     final url = hasUrlField ? reader.readString() : null;
@@ -114365,6 +128587,8 @@ class MessagesRequestSimpleWebView extends TlMethod {
     final returnValue = MessagesRequestSimpleWebView(
       fromSwitchWebview: fromSwitchWebview,
       fromSideMenu: fromSideMenu,
+      compact: compact,
+      fullscreen: fullscreen,
       bot: bot,
       url: url,
       startParam: startParam,
@@ -114381,6 +128605,8 @@ class MessagesRequestSimpleWebView extends TlMethod {
     final v = _flag(
       b01: fromSwitchWebview,
       b02: fromSideMenu,
+      b07: compact,
+      b08: fullscreen,
       b03: url != null,
       b04: startParam != null,
       b00: themeParams != null,
@@ -114394,6 +128620,12 @@ class MessagesRequestSimpleWebView extends TlMethod {
 
   /// from_side_menu: bit 2 of flags.2?true
   final bool fromSideMenu;
+
+  /// compact: bit 7 of flags.7?true
+  final bool compact;
+
+  /// fullscreen: bit 8 of flags.8?true
+  final bool fullscreen;
 
   /// Bot.
   final InputUserBase bot;
@@ -114413,8 +128645,8 @@ class MessagesRequestSimpleWebView extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x1a46500a.
-    buffer.writeInt32(0x1a46500a);
+    // Write type-id 0x413a3e73.
+    buffer.writeInt32(0x413a3e73);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -114439,10 +128671,12 @@ class MessagesRequestSimpleWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1a46500a",
+      "\$": "0x413a3e73",
       "flags": flags,
       "fromSwitchWebview": fromSwitchWebview,
       "fromSideMenu": fromSideMenu,
+      "compact": compact,
+      "fullscreen": fullscreen,
       "bot": bot,
       "url": url,
       "startParam": startParam,
@@ -117903,13 +132137,14 @@ class AccountGetDefaultGroupPhotoEmojis extends TlMethod {
 /// Auth Request Firebase Sms.
 ///
 /// Return Type: `bool`.
-/// ID: `89464b50`.
+/// ID: `8e39261e`.
 class AuthRequestFirebaseSms extends TlMethod {
   /// Auth Request Firebase Sms constructor.
   const AuthRequestFirebaseSms({
     required this.phoneNumber,
     required this.phoneCodeHash,
     this.safetyNetToken,
+    this.playIntegrityToken,
     this.iosPushSecret,
   }) : super._();
 
@@ -117921,6 +132156,9 @@ class AuthRequestFirebaseSms extends TlMethod {
     final phoneCodeHash = reader.readString();
     final hasSafetyNetTokenField = (flags & 1) != 0;
     final safetyNetToken = hasSafetyNetTokenField ? reader.readString() : null;
+    final hasPlayIntegrityTokenField = (flags & 4) != 0;
+    final playIntegrityToken =
+        hasPlayIntegrityTokenField ? reader.readString() : null;
     final hasIosPushSecretField = (flags & 2) != 0;
     final iosPushSecret = hasIosPushSecretField ? reader.readString() : null;
 
@@ -117929,6 +132167,7 @@ class AuthRequestFirebaseSms extends TlMethod {
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
       safetyNetToken: safetyNetToken,
+      playIntegrityToken: playIntegrityToken,
       iosPushSecret: iosPushSecret,
     );
 
@@ -117940,6 +132179,7 @@ class AuthRequestFirebaseSms extends TlMethod {
   int get flags {
     final v = _flag(
       b00: safetyNetToken != null,
+      b02: playIntegrityToken != null,
       b01: iosPushSecret != null,
     );
 
@@ -117955,14 +132195,17 @@ class AuthRequestFirebaseSms extends TlMethod {
   /// Safety Net Token.
   final String? safetyNetToken;
 
+  /// Play Integrity Token.
+  final String? playIntegrityToken;
+
   /// Ios Push Secret.
   final String? iosPushSecret;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x89464b50.
-    buffer.writeInt32(0x89464b50);
+    // Write type-id 0x8e39261e.
+    buffer.writeInt32(0x8e39261e);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -117971,6 +132214,10 @@ class AuthRequestFirebaseSms extends TlMethod {
     final localSafetyNetTokenCopy = safetyNetToken;
     if (localSafetyNetTokenCopy != null) {
       buffer.writeString(localSafetyNetTokenCopy);
+    }
+    final localPlayIntegrityTokenCopy = playIntegrityToken;
+    if (localPlayIntegrityTokenCopy != null) {
+      buffer.writeString(localPlayIntegrityTokenCopy);
     }
     final localIosPushSecretCopy = iosPushSecret;
     if (localIosPushSecretCopy != null) {
@@ -117983,11 +132230,12 @@ class AuthRequestFirebaseSms extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x89464b50",
+      "\$": "0x8e39261e",
       "flags": flags,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
       "safetyNetToken": safetyNetToken,
+      "playIntegrityToken": playIntegrityToken,
       "iosPushSecret": iosPushSecret,
     };
 
@@ -118734,12 +132982,14 @@ class MessagesGetBotApp extends TlMethod {
 
 /// Messages Request App Web View.
 ///
-/// Return Type: `AppWebViewResultBase`.
-/// ID: `8c5a3b3c`.
+/// Return Type: `WebViewResultBase`.
+/// ID: `53618bce`.
 class MessagesRequestAppWebView extends TlMethod {
   /// Messages Request App Web View constructor.
   const MessagesRequestAppWebView({
     required this.writeAllowed,
+    required this.compact,
+    required this.fullscreen,
     required this.peer,
     required this.app,
     this.startParam,
@@ -118752,6 +133002,8 @@ class MessagesRequestAppWebView extends TlMethod {
     // Read [MessagesRequestAppWebView] fields.
     final flags = reader.readInt32();
     final writeAllowed = (flags & 1) != 0;
+    final compact = (flags & 128) != 0;
+    final fullscreen = (flags & 256) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final app = reader.readObject() as InputBotAppBase;
     final hasStartParamField = (flags & 2) != 0;
@@ -118764,6 +133016,8 @@ class MessagesRequestAppWebView extends TlMethod {
     // Construct [MessagesRequestAppWebView] object.
     final returnValue = MessagesRequestAppWebView(
       writeAllowed: writeAllowed,
+      compact: compact,
+      fullscreen: fullscreen,
       peer: peer,
       app: app,
       startParam: startParam,
@@ -118779,6 +133033,8 @@ class MessagesRequestAppWebView extends TlMethod {
   int get flags {
     final v = _flag(
       b00: writeAllowed,
+      b07: compact,
+      b08: fullscreen,
       b01: startParam != null,
       b02: themeParams != null,
     );
@@ -118788,6 +133044,12 @@ class MessagesRequestAppWebView extends TlMethod {
 
   /// write_allowed: bit 0 of flags.0?true
   final bool writeAllowed;
+
+  /// compact: bit 7 of flags.7?true
+  final bool compact;
+
+  /// fullscreen: bit 8 of flags.8?true
+  final bool fullscreen;
 
   /// Peer.
   final InputPeerBase peer;
@@ -118807,8 +133069,8 @@ class MessagesRequestAppWebView extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8c5a3b3c.
-    buffer.writeInt32(0x8c5a3b3c);
+    // Write type-id 0x53618bce.
+    buffer.writeInt32(0x53618bce);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -118830,9 +133092,11 @@ class MessagesRequestAppWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c5a3b3c",
+      "\$": "0x53618bce",
       "flags": flags,
       "writeAllowed": writeAllowed,
+      "compact": compact,
+      "fullscreen": fullscreen,
       "peer": peer,
       "app": app,
       "startParam": startParam,
@@ -120038,65 +134302,6 @@ class AccountInvalidateSignInCodes extends TlMethod {
     final returnValue = <String, dynamic>{
       "\$": "0xca8ae8ba",
       "codes": codes,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
-/// Channels Click Sponsored Message.
-///
-/// Return Type: `bool`.
-/// ID: `18afbc93`.
-class ChannelsClickSponsoredMessage extends TlMethod {
-  /// Channels Click Sponsored Message constructor.
-  const ChannelsClickSponsoredMessage({
-    required this.channel,
-    required this.randomId,
-  }) : super._();
-
-  /// Deserialize.
-  factory ChannelsClickSponsoredMessage.deserialize(BinaryReader reader) {
-    // Read [ChannelsClickSponsoredMessage] fields.
-    final channel = reader.readObject() as InputChannelBase;
-    final randomId = reader.readBytes();
-
-    // Construct [ChannelsClickSponsoredMessage] object.
-    final returnValue = ChannelsClickSponsoredMessage(
-      channel: channel,
-      randomId: randomId,
-    );
-
-    // Now return the deserialized [ChannelsClickSponsoredMessage].
-    return returnValue;
-  }
-
-  /// Channel.
-  final InputChannelBase channel;
-
-  /// Random Id.
-  final Uint8List randomId;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0x18afbc93.
-    buffer.writeInt32(0x18afbc93);
-
-    // Write fields.
-    buffer.writeObject(channel);
-    buffer.writeBytes(randomId);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$": "0x18afbc93",
-      "channel": channel,
-      "randomId": randomId,
     };
 
     // Finished toJson.
@@ -121368,14 +135573,14 @@ class StoriesExportStoryLink extends TlMethod {
 
 /// Stories Report.
 ///
-/// Return Type: `bool`.
-/// ID: `1923fa8c`.
+/// Return Type: `ReportResultBase`.
+/// ID: `19d8eb45`.
 class StoriesReport extends TlMethod {
   /// Stories Report constructor.
   const StoriesReport({
     required this.peer,
     required this.id,
-    required this.reason,
+    required this.option,
     required this.message,
   }) : super._();
 
@@ -121384,14 +135589,14 @@ class StoriesReport extends TlMethod {
     // Read [StoriesReport] fields.
     final peer = reader.readObject() as InputPeerBase;
     final id = reader.readVectorInt32();
-    final reason = reader.readObject() as ReportReasonBase;
+    final option = reader.readBytes();
     final message = reader.readString();
 
     // Construct [StoriesReport] object.
     final returnValue = StoriesReport(
       peer: peer,
       id: id,
-      reason: reason,
+      option: option,
       message: message,
     );
 
@@ -121405,8 +135610,8 @@ class StoriesReport extends TlMethod {
   /// Id.
   final List<int> id;
 
-  /// Reason.
-  final ReportReasonBase reason;
+  /// Option.
+  final Uint8List option;
 
   /// Message.
   final String message;
@@ -121414,13 +135619,13 @@ class StoriesReport extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x1923fa8c.
-    buffer.writeInt32(0x1923fa8c);
+    // Write type-id 0x19d8eb45.
+    buffer.writeInt32(0x19d8eb45);
 
     // Write fields.
     buffer.writeObject(peer);
     buffer.writeVectorInt32(id);
-    buffer.writeObject(reason);
+    buffer.writeBytes(option);
     buffer.writeString(message);
 
     // Finished serialization.
@@ -121429,10 +135634,10 @@ class StoriesReport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1923fa8c",
+      "\$": "0x19d8eb45",
       "peer": peer,
       "id": id,
-      "reason": reason,
+      "option": option,
       "message": message,
     };
 
@@ -123074,17 +137279,20 @@ class MessagesSearchEmojiStickerSets extends TlMethod {
 /// Channels Get Channel Recommendations.
 ///
 /// Return Type: `MessagesChatsBase`.
-/// ID: `83b70d97`.
+/// ID: `25a71742`.
 class ChannelsGetChannelRecommendations extends TlMethod {
   /// Channels Get Channel Recommendations constructor.
   const ChannelsGetChannelRecommendations({
-    required this.channel,
+    this.channel,
   }) : super._();
 
   /// Deserialize.
   factory ChannelsGetChannelRecommendations.deserialize(BinaryReader reader) {
     // Read [ChannelsGetChannelRecommendations] fields.
-    final channel = reader.readObject() as InputChannelBase;
+    final flags = reader.readInt32();
+    final hasChannelField = (flags & 1) != 0;
+    final channel =
+        hasChannelField ? reader.readObject() as InputChannelBase : null;
 
     // Construct [ChannelsGetChannelRecommendations] object.
     final returnValue = ChannelsGetChannelRecommendations(
@@ -123095,17 +137303,30 @@ class ChannelsGetChannelRecommendations extends TlMethod {
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: channel != null,
+    );
+
+    return v;
+  }
+
   /// Channel.
-  final InputChannelBase channel;
+  final InputChannelBase? channel;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x83b70d97.
-    buffer.writeInt32(0x83b70d97);
+    // Write type-id 0x25a71742.
+    buffer.writeInt32(0x25a71742);
 
     // Write fields.
-    buffer.writeObject(channel);
+    buffer.writeInt32(flags);
+    final localChannelCopy = channel;
+    if (localChannelCopy != null) {
+      buffer.writeObject(localChannelCopy);
+    }
 
     // Finished serialization.
   }
@@ -123113,7 +137334,8 @@ class ChannelsGetChannelRecommendations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x83b70d97",
+      "\$": "0x25a71742",
+      "flags": flags,
       "channel": channel,
     };
 
@@ -124166,6 +138388,7040 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod {
       "flags": flags,
       "force": force,
       "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Saved Reaction Tags.
+///
+/// Return Type: `MessagesSavedReactionTagsBase`.
+/// ID: `3637e05b`.
+class MessagesGetSavedReactionTags extends TlMethod {
+  /// Messages Get Saved Reaction Tags constructor.
+  const MessagesGetSavedReactionTags({
+    this.peer,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetSavedReactionTags.deserialize(BinaryReader reader) {
+    // Read [MessagesGetSavedReactionTags] fields.
+    final flags = reader.readInt32();
+    final hasPeerField = (flags & 1) != 0;
+    final peer = hasPeerField ? reader.readObject() as InputPeerBase : null;
+    final hash = reader.readInt64();
+
+    // Construct [MessagesGetSavedReactionTags] object.
+    final returnValue = MessagesGetSavedReactionTags(
+      peer: peer,
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetSavedReactionTags].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: peer != null,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase? peer;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3637e05b.
+    buffer.writeInt32(0x3637e05b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localPeerCopy = peer;
+    if (localPeerCopy != null) {
+      buffer.writeObject(localPeerCopy);
+    }
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3637e05b",
+      "flags": flags,
+      "peer": peer,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Update Saved Reaction Tag.
+///
+/// Return Type: `bool`.
+/// ID: `60297dec`.
+class MessagesUpdateSavedReactionTag extends TlMethod {
+  /// Messages Update Saved Reaction Tag constructor.
+  const MessagesUpdateSavedReactionTag({
+    required this.reaction,
+    this.title,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesUpdateSavedReactionTag.deserialize(BinaryReader reader) {
+    // Read [MessagesUpdateSavedReactionTag] fields.
+    final flags = reader.readInt32();
+    final reaction = reader.readObject() as ReactionBase;
+    final hasTitleField = (flags & 1) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+
+    // Construct [MessagesUpdateSavedReactionTag] object.
+    final returnValue = MessagesUpdateSavedReactionTag(
+      reaction: reaction,
+      title: title,
+    );
+
+    // Now return the deserialized [MessagesUpdateSavedReactionTag].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: title != null,
+    );
+
+    return v;
+  }
+
+  /// Reaction.
+  final ReactionBase reaction;
+
+  /// Title.
+  final String? title;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x60297dec.
+    buffer.writeInt32(0x60297dec);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(reaction);
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x60297dec",
+      "flags": flags,
+      "reaction": reaction,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Default Tag Reactions.
+///
+/// Return Type: `MessagesReactionsBase`.
+/// ID: `bdf93428`.
+class MessagesGetDefaultTagReactions extends TlMethod {
+  /// Messages Get Default Tag Reactions constructor.
+  const MessagesGetDefaultTagReactions({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetDefaultTagReactions.deserialize(BinaryReader reader) {
+    // Read [MessagesGetDefaultTagReactions] fields.
+    final hash = reader.readInt64();
+
+    // Construct [MessagesGetDefaultTagReactions] object.
+    final returnValue = MessagesGetDefaultTagReactions(
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetDefaultTagReactions].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbdf93428.
+    buffer.writeInt32(0xbdf93428);
+
+    // Write fields.
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbdf93428",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Outbox Read Date.
+///
+/// Return Type: `OutboxReadDateBase`.
+/// ID: `8c4bfe5d`.
+class MessagesGetOutboxReadDate extends TlMethod {
+  /// Messages Get Outbox Read Date constructor.
+  const MessagesGetOutboxReadDate({
+    required this.peer,
+    required this.msgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetOutboxReadDate.deserialize(BinaryReader reader) {
+    // Read [MessagesGetOutboxReadDate] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+
+    // Construct [MessagesGetOutboxReadDate] object.
+    final returnValue = MessagesGetOutboxReadDate(
+      peer: peer,
+      msgId: msgId,
+    );
+
+    // Now return the deserialized [MessagesGetOutboxReadDate].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8c4bfe5d.
+    buffer.writeInt32(0x8c4bfe5d);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c4bfe5d",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Users Get Is Premium Required To Contact.
+///
+/// Return Type: `List<bool>`.
+/// ID: `a622aa10`.
+class UsersGetIsPremiumRequiredToContact extends TlMethod {
+  /// Users Get Is Premium Required To Contact constructor.
+  const UsersGetIsPremiumRequiredToContact({
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory UsersGetIsPremiumRequiredToContact.deserialize(BinaryReader reader) {
+    // Read [UsersGetIsPremiumRequiredToContact] fields.
+    final id = reader.readVectorObject<InputUserBase>();
+
+    // Construct [UsersGetIsPremiumRequiredToContact] object.
+    final returnValue = UsersGetIsPremiumRequiredToContact(
+      id: id,
+    );
+
+    // Now return the deserialized [UsersGetIsPremiumRequiredToContact].
+    return returnValue;
+  }
+
+  /// Id.
+  final List<InputUserBase> id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa622aa10.
+    buffer.writeInt32(0xa622aa10);
+
+    // Write fields.
+    buffer.writeVectorObject(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa622aa10",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Set Boosts To Unblock Restrictions.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `ad399cee`.
+class ChannelsSetBoostsToUnblockRestrictions extends TlMethod {
+  /// Channels Set Boosts To Unblock Restrictions constructor.
+  const ChannelsSetBoostsToUnblockRestrictions({
+    required this.channel,
+    required this.boosts,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelsSetBoostsToUnblockRestrictions.deserialize(
+      BinaryReader reader) {
+    // Read [ChannelsSetBoostsToUnblockRestrictions] fields.
+    final channel = reader.readObject() as InputChannelBase;
+    final boosts = reader.readInt32();
+
+    // Construct [ChannelsSetBoostsToUnblockRestrictions] object.
+    final returnValue = ChannelsSetBoostsToUnblockRestrictions(
+      channel: channel,
+      boosts: boosts,
+    );
+
+    // Now return the deserialized [ChannelsSetBoostsToUnblockRestrictions].
+    return returnValue;
+  }
+
+  /// Channel.
+  final InputChannelBase channel;
+
+  /// Boosts.
+  ///
+  /// Field type is Int32.
+  final int boosts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xad399cee.
+    buffer.writeInt32(0xad399cee);
+
+    // Write fields.
+    buffer.writeObject(channel);
+    buffer.writeInt32(boosts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xad399cee",
+      "channel": channel,
+      "boosts": boosts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Set Emoji Stickers.
+///
+/// Return Type: `bool`.
+/// ID: `3cd930b7`.
+class ChannelsSetEmojiStickers extends TlMethod {
+  /// Channels Set Emoji Stickers constructor.
+  const ChannelsSetEmojiStickers({
+    required this.channel,
+    required this.stickerset,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelsSetEmojiStickers.deserialize(BinaryReader reader) {
+    // Read [ChannelsSetEmojiStickers] fields.
+    final channel = reader.readObject() as InputChannelBase;
+    final stickerset = reader.readObject() as InputStickerSetBase;
+
+    // Construct [ChannelsSetEmojiStickers] object.
+    final returnValue = ChannelsSetEmojiStickers(
+      channel: channel,
+      stickerset: stickerset,
+    );
+
+    // Now return the deserialized [ChannelsSetEmojiStickers].
+    return returnValue;
+  }
+
+  /// Channel.
+  final InputChannelBase channel;
+
+  /// Stickerset.
+  final InputStickerSetBase stickerset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3cd930b7.
+    buffer.writeInt32(0x3cd930b7);
+
+    // Write fields.
+    buffer.writeObject(channel);
+    buffer.writeObject(stickerset);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3cd930b7",
+      "channel": channel,
+      "stickerset": stickerset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Is Eligible To Join.
+///
+/// Return Type: `SmsjobsEligibilityToJoinBase`.
+/// ID: `0edc39d0`.
+class SmsjobsIsEligibleToJoin extends TlMethod {
+  /// Smsjobs Is Eligible To Join constructor.
+  const SmsjobsIsEligibleToJoin() : super._();
+
+  /// Deserialize.
+  factory SmsjobsIsEligibleToJoin.deserialize(BinaryReader reader) {
+    // Construct [SmsjobsIsEligibleToJoin] object.
+    final returnValue = SmsjobsIsEligibleToJoin();
+
+    // Now return the deserialized [SmsjobsIsEligibleToJoin].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0edc39d0.
+    buffer.writeInt32(0x0edc39d0);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0edc39d0",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Join.
+///
+/// Return Type: `bool`.
+/// ID: `a74ece2d`.
+class SmsjobsJoin extends TlMethod {
+  /// Smsjobs Join constructor.
+  const SmsjobsJoin() : super._();
+
+  /// Deserialize.
+  factory SmsjobsJoin.deserialize(BinaryReader reader) {
+    // Construct [SmsjobsJoin] object.
+    final returnValue = SmsjobsJoin();
+
+    // Now return the deserialized [SmsjobsJoin].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa74ece2d.
+    buffer.writeInt32(0xa74ece2d);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa74ece2d",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Leave.
+///
+/// Return Type: `bool`.
+/// ID: `9898ad73`.
+class SmsjobsLeave extends TlMethod {
+  /// Smsjobs Leave constructor.
+  const SmsjobsLeave() : super._();
+
+  /// Deserialize.
+  factory SmsjobsLeave.deserialize(BinaryReader reader) {
+    // Construct [SmsjobsLeave] object.
+    final returnValue = SmsjobsLeave();
+
+    // Now return the deserialized [SmsjobsLeave].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9898ad73.
+    buffer.writeInt32(0x9898ad73);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9898ad73",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Update Settings.
+///
+/// Return Type: `bool`.
+/// ID: `093fa0bf`.
+class SmsjobsUpdateSettings extends TlMethod {
+  /// Smsjobs Update Settings constructor.
+  const SmsjobsUpdateSettings({
+    required this.allowInternational,
+  }) : super._();
+
+  /// Deserialize.
+  factory SmsjobsUpdateSettings.deserialize(BinaryReader reader) {
+    // Read [SmsjobsUpdateSettings] fields.
+    final flags = reader.readInt32();
+    final allowInternational = (flags & 1) != 0;
+
+    // Construct [SmsjobsUpdateSettings] object.
+    final returnValue = SmsjobsUpdateSettings(
+      allowInternational: allowInternational,
+    );
+
+    // Now return the deserialized [SmsjobsUpdateSettings].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: allowInternational,
+    );
+
+    return v;
+  }
+
+  /// allow_international: bit 0 of flags.0?true
+  final bool allowInternational;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x093fa0bf.
+    buffer.writeInt32(0x093fa0bf);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x093fa0bf",
+      "flags": flags,
+      "allowInternational": allowInternational,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Get Status.
+///
+/// Return Type: `SmsjobsStatusBase`.
+/// ID: `10a698e8`.
+class SmsjobsGetStatus extends TlMethod {
+  /// Smsjobs Get Status constructor.
+  const SmsjobsGetStatus() : super._();
+
+  /// Deserialize.
+  factory SmsjobsGetStatus.deserialize(BinaryReader reader) {
+    // Construct [SmsjobsGetStatus] object.
+    final returnValue = SmsjobsGetStatus();
+
+    // Now return the deserialized [SmsjobsGetStatus].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x10a698e8.
+    buffer.writeInt32(0x10a698e8);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x10a698e8",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Get Sms Job.
+///
+/// Return Type: `SmsJobBase`.
+/// ID: `778d902f`.
+class SmsjobsGetSmsJob extends TlMethod {
+  /// Smsjobs Get Sms Job constructor.
+  const SmsjobsGetSmsJob({
+    required this.jobId,
+  }) : super._();
+
+  /// Deserialize.
+  factory SmsjobsGetSmsJob.deserialize(BinaryReader reader) {
+    // Read [SmsjobsGetSmsJob] fields.
+    final jobId = reader.readString();
+
+    // Construct [SmsjobsGetSmsJob] object.
+    final returnValue = SmsjobsGetSmsJob(
+      jobId: jobId,
+    );
+
+    // Now return the deserialized [SmsjobsGetSmsJob].
+    return returnValue;
+  }
+
+  /// Job Id.
+  final String jobId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x778d902f.
+    buffer.writeInt32(0x778d902f);
+
+    // Write fields.
+    buffer.writeString(jobId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x778d902f",
+      "jobId": jobId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Smsjobs Finish Job.
+///
+/// Return Type: `bool`.
+/// ID: `4f1ebf24`.
+class SmsjobsFinishJob extends TlMethod {
+  /// Smsjobs Finish Job constructor.
+  const SmsjobsFinishJob({
+    required this.jobId,
+    this.error,
+  }) : super._();
+
+  /// Deserialize.
+  factory SmsjobsFinishJob.deserialize(BinaryReader reader) {
+    // Read [SmsjobsFinishJob] fields.
+    final flags = reader.readInt32();
+    final jobId = reader.readString();
+    final hasErrorField = (flags & 1) != 0;
+    final error = hasErrorField ? reader.readString() : null;
+
+    // Construct [SmsjobsFinishJob] object.
+    final returnValue = SmsjobsFinishJob(
+      jobId: jobId,
+      error: error,
+    );
+
+    // Now return the deserialized [SmsjobsFinishJob].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: error != null,
+    );
+
+    return v;
+  }
+
+  /// Job Id.
+  final String jobId;
+
+  /// Error.
+  final String? error;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4f1ebf24.
+    buffer.writeInt32(0x4f1ebf24);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(jobId);
+    final localErrorCopy = error;
+    if (localErrorCopy != null) {
+      buffer.writeString(localErrorCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4f1ebf24",
+      "flags": flags,
+      "jobId": jobId,
+      "error": error,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Help Get Timezones List.
+///
+/// Return Type: `HelpTimezonesListBase`.
+/// ID: `49b30240`.
+class HelpGetTimezonesList extends TlMethod {
+  /// Help Get Timezones List constructor.
+  const HelpGetTimezonesList({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory HelpGetTimezonesList.deserialize(BinaryReader reader) {
+    // Read [HelpGetTimezonesList] fields.
+    final hash = reader.readInt32();
+
+    // Construct [HelpGetTimezonesList] object.
+    final returnValue = HelpGetTimezonesList(
+      hash: hash,
+    );
+
+    // Now return the deserialized [HelpGetTimezonesList].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x49b30240.
+    buffer.writeInt32(0x49b30240);
+
+    // Write fields.
+    buffer.writeInt32(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x49b30240",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Business Work Hours.
+///
+/// Return Type: `bool`.
+/// ID: `4b00e066`.
+class AccountUpdateBusinessWorkHours extends TlMethod {
+  /// Account Update Business Work Hours constructor.
+  const AccountUpdateBusinessWorkHours({
+    this.businessWorkHours,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateBusinessWorkHours.deserialize(BinaryReader reader) {
+    // Read [AccountUpdateBusinessWorkHours] fields.
+    final flags = reader.readInt32();
+    final hasBusinessWorkHoursField = (flags & 1) != 0;
+    final businessWorkHours = hasBusinessWorkHoursField
+        ? reader.readObject() as BusinessWorkHoursBase
+        : null;
+
+    // Construct [AccountUpdateBusinessWorkHours] object.
+    final returnValue = AccountUpdateBusinessWorkHours(
+      businessWorkHours: businessWorkHours,
+    );
+
+    // Now return the deserialized [AccountUpdateBusinessWorkHours].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: businessWorkHours != null,
+    );
+
+    return v;
+  }
+
+  /// Business Work Hours.
+  final BusinessWorkHoursBase? businessWorkHours;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4b00e066.
+    buffer.writeInt32(0x4b00e066);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localBusinessWorkHoursCopy = businessWorkHours;
+    if (localBusinessWorkHoursCopy != null) {
+      buffer.writeObject(localBusinessWorkHoursCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4b00e066",
+      "flags": flags,
+      "businessWorkHours": businessWorkHours,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Business Location.
+///
+/// Return Type: `bool`.
+/// ID: `9e6b131a`.
+class AccountUpdateBusinessLocation extends TlMethod {
+  /// Account Update Business Location constructor.
+  const AccountUpdateBusinessLocation({
+    this.geoPoint,
+    this.address,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateBusinessLocation.deserialize(BinaryReader reader) {
+    // Read [AccountUpdateBusinessLocation] fields.
+    final flags = reader.readInt32();
+    final hasGeoPointField = (flags & 2) != 0;
+    final geoPoint =
+        hasGeoPointField ? reader.readObject() as InputGeoPointBase : null;
+    final hasAddressField = (flags & 1) != 0;
+    final address = hasAddressField ? reader.readString() : null;
+
+    // Construct [AccountUpdateBusinessLocation] object.
+    final returnValue = AccountUpdateBusinessLocation(
+      geoPoint: geoPoint,
+      address: address,
+    );
+
+    // Now return the deserialized [AccountUpdateBusinessLocation].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: geoPoint != null,
+      b00: address != null,
+    );
+
+    return v;
+  }
+
+  /// Geo Point.
+  final InputGeoPointBase? geoPoint;
+
+  /// Address.
+  final String? address;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9e6b131a.
+    buffer.writeInt32(0x9e6b131a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localGeoPointCopy = geoPoint;
+    if (localGeoPointCopy != null) {
+      buffer.writeObject(localGeoPointCopy);
+    }
+    final localAddressCopy = address;
+    if (localAddressCopy != null) {
+      buffer.writeString(localAddressCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9e6b131a",
+      "flags": flags,
+      "geoPoint": geoPoint,
+      "address": address,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Business Greeting Message.
+///
+/// Return Type: `bool`.
+/// ID: `66cdafc4`.
+class AccountUpdateBusinessGreetingMessage extends TlMethod {
+  /// Account Update Business Greeting Message constructor.
+  const AccountUpdateBusinessGreetingMessage({
+    this.message,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateBusinessGreetingMessage.deserialize(
+      BinaryReader reader) {
+    // Read [AccountUpdateBusinessGreetingMessage] fields.
+    final flags = reader.readInt32();
+    final hasMessageField = (flags & 1) != 0;
+    final message = hasMessageField
+        ? reader.readObject() as InputBusinessGreetingMessageBase
+        : null;
+
+    // Construct [AccountUpdateBusinessGreetingMessage] object.
+    final returnValue = AccountUpdateBusinessGreetingMessage(
+      message: message,
+    );
+
+    // Now return the deserialized [AccountUpdateBusinessGreetingMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: message != null,
+    );
+
+    return v;
+  }
+
+  /// Message.
+  final InputBusinessGreetingMessageBase? message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x66cdafc4.
+    buffer.writeInt32(0x66cdafc4);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x66cdafc4",
+      "flags": flags,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Business Away Message.
+///
+/// Return Type: `bool`.
+/// ID: `a26a7fa5`.
+class AccountUpdateBusinessAwayMessage extends TlMethod {
+  /// Account Update Business Away Message constructor.
+  const AccountUpdateBusinessAwayMessage({
+    this.message,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateBusinessAwayMessage.deserialize(BinaryReader reader) {
+    // Read [AccountUpdateBusinessAwayMessage] fields.
+    final flags = reader.readInt32();
+    final hasMessageField = (flags & 1) != 0;
+    final message = hasMessageField
+        ? reader.readObject() as InputBusinessAwayMessageBase
+        : null;
+
+    // Construct [AccountUpdateBusinessAwayMessage] object.
+    final returnValue = AccountUpdateBusinessAwayMessage(
+      message: message,
+    );
+
+    // Now return the deserialized [AccountUpdateBusinessAwayMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: message != null,
+    );
+
+    return v;
+  }
+
+  /// Message.
+  final InputBusinessAwayMessageBase? message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa26a7fa5.
+    buffer.writeInt32(0xa26a7fa5);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localMessageCopy = message;
+    if (localMessageCopy != null) {
+      buffer.writeObject(localMessageCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa26a7fa5",
+      "flags": flags,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Quick Replies.
+///
+/// Return Type: `MessagesQuickRepliesBase`.
+/// ID: `d483f2a8`.
+class MessagesGetQuickReplies extends TlMethod {
+  /// Messages Get Quick Replies constructor.
+  const MessagesGetQuickReplies({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetQuickReplies.deserialize(BinaryReader reader) {
+    // Read [MessagesGetQuickReplies] fields.
+    final hash = reader.readInt64();
+
+    // Construct [MessagesGetQuickReplies] object.
+    final returnValue = MessagesGetQuickReplies(
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetQuickReplies].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd483f2a8.
+    buffer.writeInt32(0xd483f2a8);
+
+    // Write fields.
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd483f2a8",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Reorder Quick Replies.
+///
+/// Return Type: `bool`.
+/// ID: `60331907`.
+class MessagesReorderQuickReplies extends TlMethod {
+  /// Messages Reorder Quick Replies constructor.
+  const MessagesReorderQuickReplies({
+    required this.order,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesReorderQuickReplies.deserialize(BinaryReader reader) {
+    // Read [MessagesReorderQuickReplies] fields.
+    final order = reader.readVectorInt32();
+
+    // Construct [MessagesReorderQuickReplies] object.
+    final returnValue = MessagesReorderQuickReplies(
+      order: order,
+    );
+
+    // Now return the deserialized [MessagesReorderQuickReplies].
+    return returnValue;
+  }
+
+  /// Order.
+  final List<int> order;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x60331907.
+    buffer.writeInt32(0x60331907);
+
+    // Write fields.
+    buffer.writeVectorInt32(order);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x60331907",
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Check Quick Reply Shortcut.
+///
+/// Return Type: `bool`.
+/// ID: `f1d0fbd3`.
+class MessagesCheckQuickReplyShortcut extends TlMethod {
+  /// Messages Check Quick Reply Shortcut constructor.
+  const MessagesCheckQuickReplyShortcut({
+    required this.shortcut,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesCheckQuickReplyShortcut.deserialize(BinaryReader reader) {
+    // Read [MessagesCheckQuickReplyShortcut] fields.
+    final shortcut = reader.readString();
+
+    // Construct [MessagesCheckQuickReplyShortcut] object.
+    final returnValue = MessagesCheckQuickReplyShortcut(
+      shortcut: shortcut,
+    );
+
+    // Now return the deserialized [MessagesCheckQuickReplyShortcut].
+    return returnValue;
+  }
+
+  /// Shortcut.
+  final String shortcut;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf1d0fbd3.
+    buffer.writeInt32(0xf1d0fbd3);
+
+    // Write fields.
+    buffer.writeString(shortcut);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf1d0fbd3",
+      "shortcut": shortcut,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Edit Quick Reply Shortcut.
+///
+/// Return Type: `bool`.
+/// ID: `5c003cef`.
+class MessagesEditQuickReplyShortcut extends TlMethod {
+  /// Messages Edit Quick Reply Shortcut constructor.
+  const MessagesEditQuickReplyShortcut({
+    required this.shortcutId,
+    required this.shortcut,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesEditQuickReplyShortcut.deserialize(BinaryReader reader) {
+    // Read [MessagesEditQuickReplyShortcut] fields.
+    final shortcutId = reader.readInt32();
+    final shortcut = reader.readString();
+
+    // Construct [MessagesEditQuickReplyShortcut] object.
+    final returnValue = MessagesEditQuickReplyShortcut(
+      shortcutId: shortcutId,
+      shortcut: shortcut,
+    );
+
+    // Now return the deserialized [MessagesEditQuickReplyShortcut].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Shortcut.
+  final String shortcut;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5c003cef.
+    buffer.writeInt32(0x5c003cef);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+    buffer.writeString(shortcut);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5c003cef",
+      "shortcutId": shortcutId,
+      "shortcut": shortcut,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Delete Quick Reply Shortcut.
+///
+/// Return Type: `bool`.
+/// ID: `3cc04740`.
+class MessagesDeleteQuickReplyShortcut extends TlMethod {
+  /// Messages Delete Quick Reply Shortcut constructor.
+  const MessagesDeleteQuickReplyShortcut({
+    required this.shortcutId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDeleteQuickReplyShortcut.deserialize(BinaryReader reader) {
+    // Read [MessagesDeleteQuickReplyShortcut] fields.
+    final shortcutId = reader.readInt32();
+
+    // Construct [MessagesDeleteQuickReplyShortcut] object.
+    final returnValue = MessagesDeleteQuickReplyShortcut(
+      shortcutId: shortcutId,
+    );
+
+    // Now return the deserialized [MessagesDeleteQuickReplyShortcut].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3cc04740.
+    buffer.writeInt32(0x3cc04740);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x3cc04740",
+      "shortcutId": shortcutId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Quick Reply Messages.
+///
+/// Return Type: `MessagesMessagesBase`.
+/// ID: `94a495c3`.
+class MessagesGetQuickReplyMessages extends TlMethod {
+  /// Messages Get Quick Reply Messages constructor.
+  const MessagesGetQuickReplyMessages({
+    required this.shortcutId,
+    this.id,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetQuickReplyMessages.deserialize(BinaryReader reader) {
+    // Read [MessagesGetQuickReplyMessages] fields.
+    final flags = reader.readInt32();
+    final shortcutId = reader.readInt32();
+    final hasIdField = (flags & 1) != 0;
+    final id = hasIdField ? reader.readVectorInt32() : null;
+    final hash = reader.readInt64();
+
+    // Construct [MessagesGetQuickReplyMessages] object.
+    final returnValue = MessagesGetQuickReplyMessages(
+      shortcutId: shortcutId,
+      id: id,
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetQuickReplyMessages].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: id != null,
+    );
+
+    return v;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Id.
+  final List<int>? id;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x94a495c3.
+    buffer.writeInt32(0x94a495c3);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(shortcutId);
+    final localIdCopy = id;
+    if (localIdCopy != null) {
+      buffer.writeVectorInt32(localIdCopy);
+    }
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x94a495c3",
+      "flags": flags,
+      "shortcutId": shortcutId,
+      "id": id,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Send Quick Reply Messages.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `6c750de1`.
+class MessagesSendQuickReplyMessages extends TlMethod {
+  /// Messages Send Quick Reply Messages constructor.
+  const MessagesSendQuickReplyMessages({
+    required this.peer,
+    required this.shortcutId,
+    required this.id,
+    required this.randomId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSendQuickReplyMessages.deserialize(BinaryReader reader) {
+    // Read [MessagesSendQuickReplyMessages] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final shortcutId = reader.readInt32();
+    final id = reader.readVectorInt32();
+    final randomId = reader.readVectorInt64();
+
+    // Construct [MessagesSendQuickReplyMessages] object.
+    final returnValue = MessagesSendQuickReplyMessages(
+      peer: peer,
+      shortcutId: shortcutId,
+      id: id,
+      randomId: randomId,
+    );
+
+    // Now return the deserialized [MessagesSendQuickReplyMessages].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Id.
+  final List<int> id;
+
+  /// Random Id.
+  final List<int> randomId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6c750de1.
+    buffer.writeInt32(0x6c750de1);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(shortcutId);
+    buffer.writeVectorInt32(id);
+    buffer.writeVectorInt64(randomId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6c750de1",
+      "peer": peer,
+      "shortcutId": shortcutId,
+      "id": id,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Delete Quick Reply Messages.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `e105e910`.
+class MessagesDeleteQuickReplyMessages extends TlMethod {
+  /// Messages Delete Quick Reply Messages constructor.
+  const MessagesDeleteQuickReplyMessages({
+    required this.shortcutId,
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDeleteQuickReplyMessages.deserialize(BinaryReader reader) {
+    // Read [MessagesDeleteQuickReplyMessages] fields.
+    final shortcutId = reader.readInt32();
+    final id = reader.readVectorInt32();
+
+    // Construct [MessagesDeleteQuickReplyMessages] object.
+    final returnValue = MessagesDeleteQuickReplyMessages(
+      shortcutId: shortcutId,
+      id: id,
+    );
+
+    // Now return the deserialized [MessagesDeleteQuickReplyMessages].
+    return returnValue;
+  }
+
+  /// Shortcut Id.
+  ///
+  /// Field type is Int32.
+  final int shortcutId;
+
+  /// Id.
+  final List<int> id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe105e910.
+    buffer.writeInt32(0xe105e910);
+
+    // Write fields.
+    buffer.writeInt32(shortcutId);
+    buffer.writeVectorInt32(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe105e910",
+      "shortcutId": shortcutId,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Connected Bot.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `43d8521d`.
+class AccountUpdateConnectedBot extends TlMethod {
+  /// Account Update Connected Bot constructor.
+  const AccountUpdateConnectedBot({
+    required this.canReply,
+    required this.deleted,
+    required this.bot,
+    required this.recipients,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateConnectedBot.deserialize(BinaryReader reader) {
+    // Read [AccountUpdateConnectedBot] fields.
+    final flags = reader.readInt32();
+    final canReply = (flags & 1) != 0;
+    final deleted = (flags & 2) != 0;
+    final bot = reader.readObject() as InputUserBase;
+    final recipients = reader.readObject() as InputBusinessBotRecipientsBase;
+
+    // Construct [AccountUpdateConnectedBot] object.
+    final returnValue = AccountUpdateConnectedBot(
+      canReply: canReply,
+      deleted: deleted,
+      bot: bot,
+      recipients: recipients,
+    );
+
+    // Now return the deserialized [AccountUpdateConnectedBot].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: canReply,
+      b01: deleted,
+    );
+
+    return v;
+  }
+
+  /// can_reply: bit 0 of flags.0?true
+  final bool canReply;
+
+  /// deleted: bit 1 of flags.1?true
+  final bool deleted;
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Recipients.
+  final InputBusinessBotRecipientsBase recipients;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x43d8521d.
+    buffer.writeInt32(0x43d8521d);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(bot);
+    buffer.writeObject(recipients);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x43d8521d",
+      "flags": flags,
+      "canReply": canReply,
+      "deleted": deleted,
+      "bot": bot,
+      "recipients": recipients,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Get Connected Bots.
+///
+/// Return Type: `AccountConnectedBotsBase`.
+/// ID: `4ea4c80f`.
+class AccountGetConnectedBots extends TlMethod {
+  /// Account Get Connected Bots constructor.
+  const AccountGetConnectedBots() : super._();
+
+  /// Deserialize.
+  factory AccountGetConnectedBots.deserialize(BinaryReader reader) {
+    // Construct [AccountGetConnectedBots] object.
+    final returnValue = AccountGetConnectedBots();
+
+    // Now return the deserialized [AccountGetConnectedBots].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4ea4c80f.
+    buffer.writeInt32(0x4ea4c80f);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4ea4c80f",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Toggle Dialog Filter Tags.
+///
+/// Return Type: `bool`.
+/// ID: `fd2dda49`.
+class MessagesToggleDialogFilterTags extends TlMethod {
+  /// Messages Toggle Dialog Filter Tags constructor.
+  const MessagesToggleDialogFilterTags({
+    required this.enabled,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesToggleDialogFilterTags.deserialize(BinaryReader reader) {
+    // Read [MessagesToggleDialogFilterTags] fields.
+    final enabled = reader.readBool();
+
+    // Construct [MessagesToggleDialogFilterTags] object.
+    final returnValue = MessagesToggleDialogFilterTags(
+      enabled: enabled,
+    );
+
+    // Now return the deserialized [MessagesToggleDialogFilterTags].
+    return returnValue;
+  }
+
+  /// Enabled.
+  final bool enabled;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfd2dda49.
+    buffer.writeInt32(0xfd2dda49);
+
+    // Write fields.
+    buffer.writeBool(enabled);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xfd2dda49",
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Invoke With Business Connection.
+///
+/// Return Type: `X`.
+/// ID: `dd289f8e`.
+class InvokeWithBusinessConnection extends TlMethod {
+  /// Invoke With Business Connection constructor.
+  const InvokeWithBusinessConnection({
+    required this.connectionId,
+    required this.query,
+  }) : super._();
+
+  /// Deserialize.
+  factory InvokeWithBusinessConnection.deserialize(BinaryReader reader) {
+    // Read [InvokeWithBusinessConnection] fields.
+    final connectionId = reader.readString();
+    final query = reader.readObject() as TlMethod;
+
+    // Construct [InvokeWithBusinessConnection] object.
+    final returnValue = InvokeWithBusinessConnection(
+      connectionId: connectionId,
+      query: query,
+    );
+
+    // Now return the deserialized [InvokeWithBusinessConnection].
+    return returnValue;
+  }
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// Query.
+  final TlMethod query;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdd289f8e.
+    buffer.writeInt32(0xdd289f8e);
+
+    // Write fields.
+    buffer.writeString(connectionId);
+    buffer.writeObject(query);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdd289f8e",
+      "connectionId": connectionId,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Get Bot Business Connection.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `76a86270`.
+class AccountGetBotBusinessConnection extends TlMethod {
+  /// Account Get Bot Business Connection constructor.
+  const AccountGetBotBusinessConnection({
+    required this.connectionId,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountGetBotBusinessConnection.deserialize(BinaryReader reader) {
+    // Read [AccountGetBotBusinessConnection] fields.
+    final connectionId = reader.readString();
+
+    // Construct [AccountGetBotBusinessConnection] object.
+    final returnValue = AccountGetBotBusinessConnection(
+      connectionId: connectionId,
+    );
+
+    // Now return the deserialized [AccountGetBotBusinessConnection].
+    return returnValue;
+  }
+
+  /// Connection Id.
+  final String connectionId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x76a86270.
+    buffer.writeInt32(0x76a86270);
+
+    // Write fields.
+    buffer.writeString(connectionId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x76a86270",
+      "connectionId": connectionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Business Intro.
+///
+/// Return Type: `bool`.
+/// ID: `a614d034`.
+class AccountUpdateBusinessIntro extends TlMethod {
+  /// Account Update Business Intro constructor.
+  const AccountUpdateBusinessIntro({
+    this.intro,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateBusinessIntro.deserialize(BinaryReader reader) {
+    // Read [AccountUpdateBusinessIntro] fields.
+    final flags = reader.readInt32();
+    final hasIntroField = (flags & 1) != 0;
+    final intro =
+        hasIntroField ? reader.readObject() as InputBusinessIntroBase : null;
+
+    // Construct [AccountUpdateBusinessIntro] object.
+    final returnValue = AccountUpdateBusinessIntro(
+      intro: intro,
+    );
+
+    // Now return the deserialized [AccountUpdateBusinessIntro].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: intro != null,
+    );
+
+    return v;
+  }
+
+  /// Intro.
+  final InputBusinessIntroBase? intro;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa614d034.
+    buffer.writeInt32(0xa614d034);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localIntroCopy = intro;
+    if (localIntroCopy != null) {
+      buffer.writeObject(localIntroCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa614d034",
+      "flags": flags,
+      "intro": intro,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stickers Replace Sticker.
+///
+/// Return Type: `MessagesStickerSetBase`.
+/// ID: `4696459a`.
+class StickersReplaceSticker extends TlMethod {
+  /// Stickers Replace Sticker constructor.
+  const StickersReplaceSticker({
+    required this.sticker,
+    required this.newSticker,
+  }) : super._();
+
+  /// Deserialize.
+  factory StickersReplaceSticker.deserialize(BinaryReader reader) {
+    // Read [StickersReplaceSticker] fields.
+    final sticker = reader.readObject() as InputDocumentBase;
+    final newSticker = reader.readObject() as InputStickerSetItemBase;
+
+    // Construct [StickersReplaceSticker] object.
+    final returnValue = StickersReplaceSticker(
+      sticker: sticker,
+      newSticker: newSticker,
+    );
+
+    // Now return the deserialized [StickersReplaceSticker].
+    return returnValue;
+  }
+
+  /// Sticker.
+  final InputDocumentBase sticker;
+
+  /// New Sticker.
+  final InputStickerSetItemBase newSticker;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4696459a.
+    buffer.writeInt32(0x4696459a);
+
+    // Write fields.
+    buffer.writeObject(sticker);
+    buffer.writeObject(newSticker);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x4696459a",
+      "sticker": sticker,
+      "newSticker": newSticker,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get My Stickers.
+///
+/// Return Type: `MessagesMyStickersBase`.
+/// ID: `d0b5e1fc`.
+class MessagesGetMyStickers extends TlMethod {
+  /// Messages Get My Stickers constructor.
+  const MessagesGetMyStickers({
+    required this.offsetId,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetMyStickers.deserialize(BinaryReader reader) {
+    // Read [MessagesGetMyStickers] fields.
+    final offsetId = reader.readInt64();
+    final limit = reader.readInt32();
+
+    // Construct [MessagesGetMyStickers] object.
+    final returnValue = MessagesGetMyStickers(
+      offsetId: offsetId,
+      limit: limit,
+    );
+
+    // Now return the deserialized [MessagesGetMyStickers].
+    return returnValue;
+  }
+
+  /// Offset Id.
+  ///
+  /// Field type is Int64.
+  final int offsetId;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd0b5e1fc.
+    buffer.writeInt32(0xd0b5e1fc);
+
+    // Write fields.
+    buffer.writeInt64(offsetId);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd0b5e1fc",
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Fragment Get Collectible Info.
+///
+/// Return Type: `FragmentCollectibleInfoBase`.
+/// ID: `be1e85ba`.
+class FragmentGetCollectibleInfo extends TlMethod {
+  /// Fragment Get Collectible Info constructor.
+  const FragmentGetCollectibleInfo({
+    required this.collectible,
+  }) : super._();
+
+  /// Deserialize.
+  factory FragmentGetCollectibleInfo.deserialize(BinaryReader reader) {
+    // Read [FragmentGetCollectibleInfo] fields.
+    final collectible = reader.readObject() as InputCollectibleBase;
+
+    // Construct [FragmentGetCollectibleInfo] object.
+    final returnValue = FragmentGetCollectibleInfo(
+      collectible: collectible,
+    );
+
+    // Now return the deserialized [FragmentGetCollectibleInfo].
+    return returnValue;
+  }
+
+  /// Collectible.
+  final InputCollectibleBase collectible;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbe1e85ba.
+    buffer.writeInt32(0xbe1e85ba);
+
+    // Write fields.
+    buffer.writeObject(collectible);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbe1e85ba",
+      "collectible": collectible,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Toggle Connected Bot Paused.
+///
+/// Return Type: `bool`.
+/// ID: `646e1097`.
+class AccountToggleConnectedBotPaused extends TlMethod {
+  /// Account Toggle Connected Bot Paused constructor.
+  const AccountToggleConnectedBotPaused({
+    required this.peer,
+    required this.paused,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountToggleConnectedBotPaused.deserialize(BinaryReader reader) {
+    // Read [AccountToggleConnectedBotPaused] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final paused = reader.readBool();
+
+    // Construct [AccountToggleConnectedBotPaused] object.
+    final returnValue = AccountToggleConnectedBotPaused(
+      peer: peer,
+      paused: paused,
+    );
+
+    // Now return the deserialized [AccountToggleConnectedBotPaused].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Paused.
+  final bool paused;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x646e1097.
+    buffer.writeInt32(0x646e1097);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeBool(paused);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x646e1097",
+      "peer": peer,
+      "paused": paused,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Disable Peer Connected Bot.
+///
+/// Return Type: `bool`.
+/// ID: `5e437ed9`.
+class AccountDisablePeerConnectedBot extends TlMethod {
+  /// Account Disable Peer Connected Bot constructor.
+  const AccountDisablePeerConnectedBot({
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountDisablePeerConnectedBot.deserialize(BinaryReader reader) {
+    // Read [AccountDisablePeerConnectedBot] fields.
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [AccountDisablePeerConnectedBot] object.
+    final returnValue = AccountDisablePeerConnectedBot(
+      peer: peer,
+    );
+
+    // Now return the deserialized [AccountDisablePeerConnectedBot].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5e437ed9.
+    buffer.writeInt32(0x5e437ed9);
+
+    // Write fields.
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e437ed9",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Birthday.
+///
+/// Return Type: `bool`.
+/// ID: `cc6e0c11`.
+class AccountUpdateBirthday extends TlMethod {
+  /// Account Update Birthday constructor.
+  const AccountUpdateBirthday({
+    this.birthday,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdateBirthday.deserialize(BinaryReader reader) {
+    // Read [AccountUpdateBirthday] fields.
+    final flags = reader.readInt32();
+    final hasBirthdayField = (flags & 1) != 0;
+    final birthday =
+        hasBirthdayField ? reader.readObject() as BirthdayBase : null;
+
+    // Construct [AccountUpdateBirthday] object.
+    final returnValue = AccountUpdateBirthday(
+      birthday: birthday,
+    );
+
+    // Now return the deserialized [AccountUpdateBirthday].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: birthday != null,
+    );
+
+    return v;
+  }
+
+  /// Birthday.
+  final BirthdayBase? birthday;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcc6e0c11.
+    buffer.writeInt32(0xcc6e0c11);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localBirthdayCopy = birthday;
+    if (localBirthdayCopy != null) {
+      buffer.writeObject(localBirthdayCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc6e0c11",
+      "flags": flags,
+      "birthday": birthday,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Contacts Get Birthdays.
+///
+/// Return Type: `ContactsContactBirthdaysBase`.
+/// ID: `daeda864`.
+class ContactsGetBirthdays extends TlMethod {
+  /// Contacts Get Birthdays constructor.
+  const ContactsGetBirthdays() : super._();
+
+  /// Deserialize.
+  factory ContactsGetBirthdays.deserialize(BinaryReader reader) {
+    // Construct [ContactsGetBirthdays] object.
+    final returnValue = ContactsGetBirthdays();
+
+    // Now return the deserialized [ContactsGetBirthdays].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdaeda864.
+    buffer.writeInt32(0xdaeda864);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdaeda864",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Create Business Chat Link.
+///
+/// Return Type: `BusinessChatLinkBase`.
+/// ID: `8851e68e`.
+class AccountCreateBusinessChatLink extends TlMethod {
+  /// Account Create Business Chat Link constructor.
+  const AccountCreateBusinessChatLink({
+    required this.link,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountCreateBusinessChatLink.deserialize(BinaryReader reader) {
+    // Read [AccountCreateBusinessChatLink] fields.
+    final link = reader.readObject() as InputBusinessChatLinkBase;
+
+    // Construct [AccountCreateBusinessChatLink] object.
+    final returnValue = AccountCreateBusinessChatLink(
+      link: link,
+    );
+
+    // Now return the deserialized [AccountCreateBusinessChatLink].
+    return returnValue;
+  }
+
+  /// Link.
+  final InputBusinessChatLinkBase link;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8851e68e.
+    buffer.writeInt32(0x8851e68e);
+
+    // Write fields.
+    buffer.writeObject(link);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8851e68e",
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Edit Business Chat Link.
+///
+/// Return Type: `BusinessChatLinkBase`.
+/// ID: `8c3410af`.
+class AccountEditBusinessChatLink extends TlMethod {
+  /// Account Edit Business Chat Link constructor.
+  const AccountEditBusinessChatLink({
+    required this.slug,
+    required this.link,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountEditBusinessChatLink.deserialize(BinaryReader reader) {
+    // Read [AccountEditBusinessChatLink] fields.
+    final slug = reader.readString();
+    final link = reader.readObject() as InputBusinessChatLinkBase;
+
+    // Construct [AccountEditBusinessChatLink] object.
+    final returnValue = AccountEditBusinessChatLink(
+      slug: slug,
+      link: link,
+    );
+
+    // Now return the deserialized [AccountEditBusinessChatLink].
+    return returnValue;
+  }
+
+  /// Slug.
+  final String slug;
+
+  /// Link.
+  final InputBusinessChatLinkBase link;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8c3410af.
+    buffer.writeInt32(0x8c3410af);
+
+    // Write fields.
+    buffer.writeString(slug);
+    buffer.writeObject(link);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8c3410af",
+      "slug": slug,
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Delete Business Chat Link.
+///
+/// Return Type: `bool`.
+/// ID: `60073674`.
+class AccountDeleteBusinessChatLink extends TlMethod {
+  /// Account Delete Business Chat Link constructor.
+  const AccountDeleteBusinessChatLink({
+    required this.slug,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountDeleteBusinessChatLink.deserialize(BinaryReader reader) {
+    // Read [AccountDeleteBusinessChatLink] fields.
+    final slug = reader.readString();
+
+    // Construct [AccountDeleteBusinessChatLink] object.
+    final returnValue = AccountDeleteBusinessChatLink(
+      slug: slug,
+    );
+
+    // Now return the deserialized [AccountDeleteBusinessChatLink].
+    return returnValue;
+  }
+
+  /// Slug.
+  final String slug;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x60073674.
+    buffer.writeInt32(0x60073674);
+
+    // Write fields.
+    buffer.writeString(slug);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x60073674",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Get Business Chat Links.
+///
+/// Return Type: `AccountBusinessChatLinksBase`.
+/// ID: `6f70dde1`.
+class AccountGetBusinessChatLinks extends TlMethod {
+  /// Account Get Business Chat Links constructor.
+  const AccountGetBusinessChatLinks() : super._();
+
+  /// Deserialize.
+  factory AccountGetBusinessChatLinks.deserialize(BinaryReader reader) {
+    // Construct [AccountGetBusinessChatLinks] object.
+    final returnValue = AccountGetBusinessChatLinks();
+
+    // Now return the deserialized [AccountGetBusinessChatLinks].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6f70dde1.
+    buffer.writeInt32(0x6f70dde1);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6f70dde1",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Resolve Business Chat Link.
+///
+/// Return Type: `AccountResolvedBusinessChatLinksBase`.
+/// ID: `5492e5ee`.
+class AccountResolveBusinessChatLink extends TlMethod {
+  /// Account Resolve Business Chat Link constructor.
+  const AccountResolveBusinessChatLink({
+    required this.slug,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountResolveBusinessChatLink.deserialize(BinaryReader reader) {
+    // Read [AccountResolveBusinessChatLink] fields.
+    final slug = reader.readString();
+
+    // Construct [AccountResolveBusinessChatLink] object.
+    final returnValue = AccountResolveBusinessChatLink(
+      slug: slug,
+    );
+
+    // Now return the deserialized [AccountResolveBusinessChatLink].
+    return returnValue;
+  }
+
+  /// Slug.
+  final String slug;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5492e5ee.
+    buffer.writeInt32(0x5492e5ee);
+
+    // Write fields.
+    buffer.writeString(slug);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5492e5ee",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Update Personal Channel.
+///
+/// Return Type: `bool`.
+/// ID: `d94305e0`.
+class AccountUpdatePersonalChannel extends TlMethod {
+  /// Account Update Personal Channel constructor.
+  const AccountUpdatePersonalChannel({
+    required this.channel,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountUpdatePersonalChannel.deserialize(BinaryReader reader) {
+    // Read [AccountUpdatePersonalChannel] fields.
+    final channel = reader.readObject() as InputChannelBase;
+
+    // Construct [AccountUpdatePersonalChannel] object.
+    final returnValue = AccountUpdatePersonalChannel(
+      channel: channel,
+    );
+
+    // Now return the deserialized [AccountUpdatePersonalChannel].
+    return returnValue;
+  }
+
+  /// Channel.
+  final InputChannelBase channel;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd94305e0.
+    buffer.writeInt32(0xd94305e0);
+
+    // Write fields.
+    buffer.writeObject(channel);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd94305e0",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stats Get Broadcast Revenue Stats.
+///
+/// Return Type: `StatsBroadcastRevenueStatsBase`.
+/// ID: `f788ee19`.
+class StatsGetBroadcastRevenueStats extends TlMethod {
+  /// Stats Get Broadcast Revenue Stats constructor.
+  const StatsGetBroadcastRevenueStats({
+    required this.dark,
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsGetBroadcastRevenueStats.deserialize(BinaryReader reader) {
+    // Read [StatsGetBroadcastRevenueStats] fields.
+    final flags = reader.readInt32();
+    final dark = (flags & 1) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [StatsGetBroadcastRevenueStats] object.
+    final returnValue = StatsGetBroadcastRevenueStats(
+      dark: dark,
+      peer: peer,
+    );
+
+    // Now return the deserialized [StatsGetBroadcastRevenueStats].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: dark,
+    );
+
+    return v;
+  }
+
+  /// dark: bit 0 of flags.0?true
+  final bool dark;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf788ee19.
+    buffer.writeInt32(0xf788ee19);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf788ee19",
+      "flags": flags,
+      "dark": dark,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stats Get Broadcast Revenue Withdrawal Url.
+///
+/// Return Type: `StatsBroadcastRevenueWithdrawalUrlBase`.
+/// ID: `9df4faad`.
+class StatsGetBroadcastRevenueWithdrawalUrl extends TlMethod {
+  /// Stats Get Broadcast Revenue Withdrawal Url constructor.
+  const StatsGetBroadcastRevenueWithdrawalUrl({
+    required this.peer,
+    required this.password,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsGetBroadcastRevenueWithdrawalUrl.deserialize(
+      BinaryReader reader) {
+    // Read [StatsGetBroadcastRevenueWithdrawalUrl] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final password = reader.readObject() as InputCheckPasswordSRPBase;
+
+    // Construct [StatsGetBroadcastRevenueWithdrawalUrl] object.
+    final returnValue = StatsGetBroadcastRevenueWithdrawalUrl(
+      peer: peer,
+      password: password,
+    );
+
+    // Now return the deserialized [StatsGetBroadcastRevenueWithdrawalUrl].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Password.
+  final InputCheckPasswordSRPBase password;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9df4faad.
+    buffer.writeInt32(0x9df4faad);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(password);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9df4faad",
+      "peer": peer,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stats Get Broadcast Revenue Transactions.
+///
+/// Return Type: `StatsBroadcastRevenueTransactionsBase`.
+/// ID: `70990b6d`.
+class StatsGetBroadcastRevenueTransactions extends TlMethod {
+  /// Stats Get Broadcast Revenue Transactions constructor.
+  const StatsGetBroadcastRevenueTransactions({
+    required this.peer,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsGetBroadcastRevenueTransactions.deserialize(
+      BinaryReader reader) {
+    // Read [StatsGetBroadcastRevenueTransactions] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final offset = reader.readInt32();
+    final limit = reader.readInt32();
+
+    // Construct [StatsGetBroadcastRevenueTransactions] object.
+    final returnValue = StatsGetBroadcastRevenueTransactions(
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [StatsGetBroadcastRevenueTransactions].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x70990b6d.
+    buffer.writeInt32(0x70990b6d);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x70990b6d",
+      "peer": peer,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Restrict Sponsored Messages.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `9ae91519`.
+class ChannelsRestrictSponsoredMessages extends TlMethod {
+  /// Channels Restrict Sponsored Messages constructor.
+  const ChannelsRestrictSponsoredMessages({
+    required this.channel,
+    required this.restricted,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelsRestrictSponsoredMessages.deserialize(BinaryReader reader) {
+    // Read [ChannelsRestrictSponsoredMessages] fields.
+    final channel = reader.readObject() as InputChannelBase;
+    final restricted = reader.readBool();
+
+    // Construct [ChannelsRestrictSponsoredMessages] object.
+    final returnValue = ChannelsRestrictSponsoredMessages(
+      channel: channel,
+      restricted: restricted,
+    );
+
+    // Now return the deserialized [ChannelsRestrictSponsoredMessages].
+    return returnValue;
+  }
+
+  /// Channel.
+  final InputChannelBase channel;
+
+  /// Restricted.
+  final bool restricted;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9ae91519.
+    buffer.writeInt32(0x9ae91519);
+
+    // Write fields.
+    buffer.writeObject(channel);
+    buffer.writeBool(restricted);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9ae91519",
+      "channel": channel,
+      "restricted": restricted,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Toggle Sponsored Messages.
+///
+/// Return Type: `bool`.
+/// ID: `b9d9a38d`.
+class AccountToggleSponsoredMessages extends TlMethod {
+  /// Account Toggle Sponsored Messages constructor.
+  const AccountToggleSponsoredMessages({
+    required this.enabled,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountToggleSponsoredMessages.deserialize(BinaryReader reader) {
+    // Read [AccountToggleSponsoredMessages] fields.
+    final enabled = reader.readBool();
+
+    // Construct [AccountToggleSponsoredMessages] object.
+    final returnValue = AccountToggleSponsoredMessages(
+      enabled: enabled,
+    );
+
+    // Now return the deserialized [AccountToggleSponsoredMessages].
+    return returnValue;
+  }
+
+  /// Enabled.
+  final bool enabled;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb9d9a38d.
+    buffer.writeInt32(0xb9d9a38d);
+
+    // Write fields.
+    buffer.writeBool(enabled);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9d9a38d",
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stories Toggle Pinned To Top.
+///
+/// Return Type: `bool`.
+/// ID: `0b297e9b`.
+class StoriesTogglePinnedToTop extends TlMethod {
+  /// Stories Toggle Pinned To Top constructor.
+  const StoriesTogglePinnedToTop({
+    required this.peer,
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory StoriesTogglePinnedToTop.deserialize(BinaryReader reader) {
+    // Read [StoriesTogglePinnedToTop] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final id = reader.readVectorInt32();
+
+    // Construct [StoriesTogglePinnedToTop] object.
+    final returnValue = StoriesTogglePinnedToTop(
+      peer: peer,
+      id: id,
+    );
+
+    // Now return the deserialized [StoriesTogglePinnedToTop].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Id.
+  final List<int> id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0b297e9b.
+    buffer.writeInt32(0x0b297e9b);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeVectorInt32(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0b297e9b",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Get Reactions Notify Settings.
+///
+/// Return Type: `ReactionsNotifySettingsBase`.
+/// ID: `06dd654c`.
+class AccountGetReactionsNotifySettings extends TlMethod {
+  /// Account Get Reactions Notify Settings constructor.
+  const AccountGetReactionsNotifySettings() : super._();
+
+  /// Deserialize.
+  factory AccountGetReactionsNotifySettings.deserialize(BinaryReader reader) {
+    // Construct [AccountGetReactionsNotifySettings] object.
+    final returnValue = AccountGetReactionsNotifySettings();
+
+    // Now return the deserialized [AccountGetReactionsNotifySettings].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x06dd654c.
+    buffer.writeInt32(0x06dd654c);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x06dd654c",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Set Reactions Notify Settings.
+///
+/// Return Type: `ReactionsNotifySettingsBase`.
+/// ID: `316ce548`.
+class AccountSetReactionsNotifySettings extends TlMethod {
+  /// Account Set Reactions Notify Settings constructor.
+  const AccountSetReactionsNotifySettings({
+    required this.settings,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountSetReactionsNotifySettings.deserialize(BinaryReader reader) {
+    // Read [AccountSetReactionsNotifySettings] fields.
+    final settings = reader.readObject() as ReactionsNotifySettingsBase;
+
+    // Construct [AccountSetReactionsNotifySettings] object.
+    final returnValue = AccountSetReactionsNotifySettings(
+      settings: settings,
+    );
+
+    // Now return the deserialized [AccountSetReactionsNotifySettings].
+    return returnValue;
+  }
+
+  /// Settings.
+  final ReactionsNotifySettingsBase settings;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x316ce548.
+    buffer.writeInt32(0x316ce548);
+
+    // Write fields.
+    buffer.writeObject(settings);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x316ce548",
+      "settings": settings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Auth Report Missing Code.
+///
+/// Return Type: `bool`.
+/// ID: `cb9deff6`.
+class AuthReportMissingCode extends TlMethod {
+  /// Auth Report Missing Code constructor.
+  const AuthReportMissingCode({
+    required this.phoneNumber,
+    required this.phoneCodeHash,
+    required this.mnc,
+  }) : super._();
+
+  /// Deserialize.
+  factory AuthReportMissingCode.deserialize(BinaryReader reader) {
+    // Read [AuthReportMissingCode] fields.
+    final phoneNumber = reader.readString();
+    final phoneCodeHash = reader.readString();
+    final mnc = reader.readString();
+
+    // Construct [AuthReportMissingCode] object.
+    final returnValue = AuthReportMissingCode(
+      phoneNumber: phoneNumber,
+      phoneCodeHash: phoneCodeHash,
+      mnc: mnc,
+    );
+
+    // Now return the deserialized [AuthReportMissingCode].
+    return returnValue;
+  }
+
+  /// Phone Number.
+  final String phoneNumber;
+
+  /// Phone Code Hash.
+  final String phoneCodeHash;
+
+  /// Mnc.
+  final String mnc;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcb9deff6.
+    buffer.writeInt32(0xcb9deff6);
+
+    // Write fields.
+    buffer.writeString(phoneNumber);
+    buffer.writeString(phoneCodeHash);
+    buffer.writeString(mnc);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcb9deff6",
+      "phoneNumber": phoneNumber,
+      "phoneCodeHash": phoneCodeHash,
+      "mnc": mnc,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Emoji Sticker Groups.
+///
+/// Return Type: `MessagesEmojiGroupsBase`.
+/// ID: `1dd840f5`.
+class MessagesGetEmojiStickerGroups extends TlMethod {
+  /// Messages Get Emoji Sticker Groups constructor.
+  const MessagesGetEmojiStickerGroups({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetEmojiStickerGroups.deserialize(BinaryReader reader) {
+    // Read [MessagesGetEmojiStickerGroups] fields.
+    final hash = reader.readInt32();
+
+    // Construct [MessagesGetEmojiStickerGroups] object.
+    final returnValue = MessagesGetEmojiStickerGroups(
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetEmojiStickerGroups].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1dd840f5.
+    buffer.writeInt32(0x1dd840f5);
+
+    // Write fields.
+    buffer.writeInt32(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1dd840f5",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Invoke With Google Play Integrity.
+///
+/// Return Type: `X`.
+/// ID: `1df92984`.
+class InvokeWithGooglePlayIntegrity extends TlMethod {
+  /// Invoke With Google Play Integrity constructor.
+  const InvokeWithGooglePlayIntegrity({
+    required this.nonce,
+    required this.token,
+    required this.query,
+  }) : super._();
+
+  /// Deserialize.
+  factory InvokeWithGooglePlayIntegrity.deserialize(BinaryReader reader) {
+    // Read [InvokeWithGooglePlayIntegrity] fields.
+    final nonce = reader.readString();
+    final token = reader.readString();
+    final query = reader.readObject() as TlMethod;
+
+    // Construct [InvokeWithGooglePlayIntegrity] object.
+    final returnValue = InvokeWithGooglePlayIntegrity(
+      nonce: nonce,
+      token: token,
+      query: query,
+    );
+
+    // Now return the deserialized [InvokeWithGooglePlayIntegrity].
+    return returnValue;
+  }
+
+  /// Nonce.
+  final String nonce;
+
+  /// Token.
+  final String token;
+
+  /// Query.
+  final TlMethod query;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1df92984.
+    buffer.writeInt32(0x1df92984);
+
+    // Write fields.
+    buffer.writeString(nonce);
+    buffer.writeString(token);
+    buffer.writeObject(query);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1df92984",
+      "nonce": nonce,
+      "token": token,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Invoke With Apns Secret.
+///
+/// Return Type: `X`.
+/// ID: `0dae54f8`.
+class InvokeWithApnsSecret extends TlMethod {
+  /// Invoke With Apns Secret constructor.
+  const InvokeWithApnsSecret({
+    required this.nonce,
+    required this.secret,
+    required this.query,
+  }) : super._();
+
+  /// Deserialize.
+  factory InvokeWithApnsSecret.deserialize(BinaryReader reader) {
+    // Read [InvokeWithApnsSecret] fields.
+    final nonce = reader.readString();
+    final secret = reader.readString();
+    final query = reader.readObject() as TlMethod;
+
+    // Construct [InvokeWithApnsSecret] object.
+    final returnValue = InvokeWithApnsSecret(
+      nonce: nonce,
+      secret: secret,
+      query: query,
+    );
+
+    // Now return the deserialized [InvokeWithApnsSecret].
+    return returnValue;
+  }
+
+  /// Nonce.
+  final String nonce;
+
+  /// Secret.
+  final String secret;
+
+  /// Query.
+  final TlMethod query;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0dae54f8.
+    buffer.writeInt32(0x0dae54f8);
+
+    // Write fields.
+    buffer.writeString(nonce);
+    buffer.writeString(secret);
+    buffer.writeObject(query);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0dae54f8",
+      "nonce": nonce,
+      "secret": secret,
+      "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Available Effects.
+///
+/// Return Type: `MessagesAvailableEffectsBase`.
+/// ID: `dea20a39`.
+class MessagesGetAvailableEffects extends TlMethod {
+  /// Messages Get Available Effects constructor.
+  const MessagesGetAvailableEffects({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetAvailableEffects.deserialize(BinaryReader reader) {
+    // Read [MessagesGetAvailableEffects] fields.
+    final hash = reader.readInt32();
+
+    // Construct [MessagesGetAvailableEffects] object.
+    final returnValue = MessagesGetAvailableEffects(
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetAvailableEffects].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdea20a39.
+    buffer.writeInt32(0xdea20a39);
+
+    // Write fields.
+    buffer.writeInt32(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xdea20a39",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Search Posts.
+///
+/// Return Type: `MessagesMessagesBase`.
+/// ID: `d19f987b`.
+class ChannelsSearchPosts extends TlMethod {
+  /// Channels Search Posts constructor.
+  const ChannelsSearchPosts({
+    required this.hashtag,
+    required this.offsetRate,
+    required this.offsetPeer,
+    required this.offsetId,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelsSearchPosts.deserialize(BinaryReader reader) {
+    // Read [ChannelsSearchPosts] fields.
+    final hashtag = reader.readString();
+    final offsetRate = reader.readInt32();
+    final offsetPeer = reader.readObject() as InputPeerBase;
+    final offsetId = reader.readInt32();
+    final limit = reader.readInt32();
+
+    // Construct [ChannelsSearchPosts] object.
+    final returnValue = ChannelsSearchPosts(
+      hashtag: hashtag,
+      offsetRate: offsetRate,
+      offsetPeer: offsetPeer,
+      offsetId: offsetId,
+      limit: limit,
+    );
+
+    // Now return the deserialized [ChannelsSearchPosts].
+    return returnValue;
+  }
+
+  /// Hashtag.
+  final String hashtag;
+
+  /// Offset Rate.
+  ///
+  /// Field type is Int32.
+  final int offsetRate;
+
+  /// Offset Peer.
+  final InputPeerBase offsetPeer;
+
+  /// Offset Id.
+  ///
+  /// Field type is Int32.
+  final int offsetId;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd19f987b.
+    buffer.writeInt32(0xd19f987b);
+
+    // Write fields.
+    buffer.writeString(hashtag);
+    buffer.writeInt32(offsetRate);
+    buffer.writeObject(offsetPeer);
+    buffer.writeInt32(offsetId);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd19f987b",
+      "hashtag": hashtag,
+      "offsetRate": offsetRate,
+      "offsetPeer": offsetPeer,
+      "offsetId": offsetId,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Edit Fact Check.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `0589ee75`.
+class MessagesEditFactCheck extends TlMethod {
+  /// Messages Edit Fact Check constructor.
+  const MessagesEditFactCheck({
+    required this.peer,
+    required this.msgId,
+    required this.text,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesEditFactCheck.deserialize(BinaryReader reader) {
+    // Read [MessagesEditFactCheck] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+    final text = reader.readObject() as TextWithEntitiesBase;
+
+    // Construct [MessagesEditFactCheck] object.
+    final returnValue = MessagesEditFactCheck(
+      peer: peer,
+      msgId: msgId,
+      text: text,
+    );
+
+    // Now return the deserialized [MessagesEditFactCheck].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Text.
+  final TextWithEntitiesBase text;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0589ee75.
+    buffer.writeInt32(0x0589ee75);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+    buffer.writeObject(text);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0589ee75",
+      "peer": peer,
+      "msgId": msgId,
+      "text": text,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Delete Fact Check.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `d1da940c`.
+class MessagesDeleteFactCheck extends TlMethod {
+  /// Messages Delete Fact Check constructor.
+  const MessagesDeleteFactCheck({
+    required this.peer,
+    required this.msgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDeleteFactCheck.deserialize(BinaryReader reader) {
+    // Read [MessagesDeleteFactCheck] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+
+    // Construct [MessagesDeleteFactCheck] object.
+    final returnValue = MessagesDeleteFactCheck(
+      peer: peer,
+      msgId: msgId,
+    );
+
+    // Now return the deserialized [MessagesDeleteFactCheck].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1da940c.
+    buffer.writeInt32(0xd1da940c);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1da940c",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Fact Check.
+///
+/// Return Type: `List<FactCheckBase>`.
+/// ID: `b9cdc5ee`.
+class MessagesGetFactCheck extends TlMethod {
+  /// Messages Get Fact Check constructor.
+  const MessagesGetFactCheck({
+    required this.peer,
+    required this.msgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetFactCheck.deserialize(BinaryReader reader) {
+    // Read [MessagesGetFactCheck] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readVectorInt32();
+
+    // Construct [MessagesGetFactCheck] object.
+    final returnValue = MessagesGetFactCheck(
+      peer: peer,
+      msgId: msgId,
+    );
+
+    // Now return the deserialized [MessagesGetFactCheck].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  final List<int> msgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb9cdc5ee.
+    buffer.writeInt32(0xb9cdc5ee);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeVectorInt32(msgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb9cdc5ee",
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Topup Options.
+///
+/// Return Type: `List<StarsTopupOptionBase>`.
+/// ID: `c00ec7d3`.
+class PaymentsGetStarsTopupOptions extends TlMethod {
+  /// Payments Get Stars Topup Options constructor.
+  const PaymentsGetStarsTopupOptions() : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsTopupOptions.deserialize(BinaryReader reader) {
+    // Construct [PaymentsGetStarsTopupOptions] object.
+    final returnValue = PaymentsGetStarsTopupOptions();
+
+    // Now return the deserialized [PaymentsGetStarsTopupOptions].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc00ec7d3.
+    buffer.writeInt32(0xc00ec7d3);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc00ec7d3",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Status.
+///
+/// Return Type: `PaymentsStarsStatusBase`.
+/// ID: `104fcfa7`.
+class PaymentsGetStarsStatus extends TlMethod {
+  /// Payments Get Stars Status constructor.
+  const PaymentsGetStarsStatus({
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsStatus.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarsStatus] fields.
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [PaymentsGetStarsStatus] object.
+    final returnValue = PaymentsGetStarsStatus(
+      peer: peer,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsStatus].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x104fcfa7.
+    buffer.writeInt32(0x104fcfa7);
+
+    // Write fields.
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x104fcfa7",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Transactions.
+///
+/// Return Type: `PaymentsStarsStatusBase`.
+/// ID: `69da4557`.
+class PaymentsGetStarsTransactions extends TlMethod {
+  /// Payments Get Stars Transactions constructor.
+  const PaymentsGetStarsTransactions({
+    required this.inbound,
+    required this.outbound,
+    required this.ascending,
+    this.subscriptionId,
+    required this.peer,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsTransactions.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarsTransactions] fields.
+    final flags = reader.readInt32();
+    final inbound = (flags & 1) != 0;
+    final outbound = (flags & 2) != 0;
+    final ascending = (flags & 4) != 0;
+    final hasSubscriptionIdField = (flags & 8) != 0;
+    final subscriptionId = hasSubscriptionIdField ? reader.readString() : null;
+    final peer = reader.readObject() as InputPeerBase;
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [PaymentsGetStarsTransactions] object.
+    final returnValue = PaymentsGetStarsTransactions(
+      inbound: inbound,
+      outbound: outbound,
+      ascending: ascending,
+      subscriptionId: subscriptionId,
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsTransactions].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: inbound,
+      b01: outbound,
+      b02: ascending,
+      b03: subscriptionId != null,
+    );
+
+    return v;
+  }
+
+  /// inbound: bit 0 of flags.0?true
+  final bool inbound;
+
+  /// outbound: bit 1 of flags.1?true
+  final bool outbound;
+
+  /// ascending: bit 2 of flags.2?true
+  final bool ascending;
+
+  /// Subscription Id.
+  final String? subscriptionId;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x69da4557.
+    buffer.writeInt32(0x69da4557);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localSubscriptionIdCopy = subscriptionId;
+    if (localSubscriptionIdCopy != null) {
+      buffer.writeString(localSubscriptionIdCopy);
+    }
+    buffer.writeObject(peer);
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x69da4557",
+      "flags": flags,
+      "inbound": inbound,
+      "outbound": outbound,
+      "ascending": ascending,
+      "subscriptionId": subscriptionId,
+      "peer": peer,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Send Stars Form.
+///
+/// Return Type: `PaymentsPaymentResultBase`.
+/// ID: `7998c914`.
+class PaymentsSendStarsForm extends TlMethod {
+  /// Payments Send Stars Form constructor.
+  const PaymentsSendStarsForm({
+    required this.formId,
+    required this.invoice,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsSendStarsForm.deserialize(BinaryReader reader) {
+    // Read [PaymentsSendStarsForm] fields.
+    final formId = reader.readInt64();
+    final invoice = reader.readObject() as InputInvoiceBase;
+
+    // Construct [PaymentsSendStarsForm] object.
+    final returnValue = PaymentsSendStarsForm(
+      formId: formId,
+      invoice: invoice,
+    );
+
+    // Now return the deserialized [PaymentsSendStarsForm].
+    return returnValue;
+  }
+
+  /// Form Id.
+  ///
+  /// Field type is Int64.
+  final int formId;
+
+  /// Invoice.
+  final InputInvoiceBase invoice;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7998c914.
+    buffer.writeInt32(0x7998c914);
+
+    // Write fields.
+    buffer.writeInt64(formId);
+    buffer.writeObject(invoice);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7998c914",
+      "formId": formId,
+      "invoice": invoice,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Refund Stars Charge.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `25ae8f4a`.
+class PaymentsRefundStarsCharge extends TlMethod {
+  /// Payments Refund Stars Charge constructor.
+  const PaymentsRefundStarsCharge({
+    required this.userId,
+    required this.chargeId,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsRefundStarsCharge.deserialize(BinaryReader reader) {
+    // Read [PaymentsRefundStarsCharge] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final chargeId = reader.readString();
+
+    // Construct [PaymentsRefundStarsCharge] object.
+    final returnValue = PaymentsRefundStarsCharge(
+      userId: userId,
+      chargeId: chargeId,
+    );
+
+    // Now return the deserialized [PaymentsRefundStarsCharge].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Charge Id.
+  final String chargeId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x25ae8f4a.
+    buffer.writeInt32(0x25ae8f4a);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeString(chargeId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x25ae8f4a",
+      "userId": userId,
+      "chargeId": chargeId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Stories Search Posts.
+///
+/// Return Type: `StoriesFoundStoriesBase`.
+/// ID: `d1810907`.
+class StoriesSearchPosts extends TlMethod {
+  /// Stories Search Posts constructor.
+  const StoriesSearchPosts({
+    this.hashtag,
+    this.area,
+    this.peer,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory StoriesSearchPosts.deserialize(BinaryReader reader) {
+    // Read [StoriesSearchPosts] fields.
+    final flags = reader.readInt32();
+    final hasHashtagField = (flags & 1) != 0;
+    final hashtag = hasHashtagField ? reader.readString() : null;
+    final hasAreaField = (flags & 2) != 0;
+    final area = hasAreaField ? reader.readObject() as MediaAreaBase : null;
+    final hasPeerField = (flags & 4) != 0;
+    final peer = hasPeerField ? reader.readObject() as InputPeerBase : null;
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [StoriesSearchPosts] object.
+    final returnValue = StoriesSearchPosts(
+      hashtag: hashtag,
+      area: area,
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [StoriesSearchPosts].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: hashtag != null,
+      b01: area != null,
+      b02: peer != null,
+    );
+
+    return v;
+  }
+
+  /// Hashtag.
+  final String? hashtag;
+
+  /// Area.
+  final MediaAreaBase? area;
+
+  /// Peer.
+  final InputPeerBase? peer;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1810907.
+    buffer.writeInt32(0xd1810907);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localHashtagCopy = hashtag;
+    if (localHashtagCopy != null) {
+      buffer.writeString(localHashtagCopy);
+    }
+    final localAreaCopy = area;
+    if (localAreaCopy != null) {
+      buffer.writeObject(localAreaCopy);
+    }
+    final localPeerCopy = peer;
+    if (localPeerCopy != null) {
+      buffer.writeObject(localPeerCopy);
+    }
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1810907",
+      "flags": flags,
+      "hashtag": hashtag,
+      "area": area,
+      "peer": peer,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Revenue Stats.
+///
+/// Return Type: `PaymentsStarsRevenueStatsBase`.
+/// ID: `d91ffad6`.
+class PaymentsGetStarsRevenueStats extends TlMethod {
+  /// Payments Get Stars Revenue Stats constructor.
+  const PaymentsGetStarsRevenueStats({
+    required this.dark,
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsRevenueStats.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarsRevenueStats] fields.
+    final flags = reader.readInt32();
+    final dark = (flags & 1) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [PaymentsGetStarsRevenueStats] object.
+    final returnValue = PaymentsGetStarsRevenueStats(
+      dark: dark,
+      peer: peer,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsRevenueStats].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: dark,
+    );
+
+    return v;
+  }
+
+  /// dark: bit 0 of flags.0?true
+  final bool dark;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd91ffad6.
+    buffer.writeInt32(0xd91ffad6);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd91ffad6",
+      "flags": flags,
+      "dark": dark,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Revenue Withdrawal Url.
+///
+/// Return Type: `PaymentsStarsRevenueWithdrawalUrlBase`.
+/// ID: `13bbe8b3`.
+class PaymentsGetStarsRevenueWithdrawalUrl extends TlMethod {
+  /// Payments Get Stars Revenue Withdrawal Url constructor.
+  const PaymentsGetStarsRevenueWithdrawalUrl({
+    required this.peer,
+    required this.stars,
+    required this.password,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsRevenueWithdrawalUrl.deserialize(
+      BinaryReader reader) {
+    // Read [PaymentsGetStarsRevenueWithdrawalUrl] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final stars = reader.readInt64();
+    final password = reader.readObject() as InputCheckPasswordSRPBase;
+
+    // Construct [PaymentsGetStarsRevenueWithdrawalUrl] object.
+    final returnValue = PaymentsGetStarsRevenueWithdrawalUrl(
+      peer: peer,
+      stars: stars,
+      password: password,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsRevenueWithdrawalUrl].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Stars.
+  ///
+  /// Field type is Int64.
+  final int stars;
+
+  /// Password.
+  final InputCheckPasswordSRPBase password;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x13bbe8b3.
+    buffer.writeInt32(0x13bbe8b3);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt64(stars);
+    buffer.writeObject(password);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x13bbe8b3",
+      "peer": peer,
+      "stars": stars,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Revenue Ads Account Url.
+///
+/// Return Type: `PaymentsStarsRevenueAdsAccountUrlBase`.
+/// ID: `d1d7efc5`.
+class PaymentsGetStarsRevenueAdsAccountUrl extends TlMethod {
+  /// Payments Get Stars Revenue Ads Account Url constructor.
+  const PaymentsGetStarsRevenueAdsAccountUrl({
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsRevenueAdsAccountUrl.deserialize(
+      BinaryReader reader) {
+    // Read [PaymentsGetStarsRevenueAdsAccountUrl] fields.
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [PaymentsGetStarsRevenueAdsAccountUrl] object.
+    final returnValue = PaymentsGetStarsRevenueAdsAccountUrl(
+      peer: peer,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsRevenueAdsAccountUrl].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1d7efc5.
+    buffer.writeInt32(0xd1d7efc5);
+
+    // Write fields.
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd1d7efc5",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Transactions By I D.
+///
+/// Return Type: `PaymentsStarsStatusBase`.
+/// ID: `27842d2e`.
+class PaymentsGetStarsTransactionsByID extends TlMethod {
+  /// Payments Get Stars Transactions By I D constructor.
+  const PaymentsGetStarsTransactionsByID({
+    required this.peer,
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsTransactionsByID.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarsTransactionsByID] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final id = reader.readVectorObject<InputStarsTransactionBase>();
+
+    // Construct [PaymentsGetStarsTransactionsByID] object.
+    final returnValue = PaymentsGetStarsTransactionsByID(
+      peer: peer,
+      id: id,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsTransactionsByID].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Id.
+  final List<InputStarsTransactionBase> id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x27842d2e.
+    buffer.writeInt32(0x27842d2e);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeVectorObject(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x27842d2e",
+      "peer": peer,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Gift Options.
+///
+/// Return Type: `List<StarsGiftOptionBase>`.
+/// ID: `d3c96bc8`.
+class PaymentsGetStarsGiftOptions extends TlMethod {
+  /// Payments Get Stars Gift Options constructor.
+  const PaymentsGetStarsGiftOptions({
+    this.userId,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsGiftOptions.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarsGiftOptions] fields.
+    final flags = reader.readInt32();
+    final hasUserIdField = (flags & 1) != 0;
+    final userId = hasUserIdField ? reader.readObject() as InputUserBase : null;
+
+    // Construct [PaymentsGetStarsGiftOptions] object.
+    final returnValue = PaymentsGetStarsGiftOptions(
+      userId: userId,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsGiftOptions].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: userId != null,
+    );
+
+    return v;
+  }
+
+  /// User Id.
+  final InputUserBase? userId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd3c96bc8.
+    buffer.writeInt32(0xd3c96bc8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localUserIdCopy = userId;
+    if (localUserIdCopy != null) {
+      buffer.writeObject(localUserIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xd3c96bc8",
+      "flags": flags,
+      "userId": userId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Get Popular App Bots.
+///
+/// Return Type: `BotsPopularAppBotsBase`.
+/// ID: `c2510192`.
+class BotsGetPopularAppBots extends TlMethod {
+  /// Bots Get Popular App Bots constructor.
+  const BotsGetPopularAppBots({
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsGetPopularAppBots.deserialize(BinaryReader reader) {
+    // Read [BotsGetPopularAppBots] fields.
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [BotsGetPopularAppBots] object.
+    final returnValue = BotsGetPopularAppBots(
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [BotsGetPopularAppBots].
+    return returnValue;
+  }
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc2510192.
+    buffer.writeInt32(0xc2510192);
+
+    // Write fields.
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc2510192",
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Add Preview Media.
+///
+/// Return Type: `BotPreviewMediaBase`.
+/// ID: `17aeb75a`.
+class BotsAddPreviewMedia extends TlMethod {
+  /// Bots Add Preview Media constructor.
+  const BotsAddPreviewMedia({
+    required this.bot,
+    required this.langCode,
+    required this.media,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsAddPreviewMedia.deserialize(BinaryReader reader) {
+    // Read [BotsAddPreviewMedia] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final langCode = reader.readString();
+    final media = reader.readObject() as InputMediaBase;
+
+    // Construct [BotsAddPreviewMedia] object.
+    final returnValue = BotsAddPreviewMedia(
+      bot: bot,
+      langCode: langCode,
+      media: media,
+    );
+
+    // Now return the deserialized [BotsAddPreviewMedia].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Lang Code.
+  final String langCode;
+
+  /// Media.
+  final InputMediaBase media;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x17aeb75a.
+    buffer.writeInt32(0x17aeb75a);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(langCode);
+    buffer.writeObject(media);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x17aeb75a",
+      "bot": bot,
+      "langCode": langCode,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Edit Preview Media.
+///
+/// Return Type: `BotPreviewMediaBase`.
+/// ID: `8525606f`.
+class BotsEditPreviewMedia extends TlMethod {
+  /// Bots Edit Preview Media constructor.
+  const BotsEditPreviewMedia({
+    required this.bot,
+    required this.langCode,
+    required this.media,
+    required this.newMedia,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsEditPreviewMedia.deserialize(BinaryReader reader) {
+    // Read [BotsEditPreviewMedia] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final langCode = reader.readString();
+    final media = reader.readObject() as InputMediaBase;
+    final newMedia = reader.readObject() as InputMediaBase;
+
+    // Construct [BotsEditPreviewMedia] object.
+    final returnValue = BotsEditPreviewMedia(
+      bot: bot,
+      langCode: langCode,
+      media: media,
+      newMedia: newMedia,
+    );
+
+    // Now return the deserialized [BotsEditPreviewMedia].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Lang Code.
+  final String langCode;
+
+  /// Media.
+  final InputMediaBase media;
+
+  /// New Media.
+  final InputMediaBase newMedia;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8525606f.
+    buffer.writeInt32(0x8525606f);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(langCode);
+    buffer.writeObject(media);
+    buffer.writeObject(newMedia);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x8525606f",
+      "bot": bot,
+      "langCode": langCode,
+      "media": media,
+      "newMedia": newMedia,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Delete Preview Media.
+///
+/// Return Type: `bool`.
+/// ID: `2d0135b3`.
+class BotsDeletePreviewMedia extends TlMethod {
+  /// Bots Delete Preview Media constructor.
+  const BotsDeletePreviewMedia({
+    required this.bot,
+    required this.langCode,
+    required this.media,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsDeletePreviewMedia.deserialize(BinaryReader reader) {
+    // Read [BotsDeletePreviewMedia] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final langCode = reader.readString();
+    final media = reader.readVectorObject<InputMediaBase>();
+
+    // Construct [BotsDeletePreviewMedia] object.
+    final returnValue = BotsDeletePreviewMedia(
+      bot: bot,
+      langCode: langCode,
+      media: media,
+    );
+
+    // Now return the deserialized [BotsDeletePreviewMedia].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Lang Code.
+  final String langCode;
+
+  /// Media.
+  final List<InputMediaBase> media;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2d0135b3.
+    buffer.writeInt32(0x2d0135b3);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(langCode);
+    buffer.writeVectorObject(media);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x2d0135b3",
+      "bot": bot,
+      "langCode": langCode,
+      "media": media,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Reorder Preview Medias.
+///
+/// Return Type: `bool`.
+/// ID: `b627f3aa`.
+class BotsReorderPreviewMedias extends TlMethod {
+  /// Bots Reorder Preview Medias constructor.
+  const BotsReorderPreviewMedias({
+    required this.bot,
+    required this.langCode,
+    required this.order,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsReorderPreviewMedias.deserialize(BinaryReader reader) {
+    // Read [BotsReorderPreviewMedias] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final langCode = reader.readString();
+    final order = reader.readVectorObject<InputMediaBase>();
+
+    // Construct [BotsReorderPreviewMedias] object.
+    final returnValue = BotsReorderPreviewMedias(
+      bot: bot,
+      langCode: langCode,
+      order: order,
+    );
+
+    // Now return the deserialized [BotsReorderPreviewMedias].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Lang Code.
+  final String langCode;
+
+  /// Order.
+  final List<InputMediaBase> order;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb627f3aa.
+    buffer.writeInt32(0xb627f3aa);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(langCode);
+    buffer.writeVectorObject(order);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb627f3aa",
+      "bot": bot,
+      "langCode": langCode,
+      "order": order,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Get Preview Info.
+///
+/// Return Type: `BotsPreviewInfoBase`.
+/// ID: `423ab3ad`.
+class BotsGetPreviewInfo extends TlMethod {
+  /// Bots Get Preview Info constructor.
+  const BotsGetPreviewInfo({
+    required this.bot,
+    required this.langCode,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsGetPreviewInfo.deserialize(BinaryReader reader) {
+    // Read [BotsGetPreviewInfo] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final langCode = reader.readString();
+
+    // Construct [BotsGetPreviewInfo] object.
+    final returnValue = BotsGetPreviewInfo(
+      bot: bot,
+      langCode: langCode,
+    );
+
+    // Now return the deserialized [BotsGetPreviewInfo].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Lang Code.
+  final String langCode;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x423ab3ad.
+    buffer.writeInt32(0x423ab3ad);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(langCode);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x423ab3ad",
+      "bot": bot,
+      "langCode": langCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Get Preview Medias.
+///
+/// Return Type: `List<BotPreviewMediaBase>`.
+/// ID: `a2a5594d`.
+class BotsGetPreviewMedias extends TlMethod {
+  /// Bots Get Preview Medias constructor.
+  const BotsGetPreviewMedias({
+    required this.bot,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsGetPreviewMedias.deserialize(BinaryReader reader) {
+    // Read [BotsGetPreviewMedias] fields.
+    final bot = reader.readObject() as InputUserBase;
+
+    // Construct [BotsGetPreviewMedias] object.
+    final returnValue = BotsGetPreviewMedias(
+      bot: bot,
+    );
+
+    // Now return the deserialized [BotsGetPreviewMedias].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa2a5594d.
+    buffer.writeInt32(0xa2a5594d);
+
+    // Write fields.
+    buffer.writeObject(bot);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xa2a5594d",
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Request Main Web View.
+///
+/// Return Type: `WebViewResultBase`.
+/// ID: `c9e01e7b`.
+class MessagesRequestMainWebView extends TlMethod {
+  /// Messages Request Main Web View constructor.
+  const MessagesRequestMainWebView({
+    required this.compact,
+    required this.fullscreen,
+    required this.peer,
+    required this.bot,
+    this.startParam,
+    this.themeParams,
+    required this.platform,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesRequestMainWebView.deserialize(BinaryReader reader) {
+    // Read [MessagesRequestMainWebView] fields.
+    final flags = reader.readInt32();
+    final compact = (flags & 128) != 0;
+    final fullscreen = (flags & 256) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+    final bot = reader.readObject() as InputUserBase;
+    final hasStartParamField = (flags & 2) != 0;
+    final startParam = hasStartParamField ? reader.readString() : null;
+    final hasThemeParamsField = (flags & 1) != 0;
+    final themeParams =
+        hasThemeParamsField ? reader.readObject() as DataJSONBase : null;
+    final platform = reader.readString();
+
+    // Construct [MessagesRequestMainWebView] object.
+    final returnValue = MessagesRequestMainWebView(
+      compact: compact,
+      fullscreen: fullscreen,
+      peer: peer,
+      bot: bot,
+      startParam: startParam,
+      themeParams: themeParams,
+      platform: platform,
+    );
+
+    // Now return the deserialized [MessagesRequestMainWebView].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b07: compact,
+      b08: fullscreen,
+      b01: startParam != null,
+      b00: themeParams != null,
+    );
+
+    return v;
+  }
+
+  /// compact: bit 7 of flags.7?true
+  final bool compact;
+
+  /// fullscreen: bit 8 of flags.8?true
+  final bool fullscreen;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Start Param.
+  final String? startParam;
+
+  /// Theme Params.
+  final DataJSONBase? themeParams;
+
+  /// Platform.
+  final String platform;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc9e01e7b.
+    buffer.writeInt32(0xc9e01e7b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeObject(bot);
+    final localStartParamCopy = startParam;
+    if (localStartParamCopy != null) {
+      buffer.writeString(localStartParamCopy);
+    }
+    final localThemeParamsCopy = themeParams;
+    if (localThemeParamsCopy != null) {
+      buffer.writeObject(localThemeParamsCopy);
+    }
+    buffer.writeString(platform);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc9e01e7b",
+      "flags": flags,
+      "compact": compact,
+      "fullscreen": fullscreen,
+      "peer": peer,
+      "bot": bot,
+      "startParam": startParam,
+      "themeParams": themeParams,
+      "platform": platform,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Subscriptions.
+///
+/// Return Type: `PaymentsStarsStatusBase`.
+/// ID: `032512c5`.
+class PaymentsGetStarsSubscriptions extends TlMethod {
+  /// Payments Get Stars Subscriptions constructor.
+  const PaymentsGetStarsSubscriptions({
+    required this.missingBalance,
+    required this.peer,
+    required this.offset,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsSubscriptions.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarsSubscriptions] fields.
+    final flags = reader.readInt32();
+    final missingBalance = (flags & 1) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+    final offset = reader.readString();
+
+    // Construct [PaymentsGetStarsSubscriptions] object.
+    final returnValue = PaymentsGetStarsSubscriptions(
+      missingBalance: missingBalance,
+      peer: peer,
+      offset: offset,
+    );
+
+    // Now return the deserialized [PaymentsGetStarsSubscriptions].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: missingBalance,
+    );
+
+    return v;
+  }
+
+  /// missing_balance: bit 0 of flags.0?true
+  final bool missingBalance;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Offset.
+  final String offset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x032512c5.
+    buffer.writeInt32(0x032512c5);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeString(offset);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x032512c5",
+      "flags": flags,
+      "missingBalance": missingBalance,
+      "peer": peer,
+      "offset": offset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Change Stars Subscription.
+///
+/// Return Type: `bool`.
+/// ID: `c7770878`.
+class PaymentsChangeStarsSubscription extends TlMethod {
+  /// Payments Change Stars Subscription constructor.
+  const PaymentsChangeStarsSubscription({
+    required this.peer,
+    required this.subscriptionId,
+    required this.canceled,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsChangeStarsSubscription.deserialize(BinaryReader reader) {
+    // Read [PaymentsChangeStarsSubscription] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final subscriptionId = reader.readString();
+    final canceled = (flags & 1) != 0;
+
+    // Construct [PaymentsChangeStarsSubscription] object.
+    final returnValue = PaymentsChangeStarsSubscription(
+      peer: peer,
+      subscriptionId: subscriptionId,
+      canceled: canceled,
+    );
+
+    // Now return the deserialized [PaymentsChangeStarsSubscription].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: canceled,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Subscription Id.
+  final String subscriptionId;
+
+  /// canceled: bit 0 of flags.0?Bool
+  final bool canceled;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc7770878.
+    buffer.writeInt32(0xc7770878);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeString(subscriptionId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc7770878",
+      "flags": flags,
+      "peer": peer,
+      "subscriptionId": subscriptionId,
+      "canceled": canceled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Fulfill Stars Subscription.
+///
+/// Return Type: `bool`.
+/// ID: `cc5bebb3`.
+class PaymentsFulfillStarsSubscription extends TlMethod {
+  /// Payments Fulfill Stars Subscription constructor.
+  const PaymentsFulfillStarsSubscription({
+    required this.peer,
+    required this.subscriptionId,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsFulfillStarsSubscription.deserialize(BinaryReader reader) {
+    // Read [PaymentsFulfillStarsSubscription] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final subscriptionId = reader.readString();
+
+    // Construct [PaymentsFulfillStarsSubscription] object.
+    final returnValue = PaymentsFulfillStarsSubscription(
+      peer: peer,
+      subscriptionId: subscriptionId,
+    );
+
+    // Now return the deserialized [PaymentsFulfillStarsSubscription].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Subscription Id.
+  final String subscriptionId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcc5bebb3.
+    buffer.writeInt32(0xcc5bebb3);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeString(subscriptionId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xcc5bebb3",
+      "peer": peer,
+      "subscriptionId": subscriptionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Send Paid Reaction.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `9dd6a67b`.
+class MessagesSendPaidReaction extends TlMethod {
+  /// Messages Send Paid Reaction constructor.
+  const MessagesSendPaidReaction({
+    required this.peer,
+    required this.msgId,
+    required this.count,
+    required this.randomId,
+    required this.private,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSendPaidReaction.deserialize(BinaryReader reader) {
+    // Read [MessagesSendPaidReaction] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+    final count = reader.readInt32();
+    final randomId = reader.readInt64();
+    final private = (flags & 1) != 0;
+
+    // Construct [MessagesSendPaidReaction] object.
+    final returnValue = MessagesSendPaidReaction(
+      peer: peer,
+      msgId: msgId,
+      count: count,
+      randomId: randomId,
+      private: private,
+    );
+
+    // Now return the deserialized [MessagesSendPaidReaction].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: private,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Random Id.
+  ///
+  /// Field type is Int64.
+  final int randomId;
+
+  /// private: bit 0 of flags.0?Bool
+  final bool private;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9dd6a67b.
+    buffer.writeInt32(0x9dd6a67b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+    buffer.writeInt32(count);
+    buffer.writeInt64(randomId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9dd6a67b",
+      "flags": flags,
+      "peer": peer,
+      "msgId": msgId,
+      "count": count,
+      "randomId": randomId,
+      "private": private,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Toggle Paid Reaction Privacy.
+///
+/// Return Type: `bool`.
+/// ID: `849ad397`.
+class MessagesTogglePaidReactionPrivacy extends TlMethod {
+  /// Messages Toggle Paid Reaction Privacy constructor.
+  const MessagesTogglePaidReactionPrivacy({
+    required this.peer,
+    required this.msgId,
+    required this.private,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesTogglePaidReactionPrivacy.deserialize(BinaryReader reader) {
+    // Read [MessagesTogglePaidReactionPrivacy] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+    final private = reader.readBool();
+
+    // Construct [MessagesTogglePaidReactionPrivacy] object.
+    final returnValue = MessagesTogglePaidReactionPrivacy(
+      peer: peer,
+      msgId: msgId,
+      private: private,
+    );
+
+    // Now return the deserialized [MessagesTogglePaidReactionPrivacy].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Private.
+  final bool private;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x849ad397.
+    buffer.writeInt32(0x849ad397);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+    buffer.writeBool(private);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x849ad397",
+      "peer": peer,
+      "msgId": msgId,
+      "private": private,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Stars Giveaway Options.
+///
+/// Return Type: `List<StarsGiveawayOptionBase>`.
+/// ID: `bd1efd3e`.
+class PaymentsGetStarsGiveawayOptions extends TlMethod {
+  /// Payments Get Stars Giveaway Options constructor.
+  const PaymentsGetStarsGiveawayOptions() : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarsGiveawayOptions.deserialize(BinaryReader reader) {
+    // Construct [PaymentsGetStarsGiveawayOptions] object.
+    final returnValue = PaymentsGetStarsGiveawayOptions();
+
+    // Now return the deserialized [PaymentsGetStarsGiveawayOptions].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbd1efd3e.
+    buffer.writeInt32(0xbd1efd3e);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xbd1efd3e",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Paid Reaction Privacy.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `472455aa`.
+class MessagesGetPaidReactionPrivacy extends TlMethod {
+  /// Messages Get Paid Reaction Privacy constructor.
+  const MessagesGetPaidReactionPrivacy() : super._();
+
+  /// Deserialize.
+  factory MessagesGetPaidReactionPrivacy.deserialize(BinaryReader reader) {
+    // Construct [MessagesGetPaidReactionPrivacy] object.
+    final returnValue = MessagesGetPaidReactionPrivacy();
+
+    // Now return the deserialized [MessagesGetPaidReactionPrivacy].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x472455aa.
+    buffer.writeInt32(0x472455aa);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x472455aa",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Star Gifts.
+///
+/// Return Type: `PaymentsStarGiftsBase`.
+/// ID: `c4563590`.
+class PaymentsGetStarGifts extends TlMethod {
+  /// Payments Get Star Gifts constructor.
+  const PaymentsGetStarGifts({
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetStarGifts.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetStarGifts] fields.
+    final hash = reader.readInt32();
+
+    // Construct [PaymentsGetStarGifts] object.
+    final returnValue = PaymentsGetStarGifts(
+      hash: hash,
+    );
+
+    // Now return the deserialized [PaymentsGetStarGifts].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int32.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc4563590.
+    buffer.writeInt32(0xc4563590);
+
+    // Write fields.
+    buffer.writeInt32(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xc4563590",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get User Star Gifts.
+///
+/// Return Type: `PaymentsUserStarGiftsBase`.
+/// ID: `5e72c7e1`.
+class PaymentsGetUserStarGifts extends TlMethod {
+  /// Payments Get User Star Gifts constructor.
+  const PaymentsGetUserStarGifts({
+    required this.userId,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetUserStarGifts.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetUserStarGifts] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [PaymentsGetUserStarGifts] object.
+    final returnValue = PaymentsGetUserStarGifts(
+      userId: userId,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [PaymentsGetUserStarGifts].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5e72c7e1.
+    buffer.writeInt32(0x5e72c7e1);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5e72c7e1",
+      "userId": userId,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Save Star Gift.
+///
+/// Return Type: `bool`.
+/// ID: `87acf08e`.
+class PaymentsSaveStarGift extends TlMethod {
+  /// Payments Save Star Gift constructor.
+  const PaymentsSaveStarGift({
+    required this.unsave,
+    required this.userId,
+    required this.msgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsSaveStarGift.deserialize(BinaryReader reader) {
+    // Read [PaymentsSaveStarGift] fields.
+    final flags = reader.readInt32();
+    final unsave = (flags & 1) != 0;
+    final userId = reader.readObject() as InputUserBase;
+    final msgId = reader.readInt32();
+
+    // Construct [PaymentsSaveStarGift] object.
+    final returnValue = PaymentsSaveStarGift(
+      unsave: unsave,
+      userId: userId,
+      msgId: msgId,
+    );
+
+    // Now return the deserialized [PaymentsSaveStarGift].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: unsave,
+    );
+
+    return v;
+  }
+
+  /// unsave: bit 0 of flags.0?true
+  final bool unsave;
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x87acf08e.
+    buffer.writeInt32(0x87acf08e);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(userId);
+    buffer.writeInt32(msgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x87acf08e",
+      "flags": flags,
+      "unsave": unsave,
+      "userId": userId,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Convert Star Gift.
+///
+/// Return Type: `bool`.
+/// ID: `0421e027`.
+class PaymentsConvertStarGift extends TlMethod {
+  /// Payments Convert Star Gift constructor.
+  const PaymentsConvertStarGift({
+    required this.userId,
+    required this.msgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsConvertStarGift.deserialize(BinaryReader reader) {
+    // Read [PaymentsConvertStarGift] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final msgId = reader.readInt32();
+
+    // Construct [PaymentsConvertStarGift] object.
+    final returnValue = PaymentsConvertStarGift(
+      userId: userId,
+      msgId: msgId,
+    );
+
+    // Now return the deserialized [PaymentsConvertStarGift].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0421e027.
+    buffer.writeInt32(0x0421e027);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeInt32(msgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0421e027",
+      "userId": userId,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages View Sponsored Message.
+///
+/// Return Type: `bool`.
+/// ID: `673ad8f1`.
+class MessagesViewSponsoredMessage extends TlMethod {
+  /// Messages View Sponsored Message constructor.
+  const MessagesViewSponsoredMessage({
+    required this.peer,
+    required this.randomId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesViewSponsoredMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesViewSponsoredMessage] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final randomId = reader.readBytes();
+
+    // Construct [MessagesViewSponsoredMessage] object.
+    final returnValue = MessagesViewSponsoredMessage(
+      peer: peer,
+      randomId: randomId,
+    );
+
+    // Now return the deserialized [MessagesViewSponsoredMessage].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Random Id.
+  final Uint8List randomId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x673ad8f1.
+    buffer.writeInt32(0x673ad8f1);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeBytes(randomId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x673ad8f1",
+      "peer": peer,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Click Sponsored Message.
+///
+/// Return Type: `bool`.
+/// ID: `0f093465`.
+class MessagesClickSponsoredMessage extends TlMethod {
+  /// Messages Click Sponsored Message constructor.
+  const MessagesClickSponsoredMessage({
+    required this.media,
+    required this.fullscreen,
+    required this.peer,
+    required this.randomId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesClickSponsoredMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesClickSponsoredMessage] fields.
+    final flags = reader.readInt32();
+    final media = (flags & 1) != 0;
+    final fullscreen = (flags & 2) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+    final randomId = reader.readBytes();
+
+    // Construct [MessagesClickSponsoredMessage] object.
+    final returnValue = MessagesClickSponsoredMessage(
+      media: media,
+      fullscreen: fullscreen,
+      peer: peer,
+      randomId: randomId,
+    );
+
+    // Now return the deserialized [MessagesClickSponsoredMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: media,
+      b01: fullscreen,
+    );
+
+    return v;
+  }
+
+  /// media: bit 0 of flags.0?true
+  final bool media;
+
+  /// fullscreen: bit 1 of flags.1?true
+  final bool fullscreen;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Random Id.
+  final Uint8List randomId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0f093465.
+    buffer.writeInt32(0x0f093465);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeBytes(randomId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0f093465",
+      "flags": flags,
+      "media": media,
+      "fullscreen": fullscreen,
+      "peer": peer,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Report Sponsored Message.
+///
+/// Return Type: `ChannelsSponsoredMessageReportResultBase`.
+/// ID: `1af3dbb8`.
+class MessagesReportSponsoredMessage extends TlMethod {
+  /// Messages Report Sponsored Message constructor.
+  const MessagesReportSponsoredMessage({
+    required this.peer,
+    required this.randomId,
+    required this.option,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesReportSponsoredMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesReportSponsoredMessage] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final randomId = reader.readBytes();
+    final option = reader.readBytes();
+
+    // Construct [MessagesReportSponsoredMessage] object.
+    final returnValue = MessagesReportSponsoredMessage(
+      peer: peer,
+      randomId: randomId,
+      option: option,
+    );
+
+    // Now return the deserialized [MessagesReportSponsoredMessage].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Random Id.
+  final Uint8List randomId;
+
+  /// Option.
+  final Uint8List option;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1af3dbb8.
+    buffer.writeInt32(0x1af3dbb8);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeBytes(randomId);
+    buffer.writeBytes(option);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x1af3dbb8",
+      "peer": peer,
+      "randomId": randomId,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Sponsored Messages.
+///
+/// Return Type: `MessagesSponsoredMessagesBase`.
+/// ID: `9bd2f439`.
+class MessagesGetSponsoredMessages extends TlMethod {
+  /// Messages Get Sponsored Messages constructor.
+  const MessagesGetSponsoredMessages({
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetSponsoredMessages.deserialize(BinaryReader reader) {
+    // Read [MessagesGetSponsoredMessages] fields.
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [MessagesGetSponsoredMessages] object.
+    final returnValue = MessagesGetSponsoredMessages(
+      peer: peer,
+    );
+
+    // Now return the deserialized [MessagesGetSponsoredMessages].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9bd2f439.
+    buffer.writeInt32(0x9bd2f439);
+
+    // Write fields.
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x9bd2f439",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Save Prepared Inline Message.
+///
+/// Return Type: `MessagesBotPreparedInlineMessageBase`.
+/// ID: `f21f7f2f`.
+class MessagesSavePreparedInlineMessage extends TlMethod {
+  /// Messages Save Prepared Inline Message constructor.
+  const MessagesSavePreparedInlineMessage({
+    required this.result,
+    required this.userId,
+    this.peerTypes,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSavePreparedInlineMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesSavePreparedInlineMessage] fields.
+    final flags = reader.readInt32();
+    final result = reader.readObject() as InputBotInlineResultBase;
+    final userId = reader.readObject() as InputUserBase;
+    final hasPeerTypesField = (flags & 1) != 0;
+    final peerTypes = hasPeerTypesField
+        ? reader.readVectorObject<InlineQueryPeerTypeBase>()
+        : null;
+
+    // Construct [MessagesSavePreparedInlineMessage] object.
+    final returnValue = MessagesSavePreparedInlineMessage(
+      result: result,
+      userId: userId,
+      peerTypes: peerTypes,
+    );
+
+    // Now return the deserialized [MessagesSavePreparedInlineMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: peerTypes != null,
+    );
+
+    return v;
+  }
+
+  /// Result.
+  final InputBotInlineResultBase result;
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Peer Types.
+  final List<InlineQueryPeerTypeBase>? peerTypes;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf21f7f2f.
+    buffer.writeInt32(0xf21f7f2f);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(result);
+    buffer.writeObject(userId);
+    final localPeerTypesCopy = peerTypes;
+    if (localPeerTypesCopy != null) {
+      buffer.writeVectorObject(localPeerTypesCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xf21f7f2f",
+      "flags": flags,
+      "result": result,
+      "userId": userId,
+      "peerTypes": peerTypes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Prepared Inline Message.
+///
+/// Return Type: `MessagesPreparedInlineMessageBase`.
+/// ID: `857ebdb8`.
+class MessagesGetPreparedInlineMessage extends TlMethod {
+  /// Messages Get Prepared Inline Message constructor.
+  const MessagesGetPreparedInlineMessage({
+    required this.bot,
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetPreparedInlineMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesGetPreparedInlineMessage] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final id = reader.readString();
+
+    // Construct [MessagesGetPreparedInlineMessage] object.
+    final returnValue = MessagesGetPreparedInlineMessage(
+      bot: bot,
+      id: id,
+    );
+
+    // Now return the deserialized [MessagesGetPreparedInlineMessage].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Id.
+  final String id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x857ebdb8.
+    buffer.writeInt32(0x857ebdb8);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x857ebdb8",
+      "bot": bot,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Update User Emoji Status.
+///
+/// Return Type: `bool`.
+/// ID: `ed9f30c5`.
+class BotsUpdateUserEmojiStatus extends TlMethod {
+  /// Bots Update User Emoji Status constructor.
+  const BotsUpdateUserEmojiStatus({
+    required this.userId,
+    required this.emojiStatus,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsUpdateUserEmojiStatus.deserialize(BinaryReader reader) {
+    // Read [BotsUpdateUserEmojiStatus] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final emojiStatus = reader.readObject() as EmojiStatusBase;
+
+    // Construct [BotsUpdateUserEmojiStatus] object.
+    final returnValue = BotsUpdateUserEmojiStatus(
+      userId: userId,
+      emojiStatus: emojiStatus,
+    );
+
+    // Now return the deserialized [BotsUpdateUserEmojiStatus].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Emoji Status.
+  final EmojiStatusBase emojiStatus;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xed9f30c5.
+    buffer.writeInt32(0xed9f30c5);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeObject(emojiStatus);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xed9f30c5",
+      "userId": userId,
+      "emojiStatus": emojiStatus,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Toggle User Emoji Status Permission.
+///
+/// Return Type: `bool`.
+/// ID: `06de6392`.
+class BotsToggleUserEmojiStatusPermission extends TlMethod {
+  /// Bots Toggle User Emoji Status Permission constructor.
+  const BotsToggleUserEmojiStatusPermission({
+    required this.bot,
+    required this.enabled,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsToggleUserEmojiStatusPermission.deserialize(BinaryReader reader) {
+    // Read [BotsToggleUserEmojiStatusPermission] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final enabled = reader.readBool();
+
+    // Construct [BotsToggleUserEmojiStatusPermission] object.
+    final returnValue = BotsToggleUserEmojiStatusPermission(
+      bot: bot,
+      enabled: enabled,
+    );
+
+    // Now return the deserialized [BotsToggleUserEmojiStatusPermission].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Enabled.
+  final bool enabled;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x06de6392.
+    buffer.writeInt32(0x06de6392);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeBool(enabled);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x06de6392",
+      "bot": bot,
+      "enabled": enabled,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Check Download File Params.
+///
+/// Return Type: `bool`.
+/// ID: `50077589`.
+class BotsCheckDownloadFileParams extends TlMethod {
+  /// Bots Check Download File Params constructor.
+  const BotsCheckDownloadFileParams({
+    required this.bot,
+    required this.fileName,
+    required this.url,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsCheckDownloadFileParams.deserialize(BinaryReader reader) {
+    // Read [BotsCheckDownloadFileParams] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final fileName = reader.readString();
+    final url = reader.readString();
+
+    // Construct [BotsCheckDownloadFileParams] object.
+    final returnValue = BotsCheckDownloadFileParams(
+      bot: bot,
+      fileName: fileName,
+      url: url,
+    );
+
+    // Now return the deserialized [BotsCheckDownloadFileParams].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// File Name.
+  final String fileName;
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x50077589.
+    buffer.writeInt32(0x50077589);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(fileName);
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x50077589",
+      "bot": bot,
+      "fileName": fileName,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Bot Cancel Stars Subscription.
+///
+/// Return Type: `bool`.
+/// ID: `6dfa0622`.
+class PaymentsBotCancelStarsSubscription extends TlMethod {
+  /// Payments Bot Cancel Stars Subscription constructor.
+  const PaymentsBotCancelStarsSubscription({
+    required this.restore,
+    required this.userId,
+    required this.chargeId,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsBotCancelStarsSubscription.deserialize(BinaryReader reader) {
+    // Read [PaymentsBotCancelStarsSubscription] fields.
+    final flags = reader.readInt32();
+    final restore = (flags & 1) != 0;
+    final userId = reader.readObject() as InputUserBase;
+    final chargeId = reader.readString();
+
+    // Construct [PaymentsBotCancelStarsSubscription] object.
+    final returnValue = PaymentsBotCancelStarsSubscription(
+      restore: restore,
+      userId: userId,
+      chargeId: chargeId,
+    );
+
+    // Now return the deserialized [PaymentsBotCancelStarsSubscription].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: restore,
+    );
+
+    return v;
+  }
+
+  /// restore: bit 0 of flags.0?true
+  final bool restore;
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Charge Id.
+  final String chargeId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6dfa0622.
+    buffer.writeInt32(0x6dfa0622);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(userId);
+    buffer.writeString(chargeId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x6dfa0622",
+      "flags": flags,
+      "restore": restore,
+      "userId": userId,
+      "chargeId": chargeId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Get Admined Bots.
+///
+/// Return Type: `List<UserBase>`.
+/// ID: `b0711d83`.
+class BotsGetAdminedBots extends TlMethod {
+  /// Bots Get Admined Bots constructor.
+  const BotsGetAdminedBots() : super._();
+
+  /// Deserialize.
+  factory BotsGetAdminedBots.deserialize(BinaryReader reader) {
+    // Construct [BotsGetAdminedBots] object.
+    final returnValue = BotsGetAdminedBots();
+
+    // Now return the deserialized [BotsGetAdminedBots].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb0711d83.
+    buffer.writeInt32(0xb0711d83);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb0711d83",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Update Star Ref Program.
+///
+/// Return Type: `StarRefProgramBase`.
+/// ID: `778b5ab3`.
+class BotsUpdateStarRefProgram extends TlMethod {
+  /// Bots Update Star Ref Program constructor.
+  const BotsUpdateStarRefProgram({
+    required this.bot,
+    required this.commissionPermille,
+    this.durationMonths,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsUpdateStarRefProgram.deserialize(BinaryReader reader) {
+    // Read [BotsUpdateStarRefProgram] fields.
+    final flags = reader.readInt32();
+    final bot = reader.readObject() as InputUserBase;
+    final commissionPermille = reader.readInt32();
+    final hasDurationMonthsField = (flags & 1) != 0;
+    final durationMonths = hasDurationMonthsField ? reader.readInt32() : null;
+
+    // Construct [BotsUpdateStarRefProgram] object.
+    final returnValue = BotsUpdateStarRefProgram(
+      bot: bot,
+      commissionPermille: commissionPermille,
+      durationMonths: durationMonths,
+    );
+
+    // Now return the deserialized [BotsUpdateStarRefProgram].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: durationMonths != null,
+    );
+
+    return v;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Commission Permille.
+  ///
+  /// Field type is Int32.
+  final int commissionPermille;
+
+  /// Duration Months.
+  final int? durationMonths;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x778b5ab3.
+    buffer.writeInt32(0x778b5ab3);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(bot);
+    buffer.writeInt32(commissionPermille);
+    final localDurationMonthsCopy = durationMonths;
+    if (localDurationMonthsCopy != null) {
+      buffer.writeInt32(localDurationMonthsCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x778b5ab3",
+      "flags": flags,
+      "bot": bot,
+      "commissionPermille": commissionPermille,
+      "durationMonths": durationMonths,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Connected Star Ref Bots.
+///
+/// Return Type: `PaymentsConnectedStarRefBotsBase`.
+/// ID: `5869a553`.
+class PaymentsGetConnectedStarRefBots extends TlMethod {
+  /// Payments Get Connected Star Ref Bots constructor.
+  const PaymentsGetConnectedStarRefBots({
+    required this.peer,
+    this.offsetDate,
+    this.offsetLink,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetConnectedStarRefBots.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetConnectedStarRefBots] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final hasOffsetDateField = (flags & 4) != 0;
+    final offsetDate = hasOffsetDateField ? reader.readDateTime() : null;
+    final hasOffsetLinkField = (flags & 4) != 0;
+    final offsetLink = hasOffsetLinkField ? reader.readString() : null;
+    final limit = reader.readInt32();
+
+    // Construct [PaymentsGetConnectedStarRefBots] object.
+    final returnValue = PaymentsGetConnectedStarRefBots(
+      peer: peer,
+      offsetDate: offsetDate,
+      offsetLink: offsetLink,
+      limit: limit,
+    );
+
+    // Now return the deserialized [PaymentsGetConnectedStarRefBots].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b02: offsetDate != null || offsetLink != null,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Offset Date.
+  final DateTime? offsetDate;
+
+  /// Offset Link.
+  final String? offsetLink;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5869a553.
+    buffer.writeInt32(0x5869a553);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    final localOffsetDateCopy = offsetDate;
+    if (localOffsetDateCopy != null) {
+      buffer.writeDateTime(localOffsetDateCopy);
+    }
+    final localOffsetLinkCopy = offsetLink;
+    if (localOffsetLinkCopy != null) {
+      buffer.writeString(localOffsetLinkCopy);
+    }
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x5869a553",
+      "flags": flags,
+      "peer": peer,
+      "offsetDate": offsetDate?.toIso8601String(),
+      "offsetLink": offsetLink,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Connected Star Ref Bot.
+///
+/// Return Type: `PaymentsConnectedStarRefBotsBase`.
+/// ID: `b7d998f0`.
+class PaymentsGetConnectedStarRefBot extends TlMethod {
+  /// Payments Get Connected Star Ref Bot constructor.
+  const PaymentsGetConnectedStarRefBot({
+    required this.peer,
+    required this.bot,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetConnectedStarRefBot.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetConnectedStarRefBot] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final bot = reader.readObject() as InputUserBase;
+
+    // Construct [PaymentsGetConnectedStarRefBot] object.
+    final returnValue = PaymentsGetConnectedStarRefBot(
+      peer: peer,
+      bot: bot,
+    );
+
+    // Now return the deserialized [PaymentsGetConnectedStarRefBot].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb7d998f0.
+    buffer.writeInt32(0xb7d998f0);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(bot);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xb7d998f0",
+      "peer": peer,
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Suggested Star Ref Bots.
+///
+/// Return Type: `PaymentsSuggestedStarRefBotsBase`.
+/// ID: `0d6b48f7`.
+class PaymentsGetSuggestedStarRefBots extends TlMethod {
+  /// Payments Get Suggested Star Ref Bots constructor.
+  const PaymentsGetSuggestedStarRefBots({
+    required this.orderByRevenue,
+    required this.orderByDate,
+    required this.peer,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetSuggestedStarRefBots.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetSuggestedStarRefBots] fields.
+    final flags = reader.readInt32();
+    final orderByRevenue = (flags & 1) != 0;
+    final orderByDate = (flags & 2) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [PaymentsGetSuggestedStarRefBots] object.
+    final returnValue = PaymentsGetSuggestedStarRefBots(
+      orderByRevenue: orderByRevenue,
+      orderByDate: orderByDate,
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [PaymentsGetSuggestedStarRefBots].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: orderByRevenue,
+      b01: orderByDate,
+    );
+
+    return v;
+  }
+
+  /// order_by_revenue: bit 0 of flags.0?true
+  final bool orderByRevenue;
+
+  /// order_by_date: bit 1 of flags.1?true
+  final bool orderByDate;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0d6b48f7.
+    buffer.writeInt32(0x0d6b48f7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x0d6b48f7",
+      "flags": flags,
+      "orderByRevenue": orderByRevenue,
+      "orderByDate": orderByDate,
+      "peer": peer,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Connect Star Ref Bot.
+///
+/// Return Type: `PaymentsConnectedStarRefBotsBase`.
+/// ID: `7ed5348a`.
+class PaymentsConnectStarRefBot extends TlMethod {
+  /// Payments Connect Star Ref Bot constructor.
+  const PaymentsConnectStarRefBot({
+    required this.peer,
+    required this.bot,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsConnectStarRefBot.deserialize(BinaryReader reader) {
+    // Read [PaymentsConnectStarRefBot] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final bot = reader.readObject() as InputUserBase;
+
+    // Construct [PaymentsConnectStarRefBot] object.
+    final returnValue = PaymentsConnectStarRefBot(
+      peer: peer,
+      bot: bot,
+    );
+
+    // Now return the deserialized [PaymentsConnectStarRefBot].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7ed5348a.
+    buffer.writeInt32(0x7ed5348a);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(bot);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x7ed5348a",
+      "peer": peer,
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Edit Connected Star Ref Bot.
+///
+/// Return Type: `PaymentsConnectedStarRefBotsBase`.
+/// ID: `e4fca4a3`.
+class PaymentsEditConnectedStarRefBot extends TlMethod {
+  /// Payments Edit Connected Star Ref Bot constructor.
+  const PaymentsEditConnectedStarRefBot({
+    required this.revoked,
+    required this.peer,
+    required this.link,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsEditConnectedStarRefBot.deserialize(BinaryReader reader) {
+    // Read [PaymentsEditConnectedStarRefBot] fields.
+    final flags = reader.readInt32();
+    final revoked = (flags & 1) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+    final link = reader.readString();
+
+    // Construct [PaymentsEditConnectedStarRefBot] object.
+    final returnValue = PaymentsEditConnectedStarRefBot(
+      revoked: revoked,
+      peer: peer,
+      link: link,
+    );
+
+    // Now return the deserialized [PaymentsEditConnectedStarRefBot].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: revoked,
+    );
+
+    return v;
+  }
+
+  /// revoked: bit 0 of flags.0?true
+  final bool revoked;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Link.
+  final String link;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe4fca4a3.
+    buffer.writeInt32(0xe4fca4a3);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeString(link);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0xe4fca4a3",
+      "flags": flags,
+      "revoked": revoked,
+      "peer": peer,
+      "link": link,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Search Stickers.
+///
+/// Return Type: `MessagesFoundStickersBase`.
+/// ID: `29b1c66a`.
+class MessagesSearchStickers extends TlMethod {
+  /// Messages Search Stickers constructor.
+  const MessagesSearchStickers({
+    required this.emojis,
+    required this.q,
+    required this.emoticon,
+    required this.langCode,
+    required this.offset,
+    required this.limit,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSearchStickers.deserialize(BinaryReader reader) {
+    // Read [MessagesSearchStickers] fields.
+    final flags = reader.readInt32();
+    final emojis = (flags & 1) != 0;
+    final q = reader.readString();
+    final emoticon = reader.readString();
+    final langCode = reader.readVectorString();
+    final offset = reader.readInt32();
+    final limit = reader.readInt32();
+    final hash = reader.readInt64();
+
+    // Construct [MessagesSearchStickers] object.
+    final returnValue = MessagesSearchStickers(
+      emojis: emojis,
+      q: q,
+      emoticon: emoticon,
+      langCode: langCode,
+      offset: offset,
+      limit: limit,
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesSearchStickers].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: emojis,
+    );
+
+    return v;
+  }
+
+  /// emojis: bit 0 of flags.0?true
+  final bool emojis;
+
+  /// Q.
+  final String q;
+
+  /// Emoticon.
+  final String emoticon;
+
+  /// Lang Code.
+  final List<String> langCode;
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x29b1c66a.
+    buffer.writeInt32(0x29b1c66a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(q);
+    buffer.writeString(emoticon);
+    buffer.writeVectorString(langCode);
+    buffer.writeInt32(offset);
+    buffer.writeInt32(limit);
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$": "0x29b1c66a",
+      "flags": flags,
+      "emojis": emojis,
+      "q": q,
+      "emoticon": emoticon,
+      "langCode": langCode,
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
     };
 
     // Finished toJson.

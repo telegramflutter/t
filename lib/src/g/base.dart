@@ -2196,12 +2196,6 @@ abstract class WebViewResultBase extends TlConstructor {
   const WebViewResultBase._() : super._();
 }
 
-/// Predicate Simple Web View Result.
-abstract class SimpleWebViewResultBase extends TlConstructor {
-  /// Predicate Simple Web View Result constructor.
-  const SimpleWebViewResultBase._() : super._();
-}
-
 /// Predicate Web View Message Sent.
 abstract class WebViewMessageSentBase extends TlConstructor {
   /// Predicate Web View Message Sent constructor.
@@ -2460,12 +2454,6 @@ abstract class MessagesBotAppBase extends TlConstructor {
   const MessagesBotAppBase._() : super._();
 }
 
-/// Predicate App Web View Result.
-abstract class AppWebViewResultBase extends TlConstructor {
-  /// Predicate App Web View Result constructor.
-  const AppWebViewResultBase._() : super._();
-}
-
 /// Predicate Inline Bot Web View.
 abstract class InlineBotWebViewBase extends TlConstructor {
   /// Predicate Inline Bot Web View constructor.
@@ -2524,12 +2512,6 @@ abstract class BotsBotInfoBase extends TlConstructor {
 abstract class MessagePeerVoteBase extends TlConstructor {
   /// Predicate Message Peer Vote constructor.
   const MessagePeerVoteBase._() : super._();
-}
-
-/// Predicate Sponsored Web Page.
-abstract class SponsoredWebPageBase extends TlConstructor {
-  /// Predicate Sponsored Web Page constructor.
-  const SponsoredWebPageBase._() : super._();
 }
 
 /// Predicate Story Views.
@@ -2752,6 +2734,546 @@ abstract class SavedDialogBase extends TlConstructor {
 abstract class MessagesSavedDialogsBase extends TlConstructor {
   /// Predicate Messages Saved Dialogs constructor.
   const MessagesSavedDialogsBase._() : super._();
+}
+
+/// Predicate Saved Reaction Tag.
+abstract class SavedReactionTagBase extends TlConstructor {
+  /// Predicate Saved Reaction Tag constructor.
+  const SavedReactionTagBase._() : super._();
+}
+
+/// Predicate Messages Saved Reaction Tags.
+abstract class MessagesSavedReactionTagsBase extends TlConstructor {
+  /// Predicate Messages Saved Reaction Tags constructor.
+  const MessagesSavedReactionTagsBase._() : super._();
+}
+
+/// Predicate Outbox Read Date.
+abstract class OutboxReadDateBase extends TlConstructor {
+  /// Predicate Outbox Read Date constructor.
+  const OutboxReadDateBase._() : super._();
+}
+
+/// Predicate Smsjobs Eligibility To Join.
+abstract class SmsjobsEligibilityToJoinBase extends TlConstructor {
+  /// Predicate Smsjobs Eligibility To Join constructor.
+  const SmsjobsEligibilityToJoinBase._() : super._();
+}
+
+/// Predicate Smsjobs Status.
+abstract class SmsjobsStatusBase extends TlConstructor {
+  /// Predicate Smsjobs Status constructor.
+  const SmsjobsStatusBase._() : super._();
+}
+
+/// Predicate Sms Job.
+abstract class SmsJobBase extends TlConstructor {
+  /// Predicate Sms Job constructor.
+  const SmsJobBase._() : super._();
+}
+
+/// Predicate Business Weekly Open.
+abstract class BusinessWeeklyOpenBase extends TlConstructor {
+  /// Predicate Business Weekly Open constructor.
+  const BusinessWeeklyOpenBase._() : super._();
+}
+
+/// Predicate Business Work Hours.
+abstract class BusinessWorkHoursBase extends TlConstructor {
+  /// Predicate Business Work Hours constructor.
+  const BusinessWorkHoursBase._() : super._();
+}
+
+/// Predicate Business Location.
+abstract class BusinessLocationBase extends TlConstructor {
+  /// Predicate Business Location constructor.
+  const BusinessLocationBase._() : super._();
+}
+
+/// Predicate Input Business Recipients.
+abstract class InputBusinessRecipientsBase extends TlConstructor {
+  /// Predicate Input Business Recipients constructor.
+  const InputBusinessRecipientsBase._() : super._();
+}
+
+/// Predicate Business Recipients.
+abstract class BusinessRecipientsBase extends TlConstructor {
+  /// Predicate Business Recipients constructor.
+  const BusinessRecipientsBase._() : super._();
+}
+
+/// Predicate Business Away Message Schedule.
+abstract class BusinessAwayMessageScheduleBase extends TlConstructor {
+  /// Predicate Business Away Message Schedule constructor.
+  const BusinessAwayMessageScheduleBase._() : super._();
+}
+
+/// Predicate Input Business Greeting Message.
+abstract class InputBusinessGreetingMessageBase extends TlConstructor {
+  /// Predicate Input Business Greeting Message constructor.
+  const InputBusinessGreetingMessageBase._() : super._();
+}
+
+/// Predicate Business Greeting Message.
+abstract class BusinessGreetingMessageBase extends TlConstructor {
+  /// Predicate Business Greeting Message constructor.
+  const BusinessGreetingMessageBase._() : super._();
+}
+
+/// Predicate Input Business Away Message.
+abstract class InputBusinessAwayMessageBase extends TlConstructor {
+  /// Predicate Input Business Away Message constructor.
+  const InputBusinessAwayMessageBase._() : super._();
+}
+
+/// Predicate Business Away Message.
+abstract class BusinessAwayMessageBase extends TlConstructor {
+  /// Predicate Business Away Message constructor.
+  const BusinessAwayMessageBase._() : super._();
+}
+
+/// Predicate Timezone.
+abstract class TimezoneBase extends TlConstructor {
+  /// Predicate Timezone constructor.
+  const TimezoneBase._() : super._();
+}
+
+/// Predicate Help Timezones List.
+abstract class HelpTimezonesListBase extends TlConstructor {
+  /// Predicate Help Timezones List constructor.
+  const HelpTimezonesListBase._() : super._();
+}
+
+/// Predicate Quick Reply.
+abstract class QuickReplyBase extends TlConstructor {
+  /// Predicate Quick Reply constructor.
+  const QuickReplyBase._() : super._();
+}
+
+/// Predicate Input Quick Reply Shortcut.
+abstract class InputQuickReplyShortcutBase extends TlConstructor {
+  /// Predicate Input Quick Reply Shortcut constructor.
+  const InputQuickReplyShortcutBase._() : super._();
+}
+
+/// Predicate Messages Quick Replies.
+abstract class MessagesQuickRepliesBase extends TlConstructor {
+  /// Predicate Messages Quick Replies constructor.
+  const MessagesQuickRepliesBase._() : super._();
+}
+
+/// Predicate Connected Bot.
+abstract class ConnectedBotBase extends TlConstructor {
+  /// Predicate Connected Bot constructor.
+  const ConnectedBotBase._() : super._();
+}
+
+/// Predicate Account Connected Bots.
+abstract class AccountConnectedBotsBase extends TlConstructor {
+  /// Predicate Account Connected Bots constructor.
+  const AccountConnectedBotsBase._() : super._();
+}
+
+/// Predicate Messages Dialog Filters.
+abstract class MessagesDialogFiltersBase extends TlConstructor {
+  /// Predicate Messages Dialog Filters constructor.
+  const MessagesDialogFiltersBase._() : super._();
+}
+
+/// Predicate Birthday.
+abstract class BirthdayBase extends TlConstructor {
+  /// Predicate Birthday constructor.
+  const BirthdayBase._() : super._();
+}
+
+/// Predicate Bot Business Connection.
+abstract class BotBusinessConnectionBase extends TlConstructor {
+  /// Predicate Bot Business Connection constructor.
+  const BotBusinessConnectionBase._() : super._();
+}
+
+/// Predicate Input Business Intro.
+abstract class InputBusinessIntroBase extends TlConstructor {
+  /// Predicate Input Business Intro constructor.
+  const InputBusinessIntroBase._() : super._();
+}
+
+/// Predicate Business Intro.
+abstract class BusinessIntroBase extends TlConstructor {
+  /// Predicate Business Intro constructor.
+  const BusinessIntroBase._() : super._();
+}
+
+/// Predicate Messages My Stickers.
+abstract class MessagesMyStickersBase extends TlConstructor {
+  /// Predicate Messages My Stickers constructor.
+  const MessagesMyStickersBase._() : super._();
+}
+
+/// Predicate Input Collectible.
+abstract class InputCollectibleBase extends TlConstructor {
+  /// Predicate Input Collectible constructor.
+  const InputCollectibleBase._() : super._();
+}
+
+/// Predicate Fragment Collectible Info.
+abstract class FragmentCollectibleInfoBase extends TlConstructor {
+  /// Predicate Fragment Collectible Info constructor.
+  const FragmentCollectibleInfoBase._() : super._();
+}
+
+/// Predicate Input Business Bot Recipients.
+abstract class InputBusinessBotRecipientsBase extends TlConstructor {
+  /// Predicate Input Business Bot Recipients constructor.
+  const InputBusinessBotRecipientsBase._() : super._();
+}
+
+/// Predicate Business Bot Recipients.
+abstract class BusinessBotRecipientsBase extends TlConstructor {
+  /// Predicate Business Bot Recipients constructor.
+  const BusinessBotRecipientsBase._() : super._();
+}
+
+/// Predicate Contact Birthday.
+abstract class ContactBirthdayBase extends TlConstructor {
+  /// Predicate Contact Birthday constructor.
+  const ContactBirthdayBase._() : super._();
+}
+
+/// Predicate Contacts Contact Birthdays.
+abstract class ContactsContactBirthdaysBase extends TlConstructor {
+  /// Predicate Contacts Contact Birthdays constructor.
+  const ContactsContactBirthdaysBase._() : super._();
+}
+
+/// Predicate Missing Invitee.
+abstract class MissingInviteeBase extends TlConstructor {
+  /// Predicate Missing Invitee constructor.
+  const MissingInviteeBase._() : super._();
+}
+
+/// Predicate Messages Invited Users.
+abstract class MessagesInvitedUsersBase extends TlConstructor {
+  /// Predicate Messages Invited Users constructor.
+  const MessagesInvitedUsersBase._() : super._();
+}
+
+/// Predicate Input Business Chat Link.
+abstract class InputBusinessChatLinkBase extends TlConstructor {
+  /// Predicate Input Business Chat Link constructor.
+  const InputBusinessChatLinkBase._() : super._();
+}
+
+/// Predicate Business Chat Link.
+abstract class BusinessChatLinkBase extends TlConstructor {
+  /// Predicate Business Chat Link constructor.
+  const BusinessChatLinkBase._() : super._();
+}
+
+/// Predicate Account Business Chat Links.
+abstract class AccountBusinessChatLinksBase extends TlConstructor {
+  /// Predicate Account Business Chat Links constructor.
+  const AccountBusinessChatLinksBase._() : super._();
+}
+
+/// Predicate Account Resolved Business Chat Links.
+abstract class AccountResolvedBusinessChatLinksBase extends TlConstructor {
+  /// Predicate Account Resolved Business Chat Links constructor.
+  const AccountResolvedBusinessChatLinksBase._() : super._();
+}
+
+/// Predicate Requested Peer.
+abstract class RequestedPeerBase extends TlConstructor {
+  /// Predicate Requested Peer constructor.
+  const RequestedPeerBase._() : super._();
+}
+
+/// Predicate Sponsored Message Report Option.
+abstract class SponsoredMessageReportOptionBase extends TlConstructor {
+  /// Predicate Sponsored Message Report Option constructor.
+  const SponsoredMessageReportOptionBase._() : super._();
+}
+
+/// Predicate Channels Sponsored Message Report Result.
+abstract class ChannelsSponsoredMessageReportResultBase extends TlConstructor {
+  /// Predicate Channels Sponsored Message Report Result constructor.
+  const ChannelsSponsoredMessageReportResultBase._() : super._();
+}
+
+/// Predicate Stats Broadcast Revenue Stats.
+abstract class StatsBroadcastRevenueStatsBase extends TlConstructor {
+  /// Predicate Stats Broadcast Revenue Stats constructor.
+  const StatsBroadcastRevenueStatsBase._() : super._();
+}
+
+/// Predicate Stats Broadcast Revenue Withdrawal Url.
+abstract class StatsBroadcastRevenueWithdrawalUrlBase extends TlConstructor {
+  /// Predicate Stats Broadcast Revenue Withdrawal Url constructor.
+  const StatsBroadcastRevenueWithdrawalUrlBase._() : super._();
+}
+
+/// Predicate Broadcast Revenue Transaction.
+abstract class BroadcastRevenueTransactionBase extends TlConstructor {
+  /// Predicate Broadcast Revenue Transaction constructor.
+  const BroadcastRevenueTransactionBase._() : super._();
+}
+
+/// Predicate Stats Broadcast Revenue Transactions.
+abstract class StatsBroadcastRevenueTransactionsBase extends TlConstructor {
+  /// Predicate Stats Broadcast Revenue Transactions constructor.
+  const StatsBroadcastRevenueTransactionsBase._() : super._();
+}
+
+/// Predicate Reaction Notifications From.
+abstract class ReactionNotificationsFromBase extends TlConstructor {
+  /// Predicate Reaction Notifications From constructor.
+  const ReactionNotificationsFromBase._() : super._();
+}
+
+/// Predicate Reactions Notify Settings.
+abstract class ReactionsNotifySettingsBase extends TlConstructor {
+  /// Predicate Reactions Notify Settings constructor.
+  const ReactionsNotifySettingsBase._() : super._();
+}
+
+/// Predicate Broadcast Revenue Balances.
+abstract class BroadcastRevenueBalancesBase extends TlConstructor {
+  /// Predicate Broadcast Revenue Balances constructor.
+  const BroadcastRevenueBalancesBase._() : super._();
+}
+
+/// Predicate Available Effect.
+abstract class AvailableEffectBase extends TlConstructor {
+  /// Predicate Available Effect constructor.
+  const AvailableEffectBase._() : super._();
+}
+
+/// Predicate Messages Available Effects.
+abstract class MessagesAvailableEffectsBase extends TlConstructor {
+  /// Predicate Messages Available Effects constructor.
+  const MessagesAvailableEffectsBase._() : super._();
+}
+
+/// Predicate Fact Check.
+abstract class FactCheckBase extends TlConstructor {
+  /// Predicate Fact Check constructor.
+  const FactCheckBase._() : super._();
+}
+
+/// Predicate Stars Transaction Peer.
+abstract class StarsTransactionPeerBase extends TlConstructor {
+  /// Predicate Stars Transaction Peer constructor.
+  const StarsTransactionPeerBase._() : super._();
+}
+
+/// Predicate Stars Topup Option.
+abstract class StarsTopupOptionBase extends TlConstructor {
+  /// Predicate Stars Topup Option constructor.
+  const StarsTopupOptionBase._() : super._();
+}
+
+/// Predicate Stars Transaction.
+abstract class StarsTransactionBase extends TlConstructor {
+  /// Predicate Stars Transaction constructor.
+  const StarsTransactionBase._() : super._();
+}
+
+/// Predicate Payments Stars Status.
+abstract class PaymentsStarsStatusBase extends TlConstructor {
+  /// Predicate Payments Stars Status constructor.
+  const PaymentsStarsStatusBase._() : super._();
+}
+
+/// Predicate Found Story.
+abstract class FoundStoryBase extends TlConstructor {
+  /// Predicate Found Story constructor.
+  const FoundStoryBase._() : super._();
+}
+
+/// Predicate Stories Found Stories.
+abstract class StoriesFoundStoriesBase extends TlConstructor {
+  /// Predicate Stories Found Stories constructor.
+  const StoriesFoundStoriesBase._() : super._();
+}
+
+/// Predicate Geo Point Address.
+abstract class GeoPointAddressBase extends TlConstructor {
+  /// Predicate Geo Point Address constructor.
+  const GeoPointAddressBase._() : super._();
+}
+
+/// Predicate Stars Revenue Status.
+abstract class StarsRevenueStatusBase extends TlConstructor {
+  /// Predicate Stars Revenue Status constructor.
+  const StarsRevenueStatusBase._() : super._();
+}
+
+/// Predicate Payments Stars Revenue Stats.
+abstract class PaymentsStarsRevenueStatsBase extends TlConstructor {
+  /// Predicate Payments Stars Revenue Stats constructor.
+  const PaymentsStarsRevenueStatsBase._() : super._();
+}
+
+/// Predicate Payments Stars Revenue Withdrawal Url.
+abstract class PaymentsStarsRevenueWithdrawalUrlBase extends TlConstructor {
+  /// Predicate Payments Stars Revenue Withdrawal Url constructor.
+  const PaymentsStarsRevenueWithdrawalUrlBase._() : super._();
+}
+
+/// Predicate Payments Stars Revenue Ads Account Url.
+abstract class PaymentsStarsRevenueAdsAccountUrlBase extends TlConstructor {
+  /// Predicate Payments Stars Revenue Ads Account Url constructor.
+  const PaymentsStarsRevenueAdsAccountUrlBase._() : super._();
+}
+
+/// Predicate Input Stars Transaction.
+abstract class InputStarsTransactionBase extends TlConstructor {
+  /// Predicate Input Stars Transaction constructor.
+  const InputStarsTransactionBase._() : super._();
+}
+
+/// Predicate Stars Gift Option.
+abstract class StarsGiftOptionBase extends TlConstructor {
+  /// Predicate Stars Gift Option constructor.
+  const StarsGiftOptionBase._() : super._();
+}
+
+/// Predicate Bots Popular App Bots.
+abstract class BotsPopularAppBotsBase extends TlConstructor {
+  /// Predicate Bots Popular App Bots constructor.
+  const BotsPopularAppBotsBase._() : super._();
+}
+
+/// Predicate Bot Preview Media.
+abstract class BotPreviewMediaBase extends TlConstructor {
+  /// Predicate Bot Preview Media constructor.
+  const BotPreviewMediaBase._() : super._();
+}
+
+/// Predicate Bots Preview Info.
+abstract class BotsPreviewInfoBase extends TlConstructor {
+  /// Predicate Bots Preview Info constructor.
+  const BotsPreviewInfoBase._() : super._();
+}
+
+/// Predicate Stars Subscription Pricing.
+abstract class StarsSubscriptionPricingBase extends TlConstructor {
+  /// Predicate Stars Subscription Pricing constructor.
+  const StarsSubscriptionPricingBase._() : super._();
+}
+
+/// Predicate Stars Subscription.
+abstract class StarsSubscriptionBase extends TlConstructor {
+  /// Predicate Stars Subscription constructor.
+  const StarsSubscriptionBase._() : super._();
+}
+
+/// Predicate Message Reactor.
+abstract class MessageReactorBase extends TlConstructor {
+  /// Predicate Message Reactor constructor.
+  const MessageReactorBase._() : super._();
+}
+
+/// Predicate Stars Giveaway Option.
+abstract class StarsGiveawayOptionBase extends TlConstructor {
+  /// Predicate Stars Giveaway Option constructor.
+  const StarsGiveawayOptionBase._() : super._();
+}
+
+/// Predicate Stars Giveaway Winners Option.
+abstract class StarsGiveawayWinnersOptionBase extends TlConstructor {
+  /// Predicate Stars Giveaway Winners Option constructor.
+  const StarsGiveawayWinnersOptionBase._() : super._();
+}
+
+/// Predicate Star Gift.
+abstract class StarGiftBase extends TlConstructor {
+  /// Predicate Star Gift constructor.
+  const StarGiftBase._() : super._();
+}
+
+/// Predicate Payments Star Gifts.
+abstract class PaymentsStarGiftsBase extends TlConstructor {
+  /// Predicate Payments Star Gifts constructor.
+  const PaymentsStarGiftsBase._() : super._();
+}
+
+/// Predicate User Star Gift.
+abstract class UserStarGiftBase extends TlConstructor {
+  /// Predicate User Star Gift constructor.
+  const UserStarGiftBase._() : super._();
+}
+
+/// Predicate Payments User Star Gifts.
+abstract class PaymentsUserStarGiftsBase extends TlConstructor {
+  /// Predicate Payments User Star Gifts constructor.
+  const PaymentsUserStarGiftsBase._() : super._();
+}
+
+/// Predicate Message Report Option.
+abstract class MessageReportOptionBase extends TlConstructor {
+  /// Predicate Message Report Option constructor.
+  const MessageReportOptionBase._() : super._();
+}
+
+/// Predicate Report Result.
+abstract class ReportResultBase extends TlConstructor {
+  /// Predicate Report Result constructor.
+  const ReportResultBase._() : super._();
+}
+
+/// Predicate Messages Bot Prepared Inline Message.
+abstract class MessagesBotPreparedInlineMessageBase extends TlConstructor {
+  /// Predicate Messages Bot Prepared Inline Message constructor.
+  const MessagesBotPreparedInlineMessageBase._() : super._();
+}
+
+/// Predicate Messages Prepared Inline Message.
+abstract class MessagesPreparedInlineMessageBase extends TlConstructor {
+  /// Predicate Messages Prepared Inline Message constructor.
+  const MessagesPreparedInlineMessageBase._() : super._();
+}
+
+/// Predicate Bot App Settings.
+abstract class BotAppSettingsBase extends TlConstructor {
+  /// Predicate Bot App Settings constructor.
+  const BotAppSettingsBase._() : super._();
+}
+
+/// Predicate Star Ref Program.
+abstract class StarRefProgramBase extends TlConstructor {
+  /// Predicate Star Ref Program constructor.
+  const StarRefProgramBase._() : super._();
+}
+
+/// Predicate Connected Bot Star Ref.
+abstract class ConnectedBotStarRefBase extends TlConstructor {
+  /// Predicate Connected Bot Star Ref constructor.
+  const ConnectedBotStarRefBase._() : super._();
+}
+
+/// Predicate Payments Connected Star Ref Bots.
+abstract class PaymentsConnectedStarRefBotsBase extends TlConstructor {
+  /// Predicate Payments Connected Star Ref Bots constructor.
+  const PaymentsConnectedStarRefBotsBase._() : super._();
+}
+
+/// Predicate Payments Suggested Star Ref Bots.
+abstract class PaymentsSuggestedStarRefBotsBase extends TlConstructor {
+  /// Predicate Payments Suggested Star Ref Bots constructor.
+  const PaymentsSuggestedStarRefBotsBase._() : super._();
+}
+
+/// Predicate Stars Amount.
+abstract class StarsAmountBase extends TlConstructor {
+  /// Predicate Stars Amount constructor.
+  const StarsAmountBase._() : super._();
+}
+
+/// Predicate Messages Found Stickers.
+abstract class MessagesFoundStickersBase extends TlConstructor {
+  /// Predicate Messages Found Stickers constructor.
+  const MessagesFoundStickersBase._() : super._();
 }
 
 /// Predicate Decrypted Message.

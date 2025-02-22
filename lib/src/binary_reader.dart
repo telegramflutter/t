@@ -91,7 +91,7 @@ class BinaryReader {
     return tmp;
   }
 
-  /// Read List<TlObject>.
+  /// Read List&lt;TlObject&gt;.
   List<T> readVectorObject<T extends TlObject>() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
@@ -106,7 +106,7 @@ class BinaryReader {
     return items;
   }
 
-  /// Read List<int32>.
+  /// Read List&lt;int32&gt;.
   List<int> readVectorInt32() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
@@ -121,7 +121,7 @@ class BinaryReader {
     return items;
   }
 
-  /// Read List<int64>.
+  /// Read List&lt;int64&gt;.
   List<int> readVectorInt64() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
@@ -136,7 +136,7 @@ class BinaryReader {
     return items;
   }
 
-  /// Read List<Uint8List>.
+  /// Read List&lt;Uint8List&gt;.
   List<Uint8List> readVectorBytes() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
@@ -151,7 +151,7 @@ class BinaryReader {
     return items;
   }
 
-  /// Read List<String>.
+  /// Read List&lt;String&gt;.
   List<String> readVectorString() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');

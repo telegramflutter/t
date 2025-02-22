@@ -1,3 +1,7 @@
+## 0.0.18
+
+- Upgraded to Telegram API Layer 195.
+
 ## 0.0.17
 
 - Session to/from JSON.

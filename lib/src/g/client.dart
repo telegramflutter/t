@@ -24,6 +24,8 @@ abstract class Client {
     chatlists = ClientChatlists._(this);
     stories = ClientStories._(this);
     premium = ClientPremium._(this);
+    smsjobs = ClientSmsjobs._(this);
+    fragment = ClientFragment._(this);
   }
 
   /// Call the specified RPC [method] on the server.
@@ -88,6 +90,12 @@ abstract class Client {
 
   /// Premium part.
   late final ClientPremium premium;
+
+  /// Smsjobs part.
+  late final ClientSmsjobs smsjobs;
+
+  /// Fragment part.
+  late final ClientFragment fragment;
 
   /// Invoke After Msg.
   ///
@@ -245,6 +253,70 @@ abstract class Client {
     // Return the result.
     return response._to<T>();
   }
+
+  /// Invoke With Business Connection.
+  ///
+  /// ID: `dd289f8e`.
+  Future<Result<T>> invokeWithBusinessConnection<T extends TlObject>({
+    required String connectionId,
+    required TlMethod query,
+  }) async {
+    // Preparing the request.
+    final request = InvokeWithBusinessConnection(
+      connectionId: connectionId,
+      query: query,
+    );
+
+    // Invoke and wait for response.
+    final response = await invoke(request);
+
+    // Return the result.
+    return response._to<T>();
+  }
+
+  /// Invoke With Google Play Integrity.
+  ///
+  /// ID: `1df92984`.
+  Future<Result<T>> invokeWithGooglePlayIntegrity<T extends TlObject>({
+    required String nonce,
+    required String token,
+    required TlMethod query,
+  }) async {
+    // Preparing the request.
+    final request = InvokeWithGooglePlayIntegrity(
+      nonce: nonce,
+      token: token,
+      query: query,
+    );
+
+    // Invoke and wait for response.
+    final response = await invoke(request);
+
+    // Return the result.
+    return response._to<T>();
+  }
+
+  /// Invoke With Apns Secret.
+  ///
+  /// ID: `0dae54f8`.
+  Future<Result<T>> invokeWithApnsSecret<T extends TlObject>({
+    required String nonce,
+    required String secret,
+    required TlMethod query,
+  }) async {
+    // Preparing the request.
+    final request = InvokeWithApnsSecret(
+      nonce: nonce,
+      secret: secret,
+      query: query,
+    );
+
+    // Invoke and wait for response.
+    final response = await invoke(request);
+
+    // Return the result.
+    return response._to<T>();
+  }
 }
 
 /// Auth.
@@ -279,8 +351,9 @@ class ClientAuth {
 
   /// Sign Up.
   ///
-  /// ID: `80eee427`.
+  /// ID: `aac7b717`.
   Future<Result<AuthAuthorizationBase>> signUp({
+    required bool noJoinedNotifications,
     required String phoneNumber,
     required String phoneCodeHash,
     required String firstName,
@@ -288,6 +361,7 @@ class ClientAuth {
   }) async {
     // Preparing the request.
     final request = AuthSignUp(
+      noJoinedNotifications: noJoinedNotifications,
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
       firstName: firstName,
@@ -493,15 +567,17 @@ class ClientAuth {
 
   /// Resend Code.
   ///
-  /// ID: `3ef1a9bf`.
+  /// ID: `cae47523`.
   Future<Result<AuthSentCodeBase>> resendCode({
     required String phoneNumber,
     required String phoneCodeHash,
+    String? reason,
   }) async {
     // Preparing the request.
     final request = AuthResendCode(
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
+      reason: reason,
     );
 
     // Invoke and wait for response.
@@ -649,11 +725,12 @@ class ClientAuth {
 
   /// Request Firebase Sms.
   ///
-  /// ID: `89464b50`.
+  /// ID: `8e39261e`.
   Future<Result<Boolean>> requestFirebaseSms({
     required String phoneNumber,
     required String phoneCodeHash,
     String? safetyNetToken,
+    String? playIntegrityToken,
     String? iosPushSecret,
   }) async {
     // Preparing the request.
@@ -661,6 +738,7 @@ class ClientAuth {
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
       safetyNetToken: safetyNetToken,
+      playIntegrityToken: playIntegrityToken,
       iosPushSecret: iosPushSecret,
     );
 
@@ -689,6 +767,28 @@ class ClientAuth {
 
     // Return the result.
     return response._to<AuthSentCodeBase>();
+  }
+
+  /// Report Missing Code.
+  ///
+  /// ID: `cb9deff6`.
+  Future<Result<Boolean>> reportMissingCode({
+    required String phoneNumber,
+    required String phoneCodeHash,
+    required String mnc,
+  }) async {
+    // Preparing the request.
+    final request = AuthReportMissingCode(
+      phoneNumber: phoneNumber,
+      phoneCodeHash: phoneCodeHash,
+      mnc: mnc,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
   }
 }
 
@@ -2442,6 +2542,367 @@ class ClientAccount {
     // Return the result.
     return response._to<EmojiListBase>();
   }
+
+  /// Update Business Work Hours.
+  ///
+  /// ID: `4b00e066`.
+  Future<Result<Boolean>> updateBusinessWorkHours({
+    BusinessWorkHoursBase? businessWorkHours,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateBusinessWorkHours(
+      businessWorkHours: businessWorkHours,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Update Business Location.
+  ///
+  /// ID: `9e6b131a`.
+  Future<Result<Boolean>> updateBusinessLocation({
+    InputGeoPointBase? geoPoint,
+    String? address,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateBusinessLocation(
+      geoPoint: geoPoint,
+      address: address,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Update Business Greeting Message.
+  ///
+  /// ID: `66cdafc4`.
+  Future<Result<Boolean>> updateBusinessGreetingMessage({
+    InputBusinessGreetingMessageBase? message,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateBusinessGreetingMessage(
+      message: message,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Update Business Away Message.
+  ///
+  /// ID: `a26a7fa5`.
+  Future<Result<Boolean>> updateBusinessAwayMessage({
+    InputBusinessAwayMessageBase? message,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateBusinessAwayMessage(
+      message: message,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Update Connected Bot.
+  ///
+  /// ID: `43d8521d`.
+  Future<Result<UpdatesBase>> updateConnectedBot({
+    required bool canReply,
+    required bool deleted,
+    required InputUserBase bot,
+    required InputBusinessBotRecipientsBase recipients,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateConnectedBot(
+      canReply: canReply,
+      deleted: deleted,
+      bot: bot,
+      recipients: recipients,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Connected Bots.
+  ///
+  /// ID: `4ea4c80f`.
+  Future<Result<AccountConnectedBotsBase>> getConnectedBots() async {
+    // Preparing the request.
+    final request = AccountGetConnectedBots();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountConnectedBotsBase>();
+  }
+
+  /// Get Bot Business Connection.
+  ///
+  /// ID: `76a86270`.
+  Future<Result<UpdatesBase>> getBotBusinessConnection({
+    required String connectionId,
+  }) async {
+    // Preparing the request.
+    final request = AccountGetBotBusinessConnection(
+      connectionId: connectionId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Update Business Intro.
+  ///
+  /// ID: `a614d034`.
+  Future<Result<Boolean>> updateBusinessIntro({
+    InputBusinessIntroBase? intro,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateBusinessIntro(
+      intro: intro,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Toggle Connected Bot Paused.
+  ///
+  /// ID: `646e1097`.
+  Future<Result<Boolean>> toggleConnectedBotPaused({
+    required InputPeerBase peer,
+    required bool paused,
+  }) async {
+    // Preparing the request.
+    final request = AccountToggleConnectedBotPaused(
+      peer: peer,
+      paused: paused,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Disable Peer Connected Bot.
+  ///
+  /// ID: `5e437ed9`.
+  Future<Result<Boolean>> disablePeerConnectedBot({
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = AccountDisablePeerConnectedBot(
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Update Birthday.
+  ///
+  /// ID: `cc6e0c11`.
+  Future<Result<Boolean>> updateBirthday({
+    BirthdayBase? birthday,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateBirthday(
+      birthday: birthday,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Create Business Chat Link.
+  ///
+  /// ID: `8851e68e`.
+  Future<Result<BusinessChatLinkBase>> createBusinessChatLink({
+    required InputBusinessChatLinkBase link,
+  }) async {
+    // Preparing the request.
+    final request = AccountCreateBusinessChatLink(
+      link: link,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BusinessChatLinkBase>();
+  }
+
+  /// Edit Business Chat Link.
+  ///
+  /// ID: `8c3410af`.
+  Future<Result<BusinessChatLinkBase>> editBusinessChatLink({
+    required String slug,
+    required InputBusinessChatLinkBase link,
+  }) async {
+    // Preparing the request.
+    final request = AccountEditBusinessChatLink(
+      slug: slug,
+      link: link,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BusinessChatLinkBase>();
+  }
+
+  /// Delete Business Chat Link.
+  ///
+  /// ID: `60073674`.
+  Future<Result<Boolean>> deleteBusinessChatLink({
+    required String slug,
+  }) async {
+    // Preparing the request.
+    final request = AccountDeleteBusinessChatLink(
+      slug: slug,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Business Chat Links.
+  ///
+  /// ID: `6f70dde1`.
+  Future<Result<AccountBusinessChatLinksBase>> getBusinessChatLinks() async {
+    // Preparing the request.
+    final request = AccountGetBusinessChatLinks();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountBusinessChatLinksBase>();
+  }
+
+  /// Resolve Business Chat Link.
+  ///
+  /// ID: `5492e5ee`.
+  Future<Result<AccountResolvedBusinessChatLinksBase>> resolveBusinessChatLink({
+    required String slug,
+  }) async {
+    // Preparing the request.
+    final request = AccountResolveBusinessChatLink(
+      slug: slug,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountResolvedBusinessChatLinksBase>();
+  }
+
+  /// Update Personal Channel.
+  ///
+  /// ID: `d94305e0`.
+  Future<Result<Boolean>> updatePersonalChannel({
+    required InputChannelBase channel,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdatePersonalChannel(
+      channel: channel,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Toggle Sponsored Messages.
+  ///
+  /// ID: `b9d9a38d`.
+  Future<Result<Boolean>> toggleSponsoredMessages({
+    required bool enabled,
+  }) async {
+    // Preparing the request.
+    final request = AccountToggleSponsoredMessages(
+      enabled: enabled,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Reactions Notify Settings.
+  ///
+  /// ID: `06dd654c`.
+  Future<Result<ReactionsNotifySettingsBase>>
+      getReactionsNotifySettings() async {
+    // Preparing the request.
+    final request = AccountGetReactionsNotifySettings();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ReactionsNotifySettingsBase>();
+  }
+
+  /// Set Reactions Notify Settings.
+  ///
+  /// ID: `316ce548`.
+  Future<Result<ReactionsNotifySettingsBase>> setReactionsNotifySettings({
+    required ReactionsNotifySettingsBase settings,
+  }) async {
+    // Preparing the request.
+    final request = AccountSetReactionsNotifySettings(
+      settings: settings,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ReactionsNotifySettingsBase>();
+  }
 }
 
 /// Users.
@@ -2504,6 +2965,24 @@ class ClientUsers {
 
     // Return the result.
     return response._to<Boolean>();
+  }
+
+  /// Get Is Premium Required To Contact.
+  ///
+  /// ID: `a622aa10`.
+  Future<Result<Vector<bool>>> getIsPremiumRequiredToContact({
+    required List<InputUserBase> id,
+  }) async {
+    // Preparing the request.
+    final request = UsersGetIsPremiumRequiredToContact(
+      id: id,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<bool>>();
   }
 }
 
@@ -2701,13 +3180,15 @@ class ClientContacts {
 
   /// Resolve Username.
   ///
-  /// ID: `f93ccba3`.
+  /// ID: `725afbbc`.
   Future<Result<ContactsResolvedPeerBase>> resolveUsername({
     required String username,
+    String? referer,
   }) async {
     // Preparing the request.
     final request = ContactsResolveUsername(
       username: username,
+      referer: referer,
     );
 
     // Invoke and wait for response.
@@ -2729,6 +3210,7 @@ class ClientContacts {
     required bool forwardChats,
     required bool groups,
     required bool channels,
+    required bool botsApp,
     required int offset,
     required int limit,
     required int hash,
@@ -2743,6 +3225,7 @@ class ClientContacts {
       forwardChats: forwardChats,
       groups: groups,
       channels: channels,
+      botsApp: botsApp,
       offset: offset,
       limit: limit,
       hash: hash,
@@ -3000,6 +3483,20 @@ class ClientContacts {
     // Return the result.
     return response._to<Boolean>();
   }
+
+  /// Get Birthdays.
+  ///
+  /// ID: `daeda864`.
+  Future<Result<ContactsContactBirthdaysBase>> getBirthdays() async {
+    // Preparing the request.
+    final request = ContactsGetBirthdays();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ContactsContactBirthdaysBase>();
+  }
 }
 
 /// Messages.
@@ -3090,12 +3587,13 @@ class ClientMessages {
 
   /// Search.
   ///
-  /// ID: `a7b4e929`.
+  /// ID: `29ee847a`.
   Future<Result<MessagesMessagesBase>> search({
     required InputPeerBase peer,
     required String q,
     InputPeerBase? fromId,
     InputPeerBase? savedPeerId,
+    List<ReactionBase>? savedReaction,
     int? topMsgId,
     required MessagesFilterBase filter,
     required DateTime minDate,
@@ -3113,6 +3611,7 @@ class ClientMessages {
       q: q,
       fromId: fromId,
       savedPeerId: savedPeerId,
+      savedReaction: savedReaction,
       topMsgId: topMsgId,
       filter: filter,
       minDate: minDate,
@@ -3242,7 +3741,7 @@ class ClientMessages {
 
   /// Send Message.
   ///
-  /// ID: `280d096f`.
+  /// ID: `983f9745`.
   Future<Result<UpdatesBase>> sendMessage({
     required bool noWebpage,
     required bool silent,
@@ -3251,6 +3750,7 @@ class ClientMessages {
     required bool noforwards,
     required bool updateStickersetsOrder,
     required bool invertMedia,
+    required bool allowPaidFloodskip,
     required InputPeerBase peer,
     InputReplyToBase? replyTo,
     required String message,
@@ -3259,6 +3759,8 @@ class ClientMessages {
     List<MessageEntityBase>? entities,
     DateTime? scheduleDate,
     InputPeerBase? sendAs,
+    InputQuickReplyShortcutBase? quickReplyShortcut,
+    int? effect,
   }) async {
     // Preparing the request.
     final request = MessagesSendMessage(
@@ -3269,6 +3771,7 @@ class ClientMessages {
       noforwards: noforwards,
       updateStickersetsOrder: updateStickersetsOrder,
       invertMedia: invertMedia,
+      allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
       message: message,
@@ -3277,6 +3780,8 @@ class ClientMessages {
       entities: entities,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
     );
 
     // Invoke and wait for response.
@@ -3288,7 +3793,7 @@ class ClientMessages {
 
   /// Send Media.
   ///
-  /// ID: `72ccc23d`.
+  /// ID: `7852834e`.
   Future<Result<UpdatesBase>> sendMedia({
     required bool silent,
     required bool background,
@@ -3296,6 +3801,7 @@ class ClientMessages {
     required bool noforwards,
     required bool updateStickersetsOrder,
     required bool invertMedia,
+    required bool allowPaidFloodskip,
     required InputPeerBase peer,
     InputReplyToBase? replyTo,
     required InputMediaBase media,
@@ -3305,6 +3811,8 @@ class ClientMessages {
     List<MessageEntityBase>? entities,
     DateTime? scheduleDate,
     InputPeerBase? sendAs,
+    InputQuickReplyShortcutBase? quickReplyShortcut,
+    int? effect,
   }) async {
     // Preparing the request.
     final request = MessagesSendMedia(
@@ -3314,6 +3822,7 @@ class ClientMessages {
       noforwards: noforwards,
       updateStickersetsOrder: updateStickersetsOrder,
       invertMedia: invertMedia,
+      allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
       media: media,
@@ -3323,6 +3832,8 @@ class ClientMessages {
       entities: entities,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
     );
 
     // Invoke and wait for response.
@@ -3334,7 +3845,7 @@ class ClientMessages {
 
   /// Forward Messages.
   ///
-  /// ID: `c661bbc4`.
+  /// ID: `d5039208`.
   Future<Result<UpdatesBase>> forwardMessages({
     required bool silent,
     required bool background,
@@ -3342,6 +3853,7 @@ class ClientMessages {
     required bool dropAuthor,
     required bool dropMediaCaptions,
     required bool noforwards,
+    required bool allowPaidFloodskip,
     required InputPeerBase fromPeer,
     required List<int> id,
     required List<int> randomId,
@@ -3349,6 +3861,7 @@ class ClientMessages {
     int? topMsgId,
     DateTime? scheduleDate,
     InputPeerBase? sendAs,
+    InputQuickReplyShortcutBase? quickReplyShortcut,
   }) async {
     // Preparing the request.
     final request = MessagesForwardMessages(
@@ -3358,6 +3871,7 @@ class ClientMessages {
       dropAuthor: dropAuthor,
       dropMediaCaptions: dropMediaCaptions,
       noforwards: noforwards,
+      allowPaidFloodskip: allowPaidFloodskip,
       fromPeer: fromPeer,
       id: id,
       randomId: randomId,
@@ -3365,6 +3879,7 @@ class ClientMessages {
       topMsgId: topMsgId,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
     );
 
     // Invoke and wait for response.
@@ -3412,18 +3927,18 @@ class ClientMessages {
 
   /// Report.
   ///
-  /// ID: `8953ab4e`.
-  Future<Result<Boolean>> report({
+  /// ID: `fc78af9b`.
+  Future<Result<ReportResultBase>> report({
     required InputPeerBase peer,
     required List<int> id,
-    required ReportReasonBase reason,
+    required Uint8List option,
     required String message,
   }) async {
     // Preparing the request.
     final request = MessagesReport(
       peer: peer,
       id: id,
-      reason: reason,
+      option: option,
       message: message,
     );
 
@@ -3431,7 +3946,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Boolean>();
+    return response._to<ReportResultBase>();
   }
 
   /// Get Chats.
@@ -3512,8 +4027,8 @@ class ClientMessages {
 
   /// Add Chat User.
   ///
-  /// ID: `f24753e3`.
-  Future<Result<UpdatesBase>> addChatUser({
+  /// ID: `cbc6d107`.
+  Future<Result<MessagesInvitedUsersBase>> addChatUser({
     required int chatId,
     required InputUserBase userId,
     required int fwdLimit,
@@ -3529,7 +4044,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<UpdatesBase>();
+    return response._to<MessagesInvitedUsersBase>();
   }
 
   /// Delete Chat User.
@@ -3556,8 +4071,8 @@ class ClientMessages {
 
   /// Create Chat.
   ///
-  /// ID: `0034a818`.
-  Future<Result<UpdatesBase>> createChat({
+  /// ID: `92ceddd4`.
+  Future<Result<MessagesInvitedUsersBase>> createChat({
     required List<InputUserBase> users,
     required String title,
     int? ttlPeriod,
@@ -3573,7 +4088,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<UpdatesBase>();
+    return response._to<MessagesInvitedUsersBase>();
   }
 
   /// Get Dh Config.
@@ -3886,7 +4401,7 @@ class ClientMessages {
 
   /// Export Chat Invite.
   ///
-  /// ID: `a02ce5d5`.
+  /// ID: `a455de90`.
   Future<Result<ExportedChatInviteBase>> exportChatInvite({
     required bool legacyRevokePermanent,
     required bool requestNeeded,
@@ -3894,6 +4409,7 @@ class ClientMessages {
     DateTime? expireDate,
     int? usageLimit,
     String? title,
+    StarsSubscriptionPricingBase? subscriptionPricing,
   }) async {
     // Preparing the request.
     final request = MessagesExportChatInvite(
@@ -3903,6 +4419,7 @@ class ClientMessages {
       expireDate: expireDate,
       usageLimit: usageLimit,
       title: title,
+      subscriptionPricing: subscriptionPricing,
     );
 
     // Invoke and wait for response.
@@ -4097,6 +4614,8 @@ class ClientMessages {
   /// ID: `4bc6589a`.
   Future<Result<MessagesMessagesBase>> searchGlobal({
     required bool broadcastsOnly,
+    required bool groupsOnly,
+    required bool usersOnly,
     int? folderId,
     required String q,
     required MessagesFilterBase filter,
@@ -4110,6 +4629,8 @@ class ClientMessages {
     // Preparing the request.
     final request = MessagesSearchGlobal(
       broadcastsOnly: broadcastsOnly,
+      groupsOnly: groupsOnly,
+      usersOnly: usersOnly,
       folderId: folderId,
       q: q,
       filter: filter,
@@ -4270,7 +4791,7 @@ class ClientMessages {
 
   /// Send Inline Bot Result.
   ///
-  /// ID: `f7bc68ba`.
+  /// ID: `3ebee86a`.
   Future<Result<UpdatesBase>> sendInlineBotResult({
     required bool silent,
     required bool background,
@@ -4283,6 +4804,7 @@ class ClientMessages {
     required String id,
     DateTime? scheduleDate,
     InputPeerBase? sendAs,
+    InputQuickReplyShortcutBase? quickReplyShortcut,
   }) async {
     // Preparing the request.
     final request = MessagesSendInlineBotResult(
@@ -4297,6 +4819,7 @@ class ClientMessages {
       id: id,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
     );
 
     // Invoke and wait for response.
@@ -4328,7 +4851,7 @@ class ClientMessages {
 
   /// Edit Message.
   ///
-  /// ID: `48f71778`.
+  /// ID: `dfd14005`.
   Future<Result<UpdatesBase>> editMessage({
     required bool noWebpage,
     required bool invertMedia,
@@ -4339,6 +4862,7 @@ class ClientMessages {
     ReplyMarkupBase? replyMarkup,
     List<MessageEntityBase>? entities,
     DateTime? scheduleDate,
+    int? quickReplyShortcutId,
   }) async {
     // Preparing the request.
     final request = MessagesEditMessage(
@@ -4351,6 +4875,7 @@ class ClientMessages {
       replyMarkup: replyMarkup,
       entities: entities,
       scheduleDate: scheduleDate,
+      quickReplyShortcutId: quickReplyShortcutId,
     );
 
     // Invoke and wait for response.
@@ -4462,7 +4987,7 @@ class ClientMessages {
 
   /// Save Draft.
   ///
-  /// ID: `7ff3b806`.
+  /// ID: `d372c5ce`.
   Future<Result<Boolean>> saveDraft({
     required bool noWebpage,
     required bool invertMedia,
@@ -4471,6 +4996,7 @@ class ClientMessages {
     required String message,
     List<MessageEntityBase>? entities,
     InputMediaBase? media,
+    int? effect,
   }) async {
     // Preparing the request.
     final request = MessagesSaveDraft(
@@ -4481,6 +5007,7 @@ class ClientMessages {
       message: message,
       entities: entities,
       media: media,
+      effect: effect,
     );
 
     // Invoke and wait for response.
@@ -4904,13 +5431,15 @@ class ClientMessages {
 
   /// Upload Media.
   ///
-  /// ID: `519bc2b1`.
+  /// ID: `14967978`.
   Future<Result<MessageMediaBase>> uploadMedia({
+    String? businessConnectionId,
     required InputPeerBase peer,
     required InputMediaBase media,
   }) async {
     // Preparing the request.
     final request = MessagesUploadMedia(
+      businessConnectionId: businessConnectionId,
       peer: peer,
       media: media,
     );
@@ -5056,7 +5585,7 @@ class ClientMessages {
 
   /// Send Multi Media.
   ///
-  /// ID: `456e8987`.
+  /// ID: `37b74355`.
   Future<Result<UpdatesBase>> sendMultiMedia({
     required bool silent,
     required bool background,
@@ -5064,11 +5593,14 @@ class ClientMessages {
     required bool noforwards,
     required bool updateStickersetsOrder,
     required bool invertMedia,
+    required bool allowPaidFloodskip,
     required InputPeerBase peer,
     InputReplyToBase? replyTo,
     required List<InputSingleMediaBase> multiMedia,
     DateTime? scheduleDate,
     InputPeerBase? sendAs,
+    InputQuickReplyShortcutBase? quickReplyShortcut,
+    int? effect,
   }) async {
     // Preparing the request.
     final request = MessagesSendMultiMedia(
@@ -5078,11 +5610,14 @@ class ClientMessages {
       noforwards: noforwards,
       updateStickersetsOrder: updateStickersetsOrder,
       invertMedia: invertMedia,
+      allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
       multiMedia: multiMedia,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
+      quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
     );
 
     // Invoke and wait for response.
@@ -5620,8 +6155,8 @@ class ClientMessages {
 
   /// Get Dialog Filters.
   ///
-  /// ID: `f19ed96d`.
-  Future<Result<Vector<DialogFilterBase>>> getDialogFilters() async {
+  /// ID: `efd48c89`.
+  Future<Result<MessagesDialogFiltersBase>> getDialogFilters() async {
     // Preparing the request.
     final request = MessagesGetDialogFilters();
 
@@ -5629,7 +6164,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<DialogFilterBase>>();
+    return response._to<MessagesDialogFiltersBase>();
   }
 
   /// Get Suggested Dialog Filters.
@@ -6064,6 +6599,7 @@ class ClientMessages {
   /// ID: `df04dd4e`.
   Future<Result<MessagesChatInviteImportersBase>> getChatInviteImporters({
     required bool requested,
+    required bool subscriptionExpired,
     required InputPeerBase peer,
     String? link,
     String? q,
@@ -6074,6 +6610,7 @@ class ClientMessages {
     // Preparing the request.
     final request = MessagesGetChatInviteImporters(
       requested: requested,
+      subscriptionExpired: subscriptionExpired,
       peer: peer,
       link: link,
       q: q,
@@ -6377,15 +6914,19 @@ class ClientMessages {
 
   /// Set Chat Available Reactions.
   ///
-  /// ID: `feb16771`.
+  /// ID: `864b2581`.
   Future<Result<UpdatesBase>> setChatAvailableReactions({
     required InputPeerBase peer,
     required ChatReactionsBase availableReactions,
+    int? reactionsLimit,
+    required bool paidEnabled,
   }) async {
     // Preparing the request.
     final request = MessagesSetChatAvailableReactions(
       peer: peer,
       availableReactions: availableReactions,
+      reactionsLimit: reactionsLimit,
+      paidEnabled: paidEnabled,
     );
 
     // Invoke and wait for response.
@@ -6591,6 +7132,8 @@ class ClientMessages {
   Future<Result<WebViewResultBase>> requestWebView({
     required bool fromBotMenu,
     required bool silent,
+    required bool compact,
+    required bool fullscreen,
     required InputPeerBase peer,
     required InputUserBase bot,
     String? url,
@@ -6604,6 +7147,8 @@ class ClientMessages {
     final request = MessagesRequestWebView(
       fromBotMenu: fromBotMenu,
       silent: silent,
+      compact: compact,
+      fullscreen: fullscreen,
       peer: peer,
       bot: bot,
       url: url,
@@ -6651,10 +7196,12 @@ class ClientMessages {
 
   /// Request Simple Web View.
   ///
-  /// ID: `1a46500a`.
-  Future<Result<SimpleWebViewResultBase>> requestSimpleWebView({
+  /// ID: `413a3e73`.
+  Future<Result<WebViewResultBase>> requestSimpleWebView({
     required bool fromSwitchWebview,
     required bool fromSideMenu,
+    required bool compact,
+    required bool fullscreen,
     required InputUserBase bot,
     String? url,
     String? startParam,
@@ -6665,6 +7212,8 @@ class ClientMessages {
     final request = MessagesRequestSimpleWebView(
       fromSwitchWebview: fromSwitchWebview,
       fromSideMenu: fromSideMenu,
+      compact: compact,
+      fullscreen: fullscreen,
       bot: bot,
       url: url,
       startParam: startParam,
@@ -6676,7 +7225,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<SimpleWebViewResultBase>();
+    return response._to<WebViewResultBase>();
   }
 
   /// Send Web View Result Message.
@@ -7089,9 +7638,11 @@ class ClientMessages {
 
   /// Request App Web View.
   ///
-  /// ID: `8c5a3b3c`.
-  Future<Result<AppWebViewResultBase>> requestAppWebView({
+  /// ID: `53618bce`.
+  Future<Result<WebViewResultBase>> requestAppWebView({
     required bool writeAllowed,
+    required bool compact,
+    required bool fullscreen,
     required InputPeerBase peer,
     required InputBotAppBase app,
     String? startParam,
@@ -7101,6 +7652,8 @@ class ClientMessages {
     // Preparing the request.
     final request = MessagesRequestAppWebView(
       writeAllowed: writeAllowed,
+      compact: compact,
+      fullscreen: fullscreen,
       peer: peer,
       app: app,
       startParam: startParam,
@@ -7112,7 +7665,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<AppWebViewResultBase>();
+    return response._to<WebViewResultBase>();
   }
 
   /// Set Chat Wall Paper.
@@ -7301,6 +7854,628 @@ class ClientMessages {
 
     // Return the result.
     return response._to<Boolean>();
+  }
+
+  /// Get Saved Reaction Tags.
+  ///
+  /// ID: `3637e05b`.
+  Future<Result<MessagesSavedReactionTagsBase>> getSavedReactionTags({
+    InputPeerBase? peer,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetSavedReactionTags(
+      peer: peer,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesSavedReactionTagsBase>();
+  }
+
+  /// Update Saved Reaction Tag.
+  ///
+  /// ID: `60297dec`.
+  Future<Result<Boolean>> updateSavedReactionTag({
+    required ReactionBase reaction,
+    String? title,
+  }) async {
+    // Preparing the request.
+    final request = MessagesUpdateSavedReactionTag(
+      reaction: reaction,
+      title: title,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Default Tag Reactions.
+  ///
+  /// ID: `bdf93428`.
+  Future<Result<MessagesReactionsBase>> getDefaultTagReactions({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetDefaultTagReactions(
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesReactionsBase>();
+  }
+
+  /// Get Outbox Read Date.
+  ///
+  /// ID: `8c4bfe5d`.
+  Future<Result<OutboxReadDateBase>> getOutboxReadDate({
+    required InputPeerBase peer,
+    required int msgId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetOutboxReadDate(
+      peer: peer,
+      msgId: msgId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<OutboxReadDateBase>();
+  }
+
+  /// Get Quick Replies.
+  ///
+  /// ID: `d483f2a8`.
+  Future<Result<MessagesQuickRepliesBase>> getQuickReplies({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetQuickReplies(
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesQuickRepliesBase>();
+  }
+
+  /// Reorder Quick Replies.
+  ///
+  /// ID: `60331907`.
+  Future<Result<Boolean>> reorderQuickReplies({
+    required List<int> order,
+  }) async {
+    // Preparing the request.
+    final request = MessagesReorderQuickReplies(
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Check Quick Reply Shortcut.
+  ///
+  /// ID: `f1d0fbd3`.
+  Future<Result<Boolean>> checkQuickReplyShortcut({
+    required String shortcut,
+  }) async {
+    // Preparing the request.
+    final request = MessagesCheckQuickReplyShortcut(
+      shortcut: shortcut,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Edit Quick Reply Shortcut.
+  ///
+  /// ID: `5c003cef`.
+  Future<Result<Boolean>> editQuickReplyShortcut({
+    required int shortcutId,
+    required String shortcut,
+  }) async {
+    // Preparing the request.
+    final request = MessagesEditQuickReplyShortcut(
+      shortcutId: shortcutId,
+      shortcut: shortcut,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Quick Reply Shortcut.
+  ///
+  /// ID: `3cc04740`.
+  Future<Result<Boolean>> deleteQuickReplyShortcut({
+    required int shortcutId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeleteQuickReplyShortcut(
+      shortcutId: shortcutId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Quick Reply Messages.
+  ///
+  /// ID: `94a495c3`.
+  Future<Result<MessagesMessagesBase>> getQuickReplyMessages({
+    required int shortcutId,
+    List<int>? id,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetQuickReplyMessages(
+      shortcutId: shortcutId,
+      id: id,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesMessagesBase>();
+  }
+
+  /// Send Quick Reply Messages.
+  ///
+  /// ID: `6c750de1`.
+  Future<Result<UpdatesBase>> sendQuickReplyMessages({
+    required InputPeerBase peer,
+    required int shortcutId,
+    required List<int> id,
+    required List<int> randomId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesSendQuickReplyMessages(
+      peer: peer,
+      shortcutId: shortcutId,
+      id: id,
+      randomId: randomId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Quick Reply Messages.
+  ///
+  /// ID: `e105e910`.
+  Future<Result<UpdatesBase>> deleteQuickReplyMessages({
+    required int shortcutId,
+    required List<int> id,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeleteQuickReplyMessages(
+      shortcutId: shortcutId,
+      id: id,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Toggle Dialog Filter Tags.
+  ///
+  /// ID: `fd2dda49`.
+  Future<Result<Boolean>> toggleDialogFilterTags({
+    required bool enabled,
+  }) async {
+    // Preparing the request.
+    final request = MessagesToggleDialogFilterTags(
+      enabled: enabled,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get My Stickers.
+  ///
+  /// ID: `d0b5e1fc`.
+  Future<Result<MessagesMyStickersBase>> getMyStickers({
+    required int offsetId,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetMyStickers(
+      offsetId: offsetId,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesMyStickersBase>();
+  }
+
+  /// Get Emoji Sticker Groups.
+  ///
+  /// ID: `1dd840f5`.
+  Future<Result<MessagesEmojiGroupsBase>> getEmojiStickerGroups({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetEmojiStickerGroups(
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesEmojiGroupsBase>();
+  }
+
+  /// Get Available Effects.
+  ///
+  /// ID: `dea20a39`.
+  Future<Result<MessagesAvailableEffectsBase>> getAvailableEffects({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetAvailableEffects(
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesAvailableEffectsBase>();
+  }
+
+  /// Edit Fact Check.
+  ///
+  /// ID: `0589ee75`.
+  Future<Result<UpdatesBase>> editFactCheck({
+    required InputPeerBase peer,
+    required int msgId,
+    required TextWithEntitiesBase text,
+  }) async {
+    // Preparing the request.
+    final request = MessagesEditFactCheck(
+      peer: peer,
+      msgId: msgId,
+      text: text,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Fact Check.
+  ///
+  /// ID: `d1da940c`.
+  Future<Result<UpdatesBase>> deleteFactCheck({
+    required InputPeerBase peer,
+    required int msgId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeleteFactCheck(
+      peer: peer,
+      msgId: msgId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Fact Check.
+  ///
+  /// ID: `b9cdc5ee`.
+  Future<Result<Vector<FactCheckBase>>> getFactCheck({
+    required InputPeerBase peer,
+    required List<int> msgId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetFactCheck(
+      peer: peer,
+      msgId: msgId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<FactCheckBase>>();
+  }
+
+  /// Request Main Web View.
+  ///
+  /// ID: `c9e01e7b`.
+  Future<Result<WebViewResultBase>> requestMainWebView({
+    required bool compact,
+    required bool fullscreen,
+    required InputPeerBase peer,
+    required InputUserBase bot,
+    String? startParam,
+    DataJSONBase? themeParams,
+    required String platform,
+  }) async {
+    // Preparing the request.
+    final request = MessagesRequestMainWebView(
+      compact: compact,
+      fullscreen: fullscreen,
+      peer: peer,
+      bot: bot,
+      startParam: startParam,
+      themeParams: themeParams,
+      platform: platform,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WebViewResultBase>();
+  }
+
+  /// Send Paid Reaction.
+  ///
+  /// ID: `9dd6a67b`.
+  Future<Result<UpdatesBase>> sendPaidReaction({
+    required InputPeerBase peer,
+    required int msgId,
+    required int count,
+    required int randomId,
+    required bool private,
+  }) async {
+    // Preparing the request.
+    final request = MessagesSendPaidReaction(
+      peer: peer,
+      msgId: msgId,
+      count: count,
+      randomId: randomId,
+      private: private,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Toggle Paid Reaction Privacy.
+  ///
+  /// ID: `849ad397`.
+  Future<Result<Boolean>> togglePaidReactionPrivacy({
+    required InputPeerBase peer,
+    required int msgId,
+    required bool private,
+  }) async {
+    // Preparing the request.
+    final request = MessagesTogglePaidReactionPrivacy(
+      peer: peer,
+      msgId: msgId,
+      private: private,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Paid Reaction Privacy.
+  ///
+  /// ID: `472455aa`.
+  Future<Result<UpdatesBase>> getPaidReactionPrivacy() async {
+    // Preparing the request.
+    final request = MessagesGetPaidReactionPrivacy();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// View Sponsored Message.
+  ///
+  /// ID: `673ad8f1`.
+  Future<Result<Boolean>> viewSponsoredMessage({
+    required InputPeerBase peer,
+    required Uint8List randomId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesViewSponsoredMessage(
+      peer: peer,
+      randomId: randomId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Click Sponsored Message.
+  ///
+  /// ID: `0f093465`.
+  Future<Result<Boolean>> clickSponsoredMessage({
+    required bool media,
+    required bool fullscreen,
+    required InputPeerBase peer,
+    required Uint8List randomId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesClickSponsoredMessage(
+      media: media,
+      fullscreen: fullscreen,
+      peer: peer,
+      randomId: randomId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Report Sponsored Message.
+  ///
+  /// ID: `1af3dbb8`.
+  Future<Result<ChannelsSponsoredMessageReportResultBase>>
+      reportSponsoredMessage({
+    required InputPeerBase peer,
+    required Uint8List randomId,
+    required Uint8List option,
+  }) async {
+    // Preparing the request.
+    final request = MessagesReportSponsoredMessage(
+      peer: peer,
+      randomId: randomId,
+      option: option,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ChannelsSponsoredMessageReportResultBase>();
+  }
+
+  /// Get Sponsored Messages.
+  ///
+  /// ID: `9bd2f439`.
+  Future<Result<MessagesSponsoredMessagesBase>> getSponsoredMessages({
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetSponsoredMessages(
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesSponsoredMessagesBase>();
+  }
+
+  /// Save Prepared Inline Message.
+  ///
+  /// ID: `f21f7f2f`.
+  Future<Result<MessagesBotPreparedInlineMessageBase>>
+      savePreparedInlineMessage({
+    required InputBotInlineResultBase result,
+    required InputUserBase userId,
+    List<InlineQueryPeerTypeBase>? peerTypes,
+  }) async {
+    // Preparing the request.
+    final request = MessagesSavePreparedInlineMessage(
+      result: result,
+      userId: userId,
+      peerTypes: peerTypes,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesBotPreparedInlineMessageBase>();
+  }
+
+  /// Get Prepared Inline Message.
+  ///
+  /// ID: `857ebdb8`.
+  Future<Result<MessagesPreparedInlineMessageBase>> getPreparedInlineMessage({
+    required InputUserBase bot,
+    required String id,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetPreparedInlineMessage(
+      bot: bot,
+      id: id,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesPreparedInlineMessageBase>();
+  }
+
+  /// Search Stickers.
+  ///
+  /// ID: `29b1c66a`.
+  Future<Result<MessagesFoundStickersBase>> searchStickers({
+    required bool emojis,
+    required String q,
+    required String emoticon,
+    required List<String> langCode,
+    required int offset,
+    required int limit,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesSearchStickers(
+      emojis: emojis,
+      q: q,
+      emoticon: emoticon,
+      langCode: langCode,
+      offset: offset,
+      limit: limit,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesFoundStickersBase>();
   }
 }
 
@@ -8102,6 +9277,24 @@ class ClientHelp {
     // Return the result.
     return response._to<HelpPeerColorsBase>();
   }
+
+  /// Get Timezones List.
+  ///
+  /// ID: `49b30240`.
+  Future<Result<HelpTimezonesListBase>> getTimezonesList({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = HelpGetTimezonesList(
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<HelpTimezonesListBase>();
+  }
 }
 
 /// Channels.
@@ -8450,8 +9643,8 @@ class ClientChannels {
 
   /// Invite To Channel.
   ///
-  /// ID: `199f3a6c`.
-  Future<Result<UpdatesBase>> inviteToChannel({
+  /// ID: `c9e33d54`.
+  Future<Result<MessagesInvitedUsersBase>> inviteToChannel({
     required InputChannelBase channel,
     required List<InputUserBase> users,
   }) async {
@@ -8465,7 +9658,7 @@ class ClientChannels {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<UpdatesBase>();
+    return response._to<MessagesInvitedUsersBase>();
   }
 
   /// Delete Channel.
@@ -8512,15 +9705,17 @@ class ClientChannels {
 
   /// Toggle Signatures.
   ///
-  /// ID: `1f69b606`.
+  /// ID: `418d549c`.
   Future<Result<UpdatesBase>> toggleSignatures({
+    required bool signaturesEnabled,
+    required bool profilesEnabled,
     required InputChannelBase channel,
-    required bool enabled,
   }) async {
     // Preparing the request.
     final request = ChannelsToggleSignatures(
+      signaturesEnabled: signaturesEnabled,
+      profilesEnabled: profilesEnabled,
       channel: channel,
-      enabled: enabled,
     );
 
     // Invoke and wait for response.
@@ -8536,11 +9731,13 @@ class ClientChannels {
   Future<Result<MessagesChatsBase>> getAdminedPublicChannels({
     required bool byLocation,
     required bool checkLimit,
+    required bool forPersonal,
   }) async {
     // Preparing the request.
     final request = ChannelsGetAdminedPublicChannels(
       byLocation: byLocation,
       checkLimit: checkLimit,
+      forPersonal: forPersonal,
     );
 
     // Invoke and wait for response.
@@ -8830,44 +10027,6 @@ class ClientChannels {
 
     // Return the result.
     return response._to<UpdatesBase>();
-  }
-
-  /// View Sponsored Message.
-  ///
-  /// ID: `beaedb94`.
-  Future<Result<Boolean>> viewSponsoredMessage({
-    required InputChannelBase channel,
-    required Uint8List randomId,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsViewSponsoredMessage(
-      channel: channel,
-      randomId: randomId,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<Boolean>();
-  }
-
-  /// Get Sponsored Messages.
-  ///
-  /// ID: `ec210fbf`.
-  Future<Result<MessagesSponsoredMessagesBase>> getSponsoredMessages({
-    required InputChannelBase channel,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsGetSponsoredMessages(
-      channel: channel,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<MessagesSponsoredMessagesBase>();
   }
 
   /// Get Send As.
@@ -9256,26 +10415,6 @@ class ClientChannels {
     return response._to<UpdatesBase>();
   }
 
-  /// Click Sponsored Message.
-  ///
-  /// ID: `18afbc93`.
-  Future<Result<Boolean>> clickSponsoredMessage({
-    required InputChannelBase channel,
-    required Uint8List randomId,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsClickSponsoredMessage(
-      channel: channel,
-      randomId: randomId,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<Boolean>();
-  }
-
   /// Update Color.
   ///
   /// ID: `d8aa3671`.
@@ -9322,9 +10461,9 @@ class ClientChannels {
 
   /// Get Channel Recommendations.
   ///
-  /// ID: `83b70d97`.
+  /// ID: `25a71742`.
   Future<Result<MessagesChatsBase>> getChannelRecommendations({
-    required InputChannelBase channel,
+    InputChannelBase? channel,
   }) async {
     // Preparing the request.
     final request = ChannelsGetChannelRecommendations(
@@ -9356,6 +10495,92 @@ class ClientChannels {
 
     // Return the result.
     return response._to<UpdatesBase>();
+  }
+
+  /// Set Boosts To Unblock Restrictions.
+  ///
+  /// ID: `ad399cee`.
+  Future<Result<UpdatesBase>> setBoostsToUnblockRestrictions({
+    required InputChannelBase channel,
+    required int boosts,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsSetBoostsToUnblockRestrictions(
+      channel: channel,
+      boosts: boosts,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Set Emoji Stickers.
+  ///
+  /// ID: `3cd930b7`.
+  Future<Result<Boolean>> setEmojiStickers({
+    required InputChannelBase channel,
+    required InputStickerSetBase stickerset,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsSetEmojiStickers(
+      channel: channel,
+      stickerset: stickerset,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Restrict Sponsored Messages.
+  ///
+  /// ID: `9ae91519`.
+  Future<Result<UpdatesBase>> restrictSponsoredMessages({
+    required InputChannelBase channel,
+    required bool restricted,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsRestrictSponsoredMessages(
+      channel: channel,
+      restricted: restricted,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Search Posts.
+  ///
+  /// ID: `d19f987b`.
+  Future<Result<MessagesMessagesBase>> searchPosts({
+    required String hashtag,
+    required int offsetRate,
+    required InputPeerBase offsetPeer,
+    required int offsetId,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsSearchPosts(
+      hashtag: hashtag,
+      offsetRate: offsetRate,
+      offsetPeer: offsetPeer,
+      offsetId: offsetId,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesMessagesBase>();
   }
 }
 
@@ -9686,6 +10911,252 @@ class ClientBots {
     // Return the result.
     return response._to<DataJSONBase>();
   }
+
+  /// Get Popular App Bots.
+  ///
+  /// ID: `c2510192`.
+  Future<Result<BotsPopularAppBotsBase>> getPopularAppBots({
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = BotsGetPopularAppBots(
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotsPopularAppBotsBase>();
+  }
+
+  /// Add Preview Media.
+  ///
+  /// ID: `17aeb75a`.
+  Future<Result<BotPreviewMediaBase>> addPreviewMedia({
+    required InputUserBase bot,
+    required String langCode,
+    required InputMediaBase media,
+  }) async {
+    // Preparing the request.
+    final request = BotsAddPreviewMedia(
+      bot: bot,
+      langCode: langCode,
+      media: media,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotPreviewMediaBase>();
+  }
+
+  /// Edit Preview Media.
+  ///
+  /// ID: `8525606f`.
+  Future<Result<BotPreviewMediaBase>> editPreviewMedia({
+    required InputUserBase bot,
+    required String langCode,
+    required InputMediaBase media,
+    required InputMediaBase newMedia,
+  }) async {
+    // Preparing the request.
+    final request = BotsEditPreviewMedia(
+      bot: bot,
+      langCode: langCode,
+      media: media,
+      newMedia: newMedia,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotPreviewMediaBase>();
+  }
+
+  /// Delete Preview Media.
+  ///
+  /// ID: `2d0135b3`.
+  Future<Result<Boolean>> deletePreviewMedia({
+    required InputUserBase bot,
+    required String langCode,
+    required List<InputMediaBase> media,
+  }) async {
+    // Preparing the request.
+    final request = BotsDeletePreviewMedia(
+      bot: bot,
+      langCode: langCode,
+      media: media,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Reorder Preview Medias.
+  ///
+  /// ID: `b627f3aa`.
+  Future<Result<Boolean>> reorderPreviewMedias({
+    required InputUserBase bot,
+    required String langCode,
+    required List<InputMediaBase> order,
+  }) async {
+    // Preparing the request.
+    final request = BotsReorderPreviewMedias(
+      bot: bot,
+      langCode: langCode,
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Preview Info.
+  ///
+  /// ID: `423ab3ad`.
+  Future<Result<BotsPreviewInfoBase>> getPreviewInfo({
+    required InputUserBase bot,
+    required String langCode,
+  }) async {
+    // Preparing the request.
+    final request = BotsGetPreviewInfo(
+      bot: bot,
+      langCode: langCode,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotsPreviewInfoBase>();
+  }
+
+  /// Get Preview Medias.
+  ///
+  /// ID: `a2a5594d`.
+  Future<Result<Vector<BotPreviewMediaBase>>> getPreviewMedias({
+    required InputUserBase bot,
+  }) async {
+    // Preparing the request.
+    final request = BotsGetPreviewMedias(
+      bot: bot,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<BotPreviewMediaBase>>();
+  }
+
+  /// Update User Emoji Status.
+  ///
+  /// ID: `ed9f30c5`.
+  Future<Result<Boolean>> updateUserEmojiStatus({
+    required InputUserBase userId,
+    required EmojiStatusBase emojiStatus,
+  }) async {
+    // Preparing the request.
+    final request = BotsUpdateUserEmojiStatus(
+      userId: userId,
+      emojiStatus: emojiStatus,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Toggle User Emoji Status Permission.
+  ///
+  /// ID: `06de6392`.
+  Future<Result<Boolean>> toggleUserEmojiStatusPermission({
+    required InputUserBase bot,
+    required bool enabled,
+  }) async {
+    // Preparing the request.
+    final request = BotsToggleUserEmojiStatusPermission(
+      bot: bot,
+      enabled: enabled,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Check Download File Params.
+  ///
+  /// ID: `50077589`.
+  Future<Result<Boolean>> checkDownloadFileParams({
+    required InputUserBase bot,
+    required String fileName,
+    required String url,
+  }) async {
+    // Preparing the request.
+    final request = BotsCheckDownloadFileParams(
+      bot: bot,
+      fileName: fileName,
+      url: url,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Admined Bots.
+  ///
+  /// ID: `b0711d83`.
+  Future<Result<Vector<UserBase>>> getAdminedBots() async {
+    // Preparing the request.
+    final request = BotsGetAdminedBots();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<UserBase>>();
+  }
+
+  /// Update Star Ref Program.
+  ///
+  /// ID: `778b5ab3`.
+  Future<Result<StarRefProgramBase>> updateStarRefProgram({
+    required InputUserBase bot,
+    required int commissionPermille,
+    int? durationMonths,
+  }) async {
+    // Preparing the request.
+    final request = BotsUpdateStarRefProgram(
+      bot: bot,
+      commissionPermille: commissionPermille,
+      durationMonths: durationMonths,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StarRefProgramBase>();
+  }
 }
 
 /// Payments.
@@ -10007,6 +11478,503 @@ class ClientPayments {
     // Return the result.
     return response._to<UpdatesBase>();
   }
+
+  /// Get Stars Topup Options.
+  ///
+  /// ID: `c00ec7d3`.
+  Future<Result<Vector<StarsTopupOptionBase>>> getStarsTopupOptions() async {
+    // Preparing the request.
+    final request = PaymentsGetStarsTopupOptions();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<StarsTopupOptionBase>>();
+  }
+
+  /// Get Stars Status.
+  ///
+  /// ID: `104fcfa7`.
+  Future<Result<PaymentsStarsStatusBase>> getStarsStatus({
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsStatus(
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsStatusBase>();
+  }
+
+  /// Get Stars Transactions.
+  ///
+  /// ID: `69da4557`.
+  Future<Result<PaymentsStarsStatusBase>> getStarsTransactions({
+    required bool inbound,
+    required bool outbound,
+    required bool ascending,
+    String? subscriptionId,
+    required InputPeerBase peer,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsTransactions(
+      inbound: inbound,
+      outbound: outbound,
+      ascending: ascending,
+      subscriptionId: subscriptionId,
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsStatusBase>();
+  }
+
+  /// Send Stars Form.
+  ///
+  /// ID: `7998c914`.
+  Future<Result<PaymentsPaymentResultBase>> sendStarsForm({
+    required int formId,
+    required InputInvoiceBase invoice,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsSendStarsForm(
+      formId: formId,
+      invoice: invoice,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsPaymentResultBase>();
+  }
+
+  /// Refund Stars Charge.
+  ///
+  /// ID: `25ae8f4a`.
+  Future<Result<UpdatesBase>> refundStarsCharge({
+    required InputUserBase userId,
+    required String chargeId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsRefundStarsCharge(
+      userId: userId,
+      chargeId: chargeId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Stars Revenue Stats.
+  ///
+  /// ID: `d91ffad6`.
+  Future<Result<PaymentsStarsRevenueStatsBase>> getStarsRevenueStats({
+    required bool dark,
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsRevenueStats(
+      dark: dark,
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsRevenueStatsBase>();
+  }
+
+  /// Get Stars Revenue Withdrawal Url.
+  ///
+  /// ID: `13bbe8b3`.
+  Future<Result<PaymentsStarsRevenueWithdrawalUrlBase>>
+      getStarsRevenueWithdrawalUrl({
+    required InputPeerBase peer,
+    required int stars,
+    required InputCheckPasswordSRPBase password,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsRevenueWithdrawalUrl(
+      peer: peer,
+      stars: stars,
+      password: password,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsRevenueWithdrawalUrlBase>();
+  }
+
+  /// Get Stars Revenue Ads Account Url.
+  ///
+  /// ID: `d1d7efc5`.
+  Future<Result<PaymentsStarsRevenueAdsAccountUrlBase>>
+      getStarsRevenueAdsAccountUrl({
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsRevenueAdsAccountUrl(
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsRevenueAdsAccountUrlBase>();
+  }
+
+  /// Get Stars Transactions By I D.
+  ///
+  /// ID: `27842d2e`.
+  Future<Result<PaymentsStarsStatusBase>> getStarsTransactionsByID({
+    required InputPeerBase peer,
+    required List<InputStarsTransactionBase> id,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsTransactionsByID(
+      peer: peer,
+      id: id,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsStatusBase>();
+  }
+
+  /// Get Stars Gift Options.
+  ///
+  /// ID: `d3c96bc8`.
+  Future<Result<Vector<StarsGiftOptionBase>>> getStarsGiftOptions({
+    InputUserBase? userId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsGiftOptions(
+      userId: userId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<StarsGiftOptionBase>>();
+  }
+
+  /// Get Stars Subscriptions.
+  ///
+  /// ID: `032512c5`.
+  Future<Result<PaymentsStarsStatusBase>> getStarsSubscriptions({
+    required bool missingBalance,
+    required InputPeerBase peer,
+    required String offset,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarsSubscriptions(
+      missingBalance: missingBalance,
+      peer: peer,
+      offset: offset,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarsStatusBase>();
+  }
+
+  /// Change Stars Subscription.
+  ///
+  /// ID: `c7770878`.
+  Future<Result<Boolean>> changeStarsSubscription({
+    required InputPeerBase peer,
+    required String subscriptionId,
+    required bool canceled,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsChangeStarsSubscription(
+      peer: peer,
+      subscriptionId: subscriptionId,
+      canceled: canceled,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Fulfill Stars Subscription.
+  ///
+  /// ID: `cc5bebb3`.
+  Future<Result<Boolean>> fulfillStarsSubscription({
+    required InputPeerBase peer,
+    required String subscriptionId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsFulfillStarsSubscription(
+      peer: peer,
+      subscriptionId: subscriptionId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Stars Giveaway Options.
+  ///
+  /// ID: `bd1efd3e`.
+  Future<Result<Vector<StarsGiveawayOptionBase>>>
+      getStarsGiveawayOptions() async {
+    // Preparing the request.
+    final request = PaymentsGetStarsGiveawayOptions();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Vector<StarsGiveawayOptionBase>>();
+  }
+
+  /// Get Star Gifts.
+  ///
+  /// ID: `c4563590`.
+  Future<Result<PaymentsStarGiftsBase>> getStarGifts({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarGifts(
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarGiftsBase>();
+  }
+
+  /// Get User Star Gifts.
+  ///
+  /// ID: `5e72c7e1`.
+  Future<Result<PaymentsUserStarGiftsBase>> getUserStarGifts({
+    required InputUserBase userId,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetUserStarGifts(
+      userId: userId,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsUserStarGiftsBase>();
+  }
+
+  /// Save Star Gift.
+  ///
+  /// ID: `87acf08e`.
+  Future<Result<Boolean>> saveStarGift({
+    required bool unsave,
+    required InputUserBase userId,
+    required int msgId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsSaveStarGift(
+      unsave: unsave,
+      userId: userId,
+      msgId: msgId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Convert Star Gift.
+  ///
+  /// ID: `0421e027`.
+  Future<Result<Boolean>> convertStarGift({
+    required InputUserBase userId,
+    required int msgId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsConvertStarGift(
+      userId: userId,
+      msgId: msgId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Bot Cancel Stars Subscription.
+  ///
+  /// ID: `6dfa0622`.
+  Future<Result<Boolean>> botCancelStarsSubscription({
+    required bool restore,
+    required InputUserBase userId,
+    required String chargeId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsBotCancelStarsSubscription(
+      restore: restore,
+      userId: userId,
+      chargeId: chargeId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Connected Star Ref Bots.
+  ///
+  /// ID: `5869a553`.
+  Future<Result<PaymentsConnectedStarRefBotsBase>> getConnectedStarRefBots({
+    required InputPeerBase peer,
+    DateTime? offsetDate,
+    String? offsetLink,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetConnectedStarRefBots(
+      peer: peer,
+      offsetDate: offsetDate,
+      offsetLink: offsetLink,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsConnectedStarRefBotsBase>();
+  }
+
+  /// Get Connected Star Ref Bot.
+  ///
+  /// ID: `b7d998f0`.
+  Future<Result<PaymentsConnectedStarRefBotsBase>> getConnectedStarRefBot({
+    required InputPeerBase peer,
+    required InputUserBase bot,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetConnectedStarRefBot(
+      peer: peer,
+      bot: bot,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsConnectedStarRefBotsBase>();
+  }
+
+  /// Get Suggested Star Ref Bots.
+  ///
+  /// ID: `0d6b48f7`.
+  Future<Result<PaymentsSuggestedStarRefBotsBase>> getSuggestedStarRefBots({
+    required bool orderByRevenue,
+    required bool orderByDate,
+    required InputPeerBase peer,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetSuggestedStarRefBots(
+      orderByRevenue: orderByRevenue,
+      orderByDate: orderByDate,
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsSuggestedStarRefBotsBase>();
+  }
+
+  /// Connect Star Ref Bot.
+  ///
+  /// ID: `7ed5348a`.
+  Future<Result<PaymentsConnectedStarRefBotsBase>> connectStarRefBot({
+    required InputPeerBase peer,
+    required InputUserBase bot,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsConnectStarRefBot(
+      peer: peer,
+      bot: bot,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsConnectedStarRefBotsBase>();
+  }
+
+  /// Edit Connected Star Ref Bot.
+  ///
+  /// ID: `e4fca4a3`.
+  Future<Result<PaymentsConnectedStarRefBotsBase>> editConnectedStarRefBot({
+    required bool revoked,
+    required InputPeerBase peer,
+    required String link,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsEditConnectedStarRefBot(
+      revoked: revoked,
+      peer: peer,
+      link: link,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsConnectedStarRefBotsBase>();
+  }
 }
 
 /// Stickers.
@@ -10020,8 +11988,6 @@ class ClientStickers {
   /// ID: `9021ab67`.
   Future<Result<MessagesStickerSetBase>> createStickerSet({
     required bool masks,
-    required bool animated,
-    required bool videos,
     required bool emojis,
     required bool textColor,
     required InputUserBase userId,
@@ -10034,8 +12000,6 @@ class ClientStickers {
     // Preparing the request.
     final request = StickersCreateStickerSet(
       masks: masks,
-      animated: animated,
-      videos: videos,
       emojis: emojis,
       textColor: textColor,
       userId: userId,
@@ -10229,6 +12193,26 @@ class ClientStickers {
 
     // Return the result.
     return response._to<Boolean>();
+  }
+
+  /// Replace Sticker.
+  ///
+  /// ID: `4696459a`.
+  Future<Result<MessagesStickerSetBase>> replaceSticker({
+    required InputDocumentBase sticker,
+    required InputStickerSetItemBase newSticker,
+  }) async {
+    // Preparing the request.
+    final request = StickersReplaceSticker(
+      sticker: sticker,
+      newSticker: newSticker,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesStickerSetBase>();
   }
 }
 
@@ -11194,6 +13178,70 @@ class ClientStats {
     // Return the result.
     return response._to<StatsPublicForwardsBase>();
   }
+
+  /// Get Broadcast Revenue Stats.
+  ///
+  /// ID: `f788ee19`.
+  Future<Result<StatsBroadcastRevenueStatsBase>> getBroadcastRevenueStats({
+    required bool dark,
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = StatsGetBroadcastRevenueStats(
+      dark: dark,
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StatsBroadcastRevenueStatsBase>();
+  }
+
+  /// Get Broadcast Revenue Withdrawal Url.
+  ///
+  /// ID: `9df4faad`.
+  Future<Result<StatsBroadcastRevenueWithdrawalUrlBase>>
+      getBroadcastRevenueWithdrawalUrl({
+    required InputPeerBase peer,
+    required InputCheckPasswordSRPBase password,
+  }) async {
+    // Preparing the request.
+    final request = StatsGetBroadcastRevenueWithdrawalUrl(
+      peer: peer,
+      password: password,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StatsBroadcastRevenueWithdrawalUrlBase>();
+  }
+
+  /// Get Broadcast Revenue Transactions.
+  ///
+  /// ID: `70990b6d`.
+  Future<Result<StatsBroadcastRevenueTransactionsBase>>
+      getBroadcastRevenueTransactions({
+    required InputPeerBase peer,
+    required int offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = StatsGetBroadcastRevenueTransactions(
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StatsBroadcastRevenueTransactionsBase>();
+  }
 }
 
 /// Chatlists.
@@ -11775,18 +13823,18 @@ class ClientStories {
 
   /// Report.
   ///
-  /// ID: `1923fa8c`.
-  Future<Result<Boolean>> report({
+  /// ID: `19d8eb45`.
+  Future<Result<ReportResultBase>> report({
     required InputPeerBase peer,
     required List<int> id,
-    required ReportReasonBase reason,
+    required Uint8List option,
     required String message,
   }) async {
     // Preparing the request.
     final request = StoriesReport(
       peer: peer,
       id: id,
-      reason: reason,
+      option: option,
       message: message,
     );
 
@@ -11794,7 +13842,7 @@ class ClientStories {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Boolean>();
+    return response._to<ReportResultBase>();
   }
 
   /// Activate Stealth Mode.
@@ -11952,6 +14000,52 @@ class ClientStories {
     // Return the result.
     return response._to<StoriesStoryReactionsListBase>();
   }
+
+  /// Toggle Pinned To Top.
+  ///
+  /// ID: `0b297e9b`.
+  Future<Result<Boolean>> togglePinnedToTop({
+    required InputPeerBase peer,
+    required List<int> id,
+  }) async {
+    // Preparing the request.
+    final request = StoriesTogglePinnedToTop(
+      peer: peer,
+      id: id,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Search Posts.
+  ///
+  /// ID: `d1810907`.
+  Future<Result<StoriesFoundStoriesBase>> searchPosts({
+    String? hashtag,
+    MediaAreaBase? area,
+    InputPeerBase? peer,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = StoriesSearchPosts(
+      hashtag: hashtag,
+      area: area,
+      peer: peer,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StoriesFoundStoriesBase>();
+  }
 }
 
 /// Premium.
@@ -12054,5 +14148,149 @@ class ClientPremium {
 
     // Return the result.
     return response._to<PremiumBoostsListBase>();
+  }
+}
+
+/// Smsjobs.
+class ClientSmsjobs {
+  /// Constructor.
+  const ClientSmsjobs._(this._c);
+  final Client _c;
+
+  /// Is Eligible To Join.
+  ///
+  /// ID: `0edc39d0`.
+  Future<Result<SmsjobsEligibilityToJoinBase>> isEligibleToJoin() async {
+    // Preparing the request.
+    final request = SmsjobsIsEligibleToJoin();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<SmsjobsEligibilityToJoinBase>();
+  }
+
+  /// Join.
+  ///
+  /// ID: `a74ece2d`.
+  Future<Result<Boolean>> join() async {
+    // Preparing the request.
+    final request = SmsjobsJoin();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Leave.
+  ///
+  /// ID: `9898ad73`.
+  Future<Result<Boolean>> leave() async {
+    // Preparing the request.
+    final request = SmsjobsLeave();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Update Settings.
+  ///
+  /// ID: `093fa0bf`.
+  Future<Result<Boolean>> updateSettings({
+    required bool allowInternational,
+  }) async {
+    // Preparing the request.
+    final request = SmsjobsUpdateSettings(
+      allowInternational: allowInternational,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Status.
+  ///
+  /// ID: `10a698e8`.
+  Future<Result<SmsjobsStatusBase>> getStatus() async {
+    // Preparing the request.
+    final request = SmsjobsGetStatus();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<SmsjobsStatusBase>();
+  }
+
+  /// Get Sms Job.
+  ///
+  /// ID: `778d902f`.
+  Future<Result<SmsJobBase>> getSmsJob({
+    required String jobId,
+  }) async {
+    // Preparing the request.
+    final request = SmsjobsGetSmsJob(
+      jobId: jobId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<SmsJobBase>();
+  }
+
+  /// Finish Job.
+  ///
+  /// ID: `4f1ebf24`.
+  Future<Result<Boolean>> finishJob({
+    required String jobId,
+    String? error,
+  }) async {
+    // Preparing the request.
+    final request = SmsjobsFinishJob(
+      jobId: jobId,
+      error: error,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+}
+
+/// Fragment.
+class ClientFragment {
+  /// Constructor.
+  const ClientFragment._(this._c);
+  final Client _c;
+
+  /// Get Collectible Info.
+  ///
+  /// ID: `be1e85ba`.
+  Future<Result<FragmentCollectibleInfoBase>> getCollectibleInfo({
+    required InputCollectibleBase collectible,
+  }) async {
+    // Preparing the request.
+    final request = FragmentGetCollectibleInfo(
+      collectible: collectible,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<FragmentCollectibleInfoBase>();
   }
 }
