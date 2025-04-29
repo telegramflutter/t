@@ -11890,8 +11890,8 @@ class MessageActionTopicEdit extends MessageActionBase {
     final title = hasTitleField ? reader.readString() : null;
     final hasIconEmojiIdField = (flags & 2) != 0;
     final iconEmojiId = hasIconEmojiIdField ? reader.readInt64() : null;
-    final closed = (flags & 4) != 0;
-    final hidden = (flags & 8) != 0;
+    final closed = (flags & 4) != 0 ? reader.readBool() : null;
+    final hidden = (flags & 8) != 0 ? reader.readBool() : null;
 
     // Construct [MessageActionTopicEdit] object.
     final returnValue = MessageActionTopicEdit(
@@ -11910,8 +11910,8 @@ class MessageActionTopicEdit extends MessageActionBase {
     final v = _flag(
       b00: title != null,
       b01: iconEmojiId != null,
-      b02: closed,
-      b03: hidden,
+      b02: (closed ?? false),
+      b03: (hidden ?? false),
     );
 
     return v;
@@ -11924,10 +11924,10 @@ class MessageActionTopicEdit extends MessageActionBase {
   final int? iconEmojiId;
 
   /// closed: bit 2 of flags.2?Bool
-  final bool closed;
+  final bool? closed;
 
   /// hidden: bit 3 of flags.3?Bool
-  final bool hidden;
+  final bool? hidden;
 
   /// Serialize.
   @override
@@ -14667,15 +14667,15 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   factory InputPeerNotifySettings.deserialize(BinaryReader reader) {
     // Read [InputPeerNotifySettings] fields.
     final flags = reader.readInt32();
-    final showPreviews = (flags & 1) != 0;
-    final silent = (flags & 2) != 0;
+    final showPreviews = (flags & 1) != 0 ? reader.readBool() : null;
+    final silent = (flags & 2) != 0 ? reader.readBool() : null;
     final hasMuteUntilField = (flags & 4) != 0;
     final muteUntil = hasMuteUntilField ? reader.readDateTime() : null;
     final hasSoundField = (flags & 8) != 0;
     final sound =
         hasSoundField ? reader.readObject() as NotificationSoundBase : null;
-    final storiesMuted = (flags & 64) != 0;
-    final storiesHideSender = (flags & 128) != 0;
+    final storiesMuted = (flags & 64) != 0 ? reader.readBool() : null;
+    final storiesHideSender = (flags & 128) != 0 ? reader.readBool() : null;
     final hasStoriesSoundField = (flags & 256) != 0;
     final storiesSound = hasStoriesSoundField
         ? reader.readObject() as NotificationSoundBase
@@ -14699,12 +14699,12 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: showPreviews,
-      b01: silent,
+      b00: (showPreviews ?? false),
+      b01: (silent ?? false),
       b02: muteUntil != null,
       b03: sound != null,
-      b06: storiesMuted,
-      b07: storiesHideSender,
+      b06: (storiesMuted ?? false),
+      b07: (storiesHideSender ?? false),
       b08: storiesSound != null,
     );
 
@@ -14712,10 +14712,10 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   }
 
   /// show_previews: bit 0 of flags.0?Bool
-  final bool showPreviews;
+  final bool? showPreviews;
 
   /// silent: bit 1 of flags.1?Bool
-  final bool silent;
+  final bool? silent;
 
   /// Mute Until.
   final DateTime? muteUntil;
@@ -14724,10 +14724,10 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   final NotificationSoundBase? sound;
 
   /// stories_muted: bit 6 of flags.6?Bool
-  final bool storiesMuted;
+  final bool? storiesMuted;
 
   /// stories_hide_sender: bit 7 of flags.7?Bool
-  final bool storiesHideSender;
+  final bool? storiesHideSender;
 
   /// Stories Sound.
   final NotificationSoundBase? storiesSound;
@@ -14798,8 +14798,8 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   factory PeerNotifySettings.deserialize(BinaryReader reader) {
     // Read [PeerNotifySettings] fields.
     final flags = reader.readInt32();
-    final showPreviews = (flags & 1) != 0;
-    final silent = (flags & 2) != 0;
+    final showPreviews = (flags & 1) != 0 ? reader.readBool() : null;
+    final silent = (flags & 2) != 0 ? reader.readBool() : null;
     final hasMuteUntilField = (flags & 4) != 0;
     final muteUntil = hasMuteUntilField ? reader.readDateTime() : null;
     final hasIosSoundField = (flags & 8) != 0;
@@ -14813,8 +14813,8 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
     final otherSound = hasOtherSoundField
         ? reader.readObject() as NotificationSoundBase
         : null;
-    final storiesMuted = (flags & 64) != 0;
-    final storiesHideSender = (flags & 128) != 0;
+    final storiesMuted = (flags & 64) != 0 ? reader.readBool() : null;
+    final storiesHideSender = (flags & 128) != 0 ? reader.readBool() : null;
     final hasStoriesIosSoundField = (flags & 256) != 0;
     final storiesIosSound = hasStoriesIosSoundField
         ? reader.readObject() as NotificationSoundBase
@@ -14850,14 +14850,14 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: showPreviews,
-      b01: silent,
+      b00: (showPreviews ?? false),
+      b01: (silent ?? false),
       b02: muteUntil != null,
       b03: iosSound != null,
       b04: androidSound != null,
       b05: otherSound != null,
-      b06: storiesMuted,
-      b07: storiesHideSender,
+      b06: (storiesMuted ?? false),
+      b07: (storiesHideSender ?? false),
       b08: storiesIosSound != null,
       b09: storiesAndroidSound != null,
       b10: storiesOtherSound != null,
@@ -14867,10 +14867,10 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   }
 
   /// show_previews: bit 0 of flags.0?Bool
-  final bool showPreviews;
+  final bool? showPreviews;
 
   /// silent: bit 1 of flags.1?Bool
-  final bool silent;
+  final bool? silent;
 
   /// Mute Until.
   final DateTime? muteUntil;
@@ -14885,10 +14885,10 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   final NotificationSoundBase? otherSound;
 
   /// stories_muted: bit 6 of flags.6?Bool
-  final bool storiesMuted;
+  final bool? storiesMuted;
 
   /// stories_hide_sender: bit 7 of flags.7?Bool
-  final bool storiesHideSender;
+  final bool? storiesHideSender;
 
   /// Stories Ios Sound.
   final NotificationSoundBase? storiesIosSound;
@@ -39771,7 +39771,7 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   factory KeyboardButtonRequestPoll.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonRequestPoll] fields.
     final flags = reader.readInt32();
-    final quiz = (flags & 1) != 0;
+    final quiz = (flags & 1) != 0 ? reader.readBool() : null;
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestPoll] object.
@@ -39787,14 +39787,14 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: quiz,
+      b00: (quiz ?? false),
     );
 
     return v;
   }
 
   /// quiz: bit 0 of flags.0?Bool
-  final bool quiz;
+  final bool? quiz;
 
   /// Text.
   final String text;
@@ -67696,7 +67696,7 @@ class CodeSettings extends CodeSettingsBase {
     final logoutTokens = hasLogoutTokensField ? reader.readVectorBytes() : null;
     final hasTokenField = (flags & 256) != 0;
     final token = hasTokenField ? reader.readString() : null;
-    final appSandbox = (flags & 256) != 0;
+    final appSandbox = (flags & 256) != 0 ? reader.readBool() : null;
 
     // Construct [CodeSettings] object.
     final returnValue = CodeSettings(
@@ -67725,7 +67725,7 @@ class CodeSettings extends CodeSettingsBase {
       b07: allowFirebase,
       b09: unknownNumber,
       b06: logoutTokens != null,
-      b08: token != null || appSandbox,
+      b08: token != null || (appSandbox ?? false),
     );
 
     return v;
@@ -67756,7 +67756,7 @@ class CodeSettings extends CodeSettingsBase {
   final String? token;
 
   /// app_sandbox: bit 8 of flags.8?Bool
-  final bool appSandbox;
+  final bool? appSandbox;
 
   /// Serialize.
   @override
@@ -82824,8 +82824,8 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
   factory RequestPeerTypeUser.deserialize(BinaryReader reader) {
     // Read [RequestPeerTypeUser] fields.
     final flags = reader.readInt32();
-    final bot = (flags & 1) != 0;
-    final premium = (flags & 2) != 0;
+    final bot = (flags & 1) != 0 ? reader.readBool() : null;
+    final premium = (flags & 2) != 0 ? reader.readBool() : null;
 
     // Construct [RequestPeerTypeUser] object.
     final returnValue = RequestPeerTypeUser(
@@ -82840,18 +82840,18 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: bot,
-      b01: premium,
+      b00: (bot ?? false),
+      b01: (premium ?? false),
     );
 
     return v;
   }
 
   /// bot: bit 0 of flags.0?Bool
-  final bool bot;
+  final bool? bot;
 
   /// premium: bit 1 of flags.1?Bool
-  final bool premium;
+  final bool? premium;
 
   /// Serialize.
   @override
@@ -82899,8 +82899,8 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
     final flags = reader.readInt32();
     final creator = (flags & 1) != 0;
     final botParticipant = (flags & 32) != 0;
-    final hasUsername = (flags & 8) != 0;
-    final forum = (flags & 16) != 0;
+    final hasUsername = (flags & 8) != 0 ? reader.readBool() : null;
+    final forum = (flags & 16) != 0 ? reader.readBool() : null;
     final hasUserAdminRightsField = (flags & 2) != 0;
     final userAdminRights = hasUserAdminRightsField
         ? reader.readObject() as ChatAdminRightsBase
@@ -82929,8 +82929,8 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
     final v = _flag(
       b00: creator,
       b05: botParticipant,
-      b03: hasUsername,
-      b04: forum,
+      b03: (hasUsername ?? false),
+      b04: (forum ?? false),
       b01: userAdminRights != null,
       b02: botAdminRights != null,
     );
@@ -82945,10 +82945,10 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
   final bool botParticipant;
 
   /// has_username: bit 3 of flags.3?Bool
-  final bool hasUsername;
+  final bool? hasUsername;
 
   /// forum: bit 4 of flags.4?Bool
-  final bool forum;
+  final bool? forum;
 
   /// User Admin Rights.
   final ChatAdminRightsBase? userAdminRights;
@@ -83011,7 +83011,7 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
     // Read [RequestPeerTypeBroadcast] fields.
     final flags = reader.readInt32();
     final creator = (flags & 1) != 0;
-    final hasUsername = (flags & 8) != 0;
+    final hasUsername = (flags & 8) != 0 ? reader.readBool() : null;
     final hasUserAdminRightsField = (flags & 2) != 0;
     final userAdminRights = hasUserAdminRightsField
         ? reader.readObject() as ChatAdminRightsBase
@@ -83037,7 +83037,7 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   int get flags {
     final v = _flag(
       b00: creator,
-      b03: hasUsername,
+      b03: (hasUsername ?? false),
       b01: userAdminRights != null,
       b02: botAdminRights != null,
     );
@@ -83049,7 +83049,7 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   final bool creator;
 
   /// has_username: bit 3 of flags.3?Bool
-  final bool hasUsername;
+  final bool? hasUsername;
 
   /// User Admin Rights.
   final ChatAdminRightsBase? userAdminRights;
@@ -123669,7 +123669,7 @@ class PhoneToggleGroupCallSettings extends TlMethod {
     final flags = reader.readInt32();
     final resetInviteHash = (flags & 2) != 0;
     final call = reader.readObject() as InputGroupCallBase;
-    final joinMuted = (flags & 1) != 0;
+    final joinMuted = (flags & 1) != 0 ? reader.readBool() : null;
 
     // Construct [PhoneToggleGroupCallSettings] object.
     final returnValue = PhoneToggleGroupCallSettings(
@@ -123686,7 +123686,7 @@ class PhoneToggleGroupCallSettings extends TlMethod {
   int get flags {
     final v = _flag(
       b01: resetInviteHash,
-      b00: joinMuted,
+      b00: (joinMuted ?? false),
     );
 
     return v;
@@ -123699,7 +123699,7 @@ class PhoneToggleGroupCallSettings extends TlMethod {
   final InputGroupCallBase call;
 
   /// join_muted: bit 0 of flags.0?Bool
-  final bool joinMuted;
+  final bool? joinMuted;
 
   /// Serialize.
   @override
@@ -124506,7 +124506,7 @@ class MessagesEditExportedChatInvite extends TlMethod {
     final expireDate = hasExpireDateField ? reader.readDateTime() : null;
     final hasUsageLimitField = (flags & 2) != 0;
     final usageLimit = hasUsageLimitField ? reader.readInt32() : null;
-    final requestNeeded = (flags & 8) != 0;
+    final requestNeeded = (flags & 8) != 0 ? reader.readBool() : null;
     final hasTitleField = (flags & 16) != 0;
     final title = hasTitleField ? reader.readString() : null;
 
@@ -124531,7 +124531,7 @@ class MessagesEditExportedChatInvite extends TlMethod {
       b02: revoked,
       b00: expireDate != null,
       b01: usageLimit != null,
-      b03: requestNeeded,
+      b03: (requestNeeded ?? false),
       b04: title != null,
     );
 
@@ -124554,7 +124554,7 @@ class MessagesEditExportedChatInvite extends TlMethod {
   final int? usageLimit;
 
   /// request_needed: bit 3 of flags.3?Bool
-  final bool requestNeeded;
+  final bool? requestNeeded;
 
   /// Title.
   final String? title;
@@ -125165,7 +125165,7 @@ class PhoneToggleGroupCallRecord extends TlMethod {
     final call = reader.readObject() as InputGroupCallBase;
     final hasTitleField = (flags & 2) != 0;
     final title = hasTitleField ? reader.readString() : null;
-    final videoPortrait = (flags & 4) != 0;
+    final videoPortrait = (flags & 4) != 0 ? reader.readBool() : null;
 
     // Construct [PhoneToggleGroupCallRecord] object.
     final returnValue = PhoneToggleGroupCallRecord(
@@ -125184,7 +125184,7 @@ class PhoneToggleGroupCallRecord extends TlMethod {
   int get flags {
     final v = _flag(
       b00: start,
-      b02: video || videoPortrait,
+      b02: video || (videoPortrait ?? false),
       b01: title != null,
     );
 
@@ -125204,7 +125204,7 @@ class PhoneToggleGroupCallRecord extends TlMethod {
   final String? title;
 
   /// video_portrait: bit 2 of flags.2?Bool
-  final bool videoPortrait;
+  final bool? videoPortrait;
 
   /// Serialize.
   @override
@@ -125263,13 +125263,13 @@ class PhoneEditGroupCallParticipant extends TlMethod {
     final flags = reader.readInt32();
     final call = reader.readObject() as InputGroupCallBase;
     final participant = reader.readObject() as InputPeerBase;
-    final muted = (flags & 1) != 0;
+    final muted = (flags & 1) != 0 ? reader.readBool() : null;
     final hasVolumeField = (flags & 2) != 0;
     final volume = hasVolumeField ? reader.readInt32() : null;
-    final raiseHand = (flags & 4) != 0;
-    final videoStopped = (flags & 8) != 0;
-    final videoPaused = (flags & 16) != 0;
-    final presentationPaused = (flags & 32) != 0;
+    final raiseHand = (flags & 4) != 0 ? reader.readBool() : null;
+    final videoStopped = (flags & 8) != 0 ? reader.readBool() : null;
+    final videoPaused = (flags & 16) != 0 ? reader.readBool() : null;
+    final presentationPaused = (flags & 32) != 0 ? reader.readBool() : null;
 
     // Construct [PhoneEditGroupCallParticipant] object.
     final returnValue = PhoneEditGroupCallParticipant(
@@ -125290,12 +125290,12 @@ class PhoneEditGroupCallParticipant extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: muted,
+      b00: (muted ?? false),
       b01: volume != null,
-      b02: raiseHand,
-      b03: videoStopped,
-      b04: videoPaused,
-      b05: presentationPaused,
+      b02: (raiseHand ?? false),
+      b03: (videoStopped ?? false),
+      b04: (videoPaused ?? false),
+      b05: (presentationPaused ?? false),
     );
 
     return v;
@@ -125308,22 +125308,22 @@ class PhoneEditGroupCallParticipant extends TlMethod {
   final InputPeerBase participant;
 
   /// muted: bit 0 of flags.0?Bool
-  final bool muted;
+  final bool? muted;
 
   /// Volume.
   final int? volume;
 
   /// raise_hand: bit 2 of flags.2?Bool
-  final bool raiseHand;
+  final bool? raiseHand;
 
   /// video_stopped: bit 3 of flags.3?Bool
-  final bool videoStopped;
+  final bool? videoStopped;
 
   /// video_paused: bit 4 of flags.4?Bool
-  final bool videoPaused;
+  final bool? videoPaused;
 
   /// presentation_paused: bit 5 of flags.5?Bool
-  final bool presentationPaused;
+  final bool? presentationPaused;
 
   /// Serialize.
   @override
@@ -126949,8 +126949,9 @@ class AccountChangeAuthorizationSettings extends TlMethod {
     final flags = reader.readInt32();
     final confirmed = (flags & 8) != 0;
     final hash = reader.readInt64();
-    final encryptedRequestsDisabled = (flags & 1) != 0;
-    final callRequestsDisabled = (flags & 2) != 0;
+    final encryptedRequestsDisabled =
+        (flags & 1) != 0 ? reader.readBool() : null;
+    final callRequestsDisabled = (flags & 2) != 0 ? reader.readBool() : null;
 
     // Construct [AccountChangeAuthorizationSettings] object.
     final returnValue = AccountChangeAuthorizationSettings(
@@ -126968,8 +126969,8 @@ class AccountChangeAuthorizationSettings extends TlMethod {
   int get flags {
     final v = _flag(
       b03: confirmed,
-      b00: encryptedRequestsDisabled,
-      b01: callRequestsDisabled,
+      b00: (encryptedRequestsDisabled ?? false),
+      b01: (callRequestsDisabled ?? false),
     );
 
     return v;
@@ -126984,10 +126985,10 @@ class AccountChangeAuthorizationSettings extends TlMethod {
   final int hash;
 
   /// encrypted_requests_disabled: bit 0 of flags.0?Bool
-  final bool encryptedRequestsDisabled;
+  final bool? encryptedRequestsDisabled;
 
   /// call_requests_disabled: bit 1 of flags.1?Bool
-  final bool callRequestsDisabled;
+  final bool? callRequestsDisabled;
 
   /// Serialize.
   @override
@@ -127368,7 +127369,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
     final availableReactions = reader.readObject() as ChatReactionsBase;
     final hasReactionsLimitField = (flags & 1) != 0;
     final reactionsLimit = hasReactionsLimitField ? reader.readInt32() : null;
-    final paidEnabled = (flags & 2) != 0;
+    final paidEnabled = (flags & 2) != 0 ? reader.readBool() : null;
 
     // Construct [MessagesSetChatAvailableReactions] object.
     final returnValue = MessagesSetChatAvailableReactions(
@@ -127386,7 +127387,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
   int get flags {
     final v = _flag(
       b00: reactionsLimit != null,
-      b01: paidEnabled,
+      b01: (paidEnabled ?? false),
     );
 
     return v;
@@ -127402,7 +127403,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
   final int? reactionsLimit;
 
   /// paid_enabled: bit 1 of flags.1?Bool
-  final bool paidEnabled;
+  final bool? paidEnabled;
 
   /// Serialize.
   @override
@@ -131164,8 +131165,8 @@ class ChannelsEditForumTopic extends TlMethod {
     final title = hasTitleField ? reader.readString() : null;
     final hasIconEmojiIdField = (flags & 2) != 0;
     final iconEmojiId = hasIconEmojiIdField ? reader.readInt64() : null;
-    final closed = (flags & 4) != 0;
-    final hidden = (flags & 8) != 0;
+    final closed = (flags & 4) != 0 ? reader.readBool() : null;
+    final hidden = (flags & 8) != 0 ? reader.readBool() : null;
 
     // Construct [ChannelsEditForumTopic] object.
     final returnValue = ChannelsEditForumTopic(
@@ -131186,8 +131187,8 @@ class ChannelsEditForumTopic extends TlMethod {
     final v = _flag(
       b00: title != null,
       b01: iconEmojiId != null,
-      b02: closed,
-      b03: hidden,
+      b02: (closed ?? false),
+      b03: (hidden ?? false),
     );
 
     return v;
@@ -131208,10 +131209,10 @@ class ChannelsEditForumTopic extends TlMethod {
   final int? iconEmojiId;
 
   /// closed: bit 2 of flags.2?Bool
-  final bool closed;
+  final bool? closed;
 
   /// hidden: bit 3 of flags.3?Bool
-  final bool hidden;
+  final bool? hidden;
 
   /// Serialize.
   @override
@@ -143507,7 +143508,7 @@ class PaymentsChangeStarsSubscription extends TlMethod {
     final flags = reader.readInt32();
     final peer = reader.readObject() as InputPeerBase;
     final subscriptionId = reader.readString();
-    final canceled = (flags & 1) != 0;
+    final canceled = (flags & 1) != 0 ? reader.readBool() : null;
 
     // Construct [PaymentsChangeStarsSubscription] object.
     final returnValue = PaymentsChangeStarsSubscription(
@@ -143523,7 +143524,7 @@ class PaymentsChangeStarsSubscription extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: canceled,
+      b00: (canceled ?? false),
     );
 
     return v;
@@ -143536,7 +143537,7 @@ class PaymentsChangeStarsSubscription extends TlMethod {
   final String subscriptionId;
 
   /// canceled: bit 0 of flags.0?Bool
-  final bool canceled;
+  final bool? canceled;
 
   /// Serialize.
   @override
@@ -143648,7 +143649,7 @@ class MessagesSendPaidReaction extends TlMethod {
     final msgId = reader.readInt32();
     final count = reader.readInt32();
     final randomId = reader.readInt64();
-    final private = (flags & 1) != 0;
+    final private = (flags & 1) != 0 ? reader.readBool() : null;
 
     // Construct [MessagesSendPaidReaction] object.
     final returnValue = MessagesSendPaidReaction(
@@ -143666,7 +143667,7 @@ class MessagesSendPaidReaction extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: private,
+      b00: (private ?? false),
     );
 
     return v;
@@ -143691,7 +143692,7 @@ class MessagesSendPaidReaction extends TlMethod {
   final int randomId;
 
   /// private: bit 0 of flags.0?Bool
-  final bool private;
+  final bool? private;
 
   /// Serialize.
   @override

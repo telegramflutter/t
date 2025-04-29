@@ -1,3 +1,7 @@
+## 0.0.19
+
+- Differentiate between `True` and `boolFalse` / `boolTrue` when deserializing.
+
 ## 0.0.18
 
 - Upgraded to Telegram API Layer 195.
