@@ -1,3 +1,7 @@
+## 0.0.20
+
+- Fix message serialization on boolean values.
+
 ## 0.0.19
 
 - Differentiate between `True` and `boolFalse` / `boolTrue` when deserializing.

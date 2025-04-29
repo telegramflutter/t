@@ -11878,8 +11878,8 @@ class MessageActionTopicEdit extends MessageActionBase {
   const MessageActionTopicEdit({
     this.title,
     this.iconEmojiId,
-    required this.closed,
-    required this.hidden,
+    this.closed,
+    this.hidden,
   }) : super._();
 
   /// Deserialize.
@@ -11910,8 +11910,8 @@ class MessageActionTopicEdit extends MessageActionBase {
     final v = _flag(
       b00: title != null,
       b01: iconEmojiId != null,
-      b02: (closed ?? false),
-      b03: (hidden ?? false),
+      b02: (closed != null),
+      b03: (hidden != null),
     );
 
     return v;
@@ -11944,6 +11944,14 @@ class MessageActionTopicEdit extends MessageActionBase {
     final localIconEmojiIdCopy = iconEmojiId;
     if (localIconEmojiIdCopy != null) {
       buffer.writeInt64(localIconEmojiIdCopy);
+    }
+    final localClosedCopy = closed;
+    if (localClosedCopy != null) {
+      buffer.writeBool(localClosedCopy);
+    }
+    final localHiddenCopy = hidden;
+    if (localHiddenCopy != null) {
+      buffer.writeBool(localHiddenCopy);
     }
 
     // Finished serialization.
@@ -14654,12 +14662,12 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
 class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   /// Input Peer Notify Settings constructor.
   const InputPeerNotifySettings({
-    required this.showPreviews,
-    required this.silent,
+    this.showPreviews,
+    this.silent,
     this.muteUntil,
     this.sound,
-    required this.storiesMuted,
-    required this.storiesHideSender,
+    this.storiesMuted,
+    this.storiesHideSender,
     this.storiesSound,
   }) : super._();
 
@@ -14699,12 +14707,12 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (showPreviews ?? false),
-      b01: (silent ?? false),
+      b00: (showPreviews != null),
+      b01: (silent != null),
       b02: muteUntil != null,
       b03: sound != null,
-      b06: (storiesMuted ?? false),
-      b07: (storiesHideSender ?? false),
+      b06: (storiesMuted != null),
+      b07: (storiesHideSender != null),
       b08: storiesSound != null,
     );
 
@@ -14740,6 +14748,14 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localShowPreviewsCopy = showPreviews;
+    if (localShowPreviewsCopy != null) {
+      buffer.writeBool(localShowPreviewsCopy);
+    }
+    final localSilentCopy = silent;
+    if (localSilentCopy != null) {
+      buffer.writeBool(localSilentCopy);
+    }
     final localMuteUntilCopy = muteUntil;
     if (localMuteUntilCopy != null) {
       buffer.writeDateTime(localMuteUntilCopy);
@@ -14747,6 +14763,14 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
     final localSoundCopy = sound;
     if (localSoundCopy != null) {
       buffer.writeObject(localSoundCopy);
+    }
+    final localStoriesMutedCopy = storiesMuted;
+    if (localStoriesMutedCopy != null) {
+      buffer.writeBool(localStoriesMutedCopy);
+    }
+    final localStoriesHideSenderCopy = storiesHideSender;
+    if (localStoriesHideSenderCopy != null) {
+      buffer.writeBool(localStoriesHideSenderCopy);
     }
     final localStoriesSoundCopy = storiesSound;
     if (localStoriesSoundCopy != null) {
@@ -14781,14 +14805,14 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
 class PeerNotifySettings extends PeerNotifySettingsBase {
   /// Peer Notify Settings constructor.
   const PeerNotifySettings({
-    required this.showPreviews,
-    required this.silent,
+    this.showPreviews,
+    this.silent,
     this.muteUntil,
     this.iosSound,
     this.androidSound,
     this.otherSound,
-    required this.storiesMuted,
-    required this.storiesHideSender,
+    this.storiesMuted,
+    this.storiesHideSender,
     this.storiesIosSound,
     this.storiesAndroidSound,
     this.storiesOtherSound,
@@ -14850,14 +14874,14 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (showPreviews ?? false),
-      b01: (silent ?? false),
+      b00: (showPreviews != null),
+      b01: (silent != null),
       b02: muteUntil != null,
       b03: iosSound != null,
       b04: androidSound != null,
       b05: otherSound != null,
-      b06: (storiesMuted ?? false),
-      b07: (storiesHideSender ?? false),
+      b06: (storiesMuted != null),
+      b07: (storiesHideSender != null),
       b08: storiesIosSound != null,
       b09: storiesAndroidSound != null,
       b10: storiesOtherSound != null,
@@ -14907,6 +14931,14 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localShowPreviewsCopy = showPreviews;
+    if (localShowPreviewsCopy != null) {
+      buffer.writeBool(localShowPreviewsCopy);
+    }
+    final localSilentCopy = silent;
+    if (localSilentCopy != null) {
+      buffer.writeBool(localSilentCopy);
+    }
     final localMuteUntilCopy = muteUntil;
     if (localMuteUntilCopy != null) {
       buffer.writeDateTime(localMuteUntilCopy);
@@ -14922,6 +14954,14 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
     final localOtherSoundCopy = otherSound;
     if (localOtherSoundCopy != null) {
       buffer.writeObject(localOtherSoundCopy);
+    }
+    final localStoriesMutedCopy = storiesMuted;
+    if (localStoriesMutedCopy != null) {
+      buffer.writeBool(localStoriesMutedCopy);
+    }
+    final localStoriesHideSenderCopy = storiesHideSender;
+    if (localStoriesHideSenderCopy != null) {
+      buffer.writeBool(localStoriesHideSenderCopy);
     }
     final localStoriesIosSoundCopy = storiesIosSound;
     if (localStoriesIosSoundCopy != null) {
@@ -39763,7 +39803,7 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
 class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Keyboard Button Request Poll constructor.
   const KeyboardButtonRequestPoll({
-    required this.quiz,
+    this.quiz,
     required this.text,
   }) : super._();
 
@@ -39787,7 +39827,7 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (quiz ?? false),
+      b00: (quiz != null),
     );
 
     return v;
@@ -39807,6 +39847,10 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localQuizCopy = quiz;
+    if (localQuizCopy != null) {
+      buffer.writeBool(localQuizCopy);
+    }
     buffer.writeString(text);
 
     // Finished serialization.
@@ -67679,7 +67723,7 @@ class CodeSettings extends CodeSettingsBase {
     required this.unknownNumber,
     this.logoutTokens,
     this.token,
-    required this.appSandbox,
+    this.appSandbox,
   }) : super._();
 
   /// Deserialize.
@@ -67725,7 +67769,7 @@ class CodeSettings extends CodeSettingsBase {
       b07: allowFirebase,
       b09: unknownNumber,
       b06: logoutTokens != null,
-      b08: token != null || (appSandbox ?? false),
+      b08: token != null || (appSandbox != null),
     );
 
     return v;
@@ -67773,6 +67817,10 @@ class CodeSettings extends CodeSettingsBase {
     final localTokenCopy = token;
     if (localTokenCopy != null) {
       buffer.writeString(localTokenCopy);
+    }
+    final localAppSandboxCopy = appSandbox;
+    if (localAppSandboxCopy != null) {
+      buffer.writeBool(localAppSandboxCopy);
     }
 
     // Finished serialization.
@@ -82816,8 +82864,8 @@ class ExportedContactToken extends ExportedContactTokenBase {
 class RequestPeerTypeUser extends RequestPeerTypeBase {
   /// Request Peer Type User constructor.
   const RequestPeerTypeUser({
-    required this.bot,
-    required this.premium,
+    this.bot,
+    this.premium,
   }) : super._();
 
   /// Deserialize.
@@ -82840,8 +82888,8 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (bot ?? false),
-      b01: (premium ?? false),
+      b00: (bot != null),
+      b01: (premium != null),
     );
 
     return v;
@@ -82861,6 +82909,14 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localBotCopy = bot;
+    if (localBotCopy != null) {
+      buffer.writeBool(localBotCopy);
+    }
+    final localPremiumCopy = premium;
+    if (localPremiumCopy != null) {
+      buffer.writeBool(localPremiumCopy);
+    }
 
     // Finished serialization.
   }
@@ -82887,8 +82943,8 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
   const RequestPeerTypeChat({
     required this.creator,
     required this.botParticipant,
-    required this.hasUsername,
-    required this.forum,
+    this.hasUsername,
+    this.forum,
     this.userAdminRights,
     this.botAdminRights,
   }) : super._();
@@ -82929,8 +82985,8 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
     final v = _flag(
       b00: creator,
       b05: botParticipant,
-      b03: (hasUsername ?? false),
-      b04: (forum ?? false),
+      b03: (hasUsername != null),
+      b04: (forum != null),
       b01: userAdminRights != null,
       b02: botAdminRights != null,
     );
@@ -82964,6 +83020,14 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localHasUsernameCopy = hasUsername;
+    if (localHasUsernameCopy != null) {
+      buffer.writeBool(localHasUsernameCopy);
+    }
+    final localForumCopy = forum;
+    if (localForumCopy != null) {
+      buffer.writeBool(localForumCopy);
+    }
     final localUserAdminRightsCopy = userAdminRights;
     if (localUserAdminRightsCopy != null) {
       buffer.writeObject(localUserAdminRightsCopy);
@@ -83001,7 +83065,7 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   /// Request Peer Type Broadcast constructor.
   const RequestPeerTypeBroadcast({
     required this.creator,
-    required this.hasUsername,
+    this.hasUsername,
     this.userAdminRights,
     this.botAdminRights,
   }) : super._();
@@ -83037,7 +83101,7 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   int get flags {
     final v = _flag(
       b00: creator,
-      b03: (hasUsername ?? false),
+      b03: (hasUsername != null),
       b01: userAdminRights != null,
       b02: botAdminRights != null,
     );
@@ -83065,6 +83129,10 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localHasUsernameCopy = hasUsername;
+    if (localHasUsernameCopy != null) {
+      buffer.writeBool(localHasUsernameCopy);
+    }
     final localUserAdminRightsCopy = userAdminRights;
     if (localUserAdminRightsCopy != null) {
       buffer.writeObject(localUserAdminRightsCopy);
@@ -123660,7 +123728,7 @@ class PhoneToggleGroupCallSettings extends TlMethod {
   const PhoneToggleGroupCallSettings({
     required this.resetInviteHash,
     required this.call,
-    required this.joinMuted,
+    this.joinMuted,
   }) : super._();
 
   /// Deserialize.
@@ -123686,7 +123754,7 @@ class PhoneToggleGroupCallSettings extends TlMethod {
   int get flags {
     final v = _flag(
       b01: resetInviteHash,
-      b00: (joinMuted ?? false),
+      b00: (joinMuted != null),
     );
 
     return v;
@@ -123710,6 +123778,10 @@ class PhoneToggleGroupCallSettings extends TlMethod {
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(call);
+    final localJoinMutedCopy = joinMuted;
+    if (localJoinMutedCopy != null) {
+      buffer.writeBool(localJoinMutedCopy);
+    }
 
     // Finished serialization.
   }
@@ -124491,7 +124563,7 @@ class MessagesEditExportedChatInvite extends TlMethod {
     required this.link,
     this.expireDate,
     this.usageLimit,
-    required this.requestNeeded,
+    this.requestNeeded,
     this.title,
   }) : super._();
 
@@ -124531,7 +124603,7 @@ class MessagesEditExportedChatInvite extends TlMethod {
       b02: revoked,
       b00: expireDate != null,
       b01: usageLimit != null,
-      b03: (requestNeeded ?? false),
+      b03: (requestNeeded != null),
       b04: title != null,
     );
 
@@ -124576,6 +124648,10 @@ class MessagesEditExportedChatInvite extends TlMethod {
     final localUsageLimitCopy = usageLimit;
     if (localUsageLimitCopy != null) {
       buffer.writeInt32(localUsageLimitCopy);
+    }
+    final localRequestNeededCopy = requestNeeded;
+    if (localRequestNeededCopy != null) {
+      buffer.writeBool(localRequestNeededCopy);
     }
     final localTitleCopy = title;
     if (localTitleCopy != null) {
@@ -125153,7 +125229,7 @@ class PhoneToggleGroupCallRecord extends TlMethod {
     required this.video,
     required this.call,
     this.title,
-    required this.videoPortrait,
+    this.videoPortrait,
   }) : super._();
 
   /// Deserialize.
@@ -125184,7 +125260,7 @@ class PhoneToggleGroupCallRecord extends TlMethod {
   int get flags {
     final v = _flag(
       b00: start,
-      b02: video || (videoPortrait ?? false),
+      b02: video || (videoPortrait != null),
       b01: title != null,
     );
 
@@ -125219,6 +125295,10 @@ class PhoneToggleGroupCallRecord extends TlMethod {
     if (localTitleCopy != null) {
       buffer.writeString(localTitleCopy);
     }
+    final localVideoPortraitCopy = videoPortrait;
+    if (localVideoPortraitCopy != null) {
+      buffer.writeBool(localVideoPortraitCopy);
+    }
 
     // Finished serialization.
   }
@@ -125249,12 +125329,12 @@ class PhoneEditGroupCallParticipant extends TlMethod {
   const PhoneEditGroupCallParticipant({
     required this.call,
     required this.participant,
-    required this.muted,
+    this.muted,
     this.volume,
-    required this.raiseHand,
-    required this.videoStopped,
-    required this.videoPaused,
-    required this.presentationPaused,
+    this.raiseHand,
+    this.videoStopped,
+    this.videoPaused,
+    this.presentationPaused,
   }) : super._();
 
   /// Deserialize.
@@ -125290,12 +125370,12 @@ class PhoneEditGroupCallParticipant extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (muted ?? false),
+      b00: (muted != null),
       b01: volume != null,
-      b02: (raiseHand ?? false),
-      b03: (videoStopped ?? false),
-      b04: (videoPaused ?? false),
-      b05: (presentationPaused ?? false),
+      b02: (raiseHand != null),
+      b03: (videoStopped != null),
+      b04: (videoPaused != null),
+      b05: (presentationPaused != null),
     );
 
     return v;
@@ -125335,9 +125415,29 @@ class PhoneEditGroupCallParticipant extends TlMethod {
     buffer.writeInt32(flags);
     buffer.writeObject(call);
     buffer.writeObject(participant);
+    final localMutedCopy = muted;
+    if (localMutedCopy != null) {
+      buffer.writeBool(localMutedCopy);
+    }
     final localVolumeCopy = volume;
     if (localVolumeCopy != null) {
       buffer.writeInt32(localVolumeCopy);
+    }
+    final localRaiseHandCopy = raiseHand;
+    if (localRaiseHandCopy != null) {
+      buffer.writeBool(localRaiseHandCopy);
+    }
+    final localVideoStoppedCopy = videoStopped;
+    if (localVideoStoppedCopy != null) {
+      buffer.writeBool(localVideoStoppedCopy);
+    }
+    final localVideoPausedCopy = videoPaused;
+    if (localVideoPausedCopy != null) {
+      buffer.writeBool(localVideoPausedCopy);
+    }
+    final localPresentationPausedCopy = presentationPaused;
+    if (localPresentationPausedCopy != null) {
+      buffer.writeBool(localPresentationPausedCopy);
     }
 
     // Finished serialization.
@@ -126939,8 +127039,8 @@ class AccountChangeAuthorizationSettings extends TlMethod {
   const AccountChangeAuthorizationSettings({
     required this.confirmed,
     required this.hash,
-    required this.encryptedRequestsDisabled,
-    required this.callRequestsDisabled,
+    this.encryptedRequestsDisabled,
+    this.callRequestsDisabled,
   }) : super._();
 
   /// Deserialize.
@@ -126969,8 +127069,8 @@ class AccountChangeAuthorizationSettings extends TlMethod {
   int get flags {
     final v = _flag(
       b03: confirmed,
-      b00: (encryptedRequestsDisabled ?? false),
-      b01: (callRequestsDisabled ?? false),
+      b00: (encryptedRequestsDisabled != null),
+      b01: (callRequestsDisabled != null),
     );
 
     return v;
@@ -126999,6 +127099,14 @@ class AccountChangeAuthorizationSettings extends TlMethod {
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(hash);
+    final localEncryptedRequestsDisabledCopy = encryptedRequestsDisabled;
+    if (localEncryptedRequestsDisabledCopy != null) {
+      buffer.writeBool(localEncryptedRequestsDisabledCopy);
+    }
+    final localCallRequestsDisabledCopy = callRequestsDisabled;
+    if (localCallRequestsDisabledCopy != null) {
+      buffer.writeBool(localCallRequestsDisabledCopy);
+    }
 
     // Finished serialization.
   }
@@ -127358,7 +127466,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
     required this.peer,
     required this.availableReactions,
     this.reactionsLimit,
-    required this.paidEnabled,
+    this.paidEnabled,
   }) : super._();
 
   /// Deserialize.
@@ -127387,7 +127495,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
   int get flags {
     final v = _flag(
       b00: reactionsLimit != null,
-      b01: (paidEnabled ?? false),
+      b01: (paidEnabled != null),
     );
 
     return v;
@@ -127418,6 +127526,10 @@ class MessagesSetChatAvailableReactions extends TlMethod {
     final localReactionsLimitCopy = reactionsLimit;
     if (localReactionsLimitCopy != null) {
       buffer.writeInt32(localReactionsLimitCopy);
+    }
+    final localPaidEnabledCopy = paidEnabled;
+    if (localPaidEnabledCopy != null) {
+      buffer.writeBool(localPaidEnabledCopy);
     }
 
     // Finished serialization.
@@ -131151,8 +131263,8 @@ class ChannelsEditForumTopic extends TlMethod {
     required this.topicId,
     this.title,
     this.iconEmojiId,
-    required this.closed,
-    required this.hidden,
+    this.closed,
+    this.hidden,
   }) : super._();
 
   /// Deserialize.
@@ -131187,8 +131299,8 @@ class ChannelsEditForumTopic extends TlMethod {
     final v = _flag(
       b00: title != null,
       b01: iconEmojiId != null,
-      b02: (closed ?? false),
-      b03: (hidden ?? false),
+      b02: (closed != null),
+      b03: (hidden != null),
     );
 
     return v;
@@ -131231,6 +131343,14 @@ class ChannelsEditForumTopic extends TlMethod {
     final localIconEmojiIdCopy = iconEmojiId;
     if (localIconEmojiIdCopy != null) {
       buffer.writeInt64(localIconEmojiIdCopy);
+    }
+    final localClosedCopy = closed;
+    if (localClosedCopy != null) {
+      buffer.writeBool(localClosedCopy);
+    }
+    final localHiddenCopy = hidden;
+    if (localHiddenCopy != null) {
+      buffer.writeBool(localHiddenCopy);
     }
 
     // Finished serialization.
@@ -143499,7 +143619,7 @@ class PaymentsChangeStarsSubscription extends TlMethod {
   const PaymentsChangeStarsSubscription({
     required this.peer,
     required this.subscriptionId,
-    required this.canceled,
+    this.canceled,
   }) : super._();
 
   /// Deserialize.
@@ -143524,7 +143644,7 @@ class PaymentsChangeStarsSubscription extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (canceled ?? false),
+      b00: (canceled != null),
     );
 
     return v;
@@ -143549,6 +143669,10 @@ class PaymentsChangeStarsSubscription extends TlMethod {
     buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeString(subscriptionId);
+    final localCanceledCopy = canceled;
+    if (localCanceledCopy != null) {
+      buffer.writeBool(localCanceledCopy);
+    }
 
     // Finished serialization.
   }
@@ -143638,7 +143762,7 @@ class MessagesSendPaidReaction extends TlMethod {
     required this.msgId,
     required this.count,
     required this.randomId,
-    required this.private,
+    this.private,
   }) : super._();
 
   /// Deserialize.
@@ -143667,7 +143791,7 @@ class MessagesSendPaidReaction extends TlMethod {
   /// Flags.
   int get flags {
     final v = _flag(
-      b00: (private ?? false),
+      b00: (private != null),
     );
 
     return v;
@@ -143706,6 +143830,10 @@ class MessagesSendPaidReaction extends TlMethod {
     buffer.writeInt32(msgId);
     buffer.writeInt32(count);
     buffer.writeInt64(randomId);
+    final localPrivateCopy = private;
+    if (localPrivateCopy != null) {
+      buffer.writeBool(localPrivateCopy);
+    }
 
     // Finished serialization.
   }

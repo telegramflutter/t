@@ -2175,8 +2175,8 @@ class ClientAccount {
   Future<Result<Boolean>> changeAuthorizationSettings({
     required bool confirmed,
     required int hash,
-    required bool encryptedRequestsDisabled,
-    required bool callRequestsDisabled,
+    bool? encryptedRequestsDisabled,
+    bool? callRequestsDisabled,
   }) async {
     // Preparing the request.
     final request = AccountChangeAuthorizationSettings(
@@ -6515,7 +6515,7 @@ class ClientMessages {
     required String link,
     DateTime? expireDate,
     int? usageLimit,
-    required bool requestNeeded,
+    bool? requestNeeded,
     String? title,
   }) async {
     // Preparing the request.
@@ -6919,7 +6919,7 @@ class ClientMessages {
     required InputPeerBase peer,
     required ChatReactionsBase availableReactions,
     int? reactionsLimit,
-    required bool paidEnabled,
+    bool? paidEnabled,
   }) async {
     // Preparing the request.
     final request = MessagesSetChatAvailableReactions(
@@ -8266,7 +8266,7 @@ class ClientMessages {
     required int msgId,
     required int count,
     required int randomId,
-    required bool private,
+    bool? private,
   }) async {
     // Preparing the request.
     final request = MessagesSendPaidReaction(
@@ -10271,8 +10271,8 @@ class ClientChannels {
     required int topicId,
     String? title,
     int? iconEmojiId,
-    required bool closed,
-    required bool hidden,
+    bool? closed,
+    bool? hidden,
   }) async {
     // Preparing the request.
     final request = ChannelsEditForumTopic(
@@ -11709,7 +11709,7 @@ class ClientPayments {
   Future<Result<Boolean>> changeStarsSubscription({
     required InputPeerBase peer,
     required String subscriptionId,
-    required bool canceled,
+    bool? canceled,
   }) async {
     // Preparing the request.
     final request = PaymentsChangeStarsSubscription(
@@ -12534,7 +12534,7 @@ class ClientPhone {
   Future<Result<UpdatesBase>> toggleGroupCallSettings({
     required bool resetInviteHash,
     required InputGroupCallBase call,
-    required bool joinMuted,
+    bool? joinMuted,
   }) async {
     // Preparing the request.
     final request = PhoneToggleGroupCallSettings(
@@ -12624,7 +12624,7 @@ class ClientPhone {
     required bool video,
     required InputGroupCallBase call,
     String? title,
-    required bool videoPortrait,
+    bool? videoPortrait,
   }) async {
     // Preparing the request.
     final request = PhoneToggleGroupCallRecord(
@@ -12648,12 +12648,12 @@ class ClientPhone {
   Future<Result<UpdatesBase>> editGroupCallParticipant({
     required InputGroupCallBase call,
     required InputPeerBase participant,
-    required bool muted,
+    bool? muted,
     int? volume,
-    required bool raiseHand,
-    required bool videoStopped,
-    required bool videoPaused,
-    required bool presentationPaused,
+    bool? raiseHand,
+    bool? videoStopped,
+    bool? videoPaused,
+    bool? presentationPaused,
   }) async {
     // Preparing the request.
     final request = PhoneEditGroupCallParticipant(
