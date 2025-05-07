@@ -2,9 +2,9 @@
 [![likes](https://img.shields.io/pub/likes/t)](https://pub.dev/packages/t/score)
 [![points](https://img.shields.io/pub/points/t)](https://pub.dev/packages/t/score)
 [![popularity](https://img.shields.io/pub/popularity/t)](https://pub.dev/packages/t/score)
-[![license](https://img.shields.io/github/license/xclud/dart-telegram-schema)](https://pub.dev/packages/t)
-[![stars](https://img.shields.io/github/stars/xclud/dart-telegram-schema)](https://github.com/xclud/dart-telegram-schema/stargazers)
-[![forks](https://img.shields.io/github/forks/xclud/dart-telegram-schema)](https://github.com/xclud/dart-telegram-schema/network/members)
+[![license](https://img.shields.io/github/license/telegramflutter/t)](https://pub.dev/packages/t)
+[![stars](https://img.shields.io/github/stars/telegramflutter/t)](https://github.com/telegramflutter/t/stargazers)
+[![forks](https://img.shields.io/github/forks/telegramflutter/t)](https://github.com/telegramflutter/t/network/members)
 [![sdk version](https://badgen.net/pub/sdk-version/t)](https://pub.dev/packages/t)
 
 
