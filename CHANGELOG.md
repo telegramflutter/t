@@ -1,3 +1,7 @@
+## 0.0.21
+
+- Topics and badges.
+
 ## 0.0.20
 
 - Fix message serialization on boolean values.
