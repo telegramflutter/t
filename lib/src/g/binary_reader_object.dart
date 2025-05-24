@@ -210,6 +210,10 @@ TlObject _readObject(BinaryReader reader) {
     return True.deserialize(reader);
   }
 
+  if (id == _vectorCtor) {
+    return reader.readVectorObject();
+  }
+
   if (id == 0xc4b9f9bb) {
     return Error.deserialize(reader);
   }

@@ -1,4 +1,4 @@
-## 0.0.22
+## 0.0.23
 
 - Fixes a bug when reading a Vector<> from server response.
 

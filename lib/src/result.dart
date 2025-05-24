@@ -24,6 +24,20 @@ class Result<T extends TlObject> {
     }
   }
 
+  Result<Vector<S>> _toVector<S>() {
+    final r = result;
+
+    if (r == null) {
+      return Result<Vector<S>>._(null, error);
+    } else if (r is Vector) {
+      final s = r.items.map((e) => e as S);
+      final v = Vector._(s.toList());
+      return Result<Vector<S>>._(v, null);
+    }
+
+    throw Exception('Not a vector.');
+  }
+
   @override
   String toString() {
     if (result != null) {

@@ -96,6 +96,11 @@ class BinaryReader {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
 
+    return _readVectorObjectNoCtor<T>();
+  }
+
+  /// Read List&lt;TlObject&gt;.
+  Vector<T> _readVectorObjectNoCtor<T extends TlObject>() {
     final count = readInt32();
     final items = <T>[];
 

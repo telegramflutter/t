@@ -1367,7 +1367,7 @@ class ClientAccount {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<SecureValueBase>>();
+    return response._toVector<SecureValueBase>();
   }
 
   /// Get Secure Value.
@@ -1385,7 +1385,7 @@ class ClientAccount {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<SecureValueBase>>();
+    return response._toVector<SecureValueBase>();
   }
 
   /// Save Secure Value.
@@ -2046,7 +2046,7 @@ class ClientAccount {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<WallPaperBase>>();
+    return response._toVector<WallPaperBase>();
   }
 
   /// Get Global Privacy Settings.
@@ -2926,7 +2926,7 @@ class ClientUsers {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<UserBase>>();
+    return response._toVector<UserBase>();
   }
 
   /// Get Full User.
@@ -2982,7 +2982,7 @@ class ClientUsers {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<bool>>();
+    return response._toVector<bool>();
   }
 }
 
@@ -3007,7 +3007,7 @@ class ClientContacts {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Get Statuses.
@@ -3021,7 +3021,7 @@ class ClientContacts {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<ContactStatusBase>>();
+    return response._toVector<ContactStatusBase>();
   }
 
   /// Get Contacts.
@@ -3283,7 +3283,7 @@ class ClientContacts {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<SavedContactBase>>();
+    return response._toVector<SavedContactBase>();
   }
 
   /// Toggle Top Peers.
@@ -3714,7 +3714,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<ReceivedNotifyMessageBase>>();
+    return response._toVector<ReceivedNotifyMessageBase>();
   }
 
   /// Set Typing.
@@ -4302,7 +4302,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Report Encrypted Spam.
@@ -5184,7 +5184,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<StickerSetCoveredBase>>();
+    return response._toVector<StickerSetCoveredBase>();
   }
 
   /// Set Game Score.
@@ -5680,7 +5680,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<MessageRangeBase>>();
+    return response._toVector<MessageRangeBase>();
   }
 
   /// Mark Dialog Unread.
@@ -5714,7 +5714,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<DialogPeerBase>>();
+    return response._toVector<DialogPeerBase>();
   }
 
   /// Clear All Drafts.
@@ -5910,7 +5910,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<EmojiLanguageBase>>();
+    return response._toVector<EmojiLanguageBase>();
   }
 
   /// Get Emoji U R L.
@@ -5952,7 +5952,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<MessagesSearchCounterBase>>();
+    return response._toVector<MessagesSearchCounterBase>();
   }
 
   /// Request Url Auth.
@@ -6179,7 +6179,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<DialogFilterSuggestedBase>>();
+    return response._toVector<DialogFilterSuggestedBase>();
   }
 
   /// Update Dialog Filter.
@@ -6701,7 +6701,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<ReadParticipantDateBase>>();
+    return response._toVector<ReadParticipantDateBase>();
   }
 
   /// Get Search Results Calendar.
@@ -7331,7 +7331,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<DocumentBase>>();
+    return response._toVector<DocumentBase>();
   }
 
   /// Get Emoji Stickers.
@@ -8225,7 +8225,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<FactCheckBase>>();
+    return response._toVector<FactCheckBase>();
   }
 
   /// Request Main Web View.
@@ -8625,7 +8625,7 @@ class ClientPhotos {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Get User Photos.
@@ -8822,7 +8822,7 @@ class ClientUpload {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<FileHashBase>>();
+    return response._toVector<FileHashBase>();
   }
 
   /// Get Cdn File Hashes.
@@ -8842,7 +8842,7 @@ class ClientUpload {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<FileHashBase>>();
+    return response._toVector<FileHashBase>();
   }
 
   /// Get File Hashes.
@@ -8862,7 +8862,7 @@ class ClientUpload {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<FileHashBase>>();
+    return response._toVector<FileHashBase>();
   }
 }
 
@@ -10689,7 +10689,7 @@ class ClientBots {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<BotCommandBase>>();
+    return response._toVector<BotCommandBase>();
   }
 
   /// Set Bot Menu Button.
@@ -11057,7 +11057,7 @@ class ClientBots {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<BotPreviewMediaBase>>();
+    return response._toVector<BotPreviewMediaBase>();
   }
 
   /// Update User Emoji Status.
@@ -11133,7 +11133,7 @@ class ClientBots {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<UserBase>>();
+    return response._toVector<UserBase>();
   }
 
   /// Update Star Ref Program.
@@ -11398,7 +11398,7 @@ class ClientPayments {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<PremiumGiftCodeOptionBase>>();
+    return response._toVector<PremiumGiftCodeOptionBase>();
   }
 
   /// Check Gift Code.
@@ -11490,7 +11490,7 @@ class ClientPayments {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<StarsTopupOptionBase>>();
+    return response._toVector<StarsTopupOptionBase>();
   }
 
   /// Get Stars Status.
@@ -11678,7 +11678,7 @@ class ClientPayments {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<StarsGiftOptionBase>>();
+    return response._toVector<StarsGiftOptionBase>();
   }
 
   /// Get Stars Subscriptions.
@@ -11757,7 +11757,7 @@ class ClientPayments {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<StarsGiveawayOptionBase>>();
+    return response._toVector<StarsGiveawayOptionBase>();
   }
 
   /// Get Star Gifts.
@@ -12613,7 +12613,7 @@ class ClientPhone {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Toggle Group Call Record.
@@ -12932,7 +12932,7 @@ class ClientLangpack {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<LangPackStringBase>>();
+    return response._toVector<LangPackStringBase>();
   }
 
   /// Get Difference.
@@ -12972,7 +12972,7 @@ class ClientLangpack {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<LangPackLanguageBase>>();
+    return response._toVector<LangPackLanguageBase>();
   }
 
   /// Get Language.
@@ -13443,7 +13443,7 @@ class ClientChatlists {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<PeerBase>>();
+    return response._toVector<PeerBase>();
   }
 
   /// Leave Chatlist.
@@ -13580,7 +13580,7 @@ class ClientStories {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Toggle Pinned.
@@ -13602,7 +13602,7 @@ class ClientStories {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Get All Stories.
@@ -13726,7 +13726,7 @@ class ClientStories {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Increment Story Views.
@@ -13936,7 +13936,7 @@ class ClientStories {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Vector<int>>();
+    return response._toVector<int>();
   }
 
   /// Get Chats To Send.
