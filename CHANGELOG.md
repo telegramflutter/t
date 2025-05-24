@@ -1,3 +1,7 @@
+## 0.0.22
+
+- Fixes a bug when reading a Vector<> from server response.
+
 ## 0.0.21
 
 - Topics and badges.
