@@ -69,7 +69,7 @@ class Vector<T> extends TlObject {
 
   @override
   void serialize(List<int> buffer) {
-    buffer.writeInt32(0x1cb5c415);
+    buffer.writeInt32(_vectorCtor);
   }
 
   @override

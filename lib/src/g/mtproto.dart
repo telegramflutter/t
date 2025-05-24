@@ -25,7 +25,7 @@ class ResPQ extends ResPQBase {
       nonce: nonce,
       serverNonce: serverNonce,
       pq: pq,
-      serverPublicKeyFingerprints: serverPublicKeyFingerprints,
+      serverPublicKeyFingerprints: serverPublicKeyFingerprints.items,
     );
 
     // Now return the deserialized [ResPQ].
@@ -1164,7 +1164,7 @@ class FutureSalts extends FutureSaltsBase {
     final returnValue = FutureSalts(
       reqMsgId: reqMsgId,
       now: now,
-      salts: salts,
+      salts: salts.items,
     );
 
     // Now return the deserialized [FutureSalts].
@@ -1697,7 +1697,7 @@ class MsgsAck extends MsgsAckBase {
 
     // Construct [MsgsAck] object.
     final returnValue = MsgsAck(
-      msgIds: msgIds,
+      msgIds: msgIds.items,
     );
 
     // Now return the deserialized [MsgsAck].
@@ -1901,7 +1901,7 @@ class MsgResendReq extends MsgResendReqBase {
 
     // Construct [MsgResendReq] object.
     final returnValue = MsgResendReq(
-      msgIds: msgIds,
+      msgIds: msgIds.items,
     );
 
     // Now return the deserialized [MsgResendReq].
@@ -1951,7 +1951,7 @@ class MsgsStateReq extends MsgsStateReqBase {
 
     // Construct [MsgsStateReq] object.
     final returnValue = MsgsStateReq(
-      msgIds: msgIds,
+      msgIds: msgIds.items,
     );
 
     // Now return the deserialized [MsgsStateReq].
@@ -2063,7 +2063,7 @@ class MsgsAllInfo extends MsgsAllInfoBase {
 
     // Construct [MsgsAllInfo] object.
     final returnValue = MsgsAllInfo(
-      msgIds: msgIds,
+      msgIds: msgIds.items,
       info: info,
     );
 

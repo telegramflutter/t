@@ -196,7 +196,7 @@ class DecryptedMessage045 extends DecryptedMessageBase {
       ttl: ttl,
       message: message,
       media: media,
-      entities: entities,
+      entities: entities?.items,
       viaBotName: viaBotName,
       replyToRandomId: replyToRandomId,
     );
@@ -335,7 +335,7 @@ class DecryptedMessage073 extends DecryptedMessageBase {
       ttl: ttl,
       message: message,
       media: media,
-      entities: entities,
+      entities: entities?.items,
       viaBotName: viaBotName,
       replyToRandomId: replyToRandomId,
       groupedId: groupedId,
@@ -1544,7 +1544,7 @@ class DecryptedMessageMediaDocument045 extends DecryptedMessageMediaBase {
       size: size,
       key: key,
       iv: iv,
-      attributes: attributes,
+      attributes: attributes.items,
       caption: caption,
     );
 
@@ -1665,7 +1665,7 @@ class DecryptedMessageMediaDocument143 extends DecryptedMessageMediaBase {
       size: size,
       key: key,
       iv: iv,
-      attributes: attributes,
+      attributes: attributes.items,
       caption: caption,
     );
 
@@ -1952,7 +1952,7 @@ class DecryptedMessageMediaExternalDocument023
       size: size,
       thumb: thumb,
       dcId: dcId,
-      attributes: attributes,
+      attributes: attributes.items,
     );
 
     // Now return the deserialized [DecryptedMessageMediaExternalDocument023].
@@ -2244,7 +2244,7 @@ class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
 
     // Construct [DecryptedMessageActionReadMessages008] object.
     final returnValue = DecryptedMessageActionReadMessages008(
-      randomIds: randomIds,
+      randomIds: randomIds.items,
     );
 
     // Now return the deserialized [DecryptedMessageActionReadMessages008].
@@ -2297,7 +2297,7 @@ class DecryptedMessageActionDeleteMessages008
 
     // Construct [DecryptedMessageActionDeleteMessages008] object.
     final returnValue = DecryptedMessageActionDeleteMessages008(
-      randomIds: randomIds,
+      randomIds: randomIds.items,
     );
 
     // Now return the deserialized [DecryptedMessageActionDeleteMessages008].
@@ -2350,7 +2350,7 @@ class DecryptedMessageActionScreenshotMessages008
 
     // Construct [DecryptedMessageActionScreenshotMessages008] object.
     final returnValue = DecryptedMessageActionScreenshotMessages008(
-      randomIds: randomIds,
+      randomIds: randomIds.items,
     );
 
     // Now return the deserialized [DecryptedMessageActionScreenshotMessages008].

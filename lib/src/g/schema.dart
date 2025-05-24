@@ -990,7 +990,7 @@ class InputMediaUploadedPhoto extends InputMediaBase {
     final returnValue = InputMediaUploadedPhoto(
       spoiler: spoiler,
       file: file,
-      stickers: stickers,
+      stickers: stickers?.items,
       ttlSeconds: ttlSeconds,
     );
 
@@ -1307,8 +1307,8 @@ class InputMediaUploadedDocument extends InputMediaBase {
       file: file,
       thumb: thumb,
       mimeType: mimeType,
-      attributes: attributes,
-      stickers: stickers,
+      attributes: attributes.items,
+      stickers: stickers?.items,
       ttlSeconds: ttlSeconds,
     );
 
@@ -2090,9 +2090,9 @@ class InputMediaPoll extends InputMediaBase {
     // Construct [InputMediaPoll] object.
     final returnValue = InputMediaPoll(
       poll: poll,
-      correctAnswers: correctAnswers,
+      correctAnswers: correctAnswers?.items,
       solution: solution,
-      solutionEntities: solutionEntities,
+      solutionEntities: solutionEntities?.items,
     );
 
     // Now return the deserialized [InputMediaPoll].
@@ -2380,7 +2380,7 @@ class InputMediaPaidMedia extends InputMediaBase {
     // Construct [InputMediaPaidMedia] object.
     final returnValue = InputMediaPaidMedia(
       starsAmount: starsAmount,
-      extendedMedia: extendedMedia,
+      extendedMedia: extendedMedia.items,
       payload: payload,
     );
 
@@ -4327,11 +4327,11 @@ class User extends UserBase {
       photo: photo,
       status: status,
       botInfoVersion: botInfoVersion,
-      restrictionReason: restrictionReason,
+      restrictionReason: restrictionReason?.items,
       botInlinePlaceholder: botInlinePlaceholder,
       langCode: langCode,
       emojiStatus: emojiStatus,
-      usernames: usernames,
+      usernames: usernames?.items,
       storiesMaxId: storiesMaxId,
       color: color,
       profileColor: profileColor,
@@ -5590,12 +5590,12 @@ class Channel extends ChatBase {
       username: username,
       photo: photo,
       date: date,
-      restrictionReason: restrictionReason,
+      restrictionReason: restrictionReason?.items,
       adminRights: adminRights,
       bannedRights: bannedRights,
       defaultBannedRights: defaultBannedRights,
       participantsCount: participantsCount,
-      usernames: usernames,
+      usernames: usernames?.items,
       storiesMaxId: storiesMaxId,
       color: color,
       profileColor: profileColor,
@@ -6113,7 +6113,7 @@ class ChatFull extends ChatFullBase {
       chatPhoto: chatPhoto,
       notifySettings: notifySettings,
       exportedInvite: exportedInvite,
-      botInfo: botInfo,
+      botInfo: botInfo?.items,
       pinnedMsgId: pinnedMsgId,
       folderId: folderId,
       call: call,
@@ -6121,7 +6121,7 @@ class ChatFull extends ChatFullBase {
       groupcallDefaultJoinAs: groupcallDefaultJoinAs,
       themeEmoticon: themeEmoticon,
       requestsPending: requestsPending,
-      recentRequesters: recentRequesters,
+      recentRequesters: recentRequesters?.items,
       availableReactions: availableReactions,
       reactionsLimit: reactionsLimit,
     );
@@ -6534,7 +6534,7 @@ class ChannelFull extends ChatFullBase {
       chatPhoto: chatPhoto,
       notifySettings: notifySettings,
       exportedInvite: exportedInvite,
-      botInfo: botInfo,
+      botInfo: botInfo.items,
       migratedFromChatId: migratedFromChatId,
       migratedFromMaxId: migratedFromMaxId,
       pinnedMsgId: pinnedMsgId,
@@ -6549,11 +6549,11 @@ class ChannelFull extends ChatFullBase {
       pts: pts,
       call: call,
       ttlPeriod: ttlPeriod,
-      pendingSuggestions: pendingSuggestions,
+      pendingSuggestions: pendingSuggestions?.items,
       groupcallDefaultJoinAs: groupcallDefaultJoinAs,
       themeEmoticon: themeEmoticon,
       requestsPending: requestsPending,
-      recentRequesters: recentRequesters,
+      recentRequesters: recentRequesters?.items,
       defaultSendAs: defaultSendAs,
       availableReactions: availableReactions,
       reactionsLimit: reactionsLimit,
@@ -7336,7 +7336,7 @@ class ChatParticipants extends ChatParticipantsBase {
     // Construct [ChatParticipants] object.
     final returnValue = ChatParticipants(
       chatId: chatId,
-      participants: participants,
+      participants: participants.items,
       version: version,
     );
 
@@ -7747,7 +7747,7 @@ class Message extends MessageBase {
       message: message,
       media: media,
       replyMarkup: replyMarkup,
-      entities: entities,
+      entities: entities?.items,
       views: views,
       forwards: forwards,
       replies: replies,
@@ -7755,7 +7755,7 @@ class Message extends MessageBase {
       postAuthor: postAuthor,
       groupedId: groupedId,
       reactions: reactions,
-      restrictionReason: restrictionReason,
+      restrictionReason: restrictionReason?.items,
       ttlPeriod: ttlPeriod,
       quickReplyShortcutId: quickReplyShortcutId,
       effect: effect,
@@ -8602,7 +8602,7 @@ class MessageMediaDocument extends MessageMediaBase {
       round: round,
       voice: voice,
       document: document,
-      altDocuments: altDocuments,
+      altDocuments: altDocuments?.items,
       ttlSeconds: ttlSeconds,
     );
 
@@ -9428,8 +9428,8 @@ class MessageMediaGiveaway extends MessageMediaBase {
     final returnValue = MessageMediaGiveaway(
       onlyNewSubscribers: onlyNewSubscribers,
       winnersAreVisible: winnersAreVisible,
-      channels: channels,
-      countriesIso2: countriesIso2,
+      channels: channels.items,
+      countriesIso2: countriesIso2?.items,
       prizeDescription: prizeDescription,
       quantity: quantity,
       months: months,
@@ -9588,7 +9588,7 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
       launchMsgId: launchMsgId,
       winnersCount: winnersCount,
       unclaimedCount: unclaimedCount,
-      winners: winners,
+      winners: winners.items,
       months: months,
       stars: stars,
       prizeDescription: prizeDescription,
@@ -9734,7 +9734,7 @@ class MessageMediaPaidMedia extends MessageMediaBase {
     // Construct [MessageMediaPaidMedia] object.
     final returnValue = MessageMediaPaidMedia(
       starsAmount: starsAmount,
-      extendedMedia: extendedMedia,
+      extendedMedia: extendedMedia.items,
     );
 
     // Now return the deserialized [MessageMediaPaidMedia].
@@ -9830,7 +9830,7 @@ class MessageActionChatCreate extends MessageActionBase {
     // Construct [MessageActionChatCreate] object.
     final returnValue = MessageActionChatCreate(
       title: title,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessageActionChatCreate].
@@ -10021,7 +10021,7 @@ class MessageActionChatAddUser extends MessageActionBase {
 
     // Construct [MessageActionChatAddUser] object.
     final returnValue = MessageActionChatAddUser(
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessageActionChatAddUser].
@@ -11012,7 +11012,7 @@ class MessageActionSecureValuesSentMe extends MessageActionBase {
 
     // Construct [MessageActionSecureValuesSentMe] object.
     final returnValue = MessageActionSecureValuesSentMe(
-      values: values,
+      values: values.items,
       credentials: credentials,
     );
 
@@ -11068,7 +11068,7 @@ class MessageActionSecureValuesSent extends MessageActionBase {
 
     // Construct [MessageActionSecureValuesSent] object.
     final returnValue = MessageActionSecureValuesSent(
-      types: types,
+      types: types.items,
     );
 
     // Now return the deserialized [MessageActionSecureValuesSent].
@@ -11299,7 +11299,7 @@ class MessageActionInviteToGroupCall extends MessageActionBase {
     // Construct [MessageActionInviteToGroupCall] object.
     final returnValue = MessageActionInviteToGroupCall(
       call: call,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessageActionInviteToGroupCall].
@@ -12042,7 +12042,7 @@ class MessageActionRequestedPeer extends MessageActionBase {
     // Construct [MessageActionRequestedPeer] object.
     final returnValue = MessageActionRequestedPeer(
       buttonId: buttonId,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [MessageActionRequestedPeer].
@@ -12543,7 +12543,7 @@ class MessageActionRequestedPeerSentMe extends MessageActionBase {
     // Construct [MessageActionRequestedPeerSentMe] object.
     final returnValue = MessageActionRequestedPeerSentMe(
       buttonId: buttonId,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [MessageActionRequestedPeerSentMe].
@@ -13435,8 +13435,8 @@ class Photo extends PhotoBase {
       accessHash: accessHash,
       fileReference: fileReference,
       date: date,
-      sizes: sizes,
-      videoSizes: videoSizes,
+      sizes: sizes.items,
+      videoSizes: videoSizes?.items,
       dcId: dcId,
     );
 
@@ -13817,7 +13817,7 @@ class PhotoSizeProgressive extends PhotoSizeBase {
       type: type,
       w: w,
       h: h,
-      sizes: sizes,
+      sizes: sizes.items,
     );
 
     // Now return the deserialized [PhotoSizeProgressive].
@@ -15986,7 +15986,7 @@ class UserFull extends UserFullBase {
       privateForwardName: privateForwardName,
       botGroupAdminRights: botGroupAdminRights,
       botBroadcastAdminRights: botBroadcastAdminRights,
-      premiumGifts: premiumGifts,
+      premiumGifts: premiumGifts?.items,
       wallpaper: wallpaper,
       stories: stories,
       businessWorkHours: businessWorkHours,
@@ -16613,9 +16613,9 @@ class ContactsContacts extends ContactsContactsBase {
 
     // Construct [ContactsContacts] object.
     final returnValue = ContactsContacts(
-      contacts: contacts,
+      contacts: contacts.items,
       savedCount: savedCount,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsContacts].
@@ -16683,10 +16683,10 @@ class ContactsImportedContacts extends ContactsImportedContactsBase {
 
     // Construct [ContactsImportedContacts] object.
     final returnValue = ContactsImportedContacts(
-      imported: imported,
-      popularInvites: popularInvites,
-      retryContacts: retryContacts,
-      users: users,
+      imported: imported.items,
+      popularInvites: popularInvites.items,
+      retryContacts: retryContacts.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsImportedContacts].
@@ -16755,9 +16755,9 @@ class ContactsBlocked extends ContactsBlockedBase {
 
     // Construct [ContactsBlocked] object.
     final returnValue = ContactsBlocked(
-      blocked: blocked,
-      chats: chats,
-      users: users,
+      blocked: blocked.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsBlocked].
@@ -16824,9 +16824,9 @@ class ContactsBlockedSlice extends ContactsBlockedBase {
     // Construct [ContactsBlockedSlice] object.
     final returnValue = ContactsBlockedSlice(
       count: count,
-      blocked: blocked,
-      chats: chats,
-      users: users,
+      blocked: blocked.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsBlockedSlice].
@@ -16899,10 +16899,10 @@ class MessagesDialogs extends MessagesDialogsBase {
 
     // Construct [MessagesDialogs] object.
     final returnValue = MessagesDialogs(
-      dialogs: dialogs,
-      messages: messages,
-      chats: chats,
-      users: users,
+      dialogs: dialogs.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesDialogs].
@@ -16976,10 +16976,10 @@ class MessagesDialogsSlice extends MessagesDialogsBase {
     // Construct [MessagesDialogsSlice] object.
     final returnValue = MessagesDialogsSlice(
       count: count,
-      dialogs: dialogs,
-      messages: messages,
-      chats: chats,
-      users: users,
+      dialogs: dialogs.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesDialogsSlice].
@@ -17107,9 +17107,9 @@ class MessagesMessages extends MessagesMessagesBase {
 
     // Construct [MessagesMessages] object.
     final returnValue = MessagesMessages(
-      messages: messages,
-      chats: chats,
-      users: users,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesMessages].
@@ -17188,9 +17188,9 @@ class MessagesMessagesSlice extends MessagesMessagesBase {
       count: count,
       nextRate: nextRate,
       offsetIdOffset: offsetIdOffset,
-      messages: messages,
-      chats: chats,
-      users: users,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesMessagesSlice].
@@ -17310,10 +17310,10 @@ class MessagesChannelMessages extends MessagesMessagesBase {
       pts: pts,
       count: count,
       offsetIdOffset: offsetIdOffset,
-      messages: messages,
-      topics: topics,
-      chats: chats,
-      users: users,
+      messages: messages.items,
+      topics: topics.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesChannelMessages].
@@ -17468,7 +17468,7 @@ class MessagesChats extends MessagesChatsBase {
 
     // Construct [MessagesChats] object.
     final returnValue = MessagesChats(
-      chats: chats,
+      chats: chats.items,
     );
 
     // Now return the deserialized [MessagesChats].
@@ -17521,7 +17521,7 @@ class MessagesChatsSlice extends MessagesChatsBase {
     // Construct [MessagesChatsSlice] object.
     final returnValue = MessagesChatsSlice(
       count: count,
-      chats: chats,
+      chats: chats.items,
     );
 
     // Now return the deserialized [MessagesChatsSlice].
@@ -17583,8 +17583,8 @@ class MessagesChatFull extends MessagesChatFullBase {
     // Construct [MessagesChatFull] object.
     final returnValue = MessagesChatFull(
       fullChat: fullChat,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesChatFull].
@@ -18489,7 +18489,7 @@ class UpdateDeleteMessages extends UpdateBase {
 
     // Construct [UpdateDeleteMessages] object.
     final returnValue = UpdateDeleteMessages(
-      messages: messages,
+      messages: messages.items,
       pts: pts,
       ptsCount: ptsCount,
     );
@@ -18802,7 +18802,7 @@ class UpdateUserName extends UpdateBase {
       userId: userId,
       firstName: firstName,
       lastName: lastName,
-      usernames: usernames,
+      usernames: usernames.items,
     );
 
     // Now return the deserialized [UpdateUserName].
@@ -19376,7 +19376,7 @@ class UpdateDcOptions extends UpdateBase {
 
     // Construct [UpdateDcOptions] object.
     final returnValue = UpdateDcOptions(
-      dcOptions: dcOptions,
+      dcOptions: dcOptions.items,
     );
 
     // Now return the deserialized [UpdateDcOptions].
@@ -19504,7 +19504,7 @@ class UpdateServiceNotification extends UpdateBase {
       type: type,
       message: message,
       media: media,
-      entities: entities,
+      entities: entities.items,
     );
 
     // Now return the deserialized [UpdateServiceNotification].
@@ -19601,7 +19601,7 @@ class UpdatePrivacy extends UpdateBase {
     // Construct [UpdatePrivacy] object.
     final returnValue = UpdatePrivacy(
       key: key,
-      rules: rules,
+      rules: rules.items,
     );
 
     // Now return the deserialized [UpdatePrivacy].
@@ -19988,7 +19988,7 @@ class UpdateReadMessagesContents extends UpdateBase {
 
     // Construct [UpdateReadMessagesContents] object.
     final returnValue = UpdateReadMessagesContents(
-      messages: messages,
+      messages: messages.items,
       pts: pts,
       ptsCount: ptsCount,
       date: date,
@@ -20385,7 +20385,7 @@ class UpdateDeleteChannelMessages extends UpdateBase {
     // Construct [UpdateDeleteChannelMessages] object.
     final returnValue = UpdateDeleteChannelMessages(
       channelId: channelId,
-      messages: messages,
+      messages: messages.items,
       pts: pts,
       ptsCount: ptsCount,
     );
@@ -20667,7 +20667,7 @@ class UpdateStickerSetsOrder extends UpdateBase {
     final returnValue = UpdateStickerSetsOrder(
       masks: masks,
       emojis: emojis,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [UpdateStickerSetsOrder].
@@ -21907,7 +21907,7 @@ class UpdatePinnedDialogs extends UpdateBase {
     // Construct [UpdatePinnedDialogs] object.
     final returnValue = UpdatePinnedDialogs(
       folderId: folderId,
-      order: order,
+      order: order?.items,
     );
 
     // Now return the deserialized [UpdatePinnedDialogs].
@@ -22499,7 +22499,7 @@ class UpdateChannelReadMessagesContents extends UpdateBase {
     final returnValue = UpdateChannelReadMessagesContents(
       channelId: channelId,
       topMsgId: topMsgId,
-      messages: messages,
+      messages: messages.items,
     );
 
     // Now return the deserialized [UpdateChannelReadMessagesContents].
@@ -22898,7 +22898,7 @@ class UpdateFolderPeers extends UpdateBase {
 
     // Construct [UpdateFolderPeers] object.
     final returnValue = UpdateFolderPeers(
-      folderPeers: folderPeers,
+      folderPeers: folderPeers.items,
       pts: pts,
       ptsCount: ptsCount,
     );
@@ -23022,7 +23022,7 @@ class UpdatePeerLocated extends UpdateBase {
 
     // Construct [UpdatePeerLocated] object.
     final returnValue = UpdatePeerLocated(
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [UpdatePeerLocated].
@@ -23129,8 +23129,8 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
     // Construct [UpdateDeleteScheduledMessages] object.
     final returnValue = UpdateDeleteScheduledMessages(
       peer: peer,
-      messages: messages,
-      sentMessages: sentMessages,
+      messages: messages.items,
+      sentMessages: sentMessages?.items,
     );
 
     // Now return the deserialized [UpdateDeleteScheduledMessages].
@@ -23358,7 +23358,7 @@ class UpdateMessagePollVote extends UpdateBase {
     final returnValue = UpdateMessagePollVote(
       pollId: pollId,
       peer: peer,
-      options: options,
+      options: options.items,
       qts: qts,
     );
 
@@ -23505,7 +23505,7 @@ class UpdateDialogFilterOrder extends UpdateBase {
 
     // Construct [UpdateDialogFilterOrder] object.
     final returnValue = UpdateDialogFilterOrder(
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [UpdateDialogFilterOrder].
@@ -24083,7 +24083,7 @@ class UpdatePinnedMessages extends UpdateBase {
     final returnValue = UpdatePinnedMessages(
       pinned: pinned,
       peer: peer,
-      messages: messages,
+      messages: messages.items,
       pts: pts,
       ptsCount: ptsCount,
     );
@@ -24180,7 +24180,7 @@ class UpdatePinnedChannelMessages extends UpdateBase {
     final returnValue = UpdatePinnedChannelMessages(
       pinned: pinned,
       channelId: channelId,
-      messages: messages,
+      messages: messages.items,
       pts: pts,
       ptsCount: ptsCount,
     );
@@ -24325,7 +24325,7 @@ class UpdateGroupCallParticipants extends UpdateBase {
     // Construct [UpdateGroupCallParticipants] object.
     final returnValue = UpdateGroupCallParticipants(
       call: call,
-      participants: participants,
+      participants: participants.items,
       version: version,
     );
 
@@ -24973,7 +24973,7 @@ class UpdateBotCommands extends UpdateBase {
     final returnValue = UpdateBotCommands(
       peer: peer,
       botId: botId,
-      commands: commands,
+      commands: commands.items,
     );
 
     // Now return the deserialized [UpdateBotCommands].
@@ -25041,7 +25041,7 @@ class UpdatePendingJoinRequests extends UpdateBase {
     final returnValue = UpdatePendingJoinRequests(
       peer: peer,
       requestsPending: requestsPending,
-      recentRequesters: recentRequesters,
+      recentRequesters: recentRequesters.items,
     );
 
     // Now return the deserialized [UpdatePendingJoinRequests].
@@ -25823,7 +25823,7 @@ class UpdateMessageExtendedMedia extends UpdateBase {
     final returnValue = UpdateMessageExtendedMedia(
       peer: peer,
       msgId: msgId,
-      extendedMedia: extendedMedia,
+      extendedMedia: extendedMedia.items,
     );
 
     // Now return the deserialized [UpdateMessageExtendedMedia].
@@ -25971,7 +25971,7 @@ class UpdateChannelPinnedTopics extends UpdateBase {
     // Construct [UpdateChannelPinnedTopics] object.
     final returnValue = UpdateChannelPinnedTopics(
       channelId: channelId,
-      order: order,
+      order: order?.items,
     );
 
     // Now return the deserialized [UpdateChannelPinnedTopics].
@@ -26655,8 +26655,8 @@ class UpdateBotMessageReaction extends UpdateBase {
       msgId: msgId,
       date: date,
       actor: actor,
-      oldReactions: oldReactions,
-      newReactions: newReactions,
+      oldReactions: oldReactions.items,
+      newReactions: newReactions.items,
       qts: qts,
     );
 
@@ -26752,7 +26752,7 @@ class UpdateBotMessageReactions extends UpdateBase {
       peer: peer,
       msgId: msgId,
       date: date,
-      reactions: reactions,
+      reactions: reactions.items,
       qts: qts,
     );
 
@@ -26899,7 +26899,7 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
 
     // Construct [UpdatePinnedSavedDialogs] object.
     final returnValue = UpdatePinnedSavedDialogs(
-      order: order,
+      order: order?.items,
     );
 
     // Now return the deserialized [UpdatePinnedSavedDialogs].
@@ -27049,7 +27049,7 @@ class UpdateQuickReplies extends UpdateBase {
 
     // Construct [UpdateQuickReplies] object.
     final returnValue = UpdateQuickReplies(
-      quickReplies: quickReplies,
+      quickReplies: quickReplies.items,
     );
 
     // Now return the deserialized [UpdateQuickReplies].
@@ -27254,7 +27254,7 @@ class UpdateDeleteQuickReplyMessages extends UpdateBase {
     // Construct [UpdateDeleteQuickReplyMessages] object.
     final returnValue = UpdateDeleteQuickReplyMessages(
       shortcutId: shortcutId,
-      messages: messages,
+      messages: messages.items,
     );
 
     // Now return the deserialized [UpdateDeleteQuickReplyMessages].
@@ -27565,7 +27565,7 @@ class UpdateBotDeleteBusinessMessage extends UpdateBase {
     final returnValue = UpdateBotDeleteBusinessMessage(
       connectionId: connectionId,
       peer: peer,
-      messages: messages,
+      messages: messages.items,
       qts: qts,
     );
 
@@ -28274,11 +28274,11 @@ class UpdatesDifference extends UpdatesDifferenceBase {
 
     // Construct [UpdatesDifference] object.
     final returnValue = UpdatesDifference(
-      newMessages: newMessages,
-      newEncryptedMessages: newEncryptedMessages,
-      otherUpdates: otherUpdates,
-      chats: chats,
-      users: users,
+      newMessages: newMessages.items,
+      newEncryptedMessages: newEncryptedMessages.items,
+      otherUpdates: otherUpdates.items,
+      chats: chats.items,
+      users: users.items,
       state: state,
     );
 
@@ -28365,11 +28365,11 @@ class UpdatesDifferenceSlice extends UpdatesDifferenceBase {
 
     // Construct [UpdatesDifferenceSlice] object.
     final returnValue = UpdatesDifferenceSlice(
-      newMessages: newMessages,
-      newEncryptedMessages: newEncryptedMessages,
-      otherUpdates: otherUpdates,
-      chats: chats,
-      users: users,
+      newMessages: newMessages.items,
+      newEncryptedMessages: newEncryptedMessages.items,
+      otherUpdates: otherUpdates.items,
+      chats: chats.items,
+      users: users.items,
       intermediateState: intermediateState,
     );
 
@@ -28583,7 +28583,7 @@ class UpdateShortMessage extends UpdatesBase {
       fwdFrom: fwdFrom,
       viaBotId: viaBotId,
       replyTo: replyTo,
-      entities: entities,
+      entities: entities?.items,
       ttlPeriod: ttlPeriod,
     );
 
@@ -28795,7 +28795,7 @@ class UpdateShortChatMessage extends UpdatesBase {
       fwdFrom: fwdFrom,
       viaBotId: viaBotId,
       replyTo: replyTo,
-      entities: entities,
+      entities: entities?.items,
       ttlPeriod: ttlPeriod,
     );
 
@@ -29029,9 +29029,9 @@ class UpdatesCombined extends UpdatesBase {
 
     // Construct [UpdatesCombined] object.
     final returnValue = UpdatesCombined(
-      updates: updates,
-      users: users,
-      chats: chats,
+      updates: updates.items,
+      users: users.items,
+      chats: chats.items,
       date: date,
       seqStart: seqStart,
       seq: seq,
@@ -29121,9 +29121,9 @@ class Updates extends UpdatesBase {
 
     // Construct [Updates] object.
     final returnValue = Updates(
-      updates: updates,
-      users: users,
-      chats: chats,
+      updates: updates.items,
+      users: users.items,
+      chats: chats.items,
       date: date,
       seq: seq,
     );
@@ -29223,7 +29223,7 @@ class UpdateShortSentMessage extends UpdatesBase {
       ptsCount: ptsCount,
       date: date,
       media: media,
-      entities: entities,
+      entities: entities?.items,
       ttlPeriod: ttlPeriod,
     );
 
@@ -29339,8 +29339,8 @@ class PhotosPhotos extends PhotosPhotosBase {
 
     // Construct [PhotosPhotos] object.
     final returnValue = PhotosPhotos(
-      photos: photos,
-      users: users,
+      photos: photos.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PhotosPhotos].
@@ -29400,8 +29400,8 @@ class PhotosPhotosSlice extends PhotosPhotosBase {
     // Construct [PhotosPhotosSlice] object.
     final returnValue = PhotosPhotosSlice(
       count: count,
-      photos: photos,
-      users: users,
+      photos: photos.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PhotosPhotosSlice].
@@ -29466,7 +29466,7 @@ class PhotosPhoto extends PhotosPhotoBase {
     // Construct [PhotosPhoto] object.
     final returnValue = PhotosPhoto(
       photo: photo,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PhotosPhoto].
@@ -29601,7 +29601,7 @@ class UploadFileCdnRedirect extends UploadFileBase {
       fileToken: fileToken,
       encryptionKey: encryptionKey,
       encryptionIv: encryptionIv,
-      fileHashes: fileHashes,
+      fileHashes: fileHashes.items,
     );
 
     // Now return the deserialized [UploadFileCdnRedirect].
@@ -29936,7 +29936,7 @@ class Config extends ConfigBase {
       expires: expires,
       testMode: testMode,
       thisDc: thisDc,
-      dcOptions: dcOptions,
+      dcOptions: dcOptions.items,
       dcTxtDomainName: dcTxtDomainName,
       chatSizeMax: chatSizeMax,
       megagroupSizeMax: megagroupSizeMax,
@@ -30451,7 +30451,7 @@ class HelpAppUpdate extends HelpAppUpdateBase {
       id: id,
       version: version,
       text: text,
-      entities: entities,
+      entities: entities.items,
       document: document,
       url: url,
       sticker: sticker,
@@ -32119,10 +32119,10 @@ class Document extends DocumentBase {
       date: date,
       mimeType: mimeType,
       size: size,
-      thumbs: thumbs,
-      videoThumbs: videoThumbs,
+      thumbs: thumbs?.items,
+      videoThumbs: videoThumbs?.items,
       dcId: dcId,
-      attributes: attributes,
+      attributes: attributes.items,
     );
 
     // Now return the deserialized [Document].
@@ -33315,10 +33315,10 @@ class ContactsFound extends ContactsFoundBase {
 
     // Construct [ContactsFound] object.
     final returnValue = ContactsFound(
-      myResults: myResults,
-      results: results,
-      chats: chats,
-      users: users,
+      myResults: myResults.items,
+      results: results.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsFound].
@@ -34319,7 +34319,7 @@ class InputPrivacyValueAllowUsers extends InputPrivacyRuleBase {
 
     // Construct [InputPrivacyValueAllowUsers] object.
     final returnValue = InputPrivacyValueAllowUsers(
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [InputPrivacyValueAllowUsers].
@@ -34441,7 +34441,7 @@ class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
 
     // Construct [InputPrivacyValueDisallowUsers] object.
     final returnValue = InputPrivacyValueDisallowUsers(
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [InputPrivacyValueDisallowUsers].
@@ -34492,7 +34492,7 @@ class InputPrivacyValueAllowChatParticipants extends InputPrivacyRuleBase {
 
     // Construct [InputPrivacyValueAllowChatParticipants] object.
     final returnValue = InputPrivacyValueAllowChatParticipants(
-      chats: chats,
+      chats: chats.items,
     );
 
     // Now return the deserialized [InputPrivacyValueAllowChatParticipants].
@@ -34543,7 +34543,7 @@ class InputPrivacyValueDisallowChatParticipants extends InputPrivacyRuleBase {
 
     // Construct [InputPrivacyValueDisallowChatParticipants] object.
     final returnValue = InputPrivacyValueDisallowChatParticipants(
-      chats: chats,
+      chats: chats.items,
     );
 
     // Now return the deserialized [InputPrivacyValueDisallowChatParticipants].
@@ -34809,7 +34809,7 @@ class PrivacyValueAllowUsers extends PrivacyRuleBase {
 
     // Construct [PrivacyValueAllowUsers] object.
     final returnValue = PrivacyValueAllowUsers(
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PrivacyValueAllowUsers].
@@ -34931,7 +34931,7 @@ class PrivacyValueDisallowUsers extends PrivacyRuleBase {
 
     // Construct [PrivacyValueDisallowUsers] object.
     final returnValue = PrivacyValueDisallowUsers(
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PrivacyValueDisallowUsers].
@@ -34981,7 +34981,7 @@ class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
 
     // Construct [PrivacyValueAllowChatParticipants] object.
     final returnValue = PrivacyValueAllowChatParticipants(
-      chats: chats,
+      chats: chats.items,
     );
 
     // Now return the deserialized [PrivacyValueAllowChatParticipants].
@@ -35032,7 +35032,7 @@ class PrivacyValueDisallowChatParticipants extends PrivacyRuleBase {
 
     // Construct [PrivacyValueDisallowChatParticipants] object.
     final returnValue = PrivacyValueDisallowChatParticipants(
-      chats: chats,
+      chats: chats.items,
     );
 
     // Now return the deserialized [PrivacyValueDisallowChatParticipants].
@@ -35230,9 +35230,9 @@ class AccountPrivacyRules extends AccountPrivacyRulesBase {
 
     // Construct [AccountPrivacyRules] object.
     final returnValue = AccountPrivacyRules(
-      rules: rules,
-      chats: chats,
-      users: users,
+      rules: rules.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AccountPrivacyRules].
@@ -35998,7 +35998,7 @@ class MessagesStickers extends MessagesStickersBase {
     // Construct [MessagesStickers] object.
     final returnValue = MessagesStickers(
       hash: hash,
-      stickers: stickers,
+      stickers: stickers.items,
     );
 
     // Now return the deserialized [MessagesStickers].
@@ -36058,7 +36058,7 @@ class StickerPack extends StickerPackBase {
     // Construct [StickerPack] object.
     final returnValue = StickerPack(
       emoticon: emoticon,
-      documents: documents,
+      documents: documents.items,
     );
 
     // Now return the deserialized [StickerPack].
@@ -36152,7 +36152,7 @@ class MessagesAllStickers extends MessagesAllStickersBase {
     // Construct [MessagesAllStickers] object.
     final returnValue = MessagesAllStickers(
       hash: hash,
-      sets: sets,
+      sets: sets.items,
     );
 
     // Now return the deserialized [MessagesAllStickers].
@@ -36507,7 +36507,7 @@ class WebPage extends WebPageBase {
       author: author,
       document: document,
       cachedPage: cachedPage,
-      attributes: attributes,
+      attributes: attributes?.items,
     );
 
     // Now return the deserialized [WebPage].
@@ -36990,7 +36990,7 @@ class AccountAuthorizations extends AccountAuthorizationsBase {
     // Construct [AccountAuthorizations] object.
     final returnValue = AccountAuthorizations(
       authorizationTtlDays: authorizationTtlDays,
-      authorizations: authorizations,
+      authorizations: authorizations.items,
     );
 
     // Now return the deserialized [AccountAuthorizations].
@@ -37902,7 +37902,7 @@ class ChatInvite extends ChatInviteBase {
       about: about,
       photo: photo,
       participantsCount: participantsCount,
-      participants: participants,
+      participants: participants?.items,
       color: color,
       subscriptionPricing: subscriptionPricing,
       subscriptionFormId: subscriptionFormId,
@@ -38630,7 +38630,7 @@ class StickerSet extends StickerSetBase {
       accessHash: accessHash,
       title: title,
       shortName: shortName,
-      thumbs: thumbs,
+      thumbs: thumbs?.items,
       thumbDcId: thumbDcId,
       thumbVersion: thumbVersion,
       thumbDocumentId: thumbDocumentId,
@@ -38813,9 +38813,9 @@ class MessagesStickerSet extends MessagesStickerSetBase {
     // Construct [MessagesStickerSet] object.
     final returnValue = MessagesStickerSet(
       set: set,
-      packs: packs,
-      keywords: keywords,
-      documents: documents,
+      packs: packs.items,
+      keywords: keywords.items,
+      documents: documents.items,
     );
 
     // Now return the deserialized [MessagesStickerSet].
@@ -39011,7 +39011,7 @@ class BotInfo extends BotInfoBase {
       description: description,
       descriptionPhoto: descriptionPhoto,
       descriptionDocument: descriptionDocument,
-      commands: commands,
+      commands: commands?.items,
       menuButton: menuButton,
       privacyPolicyUrl: privacyPolicyUrl,
       appSettings: appSettings,
@@ -39444,7 +39444,7 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
       samePeer: samePeer,
       text: text,
       query: query,
-      peerTypes: peerTypes,
+      peerTypes: peerTypes?.items,
     );
 
     // Now return the deserialized [KeyboardButtonSwitchInline].
@@ -40369,7 +40369,7 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
 
     // Construct [KeyboardButtonRow] object.
     final returnValue = KeyboardButtonRow(
-      buttons: buttons,
+      buttons: buttons.items,
     );
 
     // Now return the deserialized [KeyboardButtonRow].
@@ -40578,7 +40578,7 @@ class ReplyKeyboardMarkup extends ReplyMarkupBase {
       singleUse: singleUse,
       selective: selective,
       persistent: persistent,
-      rows: rows,
+      rows: rows.items,
       placeholder: placeholder,
     );
 
@@ -40668,7 +40668,7 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
 
     // Construct [ReplyInlineMarkup] object.
     final returnValue = ReplyInlineMarkup(
-      rows: rows,
+      rows: rows.items,
     );
 
     // Now return the deserialized [ReplyInlineMarkup].
@@ -42256,8 +42256,8 @@ class ContactsResolvedPeer extends ContactsResolvedPeerBase {
     // Construct [ContactsResolvedPeer] object.
     final returnValue = ContactsResolvedPeer(
       peer: peer,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsResolvedPeer].
@@ -42478,9 +42478,9 @@ class UpdatesChannelDifferenceTooLong extends UpdatesChannelDifferenceBase {
       ffinal: ffinal,
       timeout: timeout,
       dialog: dialog,
-      messages: messages,
-      chats: chats,
-      users: users,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [UpdatesChannelDifferenceTooLong].
@@ -42586,10 +42586,10 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
       ffinal: ffinal,
       pts: pts,
       timeout: timeout,
-      newMessages: newMessages,
-      otherUpdates: otherUpdates,
-      chats: chats,
-      users: users,
+      newMessages: newMessages.items,
+      otherUpdates: otherUpdates.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [UpdatesChannelDifference].
@@ -42725,7 +42725,7 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
     // Construct [ChannelMessagesFilter] object.
     final returnValue = ChannelMessagesFilter(
       excludeNewMessages: excludeNewMessages,
-      ranges: ranges,
+      ranges: ranges.items,
     );
 
     // Now return the deserialized [ChannelMessagesFilter].
@@ -43731,9 +43731,9 @@ class ChannelsChannelParticipants extends ChannelsChannelParticipantsBase {
     // Construct [ChannelsChannelParticipants] object.
     final returnValue = ChannelsChannelParticipants(
       count: count,
-      participants: participants,
-      chats: chats,
-      users: users,
+      participants: participants.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChannelsChannelParticipants].
@@ -43843,8 +43843,8 @@ class ChannelsChannelParticipant extends ChannelsChannelParticipantBase {
     // Construct [ChannelsChannelParticipant] object.
     final returnValue = ChannelsChannelParticipant(
       participant: participant,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChannelsChannelParticipant].
@@ -43917,7 +43917,7 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
       popup: popup,
       id: id,
       text: text,
-      entities: entities,
+      entities: entities.items,
       minAgeConfirm: minAgeConfirm,
     );
 
@@ -44041,7 +44041,7 @@ class MessagesSavedGifs extends MessagesSavedGifsBase {
     // Construct [MessagesSavedGifs] object.
     final returnValue = MessagesSavedGifs(
       hash: hash,
-      gifs: gifs,
+      gifs: gifs.items,
     );
 
     // Now return the deserialized [MessagesSavedGifs].
@@ -44111,7 +44111,7 @@ class InputBotInlineMessageMediaAuto extends InputBotInlineMessageBase {
     final returnValue = InputBotInlineMessageMediaAuto(
       invertMedia: invertMedia,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       replyMarkup: replyMarkup,
     );
 
@@ -44211,7 +44211,7 @@ class InputBotInlineMessageText extends InputBotInlineMessageBase {
       noWebpage: noWebpage,
       invertMedia: invertMedia,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       replyMarkup: replyMarkup,
     );
 
@@ -44849,7 +44849,7 @@ class InputBotInlineMessageMediaWebPage extends InputBotInlineMessageBase {
       forceSmallMedia: forceSmallMedia,
       optional: optional,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       url: url,
       replyMarkup: replyMarkup,
     );
@@ -45362,7 +45362,7 @@ class BotInlineMessageMediaAuto extends BotInlineMessageBase {
     final returnValue = BotInlineMessageMediaAuto(
       invertMedia: invertMedia,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       replyMarkup: replyMarkup,
     );
 
@@ -45462,7 +45462,7 @@ class BotInlineMessageText extends BotInlineMessageBase {
       noWebpage: noWebpage,
       invertMedia: invertMedia,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       replyMarkup: replyMarkup,
     );
 
@@ -46037,7 +46037,7 @@ class BotInlineMessageMediaWebPage extends BotInlineMessageBase {
       manual: manual,
       safe: safe,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       url: url,
       replyMarkup: replyMarkup,
     );
@@ -46446,9 +46446,9 @@ class MessagesBotResults extends MessagesBotResultsBase {
       nextOffset: nextOffset,
       switchPm: switchPm,
       switchWebview: switchWebview,
-      results: results,
+      results: results.items,
       cacheTime: cacheTime,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesBotResults].
@@ -48169,10 +48169,10 @@ class MessagesPeerDialogs extends MessagesPeerDialogsBase {
 
     // Construct [MessagesPeerDialogs] object.
     final returnValue = MessagesPeerDialogs(
-      dialogs: dialogs,
-      messages: messages,
-      chats: chats,
-      users: users,
+      dialogs: dialogs.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
       state: state,
     );
 
@@ -48631,7 +48631,7 @@ class TopPeerCategoryPeers extends TopPeerCategoryPeersBase {
     final returnValue = TopPeerCategoryPeers(
       category: category,
       count: count,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [TopPeerCategoryPeers].
@@ -48733,9 +48733,9 @@ class ContactsTopPeers extends ContactsTopPeersBase {
 
     // Construct [ContactsTopPeers] object.
     final returnValue = ContactsTopPeers(
-      categories: categories,
-      chats: chats,
-      users: users,
+      categories: categories.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsTopPeers].
@@ -48922,7 +48922,7 @@ class DraftMessage extends DraftMessageBase {
       invertMedia: invertMedia,
       replyTo: replyTo,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       media: media,
       date: date,
       effect: effect,
@@ -49100,8 +49100,8 @@ class MessagesFeaturedStickers extends MessagesFeaturedStickersBase {
       premium: premium,
       hash: hash,
       count: count,
-      sets: sets,
-      unread: unread,
+      sets: sets.items,
+      unread: unread.items,
     );
 
     // Now return the deserialized [MessagesFeaturedStickers].
@@ -49228,9 +49228,9 @@ class MessagesRecentStickers extends MessagesRecentStickersBase {
     // Construct [MessagesRecentStickers] object.
     final returnValue = MessagesRecentStickers(
       hash: hash,
-      packs: packs,
-      stickers: stickers,
-      dates: dates,
+      packs: packs.items,
+      stickers: stickers.items,
+      dates: dates.items,
     );
 
     // Now return the deserialized [MessagesRecentStickers].
@@ -49300,7 +49300,7 @@ class MessagesArchivedStickers extends MessagesArchivedStickersBase {
     // Construct [MessagesArchivedStickers] object.
     final returnValue = MessagesArchivedStickers(
       count: count,
-      sets: sets,
+      sets: sets.items,
     );
 
     // Now return the deserialized [MessagesArchivedStickers].
@@ -49397,7 +49397,7 @@ class MessagesStickerSetInstallResultArchive
 
     // Construct [MessagesStickerSetInstallResultArchive] object.
     final returnValue = MessagesStickerSetInstallResultArchive(
-      sets: sets,
+      sets: sets.items,
     );
 
     // Now return the deserialized [MessagesStickerSetInstallResultArchive].
@@ -49508,7 +49508,7 @@ class StickerSetMultiCovered extends StickerSetCoveredBase {
     // Construct [StickerSetMultiCovered] object.
     final returnValue = StickerSetMultiCovered(
       set: set,
-      covers: covers,
+      covers: covers.items,
     );
 
     // Now return the deserialized [StickerSetMultiCovered].
@@ -49570,9 +49570,9 @@ class StickerSetFullCovered extends StickerSetCoveredBase {
     // Construct [StickerSetFullCovered] object.
     final returnValue = StickerSetFullCovered(
       set: set,
-      packs: packs,
-      keywords: keywords,
-      documents: documents,
+      packs: packs.items,
+      keywords: keywords.items,
+      documents: documents.items,
     );
 
     // Now return the deserialized [StickerSetFullCovered].
@@ -50176,8 +50176,8 @@ class MessagesHighScores extends MessagesHighScoresBase {
 
     // Construct [MessagesHighScores] object.
     final returnValue = MessagesHighScores(
-      scores: scores,
-      users: users,
+      scores: scores.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesHighScores].
@@ -50694,7 +50694,7 @@ class TextConcat extends RichTextBase {
 
     // Construct [TextConcat] object.
     final returnValue = TextConcat(
-      texts: texts,
+      texts: texts.items,
     );
 
     // Now return the deserialized [TextConcat].
@@ -51620,7 +51620,7 @@ class PageBlockList extends PageBlockBase {
 
     // Construct [PageBlockList] object.
     final returnValue = PageBlockList(
-      items: items,
+      items: items.items,
     );
 
     // Now return the deserialized [PageBlockList].
@@ -52177,7 +52177,7 @@ class PageBlockEmbedPost extends PageBlockBase {
       authorPhotoId: authorPhotoId,
       author: author,
       date: date,
-      blocks: blocks,
+      blocks: blocks.items,
       caption: caption,
     );
 
@@ -52264,7 +52264,7 @@ class PageBlockCollage extends PageBlockBase {
 
     // Construct [PageBlockCollage] object.
     final returnValue = PageBlockCollage(
-      items: items,
+      items: items.items,
       caption: caption,
     );
 
@@ -52322,7 +52322,7 @@ class PageBlockSlideshow extends PageBlockBase {
 
     // Construct [PageBlockSlideshow] object.
     final returnValue = PageBlockSlideshow(
-      items: items,
+      items: items.items,
       caption: caption,
     );
 
@@ -52548,7 +52548,7 @@ class PageBlockTable extends PageBlockBase {
       bordered: bordered,
       striped: striped,
       title: title,
-      rows: rows,
+      rows: rows.items,
     );
 
     // Now return the deserialized [PageBlockTable].
@@ -52623,7 +52623,7 @@ class PageBlockOrderedList extends PageBlockBase {
 
     // Construct [PageBlockOrderedList] object.
     final returnValue = PageBlockOrderedList(
-      items: items,
+      items: items.items,
     );
 
     // Now return the deserialized [PageBlockOrderedList].
@@ -52679,7 +52679,7 @@ class PageBlockDetails extends PageBlockBase {
     // Construct [PageBlockDetails] object.
     final returnValue = PageBlockDetails(
       open: open,
-      blocks: blocks,
+      blocks: blocks.items,
       title: title,
     );
 
@@ -52753,7 +52753,7 @@ class PageBlockRelatedArticles extends PageBlockBase {
     // Construct [PageBlockRelatedArticles] object.
     final returnValue = PageBlockRelatedArticles(
       title: title,
-      articles: articles,
+      articles: articles.items,
     );
 
     // Now return the deserialized [PageBlockRelatedArticles].
@@ -53195,9 +53195,9 @@ class Invoice extends InvoiceBase {
       emailToProvider: emailToProvider,
       recurring: recurring,
       currency: currency,
-      prices: prices,
+      prices: prices.items,
       maxTipAmount: maxTipAmount,
-      suggestedTipAmounts: suggestedTipAmounts,
+      suggestedTipAmounts: suggestedTipAmounts?.items,
       termsUrl: termsUrl,
       subscriptionPeriod: subscriptionPeriod,
     );
@@ -53668,7 +53668,7 @@ class WebDocument extends WebDocumentBase {
       accessHash: accessHash,
       size: size,
       mimeType: mimeType,
-      attributes: attributes,
+      attributes: attributes.items,
     );
 
     // Now return the deserialized [WebDocument].
@@ -53751,7 +53751,7 @@ class WebDocumentNoProxy extends WebDocumentBase {
       url: url,
       size: size,
       mimeType: mimeType,
-      attributes: attributes,
+      attributes: attributes.items,
     );
 
     // Now return the deserialized [WebDocumentNoProxy].
@@ -53827,7 +53827,7 @@ class InputWebDocument extends InputWebDocumentBase {
       url: url,
       size: size,
       mimeType: mimeType,
-      attributes: attributes,
+      attributes: attributes.items,
     );
 
     // Now return the deserialized [InputWebDocument].
@@ -54296,10 +54296,10 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
       url: url,
       nativeProvider: nativeProvider,
       nativeParams: nativeParams,
-      additionalMethods: additionalMethods,
+      additionalMethods: additionalMethods?.items,
       savedInfo: savedInfo,
-      savedCredentials: savedCredentials,
-      users: users,
+      savedCredentials: savedCredentials?.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsPaymentForm].
@@ -54483,7 +54483,7 @@ class PaymentsPaymentFormStars extends PaymentsPaymentFormBase {
       description: description,
       photo: photo,
       invoice: invoice,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsPaymentFormStars].
@@ -54650,7 +54650,7 @@ class PaymentsValidatedRequestedInfo
     // Construct [PaymentsValidatedRequestedInfo] object.
     final returnValue = PaymentsValidatedRequestedInfo(
       id: id,
-      shippingOptions: shippingOptions,
+      shippingOptions: shippingOptions?.items,
     );
 
     // Now return the deserialized [PaymentsValidatedRequestedInfo].
@@ -54869,7 +54869,7 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
       currency: currency,
       totalAmount: totalAmount,
       credentialsTitle: credentialsTitle,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsPaymentReceipt].
@@ -55045,7 +55045,7 @@ class PaymentsPaymentReceiptStars extends PaymentsPaymentReceiptBase {
       currency: currency,
       totalAmount: totalAmount,
       transactionId: transactionId,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsPaymentReceiptStars].
@@ -55527,7 +55527,7 @@ class ShippingOption extends ShippingOptionBase {
     final returnValue = ShippingOption(
       id: id,
       title: title,
-      prices: prices,
+      prices: prices.items,
     );
 
     // Now return the deserialized [ShippingOption].
@@ -56214,7 +56214,7 @@ class PhoneCall extends PhoneCallBase {
       gAOrB: gAOrB,
       keyFingerprint: keyFingerprint,
       protocol: protocol,
-      connections: connections,
+      connections: connections.items,
       startDate: startDate,
       customParameters: customParameters,
     );
@@ -56704,7 +56704,7 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
       udpReflector: udpReflector,
       minLayer: minLayer,
       maxLayer: maxLayer,
-      libraryVersions: libraryVersions,
+      libraryVersions: libraryVersions.items,
     );
 
     // Now return the deserialized [PhoneCallProtocol].
@@ -56791,7 +56791,7 @@ class PhonePhoneCall extends PhonePhoneCallBase {
     // Construct [PhonePhoneCall] object.
     final returnValue = PhonePhoneCall(
       phoneCall: phoneCall,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PhonePhoneCall].
@@ -57006,7 +57006,7 @@ class CdnConfig extends CdnConfigBase {
 
     // Construct [CdnConfig] object.
     final returnValue = CdnConfig(
-      publicKeys: publicKeys,
+      publicKeys: publicKeys.items,
     );
 
     // Now return the deserialized [CdnConfig].
@@ -57307,7 +57307,7 @@ class LangPackDifference extends LangPackDifferenceBase {
       langCode: langCode,
       fromVersion: fromVersion,
       version: version,
-      strings: strings,
+      strings: strings.items,
     );
 
     // Now return the deserialized [LangPackDifference].
@@ -59534,8 +59534,8 @@ class ChannelAdminLogEventActionChangeUsernames
 
     // Construct [ChannelAdminLogEventActionChangeUsernames] object.
     final returnValue = ChannelAdminLogEventActionChangeUsernames(
-      prevValue: prevValue,
-      newValue: newValue,
+      prevValue: prevValue.items,
+      newValue: newValue.items,
     );
 
     // Now return the deserialized [ChannelAdminLogEventActionChangeUsernames].
@@ -60433,9 +60433,9 @@ class ChannelsAdminLogResults extends ChannelsAdminLogResultsBase {
 
     // Construct [ChannelsAdminLogResults] object.
     final returnValue = ChannelsAdminLogResults(
-      events: events,
-      chats: chats,
-      users: users,
+      events: events.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChannelsAdminLogResults].
@@ -60803,8 +60803,8 @@ class MessagesFavedStickers extends MessagesFavedStickersBase {
     // Construct [MessagesFavedStickers] object.
     final returnValue = MessagesFavedStickers(
       hash: hash,
-      packs: packs,
-      stickers: stickers,
+      packs: packs.items,
+      stickers: stickers.items,
     );
 
     // Now return the deserialized [MessagesFavedStickers].
@@ -61156,9 +61156,9 @@ class HelpRecentMeUrls extends HelpRecentMeUrlsBase {
 
     // Construct [HelpRecentMeUrls] object.
     final returnValue = HelpRecentMeUrls(
-      urls: urls,
-      chats: chats,
-      users: users,
+      urls: urls.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [HelpRecentMeUrls].
@@ -61230,7 +61230,7 @@ class InputSingleMedia extends InputSingleMediaBase {
       media: media,
       randomId: randomId,
       message: message,
-      entities: entities,
+      entities: entities?.items,
     );
 
     // Now return the deserialized [InputSingleMedia].
@@ -61431,8 +61431,8 @@ class AccountWebAuthorizations extends AccountWebAuthorizationsBase {
 
     // Construct [AccountWebAuthorizations] object.
     final returnValue = AccountWebAuthorizations(
-      authorizations: authorizations,
-      users: users,
+      authorizations: authorizations.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AccountWebAuthorizations].
@@ -61932,7 +61932,7 @@ class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
     // Construct [MessagesFoundStickerSets] object.
     final returnValue = MessagesFoundStickerSets(
       hash: hash,
-      sets: sets,
+      sets: sets.items,
     );
 
     // Now return the deserialized [MessagesFoundStickerSets].
@@ -63187,8 +63187,8 @@ class SecureValue extends SecureValueBase {
       frontSide: frontSide,
       reverseSide: reverseSide,
       selfie: selfie,
-      translation: translation,
-      files: files,
+      translation: translation?.items,
+      files: files?.items,
       plainData: plainData,
       hash: hash,
     );
@@ -63352,8 +63352,8 @@ class InputSecureValue extends InputSecureValueBase {
       frontSide: frontSide,
       reverseSide: reverseSide,
       selfie: selfie,
-      translation: translation,
-      files: files,
+      translation: translation?.items,
+      files: files?.items,
       plainData: plainData,
     );
 
@@ -63878,7 +63878,7 @@ class SecureValueErrorFiles extends SecureValueErrorBase {
     // Construct [SecureValueErrorFiles] object.
     final returnValue = SecureValueErrorFiles(
       type: type,
-      fileHash: fileHash,
+      fileHash: fileHash.items,
       text: text,
     );
 
@@ -64076,7 +64076,7 @@ class SecureValueErrorTranslationFiles extends SecureValueErrorBase {
     // Construct [SecureValueErrorTranslationFiles] object.
     final returnValue = SecureValueErrorTranslationFiles(
       type: type,
-      fileHash: fileHash,
+      fileHash: fileHash.items,
       text: text,
     );
 
@@ -64214,10 +64214,10 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
 
     // Construct [AccountAuthorizationForm] object.
     final returnValue = AccountAuthorizationForm(
-      requiredTypes: requiredTypes,
-      values: values,
-      errors: errors,
-      users: users,
+      requiredTypes: requiredTypes.items,
+      values: values.items,
+      errors: errors.items,
+      users: users.items,
       privacyPolicyUrl: privacyPolicyUrl,
     );
 
@@ -64407,7 +64407,7 @@ class HelpDeepLinkInfo extends HelpDeepLinkInfoBase {
     final returnValue = HelpDeepLinkInfo(
       updateApp: updateApp,
       message: message,
-      entities: entities,
+      entities: entities?.items,
     );
 
     // Now return the deserialized [HelpDeepLinkInfo].
@@ -65117,7 +65117,7 @@ class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
 
     // Construct [SecureRequiredTypeOneOf] object.
     final returnValue = SecureRequiredTypeOneOf(
-      types: types,
+      types: types.items,
     );
 
     // Now return the deserialized [SecureRequiredTypeOneOf].
@@ -65583,7 +65583,7 @@ class JsonArray extends JSONValueBase {
 
     // Construct [JsonArray] object.
     final returnValue = JsonArray(
-      value: value,
+      value: value.items,
     );
 
     // Now return the deserialized [JsonArray].
@@ -65633,7 +65633,7 @@ class JsonObject extends JSONValueBase {
 
     // Construct [JsonObject] object.
     final returnValue = JsonObject(
-      value: value,
+      value: value.items,
     );
 
     // Now return the deserialized [JsonObject].
@@ -65815,7 +65815,7 @@ class PageTableRow extends PageTableRowBase {
 
     // Construct [PageTableRow] object.
     final returnValue = PageTableRow(
-      cells: cells,
+      cells: cells.items,
     );
 
     // Now return the deserialized [PageTableRow].
@@ -65973,7 +65973,7 @@ class PageListItemBlocks extends PageListItemBase {
 
     // Construct [PageListItemBlocks] object.
     final returnValue = PageListItemBlocks(
-      blocks: blocks,
+      blocks: blocks.items,
     );
 
     // Now return the deserialized [PageListItemBlocks].
@@ -66084,7 +66084,7 @@ class PageListOrderedItemBlocks extends PageListOrderedItemBase {
     // Construct [PageListOrderedItemBlocks] object.
     final returnValue = PageListOrderedItemBlocks(
       num: num,
-      blocks: blocks,
+      blocks: blocks.items,
     );
 
     // Now return the deserialized [PageListOrderedItemBlocks].
@@ -66295,9 +66295,9 @@ class Page extends PageBase {
       rtl: rtl,
       v2: v2,
       url: url,
-      blocks: blocks,
-      photos: photos,
-      documents: documents,
+      blocks: blocks.items,
+      photos: photos.items,
+      documents: documents.items,
       views: views,
     );
 
@@ -66490,7 +66490,7 @@ class HelpUserInfo extends HelpUserInfoBase {
     // Construct [HelpUserInfo] object.
     final returnValue = HelpUserInfo(
       message: message,
-      entities: entities,
+      entities: entities.items,
       author: author,
       date: date,
     );
@@ -66640,7 +66640,7 @@ class Poll extends PollBase {
       multipleChoice: multipleChoice,
       quiz: quiz,
       question: question,
-      answers: answers,
+      answers: answers.items,
       closePeriod: closePeriod,
       closeDate: closeDate,
     );
@@ -66861,11 +66861,11 @@ class PollResults extends PollResultsBase {
     // Construct [PollResults] object.
     final returnValue = PollResults(
       min: min,
-      results: results,
+      results: results?.items,
       totalVoters: totalVoters,
-      recentVoters: recentVoters,
+      recentVoters: recentVoters?.items,
       solution: solution,
-      solutionEntities: solutionEntities,
+      solutionEntities: solutionEntities?.items,
     );
 
     // Now return the deserialized [PollResults].
@@ -67668,7 +67668,7 @@ class AccountWallPapers extends AccountWallPapersBase {
     // Construct [AccountWallPapers] object.
     final returnValue = AccountWallPapers(
       hash: hash,
-      wallpapers: wallpapers,
+      wallpapers: wallpapers.items,
     );
 
     // Now return the deserialized [AccountWallPapers].
@@ -67750,7 +67750,7 @@ class CodeSettings extends CodeSettingsBase {
       allowMissedCall: allowMissedCall,
       allowFirebase: allowFirebase,
       unknownNumber: unknownNumber,
-      logoutTokens: logoutTokens,
+      logoutTokens: logoutTokens?.items,
       token: token,
       appSandbox: appSandbox,
     );
@@ -68247,7 +68247,7 @@ class EmojiKeyword extends EmojiKeywordBase {
     // Construct [EmojiKeyword] object.
     final returnValue = EmojiKeyword(
       keyword: keyword,
-      emoticons: emoticons,
+      emoticons: emoticons.items,
     );
 
     // Now return the deserialized [EmojiKeyword].
@@ -68305,7 +68305,7 @@ class EmojiKeywordDeleted extends EmojiKeywordBase {
     // Construct [EmojiKeywordDeleted] object.
     final returnValue = EmojiKeywordDeleted(
       keyword: keyword,
-      emoticons: emoticons,
+      emoticons: emoticons.items,
     );
 
     // Now return the deserialized [EmojiKeywordDeleted].
@@ -68369,7 +68369,7 @@ class EmojiKeywordsDifference extends EmojiKeywordsDifferenceBase {
       langCode: langCode,
       fromVersion: fromVersion,
       version: version,
-      keywords: keywords,
+      keywords: keywords.items,
     );
 
     // Now return the deserialized [EmojiKeywordsDifference].
@@ -69433,7 +69433,7 @@ class Theme extends ThemeBase {
       slug: slug,
       title: title,
       document: document,
-      settings: settings,
+      settings: settings?.items,
       emoticon: emoticon,
       installsCount: installsCount,
     );
@@ -69604,7 +69604,7 @@ class AccountThemes extends AccountThemesBase {
     // Construct [AccountThemes] object.
     final returnValue = AccountThemes(
       hash: hash,
-      themes: themes,
+      themes: themes.items,
     );
 
     // Now return the deserialized [AccountThemes].
@@ -69902,9 +69902,9 @@ class MessagesInactiveChats extends MessagesInactiveChatsBase {
 
     // Construct [MessagesInactiveChats] object.
     final returnValue = MessagesInactiveChats(
-      dates: dates,
-      chats: chats,
-      users: users,
+      dates: dates.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesInactiveChats].
@@ -70170,7 +70170,7 @@ class InputThemeSettings extends InputThemeSettingsBase {
       baseTheme: baseTheme,
       accentColor: accentColor,
       outboxAccentColor: outboxAccentColor,
-      messageColors: messageColors,
+      messageColors: messageColors?.items,
       wallpaper: wallpaper,
       wallpaperSettings: wallpaperSettings,
     );
@@ -70300,7 +70300,7 @@ class ThemeSettings extends ThemeSettingsBase {
       baseTheme: baseTheme,
       accentColor: accentColor,
       outboxAccentColor: outboxAccentColor,
-      messageColors: messageColors,
+      messageColors: messageColors?.items,
       wallpaper: wallpaper,
     );
 
@@ -70407,7 +70407,7 @@ class WebPageAttributeTheme extends WebPageAttributeBase {
 
     // Construct [WebPageAttributeTheme] object.
     final returnValue = WebPageAttributeTheme(
-      documents: documents,
+      documents: documents?.items,
       settings: settings,
     );
 
@@ -70572,7 +70572,7 @@ class WebPageAttributeStickerSet extends WebPageAttributeBase {
     final returnValue = WebPageAttributeStickerSet(
       emojis: emojis,
       textColor: textColor,
-      stickers: stickers,
+      stickers: stickers.items,
     );
 
     // Now return the deserialized [WebPageAttributeStickerSet].
@@ -70653,9 +70653,9 @@ class MessagesVotesList extends MessagesVotesListBase {
     // Construct [MessagesVotesList] object.
     final returnValue = MessagesVotesList(
       count: count,
-      votes: votes,
-      chats: chats,
-      users: users,
+      votes: votes.items,
+      chats: chats.items,
+      users: users.items,
       nextOffset: nextOffset,
     );
 
@@ -70803,7 +70803,7 @@ class PaymentsBankCardData extends PaymentsBankCardDataBase {
     // Construct [PaymentsBankCardData] object.
     final returnValue = PaymentsBankCardData(
       title: title,
-      openUrls: openUrls,
+      openUrls: openUrls.items,
     );
 
     // Now return the deserialized [PaymentsBankCardData].
@@ -70901,9 +70901,9 @@ class DialogFilter extends DialogFilterBase {
       title: title,
       emoticon: emoticon,
       color: color,
-      pinnedPeers: pinnedPeers,
-      includePeers: includePeers,
-      excludePeers: excludePeers,
+      pinnedPeers: pinnedPeers.items,
+      includePeers: includePeers.items,
+      excludePeers: excludePeers.items,
     );
 
     // Now return the deserialized [DialogFilter].
@@ -71099,8 +71099,8 @@ class DialogFilterChatlist extends DialogFilterBase {
       title: title,
       emoticon: emoticon,
       color: color,
-      pinnedPeers: pinnedPeers,
-      includePeers: includePeers,
+      pinnedPeers: pinnedPeers.items,
+      includePeers: includePeers.items,
     );
 
     // Now return the deserialized [DialogFilterChatlist].
@@ -71670,7 +71670,7 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
       reactionsByEmotionGraph: reactionsByEmotionGraph,
       storyInteractionsGraph: storyInteractionsGraph,
       storyReactionsByEmotionGraph: storyReactionsByEmotionGraph,
-      recentPostsInteractions: recentPostsInteractions,
+      recentPostsInteractions: recentPostsInteractions.items,
     );
 
     // Now return the deserialized [StatsBroadcastStats].
@@ -71893,8 +71893,8 @@ class HelpPromoData extends HelpPromoDataBase {
       proxy: proxy,
       expires: expires,
       peer: peer,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
       psaType: psaType,
       psaMessage: psaMessage,
     );
@@ -72101,7 +72101,7 @@ class VideoSizeEmojiMarkup extends VideoSizeBase {
     // Construct [VideoSizeEmojiMarkup] object.
     final returnValue = VideoSizeEmojiMarkup(
       emojiId: emojiId,
-      backgroundColors: backgroundColors,
+      backgroundColors: backgroundColors.items,
     );
 
     // Now return the deserialized [VideoSizeEmojiMarkup].
@@ -72164,7 +72164,7 @@ class VideoSizeStickerMarkup extends VideoSizeBase {
     final returnValue = VideoSizeStickerMarkup(
       stickerset: stickerset,
       stickerId: stickerId,
-      backgroundColors: backgroundColors,
+      backgroundColors: backgroundColors.items,
     );
 
     // Now return the deserialized [VideoSizeStickerMarkup].
@@ -72487,10 +72487,10 @@ class StatsMegagroupStats extends StatsMegagroupStatsBase {
       actionsGraph: actionsGraph,
       topHoursGraph: topHoursGraph,
       weekdaysGraph: weekdaysGraph,
-      topPosters: topPosters,
-      topAdmins: topAdmins,
-      topInviters: topInviters,
-      users: users,
+      topPosters: topPosters.items,
+      topAdmins: topAdmins.items,
+      topInviters: topInviters.items,
+      users: users.items,
     );
 
     // Now return the deserialized [StatsMegagroupStats].
@@ -72721,8 +72721,8 @@ class HelpCountryCode extends HelpCountryCodeBase {
     // Construct [HelpCountryCode] object.
     final returnValue = HelpCountryCode(
       countryCode: countryCode,
-      prefixes: prefixes,
-      patterns: patterns,
+      prefixes: prefixes?.items,
+      patterns: patterns?.items,
     );
 
     // Now return the deserialized [HelpCountryCode].
@@ -72814,7 +72814,7 @@ class HelpCountry extends HelpCountryBase {
       iso2: iso2,
       defaultName: defaultName,
       name: name,
-      countryCodes: countryCodes,
+      countryCodes: countryCodes.items,
     );
 
     // Now return the deserialized [HelpCountry].
@@ -72936,7 +72936,7 @@ class HelpCountriesList extends HelpCountriesListBase {
 
     // Construct [HelpCountriesList] object.
     final returnValue = HelpCountriesList(
-      countries: countries,
+      countries: countries.items,
       hash: hash,
     );
 
@@ -73091,9 +73091,9 @@ class MessagesMessageViews extends MessagesMessageViewsBase {
 
     // Construct [MessagesMessageViews] object.
     final returnValue = MessagesMessageViews(
-      views: views,
-      chats: chats,
-      users: users,
+      views: views.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesMessageViews].
@@ -73169,13 +73169,13 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
 
     // Construct [MessagesDiscussionMessage] object.
     final returnValue = MessagesDiscussionMessage(
-      messages: messages,
+      messages: messages.items,
       maxId: maxId,
       readInboxMaxId: readInboxMaxId,
       readOutboxMaxId: readOutboxMaxId,
       unreadCount: unreadCount,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesDiscussionMessage].
@@ -73322,7 +73322,7 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
       replyMedia: replyMedia,
       replyToTopId: replyToTopId,
       quoteText: quoteText,
-      quoteEntities: quoteEntities,
+      quoteEntities: quoteEntities?.items,
       quoteOffset: quoteOffset,
     );
 
@@ -73546,7 +73546,7 @@ class MessageReplies extends MessageRepliesBase {
       comments: comments,
       replies: replies,
       repliesPts: repliesPts,
-      recentRepliers: recentRepliers,
+      recentRepliers: recentRepliers?.items,
       channelId: channelId,
       maxId: maxId,
       readMaxId: readMaxId,
@@ -74392,10 +74392,10 @@ class PhoneGroupCall extends PhoneGroupCallBase {
     // Construct [PhoneGroupCall] object.
     final returnValue = PhoneGroupCall(
       call: call,
-      participants: participants,
+      participants: participants.items,
       participantsNextOffset: participantsNextOffset,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PhoneGroupCall].
@@ -74476,10 +74476,10 @@ class PhoneGroupParticipants extends PhoneGroupParticipantsBase {
     // Construct [PhoneGroupParticipants] object.
     final returnValue = PhoneGroupParticipants(
       count: count,
-      participants: participants,
+      participants: participants.items,
       nextOffset: nextOffset,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
       version: version,
     );
 
@@ -74918,7 +74918,7 @@ class MessagesAffectedFoundMessages extends MessagesAffectedFoundMessagesBase {
       pts: pts,
       ptsCount: ptsCount,
       offset: offset,
-      messages: messages,
+      messages: messages.items,
     );
 
     // Now return the deserialized [MessagesAffectedFoundMessages].
@@ -75107,8 +75107,8 @@ class MessagesExportedChatInvites extends MessagesExportedChatInvitesBase {
     // Construct [MessagesExportedChatInvites] object.
     final returnValue = MessagesExportedChatInvites(
       count: count,
-      invites: invites,
-      users: users,
+      invites: invites.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesExportedChatInvites].
@@ -75173,7 +75173,7 @@ class MessagesExportedChatInvite extends MessagesExportedChatInviteBase {
     // Construct [MessagesExportedChatInvite] object.
     final returnValue = MessagesExportedChatInvite(
       invite: invite,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesExportedChatInvite].
@@ -75235,7 +75235,7 @@ class MessagesExportedChatInviteReplaced
     final returnValue = MessagesExportedChatInviteReplaced(
       invite: invite,
       newInvite: newInvite,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesExportedChatInviteReplaced].
@@ -75300,8 +75300,8 @@ class MessagesChatInviteImporters extends MessagesChatInviteImportersBase {
     // Construct [MessagesChatInviteImporters] object.
     final returnValue = MessagesChatInviteImporters(
       count: count,
-      importers: importers,
-      users: users,
+      importers: importers.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesChatInviteImporters].
@@ -75437,8 +75437,8 @@ class MessagesChatAdminsWithInvites extends MessagesChatAdminsWithInvitesBase {
 
     // Construct [MessagesChatAdminsWithInvites] object.
     final returnValue = MessagesChatAdminsWithInvites(
-      admins: admins,
-      users: users,
+      admins: admins.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesChatAdminsWithInvites].
@@ -75548,9 +75548,9 @@ class PhoneJoinAsPeers extends PhoneJoinAsPeersBase {
 
     // Construct [PhoneJoinAsPeers] object.
     final returnValue = PhoneJoinAsPeers(
-      peers: peers,
-      chats: chats,
-      users: users,
+      peers: peers.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PhoneJoinAsPeers].
@@ -75665,7 +75665,7 @@ class GroupCallParticipantVideoSourceGroup
     // Construct [GroupCallParticipantVideoSourceGroup] object.
     final returnValue = GroupCallParticipantVideoSourceGroup(
       semantics: semantics,
-      sources: sources,
+      sources: sources.items,
     );
 
     // Now return the deserialized [GroupCallParticipantVideoSourceGroup].
@@ -75731,7 +75731,7 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
     final returnValue = GroupCallParticipantVideo(
       paused: paused,
       endpoint: endpoint,
-      sourceGroups: sourceGroups,
+      sourceGroups: sourceGroups.items,
       audioSource: audioSource,
     );
 
@@ -76338,7 +76338,7 @@ class SponsoredMessage extends SponsoredMessageBase {
       url: url,
       title: title,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       photo: photo,
       media: media,
       color: color,
@@ -76497,9 +76497,9 @@ class MessagesSponsoredMessages extends MessagesSponsoredMessagesBase {
     // Construct [MessagesSponsoredMessages] object.
     final returnValue = MessagesSponsoredMessages(
       postsBetween: postsBetween,
-      messages: messages,
-      chats: chats,
-      users: users,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesSponsoredMessages].
@@ -76717,10 +76717,10 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
       minDate: minDate,
       minMsgId: minMsgId,
       offsetIdOffset: offsetIdOffset,
-      periods: periods,
-      messages: messages,
-      chats: chats,
-      users: users,
+      periods: periods.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesSearchResultsCalendar].
@@ -76902,7 +76902,7 @@ class MessagesSearchResultsPositions
     // Construct [MessagesSearchResultsPositions] object.
     final returnValue = MessagesSearchResultsPositions(
       count: count,
-      positions: positions,
+      positions: positions.items,
     );
 
     // Now return the deserialized [MessagesSearchResultsPositions].
@@ -76963,9 +76963,9 @@ class ChannelsSendAsPeers extends ChannelsSendAsPeersBase {
 
     // Construct [ChannelsSendAsPeers] object.
     final returnValue = ChannelsSendAsPeers(
-      peers: peers,
-      chats: chats,
-      users: users,
+      peers: peers.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChannelsSendAsPeers].
@@ -77030,8 +77030,8 @@ class UsersUserFull extends UsersUserFullBase {
     // Construct [UsersUserFull] object.
     final returnValue = UsersUserFull(
       fullUser: fullUser,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [UsersUserFull].
@@ -77096,8 +77096,8 @@ class MessagesPeerSettings extends MessagesPeerSettingsBase {
     // Construct [MessagesPeerSettings] object.
     final returnValue = MessagesPeerSettings(
       settings: settings,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesPeerSettings].
@@ -77327,9 +77327,9 @@ class MessageReactions extends MessageReactionsBase {
       min: min,
       canSeeList: canSeeList,
       reactionsAsTags: reactionsAsTags,
-      results: results,
-      recentReactions: recentReactions,
-      topReactors: topReactors,
+      results: results.items,
+      recentReactions: recentReactions?.items,
+      topReactors: topReactors?.items,
     );
 
     // Now return the deserialized [MessageReactions].
@@ -77433,9 +77433,9 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
     // Construct [MessagesMessageReactionsList] object.
     final returnValue = MessagesMessageReactionsList(
       count: count,
-      reactions: reactions,
-      chats: chats,
-      users: users,
+      reactions: reactions.items,
+      chats: chats.items,
+      users: users.items,
       nextOffset: nextOffset,
     );
 
@@ -77715,7 +77715,7 @@ class MessagesAvailableReactions extends MessagesAvailableReactionsBase {
     // Construct [MessagesAvailableReactions] object.
     final returnValue = MessagesAvailableReactions(
       hash: hash,
-      reactions: reactions,
+      reactions: reactions.items,
     );
 
     // Now return the deserialized [MessagesAvailableReactions].
@@ -77945,7 +77945,7 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
 
     // Construct [PhoneGroupCallStreamChannels] object.
     final returnValue = PhoneGroupCallStreamChannels(
-      channels: channels,
+      channels: channels.items,
     );
 
     // Now return the deserialized [PhoneGroupCallStreamChannels].
@@ -78123,7 +78123,7 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
     final returnValue = AttachMenuBotIcon(
       name: name,
       icon: icon,
-      colors: colors,
+      colors: colors?.items,
     );
 
     // Now return the deserialized [AttachMenuBotIcon].
@@ -78227,8 +78227,8 @@ class AttachMenuBot extends AttachMenuBotBase {
       sideMenuDisclaimerNeeded: sideMenuDisclaimerNeeded,
       botId: botId,
       shortName: shortName,
-      peerTypes: peerTypes,
-      icons: icons,
+      peerTypes: peerTypes?.items,
+      icons: icons.items,
     );
 
     // Now return the deserialized [AttachMenuBot].
@@ -78379,8 +78379,8 @@ class AttachMenuBots extends AttachMenuBotsBase {
     // Construct [AttachMenuBots] object.
     final returnValue = AttachMenuBots(
       hash: hash,
-      bots: bots,
-      users: users,
+      bots: bots.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AttachMenuBots].
@@ -78445,7 +78445,7 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
     // Construct [AttachMenuBotsBot] object.
     final returnValue = AttachMenuBotsBot(
       bot: bot,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [AttachMenuBotsBot].
@@ -78827,7 +78827,7 @@ class AccountSavedRingtones extends AccountSavedRingtonesBase {
     // Construct [AccountSavedRingtones] object.
     final returnValue = AccountSavedRingtones(
       hash: hash,
-      ringtones: ringtones,
+      ringtones: ringtones.items,
     );
 
     // Now return the deserialized [AccountSavedRingtones].
@@ -79860,11 +79860,11 @@ class HelpPremiumPromo extends HelpPremiumPromoBase {
     // Construct [HelpPremiumPromo] object.
     final returnValue = HelpPremiumPromo(
       statusText: statusText,
-      statusEntities: statusEntities,
-      videoSections: videoSections,
-      videos: videos,
-      periodOptions: periodOptions,
-      users: users,
+      statusEntities: statusEntities.items,
+      videoSections: videoSections.items,
+      videos: videos.items,
+      periodOptions: periodOptions.items,
+      users: users.items,
     );
 
     // Now return the deserialized [HelpPremiumPromo].
@@ -80091,7 +80091,7 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
 
     // Construct [InputStorePaymentPremiumGiftCode] object.
     final returnValue = InputStorePaymentPremiumGiftCode(
-      users: users,
+      users: users.items,
       boostPeer: boostPeer,
       currency: currency,
       amount: amount,
@@ -80214,8 +80214,8 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
       onlyNewSubscribers: onlyNewSubscribers,
       winnersAreVisible: winnersAreVisible,
       boostPeer: boostPeer,
-      additionalPeers: additionalPeers,
-      countriesIso2: countriesIso2,
+      additionalPeers: additionalPeers?.items,
+      countriesIso2: countriesIso2?.items,
       prizeDescription: prizeDescription,
       randomId: randomId,
       untilDate: untilDate,
@@ -80523,8 +80523,8 @@ class InputStorePaymentStarsGiveaway extends InputStorePaymentPurposeBase {
       winnersAreVisible: winnersAreVisible,
       stars: stars,
       boostPeer: boostPeer,
-      additionalPeers: additionalPeers,
-      countriesIso2: countriesIso2,
+      additionalPeers: additionalPeers?.items,
+      countriesIso2: countriesIso2?.items,
       prizeDescription: prizeDescription,
       randomId: randomId,
       untilDate: untilDate,
@@ -81014,7 +81014,7 @@ class AccountEmojiStatuses extends AccountEmojiStatusesBase {
     // Construct [AccountEmojiStatuses] object.
     final returnValue = AccountEmojiStatuses(
       hash: hash,
-      statuses: statuses,
+      statuses: statuses.items,
     );
 
     // Now return the deserialized [AccountEmojiStatuses].
@@ -81342,7 +81342,7 @@ class ChatReactionsSome extends ChatReactionsBase {
 
     // Construct [ChatReactionsSome] object.
     final returnValue = ChatReactionsSome(
-      reactions: reactions,
+      reactions: reactions.items,
     );
 
     // Now return the deserialized [ChatReactionsSome].
@@ -81431,7 +81431,7 @@ class MessagesReactions extends MessagesReactionsBase {
     // Construct [MessagesReactions] object.
     final returnValue = MessagesReactions(
       hash: hash,
-      reactions: reactions,
+      reactions: reactions.items,
     );
 
     // Now return the deserialized [MessagesReactions].
@@ -82233,7 +82233,7 @@ class StickerKeyword extends StickerKeywordBase {
     // Construct [StickerKeyword] object.
     final returnValue = StickerKeyword(
       documentId: documentId,
-      keyword: keyword,
+      keyword: keyword.items,
     );
 
     // Now return the deserialized [StickerKeyword].
@@ -82666,10 +82666,10 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
     final returnValue = MessagesForumTopics(
       orderByCreateDate: orderByCreateDate,
       count: count,
-      topics: topics,
-      messages: messages,
-      chats: chats,
-      users: users,
+      topics: topics.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
       pts: pts,
     );
 
@@ -83216,7 +83216,7 @@ class EmojiList extends EmojiListBase {
     // Construct [EmojiList] object.
     final returnValue = EmojiList(
       hash: hash,
-      documentId: documentId,
+      documentId: documentId.items,
     );
 
     // Now return the deserialized [EmojiList].
@@ -83279,7 +83279,7 @@ class EmojiGroup extends EmojiGroupBase {
     final returnValue = EmojiGroup(
       title: title,
       iconEmojiId: iconEmojiId,
-      emoticons: emoticons,
+      emoticons: emoticons.items,
     );
 
     // Now return the deserialized [EmojiGroup].
@@ -83347,7 +83347,7 @@ class EmojiGroupGreeting extends EmojiGroupBase {
     final returnValue = EmojiGroupGreeting(
       title: title,
       iconEmojiId: iconEmojiId,
-      emoticons: emoticons,
+      emoticons: emoticons.items,
     );
 
     // Now return the deserialized [EmojiGroupGreeting].
@@ -83508,7 +83508,7 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
     // Construct [MessagesEmojiGroups] object.
     final returnValue = MessagesEmojiGroups(
       hash: hash,
-      groups: groups,
+      groups: groups.items,
     );
 
     // Now return the deserialized [MessagesEmojiGroups].
@@ -83568,7 +83568,7 @@ class TextWithEntities extends TextWithEntitiesBase {
     // Construct [TextWithEntities] object.
     final returnValue = TextWithEntities(
       text: text,
-      entities: entities,
+      entities: entities.items,
     );
 
     // Now return the deserialized [TextWithEntities].
@@ -83623,7 +83623,7 @@ class MessagesTranslateResult extends MessagesTranslatedTextBase {
 
     // Construct [MessagesTranslateResult] object.
     final returnValue = MessagesTranslateResult(
-      result: result,
+      result: result.items,
     );
 
     // Now return the deserialized [MessagesTranslateResult].
@@ -83826,9 +83826,9 @@ class AccountAutoSaveSettings extends AccountAutoSaveSettingsBase {
       usersSettings: usersSettings,
       chatsSettings: chatsSettings,
       broadcastsSettings: broadcastsSettings,
-      exceptions: exceptions,
-      chats: chats,
-      users: users,
+      exceptions: exceptions.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AccountAutoSaveSettings].
@@ -84546,7 +84546,7 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
     final returnValue = ExportedChatlistInvite(
       title: title,
       url: url,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [ExportedChatlistInvite].
@@ -84678,9 +84678,9 @@ class ChatlistsExportedInvites extends ChatlistsExportedInvitesBase {
 
     // Construct [ChatlistsExportedInvites] object.
     final returnValue = ChatlistsExportedInvites(
-      invites: invites,
-      chats: chats,
-      users: users,
+      invites: invites.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChatlistsExportedInvites].
@@ -84749,10 +84749,10 @@ class ChatlistsChatlistInviteAlready extends ChatlistsChatlistInviteBase {
     // Construct [ChatlistsChatlistInviteAlready] object.
     final returnValue = ChatlistsChatlistInviteAlready(
       filterId: filterId,
-      missingPeers: missingPeers,
-      alreadyPeers: alreadyPeers,
-      chats: chats,
-      users: users,
+      missingPeers: missingPeers.items,
+      alreadyPeers: alreadyPeers.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChatlistsChatlistInviteAlready].
@@ -84836,9 +84836,9 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
     final returnValue = ChatlistsChatlistInvite(
       title: title,
       emoticon: emoticon,
-      peers: peers,
-      chats: chats,
-      users: users,
+      peers: peers.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChatlistsChatlistInvite].
@@ -84926,9 +84926,9 @@ class ChatlistsChatlistUpdates extends ChatlistsChatlistUpdatesBase {
 
     // Construct [ChatlistsChatlistUpdates] object.
     final returnValue = ChatlistsChatlistUpdates(
-      missingPeers: missingPeers,
-      chats: chats,
-      users: users,
+      missingPeers: missingPeers.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ChatlistsChatlistUpdates].
@@ -85183,7 +85183,7 @@ class MessagePeerVoteMultiple extends MessagePeerVoteBase {
     // Construct [MessagePeerVoteMultiple] object.
     final returnValue = MessagePeerVoteMultiple(
       peer: peer,
-      options: options,
+      options: options.items,
       date: date,
     );
 
@@ -85264,9 +85264,9 @@ class StoryViews extends StoryViewsBase {
       hasViewers: hasViewers,
       viewsCount: viewsCount,
       forwardsCount: forwardsCount,
-      reactions: reactions,
+      reactions: reactions?.items,
       reactionsCount: reactionsCount,
-      recentViewers: recentViewers,
+      recentViewers: recentViewers?.items,
     );
 
     // Now return the deserialized [StoryViews].
@@ -85577,10 +85577,10 @@ class StoryItem extends StoryItemBase {
       fwdFrom: fwdFrom,
       expireDate: expireDate,
       caption: caption,
-      entities: entities,
+      entities: entities?.items,
       media: media,
-      mediaAreas: mediaAreas,
-      privacy: privacy,
+      mediaAreas: mediaAreas?.items,
+      privacy: privacy?.items,
       views: views,
       sentReaction: sentReaction,
     );
@@ -85860,9 +85860,9 @@ class StoriesAllStories extends StoriesAllStoriesBase {
       hasMore: hasMore,
       count: count,
       state: state,
-      peerStories: peerStories,
-      chats: chats,
-      users: users,
+      peerStories: peerStories.items,
+      chats: chats.items,
+      users: users.items,
       stealthMode: stealthMode,
     );
 
@@ -85966,10 +85966,10 @@ class StoriesStories extends StoriesStoriesBase {
     // Construct [StoriesStories] object.
     final returnValue = StoriesStories(
       count: count,
-      stories: stories,
-      pinnedToTop: pinnedToTop,
-      chats: chats,
-      users: users,
+      stories: stories.items,
+      pinnedToTop: pinnedToTop?.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [StoriesStories].
@@ -86338,9 +86338,9 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
       viewsCount: viewsCount,
       forwardsCount: forwardsCount,
       reactionsCount: reactionsCount,
-      views: views,
-      chats: chats,
-      users: users,
+      views: views.items,
+      chats: chats.items,
+      users: users.items,
       nextOffset: nextOffset,
     );
 
@@ -86450,8 +86450,8 @@ class StoriesStoryViews extends StoriesStoryViewsBase {
 
     // Construct [StoriesStoryViews] object.
     final returnValue = StoriesStoryViews(
-      views: views,
-      users: users,
+      views: views.items,
+      users: users.items,
     );
 
     // Now return the deserialized [StoriesStoryViews].
@@ -86529,7 +86529,7 @@ class InputReplyToMessage extends InputReplyToBase {
       topMsgId: topMsgId,
       replyToPeerId: replyToPeerId,
       quoteText: quoteText,
-      quoteEntities: quoteEntities,
+      quoteEntities: quoteEntities?.items,
       quoteOffset: quoteOffset,
     );
 
@@ -87548,7 +87548,7 @@ class PeerStories extends PeerStoriesBase {
     final returnValue = PeerStories(
       peer: peer,
       maxReadId: maxReadId,
-      stories: stories,
+      stories: stories.items,
     );
 
     // Now return the deserialized [PeerStories].
@@ -87627,8 +87627,8 @@ class StoriesPeerStories extends StoriesPeerStoriesBase {
     // Construct [StoriesPeerStories] object.
     final returnValue = StoriesPeerStories(
       stories: stories,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [StoriesPeerStories].
@@ -87693,8 +87693,8 @@ class MessagesWebPage extends MessagesWebPageBase {
     // Construct [MessagesWebPage] object.
     final returnValue = MessagesWebPage(
       webpage: webpage,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesWebPage].
@@ -87899,8 +87899,8 @@ class PaymentsCheckedGiftCode extends PaymentsCheckedGiftCodeBase {
       date: date,
       months: months,
       usedDate: usedDate,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsCheckedGiftCode].
@@ -88615,9 +88615,9 @@ class PremiumBoostsList extends PremiumBoostsListBase {
     // Construct [PremiumBoostsList] object.
     final returnValue = PremiumBoostsList(
       count: count,
-      boosts: boosts,
+      boosts: boosts.items,
       nextOffset: nextOffset,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PremiumBoostsList].
@@ -88808,9 +88808,9 @@ class PremiumMyBoosts extends PremiumMyBoostsBase {
 
     // Construct [PremiumMyBoosts] object.
     final returnValue = PremiumMyBoosts(
-      myBoosts: myBoosts,
-      chats: chats,
-      users: users,
+      myBoosts: myBoosts.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PremiumMyBoosts].
@@ -88906,8 +88906,8 @@ class PremiumBoostsStatus extends PremiumBoostsStatusBase {
       nextLevelBoosts: nextLevelBoosts,
       premiumAudience: premiumAudience,
       boostUrl: boostUrl,
-      prepaidGiveaways: prepaidGiveaways,
-      myBoostSlots: myBoostSlots,
+      prepaidGiveaways: prepaidGiveaways?.items,
+      myBoostSlots: myBoostSlots?.items,
     );
 
     // Now return the deserialized [PremiumBoostsStatus].
@@ -89478,10 +89478,10 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
     // Construct [StatsPublicForwards] object.
     final returnValue = StatsPublicForwards(
       count: count,
-      forwards: forwards,
+      forwards: forwards.items,
       nextOffset: nextOffset,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [StatsPublicForwards].
@@ -89647,7 +89647,7 @@ class HelpPeerColorSet extends HelpPeerColorSetBase {
 
     // Construct [HelpPeerColorSet] object.
     final returnValue = HelpPeerColorSet(
-      colors: colors,
+      colors: colors.items,
     );
 
     // Now return the deserialized [HelpPeerColorSet].
@@ -89701,9 +89701,9 @@ class HelpPeerColorProfileSet extends HelpPeerColorSetBase {
 
     // Construct [HelpPeerColorProfileSet] object.
     final returnValue = HelpPeerColorProfileSet(
-      paletteColors: paletteColors,
-      bgColors: bgColors,
-      storyColors: storyColors,
+      paletteColors: paletteColors.items,
+      bgColors: bgColors.items,
+      storyColors: storyColors.items,
     );
 
     // Now return the deserialized [HelpPeerColorProfileSet].
@@ -89927,7 +89927,7 @@ class HelpPeerColors extends HelpPeerColorsBase {
     // Construct [HelpPeerColors] object.
     final returnValue = HelpPeerColors(
       hash: hash,
-      colors: colors,
+      colors: colors.items,
     );
 
     // Now return the deserialized [HelpPeerColors].
@@ -90169,9 +90169,9 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
     // Construct [StoriesStoryReactionsList] object.
     final returnValue = StoriesStoryReactionsList(
       count: count,
-      reactions: reactions,
-      chats: chats,
-      users: users,
+      reactions: reactions.items,
+      chats: chats.items,
+      users: users.items,
       nextOffset: nextOffset,
     );
 
@@ -90343,10 +90343,10 @@ class MessagesSavedDialogs extends MessagesSavedDialogsBase {
 
     // Construct [MessagesSavedDialogs] object.
     final returnValue = MessagesSavedDialogs(
-      dialogs: dialogs,
-      messages: messages,
-      chats: chats,
-      users: users,
+      dialogs: dialogs.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesSavedDialogs].
@@ -90420,10 +90420,10 @@ class MessagesSavedDialogsSlice extends MessagesSavedDialogsBase {
     // Construct [MessagesSavedDialogsSlice] object.
     final returnValue = MessagesSavedDialogsSlice(
       count: count,
-      dialogs: dialogs,
-      messages: messages,
-      chats: chats,
-      users: users,
+      dialogs: dialogs.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesSavedDialogsSlice].
@@ -90671,7 +90671,7 @@ class MessagesSavedReactionTags extends MessagesSavedReactionTagsBase {
 
     // Construct [MessagesSavedReactionTags] object.
     final returnValue = MessagesSavedReactionTags(
-      tags: tags,
+      tags: tags.items,
       hash: hash,
     );
 
@@ -91106,7 +91106,7 @@ class BusinessWorkHours extends BusinessWorkHoursBase {
     final returnValue = BusinessWorkHours(
       openNow: openNow,
       timezoneId: timezoneId,
-      weeklyOpen: weeklyOpen,
+      weeklyOpen: weeklyOpen.items,
     );
 
     // Now return the deserialized [BusinessWorkHours].
@@ -91269,7 +91269,7 @@ class InputBusinessRecipients extends InputBusinessRecipientsBase {
       contacts: contacts,
       nonContacts: nonContacts,
       excludeSelected: excludeSelected,
-      users: users,
+      users: users?.items,
     );
 
     // Now return the deserialized [InputBusinessRecipients].
@@ -91375,7 +91375,7 @@ class BusinessRecipients extends BusinessRecipientsBase {
       contacts: contacts,
       nonContacts: nonContacts,
       excludeSelected: excludeSelected,
-      users: users,
+      users: users?.items,
     );
 
     // Now return the deserialized [BusinessRecipients].
@@ -92018,7 +92018,7 @@ class HelpTimezonesList extends HelpTimezonesListBase {
 
     // Construct [HelpTimezonesList] object.
     final returnValue = HelpTimezonesList(
-      timezones: timezones,
+      timezones: timezones.items,
       hash: hash,
     );
 
@@ -92264,10 +92264,10 @@ class MessagesQuickReplies extends MessagesQuickRepliesBase {
 
     // Construct [MessagesQuickReplies] object.
     final returnValue = MessagesQuickReplies(
-      quickReplies: quickReplies,
-      messages: messages,
-      chats: chats,
-      users: users,
+      quickReplies: quickReplies.items,
+      messages: messages.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesQuickReplies].
@@ -92449,8 +92449,8 @@ class AccountConnectedBots extends AccountConnectedBotsBase {
 
     // Construct [AccountConnectedBots] object.
     final returnValue = AccountConnectedBots(
-      connectedBots: connectedBots,
-      users: users,
+      connectedBots: connectedBots.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AccountConnectedBots].
@@ -92509,7 +92509,7 @@ class MessagesDialogFilters extends MessagesDialogFiltersBase {
     // Construct [MessagesDialogFilters] object.
     final returnValue = MessagesDialogFilters(
       tagsEnabled: tagsEnabled,
-      filters: filters,
+      filters: filters.items,
     );
 
     // Now return the deserialized [MessagesDialogFilters].
@@ -92934,7 +92934,7 @@ class MessagesMyStickers extends MessagesMyStickersBase {
     // Construct [MessagesMyStickers] object.
     final returnValue = MessagesMyStickers(
       count: count,
-      sets: sets,
+      sets: sets.items,
     );
 
     // Now return the deserialized [MessagesMyStickers].
@@ -93207,8 +93207,8 @@ class InputBusinessBotRecipients extends InputBusinessBotRecipientsBase {
       contacts: contacts,
       nonContacts: nonContacts,
       excludeSelected: excludeSelected,
-      users: users,
-      excludeUsers: excludeUsers,
+      users: users?.items,
+      excludeUsers: excludeUsers?.items,
     );
 
     // Now return the deserialized [InputBusinessBotRecipients].
@@ -93326,8 +93326,8 @@ class BusinessBotRecipients extends BusinessBotRecipientsBase {
       contacts: contacts,
       nonContacts: nonContacts,
       excludeSelected: excludeSelected,
-      users: users,
-      excludeUsers: excludeUsers,
+      users: users?.items,
+      excludeUsers: excludeUsers?.items,
     );
 
     // Now return the deserialized [BusinessBotRecipients].
@@ -93487,8 +93487,8 @@ class ContactsContactBirthdays extends ContactsContactBirthdaysBase {
 
     // Construct [ContactsContactBirthdays] object.
     final returnValue = ContactsContactBirthdays(
-      contacts: contacts,
-      users: users,
+      contacts: contacts.items,
+      users: users.items,
     );
 
     // Now return the deserialized [ContactsContactBirthdays].
@@ -93625,7 +93625,7 @@ class MessagesInvitedUsers extends MessagesInvitedUsersBase {
     // Construct [MessagesInvitedUsers] object.
     final returnValue = MessagesInvitedUsers(
       updates: updates,
-      missingInvitees: missingInvitees,
+      missingInvitees: missingInvitees.items,
     );
 
     // Now return the deserialized [MessagesInvitedUsers].
@@ -93689,7 +93689,7 @@ class InputBusinessChatLink extends InputBusinessChatLinkBase {
     // Construct [InputBusinessChatLink] object.
     final returnValue = InputBusinessChatLink(
       message: message,
-      entities: entities,
+      entities: entities?.items,
       title: title,
     );
 
@@ -93782,7 +93782,7 @@ class BusinessChatLink extends BusinessChatLinkBase {
     final returnValue = BusinessChatLink(
       link: link,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       title: title,
       views: views,
     );
@@ -93878,9 +93878,9 @@ class AccountBusinessChatLinks extends AccountBusinessChatLinksBase {
 
     // Construct [AccountBusinessChatLinks] object.
     final returnValue = AccountBusinessChatLinks(
-      links: links,
-      chats: chats,
-      users: users,
+      links: links.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AccountBusinessChatLinks].
@@ -93954,9 +93954,9 @@ class AccountResolvedBusinessChatLinks
     final returnValue = AccountResolvedBusinessChatLinks(
       peer: peer,
       message: message,
-      entities: entities,
-      chats: chats,
-      users: users,
+      entities: entities?.items,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [AccountResolvedBusinessChatLinks].
@@ -94408,7 +94408,7 @@ class ChannelsSponsoredMessageReportResultChooseOption
     // Construct [ChannelsSponsoredMessageReportResultChooseOption] object.
     final returnValue = ChannelsSponsoredMessageReportResultChooseOption(
       title: title,
-      options: options,
+      options: options.items,
     );
 
     // Now return the deserialized [ChannelsSponsoredMessageReportResultChooseOption].
@@ -94930,7 +94930,7 @@ class StatsBroadcastRevenueTransactions
     // Construct [StatsBroadcastRevenueTransactions] object.
     final returnValue = StatsBroadcastRevenueTransactions(
       count: count,
-      transactions: transactions,
+      transactions: transactions.items,
     );
 
     // Now return the deserialized [StatsBroadcastRevenueTransactions].
@@ -95406,8 +95406,8 @@ class MessagesAvailableEffects extends MessagesAvailableEffectsBase {
     // Construct [MessagesAvailableEffects] object.
     final returnValue = MessagesAvailableEffects(
       hash: hash,
-      effects: effects,
-      documents: documents,
+      effects: effects.items,
+      documents: documents.items,
     );
 
     // Now return the deserialized [MessagesAvailableEffects].
@@ -96056,7 +96056,7 @@ class StarsTransaction extends StarsTransactionBase {
       transactionUrl: transactionUrl,
       botPayload: botPayload,
       msgId: msgId,
-      extendedMedia: extendedMedia,
+      extendedMedia: extendedMedia?.items,
       subscriptionPeriod: subscriptionPeriod,
       giveawayPostId: giveawayPostId,
       stargift: stargift,
@@ -96323,13 +96323,13 @@ class PaymentsStarsStatus extends PaymentsStarsStatusBase {
     // Construct [PaymentsStarsStatus] object.
     final returnValue = PaymentsStarsStatus(
       balance: balance,
-      subscriptions: subscriptions,
+      subscriptions: subscriptions?.items,
       subscriptionsNextOffset: subscriptionsNextOffset,
       subscriptionsMissingBalance: subscriptionsMissingBalance,
-      history: history,
+      history: history?.items,
       nextOffset: nextOffset,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsStarsStatus].
@@ -96513,10 +96513,10 @@ class StoriesFoundStories extends StoriesFoundStoriesBase {
     // Construct [StoriesFoundStories] object.
     final returnValue = StoriesFoundStories(
       count: count,
-      stories: stories,
+      stories: stories.items,
       nextOffset: nextOffset,
-      chats: chats,
-      users: users,
+      chats: chats.items,
+      users: users.items,
     );
 
     // Now return the deserialized [StoriesFoundStories].
@@ -97145,7 +97145,7 @@ class BotsPopularAppBots extends BotsPopularAppBotsBase {
     // Construct [BotsPopularAppBots] object.
     final returnValue = BotsPopularAppBots(
       nextOffset: nextOffset,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [BotsPopularAppBots].
@@ -97274,8 +97274,8 @@ class BotsPreviewInfo extends BotsPreviewInfoBase {
 
     // Construct [BotsPreviewInfo] object.
     final returnValue = BotsPreviewInfo(
-      media: media,
-      langCodes: langCodes,
+      media: media.items,
+      langCodes: langCodes.items,
     );
 
     // Now return the deserialized [BotsPreviewInfo].
@@ -97684,7 +97684,7 @@ class StarsGiveawayOption extends StarsGiveawayOptionBase {
       storeProduct: storeProduct,
       currency: currency,
       amount: amount,
-      winners: winners,
+      winners: winners.items,
     );
 
     // Now return the deserialized [StarsGiveawayOption].
@@ -98074,7 +98074,7 @@ class PaymentsStarGifts extends PaymentsStarGiftsBase {
     // Construct [PaymentsStarGifts] object.
     final returnValue = PaymentsStarGifts(
       hash: hash,
-      gifts: gifts,
+      gifts: gifts.items,
     );
 
     // Now return the deserialized [PaymentsStarGifts].
@@ -98278,9 +98278,9 @@ class PaymentsUserStarGifts extends PaymentsUserStarGiftsBase {
     // Construct [PaymentsUserStarGifts] object.
     final returnValue = PaymentsUserStarGifts(
       count: count,
-      gifts: gifts,
+      gifts: gifts.items,
       nextOffset: nextOffset,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsUserStarGifts].
@@ -98422,7 +98422,7 @@ class ReportResultChooseOption extends ReportResultBase {
     // Construct [ReportResultChooseOption] object.
     final returnValue = ReportResultChooseOption(
       title: title,
-      options: options,
+      options: options.items,
     );
 
     // Now return the deserialized [ReportResultChooseOption].
@@ -98651,9 +98651,9 @@ class MessagesPreparedInlineMessage extends MessagesPreparedInlineMessageBase {
     final returnValue = MessagesPreparedInlineMessage(
       queryId: queryId,
       result: result,
-      peerTypes: peerTypes,
+      peerTypes: peerTypes.items,
       cacheTime: cacheTime,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [MessagesPreparedInlineMessage].
@@ -99095,8 +99095,8 @@ class PaymentsConnectedStarRefBots extends PaymentsConnectedStarRefBotsBase {
     // Construct [PaymentsConnectedStarRefBots] object.
     final returnValue = PaymentsConnectedStarRefBots(
       count: count,
-      connectedBots: connectedBots,
-      users: users,
+      connectedBots: connectedBots.items,
+      users: users.items,
     );
 
     // Now return the deserialized [PaymentsConnectedStarRefBots].
@@ -99167,8 +99167,8 @@ class PaymentsSuggestedStarRefBots extends PaymentsSuggestedStarRefBotsBase {
     // Construct [PaymentsSuggestedStarRefBots] object.
     final returnValue = PaymentsSuggestedStarRefBots(
       count: count,
-      suggestedBots: suggestedBots,
-      users: users,
+      suggestedBots: suggestedBots.items,
+      users: users.items,
       nextOffset: nextOffset,
     );
 
@@ -99386,7 +99386,7 @@ class MessagesFoundStickers extends MessagesFoundStickersBase {
     final returnValue = MessagesFoundStickers(
       nextOffset: nextOffset,
       hash: hash,
-      stickers: stickers,
+      stickers: stickers.items,
     );
 
     // Now return the deserialized [MessagesFoundStickers].
@@ -99526,7 +99526,7 @@ class InvokeAfterMsgs extends TlMethod {
 
     // Construct [InvokeAfterMsgs] object.
     final returnValue = InvokeAfterMsgs(
-      msgIds: msgIds,
+      msgIds: msgIds.items,
       query: query,
     );
 
@@ -100135,7 +100135,7 @@ class AccountRegisterDevice extends TlMethod {
       token: token,
       appSandbox: appSandbox,
       secret: secret,
-      otherUids: otherUids,
+      otherUids: otherUids.items,
     );
 
     // Now return the deserialized [AccountRegisterDevice].
@@ -100229,7 +100229,7 @@ class AccountUnregisterDevice extends TlMethod {
     final returnValue = AccountUnregisterDevice(
       tokenType: tokenType,
       token: token,
-      otherUids: otherUids,
+      otherUids: otherUids.items,
     );
 
     // Now return the deserialized [AccountUnregisterDevice].
@@ -100703,7 +100703,7 @@ class UsersGetUsers extends TlMethod {
 
     // Construct [UsersGetUsers] object.
     final returnValue = UsersGetUsers(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [UsersGetUsers].
@@ -100948,7 +100948,7 @@ class ContactsImportContacts extends TlMethod {
 
     // Construct [ContactsImportContacts] object.
     final returnValue = ContactsImportContacts(
-      contacts: contacts,
+      contacts: contacts.items,
     );
 
     // Now return the deserialized [ContactsImportContacts].
@@ -100999,7 +100999,7 @@ class ContactsDeleteContacts extends TlMethod {
 
     // Construct [ContactsDeleteContacts] object.
     final returnValue = ContactsDeleteContacts(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ContactsDeleteContacts].
@@ -101050,7 +101050,7 @@ class ContactsDeleteByPhones extends TlMethod {
 
     // Construct [ContactsDeleteByPhones] object.
     final returnValue = ContactsDeleteByPhones(
-      phones: phones,
+      phones: phones.items,
     );
 
     // Now return the deserialized [ContactsDeleteByPhones].
@@ -101323,7 +101323,7 @@ class MessagesGetMessages extends TlMethod {
 
     // Construct [MessagesGetMessages] object.
     final returnValue = MessagesGetMessages(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesGetMessages].
@@ -101653,7 +101653,7 @@ class MessagesSearch extends TlMethod {
       q: q,
       fromId: fromId,
       savedPeerId: savedPeerId,
-      savedReaction: savedReaction,
+      savedReaction: savedReaction?.items,
       topMsgId: topMsgId,
       filter: filter,
       minDate: minDate,
@@ -102001,7 +102001,7 @@ class MessagesDeleteMessages extends TlMethod {
     // Construct [MessagesDeleteMessages] object.
     final returnValue = MessagesDeleteMessages(
       revoke: revoke,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesDeleteMessages].
@@ -102263,7 +102263,7 @@ class MessagesSendMessage extends TlMethod {
       message: message,
       randomId: randomId,
       replyMarkup: replyMarkup,
-      entities: entities,
+      entities: entities?.items,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
@@ -102503,7 +102503,7 @@ class MessagesSendMedia extends TlMethod {
       message: message,
       randomId: randomId,
       replyMarkup: replyMarkup,
-      entities: entities,
+      entities: entities?.items,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
@@ -102726,8 +102726,8 @@ class MessagesForwardMessages extends TlMethod {
       noforwards: noforwards,
       allowPaidFloodskip: allowPaidFloodskip,
       fromPeer: fromPeer,
-      id: id,
-      randomId: randomId,
+      id: id.items,
+      randomId: randomId.items,
       toPeer: toPeer,
       topMsgId: topMsgId,
       scheduleDate: scheduleDate,
@@ -102988,7 +102988,7 @@ class MessagesReport extends TlMethod {
     // Construct [MessagesReport] object.
     final returnValue = MessagesReport(
       peer: peer,
-      id: id,
+      id: id.items,
       option: option,
       message: message,
     );
@@ -103056,7 +103056,7 @@ class MessagesGetChats extends TlMethod {
 
     // Construct [MessagesGetChats] object.
     final returnValue = MessagesGetChats(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesGetChats].
@@ -103439,7 +103439,7 @@ class MessagesCreateChat extends TlMethod {
 
     // Construct [MessagesCreateChat] object.
     final returnValue = MessagesCreateChat(
-      users: users,
+      users: users.items,
       title: title,
       ttlPeriod: ttlPeriod,
     );
@@ -103885,7 +103885,7 @@ class PhotosDeletePhotos extends TlMethod {
 
     // Construct [PhotosDeletePhotos] object.
     final returnValue = PhotosDeletePhotos(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [PhotosDeletePhotos].
@@ -105361,7 +105361,7 @@ class MessagesReadMessageContents extends TlMethod {
 
     // Construct [MessagesReadMessageContents] object.
     final returnValue = MessagesReadMessageContents(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesReadMessageContents].
@@ -105629,7 +105629,7 @@ class AccountSetPrivacy extends TlMethod {
     // Construct [AccountSetPrivacy] object.
     final returnValue = AccountSetPrivacy(
       key: key,
-      rules: rules,
+      rules: rules.items,
     );
 
     // Now return the deserialized [AccountSetPrivacy].
@@ -106364,7 +106364,7 @@ class MessagesGetWebPagePreview extends TlMethod {
     // Construct [MessagesGetWebPagePreview] object.
     final returnValue = MessagesGetWebPagePreview(
       message: message,
-      entities: entities,
+      entities: entities?.items,
     );
 
     // Now return the deserialized [MessagesGetWebPagePreview].
@@ -107374,7 +107374,7 @@ class MessagesGetMessagesViews extends TlMethod {
     // Construct [MessagesGetMessagesViews] object.
     final returnValue = MessagesGetMessagesViews(
       peer: peer,
-      id: id,
+      id: id.items,
       increment: increment,
     );
 
@@ -107500,7 +107500,7 @@ class ChannelsDeleteMessages extends TlMethod {
     // Construct [ChannelsDeleteMessages] object.
     final returnValue = ChannelsDeleteMessages(
       channel: channel,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ChannelsDeleteMessages].
@@ -107562,7 +107562,7 @@ class ChannelsReportSpam extends TlMethod {
     final returnValue = ChannelsReportSpam(
       channel: channel,
       participant: participant,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ChannelsReportSpam].
@@ -107626,7 +107626,7 @@ class ChannelsGetMessages extends TlMethod {
     // Construct [ChannelsGetMessages] object.
     final returnValue = ChannelsGetMessages(
       channel: channel,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ChannelsGetMessages].
@@ -107830,7 +107830,7 @@ class ChannelsGetChannels extends TlMethod {
 
     // Construct [ChannelsGetChannels] object.
     final returnValue = ChannelsGetChannels(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ChannelsGetChannels].
@@ -108489,7 +108489,7 @@ class ChannelsInviteToChannel extends TlMethod {
     // Construct [ChannelsInviteToChannel] object.
     final returnValue = ChannelsInviteToChannel(
       channel: channel,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [ChannelsInviteToChannel].
@@ -108984,7 +108984,7 @@ class MessagesReorderStickerSets extends TlMethod {
     final returnValue = MessagesReorderStickerSets(
       masks: masks,
       emojis: emojis,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [MessagesReorderStickerSets].
@@ -109360,7 +109360,7 @@ class MessagesSetInlineBotResults extends TlMethod {
       gallery: gallery,
       private: private,
       queryId: queryId,
-      results: results,
+      results: results.items,
       cacheTime: cacheTime,
       nextOffset: nextOffset,
       switchPm: switchPm,
@@ -110057,7 +110057,7 @@ class MessagesEditMessage extends TlMethod {
       message: message,
       media: media,
       replyMarkup: replyMarkup,
-      entities: entities,
+      entities: entities?.items,
       scheduleDate: scheduleDate,
       quickReplyShortcutId: quickReplyShortcutId,
     );
@@ -110216,7 +110216,7 @@ class MessagesEditInlineBotMessage extends TlMethod {
       message: message,
       media: media,
       replyMarkup: replyMarkup,
-      entities: entities,
+      entities: entities?.items,
     );
 
     // Now return the deserialized [MessagesEditInlineBotMessage].
@@ -110754,7 +110754,7 @@ class MessagesGetPeerDialogs extends TlMethod {
 
     // Construct [MessagesGetPeerDialogs] object.
     final returnValue = MessagesGetPeerDialogs(
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [MessagesGetPeerDialogs].
@@ -110831,7 +110831,7 @@ class MessagesSaveDraft extends TlMethod {
       replyTo: replyTo,
       peer: peer,
       message: message,
-      entities: entities,
+      entities: entities?.items,
       media: media,
       effect: effect,
     );
@@ -111035,7 +111035,7 @@ class MessagesReadFeaturedStickers extends TlMethod {
 
     // Construct [MessagesReadFeaturedStickers] object.
     final returnValue = MessagesReadFeaturedStickers(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesReadFeaturedStickers].
@@ -111688,7 +111688,7 @@ class AuthDropTempAuthKeys extends TlMethod {
 
     // Construct [AuthDropTempAuthKeys] object.
     final returnValue = AuthDropTempAuthKeys(
-      exceptAuthKeys: exceptAuthKeys,
+      exceptAuthKeys: exceptAuthKeys.items,
     );
 
     // Now return the deserialized [AuthDropTempAuthKeys].
@@ -112339,7 +112339,7 @@ class MessagesReorderPinnedDialogs extends TlMethod {
     final returnValue = MessagesReorderPinnedDialogs(
       force: force,
       folderId: folderId,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [MessagesReorderPinnedDialogs].
@@ -113171,7 +113171,7 @@ class MessagesSetBotShippingResults extends TlMethod {
     final returnValue = MessagesSetBotShippingResults(
       queryId: queryId,
       error: error,
-      shippingOptions: shippingOptions,
+      shippingOptions: shippingOptions?.items,
     );
 
     // Now return the deserialized [MessagesSetBotShippingResults].
@@ -113364,7 +113364,7 @@ class StickersCreateStickerSet extends TlMethod {
       title: title,
       shortName: shortName,
       thumb: thumb,
-      stickers: stickers,
+      stickers: stickers.items,
       software: software,
     );
 
@@ -114534,7 +114534,7 @@ class LangpackGetStrings extends TlMethod {
     final returnValue = LangpackGetStrings(
       langPack: langPack,
       langCode: langCode,
-      keys: keys,
+      keys: keys.items,
     );
 
     // Now return the deserialized [LangpackGetStrings].
@@ -114803,7 +114803,7 @@ class ChannelsGetAdminLog extends TlMethod {
       channel: channel,
       q: q,
       eventsFilter: eventsFilter,
-      admins: admins,
+      admins: admins?.items,
       maxId: maxId,
       minId: minId,
       limit: limit,
@@ -115215,7 +115215,7 @@ class ChannelsReadMessageContents extends TlMethod {
     // Construct [ChannelsReadMessageContents] object.
     final returnValue = ChannelsReadMessageContents(
       channel: channel,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ChannelsReadMessageContents].
@@ -115813,7 +115813,7 @@ class MessagesSendMultiMedia extends TlMethod {
       allowPaidFloodskip: allowPaidFloodskip,
       peer: peer,
       replyTo: replyTo,
-      multiMedia: multiMedia,
+      multiMedia: multiMedia.items,
       scheduleDate: scheduleDate,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
@@ -116415,7 +116415,7 @@ class AccountGetSecureValue extends TlMethod {
 
     // Construct [AccountGetSecureValue] object.
     final returnValue = AccountGetSecureValue(
-      types: types,
+      types: types.items,
     );
 
     // Now return the deserialized [AccountGetSecureValue].
@@ -116527,7 +116527,7 @@ class AccountDeleteSecureValue extends TlMethod {
 
     // Construct [AccountDeleteSecureValue] object.
     final returnValue = AccountDeleteSecureValue(
-      types: types,
+      types: types.items,
     );
 
     // Now return the deserialized [AccountDeleteSecureValue].
@@ -116581,7 +116581,7 @@ class UsersSetSecureValueErrors extends TlMethod {
     // Construct [UsersSetSecureValueErrors] object.
     final returnValue = UsersSetSecureValueErrors(
       id: id,
-      errors: errors,
+      errors: errors.items,
     );
 
     // Now return the deserialized [UsersSetSecureValueErrors].
@@ -116717,7 +116717,7 @@ class AccountAcceptAuthorization extends TlMethod {
       botId: botId,
       scope: scope,
       publicKey: publicKey,
-      valueHashes: valueHashes,
+      valueHashes: valueHashes.items,
       credentials: credentials,
     );
 
@@ -117757,7 +117757,7 @@ class HelpSaveAppLog extends TlMethod {
 
     // Construct [HelpSaveAppLog] object.
     final returnValue = HelpSaveAppLog(
-      events: events,
+      events: events.items,
     );
 
     // Now return the deserialized [HelpSaveAppLog].
@@ -118235,7 +118235,7 @@ class HelpEditUserInfo extends TlMethod {
     final returnValue = HelpEditUserInfo(
       userId: userId,
       message: message,
-      entities: entities,
+      entities: entities.items,
     );
 
     // Now return the deserialized [HelpEditUserInfo].
@@ -118474,7 +118474,7 @@ class MessagesSendVote extends TlMethod {
     final returnValue = MessagesSendVote(
       peer: peer,
       msgId: msgId,
-      options: options,
+      options: options.items,
     );
 
     // Now return the deserialized [MessagesSendVote].
@@ -119294,7 +119294,7 @@ class MessagesGetEmojiKeywordsLanguages extends TlMethod {
 
     // Construct [MessagesGetEmojiKeywordsLanguages] object.
     final returnValue = MessagesGetEmojiKeywordsLanguages(
-      langCodes: langCodes,
+      langCodes: langCodes.items,
     );
 
     // Now return the deserialized [MessagesGetEmojiKeywordsLanguages].
@@ -119396,7 +119396,7 @@ class FoldersEditPeerFolders extends TlMethod {
 
     // Construct [FoldersEditPeerFolders] object.
     final returnValue = FoldersEditPeerFolders(
-      folderPeers: folderPeers,
+      folderPeers: folderPeers.items,
     );
 
     // Now return the deserialized [FoldersEditPeerFolders].
@@ -119460,7 +119460,7 @@ class MessagesGetSearchCounters extends TlMethod {
       peer: peer,
       savedPeerId: savedPeerId,
       topMsgId: topMsgId,
-      filters: filters,
+      filters: filters.items,
     );
 
     // Now return the deserialized [MessagesGetSearchCounters].
@@ -120394,7 +120394,7 @@ class MessagesGetScheduledMessages extends TlMethod {
     // Construct [MessagesGetScheduledMessages] object.
     final returnValue = MessagesGetScheduledMessages(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesGetScheduledMessages].
@@ -120453,7 +120453,7 @@ class MessagesSendScheduledMessages extends TlMethod {
     // Construct [MessagesSendScheduledMessages] object.
     final returnValue = MessagesSendScheduledMessages(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesSendScheduledMessages].
@@ -120512,7 +120512,7 @@ class MessagesDeleteScheduledMessages extends TlMethod {
     // Construct [MessagesDeleteScheduledMessages] object.
     final returnValue = MessagesDeleteScheduledMessages(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesDeleteScheduledMessages].
@@ -120674,7 +120674,7 @@ class AccountCreateTheme extends TlMethod {
       slug: slug,
       title: title,
       document: document,
-      settings: settings,
+      settings: settings?.items,
     );
 
     // Now return the deserialized [AccountCreateTheme].
@@ -120781,7 +120781,7 @@ class AccountUpdateTheme extends TlMethod {
       slug: slug,
       title: title,
       document: document,
-      settings: settings,
+      settings: settings?.items,
     );
 
     // Now return the deserialized [AccountUpdateTheme].
@@ -121170,7 +121170,7 @@ class AuthExportLoginToken extends TlMethod {
     final returnValue = AuthExportLoginToken(
       apiId: apiId,
       apiHash: apiHash,
-      exceptIds: exceptIds,
+      exceptIds: exceptIds.items,
     );
 
     // Now return the deserialized [AuthExportLoginToken].
@@ -121471,7 +121471,7 @@ class AccountGetMultiWallPapers extends TlMethod {
 
     // Construct [AccountGetMultiWallPapers] object.
     final returnValue = AccountGetMultiWallPapers(
-      wallpapers: wallpapers,
+      wallpapers: wallpapers.items,
     );
 
     // Now return the deserialized [AccountGetMultiWallPapers].
@@ -121640,7 +121640,7 @@ class MessagesToggleStickerSets extends TlMethod {
       uninstall: uninstall,
       archive: archive,
       unarchive: unarchive,
-      stickersets: stickersets,
+      stickersets: stickersets.items,
     );
 
     // Now return the deserialized [MessagesToggleStickerSets].
@@ -121919,7 +121919,7 @@ class MessagesUpdateDialogFiltersOrder extends TlMethod {
 
     // Construct [MessagesUpdateDialogFiltersOrder] object.
     final returnValue = MessagesUpdateDialogFiltersOrder(
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [MessagesUpdateDialogFiltersOrder].
@@ -122210,7 +122210,7 @@ class BotsSetBotCommands extends TlMethod {
     final returnValue = BotsSetBotCommands(
       scope: scope,
       langCode: langCode,
-      commands: commands,
+      commands: commands.items,
     );
 
     // Now return the deserialized [BotsSetBotCommands].
@@ -123629,7 +123629,7 @@ class PhoneInviteToGroupCall extends TlMethod {
     // Construct [PhoneInviteToGroupCall] object.
     final returnValue = PhoneInviteToGroupCall(
       call: call,
-      users: users,
+      users: users.items,
     );
 
     // Now return the deserialized [PhoneInviteToGroupCall].
@@ -123888,8 +123888,8 @@ class PhoneGetGroupParticipants extends TlMethod {
     // Construct [PhoneGetGroupParticipants] object.
     final returnValue = PhoneGetGroupParticipants(
       call: call,
-      ids: ids,
-      sources: sources,
+      ids: ids.items,
+      sources: sources.items,
       offset: offset,
       limit: limit,
     );
@@ -123967,7 +123967,7 @@ class PhoneCheckGroupCall extends TlMethod {
     // Construct [PhoneCheckGroupCall] object.
     final returnValue = PhoneCheckGroupCall(
       call: call,
-      sources: sources,
+      sources: sources.items,
     );
 
     // Now return the deserialized [PhoneCheckGroupCall].
@@ -127218,7 +127218,7 @@ class MessagesSendReaction extends TlMethod {
       addToRecent: addToRecent,
       peer: peer,
       msgId: msgId,
-      reaction: reaction,
+      reaction: reaction?.items,
     );
 
     // Now return the deserialized [MessagesSendReaction].
@@ -127308,7 +127308,7 @@ class MessagesGetMessagesReactions extends TlMethod {
     // Construct [MessagesGetMessagesReactions] object.
     final returnValue = MessagesGetMessagesReactions(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesGetMessagesReactions].
@@ -127684,8 +127684,8 @@ class MessagesTranslateText extends TlMethod {
     // Construct [MessagesTranslateText] object.
     final returnValue = MessagesTranslateText(
       peer: peer,
-      id: id,
-      text: text,
+      id: id?.items,
+      text: text?.items,
       toLang: toLang,
     );
 
@@ -129921,7 +129921,7 @@ class MessagesGetCustomEmojiDocuments extends TlMethod {
 
     // Construct [MessagesGetCustomEmojiDocuments] object.
     final returnValue = MessagesGetCustomEmojiDocuments(
-      documentId: documentId,
+      documentId: documentId.items,
     );
 
     // Now return the deserialized [MessagesGetCustomEmojiDocuments].
@@ -130507,7 +130507,7 @@ class MessagesGetExtendedMedia extends TlMethod {
     // Construct [MessagesGetExtendedMedia] object.
     final returnValue = MessagesGetExtendedMedia(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesGetExtendedMedia].
@@ -130632,7 +130632,7 @@ class AccountReorderUsernames extends TlMethod {
 
     // Construct [AccountReorderUsernames] object.
     final returnValue = AccountReorderUsernames(
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [AccountReorderUsernames].
@@ -130745,7 +130745,7 @@ class ChannelsReorderUsernames extends TlMethod {
     // Construct [ChannelsReorderUsernames] object.
     final returnValue = ChannelsReorderUsernames(
       channel: channel,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [ChannelsReorderUsernames].
@@ -131213,7 +131213,7 @@ class ChannelsGetForumTopicsByID extends TlMethod {
     // Construct [ChannelsGetForumTopicsByID] object.
     final returnValue = ChannelsGetForumTopicsByID(
       channel: channel,
-      topics: topics,
+      topics: topics.items,
     );
 
     // Now return the deserialized [ChannelsGetForumTopicsByID].
@@ -131528,7 +131528,7 @@ class ChannelsReorderPinnedForumTopics extends TlMethod {
     final returnValue = ChannelsReorderPinnedForumTopics(
       force: force,
       channel: channel,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [ChannelsReorderPinnedForumTopics].
@@ -132096,7 +132096,7 @@ class MessagesSendBotRequestedPeer extends TlMethod {
       peer: peer,
       msgId: msgId,
       buttonId: buttonId,
-      requestedPeers: requestedPeers,
+      requestedPeers: requestedPeers.items,
     );
 
     // Now return the deserialized [MessagesSendBotRequestedPeer].
@@ -133501,7 +133501,7 @@ class ChatlistsExportChatlistInvite extends TlMethod {
     final returnValue = ChatlistsExportChatlistInvite(
       chatlist: chatlist,
       title: title,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [ChatlistsExportChatlistInvite].
@@ -133634,7 +133634,7 @@ class ChatlistsEditExportedInvite extends TlMethod {
       chatlist: chatlist,
       slug: slug,
       title: title,
-      peers: peers,
+      peers: peers?.items,
     );
 
     // Now return the deserialized [ChatlistsEditExportedInvite].
@@ -133823,7 +133823,7 @@ class ChatlistsJoinChatlistInvite extends TlMethod {
     // Construct [ChatlistsJoinChatlistInvite] object.
     final returnValue = ChatlistsJoinChatlistInvite(
       slug: slug,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [ChatlistsJoinChatlistInvite].
@@ -133933,7 +133933,7 @@ class ChatlistsJoinChatlistUpdates extends TlMethod {
     // Construct [ChatlistsJoinChatlistUpdates] object.
     final returnValue = ChatlistsJoinChatlistUpdates(
       chatlist: chatlist,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [ChatlistsJoinChatlistUpdates].
@@ -134095,7 +134095,7 @@ class ChatlistsLeaveChatlist extends TlMethod {
     // Construct [ChatlistsLeaveChatlist] object.
     final returnValue = ChatlistsLeaveChatlist(
       chatlist: chatlist,
-      peers: peers,
+      peers: peers.items,
     );
 
     // Now return the deserialized [ChatlistsLeaveChatlist].
@@ -134154,7 +134154,7 @@ class BotsReorderUsernames extends TlMethod {
     // Construct [BotsReorderUsernames] object.
     final returnValue = BotsReorderUsernames(
       bot: bot,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [BotsReorderUsernames].
@@ -134396,7 +134396,7 @@ class AccountInvalidateSignInCodes extends TlMethod {
 
     // Construct [AccountInvalidateSignInCodes] object.
     final returnValue = AccountInvalidateSignInCodes(
-      codes: codes,
+      codes: codes.items,
     );
 
     // Now return the deserialized [AccountInvalidateSignInCodes].
@@ -134447,7 +134447,7 @@ class ContactsEditCloseFriends extends TlMethod {
 
     // Construct [ContactsEditCloseFriends] object.
     final returnValue = ContactsEditCloseFriends(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [ContactsEditCloseFriends].
@@ -134588,10 +134588,10 @@ class StoriesSendStory extends TlMethod {
       fwdModified: fwdModified,
       peer: peer,
       media: media,
-      mediaAreas: mediaAreas,
+      mediaAreas: mediaAreas?.items,
       caption: caption,
-      entities: entities,
-      privacyRules: privacyRules,
+      entities: entities?.items,
+      privacyRules: privacyRules.items,
       randomId: randomId,
       period: period,
       fwdFromId: fwdFromId,
@@ -134766,10 +134766,10 @@ class StoriesEditStory extends TlMethod {
       peer: peer,
       id: id,
       media: media,
-      mediaAreas: mediaAreas,
+      mediaAreas: mediaAreas?.items,
       caption: caption,
-      entities: entities,
-      privacyRules: privacyRules,
+      entities: entities?.items,
+      privacyRules: privacyRules?.items,
     );
 
     // Now return the deserialized [StoriesEditStory].
@@ -134884,7 +134884,7 @@ class StoriesDeleteStories extends TlMethod {
     // Construct [StoriesDeleteStories] object.
     final returnValue = StoriesDeleteStories(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [StoriesDeleteStories].
@@ -134945,7 +134945,7 @@ class StoriesTogglePinned extends TlMethod {
     // Construct [StoriesTogglePinned] object.
     final returnValue = StoriesTogglePinned(
       peer: peer,
-      id: id,
+      id: id.items,
       pinned: pinned,
     );
 
@@ -135235,7 +135235,7 @@ class StoriesGetStoriesByID extends TlMethod {
     // Construct [StoriesGetStoriesByID] object.
     final returnValue = StoriesGetStoriesByID(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [StoriesGetStoriesByID].
@@ -135406,7 +135406,7 @@ class StoriesIncrementStoryViews extends TlMethod {
     // Construct [StoriesIncrementStoryViews] object.
     final returnValue = StoriesIncrementStoryViews(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [StoriesIncrementStoryViews].
@@ -135592,7 +135592,7 @@ class StoriesGetStoriesViews extends TlMethod {
     // Construct [StoriesGetStoriesViews] object.
     final returnValue = StoriesGetStoriesViews(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [StoriesGetStoriesViews].
@@ -135716,7 +135716,7 @@ class StoriesReport extends TlMethod {
     // Construct [StoriesReport] object.
     final returnValue = StoriesReport(
       peer: peer,
-      id: id,
+      id: id.items,
       option: option,
       message: message,
     );
@@ -135860,7 +135860,7 @@ class ContactsSetBlocked extends TlMethod {
     // Construct [ContactsSetBlocked] object.
     final returnValue = ContactsSetBlocked(
       myStoriesFrom: myStoriesFrom,
-      id: id,
+      id: id.items,
       limit: limit,
     );
 
@@ -136279,7 +136279,7 @@ class StoriesGetPeerMaxIDs extends TlMethod {
 
     // Construct [StoriesGetPeerMaxIDs] object.
     final returnValue = StoriesGetPeerMaxIDs(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [StoriesGetPeerMaxIDs].
@@ -137094,7 +137094,7 @@ class PremiumApplyBoost extends TlMethod {
 
     // Construct [PremiumApplyBoost] object.
     final returnValue = PremiumApplyBoost(
-      slots: slots,
+      slots: slots?.items,
       peer: peer,
     );
 
@@ -138467,7 +138467,7 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod {
     // Construct [MessagesReorderPinnedSavedDialogs] object.
     final returnValue = MessagesReorderPinnedSavedDialogs(
       force: force,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [MessagesReorderPinnedSavedDialogs].
@@ -138799,7 +138799,7 @@ class UsersGetIsPremiumRequiredToContact extends TlMethod {
 
     // Construct [UsersGetIsPremiumRequiredToContact] object.
     final returnValue = UsersGetIsPremiumRequiredToContact(
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [UsersGetIsPremiumRequiredToContact].
@@ -139702,7 +139702,7 @@ class MessagesReorderQuickReplies extends TlMethod {
 
     // Construct [MessagesReorderQuickReplies] object.
     final returnValue = MessagesReorderQuickReplies(
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [MessagesReorderQuickReplies].
@@ -139925,7 +139925,7 @@ class MessagesGetQuickReplyMessages extends TlMethod {
     // Construct [MessagesGetQuickReplyMessages] object.
     final returnValue = MessagesGetQuickReplyMessages(
       shortcutId: shortcutId,
-      id: id,
+      id: id?.items,
       hash: hash,
     );
 
@@ -140013,8 +140013,8 @@ class MessagesSendQuickReplyMessages extends TlMethod {
     final returnValue = MessagesSendQuickReplyMessages(
       peer: peer,
       shortcutId: shortcutId,
-      id: id,
-      randomId: randomId,
+      id: id.items,
+      randomId: randomId.items,
     );
 
     // Now return the deserialized [MessagesSendQuickReplyMessages].
@@ -140085,7 +140085,7 @@ class MessagesDeleteQuickReplyMessages extends TlMethod {
     // Construct [MessagesDeleteQuickReplyMessages] object.
     final returnValue = MessagesDeleteQuickReplyMessages(
       shortcutId: shortcutId,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [MessagesDeleteQuickReplyMessages].
@@ -141498,7 +141498,7 @@ class StoriesTogglePinnedToTop extends TlMethod {
     // Construct [StoriesTogglePinnedToTop] object.
     final returnValue = StoriesTogglePinnedToTop(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [StoriesTogglePinnedToTop].
@@ -142171,7 +142171,7 @@ class MessagesGetFactCheck extends TlMethod {
     // Construct [MessagesGetFactCheck] object.
     final returnValue = MessagesGetFactCheck(
       peer: peer,
-      msgId: msgId,
+      msgId: msgId.items,
     );
 
     // Now return the deserialized [MessagesGetFactCheck].
@@ -142858,7 +142858,7 @@ class PaymentsGetStarsTransactionsByID extends TlMethod {
     // Construct [PaymentsGetStarsTransactionsByID] object.
     final returnValue = PaymentsGetStarsTransactionsByID(
       peer: peer,
-      id: id,
+      id: id.items,
     );
 
     // Now return the deserialized [PaymentsGetStarsTransactionsByID].
@@ -143190,7 +143190,7 @@ class BotsDeletePreviewMedia extends TlMethod {
     final returnValue = BotsDeletePreviewMedia(
       bot: bot,
       langCode: langCode,
-      media: media,
+      media: media.items,
     );
 
     // Now return the deserialized [BotsDeletePreviewMedia].
@@ -143257,7 +143257,7 @@ class BotsReorderPreviewMedias extends TlMethod {
     final returnValue = BotsReorderPreviewMedias(
       bot: bot,
       langCode: langCode,
-      order: order,
+      order: order.items,
     );
 
     // Now return the deserialized [BotsReorderPreviewMedias].
@@ -144551,7 +144551,7 @@ class MessagesSavePreparedInlineMessage extends TlMethod {
     final returnValue = MessagesSavePreparedInlineMessage(
       result: result,
       userId: userId,
-      peerTypes: peerTypes,
+      peerTypes: peerTypes?.items,
     );
 
     // Now return the deserialized [MessagesSavePreparedInlineMessage].
@@ -145475,7 +145475,7 @@ class MessagesSearchStickers extends TlMethod {
       emojis: emojis,
       q: q,
       emoticon: emoticon,
-      langCode: langCode,
+      langCode: langCode.items,
       offset: offset,
       limit: limit,
       hash: hash,

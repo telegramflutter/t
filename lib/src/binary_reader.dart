@@ -92,7 +92,7 @@ class BinaryReader {
   }
 
   /// Read List&lt;TlObject&gt;.
-  List<T> readVectorObject<T extends TlObject>() {
+  Vector<T> readVectorObject<T extends TlObject>() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
 
@@ -103,11 +103,11 @@ class BinaryReader {
       items.add(readObject() as T);
     }
 
-    return items;
+    return Vector._(items);
   }
 
   /// Read List&lt;int32&gt;.
-  List<int> readVectorInt32() {
+  Vector<int> readVectorInt32() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
 
@@ -118,11 +118,11 @@ class BinaryReader {
       items.add(readInt32());
     }
 
-    return items;
+    return Vector._(items);
   }
 
   /// Read List&lt;int64&gt;.
-  List<int> readVectorInt64() {
+  Vector<int> readVectorInt64() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
 
@@ -133,11 +133,11 @@ class BinaryReader {
       items.add(readInt64());
     }
 
-    return items;
+    return Vector._(items);
   }
 
   /// Read List&lt;Uint8List&gt;.
-  List<Uint8List> readVectorBytes() {
+  Vector<Uint8List> readVectorBytes() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
 
@@ -145,14 +145,14 @@ class BinaryReader {
     final items = <Uint8List>[];
 
     for (int i = 0; i < count; i++) {
-      items.add(readBytes());
+      items.add(Uint8List.fromList(readBytes()));
     }
 
-    return items;
+    return Vector._(items);
   }
 
   /// Read List&lt;String&gt;.
-  List<String> readVectorString() {
+  Vector<String> readVectorString() {
     final ctor = readInt32();
     assert(ctor == _vectorCtor, 'Invalid type.');
 
@@ -163,7 +163,7 @@ class BinaryReader {
       items.add(readString());
     }
 
-    return items;
+    return Vector._(items);
   }
 
   /// Read Uint8List.
