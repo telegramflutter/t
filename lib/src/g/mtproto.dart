@@ -62,7 +62,8 @@ class ResPQ extends ResPQBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x05162463",
+      "\$hash": "05162463",
+      "\$name": "ResPQ",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "pq": pq,
@@ -159,7 +160,8 @@ class PQInnerDataDc extends PQInnerDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa9f55f95",
+      "\$hash": "a9f55f95",
+      "\$name": "PQInnerDataDc",
       "pq": pq,
       "p": p,
       "q": q,
@@ -268,7 +270,8 @@ class PQInnerDataTempDc extends PQInnerDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56fddf88",
+      "\$hash": "56fddf88",
+      "\$name": "PQInnerDataTempDc",
       "pq": pq,
       "p": p,
       "q": q,
@@ -339,7 +342,8 @@ class ServerDHParamsOk extends ServerDHParamsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd0e8075c",
+      "\$hash": "d0e8075c",
+      "\$name": "ServerDHParamsOk",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "encryptedAnswer": encryptedAnswer,
@@ -428,7 +432,8 @@ class ServerDHInnerData extends ServerDHInnerDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb5890dba",
+      "\$hash": "b5890dba",
+      "\$name": "ServerDHInnerData",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "g": g,
@@ -506,7 +511,8 @@ class ClientDHInnerData extends ClientDHInnerDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6643b654",
+      "\$hash": "6643b654",
+      "\$name": "ClientDHInnerData",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "retryId": retryId,
@@ -573,7 +579,8 @@ class DhGenOk extends SetClientDHParamsAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3bcbf734",
+      "\$hash": "3bcbf734",
+      "\$name": "DhGenOk",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "newNonceHash1": newNonceHash1.toString(),
@@ -639,7 +646,8 @@ class DhGenRetry extends SetClientDHParamsAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x46dc1fb9",
+      "\$hash": "46dc1fb9",
+      "\$name": "DhGenRetry",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "newNonceHash2": newNonceHash2.toString(),
@@ -705,7 +713,8 @@ class DhGenFail extends SetClientDHParamsAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa69dae02",
+      "\$hash": "a69dae02",
+      "\$name": "DhGenFail",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "newNonceHash3": newNonceHash3.toString(),
@@ -793,7 +802,8 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x75a3f765",
+      "\$hash": "75a3f765",
+      "\$name": "BindAuthKeyInner",
       "nonce": nonce,
       "tempAuthKeyId": tempAuthKeyId,
       "permAuthKeyId": permAuthKeyId,
@@ -856,7 +866,8 @@ class RpcResult extends RpcResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf35c6d01",
+      "\$hash": "f35c6d01",
+      "\$name": "RpcResult",
       "reqMsgId": reqMsgId,
       "result": result,
     };
@@ -916,7 +927,8 @@ class RpcError extends RpcErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2144ca19",
+      "\$hash": "2144ca19",
+      "\$name": "RpcError",
       "errorCode": errorCode,
       "errorMessage": errorMessage,
     };
@@ -954,7 +966,8 @@ class RpcAnswerUnknown extends RpcDropAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e2ad36e",
+      "\$hash": "5e2ad36e",
+      "\$name": "RpcAnswerUnknown",
     };
 
     // Finished toJson.
@@ -990,7 +1003,8 @@ class RpcAnswerDroppedRunning extends RpcDropAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcd78e586",
+      "\$hash": "cd78e586",
+      "\$name": "RpcAnswerDroppedRunning",
     };
 
     // Finished toJson.
@@ -1059,7 +1073,8 @@ class RpcAnswerDropped extends RpcDropAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa43ad8b7",
+      "\$hash": "a43ad8b7",
+      "\$name": "RpcAnswerDropped",
       "msgId": msgId,
       "seqNo": seqNo,
       "bytes": bytes,
@@ -1131,7 +1146,8 @@ class FutureSalt extends FutureSaltBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0949d9dc",
+      "\$hash": "0949d9dc",
+      "\$name": "FutureSalt",
       "validSince": validSince,
       "validUntil": validUntil,
       "salt": salt,
@@ -1201,7 +1217,8 @@ class FutureSalts extends FutureSaltsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xae500895",
+      "\$hash": "ae500895",
+      "\$name": "FutureSalts",
       "reqMsgId": reqMsgId,
       "now": now,
       "salts": salts,
@@ -1264,7 +1281,8 @@ class Pong extends PongBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x347773c5",
+      "\$hash": "347773c5",
+      "\$name": "Pong",
       "msgId": msgId,
       "pingId": pingId,
     };
@@ -1317,7 +1335,8 @@ class DestroySessionOk extends DestroySessionResBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe22045fc",
+      "\$hash": "e22045fc",
+      "\$name": "DestroySessionOk",
       "sessionId": sessionId,
     };
 
@@ -1369,7 +1388,8 @@ class DestroySessionNone extends DestroySessionResBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x62d350c9",
+      "\$hash": "62d350c9",
+      "\$name": "DestroySessionNone",
       "sessionId": sessionId,
     };
 
@@ -1439,7 +1459,8 @@ class NewSessionCreated extends NewSessionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9ec20908",
+      "\$hash": "9ec20908",
+      "\$name": "NewSessionCreated",
       "firstMsgId": firstMsgId,
       "uniqueId": uniqueId,
       "serverSalt": serverSalt,
@@ -1492,7 +1513,8 @@ class MsgContainer extends MessageContainerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73f1f8dc",
+      "\$hash": "73f1f8dc",
+      "\$name": "MsgContainer",
       "messages": messages,
     };
 
@@ -1569,7 +1591,8 @@ class Msg extends TlConstructor {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5bb8e511",
+      "\$hash": "5bb8e511",
+      "\$name": "Msg",
       "msgId": msgId,
       "seqno": seqno,
       "bytes": bytes,
@@ -1622,7 +1645,8 @@ class MsgCopy extends MessageCopyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe06046b2",
+      "\$hash": "e06046b2",
+      "\$name": "MsgCopy",
       "origMessage": origMessage,
     };
 
@@ -1672,7 +1696,8 @@ class GzipPacked extends TlObject {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3072cfa1",
+      "\$hash": "3072cfa1",
+      "\$name": "GzipPacked",
       "packedData": packedData,
     };
 
@@ -1722,7 +1747,8 @@ class MsgsAck extends MsgsAckBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x62d6b459",
+      "\$hash": "62d6b459",
+      "\$name": "MsgsAck",
       "msgIds": msgIds,
     };
 
@@ -1792,7 +1818,8 @@ class BadMsgNotification extends BadMsgNotificationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa7eff811",
+      "\$hash": "a7eff811",
+      "\$name": "BadMsgNotification",
       "badMsgId": badMsgId,
       "badMsgSeqno": badMsgSeqno,
       "errorCode": errorCode,
@@ -1873,7 +1900,8 @@ class BadServerSalt extends BadMsgNotificationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xedab447b",
+      "\$hash": "edab447b",
+      "\$name": "BadServerSalt",
       "badMsgId": badMsgId,
       "badMsgSeqno": badMsgSeqno,
       "errorCode": errorCode,
@@ -1926,7 +1954,8 @@ class MsgResendReq extends MsgResendReqBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7d861a08",
+      "\$hash": "7d861a08",
+      "\$name": "MsgResendReq",
       "msgIds": msgIds,
     };
 
@@ -1976,7 +2005,8 @@ class MsgsStateReq extends MsgsStateReqBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xda69fb52",
+      "\$hash": "da69fb52",
+      "\$name": "MsgsStateReq",
       "msgIds": msgIds,
     };
 
@@ -2035,7 +2065,8 @@ class MsgsStateInfo extends MsgsStateInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x04deb57d",
+      "\$hash": "04deb57d",
+      "\$name": "MsgsStateInfo",
       "reqMsgId": reqMsgId,
       "info": info,
     };
@@ -2093,7 +2124,8 @@ class MsgsAllInfo extends MsgsAllInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8cc0d131",
+      "\$hash": "8cc0d131",
+      "\$name": "MsgsAllInfo",
       "msgIds": msgIds,
       "info": info,
     };
@@ -2173,7 +2205,8 @@ class MsgDetailedInfo extends MsgDetailedInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x276d3ec6",
+      "\$hash": "276d3ec6",
+      "\$name": "MsgDetailedInfo",
       "msgId": msgId,
       "answerMsgId": answerMsgId,
       "bytes": bytes,
@@ -2246,7 +2279,8 @@ class MsgNewDetailedInfo extends MsgDetailedInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x809db6df",
+      "\$hash": "809db6df",
+      "\$name": "MsgNewDetailedInfo",
       "answerMsgId": answerMsgId,
       "bytes": bytes,
       "status": status,
@@ -2285,7 +2319,8 @@ class DestroyAuthKeyOk extends DestroyAuthKeyResBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf660e1d4",
+      "\$hash": "f660e1d4",
+      "\$name": "DestroyAuthKeyOk",
     };
 
     // Finished toJson.
@@ -2321,7 +2356,8 @@ class DestroyAuthKeyNone extends DestroyAuthKeyResBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a9f2259",
+      "\$hash": "0a9f2259",
+      "\$name": "DestroyAuthKeyNone",
     };
 
     // Finished toJson.
@@ -2357,7 +2393,8 @@ class DestroyAuthKeyFail extends DestroyAuthKeyResBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea109b13",
+      "\$hash": "ea109b13",
+      "\$name": "DestroyAuthKeyFail",
     };
 
     // Finished toJson.
@@ -2407,7 +2444,8 @@ class ReqPqMulti extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbe7e8ef1",
+      "\$hash": "be7e8ef1",
+      "\$name": "ReqPqMulti",
       "nonce": nonce.toString(),
     };
 
@@ -2495,7 +2533,8 @@ class ReqDHParams extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd712e4be",
+      "\$hash": "d712e4be",
+      "\$name": "ReqDHParams",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "p": p,
@@ -2565,7 +2604,8 @@ class SetClientDHParams extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf5045f1f",
+      "\$hash": "f5045f1f",
+      "\$name": "SetClientDHParams",
       "nonce": nonce.toString(),
       "serverNonce": serverNonce.toString(),
       "encryptedData": encryptedData,
@@ -2620,7 +2660,8 @@ class RpcDropAnswer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58e4a740",
+      "\$hash": "58e4a740",
+      "\$name": "RpcDropAnswer",
       "reqMsgId": reqMsgId,
     };
 
@@ -2673,7 +2714,8 @@ class GetFutureSalts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb921bd04",
+      "\$hash": "b921bd04",
+      "\$name": "GetFutureSalts",
       "num": num,
     };
 
@@ -2726,7 +2768,8 @@ class Ping extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7abe77ec",
+      "\$hash": "7abe77ec",
+      "\$name": "Ping",
       "pingId": pingId,
     };
 
@@ -2788,7 +2831,8 @@ class PingDelayDisconnect extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3427b8c",
+      "\$hash": "f3427b8c",
+      "\$name": "PingDelayDisconnect",
       "pingId": pingId,
       "disconnectDelay": disconnectDelay,
     };
@@ -2842,7 +2886,8 @@ class DestroySession extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe7512126",
+      "\$hash": "e7512126",
+      "\$name": "DestroySession",
       "sessionId": sessionId,
     };
 
@@ -2913,7 +2958,8 @@ class HttpWait extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9299359f",
+      "\$hash": "9299359f",
+      "\$name": "HttpWait",
       "maxDelay": maxDelay,
       "waitAfter": waitAfter,
       "maxWait": maxWait,
@@ -2953,7 +2999,8 @@ class DestroyAuthKey extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1435160",
+      "\$hash": "d1435160",
+      "\$name": "DestroyAuthKey",
     };
 
     // Finished toJson.

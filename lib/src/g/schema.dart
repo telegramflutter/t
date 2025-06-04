@@ -50,7 +50,8 @@ class Error extends ErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4b9f9bb",
+      "\$hash": "c4b9f9bb",
+      "\$name": "Error",
       "code": code,
       "text": text,
     };
@@ -88,7 +89,8 @@ class InputPeerEmpty extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f3b18ea",
+      "\$hash": "7f3b18ea",
+      "\$name": "InputPeerEmpty",
     };
 
     // Finished toJson.
@@ -124,7 +126,8 @@ class InputPeerSelf extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7da07ec9",
+      "\$hash": "7da07ec9",
+      "\$name": "InputPeerSelf",
     };
 
     // Finished toJson.
@@ -175,7 +178,8 @@ class InputPeerChat extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35a95cb9",
+      "\$hash": "35a95cb9",
+      "\$name": "InputPeerChat",
       "chatId": chatId,
     };
 
@@ -236,7 +240,8 @@ class InputPeerUser extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdde8a54c",
+      "\$hash": "dde8a54c",
+      "\$name": "InputPeerUser",
       "userId": userId,
       "accessHash": accessHash,
     };
@@ -298,7 +303,8 @@ class InputPeerChannel extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x27bcbbfc",
+      "\$hash": "27bcbbfc",
+      "\$name": "InputPeerChannel",
       "channelId": channelId,
       "accessHash": accessHash,
     };
@@ -367,7 +373,8 @@ class InputPeerUserFromMessage extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa87b0a1c",
+      "\$hash": "a87b0a1c",
+      "\$name": "InputPeerUserFromMessage",
       "peer": peer,
       "msgId": msgId,
       "userId": userId,
@@ -437,7 +444,8 @@ class InputPeerChannelFromMessage extends InputPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd2a0840",
+      "\$hash": "bd2a0840",
+      "\$name": "InputPeerChannelFromMessage",
       "peer": peer,
       "msgId": msgId,
       "channelId": channelId,
@@ -476,7 +484,8 @@ class InputUserEmpty extends InputUserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb98886cf",
+      "\$hash": "b98886cf",
+      "\$name": "InputUserEmpty",
     };
 
     // Finished toJson.
@@ -512,7 +521,8 @@ class InputUserSelf extends InputUserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf7c1b13f",
+      "\$hash": "f7c1b13f",
+      "\$name": "InputUserSelf",
     };
 
     // Finished toJson.
@@ -572,7 +582,8 @@ class InputUser extends InputUserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf21158c6",
+      "\$hash": "f21158c6",
+      "\$name": "InputUser",
       "userId": userId,
       "accessHash": accessHash,
     };
@@ -641,7 +652,8 @@ class InputUserFromMessage extends InputUserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1da448e2",
+      "\$hash": "1da448e2",
+      "\$name": "InputUserFromMessage",
       "peer": peer,
       "msgId": msgId,
       "userId": userId,
@@ -716,7 +728,8 @@ class InputPhoneContact extends InputContactBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf392b7f4",
+      "\$hash": "f392b7f4",
+      "\$name": "InputPhoneContact",
       "clientId": clientId,
       "phone": phone,
       "firstName": firstName,
@@ -794,7 +807,8 @@ class InputFile extends InputFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf52ff27f",
+      "\$hash": "f52ff27f",
+      "\$name": "InputFile",
       "id": id,
       "parts": parts,
       "name": name,
@@ -865,7 +879,8 @@ class InputFileBig extends InputFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa4f0bb5",
+      "\$hash": "fa4f0bb5",
+      "\$name": "InputFileBig",
       "id": id,
       "parts": parts,
       "name": name,
@@ -917,7 +932,8 @@ class InputFileStoryDocument extends InputFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x62dc8b48",
+      "\$hash": "62dc8b48",
+      "\$name": "InputFileStoryDocument",
       "id": id,
     };
 
@@ -954,7 +970,8 @@ class InputMediaEmpty extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9664f57f",
+      "\$hash": "9664f57f",
+      "\$name": "InputMediaEmpty",
     };
 
     // Finished toJson.
@@ -1045,7 +1062,8 @@ class InputMediaUploadedPhoto extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e287d04",
+      "\$hash": "1e287d04",
+      "\$name": "InputMediaUploadedPhoto",
       "flags": flags,
       "spoiler": spoiler,
       "file": file,
@@ -1128,7 +1146,8 @@ class InputMediaPhoto extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb3ba0635",
+      "\$hash": "b3ba0635",
+      "\$name": "InputMediaPhoto",
       "flags": flags,
       "spoiler": spoiler,
       "id": id,
@@ -1181,7 +1200,8 @@ class InputMediaGeoPoint extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf9c44144",
+      "\$hash": "f9c44144",
+      "\$name": "InputMediaGeoPoint",
       "geoPoint": geoPoint,
     };
 
@@ -1252,7 +1272,8 @@ class InputMediaContact extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf8ab7dfb",
+      "\$hash": "f8ab7dfb",
+      "\$name": "InputMediaContact",
       "phoneNumber": phoneNumber,
       "firstName": firstName,
       "lastName": lastName,
@@ -1387,7 +1408,8 @@ class InputMediaUploadedDocument extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5b38c6c1",
+      "\$hash": "5b38c6c1",
+      "\$name": "InputMediaUploadedDocument",
       "flags": flags,
       "nosoundVideo": nosoundVideo,
       "forceFile": forceFile,
@@ -1487,7 +1509,8 @@ class InputMediaDocument extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x33473058",
+      "\$hash": "33473058",
+      "\$name": "InputMediaDocument",
       "flags": flags,
       "spoiler": spoiler,
       "id": id,
@@ -1576,7 +1599,8 @@ class InputMediaVenue extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc13d1c11",
+      "\$hash": "c13d1c11",
+      "\$name": "InputMediaVenue",
       "geoPoint": geoPoint,
       "title": title,
       "address": address,
@@ -1660,7 +1684,8 @@ class InputMediaPhotoExternal extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe5bbfe1a",
+      "\$hash": "e5bbfe1a",
+      "\$name": "InputMediaPhotoExternal",
       "flags": flags,
       "spoiler": spoiler,
       "url": url,
@@ -1742,7 +1767,8 @@ class InputMediaDocumentExternal extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb52dc99",
+      "\$hash": "fb52dc99",
+      "\$name": "InputMediaDocumentExternal",
       "flags": flags,
       "spoiler": spoiler,
       "url": url,
@@ -1795,7 +1821,8 @@ class InputMediaGame extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd33f43f3",
+      "\$hash": "d33f43f3",
+      "\$name": "InputMediaGame",
       "id": id,
     };
 
@@ -1933,7 +1960,8 @@ class InputMediaInvoice extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x405fef0d",
+      "\$hash": "405fef0d",
+      "\$name": "InputMediaInvoice",
       "flags": flags,
       "title": title,
       "description": description,
@@ -2046,7 +2074,8 @@ class InputMediaGeoLive extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x971fa843",
+      "\$hash": "971fa843",
+      "\$name": "InputMediaGeoLive",
       "flags": flags,
       "stopped": stopped,
       "geoPoint": geoPoint,
@@ -2149,7 +2178,8 @@ class InputMediaPoll extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0f94e5f1",
+      "\$hash": "0f94e5f1",
+      "\$name": "InputMediaPoll",
       "flags": flags,
       "poll": poll,
       "correctAnswers": correctAnswers,
@@ -2203,7 +2233,8 @@ class InputMediaDice extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe66fbf7b",
+      "\$hash": "e66fbf7b",
+      "\$name": "InputMediaDice",
       "emoticon": emoticon,
     };
 
@@ -2262,7 +2293,8 @@ class InputMediaStory extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x89fdd778",
+      "\$hash": "89fdd778",
+      "\$name": "InputMediaStory",
       "peer": peer,
       "id": id,
     };
@@ -2344,7 +2376,8 @@ class InputMediaWebPage extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc21b8849",
+      "\$hash": "c21b8849",
+      "\$name": "InputMediaWebPage",
       "flags": flags,
       "forceLargeMedia": forceLargeMedia,
       "forceSmallMedia": forceSmallMedia,
@@ -2429,7 +2462,8 @@ class InputMediaPaidMedia extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4103386",
+      "\$hash": "c4103386",
+      "\$name": "InputMediaPaidMedia",
       "flags": flags,
       "starsAmount": starsAmount,
       "extendedMedia": extendedMedia,
@@ -2469,7 +2503,8 @@ class InputChatPhotoEmpty extends InputChatPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ca48f57",
+      "\$hash": "1ca48f57",
+      "\$name": "InputChatPhotoEmpty",
     };
 
     // Finished toJson.
@@ -2570,7 +2605,8 @@ class InputChatUploadedPhoto extends InputChatPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdcdaec0",
+      "\$hash": "bdcdaec0",
+      "\$name": "InputChatUploadedPhoto",
       "flags": flags,
       "file": file,
       "video": video,
@@ -2624,7 +2660,8 @@ class InputChatPhoto extends InputChatPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8953ad37",
+      "\$hash": "8953ad37",
+      "\$name": "InputChatPhoto",
       "id": id,
     };
 
@@ -2661,7 +2698,8 @@ class InputGeoPointEmpty extends InputGeoPointBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe4c123d6",
+      "\$hash": "e4c123d6",
+      "\$name": "InputGeoPointEmpty",
     };
 
     // Finished toJson.
@@ -2739,7 +2777,8 @@ class InputGeoPoint extends InputGeoPointBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x48222faf",
+      "\$hash": "48222faf",
+      "\$name": "InputGeoPoint",
       "flags": flags,
       "lat": lat,
       "long": long,
@@ -2779,7 +2818,8 @@ class InputPhotoEmpty extends InputPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1cd7bf0d",
+      "\$hash": "1cd7bf0d",
+      "\$name": "InputPhotoEmpty",
     };
 
     // Finished toJson.
@@ -2846,7 +2886,8 @@ class InputPhoto extends InputPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3bb3b94a",
+      "\$hash": "3bb3b94a",
+      "\$name": "InputPhoto",
       "id": id,
       "accessHash": accessHash,
       "fileReference": fileReference,
@@ -2925,7 +2966,8 @@ class InputFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdfdaabe1",
+      "\$hash": "dfdaabe1",
+      "\$name": "InputFileLocation",
       "volumeId": volumeId,
       "localId": localId,
       "secret": secret,
@@ -2989,7 +3031,8 @@ class InputEncryptedFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf5235d55",
+      "\$hash": "f5235d55",
+      "\$name": "InputEncryptedFileLocation",
       "id": id,
       "accessHash": accessHash,
     };
@@ -3065,7 +3108,8 @@ class InputDocumentFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbad07584",
+      "\$hash": "bad07584",
+      "\$name": "InputDocumentFileLocation",
       "id": id,
       "accessHash": accessHash,
       "fileReference": fileReference,
@@ -3129,7 +3173,8 @@ class InputSecureFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcbc7ee28",
+      "\$hash": "cbc7ee28",
+      "\$name": "InputSecureFileLocation",
       "id": id,
       "accessHash": accessHash,
     };
@@ -3167,7 +3212,8 @@ class InputTakeoutFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x29be5899",
+      "\$hash": "29be5899",
+      "\$name": "InputTakeoutFileLocation",
     };
 
     // Finished toJson.
@@ -3241,7 +3287,8 @@ class InputPhotoFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x40181ffe",
+      "\$hash": "40181ffe",
+      "\$name": "InputPhotoFileLocation",
       "id": id,
       "accessHash": accessHash,
       "fileReference": fileReference,
@@ -3339,7 +3386,8 @@ class InputPhotoLegacyFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd83466f3",
+      "\$hash": "d83466f3",
+      "\$name": "InputPhotoLegacyFileLocation",
       "id": id,
       "accessHash": accessHash,
       "fileReference": fileReference,
@@ -3420,7 +3468,8 @@ class InputPeerPhotoFileLocation extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x37257e99",
+      "\$hash": "37257e99",
+      "\$name": "InputPeerPhotoFileLocation",
       "flags": flags,
       "big": big,
       "peer": peer,
@@ -3482,7 +3531,8 @@ class InputStickerSetThumb extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9d84f3db",
+      "\$hash": "9d84f3db",
+      "\$name": "InputStickerSetThumb",
       "stickerset": stickerset,
       "thumbVersion": thumbVersion,
     };
@@ -3584,7 +3634,8 @@ class InputGroupCallStream extends InputFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0598a92a",
+      "\$hash": "0598a92a",
+      "\$name": "InputGroupCallStream",
       "flags": flags,
       "call": call,
       "timeMs": timeMs,
@@ -3641,7 +3692,8 @@ class PeerUser extends PeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x59511722",
+      "\$hash": "59511722",
+      "\$name": "PeerUser",
       "userId": userId,
     };
 
@@ -3693,7 +3745,8 @@ class PeerChat extends PeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36c6019a",
+      "\$hash": "36c6019a",
+      "\$name": "PeerChat",
       "chatId": chatId,
     };
 
@@ -3745,7 +3798,8 @@ class PeerChannel extends PeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2a5371e",
+      "\$hash": "a2a5371e",
+      "\$name": "PeerChannel",
       "channelId": channelId,
     };
 
@@ -3782,7 +3836,8 @@ class StorageFileUnknown extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa963b05",
+      "\$hash": "aa963b05",
+      "\$name": "StorageFileUnknown",
     };
 
     // Finished toJson.
@@ -3818,7 +3873,8 @@ class StorageFilePartial extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x40bc6f52",
+      "\$hash": "40bc6f52",
+      "\$name": "StorageFilePartial",
     };
 
     // Finished toJson.
@@ -3854,7 +3910,8 @@ class StorageFileJpeg extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x007efe0e",
+      "\$hash": "007efe0e",
+      "\$name": "StorageFileJpeg",
     };
 
     // Finished toJson.
@@ -3890,7 +3947,8 @@ class StorageFileGif extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcae1aadf",
+      "\$hash": "cae1aadf",
+      "\$name": "StorageFileGif",
     };
 
     // Finished toJson.
@@ -3926,7 +3984,8 @@ class StorageFilePng extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a4f63c0",
+      "\$hash": "0a4f63c0",
+      "\$name": "StorageFilePng",
     };
 
     // Finished toJson.
@@ -3962,7 +4021,8 @@ class StorageFilePdf extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xae1e508d",
+      "\$hash": "ae1e508d",
+      "\$name": "StorageFilePdf",
     };
 
     // Finished toJson.
@@ -3998,7 +4058,8 @@ class StorageFileMp3 extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x528a0677",
+      "\$hash": "528a0677",
+      "\$name": "StorageFileMp3",
     };
 
     // Finished toJson.
@@ -4034,7 +4095,8 @@ class StorageFileMov extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4b09ebbc",
+      "\$hash": "4b09ebbc",
+      "\$name": "StorageFileMov",
     };
 
     // Finished toJson.
@@ -4070,7 +4132,8 @@ class StorageFileMp4 extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb3cea0e4",
+      "\$hash": "b3cea0e4",
+      "\$name": "StorageFileMp4",
     };
 
     // Finished toJson.
@@ -4106,7 +4169,8 @@ class StorageFileWebp extends StorageFileTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1081464c",
+      "\$hash": "1081464c",
+      "\$name": "StorageFileWebp",
     };
 
     // Finished toJson.
@@ -4157,7 +4221,8 @@ class UserEmpty extends UserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd3bc4b7a",
+      "\$hash": "d3bc4b7a",
+      "\$name": "UserEmpty",
       "id": id,
     };
 
@@ -4614,7 +4679,8 @@ class User extends UserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x83314fca",
+      "\$hash": "83314fca",
+      "\$name": "User",
       "flags": flags,
       "self": self,
       "contact": contact,
@@ -4695,7 +4761,8 @@ class UserProfilePhotoEmpty extends UserProfilePhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f11bae1",
+      "\$hash": "4f11bae1",
+      "\$name": "UserProfilePhotoEmpty",
     };
 
     // Finished toJson.
@@ -4791,7 +4858,8 @@ class UserProfilePhoto extends UserProfilePhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x82d1f706",
+      "\$hash": "82d1f706",
+      "\$name": "UserProfilePhoto",
       "flags": flags,
       "hasVideo": hasVideo,
       "personal": personal,
@@ -4833,7 +4901,8 @@ class UserStatusEmpty extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x09d05049",
+      "\$hash": "09d05049",
+      "\$name": "UserStatusEmpty",
     };
 
     // Finished toJson.
@@ -4882,7 +4951,8 @@ class UserStatusOnline extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xedb93949",
+      "\$hash": "edb93949",
+      "\$name": "UserStatusOnline",
       "expires": expires.toIso8601String(),
     };
 
@@ -4932,7 +5002,8 @@ class UserStatusOffline extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x008c703f",
+      "\$hash": "008c703f",
+      "\$name": "UserStatusOffline",
       "wasOnline": wasOnline.toIso8601String(),
     };
 
@@ -4992,7 +5063,8 @@ class UserStatusRecently extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7b197dc8",
+      "\$hash": "7b197dc8",
+      "\$name": "UserStatusRecently",
       "flags": flags,
       "byMe": byMe,
     };
@@ -5053,7 +5125,8 @@ class UserStatusLastWeek extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x541a1d1a",
+      "\$hash": "541a1d1a",
+      "\$name": "UserStatusLastWeek",
       "flags": flags,
       "byMe": byMe,
     };
@@ -5114,7 +5187,8 @@ class UserStatusLastMonth extends UserStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x65899777",
+      "\$hash": "65899777",
+      "\$name": "UserStatusLastMonth",
       "flags": flags,
       "byMe": byMe,
     };
@@ -5167,7 +5241,8 @@ class ChatEmpty extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x29562865",
+      "\$hash": "29562865",
+      "\$name": "ChatEmpty",
       "id": id,
     };
 
@@ -5350,7 +5425,8 @@ class Chat extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x41cbf256",
+      "\$hash": "41cbf256",
+      "\$name": "Chat",
       "flags": flags,
       "creator": creator,
       "left": left,
@@ -5424,7 +5500,8 @@ class ChatForbidden extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6592a1a7",
+      "\$hash": "6592a1a7",
+      "\$name": "ChatForbidden",
       "id": id,
       "title": title,
     };
@@ -5865,7 +5942,8 @@ class Channel extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfe4478bd",
+      "\$hash": "fe4478bd",
+      "\$name": "Channel",
       "flags": flags,
       "creator": creator,
       "left": left,
@@ -6012,7 +6090,8 @@ class ChannelForbidden extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17d493d5",
+      "\$hash": "17d493d5",
+      "\$name": "ChannelForbidden",
       "flags": flags,
       "broadcast": broadcast,
       "megagroup": megagroup,
@@ -6286,7 +6365,8 @@ class ChatFull extends ChatFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2633421b",
+      "\$hash": "2633421b",
+      "\$name": "ChatFull",
       "flags": flags,
       "canSetUsername": canSetUsername,
       "hasScheduled": hasScheduled,
@@ -6975,7 +7055,8 @@ class ChannelFull extends ChatFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbbab348d",
+      "\$hash": "bbab348d",
+      "\$name": "ChannelFull",
       "flags": flags,
       "canViewParticipants": canViewParticipants,
       "canSetUsername": canSetUsername,
@@ -7104,7 +7185,8 @@ class ChatParticipant extends ChatParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc02d4007",
+      "\$hash": "c02d4007",
+      "\$name": "ChatParticipant",
       "userId": userId,
       "inviterId": inviterId,
       "date": date.toIso8601String(),
@@ -7158,7 +7240,8 @@ class ChatParticipantCreator extends ChatParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe46bcee4",
+      "\$hash": "e46bcee4",
+      "\$name": "ChatParticipantCreator",
       "userId": userId,
     };
 
@@ -7226,7 +7309,8 @@ class ChatParticipantAdmin extends ChatParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa0933f5b",
+      "\$hash": "a0933f5b",
+      "\$name": "ChatParticipantAdmin",
       "userId": userId,
       "inviterId": inviterId,
       "date": date.toIso8601String(),
@@ -7304,7 +7388,8 @@ class ChatParticipantsForbidden extends ChatParticipantsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8763d3e1",
+      "\$hash": "8763d3e1",
+      "\$name": "ChatParticipantsForbidden",
       "flags": flags,
       "chatId": chatId,
       "selfParticipant": selfParticipant,
@@ -7374,7 +7459,8 @@ class ChatParticipants extends ChatParticipantsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3cbc93f8",
+      "\$hash": "3cbc93f8",
+      "\$name": "ChatParticipants",
       "chatId": chatId,
       "participants": participants,
       "version": version,
@@ -7413,7 +7499,8 @@ class ChatPhotoEmpty extends ChatPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x37c1011c",
+      "\$hash": "37c1011c",
+      "\$name": "ChatPhotoEmpty",
     };
 
     // Finished toJson.
@@ -7502,7 +7589,8 @@ class ChatPhoto extends ChatPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1c6e1c11",
+      "\$hash": "1c6e1c11",
+      "\$name": "ChatPhoto",
       "flags": flags,
       "hasVideo": hasVideo,
       "photoId": photoId,
@@ -7580,7 +7668,8 @@ class MessageEmpty extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x90a6ca84",
+      "\$hash": "90a6ca84",
+      "\$name": "MessageEmpty",
       "flags": flags,
       "id": id,
       "peerId": peerId,
@@ -8043,7 +8132,8 @@ class Message extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x94345242",
+      "\$hash": "94345242",
+      "\$name": "Message",
       "flags": flags,
       "out": out,
       "mentioned": mentioned,
@@ -8245,7 +8335,8 @@ class MessageService extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2b085862",
+      "\$hash": "2b085862",
+      "\$name": "MessageService",
       "flags": flags,
       "out": out,
       "mentioned": mentioned,
@@ -8295,7 +8386,8 @@ class MessageMediaEmpty extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3ded6320",
+      "\$hash": "3ded6320",
+      "\$name": "MessageMediaEmpty",
     };
 
     // Finished toJson.
@@ -8378,7 +8470,8 @@ class MessageMediaPhoto extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x695150d7",
+      "\$hash": "695150d7",
+      "\$name": "MessageMediaPhoto",
       "flags": flags,
       "spoiler": spoiler,
       "photo": photo,
@@ -8431,7 +8524,8 @@ class MessageMediaGeo extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56e0d474",
+      "\$hash": "56e0d474",
+      "\$name": "MessageMediaGeo",
       "geo": geo,
     };
 
@@ -8511,7 +8605,8 @@ class MessageMediaContact extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x70322949",
+      "\$hash": "70322949",
+      "\$name": "MessageMediaContact",
       "phoneNumber": phoneNumber,
       "firstName": firstName,
       "lastName": lastName,
@@ -8552,7 +8647,8 @@ class MessageMediaUnsupported extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9f84f49e",
+      "\$hash": "9f84f49e",
+      "\$name": "MessageMediaUnsupported",
     };
 
     // Finished toJson.
@@ -8677,7 +8773,8 @@ class MessageMediaDocument extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdd570bd5",
+      "\$hash": "dd570bd5",
+      "\$name": "MessageMediaDocument",
       "flags": flags,
       "nopremium": nopremium,
       "spoiler": spoiler,
@@ -8773,7 +8870,8 @@ class MessageMediaWebPage extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xddf10c3b",
+      "\$hash": "ddf10c3b",
+      "\$name": "MessageMediaWebPage",
       "flags": flags,
       "forceLargeMedia": forceLargeMedia,
       "forceSmallMedia": forceSmallMedia,
@@ -8863,7 +8961,8 @@ class MessageMediaVenue extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ec0533f",
+      "\$hash": "2ec0533f",
+      "\$name": "MessageMediaVenue",
       "geo": geo,
       "title": title,
       "address": address,
@@ -8918,7 +9017,8 @@ class MessageMediaGame extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfdb19008",
+      "\$hash": "fdb19008",
+      "\$name": "MessageMediaGame",
       "game": game,
     };
 
@@ -9060,7 +9160,8 @@ class MessageMediaInvoice extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf6a548d3",
+      "\$hash": "f6a548d3",
+      "\$name": "MessageMediaInvoice",
       "flags": flags,
       "shippingAddressRequested": shippingAddressRequested,
       "test": test,
@@ -9164,7 +9265,8 @@ class MessageMediaGeoLive extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb940c666",
+      "\$hash": "b940c666",
+      "\$name": "MessageMediaGeoLive",
       "flags": flags,
       "geo": geo,
       "heading": heading,
@@ -9225,7 +9327,8 @@ class MessageMediaPoll extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4bd6e798",
+      "\$hash": "4bd6e798",
+      "\$name": "MessageMediaPoll",
       "poll": poll,
       "results": results,
     };
@@ -9285,7 +9388,8 @@ class MessageMediaDice extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3f7ee58b",
+      "\$hash": "3f7ee58b",
+      "\$name": "MessageMediaDice",
       "value": value,
       "emoticon": emoticon,
     };
@@ -9374,7 +9478,8 @@ class MessageMediaStory extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x68cb6283",
+      "\$hash": "68cb6283",
+      "\$name": "MessageMediaStory",
       "flags": flags,
       "viaMention": viaMention,
       "peer": peer,
@@ -9518,7 +9623,8 @@ class MessageMediaGiveaway extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa073beb",
+      "\$hash": "aa073beb",
+      "\$name": "MessageMediaGiveaway",
       "flags": flags,
       "onlyNewSubscribers": onlyNewSubscribers,
       "winnersAreVisible": winnersAreVisible,
@@ -9694,7 +9800,8 @@ class MessageMediaGiveawayResults extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xceaa3ea1",
+      "\$hash": "ceaa3ea1",
+      "\$name": "MessageMediaGiveawayResults",
       "flags": flags,
       "onlyNewSubscribers": onlyNewSubscribers,
       "refunded": refunded,
@@ -9765,7 +9872,8 @@ class MessageMediaPaidMedia extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa8852491",
+      "\$hash": "a8852491",
+      "\$name": "MessageMediaPaidMedia",
       "starsAmount": starsAmount,
       "extendedMedia": extendedMedia,
     };
@@ -9803,7 +9911,8 @@ class MessageActionEmpty extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6aef7b0",
+      "\$hash": "b6aef7b0",
+      "\$name": "MessageActionEmpty",
     };
 
     // Finished toJson.
@@ -9859,7 +9968,8 @@ class MessageActionChatCreate extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd47cbad",
+      "\$hash": "bd47cbad",
+      "\$name": "MessageActionChatCreate",
       "title": title,
       "users": users,
     };
@@ -9910,7 +10020,8 @@ class MessageActionChatEditTitle extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb5a1ce5a",
+      "\$hash": "b5a1ce5a",
+      "\$name": "MessageActionChatEditTitle",
       "title": title,
     };
 
@@ -9960,7 +10071,8 @@ class MessageActionChatEditPhoto extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7fcb13a8",
+      "\$hash": "7fcb13a8",
+      "\$name": "MessageActionChatEditPhoto",
       "photo": photo,
     };
 
@@ -9997,7 +10109,8 @@ class MessageActionChatDeletePhoto extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x95e3fbef",
+      "\$hash": "95e3fbef",
+      "\$name": "MessageActionChatDeletePhoto",
     };
 
     // Finished toJson.
@@ -10046,7 +10159,8 @@ class MessageActionChatAddUser extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15cefd00",
+      "\$hash": "15cefd00",
+      "\$name": "MessageActionChatAddUser",
       "users": users,
     };
 
@@ -10098,7 +10212,8 @@ class MessageActionChatDeleteUser extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa43f30cc",
+      "\$hash": "a43f30cc",
+      "\$name": "MessageActionChatDeleteUser",
       "userId": userId,
     };
 
@@ -10150,7 +10265,8 @@ class MessageActionChatJoinedByLink extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x031224c3",
+      "\$hash": "031224c3",
+      "\$name": "MessageActionChatJoinedByLink",
       "inviterId": inviterId,
     };
 
@@ -10200,7 +10316,8 @@ class MessageActionChannelCreate extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x95d2ac92",
+      "\$hash": "95d2ac92",
+      "\$name": "MessageActionChannelCreate",
       "title": title,
     };
 
@@ -10252,7 +10369,8 @@ class MessageActionChatMigrateTo extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe1037f92",
+      "\$hash": "e1037f92",
+      "\$name": "MessageActionChatMigrateTo",
       "channelId": channelId,
     };
 
@@ -10311,7 +10429,8 @@ class MessageActionChannelMigrateFrom extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea3948e9",
+      "\$hash": "ea3948e9",
+      "\$name": "MessageActionChannelMigrateFrom",
       "title": title,
       "chatId": chatId,
     };
@@ -10349,7 +10468,8 @@ class MessageActionPinMessage extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x94bd38ed",
+      "\$hash": "94bd38ed",
+      "\$name": "MessageActionPinMessage",
     };
 
     // Finished toJson.
@@ -10385,7 +10505,8 @@ class MessageActionHistoryClear extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9fbab604",
+      "\$hash": "9fbab604",
+      "\$name": "MessageActionHistoryClear",
     };
 
     // Finished toJson.
@@ -10445,7 +10566,8 @@ class MessageActionGameScore extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x92a72876",
+      "\$hash": "92a72876",
+      "\$name": "MessageActionGameScore",
       "gameId": gameId,
       "score": score,
     };
@@ -10582,7 +10704,8 @@ class MessageActionPaymentSentMe extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xffa00ccc",
+      "\$hash": "ffa00ccc",
+      "\$name": "MessageActionPaymentSentMe",
       "flags": flags,
       "recurringInit": recurringInit,
       "recurringUsed": recurringUsed,
@@ -10699,7 +10822,8 @@ class MessageActionPaymentSent extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc624b16e",
+      "\$hash": "c624b16e",
+      "\$name": "MessageActionPaymentSent",
       "flags": flags,
       "recurringInit": recurringInit,
       "recurringUsed": recurringUsed,
@@ -10800,7 +10924,8 @@ class MessageActionPhoneCall extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x80e11a7f",
+      "\$hash": "80e11a7f",
+      "\$name": "MessageActionPhoneCall",
       "flags": flags,
       "video": video,
       "callId": callId,
@@ -10841,7 +10966,8 @@ class MessageActionScreenshotTaken extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4792929b",
+      "\$hash": "4792929b",
+      "\$name": "MessageActionScreenshotTaken",
     };
 
     // Finished toJson.
@@ -10890,7 +11016,8 @@ class MessageActionCustomAction extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfae69f56",
+      "\$hash": "fae69f56",
+      "\$name": "MessageActionCustomAction",
       "message": message,
     };
 
@@ -10981,7 +11108,8 @@ class MessageActionBotAllowed extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc516d679",
+      "\$hash": "c516d679",
+      "\$name": "MessageActionBotAllowed",
       "flags": flags,
       "attachMenu": attachMenu,
       "fromRequest": fromRequest,
@@ -11042,7 +11170,8 @@ class MessageActionSecureValuesSentMe extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b287353",
+      "\$hash": "1b287353",
+      "\$name": "MessageActionSecureValuesSentMe",
       "values": values,
       "credentials": credentials,
     };
@@ -11093,7 +11222,8 @@ class MessageActionSecureValuesSent extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd95c6154",
+      "\$hash": "d95c6154",
+      "\$name": "MessageActionSecureValuesSent",
       "types": types,
     };
 
@@ -11130,7 +11260,8 @@ class MessageActionContactSignUp extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3f25f76",
+      "\$hash": "f3f25f76",
+      "\$name": "MessageActionContactSignUp",
     };
 
     // Finished toJson.
@@ -11195,7 +11326,8 @@ class MessageActionGeoProximityReached extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98e0d697",
+      "\$hash": "98e0d697",
+      "\$name": "MessageActionGeoProximityReached",
       "fromId": fromId,
       "toId": toId,
       "distance": distance,
@@ -11269,7 +11401,8 @@ class MessageActionGroupCall extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a0d7f42",
+      "\$hash": "7a0d7f42",
+      "\$name": "MessageActionGroupCall",
       "flags": flags,
       "call": call,
       "duration": duration,
@@ -11328,7 +11461,8 @@ class MessageActionInviteToGroupCall extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x502f92f7",
+      "\$hash": "502f92f7",
+      "\$name": "MessageActionInviteToGroupCall",
       "call": call,
       "users": users,
     };
@@ -11403,7 +11537,8 @@ class MessageActionSetMessagesTTL extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3c134d7b",
+      "\$hash": "3c134d7b",
+      "\$name": "MessageActionSetMessagesTTL",
       "flags": flags,
       "period": period,
       "autoSettingFrom": autoSettingFrom,
@@ -11462,7 +11597,8 @@ class MessageActionGroupCallScheduled extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb3a07661",
+      "\$hash": "b3a07661",
+      "\$name": "MessageActionGroupCallScheduled",
       "call": call,
       "scheduleDate": scheduleDate.toIso8601String(),
     };
@@ -11513,7 +11649,8 @@ class MessageActionSetChatTheme extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa786345",
+      "\$hash": "aa786345",
+      "\$name": "MessageActionSetChatTheme",
       "emoticon": emoticon,
     };
 
@@ -11550,7 +11687,8 @@ class MessageActionChatJoinedByRequest extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xebbca3cb",
+      "\$hash": "ebbca3cb",
+      "\$name": "MessageActionChatJoinedByRequest",
     };
 
     // Finished toJson.
@@ -11606,7 +11744,8 @@ class MessageActionWebViewDataSentMe extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x47dd8079",
+      "\$hash": "47dd8079",
+      "\$name": "MessageActionWebViewDataSentMe",
       "text": text,
       "data": data,
     };
@@ -11657,7 +11796,8 @@ class MessageActionWebViewDataSent extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4c38cb5",
+      "\$hash": "b4c38cb5",
+      "\$name": "MessageActionWebViewDataSent",
       "text": text,
     };
 
@@ -11771,7 +11911,8 @@ class MessageActionGiftPremium extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c6274fa",
+      "\$hash": "6c6274fa",
+      "\$name": "MessageActionGiftPremium",
       "flags": flags,
       "currency": currency,
       "amount": amount,
@@ -11858,7 +11999,8 @@ class MessageActionTopicCreate extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0d999256",
+      "\$hash": "0d999256",
+      "\$name": "MessageActionTopicCreate",
       "flags": flags,
       "title": title,
       "iconColor": iconColor,
@@ -11960,7 +12102,8 @@ class MessageActionTopicEdit extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc0944820",
+      "\$hash": "c0944820",
+      "\$name": "MessageActionTopicEdit",
       "flags": flags,
       "title": title,
       "iconEmojiId": iconEmojiId,
@@ -12014,7 +12157,8 @@ class MessageActionSuggestProfilePhoto extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57de635e",
+      "\$hash": "57de635e",
+      "\$name": "MessageActionSuggestProfilePhoto",
       "photo": photo,
     };
 
@@ -12073,7 +12217,8 @@ class MessageActionRequestedPeer extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x31518e9b",
+      "\$hash": "31518e9b",
+      "\$name": "MessageActionRequestedPeer",
       "buttonId": buttonId,
       "peers": peers,
     };
@@ -12148,7 +12293,8 @@ class MessageActionSetChatWallPaper extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5060a3f4",
+      "\$hash": "5060a3f4",
+      "\$name": "MessageActionSetChatWallPaper",
       "flags": flags,
       "same": same,
       "forBoth": forBoth,
@@ -12306,7 +12452,8 @@ class MessageActionGiftCode extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56d03994",
+      "\$hash": "56d03994",
+      "\$name": "MessageActionGiftCode",
       "flags": flags,
       "viaGiveaway": viaGiveaway,
       "unclaimed": unclaimed,
@@ -12381,7 +12528,8 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa80f51e4",
+      "\$hash": "a80f51e4",
+      "\$name": "MessageActionGiveawayLaunch",
       "flags": flags,
       "stars": stars,
     };
@@ -12460,7 +12608,8 @@ class MessageActionGiveawayResults extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x87e2f155",
+      "\$hash": "87e2f155",
+      "\$name": "MessageActionGiveawayResults",
       "flags": flags,
       "stars": stars,
       "winnersCount": winnersCount,
@@ -12515,7 +12664,8 @@ class MessageActionBoostApply extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc02aa6d",
+      "\$hash": "cc02aa6d",
+      "\$name": "MessageActionBoostApply",
       "boosts": boosts,
     };
 
@@ -12574,7 +12724,8 @@ class MessageActionRequestedPeerSentMe extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93b31848",
+      "\$hash": "93b31848",
+      "\$name": "MessageActionRequestedPeerSentMe",
       "buttonId": buttonId,
       "peers": peers,
     };
@@ -12670,7 +12821,8 @@ class MessageActionPaymentRefunded extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x41b3e202",
+      "\$hash": "41b3e202",
+      "\$name": "MessageActionPaymentRefunded",
       "flags": flags,
       "peer": peer,
       "currency": currency,
@@ -12788,7 +12940,8 @@ class MessageActionGiftStars extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x45d5b021",
+      "\$hash": "45d5b021",
+      "\$name": "MessageActionGiftStars",
       "flags": flags,
       "currency": currency,
       "amount": amount,
@@ -12886,7 +13039,8 @@ class MessageActionPrizeStars extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb00c47a2",
+      "\$hash": "b00c47a2",
+      "\$name": "MessageActionPrizeStars",
       "flags": flags,
       "unclaimed": unclaimed,
       "stars": stars,
@@ -12997,7 +13151,8 @@ class MessageActionStarGift extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x08557637",
+      "\$hash": "08557637",
+      "\$name": "MessageActionStarGift",
       "flags": flags,
       "nameHidden": nameHidden,
       "saved": saved,
@@ -13194,7 +13349,8 @@ class Dialog extends DialogBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd58a08c6",
+      "\$hash": "d58a08c6",
+      "\$name": "Dialog",
       "flags": flags,
       "pinned": pinned,
       "unreadMark": unreadMark,
@@ -13328,7 +13484,8 @@ class DialogFolder extends DialogBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x71bd134c",
+      "\$hash": "71bd134c",
+      "\$name": "DialogFolder",
       "flags": flags,
       "pinned": pinned,
       "folder": folder,
@@ -13388,7 +13545,8 @@ class PhotoEmpty extends PhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2331b22d",
+      "\$hash": "2331b22d",
+      "\$name": "PhotoEmpty",
       "id": id,
     };
 
@@ -13509,7 +13667,8 @@ class Photo extends PhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb197a65",
+      "\$hash": "fb197a65",
+      "\$name": "Photo",
       "flags": flags,
       "hasStickers": hasStickers,
       "id": id,
@@ -13567,7 +13726,8 @@ class PhotoSizeEmpty extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e17e23c",
+      "\$hash": "0e17e23c",
+      "\$name": "PhotoSizeEmpty",
       "type": type,
     };
 
@@ -13644,7 +13804,8 @@ class PhotoSize extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x75c78e60",
+      "\$hash": "75c78e60",
+      "\$name": "PhotoSize",
       "type": type,
       "w": w,
       "h": h,
@@ -13722,7 +13883,8 @@ class PhotoCachedSize extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x021e1ad6",
+      "\$hash": "021e1ad6",
+      "\$name": "PhotoCachedSize",
       "type": type,
       "w": w,
       "h": h,
@@ -13782,7 +13944,8 @@ class PhotoStrippedSize extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe0b0bc2e",
+      "\$hash": "e0b0bc2e",
+      "\$name": "PhotoStrippedSize",
       "type": type,
       "bytes": bytes,
     };
@@ -13858,7 +14021,8 @@ class PhotoSizeProgressive extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa3efb95",
+      "\$hash": "fa3efb95",
+      "\$name": "PhotoSizeProgressive",
       "type": type,
       "w": w,
       "h": h,
@@ -13918,7 +14082,8 @@ class PhotoPathSize extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd8214d41",
+      "\$hash": "d8214d41",
+      "\$name": "PhotoPathSize",
       "type": type,
       "bytes": bytes,
     };
@@ -13956,7 +14121,8 @@ class GeoPointEmpty extends GeoPointBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1117dd5f",
+      "\$hash": "1117dd5f",
+      "\$name": "GeoPointEmpty",
     };
 
     // Finished toJson.
@@ -14043,7 +14209,8 @@ class GeoPoint extends GeoPointBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb2a2f663",
+      "\$hash": "b2a2f663",
+      "\$name": "GeoPoint",
       "flags": flags,
       "long": long,
       "lat": lat,
@@ -14139,7 +14306,8 @@ class AuthSentCode extends AuthSentCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e002502",
+      "\$hash": "5e002502",
+      "\$name": "AuthSentCode",
       "flags": flags,
       "type": type,
       "phoneCodeHash": phoneCodeHash,
@@ -14193,7 +14361,8 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2390fe44",
+      "\$hash": "2390fe44",
+      "\$name": "AuthSentCodeSuccess",
       "authorization": authorization,
     };
 
@@ -14296,7 +14465,8 @@ class AuthAuthorization extends AuthAuthorizationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ea2c0d4",
+      "\$hash": "2ea2c0d4",
+      "\$name": "AuthAuthorization",
       "flags": flags,
       "setupPasswordRequired": setupPasswordRequired,
       "otherwiseReloginDays": otherwiseReloginDays,
@@ -14368,7 +14538,8 @@ class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x44747e9a",
+      "\$hash": "44747e9a",
+      "\$name": "AuthAuthorizationSignUpRequired",
       "flags": flags,
       "termsOfService": termsOfService,
     };
@@ -14428,7 +14599,8 @@ class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb434e2b8",
+      "\$hash": "b434e2b8",
+      "\$name": "AuthExportedAuthorization",
       "id": id,
       "bytes": bytes,
     };
@@ -14479,7 +14651,8 @@ class InputNotifyPeer extends InputNotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb8bc5b0c",
+      "\$hash": "b8bc5b0c",
+      "\$name": "InputNotifyPeer",
       "peer": peer,
     };
 
@@ -14516,7 +14689,8 @@ class InputNotifyUsers extends InputNotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x193b4417",
+      "\$hash": "193b4417",
+      "\$name": "InputNotifyUsers",
     };
 
     // Finished toJson.
@@ -14552,7 +14726,8 @@ class InputNotifyChats extends InputNotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4a95e84e",
+      "\$hash": "4a95e84e",
+      "\$name": "InputNotifyChats",
     };
 
     // Finished toJson.
@@ -14588,7 +14763,8 @@ class InputNotifyBroadcasts extends InputNotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb1db7c7e",
+      "\$hash": "b1db7c7e",
+      "\$name": "InputNotifyBroadcasts",
     };
 
     // Finished toJson.
@@ -14646,7 +14822,8 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5c467992",
+      "\$hash": "5c467992",
+      "\$name": "InputNotifyForumTopic",
       "peer": peer,
       "topMsgId": topMsgId,
     };
@@ -14783,7 +14960,8 @@ class InputPeerNotifySettings extends InputPeerNotifySettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcacb6ae2",
+      "\$hash": "cacb6ae2",
+      "\$name": "InputPeerNotifySettings",
       "flags": flags,
       "showPreviews": showPreviews,
       "silent": silent,
@@ -14982,7 +15160,8 @@ class PeerNotifySettings extends PeerNotifySettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x99622c0c",
+      "\$hash": "99622c0c",
+      "\$name": "PeerNotifySettings",
       "flags": flags,
       "showPreviews": showPreviews,
       "silent": silent,
@@ -15184,7 +15363,8 @@ class PeerSettings extends PeerSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xacd66c5e",
+      "\$hash": "acd66c5e",
+      "\$name": "PeerSettings",
       "flags": flags,
       "reportSpam": reportSpam,
       "addContact": addContact,
@@ -15326,7 +15506,8 @@ class WallPaper extends WallPaperBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa437c3ed",
+      "\$hash": "a437c3ed",
+      "\$name": "WallPaper",
       "id": id,
       "flags": flags,
       "creator": creator,
@@ -15424,7 +15605,8 @@ class WallPaperNoFile extends WallPaperBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe0804116",
+      "\$hash": "e0804116",
+      "\$name": "WallPaperNoFile",
       "id": id,
       "flags": flags,
       "ddefault": ddefault,
@@ -15465,7 +15647,8 @@ class InputReportReasonSpam extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58dbcab8",
+      "\$hash": "58dbcab8",
+      "\$name": "InputReportReasonSpam",
     };
 
     // Finished toJson.
@@ -15501,7 +15684,8 @@ class InputReportReasonViolence extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e22c78d",
+      "\$hash": "1e22c78d",
+      "\$name": "InputReportReasonViolence",
     };
 
     // Finished toJson.
@@ -15537,7 +15721,8 @@ class InputReportReasonPornography extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2e59d922",
+      "\$hash": "2e59d922",
+      "\$name": "InputReportReasonPornography",
     };
 
     // Finished toJson.
@@ -15573,7 +15758,8 @@ class InputReportReasonChildAbuse extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xadf44ee3",
+      "\$hash": "adf44ee3",
+      "\$name": "InputReportReasonChildAbuse",
     };
 
     // Finished toJson.
@@ -15609,7 +15795,8 @@ class InputReportReasonOther extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc1e4a2b1",
+      "\$hash": "c1e4a2b1",
+      "\$name": "InputReportReasonOther",
     };
 
     // Finished toJson.
@@ -15645,7 +15832,8 @@ class InputReportReasonCopyright extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9b89f93a",
+      "\$hash": "9b89f93a",
+      "\$name": "InputReportReasonCopyright",
     };
 
     // Finished toJson.
@@ -15681,7 +15869,8 @@ class InputReportReasonGeoIrrelevant extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdbd4feed",
+      "\$hash": "dbd4feed",
+      "\$name": "InputReportReasonGeoIrrelevant",
     };
 
     // Finished toJson.
@@ -15717,7 +15906,8 @@ class InputReportReasonFake extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf5ddd6e7",
+      "\$hash": "f5ddd6e7",
+      "\$name": "InputReportReasonFake",
     };
 
     // Finished toJson.
@@ -15753,7 +15943,8 @@ class InputReportReasonIllegalDrugs extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a8eb2be",
+      "\$hash": "0a8eb2be",
+      "\$name": "InputReportReasonIllegalDrugs",
     };
 
     // Finished toJson.
@@ -15789,7 +15980,8 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9ec7863d",
+      "\$hash": "9ec7863d",
+      "\$name": "InputReportReasonPersonalDetails",
     };
 
     // Finished toJson.
@@ -16320,7 +16512,8 @@ class UserFull extends UserFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x979d2376",
+      "\$hash": "979d2376",
+      "\$name": "UserFull",
       "flags": flags,
       "blocked": blocked,
       "phoneCallsAvailable": phoneCallsAvailable,
@@ -16425,7 +16618,8 @@ class Contact extends ContactBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x145ade0b",
+      "\$hash": "145ade0b",
+      "\$name": "Contact",
       "userId": userId,
       "mutual": mutual,
     };
@@ -16487,7 +16681,8 @@ class ImportedContact extends ImportedContactBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc13e3c50",
+      "\$hash": "c13e3c50",
+      "\$name": "ImportedContact",
       "userId": userId,
       "clientId": clientId,
     };
@@ -16547,7 +16742,8 @@ class ContactStatus extends ContactStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x16d9703b",
+      "\$hash": "16d9703b",
+      "\$name": "ContactStatus",
       "userId": userId,
       "status": status,
     };
@@ -16585,7 +16781,8 @@ class ContactsContactsNotModified extends ContactsContactsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb74ba9d2",
+      "\$hash": "b74ba9d2",
+      "\$name": "ContactsContactsNotModified",
     };
 
     // Finished toJson.
@@ -16650,7 +16847,8 @@ class ContactsContacts extends ContactsContactsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeae87e42",
+      "\$hash": "eae87e42",
+      "\$name": "ContactsContacts",
       "contacts": contacts,
       "savedCount": savedCount,
       "users": users,
@@ -16723,7 +16921,8 @@ class ContactsImportedContacts extends ContactsImportedContactsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77d01c3b",
+      "\$hash": "77d01c3b",
+      "\$name": "ContactsImportedContacts",
       "imported": imported,
       "popularInvites": popularInvites,
       "retryContacts": retryContacts,
@@ -16790,7 +16989,8 @@ class ContactsBlocked extends ContactsBlockedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ade1591",
+      "\$hash": "0ade1591",
+      "\$name": "ContactsBlocked",
       "blocked": blocked,
       "chats": chats,
       "users": users,
@@ -16865,7 +17065,8 @@ class ContactsBlockedSlice extends ContactsBlockedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe1664194",
+      "\$hash": "e1664194",
+      "\$name": "ContactsBlockedSlice",
       "count": count,
       "blocked": blocked,
       "chats": chats,
@@ -16939,7 +17140,8 @@ class MessagesDialogs extends MessagesDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15ba6c40",
+      "\$hash": "15ba6c40",
+      "\$name": "MessagesDialogs",
       "dialogs": dialogs,
       "messages": messages,
       "chats": chats,
@@ -17022,7 +17224,8 @@ class MessagesDialogsSlice extends MessagesDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x71e094f3",
+      "\$hash": "71e094f3",
+      "\$name": "MessagesDialogsSlice",
       "count": count,
       "dialogs": dialogs,
       "messages": messages,
@@ -17078,7 +17281,8 @@ class MessagesDialogsNotModified extends MessagesDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf0e3e596",
+      "\$hash": "f0e3e596",
+      "\$name": "MessagesDialogsNotModified",
       "count": count,
     };
 
@@ -17142,7 +17346,8 @@ class MessagesMessages extends MessagesMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c718e87",
+      "\$hash": "8c718e87",
+      "\$name": "MessagesMessages",
       "messages": messages,
       "chats": chats,
       "users": users,
@@ -17258,7 +17463,8 @@ class MessagesMessagesSlice extends MessagesMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3a54685e",
+      "\$hash": "3a54685e",
+      "\$name": "MessagesMessagesSlice",
       "flags": flags,
       "inexact": inexact,
       "count": count,
@@ -17383,7 +17589,8 @@ class MessagesChannelMessages extends MessagesMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc776ba4e",
+      "\$hash": "c776ba4e",
+      "\$name": "MessagesChannelMessages",
       "flags": flags,
       "inexact": inexact,
       "pts": pts,
@@ -17443,7 +17650,8 @@ class MessagesMessagesNotModified extends MessagesMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74535f21",
+      "\$hash": "74535f21",
+      "\$name": "MessagesMessagesNotModified",
       "count": count,
     };
 
@@ -17493,7 +17701,8 @@ class MessagesChats extends MessagesChatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64ff9fd5",
+      "\$hash": "64ff9fd5",
+      "\$name": "MessagesChats",
       "chats": chats,
     };
 
@@ -17552,7 +17761,8 @@ class MessagesChatsSlice extends MessagesChatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9cd81144",
+      "\$hash": "9cd81144",
+      "\$name": "MessagesChatsSlice",
       "count": count,
       "chats": chats,
     };
@@ -17617,7 +17827,8 @@ class MessagesChatFull extends MessagesChatFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe5d7d19c",
+      "\$hash": "e5d7d19c",
+      "\$name": "MessagesChatFull",
       "fullChat": fullChat,
       "chats": chats,
       "users": users,
@@ -17689,7 +17900,8 @@ class MessagesAffectedHistory extends MessagesAffectedHistoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb45c69d1",
+      "\$hash": "b45c69d1",
+      "\$name": "MessagesAffectedHistory",
       "pts": pts,
       "ptsCount": ptsCount,
       "offset": offset,
@@ -17728,7 +17940,8 @@ class InputMessagesFilterEmpty extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57e2f66c",
+      "\$hash": "57e2f66c",
+      "\$name": "InputMessagesFilterEmpty",
     };
 
     // Finished toJson.
@@ -17764,7 +17977,8 @@ class InputMessagesFilterPhotos extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9609a51c",
+      "\$hash": "9609a51c",
+      "\$name": "InputMessagesFilterPhotos",
     };
 
     // Finished toJson.
@@ -17800,7 +18014,8 @@ class InputMessagesFilterVideo extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9fc00e65",
+      "\$hash": "9fc00e65",
+      "\$name": "InputMessagesFilterVideo",
     };
 
     // Finished toJson.
@@ -17836,7 +18051,8 @@ class InputMessagesFilterPhotoVideo extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56e9f0e4",
+      "\$hash": "56e9f0e4",
+      "\$name": "InputMessagesFilterPhotoVideo",
     };
 
     // Finished toJson.
@@ -17872,7 +18088,8 @@ class InputMessagesFilterDocument extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9eddf188",
+      "\$hash": "9eddf188",
+      "\$name": "InputMessagesFilterDocument",
     };
 
     // Finished toJson.
@@ -17908,7 +18125,8 @@ class InputMessagesFilterUrl extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7ef0dd87",
+      "\$hash": "7ef0dd87",
+      "\$name": "InputMessagesFilterUrl",
     };
 
     // Finished toJson.
@@ -17944,7 +18162,8 @@ class InputMessagesFilterGif extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xffc86587",
+      "\$hash": "ffc86587",
+      "\$name": "InputMessagesFilterGif",
     };
 
     // Finished toJson.
@@ -17980,7 +18199,8 @@ class InputMessagesFilterVoice extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50f5c392",
+      "\$hash": "50f5c392",
+      "\$name": "InputMessagesFilterVoice",
     };
 
     // Finished toJson.
@@ -18016,7 +18236,8 @@ class InputMessagesFilterMusic extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3751b49e",
+      "\$hash": "3751b49e",
+      "\$name": "InputMessagesFilterMusic",
     };
 
     // Finished toJson.
@@ -18052,7 +18273,8 @@ class InputMessagesFilterChatPhotos extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3a20ecb8",
+      "\$hash": "3a20ecb8",
+      "\$name": "InputMessagesFilterChatPhotos",
     };
 
     // Finished toJson.
@@ -18111,7 +18333,8 @@ class InputMessagesFilterPhoneCalls extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x80c99768",
+      "\$hash": "80c99768",
+      "\$name": "InputMessagesFilterPhoneCalls",
       "flags": flags,
       "missed": missed,
     };
@@ -18149,7 +18372,8 @@ class InputMessagesFilterRoundVoice extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a7c17a4",
+      "\$hash": "7a7c17a4",
+      "\$name": "InputMessagesFilterRoundVoice",
     };
 
     // Finished toJson.
@@ -18185,7 +18409,8 @@ class InputMessagesFilterRoundVideo extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb549da53",
+      "\$hash": "b549da53",
+      "\$name": "InputMessagesFilterRoundVideo",
     };
 
     // Finished toJson.
@@ -18221,7 +18446,8 @@ class InputMessagesFilterMyMentions extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc1f8e69a",
+      "\$hash": "c1f8e69a",
+      "\$name": "InputMessagesFilterMyMentions",
     };
 
     // Finished toJson.
@@ -18257,7 +18483,8 @@ class InputMessagesFilterGeo extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe7026d0d",
+      "\$hash": "e7026d0d",
+      "\$name": "InputMessagesFilterGeo",
     };
 
     // Finished toJson.
@@ -18293,7 +18520,8 @@ class InputMessagesFilterContacts extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe062db83",
+      "\$hash": "e062db83",
+      "\$name": "InputMessagesFilterContacts",
     };
 
     // Finished toJson.
@@ -18329,7 +18557,8 @@ class InputMessagesFilterPinned extends MessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1bb00451",
+      "\$hash": "1bb00451",
+      "\$name": "InputMessagesFilterPinned",
     };
 
     // Finished toJson.
@@ -18396,7 +18625,8 @@ class UpdateNewMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1f2b0afd",
+      "\$hash": "1f2b0afd",
+      "\$name": "UpdateNewMessage",
       "message": message,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -18459,7 +18689,8 @@ class UpdateMessageID extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4e90bfd6",
+      "\$hash": "4e90bfd6",
+      "\$name": "UpdateMessageID",
       "id": id,
       "randomId": randomId,
     };
@@ -18528,7 +18759,8 @@ class UpdateDeleteMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa20db0e5",
+      "\$hash": "a20db0e5",
+      "\$name": "UpdateDeleteMessages",
       "messages": messages,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -18589,7 +18821,8 @@ class UpdateUserTyping extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc01e857f",
+      "\$hash": "c01e857f",
+      "\$name": "UpdateUserTyping",
       "userId": userId,
       "action": action,
     };
@@ -18656,7 +18889,8 @@ class UpdateChatUserTyping extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x83487af0",
+      "\$hash": "83487af0",
+      "\$name": "UpdateChatUserTyping",
       "chatId": chatId,
       "fromId": fromId,
       "action": action,
@@ -18708,7 +18942,8 @@ class UpdateChatParticipants extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x07761198",
+      "\$hash": "07761198",
+      "\$name": "UpdateChatParticipants",
       "participants": participants,
     };
 
@@ -18767,7 +19002,8 @@ class UpdateUserStatus extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe5bdf8de",
+      "\$hash": "e5bdf8de",
+      "\$name": "UpdateUserStatus",
       "userId": userId,
       "status": status,
     };
@@ -18841,7 +19077,8 @@ class UpdateUserName extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa7848924",
+      "\$hash": "a7848924",
+      "\$name": "UpdateUserName",
       "userId": userId,
       "firstName": firstName,
       "lastName": lastName,
@@ -18946,7 +19183,8 @@ class UpdateNewAuthorization extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8951abef",
+      "\$hash": "8951abef",
+      "\$name": "UpdateNewAuthorization",
       "flags": flags,
       "unconfirmed": unconfirmed,
       "hash": hash,
@@ -19010,7 +19248,8 @@ class UpdateNewEncryptedMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x12bcbd9a",
+      "\$hash": "12bcbd9a",
+      "\$name": "UpdateNewEncryptedMessage",
       "message": message,
       "qts": qts,
     };
@@ -19063,7 +19302,8 @@ class UpdateEncryptedChatTyping extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1710f156",
+      "\$hash": "1710f156",
+      "\$name": "UpdateEncryptedChatTyping",
       "chatId": chatId,
     };
 
@@ -19120,7 +19360,8 @@ class UpdateEncryption extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4a2e88d",
+      "\$hash": "b4a2e88d",
+      "\$name": "UpdateEncryption",
       "chat": chat,
       "date": date.toIso8601String(),
     };
@@ -19187,7 +19428,8 @@ class UpdateEncryptedMessagesRead extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x38fe25b7",
+      "\$hash": "38fe25b7",
+      "\$name": "UpdateEncryptedMessagesRead",
       "chatId": chatId,
       "maxDate": maxDate.toIso8601String(),
       "date": date.toIso8601String(),
@@ -19275,7 +19517,8 @@ class UpdateChatParticipantAdd extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dda5451",
+      "\$hash": "3dda5451",
+      "\$name": "UpdateChatParticipantAdd",
       "chatId": chatId,
       "userId": userId,
       "inviterId": inviterId,
@@ -19349,7 +19592,8 @@ class UpdateChatParticipantDelete extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe32f3d77",
+      "\$hash": "e32f3d77",
+      "\$name": "UpdateChatParticipantDelete",
       "chatId": chatId,
       "userId": userId,
       "version": version,
@@ -19401,7 +19645,8 @@ class UpdateDcOptions extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8e5e9873",
+      "\$hash": "8e5e9873",
+      "\$name": "UpdateDcOptions",
       "dcOptions": dcOptions,
     };
 
@@ -19458,7 +19703,8 @@ class UpdateNotifySettings extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbec268ef",
+      "\$hash": "bec268ef",
+      "\$name": "UpdateNotifySettings",
       "peer": peer,
       "notifySettings": notifySettings,
     };
@@ -19566,7 +19812,8 @@ class UpdateServiceNotification extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xebe46819",
+      "\$hash": "ebe46819",
+      "\$name": "UpdateServiceNotification",
       "flags": flags,
       "popup": popup,
       "invertMedia": invertMedia,
@@ -19630,7 +19877,8 @@ class UpdatePrivacy extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xee3b272a",
+      "\$hash": "ee3b272a",
+      "\$name": "UpdatePrivacy",
       "key": key,
       "rules": rules,
     };
@@ -19690,7 +19938,8 @@ class UpdateUserPhone extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x05492a13",
+      "\$hash": "05492a13",
+      "\$name": "UpdateUserPhone",
       "userId": userId,
       "phone": phone,
     };
@@ -19799,7 +20048,8 @@ class UpdateReadHistoryInbox extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9c974fdf",
+      "\$hash": "9c974fdf",
+      "\$name": "UpdateReadHistoryInbox",
       "flags": flags,
       "folderId": folderId,
       "peer": peer,
@@ -19882,7 +20132,8 @@ class UpdateReadHistoryOutbox extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2f2f21bf",
+      "\$hash": "2f2f21bf",
+      "\$name": "UpdateReadHistoryOutbox",
       "peer": peer,
       "maxId": maxId,
       "pts": pts,
@@ -19953,7 +20204,8 @@ class UpdateWebPage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f891213",
+      "\$hash": "7f891213",
+      "\$name": "UpdateWebPage",
       "webpage": webpage,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -20045,7 +20297,8 @@ class UpdateReadMessagesContents extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf8227181",
+      "\$hash": "f8227181",
+      "\$name": "UpdateReadMessagesContents",
       "flags": flags,
       "messages": messages,
       "pts": pts,
@@ -20123,7 +20376,8 @@ class UpdateChannelTooLong extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x108d941f",
+      "\$hash": "108d941f",
+      "\$name": "UpdateChannelTooLong",
       "flags": flags,
       "channelId": channelId,
       "pts": pts,
@@ -20177,7 +20431,8 @@ class UpdateChannel extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x635b4c09",
+      "\$hash": "635b4c09",
+      "\$name": "UpdateChannel",
       "channelId": channelId,
     };
 
@@ -20245,7 +20500,8 @@ class UpdateNewChannelMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x62ba04d9",
+      "\$hash": "62ba04d9",
+      "\$name": "UpdateNewChannelMessage",
       "message": message,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -20348,7 +20604,8 @@ class UpdateReadChannelInbox extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x922e6e10",
+      "\$hash": "922e6e10",
+      "\$name": "UpdateReadChannelInbox",
       "flags": flags,
       "folderId": folderId,
       "channelId": channelId,
@@ -20430,7 +20687,8 @@ class UpdateDeleteChannelMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc32d5b12",
+      "\$hash": "c32d5b12",
+      "\$name": "UpdateDeleteChannelMessages",
       "channelId": channelId,
       "messages": messages,
       "pts": pts,
@@ -20503,7 +20761,8 @@ class UpdateChannelMessageViews extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf226ac08",
+      "\$hash": "f226ac08",
+      "\$name": "UpdateChannelMessageViews",
       "channelId": channelId,
       "id": id,
       "views": views,
@@ -20582,7 +20841,8 @@ class UpdateChatParticipantAdmin extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd7ca61a2",
+      "\$hash": "d7ca61a2",
+      "\$name": "UpdateChatParticipantAdmin",
       "chatId": chatId,
       "userId": userId,
       "isAdmin": isAdmin,
@@ -20635,7 +20895,8 @@ class UpdateNewStickerSet extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x688a30aa",
+      "\$hash": "688a30aa",
+      "\$name": "UpdateNewStickerSet",
       "stickerset": stickerset,
     };
 
@@ -20709,7 +20970,8 @@ class UpdateStickerSetsOrder extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0bb2d201",
+      "\$hash": "0bb2d201",
+      "\$name": "UpdateStickerSetsOrder",
       "flags": flags,
       "masks": masks,
       "emojis": emojis,
@@ -20779,7 +21041,8 @@ class UpdateStickerSets extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x31c24808",
+      "\$hash": "31c24808",
+      "\$name": "UpdateStickerSets",
       "flags": flags,
       "masks": masks,
       "emojis": emojis,
@@ -20818,7 +21081,8 @@ class UpdateSavedGifs extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9375341e",
+      "\$hash": "9375341e",
+      "\$name": "UpdateSavedGifs",
     };
 
     // Finished toJson.
@@ -20928,7 +21192,8 @@ class UpdateBotInlineQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x496f379c",
+      "\$hash": "496f379c",
+      "\$name": "UpdateBotInlineQuery",
       "flags": flags,
       "queryId": queryId,
       "userId": userId,
@@ -21036,7 +21301,8 @@ class UpdateBotInlineSend extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x12f12a07",
+      "\$hash": "12f12a07",
+      "\$name": "UpdateBotInlineSend",
       "flags": flags,
       "userId": userId,
       "query": query,
@@ -21109,7 +21375,8 @@ class UpdateEditChannelMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b3f4df7",
+      "\$hash": "1b3f4df7",
+      "\$name": "UpdateEditChannelMessage",
       "message": message,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -21231,7 +21498,8 @@ class UpdateBotCallbackQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9cfc48d",
+      "\$hash": "b9cfc48d",
+      "\$name": "UpdateBotCallbackQuery",
       "flags": flags,
       "queryId": queryId,
       "userId": userId,
@@ -21306,7 +21574,8 @@ class UpdateEditMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe40370a3",
+      "\$hash": "e40370a3",
+      "\$name": "UpdateEditMessage",
       "message": message,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -21419,7 +21688,8 @@ class UpdateInlineBotCallbackQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x691e9052",
+      "\$hash": "691e9052",
+      "\$name": "UpdateInlineBotCallbackQuery",
       "flags": flags,
       "queryId": queryId,
       "userId": userId,
@@ -21486,7 +21756,8 @@ class UpdateReadChannelOutbox extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb75f99a9",
+      "\$hash": "b75f99a9",
+      "\$name": "UpdateReadChannelOutbox",
       "channelId": channelId,
       "maxId": maxId,
     };
@@ -21566,7 +21837,8 @@ class UpdateDraftMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b49ec6d",
+      "\$hash": "1b49ec6d",
+      "\$name": "UpdateDraftMessage",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -21606,7 +21878,8 @@ class UpdateReadFeaturedStickers extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x571d2742",
+      "\$hash": "571d2742",
+      "\$name": "UpdateReadFeaturedStickers",
     };
 
     // Finished toJson.
@@ -21642,7 +21915,8 @@ class UpdateRecentStickers extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a422c20",
+      "\$hash": "9a422c20",
+      "\$name": "UpdateRecentStickers",
     };
 
     // Finished toJson.
@@ -21678,7 +21952,8 @@ class UpdateConfig extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa229dd06",
+      "\$hash": "a229dd06",
+      "\$name": "UpdateConfig",
     };
 
     // Finished toJson.
@@ -21714,7 +21989,8 @@ class UpdatePtsChanged extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3354678f",
+      "\$hash": "3354678f",
+      "\$name": "UpdatePtsChanged",
     };
 
     // Finished toJson.
@@ -21790,7 +22066,8 @@ class UpdateChannelWebPage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2f2ba99f",
+      "\$hash": "2f2ba99f",
+      "\$name": "UpdateChannelWebPage",
       "channelId": channelId,
       "webpage": webpage,
       "pts": pts,
@@ -21872,7 +22149,8 @@ class UpdateDialogPinned extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6e6fe51c",
+      "\$hash": "6e6fe51c",
+      "\$name": "UpdateDialogPinned",
       "flags": flags,
       "pinned": pinned,
       "folderId": folderId,
@@ -21953,7 +22231,8 @@ class UpdatePinnedDialogs extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa0f3ca2",
+      "\$hash": "fa0f3ca2",
+      "\$name": "UpdatePinnedDialogs",
       "flags": flags,
       "folderId": folderId,
       "order": order,
@@ -22005,7 +22284,8 @@ class UpdateBotWebhookJSON extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8317c0c3",
+      "\$hash": "8317c0c3",
+      "\$name": "UpdateBotWebhookJSON",
       "data": data,
     };
 
@@ -22073,7 +22353,8 @@ class UpdateBotWebhookJSONQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9b9240a6",
+      "\$hash": "9b9240a6",
+      "\$name": "UpdateBotWebhookJSONQuery",
       "queryId": queryId,
       "data": data,
       "timeout": timeout,
@@ -22150,7 +22431,8 @@ class UpdateBotShippingQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb5aefd7d",
+      "\$hash": "b5aefd7d",
+      "\$name": "UpdateBotShippingQuery",
       "queryId": queryId,
       "userId": userId,
       "payload": payload,
@@ -22273,7 +22555,8 @@ class UpdateBotPrecheckoutQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8caa9a96",
+      "\$hash": "8caa9a96",
+      "\$name": "UpdateBotPrecheckoutQuery",
       "flags": flags,
       "queryId": queryId,
       "userId": userId,
@@ -22330,7 +22613,8 @@ class UpdatePhoneCall extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xab0f6b1e",
+      "\$hash": "ab0f6b1e",
+      "\$name": "UpdatePhoneCall",
       "phoneCall": phoneCall,
     };
 
@@ -22380,7 +22664,8 @@ class UpdateLangPackTooLong extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x46560264",
+      "\$hash": "46560264",
+      "\$name": "UpdateLangPackTooLong",
       "langCode": langCode,
     };
 
@@ -22430,7 +22715,8 @@ class UpdateLangPack extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56022f4d",
+      "\$hash": "56022f4d",
+      "\$name": "UpdateLangPack",
       "difference": difference,
     };
 
@@ -22467,7 +22753,8 @@ class UpdateFavedStickers extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe511996d",
+      "\$hash": "e511996d",
+      "\$name": "UpdateFavedStickers",
     };
 
     // Finished toJson.
@@ -22547,7 +22834,8 @@ class UpdateChannelReadMessagesContents extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea29055d",
+      "\$hash": "ea29055d",
+      "\$name": "UpdateChannelReadMessagesContents",
       "flags": flags,
       "channelId": channelId,
       "topMsgId": topMsgId,
@@ -22587,7 +22875,8 @@ class UpdateContactsReset extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7084a7be",
+      "\$hash": "7084a7be",
+      "\$name": "UpdateContactsReset",
     };
 
     // Finished toJson.
@@ -22647,7 +22936,8 @@ class UpdateChannelAvailableMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb23fc698",
+      "\$hash": "b23fc698",
+      "\$name": "UpdateChannelAvailableMessages",
       "channelId": channelId,
       "availableMinId": availableMinId,
     };
@@ -22715,7 +23005,8 @@ class UpdateDialogUnreadMark extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe16459c3",
+      "\$hash": "e16459c3",
+      "\$name": "UpdateDialogUnreadMark",
       "flags": flags,
       "unread": unread,
       "peer": peer,
@@ -22798,7 +23089,8 @@ class UpdateMessagePoll extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaca1657b",
+      "\$hash": "aca1657b",
+      "\$name": "UpdateMessagePoll",
       "flags": flags,
       "pollId": pollId,
       "poll": poll,
@@ -22867,7 +23159,8 @@ class UpdateChatDefaultBannedRights extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x54c01850",
+      "\$hash": "54c01850",
+      "\$name": "UpdateChatDefaultBannedRights",
       "peer": peer,
       "defaultBannedRights": defaultBannedRights,
       "version": version,
@@ -22937,7 +23230,8 @@ class UpdateFolderPeers extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x19360dc0",
+      "\$hash": "19360dc0",
+      "\$name": "UpdateFolderPeers",
       "folderPeers": folderPeers,
       "pts": pts,
       "ptsCount": ptsCount,
@@ -22996,7 +23290,8 @@ class UpdatePeerSettings extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a7e7366",
+      "\$hash": "6a7e7366",
+      "\$name": "UpdatePeerSettings",
       "peer": peer,
       "settings": settings,
     };
@@ -23047,7 +23342,8 @@ class UpdatePeerLocated extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4afcfb0",
+      "\$hash": "b4afcfb0",
+      "\$name": "UpdatePeerLocated",
       "peers": peers,
     };
 
@@ -23097,7 +23393,8 @@ class UpdateNewScheduledMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x39a51dfb",
+      "\$hash": "39a51dfb",
+      "\$name": "UpdateNewScheduledMessage",
       "message": message,
     };
 
@@ -23176,7 +23473,8 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf2a71983",
+      "\$hash": "f2a71983",
+      "\$name": "UpdateDeleteScheduledMessages",
       "flags": flags,
       "peer": peer,
       "messages": messages,
@@ -23229,7 +23527,8 @@ class UpdateTheme extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8216fba3",
+      "\$hash": "8216fba3",
+      "\$name": "UpdateTheme",
       "theme": theme,
     };
 
@@ -23288,7 +23587,8 @@ class UpdateGeoLiveViewed extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x871fb939",
+      "\$hash": "871fb939",
+      "\$name": "UpdateGeoLiveViewed",
       "peer": peer,
       "msgId": msgId,
     };
@@ -23326,7 +23626,8 @@ class UpdateLoginToken extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x564fe691",
+      "\$hash": "564fe691",
+      "\$name": "UpdateLoginToken",
     };
 
     // Finished toJson.
@@ -23400,7 +23701,8 @@ class UpdateMessagePollVote extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x24f40e77",
+      "\$hash": "24f40e77",
+      "\$name": "UpdateMessagePollVote",
       "pollId": pollId,
       "peer": peer,
       "options": options,
@@ -23478,7 +23780,8 @@ class UpdateDialogFilter extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x26ffde7d",
+      "\$hash": "26ffde7d",
+      "\$name": "UpdateDialogFilter",
       "flags": flags,
       "id": id,
       "filter": filter,
@@ -23530,7 +23833,8 @@ class UpdateDialogFilterOrder extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa5d72105",
+      "\$hash": "a5d72105",
+      "\$name": "UpdateDialogFilterOrder",
       "order": order,
     };
 
@@ -23567,7 +23871,8 @@ class UpdateDialogFilters extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3504914f",
+      "\$hash": "3504914f",
+      "\$name": "UpdateDialogFilters",
     };
 
     // Finished toJson.
@@ -23625,7 +23930,8 @@ class UpdatePhoneCallSignalingData extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2661bf09",
+      "\$hash": "2661bf09",
+      "\$name": "UpdatePhoneCallSignalingData",
       "phoneCallId": phoneCallId,
       "data": data,
     };
@@ -23696,7 +24002,8 @@ class UpdateChannelMessageForwards extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd29a27f4",
+      "\$hash": "d29a27f4",
+      "\$name": "UpdateChannelMessageForwards",
       "channelId": channelId,
       "id": id,
       "forwards": forwards,
@@ -23801,7 +24108,8 @@ class UpdateReadChannelDiscussionInbox extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd6b19546",
+      "\$hash": "d6b19546",
+      "\$name": "UpdateReadChannelDiscussionInbox",
       "flags": flags,
       "channelId": channelId,
       "topMsgId": topMsgId,
@@ -23876,7 +24184,8 @@ class UpdateReadChannelDiscussionOutbox extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x695c9e7c",
+      "\$hash": "695c9e7c",
+      "\$name": "UpdateReadChannelDiscussionOutbox",
       "channelId": channelId,
       "topMsgId": topMsgId,
       "readMaxId": readMaxId,
@@ -23952,7 +24261,8 @@ class UpdatePeerBlocked extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xebe07752",
+      "\$hash": "ebe07752",
+      "\$name": "UpdatePeerBlocked",
       "flags": flags,
       "blocked": blocked,
       "blockedMyStoriesFrom": blockedMyStoriesFrom,
@@ -24043,7 +24353,8 @@ class UpdateChannelUserTyping extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c88c923",
+      "\$hash": "8c88c923",
+      "\$name": "UpdateChannelUserTyping",
       "flags": flags,
       "channelId": channelId,
       "topMsgId": topMsgId,
@@ -24139,7 +24450,8 @@ class UpdatePinnedMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed85eab5",
+      "\$hash": "ed85eab5",
+      "\$name": "UpdatePinnedMessages",
       "flags": flags,
       "pinned": pinned,
       "peer": peer,
@@ -24238,7 +24550,8 @@ class UpdatePinnedChannelMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5bb98608",
+      "\$hash": "5bb98608",
+      "\$name": "UpdatePinnedChannelMessages",
       "flags": flags,
       "pinned": pinned,
       "channelId": channelId,
@@ -24295,7 +24608,8 @@ class UpdateChat extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf89a6a4e",
+      "\$hash": "f89a6a4e",
+      "\$name": "UpdateChat",
       "chatId": chatId,
     };
 
@@ -24361,7 +24675,8 @@ class UpdateGroupCallParticipants extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf2ebdb4e",
+      "\$hash": "f2ebdb4e",
+      "\$name": "UpdateGroupCallParticipants",
       "call": call,
       "participants": participants,
       "version": version,
@@ -24422,7 +24737,8 @@ class UpdateGroupCall extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x14b24500",
+      "\$hash": "14b24500",
+      "\$name": "UpdateGroupCall",
       "chatId": chatId,
       "call": call,
     };
@@ -24495,7 +24811,8 @@ class UpdatePeerHistoryTTL extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb9bb9a5",
+      "\$hash": "bb9bb9a5",
+      "\$name": "UpdatePeerHistoryTTL",
       "flags": flags,
       "peer": peer,
       "ttlPeriod": ttlPeriod,
@@ -24634,7 +24951,8 @@ class UpdateChatParticipant extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd087663a",
+      "\$hash": "d087663a",
+      "\$name": "UpdateChatParticipant",
       "flags": flags,
       "chatId": chatId,
       "date": date.toIso8601String(),
@@ -24786,7 +25104,8 @@ class UpdateChannelParticipant extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x985d3abb",
+      "\$hash": "985d3abb",
+      "\$name": "UpdateChannelParticipant",
       "flags": flags,
       "viaChatlist": viaChatlist,
       "channelId": channelId,
@@ -24870,7 +25189,8 @@ class UpdateBotStopped extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4870a49",
+      "\$hash": "c4870a49",
+      "\$name": "UpdateBotStopped",
       "userId": userId,
       "date": date.toIso8601String(),
       "stopped": stopped,
@@ -24940,7 +25260,8 @@ class UpdateGroupCallConnection extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0b783982",
+      "\$hash": "0b783982",
+      "\$name": "UpdateGroupCallConnection",
       "flags": flags,
       "presentation": presentation,
       "params": params,
@@ -25008,7 +25329,8 @@ class UpdateBotCommands extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4d712f2e",
+      "\$hash": "4d712f2e",
+      "\$name": "UpdateBotCommands",
       "peer": peer,
       "botId": botId,
       "commands": commands,
@@ -25076,7 +25398,8 @@ class UpdatePendingJoinRequests extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7063c3db",
+      "\$hash": "7063c3db",
+      "\$name": "UpdatePendingJoinRequests",
       "peer": peer,
       "requestsPending": requestsPending,
       "recentRequesters": recentRequesters,
@@ -25167,7 +25490,8 @@ class UpdateBotChatInviteRequester extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11dfa986",
+      "\$hash": "11dfa986",
+      "\$name": "UpdateBotChatInviteRequester",
       "peer": peer,
       "date": date.toIso8601String(),
       "userId": userId,
@@ -25260,7 +25584,8 @@ class UpdateMessageReactions extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e1b3cb8",
+      "\$hash": "5e1b3cb8",
+      "\$name": "UpdateMessageReactions",
       "flags": flags,
       "peer": peer,
       "msgId": msgId,
@@ -25301,7 +25626,8 @@ class UpdateAttachMenuBots extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17b7a20b",
+      "\$hash": "17b7a20b",
+      "\$name": "UpdateAttachMenuBots",
     };
 
     // Finished toJson.
@@ -25352,7 +25678,8 @@ class UpdateWebViewResultSent extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1592b79d",
+      "\$hash": "1592b79d",
+      "\$name": "UpdateWebViewResultSent",
       "queryId": queryId,
     };
 
@@ -25411,7 +25738,8 @@ class UpdateBotMenuButton extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x14b85813",
+      "\$hash": "14b85813",
+      "\$name": "UpdateBotMenuButton",
       "botId": botId,
       "button": button,
     };
@@ -25449,7 +25777,8 @@ class UpdateSavedRingtones extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74d8be99",
+      "\$hash": "74d8be99",
+      "\$name": "UpdateSavedRingtones",
     };
 
     // Finished toJson.
@@ -25540,7 +25869,8 @@ class UpdateTranscribedAudio extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0084cd5a",
+      "\$hash": "0084cd5a",
+      "\$name": "UpdateTranscribedAudio",
       "flags": flags,
       "pending": pending,
       "peer": peer,
@@ -25582,7 +25912,8 @@ class UpdateReadFeaturedEmojiStickers extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb4c496c",
+      "\$hash": "fb4c496c",
+      "\$name": "UpdateReadFeaturedEmojiStickers",
     };
 
     // Finished toJson.
@@ -25640,7 +25971,8 @@ class UpdateUserEmojiStatus extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x28373599",
+      "\$hash": "28373599",
+      "\$name": "UpdateUserEmojiStatus",
       "userId": userId,
       "emojiStatus": emojiStatus,
     };
@@ -25678,7 +26010,8 @@ class UpdateRecentEmojiStatuses extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x30f443db",
+      "\$hash": "30f443db",
+      "\$name": "UpdateRecentEmojiStatuses",
     };
 
     // Finished toJson.
@@ -25714,7 +26047,8 @@ class UpdateRecentReactions extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f7863f4",
+      "\$hash": "6f7863f4",
+      "\$name": "UpdateRecentReactions",
     };
 
     // Finished toJson.
@@ -25789,7 +26123,8 @@ class UpdateMoveStickerSetToTop extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x86fccf85",
+      "\$hash": "86fccf85",
+      "\$name": "UpdateMoveStickerSetToTop",
       "flags": flags,
       "masks": masks,
       "emojis": emojis,
@@ -25858,7 +26193,8 @@ class UpdateMessageExtendedMedia extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd5a41724",
+      "\$hash": "d5a41724",
+      "\$name": "UpdateMessageExtendedMedia",
       "peer": peer,
       "msgId": msgId,
       "extendedMedia": extendedMedia,
@@ -25938,7 +26274,8 @@ class UpdateChannelPinnedTopic extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x192efbe3",
+      "\$hash": "192efbe3",
+      "\$name": "UpdateChannelPinnedTopic",
       "flags": flags,
       "pinned": pinned,
       "channelId": channelId,
@@ -26015,7 +26352,8 @@ class UpdateChannelPinnedTopics extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfe198602",
+      "\$hash": "fe198602",
+      "\$name": "UpdateChannelPinnedTopics",
       "flags": flags,
       "channelId": channelId,
       "order": order,
@@ -26069,7 +26407,8 @@ class UpdateUser extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x20529438",
+      "\$hash": "20529438",
+      "\$name": "UpdateUser",
       "userId": userId,
     };
 
@@ -26106,7 +26445,8 @@ class UpdateAutoSaveSettings extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec05b097",
+      "\$hash": "ec05b097",
+      "\$name": "UpdateAutoSaveSettings",
     };
 
     // Finished toJson.
@@ -26162,7 +26502,8 @@ class UpdateStory extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x75b3b798",
+      "\$hash": "75b3b798",
+      "\$name": "UpdateStory",
       "peer": peer,
       "story": story,
     };
@@ -26222,7 +26563,8 @@ class UpdateReadStories extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf74e932b",
+      "\$hash": "f74e932b",
+      "\$name": "UpdateReadStories",
       "peer": peer,
       "maxId": maxId,
     };
@@ -26284,7 +26626,8 @@ class UpdateStoryID extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1bf335b9",
+      "\$hash": "1bf335b9",
+      "\$name": "UpdateStoryID",
       "id": id,
       "randomId": randomId,
     };
@@ -26335,7 +26678,8 @@ class UpdateStoriesStealthMode extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2c084dc1",
+      "\$hash": "2c084dc1",
+      "\$name": "UpdateStoriesStealthMode",
       "stealthMode": stealthMode,
     };
 
@@ -26401,7 +26745,8 @@ class UpdateSentStoryReaction extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7d627683",
+      "\$hash": "7d627683",
+      "\$name": "UpdateSentStoryReaction",
       "peer": peer,
       "storyId": storyId,
       "reaction": reaction,
@@ -26469,7 +26814,8 @@ class UpdateBotChatBoost extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x904dd49c",
+      "\$hash": "904dd49c",
+      "\$name": "UpdateBotChatBoost",
       "peer": peer,
       "boost": boost,
       "qts": qts,
@@ -26530,7 +26876,8 @@ class UpdateChannelViewForumAsMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x07b68920",
+      "\$hash": "07b68920",
+      "\$name": "UpdateChannelViewForumAsMessages",
       "channelId": channelId,
       "enabled": enabled,
     };
@@ -26611,7 +26958,8 @@ class UpdatePeerWallpaper extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xae3f101d",
+      "\$hash": "ae3f101d",
+      "\$name": "UpdatePeerWallpaper",
       "flags": flags,
       "wallpaperOverridden": wallpaperOverridden,
       "peer": peer,
@@ -26710,7 +27058,8 @@ class UpdateBotMessageReaction extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xac21d3ce",
+      "\$hash": "ac21d3ce",
+      "\$name": "UpdateBotMessageReaction",
       "peer": peer,
       "msgId": msgId,
       "date": date.toIso8601String(),
@@ -26798,7 +27147,8 @@ class UpdateBotMessageReactions extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x09cb7759",
+      "\$hash": "09cb7759",
+      "\$name": "UpdateBotMessageReactions",
       "peer": peer,
       "msgId": msgId,
       "date": date.toIso8601String(),
@@ -26869,7 +27219,8 @@ class UpdateSavedDialogPinned extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaeaf9e74",
+      "\$hash": "aeaf9e74",
+      "\$name": "UpdateSavedDialogPinned",
       "flags": flags,
       "pinned": pinned,
       "peer": peer,
@@ -26937,7 +27288,8 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x686c85a6",
+      "\$hash": "686c85a6",
+      "\$name": "UpdatePinnedSavedDialogs",
       "flags": flags,
       "order": order,
     };
@@ -26975,7 +27327,8 @@ class UpdateSavedReactionTags extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x39c67432",
+      "\$hash": "39c67432",
+      "\$name": "UpdateSavedReactionTags",
     };
 
     // Finished toJson.
@@ -27024,7 +27377,8 @@ class UpdateSmsJob extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf16269d4",
+      "\$hash": "f16269d4",
+      "\$name": "UpdateSmsJob",
       "jobId": jobId,
     };
 
@@ -27074,7 +27428,8 @@ class UpdateQuickReplies extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf9470ab2",
+      "\$hash": "f9470ab2",
+      "\$name": "UpdateQuickReplies",
       "quickReplies": quickReplies,
     };
 
@@ -27124,7 +27479,8 @@ class UpdateNewQuickReply extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf53da717",
+      "\$hash": "f53da717",
+      "\$name": "UpdateNewQuickReply",
       "quickReply": quickReply,
     };
 
@@ -27176,7 +27532,8 @@ class UpdateDeleteQuickReply extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53e6f1ec",
+      "\$hash": "53e6f1ec",
+      "\$name": "UpdateDeleteQuickReply",
       "shortcutId": shortcutId,
     };
 
@@ -27226,7 +27583,8 @@ class UpdateQuickReplyMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e050d0f",
+      "\$hash": "3e050d0f",
+      "\$name": "UpdateQuickReplyMessage",
       "message": message,
     };
 
@@ -27285,7 +27643,8 @@ class UpdateDeleteQuickReplyMessages extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x566fe7cd",
+      "\$hash": "566fe7cd",
+      "\$name": "UpdateDeleteQuickReplyMessages",
       "shortcutId": shortcutId,
       "messages": messages,
     };
@@ -27345,7 +27704,8 @@ class UpdateBotBusinessConnect extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ae5c97a",
+      "\$hash": "8ae5c97a",
+      "\$name": "UpdateBotBusinessConnect",
       "connection": connection,
       "qts": qts,
     };
@@ -27435,7 +27795,8 @@ class UpdateBotNewBusinessMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9ddb347c",
+      "\$hash": "9ddb347c",
+      "\$name": "UpdateBotNewBusinessMessage",
       "flags": flags,
       "connectionId": connectionId,
       "message": message,
@@ -27528,7 +27889,8 @@ class UpdateBotEditBusinessMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x07df587c",
+      "\$hash": "07df587c",
+      "\$name": "UpdateBotEditBusinessMessage",
       "flags": flags,
       "connectionId": connectionId,
       "message": message,
@@ -27605,7 +27967,8 @@ class UpdateBotDeleteBusinessMessage extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa02a982e",
+      "\$hash": "a02a982e",
+      "\$name": "UpdateBotDeleteBusinessMessage",
       "connectionId": connectionId,
       "peer": peer,
       "messages": messages,
@@ -27674,7 +28037,8 @@ class UpdateNewStoryReaction extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1824e40b",
+      "\$hash": "1824e40b",
+      "\$name": "UpdateNewStoryReaction",
       "storyId": storyId,
       "peer": peer,
       "reaction": reaction,
@@ -27733,7 +28097,8 @@ class UpdateBroadcastRevenueTransactions extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdfd961f5",
+      "\$hash": "dfd961f5",
+      "\$name": "UpdateBroadcastRevenueTransactions",
       "peer": peer,
       "balances": balances,
     };
@@ -27784,7 +28149,8 @@ class UpdateStarsBalance extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4e80a379",
+      "\$hash": "4e80a379",
+      "\$name": "UpdateStarsBalance",
       "balance": balance,
     };
 
@@ -27903,7 +28269,8 @@ class UpdateBusinessBotCallbackQuery extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ea2fda7",
+      "\$hash": "1ea2fda7",
+      "\$name": "UpdateBusinessBotCallbackQuery",
       "flags": flags,
       "queryId": queryId,
       "userId": userId,
@@ -27967,7 +28334,8 @@ class UpdateStarsRevenueStatus extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa584b019",
+      "\$hash": "a584b019",
+      "\$name": "UpdateStarsRevenueStatus",
       "peer": peer,
       "status": status,
     };
@@ -28036,7 +28404,8 @@ class UpdateBotPurchasedPaidMedia extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x283bd312",
+      "\$hash": "283bd312",
+      "\$name": "UpdateBotPurchasedPaidMedia",
       "userId": userId,
       "payload": payload,
       "qts": qts,
@@ -28088,7 +28457,8 @@ class UpdatePaidReactionPrivacy extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x51ca7aec",
+      "\$hash": "51ca7aec",
+      "\$name": "UpdatePaidReactionPrivacy",
       "private": private,
     };
 
@@ -28174,7 +28544,8 @@ class UpdatesState extends UpdatesStateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa56c2a3e",
+      "\$hash": "a56c2a3e",
+      "\$name": "UpdatesState",
       "pts": pts,
       "qts": qts,
       "date": date.toIso8601String(),
@@ -28237,7 +28608,8 @@ class UpdatesDifferenceEmpty extends UpdatesDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5d75a138",
+      "\$hash": "5d75a138",
+      "\$name": "UpdatesDifferenceEmpty",
       "date": date.toIso8601String(),
       "seq": seq,
     };
@@ -28324,7 +28696,8 @@ class UpdatesDifference extends UpdatesDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x00f49ca0",
+      "\$hash": "00f49ca0",
+      "\$name": "UpdatesDifference",
       "newMessages": newMessages,
       "newEncryptedMessages": newEncryptedMessages,
       "otherUpdates": otherUpdates,
@@ -28415,7 +28788,8 @@ class UpdatesDifferenceSlice extends UpdatesDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa8fb1981",
+      "\$hash": "a8fb1981",
+      "\$name": "UpdatesDifferenceSlice",
       "newMessages": newMessages,
       "newEncryptedMessages": newEncryptedMessages,
       "otherUpdates": otherUpdates,
@@ -28472,7 +28846,8 @@ class UpdatesDifferenceTooLong extends UpdatesDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4afe8f6d",
+      "\$hash": "4afe8f6d",
+      "\$name": "UpdatesDifferenceTooLong",
       "pts": pts,
     };
 
@@ -28509,7 +28884,8 @@ class UpdatesTooLong extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe317af7e",
+      "\$hash": "e317af7e",
+      "\$name": "UpdatesTooLong",
     };
 
     // Finished toJson.
@@ -28702,7 +29078,8 @@ class UpdateShortMessage extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x313bc7f8",
+      "\$hash": "313bc7f8",
+      "\$name": "UpdateShortMessage",
       "flags": flags,
       "out": out,
       "mentioned": mentioned,
@@ -28920,7 +29297,8 @@ class UpdateShortChatMessage extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4d6deea5",
+      "\$hash": "4d6deea5",
+      "\$name": "UpdateShortChatMessage",
       "flags": flags,
       "out": out,
       "mentioned": mentioned,
@@ -28993,7 +29371,8 @@ class UpdateShort extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x78d4dec1",
+      "\$hash": "78d4dec1",
+      "\$name": "UpdateShort",
       "update": update,
       "date": date.toIso8601String(),
     };
@@ -29083,7 +29462,8 @@ class UpdatesCombined extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x725b04c3",
+      "\$hash": "725b04c3",
+      "\$name": "UpdatesCombined",
       "updates": updates,
       "users": users,
       "chats": chats,
@@ -29168,7 +29548,8 @@ class Updates extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74ae4240",
+      "\$hash": "74ae4240",
+      "\$name": "Updates",
       "updates": updates,
       "users": users,
       "chats": chats,
@@ -29304,7 +29685,8 @@ class UpdateShortSentMessage extends UpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9015e101",
+      "\$hash": "9015e101",
+      "\$name": "UpdateShortSentMessage",
       "flags": flags,
       "out": out,
       "id": id,
@@ -29369,7 +29751,8 @@ class PhotosPhotos extends PhotosPhotosBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8dca6aa5",
+      "\$hash": "8dca6aa5",
+      "\$name": "PhotosPhotos",
       "photos": photos,
       "users": users,
     };
@@ -29436,7 +29819,8 @@ class PhotosPhotosSlice extends PhotosPhotosBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15051f54",
+      "\$hash": "15051f54",
+      "\$name": "PhotosPhotosSlice",
       "count": count,
       "photos": photos,
       "users": users,
@@ -29495,7 +29879,8 @@ class PhotosPhoto extends PhotosPhotoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x20212ca8",
+      "\$hash": "20212ca8",
+      "\$name": "PhotosPhoto",
       "photo": photo,
       "users": users,
     };
@@ -29562,7 +29947,8 @@ class UploadFile extends UploadFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x096a18d5",
+      "\$hash": "096a18d5",
+      "\$name": "UploadFile",
       "type": type,
       "mtime": mtime,
       "bytes": bytes,
@@ -29644,7 +30030,8 @@ class UploadFileCdnRedirect extends UploadFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf18cda44",
+      "\$hash": "f18cda44",
+      "\$name": "UploadFileCdnRedirect",
       "dcId": dcId,
       "fileToken": fileToken,
       "encryptionKey": encryptionKey,
@@ -29780,7 +30167,8 @@ class DcOption extends DcOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x18b7a10d",
+      "\$hash": "18b7a10d",
+      "\$name": "DcOption",
       "flags": flags,
       "ipv6": ipv6,
       "mediaOnly": mediaOnly,
@@ -30285,7 +30673,8 @@ class Config extends ConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc1a241e",
+      "\$hash": "cc1a241e",
+      "\$name": "Config",
       "flags": flags,
       "defaultP2pContacts": defaultP2pContacts,
       "preloadFeaturedStickers": preloadFeaturedStickers,
@@ -30400,7 +30789,8 @@ class NearestDc extends NearestDcBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8e1a1775",
+      "\$hash": "8e1a1775",
+      "\$name": "NearestDc",
       "country": country,
       "thisDc": thisDc,
       "nearestDc": nearestDc,
@@ -30530,7 +30920,8 @@ class HelpAppUpdate extends HelpAppUpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xccbbce30",
+      "\$hash": "ccbbce30",
+      "\$name": "HelpAppUpdate",
       "flags": flags,
       "canNotSkip": canNotSkip,
       "id": id,
@@ -30575,7 +30966,8 @@ class HelpNoAppUpdate extends HelpAppUpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc45a6536",
+      "\$hash": "c45a6536",
+      "\$name": "HelpNoAppUpdate",
     };
 
     // Finished toJson.
@@ -30624,7 +31016,8 @@ class HelpInviteText extends HelpInviteTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x18cb9f78",
+      "\$hash": "18cb9f78",
+      "\$name": "HelpInviteText",
       "message": message,
     };
 
@@ -30676,7 +31069,8 @@ class EncryptedChatEmpty extends EncryptedChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xab7ec0a0",
+      "\$hash": "ab7ec0a0",
+      "\$name": "EncryptedChatEmpty",
       "id": id,
     };
 
@@ -30762,7 +31156,8 @@ class EncryptedChatWaiting extends EncryptedChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x66b25953",
+      "\$hash": "66b25953",
+      "\$name": "EncryptedChatWaiting",
       "id": id,
       "accessHash": accessHash,
       "date": date.toIso8601String(),
@@ -30881,7 +31276,8 @@ class EncryptedChatRequested extends EncryptedChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x48f1d94c",
+      "\$hash": "48f1d94c",
+      "\$name": "EncryptedChatRequested",
       "flags": flags,
       "folderId": folderId,
       "id": id,
@@ -30990,7 +31386,8 @@ class EncryptedChat extends EncryptedChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x61f0d4c7",
+      "\$hash": "61f0d4c7",
+      "\$name": "EncryptedChat",
       "id": id,
       "accessHash": accessHash,
       "date": date.toIso8601String(),
@@ -31065,7 +31462,8 @@ class EncryptedChatDiscarded extends EncryptedChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e1c7c45",
+      "\$hash": "1e1c7c45",
+      "\$name": "EncryptedChatDiscarded",
       "flags": flags,
       "historyDeleted": historyDeleted,
       "id": id,
@@ -31128,7 +31526,8 @@ class InputEncryptedChat extends InputEncryptedChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf141b5e1",
+      "\$hash": "f141b5e1",
+      "\$name": "InputEncryptedChat",
       "chatId": chatId,
       "accessHash": accessHash,
     };
@@ -31166,7 +31565,8 @@ class EncryptedFileEmpty extends EncryptedFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc21f497e",
+      "\$hash": "c21f497e",
+      "\$name": "EncryptedFileEmpty",
     };
 
     // Finished toJson.
@@ -31253,7 +31653,8 @@ class EncryptedFile extends EncryptedFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa8008cd8",
+      "\$hash": "a8008cd8",
+      "\$name": "EncryptedFile",
       "id": id,
       "accessHash": accessHash,
       "size": size,
@@ -31294,7 +31695,8 @@ class InputEncryptedFileEmpty extends InputEncryptedFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1837c364",
+      "\$hash": "1837c364",
+      "\$name": "InputEncryptedFileEmpty",
     };
 
     // Finished toJson.
@@ -31370,7 +31772,8 @@ class InputEncryptedFileUploaded extends InputEncryptedFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64bd0306",
+      "\$hash": "64bd0306",
+      "\$name": "InputEncryptedFileUploaded",
       "id": id,
       "parts": parts,
       "md5Checksum": md5Checksum,
@@ -31434,7 +31837,8 @@ class InputEncryptedFile extends InputEncryptedFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a17b5e5",
+      "\$hash": "5a17b5e5",
+      "\$name": "InputEncryptedFile",
       "id": id,
       "accessHash": accessHash,
     };
@@ -31505,7 +31909,8 @@ class InputEncryptedFileBigUploaded extends InputEncryptedFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2dc173c8",
+      "\$hash": "2dc173c8",
+      "\$name": "InputEncryptedFileBigUploaded",
       "id": id,
       "parts": parts,
       "keyFingerprint": keyFingerprint,
@@ -31589,7 +31994,8 @@ class EncryptedMessage extends EncryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed18c118",
+      "\$hash": "ed18c118",
+      "\$name": "EncryptedMessage",
       "randomId": randomId,
       "chatId": chatId,
       "date": date.toIso8601String(),
@@ -31668,7 +32074,8 @@ class EncryptedMessageService extends EncryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x23734b06",
+      "\$hash": "23734b06",
+      "\$name": "EncryptedMessageService",
       "randomId": randomId,
       "chatId": chatId,
       "date": date.toIso8601String(),
@@ -31721,7 +32128,8 @@ class MessagesDhConfigNotModified extends MessagesDhConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc0e24635",
+      "\$hash": "c0e24635",
+      "\$name": "MessagesDhConfigNotModified",
       "random": random,
     };
 
@@ -31796,7 +32204,8 @@ class MessagesDhConfig extends MessagesDhConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2c221edd",
+      "\$hash": "2c221edd",
+      "\$name": "MessagesDhConfig",
       "g": g,
       "p": p,
       "version": version,
@@ -31849,7 +32258,8 @@ class MessagesSentEncryptedMessage extends MessagesSentEncryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x560f8935",
+      "\$hash": "560f8935",
+      "\$name": "MessagesSentEncryptedMessage",
       "date": date.toIso8601String(),
     };
 
@@ -31906,7 +32316,8 @@ class MessagesSentEncryptedFile extends MessagesSentEncryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9493ff32",
+      "\$hash": "9493ff32",
+      "\$name": "MessagesSentEncryptedFile",
       "date": date.toIso8601String(),
       "file": file,
     };
@@ -31944,7 +32355,8 @@ class InputDocumentEmpty extends InputDocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x72f0eaae",
+      "\$hash": "72f0eaae",
+      "\$name": "InputDocumentEmpty",
     };
 
     // Finished toJson.
@@ -32011,7 +32423,8 @@ class InputDocument extends InputDocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1abfb575",
+      "\$hash": "1abfb575",
+      "\$name": "InputDocument",
       "id": id,
       "accessHash": accessHash,
       "fileReference": fileReference,
@@ -32065,7 +32478,8 @@ class DocumentEmpty extends DocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36f8c871",
+      "\$hash": "36f8c871",
+      "\$name": "DocumentEmpty",
       "id": id,
     };
 
@@ -32208,7 +32622,8 @@ class Document extends DocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8fd4c4d8",
+      "\$hash": "8fd4c4d8",
+      "\$name": "Document",
       "flags": flags,
       "id": id,
       "accessHash": accessHash,
@@ -32275,7 +32690,8 @@ class HelpSupport extends HelpSupportBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17c6b5f6",
+      "\$hash": "17c6b5f6",
+      "\$name": "HelpSupport",
       "phoneNumber": phoneNumber,
       "user": user,
     };
@@ -32326,7 +32742,8 @@ class NotifyPeer extends NotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9fd40bd8",
+      "\$hash": "9fd40bd8",
+      "\$name": "NotifyPeer",
       "peer": peer,
     };
 
@@ -32363,7 +32780,8 @@ class NotifyUsers extends NotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4c83b4c",
+      "\$hash": "b4c83b4c",
+      "\$name": "NotifyUsers",
     };
 
     // Finished toJson.
@@ -32399,7 +32817,8 @@ class NotifyChats extends NotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc007cec3",
+      "\$hash": "c007cec3",
+      "\$name": "NotifyChats",
     };
 
     // Finished toJson.
@@ -32435,7 +32854,8 @@ class NotifyBroadcasts extends NotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd612e8ef",
+      "\$hash": "d612e8ef",
+      "\$name": "NotifyBroadcasts",
     };
 
     // Finished toJson.
@@ -32493,7 +32913,8 @@ class NotifyForumTopic extends NotifyPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x226e6308",
+      "\$hash": "226e6308",
+      "\$name": "NotifyForumTopic",
       "peer": peer,
       "topMsgId": topMsgId,
     };
@@ -32531,7 +32952,8 @@ class SendMessageTypingAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x16bf744e",
+      "\$hash": "16bf744e",
+      "\$name": "SendMessageTypingAction",
     };
 
     // Finished toJson.
@@ -32567,7 +32989,8 @@ class SendMessageCancelAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfd5ec8f5",
+      "\$hash": "fd5ec8f5",
+      "\$name": "SendMessageCancelAction",
     };
 
     // Finished toJson.
@@ -32603,7 +33026,8 @@ class SendMessageRecordVideoAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa187d66f",
+      "\$hash": "a187d66f",
+      "\$name": "SendMessageRecordVideoAction",
     };
 
     // Finished toJson.
@@ -32654,7 +33078,8 @@ class SendMessageUploadVideoAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe9763aec",
+      "\$hash": "e9763aec",
+      "\$name": "SendMessageUploadVideoAction",
       "progress": progress,
     };
 
@@ -32691,7 +33116,8 @@ class SendMessageRecordAudioAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd52f73f7",
+      "\$hash": "d52f73f7",
+      "\$name": "SendMessageRecordAudioAction",
     };
 
     // Finished toJson.
@@ -32742,7 +33168,8 @@ class SendMessageUploadAudioAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf351d7ab",
+      "\$hash": "f351d7ab",
+      "\$name": "SendMessageUploadAudioAction",
       "progress": progress,
     };
 
@@ -32794,7 +33221,8 @@ class SendMessageUploadPhotoAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1d34a26",
+      "\$hash": "d1d34a26",
+      "\$name": "SendMessageUploadPhotoAction",
       "progress": progress,
     };
 
@@ -32846,7 +33274,8 @@ class SendMessageUploadDocumentAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa0cd9e4",
+      "\$hash": "aa0cd9e4",
+      "\$name": "SendMessageUploadDocumentAction",
       "progress": progress,
     };
 
@@ -32883,7 +33312,8 @@ class SendMessageGeoLocationAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x176f8ba1",
+      "\$hash": "176f8ba1",
+      "\$name": "SendMessageGeoLocationAction",
     };
 
     // Finished toJson.
@@ -32919,7 +33349,8 @@ class SendMessageChooseContactAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x628cbc6f",
+      "\$hash": "628cbc6f",
+      "\$name": "SendMessageChooseContactAction",
     };
 
     // Finished toJson.
@@ -32955,7 +33386,8 @@ class SendMessageGamePlayAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdd6a8f48",
+      "\$hash": "dd6a8f48",
+      "\$name": "SendMessageGamePlayAction",
     };
 
     // Finished toJson.
@@ -32991,7 +33423,8 @@ class SendMessageRecordRoundAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x88f27fbc",
+      "\$hash": "88f27fbc",
+      "\$name": "SendMessageRecordRoundAction",
     };
 
     // Finished toJson.
@@ -33042,7 +33475,8 @@ class SendMessageUploadRoundAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x243e1c66",
+      "\$hash": "243e1c66",
+      "\$name": "SendMessageUploadRoundAction",
       "progress": progress,
     };
 
@@ -33079,7 +33513,8 @@ class SpeakingInGroupCallAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd92c2285",
+      "\$hash": "d92c2285",
+      "\$name": "SpeakingInGroupCallAction",
     };
 
     // Finished toJson.
@@ -33130,7 +33565,8 @@ class SendMessageHistoryImportAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdbda9246",
+      "\$hash": "dbda9246",
+      "\$name": "SendMessageHistoryImportAction",
       "progress": progress,
     };
 
@@ -33167,7 +33603,8 @@ class SendMessageChooseStickerAction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb05ac6b1",
+      "\$hash": "b05ac6b1",
+      "\$name": "SendMessageChooseStickerAction",
     };
 
     // Finished toJson.
@@ -33232,7 +33669,8 @@ class SendMessageEmojiInteraction extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x25972bcb",
+      "\$hash": "25972bcb",
+      "\$name": "SendMessageEmojiInteraction",
       "emoticon": emoticon,
       "msgId": msgId,
       "interaction": interaction,
@@ -33284,7 +33722,8 @@ class SendMessageEmojiInteractionSeen extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb665902e",
+      "\$hash": "b665902e",
+      "\$name": "SendMessageEmojiInteractionSeen",
       "emoticon": emoticon,
     };
 
@@ -33355,7 +33794,8 @@ class ContactsFound extends ContactsFoundBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb3134d9d",
+      "\$hash": "b3134d9d",
+      "\$name": "ContactsFound",
       "myResults": myResults,
       "results": results,
       "chats": chats,
@@ -33395,7 +33835,8 @@ class InputPrivacyKeyStatusTimestamp extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f96cb18",
+      "\$hash": "4f96cb18",
+      "\$name": "InputPrivacyKeyStatusTimestamp",
     };
 
     // Finished toJson.
@@ -33431,7 +33872,8 @@ class InputPrivacyKeyChatInvite extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdfb0426",
+      "\$hash": "bdfb0426",
+      "\$name": "InputPrivacyKeyChatInvite",
     };
 
     // Finished toJson.
@@ -33467,7 +33909,8 @@ class InputPrivacyKeyPhoneCall extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfabadc5f",
+      "\$hash": "fabadc5f",
+      "\$name": "InputPrivacyKeyPhoneCall",
     };
 
     // Finished toJson.
@@ -33503,7 +33946,8 @@ class InputPrivacyKeyPhoneP2P extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb9e70d2",
+      "\$hash": "db9e70d2",
+      "\$name": "InputPrivacyKeyPhoneP2P",
     };
 
     // Finished toJson.
@@ -33539,7 +33983,8 @@ class InputPrivacyKeyForwards extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa4dd4c08",
+      "\$hash": "a4dd4c08",
+      "\$name": "InputPrivacyKeyForwards",
     };
 
     // Finished toJson.
@@ -33575,7 +34020,8 @@ class InputPrivacyKeyProfilePhoto extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5719bacc",
+      "\$hash": "5719bacc",
+      "\$name": "InputPrivacyKeyProfilePhoto",
     };
 
     // Finished toJson.
@@ -33611,7 +34057,8 @@ class InputPrivacyKeyPhoneNumber extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0352dafa",
+      "\$hash": "0352dafa",
+      "\$name": "InputPrivacyKeyPhoneNumber",
     };
 
     // Finished toJson.
@@ -33647,7 +34094,8 @@ class InputPrivacyKeyAddedByPhone extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1219bdd",
+      "\$hash": "d1219bdd",
+      "\$name": "InputPrivacyKeyAddedByPhone",
     };
 
     // Finished toJson.
@@ -33683,7 +34131,8 @@ class InputPrivacyKeyVoiceMessages extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaee69d68",
+      "\$hash": "aee69d68",
+      "\$name": "InputPrivacyKeyVoiceMessages",
     };
 
     // Finished toJson.
@@ -33719,7 +34168,8 @@ class InputPrivacyKeyAbout extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3823cc40",
+      "\$hash": "3823cc40",
+      "\$name": "InputPrivacyKeyAbout",
     };
 
     // Finished toJson.
@@ -33755,7 +34205,8 @@ class InputPrivacyKeyBirthday extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd65a11cc",
+      "\$hash": "d65a11cc",
+      "\$name": "InputPrivacyKeyBirthday",
     };
 
     // Finished toJson.
@@ -33791,7 +34242,8 @@ class InputPrivacyKeyStarGiftsAutoSave extends InputPrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe1732341",
+      "\$hash": "e1732341",
+      "\$name": "InputPrivacyKeyStarGiftsAutoSave",
     };
 
     // Finished toJson.
@@ -33827,7 +34279,8 @@ class PrivacyKeyStatusTimestamp extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbc2eab30",
+      "\$hash": "bc2eab30",
+      "\$name": "PrivacyKeyStatusTimestamp",
     };
 
     // Finished toJson.
@@ -33863,7 +34316,8 @@ class PrivacyKeyChatInvite extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x500e6dfa",
+      "\$hash": "500e6dfa",
+      "\$name": "PrivacyKeyChatInvite",
     };
 
     // Finished toJson.
@@ -33899,7 +34353,8 @@ class PrivacyKeyPhoneCall extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3d662b7b",
+      "\$hash": "3d662b7b",
+      "\$name": "PrivacyKeyPhoneCall",
     };
 
     // Finished toJson.
@@ -33935,7 +34390,8 @@ class PrivacyKeyPhoneP2P extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x39491cc8",
+      "\$hash": "39491cc8",
+      "\$name": "PrivacyKeyPhoneP2P",
     };
 
     // Finished toJson.
@@ -33971,7 +34427,8 @@ class PrivacyKeyForwards extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x69ec56a3",
+      "\$hash": "69ec56a3",
+      "\$name": "PrivacyKeyForwards",
     };
 
     // Finished toJson.
@@ -34007,7 +34464,8 @@ class PrivacyKeyProfilePhoto extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x96151fed",
+      "\$hash": "96151fed",
+      "\$name": "PrivacyKeyProfilePhoto",
     };
 
     // Finished toJson.
@@ -34043,7 +34501,8 @@ class PrivacyKeyPhoneNumber extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd19ae46d",
+      "\$hash": "d19ae46d",
+      "\$name": "PrivacyKeyPhoneNumber",
     };
 
     // Finished toJson.
@@ -34079,7 +34538,8 @@ class PrivacyKeyAddedByPhone extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x42ffd42b",
+      "\$hash": "42ffd42b",
+      "\$name": "PrivacyKeyAddedByPhone",
     };
 
     // Finished toJson.
@@ -34115,7 +34575,8 @@ class PrivacyKeyVoiceMessages extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0697f414",
+      "\$hash": "0697f414",
+      "\$name": "PrivacyKeyVoiceMessages",
     };
 
     // Finished toJson.
@@ -34151,7 +34612,8 @@ class PrivacyKeyAbout extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa486b761",
+      "\$hash": "a486b761",
+      "\$name": "PrivacyKeyAbout",
     };
 
     // Finished toJson.
@@ -34187,7 +34649,8 @@ class PrivacyKeyBirthday extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2000a518",
+      "\$hash": "2000a518",
+      "\$name": "PrivacyKeyBirthday",
     };
 
     // Finished toJson.
@@ -34223,7 +34686,8 @@ class PrivacyKeyStarGiftsAutoSave extends PrivacyKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ca4fdf8",
+      "\$hash": "2ca4fdf8",
+      "\$name": "PrivacyKeyStarGiftsAutoSave",
     };
 
     // Finished toJson.
@@ -34259,7 +34723,8 @@ class InputPrivacyValueAllowContacts extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0d09e07b",
+      "\$hash": "0d09e07b",
+      "\$name": "InputPrivacyValueAllowContacts",
     };
 
     // Finished toJson.
@@ -34295,7 +34760,8 @@ class InputPrivacyValueAllowAll extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x184b35ce",
+      "\$hash": "184b35ce",
+      "\$name": "InputPrivacyValueAllowAll",
     };
 
     // Finished toJson.
@@ -34344,7 +34810,8 @@ class InputPrivacyValueAllowUsers extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x131cc67f",
+      "\$hash": "131cc67f",
+      "\$name": "InputPrivacyValueAllowUsers",
       "users": users,
     };
 
@@ -34381,7 +34848,8 @@ class InputPrivacyValueDisallowContacts extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ba52007",
+      "\$hash": "0ba52007",
+      "\$name": "InputPrivacyValueDisallowContacts",
     };
 
     // Finished toJson.
@@ -34417,7 +34885,8 @@ class InputPrivacyValueDisallowAll extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd66b66c9",
+      "\$hash": "d66b66c9",
+      "\$name": "InputPrivacyValueDisallowAll",
     };
 
     // Finished toJson.
@@ -34466,7 +34935,8 @@ class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x90110467",
+      "\$hash": "90110467",
+      "\$name": "InputPrivacyValueDisallowUsers",
       "users": users,
     };
 
@@ -34517,7 +34987,8 @@ class InputPrivacyValueAllowChatParticipants extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x840649cf",
+      "\$hash": "840649cf",
+      "\$name": "InputPrivacyValueAllowChatParticipants",
       "chats": chats,
     };
 
@@ -34568,7 +35039,8 @@ class InputPrivacyValueDisallowChatParticipants extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe94f0f86",
+      "\$hash": "e94f0f86",
+      "\$name": "InputPrivacyValueDisallowChatParticipants",
       "chats": chats,
     };
 
@@ -34605,7 +35077,8 @@ class InputPrivacyValueAllowCloseFriends extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2f453e49",
+      "\$hash": "2f453e49",
+      "\$name": "InputPrivacyValueAllowCloseFriends",
     };
 
     // Finished toJson.
@@ -34641,7 +35114,8 @@ class InputPrivacyValueAllowPremium extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77cdc9f1",
+      "\$hash": "77cdc9f1",
+      "\$name": "InputPrivacyValueAllowPremium",
     };
 
     // Finished toJson.
@@ -34677,7 +35151,8 @@ class InputPrivacyValueAllowBots extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a4fcce5",
+      "\$hash": "5a4fcce5",
+      "\$name": "InputPrivacyValueAllowBots",
     };
 
     // Finished toJson.
@@ -34713,7 +35188,8 @@ class InputPrivacyValueDisallowBots extends InputPrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4e57915",
+      "\$hash": "c4e57915",
+      "\$name": "InputPrivacyValueDisallowBots",
     };
 
     // Finished toJson.
@@ -34749,7 +35225,8 @@ class PrivacyValueAllowContacts extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfffe1bac",
+      "\$hash": "fffe1bac",
+      "\$name": "PrivacyValueAllowContacts",
     };
 
     // Finished toJson.
@@ -34785,7 +35262,8 @@ class PrivacyValueAllowAll extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x65427b82",
+      "\$hash": "65427b82",
+      "\$name": "PrivacyValueAllowAll",
     };
 
     // Finished toJson.
@@ -34834,7 +35312,8 @@ class PrivacyValueAllowUsers extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb8905fb2",
+      "\$hash": "b8905fb2",
+      "\$name": "PrivacyValueAllowUsers",
       "users": users,
     };
 
@@ -34871,7 +35350,8 @@ class PrivacyValueDisallowContacts extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf888fa1a",
+      "\$hash": "f888fa1a",
+      "\$name": "PrivacyValueDisallowContacts",
     };
 
     // Finished toJson.
@@ -34907,7 +35387,8 @@ class PrivacyValueDisallowAll extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8b73e763",
+      "\$hash": "8b73e763",
+      "\$name": "PrivacyValueDisallowAll",
     };
 
     // Finished toJson.
@@ -34956,7 +35437,8 @@ class PrivacyValueDisallowUsers extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe4621141",
+      "\$hash": "e4621141",
+      "\$name": "PrivacyValueDisallowUsers",
       "users": users,
     };
 
@@ -35006,7 +35488,8 @@ class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6b134e8e",
+      "\$hash": "6b134e8e",
+      "\$name": "PrivacyValueAllowChatParticipants",
       "chats": chats,
     };
 
@@ -35057,7 +35540,8 @@ class PrivacyValueDisallowChatParticipants extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x41c87565",
+      "\$hash": "41c87565",
+      "\$name": "PrivacyValueDisallowChatParticipants",
       "chats": chats,
     };
 
@@ -35094,7 +35578,8 @@ class PrivacyValueAllowCloseFriends extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf7e8d89b",
+      "\$hash": "f7e8d89b",
+      "\$name": "PrivacyValueAllowCloseFriends",
     };
 
     // Finished toJson.
@@ -35130,7 +35615,8 @@ class PrivacyValueAllowPremium extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xece9814b",
+      "\$hash": "ece9814b",
+      "\$name": "PrivacyValueAllowPremium",
     };
 
     // Finished toJson.
@@ -35166,7 +35652,8 @@ class PrivacyValueAllowBots extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x21461b5d",
+      "\$hash": "21461b5d",
+      "\$name": "PrivacyValueAllowBots",
     };
 
     // Finished toJson.
@@ -35202,7 +35689,8 @@ class PrivacyValueDisallowBots extends PrivacyRuleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf6a5f82f",
+      "\$hash": "f6a5f82f",
+      "\$name": "PrivacyValueDisallowBots",
     };
 
     // Finished toJson.
@@ -35265,7 +35753,8 @@ class AccountPrivacyRules extends AccountPrivacyRulesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50a04e45",
+      "\$hash": "50a04e45",
+      "\$name": "AccountPrivacyRules",
       "rules": rules,
       "chats": chats,
       "users": users,
@@ -35319,7 +35808,8 @@ class AccountDaysTTL extends AccountDaysTTLBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb8d0afdf",
+      "\$hash": "b8d0afdf",
+      "\$name": "AccountDaysTTL",
       "days": days,
     };
 
@@ -35380,7 +35870,8 @@ class DocumentAttributeImageSize extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c37c15c",
+      "\$hash": "6c37c15c",
+      "\$name": "DocumentAttributeImageSize",
       "w": w,
       "h": h,
     };
@@ -35418,7 +35909,8 @@ class DocumentAttributeAnimated extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11b58939",
+      "\$hash": "11b58939",
+      "\$name": "DocumentAttributeAnimated",
     };
 
     // Finished toJson.
@@ -35504,7 +35996,8 @@ class DocumentAttributeSticker extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6319d612",
+      "\$hash": "6319d612",
+      "\$name": "DocumentAttributeSticker",
       "flags": flags,
       "mask": mask,
       "alt": alt,
@@ -35644,7 +36137,8 @@ class DocumentAttributeVideo extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x43c57c48",
+      "\$hash": "43c57c48",
+      "\$name": "DocumentAttributeVideo",
       "flags": flags,
       "roundMessage": roundMessage,
       "supportsStreaming": supportsStreaming,
@@ -35758,7 +36252,8 @@ class DocumentAttributeAudio extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9852f9c6",
+      "\$hash": "9852f9c6",
+      "\$name": "DocumentAttributeAudio",
       "flags": flags,
       "voice": voice,
       "duration": duration,
@@ -35813,7 +36308,8 @@ class DocumentAttributeFilename extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15590068",
+      "\$hash": "15590068",
+      "\$name": "DocumentAttributeFilename",
       "fileName": fileName,
     };
 
@@ -35850,7 +36346,8 @@ class DocumentAttributeHasStickers extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9801d2f7",
+      "\$hash": "9801d2f7",
+      "\$name": "DocumentAttributeHasStickers",
     };
 
     // Finished toJson.
@@ -35930,7 +36427,8 @@ class DocumentAttributeCustomEmoji extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfd149899",
+      "\$hash": "fd149899",
+      "\$name": "DocumentAttributeCustomEmoji",
       "flags": flags,
       "free": free,
       "textColor": textColor,
@@ -35971,7 +36469,8 @@ class MessagesStickersNotModified extends MessagesStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf1749a22",
+      "\$hash": "f1749a22",
+      "\$name": "MessagesStickersNotModified",
     };
 
     // Finished toJson.
@@ -36029,7 +36528,8 @@ class MessagesStickers extends MessagesStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x30a6ec7e",
+      "\$hash": "30a6ec7e",
+      "\$name": "MessagesStickers",
       "hash": hash,
       "stickers": stickers,
     };
@@ -36087,7 +36587,8 @@ class StickerPack extends StickerPackBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x12b299d4",
+      "\$hash": "12b299d4",
+      "\$name": "StickerPack",
       "emoticon": emoticon,
       "documents": documents,
     };
@@ -36125,7 +36626,8 @@ class MessagesAllStickersNotModified extends MessagesAllStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe86602c3",
+      "\$hash": "e86602c3",
+      "\$name": "MessagesAllStickersNotModified",
     };
 
     // Finished toJson.
@@ -36183,7 +36685,8 @@ class MessagesAllStickers extends MessagesAllStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcdbbcebb",
+      "\$hash": "cdbbcebb",
+      "\$name": "MessagesAllStickers",
       "hash": hash,
       "sets": sets,
     };
@@ -36245,7 +36748,8 @@ class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x84d19185",
+      "\$hash": "84d19185",
+      "\$name": "MessagesAffectedMessages",
       "pts": pts,
       "ptsCount": ptsCount,
     };
@@ -36320,7 +36824,8 @@ class WebPageEmpty extends WebPageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x211a1788",
+      "\$hash": "211a1788",
+      "\$name": "WebPageEmpty",
       "flags": flags,
       "id": id,
       "url": url,
@@ -36403,7 +36908,8 @@ class WebPagePending extends WebPageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb0d13e47",
+      "\$hash": "b0d13e47",
+      "\$name": "WebPagePending",
       "flags": flags,
       "id": id,
       "url": url,
@@ -36675,7 +37181,8 @@ class WebPage extends WebPageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe89c45b2",
+      "\$hash": "e89c45b2",
+      "\$name": "WebPage",
       "flags": flags,
       "hasLargeMedia": hasLargeMedia,
       "videoCoverPhoto": videoCoverPhoto,
@@ -36760,7 +37267,8 @@ class WebPageNotModified extends WebPageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7311ca11",
+      "\$hash": "7311ca11",
+      "\$name": "WebPageNotModified",
       "flags": flags,
       "cachedPageViews": cachedPageViews,
     };
@@ -36944,7 +37452,8 @@ class Authorization extends AuthorizationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad01d61d",
+      "\$hash": "ad01d61d",
+      "\$name": "Authorization",
       "flags": flags,
       "current": current,
       "officialApp": officialApp,
@@ -37021,7 +37530,8 @@ class AccountAuthorizations extends AccountAuthorizationsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4bff8ea0",
+      "\$hash": "4bff8ea0",
+      "\$name": "AccountAuthorizations",
       "authorizationTtlDays": authorizationTtlDays,
       "authorizations": authorizations,
     };
@@ -37202,7 +37712,8 @@ class AccountPassword extends AccountPasswordBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x957b50fb",
+      "\$hash": "957b50fb",
+      "\$name": "AccountPassword",
       "flags": flags,
       "hasRecovery": hasRecovery,
       "hasSecureValues": hasSecureValues,
@@ -37294,7 +37805,8 @@ class AccountPasswordSettings extends AccountPasswordSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a5c33e5",
+      "\$hash": "9a5c33e5",
+      "\$name": "AccountPasswordSettings",
       "flags": flags,
       "email": email,
       "secureSettings": secureSettings,
@@ -37410,7 +37922,8 @@ class AccountPasswordInputSettings extends AccountPasswordInputSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc23727c9",
+      "\$hash": "c23727c9",
+      "\$name": "AccountPasswordInputSettings",
       "flags": flags,
       "newAlgo": newAlgo,
       "newPasswordHash": newPasswordHash,
@@ -37465,7 +37978,8 @@ class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x137948a5",
+      "\$hash": "137948a5",
+      "\$name": "AuthPasswordRecovery",
       "emailPattern": emailPattern,
     };
 
@@ -37526,7 +38040,8 @@ class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa384b779",
+      "\$hash": "a384b779",
+      "\$name": "ReceivedNotifyMessage",
       "id": id,
       "flags": flags,
     };
@@ -37723,7 +38238,8 @@ class ChatInviteExported extends ExportedChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa22cbd96",
+      "\$hash": "a22cbd96",
+      "\$name": "ChatInviteExported",
       "flags": flags,
       "revoked": revoked,
       "permanent": permanent,
@@ -37774,7 +38290,8 @@ class ChatInvitePublicJoinRequests extends ExportedChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed107ab7",
+      "\$hash": "ed107ab7",
+      "\$name": "ChatInvitePublicJoinRequests",
     };
 
     // Finished toJson.
@@ -37823,7 +38340,8 @@ class ChatInviteAlready extends ChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a686d7c",
+      "\$hash": "5a686d7c",
+      "\$name": "ChatInviteAlready",
       "chat": chat,
     };
 
@@ -38023,7 +38541,8 @@ class ChatInvite extends ChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfe65389d",
+      "\$hash": "fe65389d",
+      "\$name": "ChatInvite",
       "flags": flags,
       "channel": channel,
       "broadcast": broadcast,
@@ -38097,7 +38616,8 @@ class ChatInvitePeek extends ChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x61695cb0",
+      "\$hash": "61695cb0",
+      "\$name": "ChatInvitePeek",
       "chat": chat,
       "expires": expires.toIso8601String(),
     };
@@ -38135,7 +38655,8 @@ class InputStickerSetEmpty extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xffb62b95",
+      "\$hash": "ffb62b95",
+      "\$name": "InputStickerSetEmpty",
     };
 
     // Finished toJson.
@@ -38195,7 +38716,8 @@ class InputStickerSetID extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9de7a269",
+      "\$hash": "9de7a269",
+      "\$name": "InputStickerSetID",
       "id": id,
       "accessHash": accessHash,
     };
@@ -38246,7 +38768,8 @@ class InputStickerSetShortName extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x861cc8a0",
+      "\$hash": "861cc8a0",
+      "\$name": "InputStickerSetShortName",
       "shortName": shortName,
     };
 
@@ -38283,7 +38806,8 @@ class InputStickerSetAnimatedEmoji extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x028703c8",
+      "\$hash": "028703c8",
+      "\$name": "InputStickerSetAnimatedEmoji",
     };
 
     // Finished toJson.
@@ -38332,7 +38856,8 @@ class InputStickerSetDice extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe67f520e",
+      "\$hash": "e67f520e",
+      "\$name": "InputStickerSetDice",
       "emoticon": emoticon,
     };
 
@@ -38370,7 +38895,8 @@ class InputStickerSetAnimatedEmojiAnimations extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0cde3739",
+      "\$hash": "0cde3739",
+      "\$name": "InputStickerSetAnimatedEmojiAnimations",
     };
 
     // Finished toJson.
@@ -38406,7 +38932,8 @@ class InputStickerSetPremiumGifts extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc88b3b02",
+      "\$hash": "c88b3b02",
+      "\$name": "InputStickerSetPremiumGifts",
     };
 
     // Finished toJson.
@@ -38443,7 +38970,8 @@ class InputStickerSetEmojiGenericAnimations extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x04c4d4ce",
+      "\$hash": "04c4d4ce",
+      "\$name": "InputStickerSetEmojiGenericAnimations",
     };
 
     // Finished toJson.
@@ -38479,7 +39007,8 @@ class InputStickerSetEmojiDefaultStatuses extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x29d0f5ee",
+      "\$hash": "29d0f5ee",
+      "\$name": "InputStickerSetEmojiDefaultStatuses",
     };
 
     // Finished toJson.
@@ -38516,7 +39045,8 @@ class InputStickerSetEmojiDefaultTopicIcons extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x44c1f8e9",
+      "\$hash": "44c1f8e9",
+      "\$name": "InputStickerSetEmojiDefaultTopicIcons",
     };
 
     // Finished toJson.
@@ -38553,7 +39083,8 @@ class InputStickerSetEmojiChannelDefaultStatuses extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x49748553",
+      "\$hash": "49748553",
+      "\$name": "InputStickerSetEmojiChannelDefaultStatuses",
     };
 
     // Finished toJson.
@@ -38763,7 +39294,8 @@ class StickerSet extends StickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2dd14edc",
+      "\$hash": "2dd14edc",
+      "\$name": "StickerSet",
       "flags": flags,
       "archived": archived,
       "official": official,
@@ -38852,7 +39384,8 @@ class MessagesStickerSet extends MessagesStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6e153f16",
+      "\$hash": "6e153f16",
+      "\$name": "MessagesStickerSet",
       "set": set,
       "packs": packs,
       "keywords": keywords,
@@ -38892,7 +39425,8 @@ class MessagesStickerSetNotModified extends MessagesStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd3f924eb",
+      "\$hash": "d3f924eb",
+      "\$name": "MessagesStickerSetNotModified",
     };
 
     // Finished toJson.
@@ -38948,7 +39482,8 @@ class BotCommand extends BotCommandBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc27ac8c7",
+      "\$hash": "c27ac8c7",
+      "\$name": "BotCommand",
       "command": command,
       "description": description,
     };
@@ -39112,7 +39647,8 @@ class BotInfo extends BotInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36607333",
+      "\$hash": "36607333",
+      "\$name": "BotInfo",
       "flags": flags,
       "hasPreviewMedias": hasPreviewMedias,
       "userId": userId,
@@ -39171,7 +39707,8 @@ class KeyboardButton extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2fa4880",
+      "\$hash": "a2fa4880",
+      "\$name": "KeyboardButton",
       "text": text,
     };
 
@@ -39228,7 +39765,8 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x258aff05",
+      "\$hash": "258aff05",
+      "\$name": "KeyboardButtonUrl",
       "text": text,
       "url": url,
     };
@@ -39303,7 +39841,8 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35bbdb6b",
+      "\$hash": "35bbdb6b",
+      "\$name": "KeyboardButtonCallback",
       "flags": flags,
       "requiresPassword": requiresPassword,
       "text": text,
@@ -39356,7 +39895,8 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb16a6c29",
+      "\$hash": "b16a6c29",
+      "\$name": "KeyboardButtonRequestPhone",
       "text": text,
     };
 
@@ -39406,7 +39946,8 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfc796b3f",
+      "\$hash": "fc796b3f",
+      "\$name": "KeyboardButtonRequestGeoLocation",
       "text": text,
     };
 
@@ -39494,7 +40035,8 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93b9fbb5",
+      "\$hash": "93b9fbb5",
+      "\$name": "KeyboardButtonSwitchInline",
       "flags": flags,
       "samePeer": samePeer,
       "text": text,
@@ -39548,7 +40090,8 @@ class KeyboardButtonGame extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50f41ccf",
+      "\$hash": "50f41ccf",
+      "\$name": "KeyboardButtonGame",
       "text": text,
     };
 
@@ -39598,7 +40141,8 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xafd93fbb",
+      "\$hash": "afd93fbb",
+      "\$name": "KeyboardButtonBuy",
       "text": text,
     };
 
@@ -39686,7 +40230,8 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10b78d29",
+      "\$hash": "10b78d29",
+      "\$name": "KeyboardButtonUrlAuth",
       "flags": flags,
       "text": text,
       "fwdText": fwdText,
@@ -39783,7 +40328,8 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd02e7fd4",
+      "\$hash": "d02e7fd4",
+      "\$name": "InputKeyboardButtonUrlAuth",
       "flags": flags,
       "requestWriteAccess": requestWriteAccess,
       "text": text,
@@ -39859,7 +40405,8 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbbc7515d",
+      "\$hash": "bbc7515d",
+      "\$name": "KeyboardButtonRequestPoll",
       "flags": flags,
       "quiz": quiz,
       "text": text,
@@ -39918,7 +40465,8 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe988037b",
+      "\$hash": "e988037b",
+      "\$name": "InputKeyboardButtonUserProfile",
       "text": text,
       "userId": userId,
     };
@@ -39978,7 +40526,8 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x308660c1",
+      "\$hash": "308660c1",
+      "\$name": "KeyboardButtonUserProfile",
       "text": text,
       "userId": userId,
     };
@@ -40036,7 +40585,8 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x13767230",
+      "\$hash": "13767230",
+      "\$name": "KeyboardButtonWebView",
       "text": text,
       "url": url,
     };
@@ -40094,7 +40644,8 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa0c0505c",
+      "\$hash": "a0c0505c",
+      "\$name": "KeyboardButtonSimpleWebView",
       "text": text,
       "url": url,
     };
@@ -40170,7 +40721,8 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53d7bfd8",
+      "\$hash": "53d7bfd8",
+      "\$name": "KeyboardButtonRequestPeer",
       "text": text,
       "buttonId": buttonId,
       "peerType": peerType,
@@ -40279,7 +40831,8 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9662d05",
+      "\$hash": "c9662d05",
+      "\$name": "InputKeyboardButtonRequestPeer",
       "flags": flags,
       "nameRequested": nameRequested,
       "usernameRequested": usernameRequested,
@@ -40343,7 +40896,8 @@ class KeyboardButtonCopy extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x75d2698e",
+      "\$hash": "75d2698e",
+      "\$name": "KeyboardButtonCopy",
       "text": text,
       "copyText": copyText,
     };
@@ -40394,7 +40948,8 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77608b83",
+      "\$hash": "77608b83",
+      "\$name": "KeyboardButtonRow",
       "buttons": buttons,
     };
 
@@ -40454,7 +41009,8 @@ class ReplyKeyboardHide extends ReplyMarkupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa03e5b85",
+      "\$hash": "a03e5b85",
+      "\$name": "ReplyKeyboardHide",
       "flags": flags,
       "selective": selective,
     };
@@ -40534,7 +41090,8 @@ class ReplyKeyboardForceReply extends ReplyMarkupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x86b40b08",
+      "\$hash": "86b40b08",
+      "\$name": "ReplyKeyboardForceReply",
       "flags": flags,
       "singleUse": singleUse,
       "selective": selective,
@@ -40637,7 +41194,8 @@ class ReplyKeyboardMarkup extends ReplyMarkupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x85dd99d1",
+      "\$hash": "85dd99d1",
+      "\$name": "ReplyKeyboardMarkup",
       "flags": flags,
       "resize": resize,
       "singleUse": singleUse,
@@ -40693,7 +41251,8 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x48a30254",
+      "\$hash": "48a30254",
+      "\$name": "ReplyInlineMarkup",
       "rows": rows,
     };
 
@@ -40754,7 +41313,8 @@ class MessageEntityUnknown extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb92ba95",
+      "\$hash": "bb92ba95",
+      "\$name": "MessageEntityUnknown",
       "offset": offset,
       "length": length,
     };
@@ -40816,7 +41376,8 @@ class MessageEntityMention extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa04579d",
+      "\$hash": "fa04579d",
+      "\$name": "MessageEntityMention",
       "offset": offset,
       "length": length,
     };
@@ -40878,7 +41439,8 @@ class MessageEntityHashtag extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f635b0d",
+      "\$hash": "6f635b0d",
+      "\$name": "MessageEntityHashtag",
       "offset": offset,
       "length": length,
     };
@@ -40940,7 +41502,8 @@ class MessageEntityBotCommand extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6cef8ac7",
+      "\$hash": "6cef8ac7",
+      "\$name": "MessageEntityBotCommand",
       "offset": offset,
       "length": length,
     };
@@ -41002,7 +41565,8 @@ class MessageEntityUrl extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6ed02538",
+      "\$hash": "6ed02538",
+      "\$name": "MessageEntityUrl",
       "offset": offset,
       "length": length,
     };
@@ -41064,7 +41628,8 @@ class MessageEntityEmail extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64e475c2",
+      "\$hash": "64e475c2",
+      "\$name": "MessageEntityEmail",
       "offset": offset,
       "length": length,
     };
@@ -41126,7 +41691,8 @@ class MessageEntityBold extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd610bc9",
+      "\$hash": "bd610bc9",
+      "\$name": "MessageEntityBold",
       "offset": offset,
       "length": length,
     };
@@ -41188,7 +41754,8 @@ class MessageEntityItalic extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x826f8b60",
+      "\$hash": "826f8b60",
+      "\$name": "MessageEntityItalic",
       "offset": offset,
       "length": length,
     };
@@ -41250,7 +41817,8 @@ class MessageEntityCode extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x28a20571",
+      "\$hash": "28a20571",
+      "\$name": "MessageEntityCode",
       "offset": offset,
       "length": length,
     };
@@ -41319,7 +41887,8 @@ class MessageEntityPre extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73924be0",
+      "\$hash": "73924be0",
+      "\$name": "MessageEntityPre",
       "offset": offset,
       "length": length,
       "language": language,
@@ -41389,7 +41958,8 @@ class MessageEntityTextUrl extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x76a6d327",
+      "\$hash": "76a6d327",
+      "\$name": "MessageEntityTextUrl",
       "offset": offset,
       "length": length,
       "url": url,
@@ -41461,7 +42031,8 @@ class MessageEntityMentionName extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdc7b1140",
+      "\$hash": "dc7b1140",
+      "\$name": "MessageEntityMentionName",
       "offset": offset,
       "length": length,
       "userId": userId,
@@ -41531,7 +42102,8 @@ class InputMessageEntityMentionName extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x208e68c9",
+      "\$hash": "208e68c9",
+      "\$name": "InputMessageEntityMentionName",
       "offset": offset,
       "length": length,
       "userId": userId,
@@ -41594,7 +42166,8 @@ class MessageEntityPhone extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9b69e34b",
+      "\$hash": "9b69e34b",
+      "\$name": "MessageEntityPhone",
       "offset": offset,
       "length": length,
     };
@@ -41656,7 +42229,8 @@ class MessageEntityCashtag extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4c4e743f",
+      "\$hash": "4c4e743f",
+      "\$name": "MessageEntityCashtag",
       "offset": offset,
       "length": length,
     };
@@ -41718,7 +42292,8 @@ class MessageEntityUnderline extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9c4e7e8b",
+      "\$hash": "9c4e7e8b",
+      "\$name": "MessageEntityUnderline",
       "offset": offset,
       "length": length,
     };
@@ -41780,7 +42355,8 @@ class MessageEntityStrike extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbf0693d4",
+      "\$hash": "bf0693d4",
+      "\$name": "MessageEntityStrike",
       "offset": offset,
       "length": length,
     };
@@ -41842,7 +42418,8 @@ class MessageEntityBankCard extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x761e6af4",
+      "\$hash": "761e6af4",
+      "\$name": "MessageEntityBankCard",
       "offset": offset,
       "length": length,
     };
@@ -41904,7 +42481,8 @@ class MessageEntitySpoiler extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x32ca960f",
+      "\$hash": "32ca960f",
+      "\$name": "MessageEntitySpoiler",
       "offset": offset,
       "length": length,
     };
@@ -41975,7 +42553,8 @@ class MessageEntityCustomEmoji extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc8cf05f8",
+      "\$hash": "c8cf05f8",
+      "\$name": "MessageEntityCustomEmoji",
       "offset": offset,
       "length": length,
       "documentId": documentId,
@@ -42055,7 +42634,8 @@ class MessageEntityBlockquote extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf1ccaaac",
+      "\$hash": "f1ccaaac",
+      "\$name": "MessageEntityBlockquote",
       "flags": flags,
       "collapsed": collapsed,
       "offset": offset,
@@ -42095,7 +42675,8 @@ class InputChannelEmpty extends InputChannelBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xee8c1e86",
+      "\$hash": "ee8c1e86",
+      "\$name": "InputChannelEmpty",
     };
 
     // Finished toJson.
@@ -42155,7 +42736,8 @@ class InputChannel extends InputChannelBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf35aec28",
+      "\$hash": "f35aec28",
+      "\$name": "InputChannel",
       "channelId": channelId,
       "accessHash": accessHash,
     };
@@ -42224,7 +42806,8 @@ class InputChannelFromMessage extends InputChannelBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5b934f9d",
+      "\$hash": "5b934f9d",
+      "\$name": "InputChannelFromMessage",
       "peer": peer,
       "msgId": msgId,
       "channelId": channelId,
@@ -42290,7 +42873,8 @@ class ContactsResolvedPeer extends ContactsResolvedPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f077ad9",
+      "\$hash": "7f077ad9",
+      "\$name": "ContactsResolvedPeer",
       "peer": peer,
       "chats": chats,
       "users": users,
@@ -42353,7 +42937,8 @@ class MessageRange extends MessageRangeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ae30253",
+      "\$hash": "0ae30253",
+      "\$name": "MessageRange",
       "minId": minId,
       "maxId": maxId,
     };
@@ -42435,7 +43020,8 @@ class UpdatesChannelDifferenceEmpty extends UpdatesChannelDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e11affb",
+      "\$hash": "3e11affb",
+      "\$name": "UpdatesChannelDifferenceEmpty",
       "flags": flags,
       "ffinal": ffinal,
       "pts": pts,
@@ -42538,7 +43124,8 @@ class UpdatesChannelDifferenceTooLong extends UpdatesChannelDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa4bcc6fe",
+      "\$hash": "a4bcc6fe",
+      "\$name": "UpdatesChannelDifferenceTooLong",
       "flags": flags,
       "ffinal": ffinal,
       "timeout": timeout,
@@ -42653,7 +43240,8 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2064674e",
+      "\$hash": "2064674e",
+      "\$name": "UpdatesChannelDifference",
       "flags": flags,
       "ffinal": ffinal,
       "pts": pts,
@@ -42697,7 +43285,8 @@ class ChannelMessagesFilterEmpty extends ChannelMessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x94d42ee7",
+      "\$hash": "94d42ee7",
+      "\$name": "ChannelMessagesFilterEmpty",
     };
 
     // Finished toJson.
@@ -42763,7 +43352,8 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcd77d957",
+      "\$hash": "cd77d957",
+      "\$name": "ChannelMessagesFilter",
       "flags": flags,
       "excludeNewMessages": excludeNewMessages,
       "ranges": ranges,
@@ -42847,7 +43437,8 @@ class ChannelParticipant extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb397619",
+      "\$hash": "cb397619",
+      "\$name": "ChannelParticipant",
       "flags": flags,
       "userId": userId,
       "date": date.toIso8601String(),
@@ -42948,7 +43539,8 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f607bef",
+      "\$hash": "4f607bef",
+      "\$name": "ChannelParticipantSelf",
       "flags": flags,
       "viaRequest": viaRequest,
       "userId": userId,
@@ -43034,7 +43626,8 @@ class ChannelParticipantCreator extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2fe601d3",
+      "\$hash": "2fe601d3",
+      "\$name": "ChannelParticipantCreator",
       "flags": flags,
       "userId": userId,
       "adminRights": adminRights,
@@ -43159,7 +43752,8 @@ class ChannelParticipantAdmin extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34c3bb53",
+      "\$hash": "34c3bb53",
+      "\$name": "ChannelParticipantAdmin",
       "flags": flags,
       "canEdit": canEdit,
       "self": self,
@@ -43257,7 +43851,8 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6df8014e",
+      "\$hash": "6df8014e",
+      "\$name": "ChannelParticipantBanned",
       "flags": flags,
       "left": left,
       "peer": peer,
@@ -43312,7 +43907,8 @@ class ChannelParticipantLeft extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b03f006",
+      "\$hash": "1b03f006",
+      "\$name": "ChannelParticipantLeft",
       "peer": peer,
     };
 
@@ -43349,7 +43945,8 @@ class ChannelParticipantsRecent extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde3f3c79",
+      "\$hash": "de3f3c79",
+      "\$name": "ChannelParticipantsRecent",
     };
 
     // Finished toJson.
@@ -43385,7 +43982,8 @@ class ChannelParticipantsAdmins extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4608969",
+      "\$hash": "b4608969",
+      "\$name": "ChannelParticipantsAdmins",
     };
 
     // Finished toJson.
@@ -43434,7 +44032,8 @@ class ChannelParticipantsKicked extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa3b54985",
+      "\$hash": "a3b54985",
+      "\$name": "ChannelParticipantsKicked",
       "q": q,
     };
 
@@ -43471,7 +44070,8 @@ class ChannelParticipantsBots extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb0d1865b",
+      "\$hash": "b0d1865b",
+      "\$name": "ChannelParticipantsBots",
     };
 
     // Finished toJson.
@@ -43520,7 +44120,8 @@ class ChannelParticipantsBanned extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1427a5e1",
+      "\$hash": "1427a5e1",
+      "\$name": "ChannelParticipantsBanned",
       "q": q,
     };
 
@@ -43570,7 +44171,8 @@ class ChannelParticipantsSearch extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0656ac4b",
+      "\$hash": "0656ac4b",
+      "\$name": "ChannelParticipantsSearch",
       "q": q,
     };
 
@@ -43620,7 +44222,8 @@ class ChannelParticipantsContacts extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb6ae88d",
+      "\$hash": "bb6ae88d",
+      "\$name": "ChannelParticipantsContacts",
       "q": q,
     };
 
@@ -43697,7 +44300,8 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe04b5ceb",
+      "\$hash": "e04b5ceb",
+      "\$name": "ChannelParticipantsMentions",
       "flags": flags,
       "q": q,
       "topMsgId": topMsgId,
@@ -43772,7 +44376,8 @@ class ChannelsChannelParticipants extends ChannelsChannelParticipantsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9ab0feaf",
+      "\$hash": "9ab0feaf",
+      "\$name": "ChannelsChannelParticipants",
       "count": count,
       "participants": participants,
       "chats": chats,
@@ -43814,7 +44419,8 @@ class ChannelsChannelParticipantsNotModified
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf0173fe9",
+      "\$hash": "f0173fe9",
+      "\$name": "ChannelsChannelParticipantsNotModified",
     };
 
     // Finished toJson.
@@ -43877,7 +44483,8 @@ class ChannelsChannelParticipant extends ChannelsChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdfb80317",
+      "\$hash": "dfb80317",
+      "\$name": "ChannelsChannelParticipant",
       "participant": participant,
       "chats": chats,
       "users": users,
@@ -43972,7 +44579,8 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x780a0310",
+      "\$hash": "780a0310",
+      "\$name": "HelpTermsOfService",
       "flags": flags,
       "popup": popup,
       "id": id,
@@ -44014,7 +44622,8 @@ class MessagesSavedGifsNotModified extends MessagesSavedGifsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe8025ca2",
+      "\$hash": "e8025ca2",
+      "\$name": "MessagesSavedGifsNotModified",
     };
 
     // Finished toJson.
@@ -44072,7 +44681,8 @@ class MessagesSavedGifs extends MessagesSavedGifsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x84a02a0d",
+      "\$hash": "84a02a0d",
+      "\$name": "MessagesSavedGifs",
       "hash": hash,
       "gifs": gifs,
     };
@@ -44166,7 +44776,8 @@ class InputBotInlineMessageMediaAuto extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3380c786",
+      "\$hash": "3380c786",
+      "\$name": "InputBotInlineMessageMediaAuto",
       "flags": flags,
       "invertMedia": invertMedia,
       "message": message,
@@ -44270,7 +44881,8 @@ class InputBotInlineMessageText extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dcd7a87",
+      "\$hash": "3dcd7a87",
+      "\$name": "InputBotInlineMessageText",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -44385,7 +44997,8 @@ class InputBotInlineMessageMediaGeo extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x96929a85",
+      "\$hash": "96929a85",
+      "\$name": "InputBotInlineMessageMediaGeo",
       "flags": flags,
       "geoPoint": geoPoint,
       "heading": heading,
@@ -44498,7 +45111,8 @@ class InputBotInlineMessageMediaVenue extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x417bbf11",
+      "\$hash": "417bbf11",
+      "\$name": "InputBotInlineMessageMediaVenue",
       "flags": flags,
       "geoPoint": geoPoint,
       "title": title,
@@ -44599,7 +45213,8 @@ class InputBotInlineMessageMediaContact extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa6edbffd",
+      "\$hash": "a6edbffd",
+      "\$name": "InputBotInlineMessageMediaContact",
       "flags": flags,
       "phoneNumber": phoneNumber,
       "firstName": firstName,
@@ -44670,7 +45285,8 @@ class InputBotInlineMessageGame extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4b425864",
+      "\$hash": "4b425864",
+      "\$name": "InputBotInlineMessageGame",
       "flags": flags,
       "replyMarkup": replyMarkup,
     };
@@ -44792,7 +45408,8 @@ class InputBotInlineMessageMediaInvoice extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd7e78225",
+      "\$hash": "d7e78225",
+      "\$name": "InputBotInlineMessageMediaInvoice",
       "flags": flags,
       "title": title,
       "description": description,
@@ -44921,7 +45538,8 @@ class InputBotInlineMessageMediaWebPage extends InputBotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbddcc510",
+      "\$hash": "bddcc510",
+      "\$name": "InputBotInlineMessageMediaWebPage",
       "flags": flags,
       "invertMedia": invertMedia,
       "forceLargeMedia": forceLargeMedia,
@@ -45065,7 +45683,8 @@ class InputBotInlineResult extends InputBotInlineResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x88bf9319",
+      "\$hash": "88bf9319",
+      "\$name": "InputBotInlineResult",
       "flags": flags,
       "id": id,
       "type": type,
@@ -45144,7 +45763,8 @@ class InputBotInlineResultPhoto extends InputBotInlineResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa8d864a7",
+      "\$hash": "a8d864a7",
+      "\$name": "InputBotInlineResultPhoto",
       "id": id,
       "type": type,
       "photo": photo,
@@ -45252,7 +45872,8 @@ class InputBotInlineResultDocument extends InputBotInlineResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfff8fdc4",
+      "\$hash": "fff8fdc4",
+      "\$name": "InputBotInlineResultDocument",
       "flags": flags,
       "id": id,
       "type": type,
@@ -45322,7 +45943,8 @@ class InputBotInlineResultGame extends InputBotInlineResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4fa417f2",
+      "\$hash": "4fa417f2",
+      "\$name": "InputBotInlineResultGame",
       "id": id,
       "shortName": shortName,
       "sendMessage": sendMessage,
@@ -45417,7 +46039,8 @@ class BotInlineMessageMediaAuto extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x764cf810",
+      "\$hash": "764cf810",
+      "\$name": "BotInlineMessageMediaAuto",
       "flags": flags,
       "invertMedia": invertMedia,
       "message": message,
@@ -45521,7 +46144,8 @@ class BotInlineMessageText extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c7f65e2",
+      "\$hash": "8c7f65e2",
+      "\$name": "BotInlineMessageText",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -45636,7 +46260,8 @@ class BotInlineMessageMediaGeo extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x051846fd",
+      "\$hash": "051846fd",
+      "\$name": "BotInlineMessageMediaGeo",
       "flags": flags,
       "geo": geo,
       "heading": heading,
@@ -45749,7 +46374,8 @@ class BotInlineMessageMediaVenue extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8a86659c",
+      "\$hash": "8a86659c",
+      "\$name": "BotInlineMessageMediaVenue",
       "flags": flags,
       "geo": geo,
       "title": title,
@@ -45850,7 +46476,8 @@ class BotInlineMessageMediaContact extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x18d1cdc2",
+      "\$hash": "18d1cdc2",
+      "\$name": "BotInlineMessageMediaContact",
       "flags": flags,
       "phoneNumber": phoneNumber,
       "firstName": firstName,
@@ -45977,7 +46604,8 @@ class BotInlineMessageMediaInvoice extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x354a9b09",
+      "\$hash": "354a9b09",
+      "\$name": "BotInlineMessageMediaInvoice",
       "flags": flags,
       "shippingAddressRequested": shippingAddressRequested,
       "test": test,
@@ -46113,7 +46741,8 @@ class BotInlineMessageMediaWebPage extends BotInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x809ad9a6",
+      "\$hash": "809ad9a6",
+      "\$name": "BotInlineMessageMediaWebPage",
       "flags": flags,
       "invertMedia": invertMedia,
       "forceLargeMedia": forceLargeMedia,
@@ -46257,7 +46886,8 @@ class BotInlineResult extends BotInlineResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11965f3a",
+      "\$hash": "11965f3a",
+      "\$name": "BotInlineResult",
       "flags": flags,
       "id": id,
       "type": type,
@@ -46388,7 +47018,8 @@ class BotInlineMediaResult extends BotInlineResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17db940b",
+      "\$hash": "17db940b",
+      "\$name": "BotInlineMediaResult",
       "flags": flags,
       "id": id,
       "type": type,
@@ -46526,7 +47157,8 @@ class MessagesBotResults extends MessagesBotResultsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe021f2f6",
+      "\$hash": "e021f2f6",
+      "\$name": "MessagesBotResults",
       "flags": flags,
       "gallery": gallery,
       "queryId": queryId,
@@ -46591,7 +47223,8 @@ class ExportedMessageLink extends ExportedMessageLinkBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5dab1af4",
+      "\$hash": "5dab1af4",
+      "\$name": "ExportedMessageLink",
       "link": link,
       "html": html,
     };
@@ -46787,7 +47420,8 @@ class MessageFwdHeader extends MessageFwdHeaderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4e4df4bb",
+      "\$hash": "4e4df4bb",
+      "\$name": "MessageFwdHeader",
       "flags": flags,
       "imported": imported,
       "savedOut": savedOut,
@@ -46837,7 +47471,8 @@ class AuthCodeTypeSms extends AuthCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x72a3158c",
+      "\$hash": "72a3158c",
+      "\$name": "AuthCodeTypeSms",
     };
 
     // Finished toJson.
@@ -46873,7 +47508,8 @@ class AuthCodeTypeCall extends AuthCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x741cd3e3",
+      "\$hash": "741cd3e3",
+      "\$name": "AuthCodeTypeCall",
     };
 
     // Finished toJson.
@@ -46909,7 +47545,8 @@ class AuthCodeTypeFlashCall extends AuthCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x226ccefb",
+      "\$hash": "226ccefb",
+      "\$name": "AuthCodeTypeFlashCall",
     };
 
     // Finished toJson.
@@ -46945,7 +47582,8 @@ class AuthCodeTypeMissedCall extends AuthCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd61ad6ee",
+      "\$hash": "d61ad6ee",
+      "\$name": "AuthCodeTypeMissedCall",
     };
 
     // Finished toJson.
@@ -46981,7 +47619,8 @@ class AuthCodeTypeFragmentSms extends AuthCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x06ed998c",
+      "\$hash": "06ed998c",
+      "\$name": "AuthCodeTypeFragmentSms",
     };
 
     // Finished toJson.
@@ -47032,7 +47671,8 @@ class AuthSentCodeTypeApp extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dbb5986",
+      "\$hash": "3dbb5986",
+      "\$name": "AuthSentCodeTypeApp",
       "length": length,
     };
 
@@ -47084,7 +47724,8 @@ class AuthSentCodeTypeSms extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc000bba2",
+      "\$hash": "c000bba2",
+      "\$name": "AuthSentCodeTypeSms",
       "length": length,
     };
 
@@ -47136,7 +47777,8 @@ class AuthSentCodeTypeCall extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5353e5a7",
+      "\$hash": "5353e5a7",
+      "\$name": "AuthSentCodeTypeCall",
       "length": length,
     };
 
@@ -47186,7 +47828,8 @@ class AuthSentCodeTypeFlashCall extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xab03c6d9",
+      "\$hash": "ab03c6d9",
+      "\$name": "AuthSentCodeTypeFlashCall",
       "pattern": pattern,
     };
 
@@ -47245,7 +47888,8 @@ class AuthSentCodeTypeMissedCall extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x82006484",
+      "\$hash": "82006484",
+      "\$name": "AuthSentCodeTypeMissedCall",
       "prefix": prefix,
       "length": length,
     };
@@ -47355,7 +47999,8 @@ class AuthSentCodeTypeEmailCode extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf450f59b",
+      "\$hash": "f450f59b",
+      "\$name": "AuthSentCodeTypeEmailCode",
       "flags": flags,
       "appleSigninAllowed": appleSigninAllowed,
       "googleSigninAllowed": googleSigninAllowed,
@@ -47428,7 +48073,8 @@ class AuthSentCodeTypeSetUpEmailRequired extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa5491dea",
+      "\$hash": "a5491dea",
+      "\$name": "AuthSentCodeTypeSetUpEmailRequired",
       "flags": flags,
       "appleSigninAllowed": appleSigninAllowed,
       "googleSigninAllowed": googleSigninAllowed,
@@ -47489,7 +48135,8 @@ class AuthSentCodeTypeFragmentSms extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd9565c39",
+      "\$hash": "d9565c39",
+      "\$name": "AuthSentCodeTypeFragmentSms",
       "url": url,
       "length": length,
     };
@@ -47612,7 +48259,8 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x009fd736",
+      "\$hash": "009fd736",
+      "\$name": "AuthSentCodeTypeFirebaseSms",
       "flags": flags,
       "nonce": nonce,
       "playIntegrityProjectId": playIntegrityProjectId,
@@ -47683,7 +48331,8 @@ class AuthSentCodeTypeSmsWord extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa416ac81",
+      "\$hash": "a416ac81",
+      "\$name": "AuthSentCodeTypeSmsWord",
       "flags": flags,
       "beginning": beginning,
     };
@@ -47749,7 +48398,8 @@ class AuthSentCodeTypeSmsPhrase extends AuthSentCodeTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb37794af",
+      "\$hash": "b37794af",
+      "\$name": "AuthSentCodeTypeSmsPhrase",
       "flags": flags,
       "beginning": beginning,
     };
@@ -47857,7 +48507,8 @@ class MessagesBotCallbackAnswer extends MessagesBotCallbackAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36585ea4",
+      "\$hash": "36585ea4",
+      "\$name": "MessagesBotCallbackAnswer",
       "flags": flags,
       "alert": alert,
       "hasUrl": hasUrl,
@@ -47923,7 +48574,8 @@ class MessagesMessageEditData extends MessagesMessageEditDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x26b5dde6",
+      "\$hash": "26b5dde6",
+      "\$name": "MessagesMessageEditData",
       "flags": flags,
       "caption": caption,
     };
@@ -47994,7 +48646,8 @@ class InputBotInlineMessageID extends InputBotInlineMessageIDBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x890c3d89",
+      "\$hash": "890c3d89",
+      "\$name": "InputBotInlineMessageID",
       "dcId": dcId,
       "id": id,
       "accessHash": accessHash,
@@ -48075,7 +48728,8 @@ class InputBotInlineMessageID64 extends InputBotInlineMessageIDBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6d915d7",
+      "\$hash": "b6d915d7",
+      "\$name": "InputBotInlineMessageID64",
       "dcId": dcId,
       "ownerId": ownerId,
       "id": id,
@@ -48135,7 +48789,8 @@ class InlineBotSwitchPM extends InlineBotSwitchPMBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3c20629f",
+      "\$hash": "3c20629f",
+      "\$name": "InlineBotSwitchPM",
       "text": text,
       "startParam": startParam,
     };
@@ -48214,7 +48869,8 @@ class MessagesPeerDialogs extends MessagesPeerDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3371c354",
+      "\$hash": "3371c354",
+      "\$name": "MessagesPeerDialogs",
       "dialogs": dialogs,
       "messages": messages,
       "chats": chats,
@@ -48275,7 +48931,8 @@ class TopPeer extends TopPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xedcdc05b",
+      "\$hash": "edcdc05b",
+      "\$name": "TopPeer",
       "peer": peer,
       "rating": rating,
     };
@@ -48313,7 +48970,8 @@ class TopPeerCategoryBotsPM extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xab661b5b",
+      "\$hash": "ab661b5b",
+      "\$name": "TopPeerCategoryBotsPM",
     };
 
     // Finished toJson.
@@ -48349,7 +49007,8 @@ class TopPeerCategoryBotsInline extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x148677e2",
+      "\$hash": "148677e2",
+      "\$name": "TopPeerCategoryBotsInline",
     };
 
     // Finished toJson.
@@ -48385,7 +49044,8 @@ class TopPeerCategoryCorrespondents extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0637b7ed",
+      "\$hash": "0637b7ed",
+      "\$name": "TopPeerCategoryCorrespondents",
     };
 
     // Finished toJson.
@@ -48421,7 +49081,8 @@ class TopPeerCategoryGroups extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd17a14a",
+      "\$hash": "bd17a14a",
+      "\$name": "TopPeerCategoryGroups",
     };
 
     // Finished toJson.
@@ -48457,7 +49118,8 @@ class TopPeerCategoryChannels extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x161d9628",
+      "\$hash": "161d9628",
+      "\$name": "TopPeerCategoryChannels",
     };
 
     // Finished toJson.
@@ -48493,7 +49155,8 @@ class TopPeerCategoryPhoneCalls extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e76a78c",
+      "\$hash": "1e76a78c",
+      "\$name": "TopPeerCategoryPhoneCalls",
     };
 
     // Finished toJson.
@@ -48529,7 +49192,8 @@ class TopPeerCategoryForwardUsers extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa8406ca9",
+      "\$hash": "a8406ca9",
+      "\$name": "TopPeerCategoryForwardUsers",
     };
 
     // Finished toJson.
@@ -48565,7 +49229,8 @@ class TopPeerCategoryForwardChats extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfbeec0f0",
+      "\$hash": "fbeec0f0",
+      "\$name": "TopPeerCategoryForwardChats",
     };
 
     // Finished toJson.
@@ -48601,7 +49266,8 @@ class TopPeerCategoryBotsApp extends TopPeerCategoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfd9e7bec",
+      "\$hash": "fd9e7bec",
+      "\$name": "TopPeerCategoryBotsApp",
     };
 
     // Finished toJson.
@@ -48666,7 +49332,8 @@ class TopPeerCategoryPeers extends TopPeerCategoryPeersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb834291",
+      "\$hash": "fb834291",
+      "\$name": "TopPeerCategoryPeers",
       "category": category,
       "count": count,
       "peers": peers,
@@ -48705,7 +49372,8 @@ class ContactsTopPeersNotModified extends ContactsTopPeersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde266ef5",
+      "\$hash": "de266ef5",
+      "\$name": "ContactsTopPeersNotModified",
     };
 
     // Finished toJson.
@@ -48768,7 +49436,8 @@ class ContactsTopPeers extends ContactsTopPeersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x70b772a8",
+      "\$hash": "70b772a8",
+      "\$name": "ContactsTopPeers",
       "categories": categories,
       "chats": chats,
       "users": users,
@@ -48807,7 +49476,8 @@ class ContactsTopPeersDisabled extends ContactsTopPeersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb52c939d",
+      "\$hash": "b52c939d",
+      "\$name": "ContactsTopPeersDisabled",
     };
 
     // Finished toJson.
@@ -48871,7 +49541,8 @@ class DraftMessageEmpty extends DraftMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b0c841a",
+      "\$hash": "1b0c841a",
+      "\$name": "DraftMessageEmpty",
       "flags": flags,
       "date": date?.toIso8601String(),
     };
@@ -49003,7 +49674,8 @@ class DraftMessage extends DraftMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2d65321f",
+      "\$hash": "2d65321f",
+      "\$name": "DraftMessage",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -49063,7 +49735,8 @@ class MessagesFeaturedStickersNotModified extends MessagesFeaturedStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc6dc0c66",
+      "\$hash": "c6dc0c66",
+      "\$name": "MessagesFeaturedStickersNotModified",
       "count": count,
     };
 
@@ -49155,7 +49828,8 @@ class MessagesFeaturedStickers extends MessagesFeaturedStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbe382906",
+      "\$hash": "be382906",
+      "\$name": "MessagesFeaturedStickers",
       "flags": flags,
       "premium": premium,
       "hash": hash,
@@ -49197,7 +49871,8 @@ class MessagesRecentStickersNotModified extends MessagesRecentStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0b17f890",
+      "\$hash": "0b17f890",
+      "\$name": "MessagesRecentStickersNotModified",
     };
 
     // Finished toJson.
@@ -49269,7 +49944,8 @@ class MessagesRecentStickers extends MessagesRecentStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x88d37c56",
+      "\$hash": "88d37c56",
+      "\$name": "MessagesRecentStickers",
       "hash": hash,
       "packs": packs,
       "stickers": stickers,
@@ -49331,7 +50007,8 @@ class MessagesArchivedStickers extends MessagesArchivedStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4fcba9c8",
+      "\$hash": "4fcba9c8",
+      "\$name": "MessagesArchivedStickers",
       "count": count,
       "sets": sets,
     };
@@ -49371,7 +50048,8 @@ class MessagesStickerSetInstallResultSuccess
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x38641628",
+      "\$hash": "38641628",
+      "\$name": "MessagesStickerSetInstallResultSuccess",
     };
 
     // Finished toJson.
@@ -49422,7 +50100,8 @@ class MessagesStickerSetInstallResultArchive
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35e410a8",
+      "\$hash": "35e410a8",
+      "\$name": "MessagesStickerSetInstallResultArchive",
       "sets": sets,
     };
 
@@ -49479,7 +50158,8 @@ class StickerSetCovered extends StickerSetCoveredBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6410a5d2",
+      "\$hash": "6410a5d2",
+      "\$name": "StickerSetCovered",
       "set": set,
       "cover": cover,
     };
@@ -49537,7 +50217,8 @@ class StickerSetMultiCovered extends StickerSetCoveredBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3407e51b",
+      "\$hash": "3407e51b",
+      "\$name": "StickerSetMultiCovered",
       "set": set,
       "covers": covers,
     };
@@ -49609,7 +50290,8 @@ class StickerSetFullCovered extends StickerSetCoveredBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x40d13c0e",
+      "\$hash": "40d13c0e",
+      "\$name": "StickerSetFullCovered",
       "set": set,
       "packs": packs,
       "keywords": keywords,
@@ -49662,7 +50344,8 @@ class StickerSetNoCovered extends StickerSetCoveredBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77b15d1c",
+      "\$hash": "77b15d1c",
+      "\$name": "StickerSetNoCovered",
       "set": set,
     };
 
@@ -49735,7 +50418,8 @@ class MaskCoords extends MaskCoordsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaed6dbb2",
+      "\$hash": "aed6dbb2",
+      "\$name": "MaskCoords",
       "n": n,
       "x": x,
       "y": y,
@@ -49788,7 +50472,8 @@ class InputStickeredMediaPhoto extends InputStickeredMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4a992157",
+      "\$hash": "4a992157",
+      "\$name": "InputStickeredMediaPhoto",
       "id": id,
     };
 
@@ -49838,7 +50523,8 @@ class InputStickeredMediaDocument extends InputStickeredMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0438865b",
+      "\$hash": "0438865b",
+      "\$name": "InputStickeredMediaDocument",
       "id": id,
     };
 
@@ -49950,7 +50636,8 @@ class Game extends GameBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdf9653b",
+      "\$hash": "bdf9653b",
+      "\$name": "Game",
       "flags": flags,
       "id": id,
       "accessHash": accessHash,
@@ -50018,7 +50705,8 @@ class InputGameID extends InputGameBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x032c3e77",
+      "\$hash": "032c3e77",
+      "\$name": "InputGameID",
       "id": id,
       "accessHash": accessHash,
     };
@@ -50076,7 +50764,8 @@ class InputGameShortName extends InputGameBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc331e80a",
+      "\$hash": "c331e80a",
+      "\$name": "InputGameShortName",
       "botId": botId,
       "shortName": shortName,
     };
@@ -50147,7 +50836,8 @@ class HighScore extends HighScoreBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73a379eb",
+      "\$hash": "73a379eb",
+      "\$name": "HighScore",
       "pos": pos,
       "userId": userId,
       "score": score,
@@ -50206,7 +50896,8 @@ class MessagesHighScores extends MessagesHighScoresBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a3bfd99",
+      "\$hash": "9a3bfd99",
+      "\$name": "MessagesHighScores",
       "scores": scores,
       "users": users,
     };
@@ -50244,7 +50935,8 @@ class TextEmpty extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdc3d824f",
+      "\$hash": "dc3d824f",
+      "\$name": "TextEmpty",
     };
 
     // Finished toJson.
@@ -50293,7 +50985,8 @@ class TextPlain extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x744694e0",
+      "\$hash": "744694e0",
+      "\$name": "TextPlain",
       "text": text,
     };
 
@@ -50343,7 +51036,8 @@ class TextBold extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6724abc4",
+      "\$hash": "6724abc4",
+      "\$name": "TextBold",
       "text": text,
     };
 
@@ -50393,7 +51087,8 @@ class TextItalic extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd912a59c",
+      "\$hash": "d912a59c",
+      "\$name": "TextItalic",
       "text": text,
     };
 
@@ -50443,7 +51138,8 @@ class TextUnderline extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc12622c4",
+      "\$hash": "c12622c4",
+      "\$name": "TextUnderline",
       "text": text,
     };
 
@@ -50493,7 +51189,8 @@ class TextStrike extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9bf8bb95",
+      "\$hash": "9bf8bb95",
+      "\$name": "TextStrike",
       "text": text,
     };
 
@@ -50543,7 +51240,8 @@ class TextFixed extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c3f19b9",
+      "\$hash": "6c3f19b9",
+      "\$name": "TextFixed",
       "text": text,
     };
 
@@ -50609,7 +51307,8 @@ class TextUrl extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3c2884c1",
+      "\$hash": "3c2884c1",
+      "\$name": "TextUrl",
       "text": text,
       "url": url,
       "webpageId": webpageId,
@@ -50668,7 +51367,8 @@ class TextEmail extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde5a0dd6",
+      "\$hash": "de5a0dd6",
+      "\$name": "TextEmail",
       "text": text,
       "email": email,
     };
@@ -50719,7 +51419,8 @@ class TextConcat extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7e6260d7",
+      "\$hash": "7e6260d7",
+      "\$name": "TextConcat",
       "texts": texts,
     };
 
@@ -50769,7 +51470,8 @@ class TextSubscript extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed6a8504",
+      "\$hash": "ed6a8504",
+      "\$name": "TextSubscript",
       "text": text,
     };
 
@@ -50819,7 +51521,8 @@ class TextSuperscript extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc7fb5e01",
+      "\$hash": "c7fb5e01",
+      "\$name": "TextSuperscript",
       "text": text,
     };
 
@@ -50869,7 +51572,8 @@ class TextMarked extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x034b8621",
+      "\$hash": "034b8621",
+      "\$name": "TextMarked",
       "text": text,
     };
 
@@ -50926,7 +51630,8 @@ class TextPhone extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ccb966a",
+      "\$hash": "1ccb966a",
+      "\$name": "TextPhone",
       "text": text,
       "phone": phone,
     };
@@ -50997,7 +51702,8 @@ class TextImage extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x081ccf4f",
+      "\$hash": "081ccf4f",
+      "\$name": "TextImage",
       "documentId": documentId,
       "w": w,
       "h": h,
@@ -51056,7 +51762,8 @@ class TextAnchor extends RichTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35553762",
+      "\$hash": "35553762",
+      "\$name": "TextAnchor",
       "text": text,
       "name": name,
     };
@@ -51094,7 +51801,8 @@ class PageBlockUnsupported extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x13567e8a",
+      "\$hash": "13567e8a",
+      "\$name": "PageBlockUnsupported",
     };
 
     // Finished toJson.
@@ -51143,7 +51851,8 @@ class PageBlockTitle extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x70abc3fd",
+      "\$hash": "70abc3fd",
+      "\$name": "PageBlockTitle",
       "text": text,
     };
 
@@ -51193,7 +51902,8 @@ class PageBlockSubtitle extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ffa9a1f",
+      "\$hash": "8ffa9a1f",
+      "\$name": "PageBlockSubtitle",
       "text": text,
     };
 
@@ -51250,7 +51960,8 @@ class PageBlockAuthorDate extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbaafe5e0",
+      "\$hash": "baafe5e0",
+      "\$name": "PageBlockAuthorDate",
       "author": author,
       "publishedDate": publishedDate.toIso8601String(),
     };
@@ -51301,7 +52012,8 @@ class PageBlockHeader extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbfd064ec",
+      "\$hash": "bfd064ec",
+      "\$name": "PageBlockHeader",
       "text": text,
     };
 
@@ -51351,7 +52063,8 @@ class PageBlockSubheader extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf12bb6e1",
+      "\$hash": "f12bb6e1",
+      "\$name": "PageBlockSubheader",
       "text": text,
     };
 
@@ -51401,7 +52114,8 @@ class PageBlockParagraph extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x467a0766",
+      "\$hash": "467a0766",
+      "\$name": "PageBlockParagraph",
       "text": text,
     };
 
@@ -51458,7 +52172,8 @@ class PageBlockPreformatted extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc070d93e",
+      "\$hash": "c070d93e",
+      "\$name": "PageBlockPreformatted",
       "text": text,
       "language": language,
     };
@@ -51509,7 +52224,8 @@ class PageBlockFooter extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x48870999",
+      "\$hash": "48870999",
+      "\$name": "PageBlockFooter",
       "text": text,
     };
 
@@ -51546,7 +52262,8 @@ class PageBlockDivider extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb20b188",
+      "\$hash": "db20b188",
+      "\$name": "PageBlockDivider",
     };
 
     // Finished toJson.
@@ -51595,7 +52312,8 @@ class PageBlockAnchor extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xce0d37b0",
+      "\$hash": "ce0d37b0",
+      "\$name": "PageBlockAnchor",
       "name": name,
     };
 
@@ -51645,7 +52363,8 @@ class PageBlockList extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe4e88011",
+      "\$hash": "e4e88011",
+      "\$name": "PageBlockList",
       "items": items,
     };
 
@@ -51702,7 +52421,8 @@ class PageBlockBlockquote extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x263d7c26",
+      "\$hash": "263d7c26",
+      "\$name": "PageBlockBlockquote",
       "text": text,
       "caption": caption,
     };
@@ -51760,7 +52480,8 @@ class PageBlockPullquote extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f4456d3",
+      "\$hash": "4f4456d3",
+      "\$name": "PageBlockPullquote",
       "text": text,
       "caption": caption,
     };
@@ -51853,7 +52574,8 @@ class PageBlockPhoto extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1759c560",
+      "\$hash": "1759c560",
+      "\$name": "PageBlockPhoto",
       "flags": flags,
       "photoId": photoId,
       "caption": caption,
@@ -51940,7 +52662,8 @@ class PageBlockVideo extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7c8fe7b6",
+      "\$hash": "7c8fe7b6",
+      "\$name": "PageBlockVideo",
       "flags": flags,
       "autoplay": autoplay,
       "loop": loop,
@@ -51994,7 +52717,8 @@ class PageBlockCover extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x39f23300",
+      "\$hash": "39f23300",
+      "\$name": "PageBlockCover",
       "cover": cover,
     };
 
@@ -52127,7 +52851,8 @@ class PageBlockEmbed extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa8718dc5",
+      "\$hash": "a8718dc5",
+      "\$name": "PageBlockEmbed",
       "flags": flags,
       "fullWidth": fullWidth,
       "allowScrolling": allowScrolling,
@@ -52231,7 +52956,8 @@ class PageBlockEmbedPost extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf259a80b",
+      "\$hash": "f259a80b",
+      "\$name": "PageBlockEmbedPost",
       "url": url,
       "webpageId": webpageId,
       "authorPhotoId": authorPhotoId,
@@ -52294,7 +53020,8 @@ class PageBlockCollage extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x65a0fa4d",
+      "\$hash": "65a0fa4d",
+      "\$name": "PageBlockCollage",
       "items": items,
       "caption": caption,
     };
@@ -52352,7 +53079,8 @@ class PageBlockSlideshow extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x031f9590",
+      "\$hash": "031f9590",
+      "\$name": "PageBlockSlideshow",
       "items": items,
       "caption": caption,
     };
@@ -52403,7 +53131,8 @@ class PageBlockChannel extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef1751b5",
+      "\$hash": "ef1751b5",
+      "\$name": "PageBlockChannel",
       "channel": channel,
     };
 
@@ -52462,7 +53191,8 @@ class PageBlockAudio extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x804361ea",
+      "\$hash": "804361ea",
+      "\$name": "PageBlockAudio",
       "audioId": audioId,
       "caption": caption,
     };
@@ -52513,7 +53243,8 @@ class PageBlockKicker extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e148390",
+      "\$hash": "1e148390",
+      "\$name": "PageBlockKicker",
       "text": text,
     };
 
@@ -52594,7 +53325,8 @@ class PageBlockTable extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbf4dea82",
+      "\$hash": "bf4dea82",
+      "\$name": "PageBlockTable",
       "flags": flags,
       "bordered": bordered,
       "striped": striped,
@@ -52648,7 +53380,8 @@ class PageBlockOrderedList extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a8ae1e1",
+      "\$hash": "9a8ae1e1",
+      "\$name": "PageBlockOrderedList",
       "items": items,
     };
 
@@ -52722,7 +53455,8 @@ class PageBlockDetails extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x76768bed",
+      "\$hash": "76768bed",
+      "\$name": "PageBlockDetails",
       "flags": flags,
       "open": open,
       "blocks": blocks,
@@ -52782,7 +53516,8 @@ class PageBlockRelatedArticles extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x16115a96",
+      "\$hash": "16115a96",
+      "\$name": "PageBlockRelatedArticles",
       "title": title,
       "articles": articles,
     };
@@ -52867,7 +53602,8 @@ class PageBlockMap extends PageBlockBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa44f3ef6",
+      "\$hash": "a44f3ef6",
+      "\$name": "PageBlockMap",
       "geo": geo,
       "zoom": zoom,
       "w": w,
@@ -52908,7 +53644,8 @@ class PhoneCallDiscardReasonMissed extends PhoneCallDiscardReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x85e42301",
+      "\$hash": "85e42301",
+      "\$name": "PhoneCallDiscardReasonMissed",
     };
 
     // Finished toJson.
@@ -52944,7 +53681,8 @@ class PhoneCallDiscardReasonDisconnect extends PhoneCallDiscardReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe095c1a0",
+      "\$hash": "e095c1a0",
+      "\$name": "PhoneCallDiscardReasonDisconnect",
     };
 
     // Finished toJson.
@@ -52980,7 +53718,8 @@ class PhoneCallDiscardReasonHangup extends PhoneCallDiscardReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57adc690",
+      "\$hash": "57adc690",
+      "\$name": "PhoneCallDiscardReasonHangup",
     };
 
     // Finished toJson.
@@ -53016,7 +53755,8 @@ class PhoneCallDiscardReasonBusy extends PhoneCallDiscardReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfaf7e8c9",
+      "\$hash": "faf7e8c9",
+      "\$name": "PhoneCallDiscardReasonBusy",
     };
 
     // Finished toJson.
@@ -53065,7 +53805,8 @@ class DataJSON extends DataJSONBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7d748d04",
+      "\$hash": "7d748d04",
+      "\$name": "DataJSON",
       "data": data,
     };
 
@@ -53124,7 +53865,8 @@ class LabeledPrice extends LabeledPriceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb296bf8",
+      "\$hash": "cb296bf8",
+      "\$name": "LabeledPrice",
       "label": label,
       "amount": amount,
     };
@@ -53304,7 +54046,8 @@ class Invoice extends InvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x049ee584",
+      "\$hash": "049ee584",
+      "\$name": "Invoice",
       "flags": flags,
       "test": test,
       "nameRequested": nameRequested,
@@ -53376,7 +54119,8 @@ class PaymentCharge extends PaymentChargeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea02c27e",
+      "\$hash": "ea02c27e",
+      "\$name": "PaymentCharge",
       "id": id,
       "providerChargeId": providerChargeId,
     };
@@ -53462,7 +54206,8 @@ class PostAddress extends PostAddressBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e8caaeb",
+      "\$hash": "1e8caaeb",
+      "\$name": "PostAddress",
       "streetLine1": streetLine1,
       "streetLine2": streetLine2,
       "city": city,
@@ -53569,7 +54314,8 @@ class PaymentRequestedInfo extends PaymentRequestedInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x909c3f94",
+      "\$hash": "909c3f94",
+      "\$name": "PaymentRequestedInfo",
       "flags": flags,
       "name": name,
       "phone": phone,
@@ -53630,7 +54376,8 @@ class PaymentSavedCredentialsCard extends PaymentSavedCredentialsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcdc27a1f",
+      "\$hash": "cdc27a1f",
+      "\$name": "PaymentSavedCredentialsCard",
       "id": id,
       "title": title,
     };
@@ -53713,7 +54460,8 @@ class WebDocument extends WebDocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1c570ed1",
+      "\$hash": "1c570ed1",
+      "\$name": "WebDocument",
       "url": url,
       "accessHash": accessHash,
       "size": size,
@@ -53790,7 +54538,8 @@ class WebDocumentNoProxy extends WebDocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf9c8bcc6",
+      "\$hash": "f9c8bcc6",
+      "\$name": "WebDocumentNoProxy",
       "url": url,
       "size": size,
       "mimeType": mimeType,
@@ -53866,7 +54615,8 @@ class InputWebDocument extends InputWebDocumentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9bed434d",
+      "\$hash": "9bed434d",
+      "\$name": "InputWebDocument",
       "url": url,
       "size": size,
       "mimeType": mimeType,
@@ -53928,7 +54678,8 @@ class InputWebFileLocation extends InputWebFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc239d686",
+      "\$hash": "c239d686",
+      "\$name": "InputWebFileLocation",
       "url": url,
       "accessHash": accessHash,
     };
@@ -54024,7 +54775,8 @@ class InputWebFileGeoPointLocation extends InputWebFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9f2221c9",
+      "\$hash": "9f2221c9",
+      "\$name": "InputWebFileGeoPointLocation",
       "geoPoint": geoPoint,
       "accessHash": accessHash,
       "w": w,
@@ -54125,7 +54877,8 @@ class InputWebFileAudioAlbumThumbLocation extends InputWebFileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf46fe924",
+      "\$hash": "f46fe924",
+      "\$name": "InputWebFileAudioAlbumThumbLocation",
       "flags": flags,
       "small": small,
       "document": document,
@@ -54211,7 +54964,8 @@ class UploadWebFile extends UploadWebFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x21e753bc",
+      "\$hash": "21e753bc",
+      "\$name": "UploadWebFile",
       "size": size,
       "mimeType": mimeType,
       "fileType": fileType,
@@ -54422,7 +55176,8 @@ class PaymentsPaymentForm extends PaymentsPaymentFormBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa0058751",
+      "\$hash": "a0058751",
+      "\$name": "PaymentsPaymentForm",
       "flags": flags,
       "canSaveCredentials": canSaveCredentials,
       "passwordMissing": passwordMissing,
@@ -54549,7 +55304,8 @@ class PaymentsPaymentFormStars extends PaymentsPaymentFormBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7bf6b15c",
+      "\$hash": "7bf6b15c",
+      "\$name": "PaymentsPaymentFormStars",
       "flags": flags,
       "formId": formId,
       "botId": botId,
@@ -54615,7 +55371,8 @@ class PaymentsPaymentFormStarGift extends PaymentsPaymentFormBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb425cfe1",
+      "\$hash": "b425cfe1",
+      "\$name": "PaymentsPaymentFormStarGift",
       "formId": formId,
       "invoice": invoice,
     };
@@ -54696,7 +55453,8 @@ class PaymentsValidatedRequestedInfo
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1451883",
+      "\$hash": "d1451883",
+      "\$name": "PaymentsValidatedRequestedInfo",
       "flags": flags,
       "id": id,
       "shippingOptions": shippingOptions,
@@ -54748,7 +55506,8 @@ class PaymentsPaymentResult extends PaymentsPaymentResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4e5f810d",
+      "\$hash": "4e5f810d",
+      "\$name": "PaymentsPaymentResult",
       "updates": updates,
     };
 
@@ -54798,7 +55557,8 @@ class PaymentsPaymentVerificationNeeded extends PaymentsPaymentResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd8411139",
+      "\$hash": "d8411139",
+      "\$name": "PaymentsPaymentVerificationNeeded",
       "url": url,
     };
 
@@ -54977,7 +55737,8 @@ class PaymentsPaymentReceipt extends PaymentsPaymentReceiptBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x70c4fe03",
+      "\$hash": "70c4fe03",
+      "\$name": "PaymentsPaymentReceipt",
       "flags": flags,
       "date": date.toIso8601String(),
       "botId": botId,
@@ -55123,7 +55884,8 @@ class PaymentsPaymentReceiptStars extends PaymentsPaymentReceiptBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdabbf83a",
+      "\$hash": "dabbf83a",
+      "\$name": "PaymentsPaymentReceiptStars",
       "flags": flags,
       "date": date.toIso8601String(),
       "botId": botId,
@@ -55207,7 +55969,8 @@ class PaymentsSavedInfo extends PaymentsSavedInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb8fe43c",
+      "\$hash": "fb8fe43c",
+      "\$name": "PaymentsSavedInfo",
       "flags": flags,
       "hasSavedCredentials": hasSavedCredentials,
       "savedInfo": savedInfo,
@@ -55266,7 +56029,8 @@ class InputPaymentCredentialsSaved extends InputPaymentCredentialsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc10eb2cf",
+      "\$hash": "c10eb2cf",
+      "\$name": "InputPaymentCredentialsSaved",
       "id": id,
       "tmpPassword": tmpPassword,
     };
@@ -55334,7 +56098,8 @@ class InputPaymentCredentials extends InputPaymentCredentialsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3417d728",
+      "\$hash": "3417d728",
+      "\$name": "InputPaymentCredentials",
       "flags": flags,
       "save": save,
       "data": data,
@@ -55386,7 +56151,8 @@ class InputPaymentCredentialsApplePay extends InputPaymentCredentialsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0aa1c39f",
+      "\$hash": "0aa1c39f",
+      "\$name": "InputPaymentCredentialsApplePay",
       "paymentData": paymentData,
     };
 
@@ -55436,7 +56202,8 @@ class InputPaymentCredentialsGooglePay extends InputPaymentCredentialsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ac32801",
+      "\$hash": "8ac32801",
+      "\$name": "InputPaymentCredentialsGooglePay",
       "paymentToken": paymentToken,
     };
 
@@ -55495,7 +56262,8 @@ class AccountTmpPassword extends AccountTmpPasswordBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb64fd34",
+      "\$hash": "db64fd34",
+      "\$name": "AccountTmpPassword",
       "tmpPassword": tmpPassword,
       "validUntil": validUntil,
     };
@@ -55560,7 +56328,8 @@ class ShippingOption extends ShippingOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6213cdf",
+      "\$hash": "b6213cdf",
+      "\$name": "ShippingOption",
       "id": id,
       "title": title,
       "prices": prices,
@@ -55654,7 +56423,8 @@ class InputStickerSetItem extends InputStickerSetItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x32da9e9c",
+      "\$hash": "32da9e9c",
+      "\$name": "InputStickerSetItem",
       "flags": flags,
       "document": document,
       "emoji": emoji,
@@ -55719,7 +56489,8 @@ class InputPhoneCall extends InputPhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e36fded",
+      "\$hash": "1e36fded",
+      "\$name": "InputPhoneCall",
       "id": id,
       "accessHash": accessHash,
     };
@@ -55772,7 +56543,8 @@ class PhoneCallEmpty extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5366c915",
+      "\$hash": "5366c915",
+      "\$name": "PhoneCallEmpty",
       "id": id,
     };
 
@@ -55894,7 +56666,8 @@ class PhoneCallWaiting extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc5226f17",
+      "\$hash": "c5226f17",
+      "\$name": "PhoneCallWaiting",
       "flags": flags,
       "video": video,
       "id": id,
@@ -56019,7 +56792,8 @@ class PhoneCallRequested extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x14b0ed0c",
+      "\$hash": "14b0ed0c",
+      "\$name": "PhoneCallRequested",
       "flags": flags,
       "video": video,
       "id": id,
@@ -56144,7 +56918,8 @@ class PhoneCallAccepted extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3660c311",
+      "\$hash": "3660c311",
+      "\$name": "PhoneCallAccepted",
       "flags": flags,
       "video": video,
       "id": id,
@@ -56312,7 +57087,8 @@ class PhoneCall extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x30535af5",
+      "\$hash": "30535af5",
+      "\$name": "PhoneCall",
       "flags": flags,
       "p2pAllowed": p2pAllowed,
       "video": video,
@@ -56434,7 +57210,8 @@ class PhoneCallDiscarded extends PhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50ca4de1",
+      "\$hash": "50ca4de1",
+      "\$name": "PhoneCallDiscarded",
       "flags": flags,
       "needRating": needRating,
       "needDebug": needDebug,
@@ -56539,7 +57316,8 @@ class PhoneConnection extends PhoneConnectionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9cc123c7",
+      "\$hash": "9cc123c7",
+      "\$name": "PhoneConnection",
       "flags": flags,
       "tcp": tcp,
       "id": id,
@@ -56658,7 +57436,8 @@ class PhoneConnectionWebrtc extends PhoneConnectionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x635fe375",
+      "\$hash": "635fe375",
+      "\$name": "PhoneConnectionWebrtc",
       "flags": flags,
       "turn": turn,
       "stun": stun,
@@ -56758,7 +57537,8 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfc878fc8",
+      "\$hash": "fc878fc8",
+      "\$name": "PhoneCallProtocol",
       "flags": flags,
       "udpP2p": udpP2p,
       "udpReflector": udpReflector,
@@ -56820,7 +57600,8 @@ class PhonePhoneCall extends PhonePhoneCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec82e140",
+      "\$hash": "ec82e140",
+      "\$name": "PhonePhoneCall",
       "phoneCall": phoneCall,
       "users": users,
     };
@@ -56871,7 +57652,8 @@ class UploadCdnFileReuploadNeeded extends UploadCdnFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeea8e46e",
+      "\$hash": "eea8e46e",
+      "\$name": "UploadCdnFileReuploadNeeded",
       "requestToken": requestToken,
     };
 
@@ -56921,7 +57703,8 @@ class UploadCdnFile extends UploadCdnFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa99fca4f",
+      "\$hash": "a99fca4f",
+      "\$name": "UploadCdnFile",
       "bytes": bytes,
     };
 
@@ -56980,7 +57763,8 @@ class CdnPublicKey extends CdnPublicKeyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc982eaba",
+      "\$hash": "c982eaba",
+      "\$name": "CdnPublicKey",
       "dcId": dcId,
       "publicKey": publicKey,
     };
@@ -57031,7 +57815,8 @@ class CdnConfig extends CdnConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5725e40a",
+      "\$hash": "5725e40a",
+      "\$name": "CdnConfig",
       "publicKeys": publicKeys,
     };
 
@@ -57088,7 +57873,8 @@ class LangPackString extends LangPackStringBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcad181f6",
+      "\$hash": "cad181f6",
+      "\$name": "LangPackString",
       "key": key,
       "value": value,
     };
@@ -57216,7 +58002,8 @@ class LangPackStringPluralized extends LangPackStringBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c47ac9f",
+      "\$hash": "6c47ac9f",
+      "\$name": "LangPackStringPluralized",
       "flags": flags,
       "key": key,
       "zeroValue": zeroValue,
@@ -57273,7 +58060,8 @@ class LangPackStringDeleted extends LangPackStringBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2979eeb2",
+      "\$hash": "2979eeb2",
+      "\$name": "LangPackStringDeleted",
       "key": key,
     };
 
@@ -57348,7 +58136,8 @@ class LangPackDifference extends LangPackDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf385c1f6",
+      "\$hash": "f385c1f6",
+      "\$name": "LangPackDifference",
       "langCode": langCode,
       "fromVersion": fromVersion,
       "version": version,
@@ -57490,7 +58279,8 @@ class LangPackLanguage extends LangPackLanguageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeeca5ce3",
+      "\$hash": "eeca5ce3",
+      "\$name": "LangPackLanguage",
       "flags": flags,
       "official": official,
       "rtl": rtl,
@@ -57560,7 +58350,8 @@ class ChannelAdminLogEventActionChangeTitle
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6dfb825",
+      "\$hash": "e6dfb825",
+      "\$name": "ChannelAdminLogEventActionChangeTitle",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -57620,7 +58411,8 @@ class ChannelAdminLogEventActionChangeAbout
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x55188a2e",
+      "\$hash": "55188a2e",
+      "\$name": "ChannelAdminLogEventActionChangeAbout",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -57680,7 +58472,8 @@ class ChannelAdminLogEventActionChangeUsername
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a4afc38",
+      "\$hash": "6a4afc38",
+      "\$name": "ChannelAdminLogEventActionChangeUsername",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -57740,7 +58533,8 @@ class ChannelAdminLogEventActionChangePhoto
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x434bd2af",
+      "\$hash": "434bd2af",
+      "\$name": "ChannelAdminLogEventActionChangePhoto",
       "prevPhoto": prevPhoto,
       "newPhoto": newPhoto,
     };
@@ -57793,7 +58587,8 @@ class ChannelAdminLogEventActionToggleInvites
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b7907ae",
+      "\$hash": "1b7907ae",
+      "\$name": "ChannelAdminLogEventActionToggleInvites",
       "newValue": newValue,
     };
 
@@ -57845,7 +58640,8 @@ class ChannelAdminLogEventActionToggleSignatures
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x26ae0971",
+      "\$hash": "26ae0971",
+      "\$name": "ChannelAdminLogEventActionToggleSignatures",
       "newValue": newValue,
     };
 
@@ -57897,7 +58693,8 @@ class ChannelAdminLogEventActionUpdatePinned
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe9e82c18",
+      "\$hash": "e9e82c18",
+      "\$name": "ChannelAdminLogEventActionUpdatePinned",
       "message": message,
     };
 
@@ -57956,7 +58753,8 @@ class ChannelAdminLogEventActionEditMessage
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x709b2405",
+      "\$hash": "709b2405",
+      "\$name": "ChannelAdminLogEventActionEditMessage",
       "prevMessage": prevMessage,
       "newMessage": newMessage,
     };
@@ -58009,7 +58807,8 @@ class ChannelAdminLogEventActionDeleteMessage
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x42e047bb",
+      "\$hash": "42e047bb",
+      "\$name": "ChannelAdminLogEventActionDeleteMessage",
       "message": message,
     };
 
@@ -58048,7 +58847,8 @@ class ChannelAdminLogEventActionParticipantJoin
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x183040d3",
+      "\$hash": "183040d3",
+      "\$name": "ChannelAdminLogEventActionParticipantJoin",
     };
 
     // Finished toJson.
@@ -58086,7 +58886,8 @@ class ChannelAdminLogEventActionParticipantLeave
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf89777f2",
+      "\$hash": "f89777f2",
+      "\$name": "ChannelAdminLogEventActionParticipantLeave",
     };
 
     // Finished toJson.
@@ -58137,7 +58938,8 @@ class ChannelAdminLogEventActionParticipantInvite
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe31c34d8",
+      "\$hash": "e31c34d8",
+      "\$name": "ChannelAdminLogEventActionParticipantInvite",
       "participant": participant,
     };
 
@@ -58196,7 +58998,8 @@ class ChannelAdminLogEventActionParticipantToggleBan
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6d83d7e",
+      "\$hash": "e6d83d7e",
+      "\$name": "ChannelAdminLogEventActionParticipantToggleBan",
       "prevParticipant": prevParticipant,
       "newParticipant": newParticipant,
     };
@@ -58256,7 +59059,8 @@ class ChannelAdminLogEventActionParticipantToggleAdmin
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd5676710",
+      "\$hash": "d5676710",
+      "\$name": "ChannelAdminLogEventActionParticipantToggleAdmin",
       "prevParticipant": prevParticipant,
       "newParticipant": newParticipant,
     };
@@ -58316,7 +59120,8 @@ class ChannelAdminLogEventActionChangeStickerSet
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb1c3caa7",
+      "\$hash": "b1c3caa7",
+      "\$name": "ChannelAdminLogEventActionChangeStickerSet",
       "prevStickerset": prevStickerset,
       "newStickerset": newStickerset,
     };
@@ -58369,7 +59174,8 @@ class ChannelAdminLogEventActionTogglePreHistoryHidden
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5f5c95f1",
+      "\$hash": "5f5c95f1",
+      "\$name": "ChannelAdminLogEventActionTogglePreHistoryHidden",
       "newValue": newValue,
     };
 
@@ -58428,7 +59234,8 @@ class ChannelAdminLogEventActionDefaultBannedRights
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2df5fc0a",
+      "\$hash": "2df5fc0a",
+      "\$name": "ChannelAdminLogEventActionDefaultBannedRights",
       "prevBannedRights": prevBannedRights,
       "newBannedRights": newBannedRights,
     };
@@ -58480,7 +59287,8 @@ class ChannelAdminLogEventActionStopPoll
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8f079643",
+      "\$hash": "8f079643",
+      "\$name": "ChannelAdminLogEventActionStopPoll",
       "message": message,
     };
 
@@ -58543,7 +59351,8 @@ class ChannelAdminLogEventActionChangeLinkedChat
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x050c7ac8",
+      "\$hash": "050c7ac8",
+      "\$name": "ChannelAdminLogEventActionChangeLinkedChat",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -58603,7 +59412,8 @@ class ChannelAdminLogEventActionChangeLocation
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e6b76ae",
+      "\$hash": "0e6b76ae",
+      "\$name": "ChannelAdminLogEventActionChangeLocation",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -58667,7 +59477,8 @@ class ChannelAdminLogEventActionToggleSlowMode
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53909779",
+      "\$hash": "53909779",
+      "\$name": "ChannelAdminLogEventActionToggleSlowMode",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -58720,7 +59531,8 @@ class ChannelAdminLogEventActionStartGroupCall
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x23209745",
+      "\$hash": "23209745",
+      "\$name": "ChannelAdminLogEventActionStartGroupCall",
       "call": call,
     };
 
@@ -58772,7 +59584,8 @@ class ChannelAdminLogEventActionDiscardGroupCall
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb9f9140",
+      "\$hash": "db9f9140",
+      "\$name": "ChannelAdminLogEventActionDiscardGroupCall",
       "call": call,
     };
 
@@ -58824,7 +59637,8 @@ class ChannelAdminLogEventActionParticipantMute
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf92424d2",
+      "\$hash": "f92424d2",
+      "\$name": "ChannelAdminLogEventActionParticipantMute",
       "participant": participant,
     };
 
@@ -58876,7 +59690,8 @@ class ChannelAdminLogEventActionParticipantUnmute
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe64429c0",
+      "\$hash": "e64429c0",
+      "\$name": "ChannelAdminLogEventActionParticipantUnmute",
       "participant": participant,
     };
 
@@ -58928,7 +59743,8 @@ class ChannelAdminLogEventActionToggleGroupCallSetting
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56d6a247",
+      "\$hash": "56d6a247",
+      "\$name": "ChannelAdminLogEventActionToggleGroupCallSetting",
       "joinMuted": joinMuted,
     };
 
@@ -58997,7 +59813,8 @@ class ChannelAdminLogEventActionParticipantJoinByInvite
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfe9fc158",
+      "\$hash": "fe9fc158",
+      "\$name": "ChannelAdminLogEventActionParticipantJoinByInvite",
       "flags": flags,
       "viaChatlist": viaChatlist,
       "invite": invite,
@@ -59051,7 +59868,8 @@ class ChannelAdminLogEventActionExportedInviteDelete
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a50fca4",
+      "\$hash": "5a50fca4",
+      "\$name": "ChannelAdminLogEventActionExportedInviteDelete",
       "invite": invite,
     };
 
@@ -59103,7 +59921,8 @@ class ChannelAdminLogEventActionExportedInviteRevoke
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x410a134e",
+      "\$hash": "410a134e",
+      "\$name": "ChannelAdminLogEventActionExportedInviteRevoke",
       "invite": invite,
     };
 
@@ -59162,7 +59981,8 @@ class ChannelAdminLogEventActionExportedInviteEdit
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe90ebb59",
+      "\$hash": "e90ebb59",
+      "\$name": "ChannelAdminLogEventActionExportedInviteEdit",
       "prevInvite": prevInvite,
       "newInvite": newInvite,
     };
@@ -59215,7 +60035,8 @@ class ChannelAdminLogEventActionParticipantVolume
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e7f6847",
+      "\$hash": "3e7f6847",
+      "\$name": "ChannelAdminLogEventActionParticipantVolume",
       "participant": participant,
     };
 
@@ -59278,7 +60099,8 @@ class ChannelAdminLogEventActionChangeHistoryTTL
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6e941a38",
+      "\$hash": "6e941a38",
+      "\$name": "ChannelAdminLogEventActionChangeHistoryTTL",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -59340,7 +60162,8 @@ class ChannelAdminLogEventActionParticipantJoinByRequest
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xafb6144a",
+      "\$hash": "afb6144a",
+      "\$name": "ChannelAdminLogEventActionParticipantJoinByRequest",
       "invite": invite,
       "approvedBy": approvedBy,
     };
@@ -59393,7 +60216,8 @@ class ChannelAdminLogEventActionToggleNoForwards
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb2ac766",
+      "\$hash": "cb2ac766",
+      "\$name": "ChannelAdminLogEventActionToggleNoForwards",
       "newValue": newValue,
     };
 
@@ -59445,7 +60269,8 @@ class ChannelAdminLogEventActionSendMessage
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x278f2868",
+      "\$hash": "278f2868",
+      "\$name": "ChannelAdminLogEventActionSendMessage",
       "message": message,
     };
 
@@ -59504,7 +60329,8 @@ class ChannelAdminLogEventActionChangeAvailableReactions
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbe4e0ef8",
+      "\$hash": "be4e0ef8",
+      "\$name": "ChannelAdminLogEventActionChangeAvailableReactions",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -59564,7 +60390,8 @@ class ChannelAdminLogEventActionChangeUsernames
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf04fb3a9",
+      "\$hash": "f04fb3a9",
+      "\$name": "ChannelAdminLogEventActionChangeUsernames",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -59617,7 +60444,8 @@ class ChannelAdminLogEventActionToggleForum
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x02cc6383",
+      "\$hash": "02cc6383",
+      "\$name": "ChannelAdminLogEventActionToggleForum",
       "newValue": newValue,
     };
 
@@ -59669,7 +60497,8 @@ class ChannelAdminLogEventActionCreateTopic
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58707d28",
+      "\$hash": "58707d28",
+      "\$name": "ChannelAdminLogEventActionCreateTopic",
       "topic": topic,
     };
 
@@ -59727,7 +60556,8 @@ class ChannelAdminLogEventActionEditTopic
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf06fe208",
+      "\$hash": "f06fe208",
+      "\$name": "ChannelAdminLogEventActionEditTopic",
       "prevTopic": prevTopic,
       "newTopic": newTopic,
     };
@@ -59780,7 +60610,8 @@ class ChannelAdminLogEventActionDeleteTopic
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xae168909",
+      "\$hash": "ae168909",
+      "\$name": "ChannelAdminLogEventActionDeleteTopic",
       "topic": topic,
     };
 
@@ -59860,7 +60691,8 @@ class ChannelAdminLogEventActionPinTopic
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5d8d353b",
+      "\$hash": "5d8d353b",
+      "\$name": "ChannelAdminLogEventActionPinTopic",
       "flags": flags,
       "prevTopic": prevTopic,
       "newTopic": newTopic,
@@ -59914,7 +60746,8 @@ class ChannelAdminLogEventActionToggleAntiSpam
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64f36dfc",
+      "\$hash": "64f36dfc",
+      "\$name": "ChannelAdminLogEventActionToggleAntiSpam",
       "newValue": newValue,
     };
 
@@ -59973,7 +60806,8 @@ class ChannelAdminLogEventActionChangePeerColor
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5796e780",
+      "\$hash": "5796e780",
+      "\$name": "ChannelAdminLogEventActionChangePeerColor",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -60033,7 +60867,8 @@ class ChannelAdminLogEventActionChangeProfilePeerColor
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e477b25",
+      "\$hash": "5e477b25",
+      "\$name": "ChannelAdminLogEventActionChangeProfilePeerColor",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -60093,7 +60928,8 @@ class ChannelAdminLogEventActionChangeWallpaper
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x31bb5d52",
+      "\$hash": "31bb5d52",
+      "\$name": "ChannelAdminLogEventActionChangeWallpaper",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -60153,7 +60989,8 @@ class ChannelAdminLogEventActionChangeEmojiStatus
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3ea9feb1",
+      "\$hash": "3ea9feb1",
+      "\$name": "ChannelAdminLogEventActionChangeEmojiStatus",
       "prevValue": prevValue,
       "newValue": newValue,
     };
@@ -60213,7 +61050,8 @@ class ChannelAdminLogEventActionChangeEmojiStickerSet
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x46d840ab",
+      "\$hash": "46d840ab",
+      "\$name": "ChannelAdminLogEventActionChangeEmojiStickerSet",
       "prevStickerset": prevStickerset,
       "newStickerset": newStickerset,
     };
@@ -60266,7 +61104,8 @@ class ChannelAdminLogEventActionToggleSignatureProfiles
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x60a79c79",
+      "\$hash": "60a79c79",
+      "\$name": "ChannelAdminLogEventActionToggleSignatureProfiles",
       "newValue": newValue,
     };
 
@@ -60325,7 +61164,8 @@ class ChannelAdminLogEventActionParticipantSubExtend
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64642db3",
+      "\$hash": "64642db3",
+      "\$name": "ChannelAdminLogEventActionParticipantSubExtend",
       "prevParticipant": prevParticipant,
       "newParticipant": newParticipant,
     };
@@ -60401,7 +61241,8 @@ class ChannelAdminLogEvent extends ChannelAdminLogEventBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1fad68cd",
+      "\$hash": "1fad68cd",
+      "\$name": "ChannelAdminLogEvent",
       "id": id,
       "date": date.toIso8601String(),
       "userId": userId,
@@ -60468,7 +61309,8 @@ class ChannelsAdminLogResults extends ChannelsAdminLogResultsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed8af74d",
+      "\$hash": "ed8af74d",
+      "\$name": "ChannelsAdminLogResults",
       "events": events,
       "chats": chats,
       "users": users,
@@ -60656,7 +61498,8 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea107ae4",
+      "\$hash": "ea107ae4",
+      "\$name": "ChannelAdminLogEventsFilter",
       "flags": flags,
       "join": join,
       "leave": leave,
@@ -60736,7 +61579,8 @@ class PopularContact extends PopularContactBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5ce14175",
+      "\$hash": "5ce14175",
+      "\$name": "PopularContact",
       "clientId": clientId,
       "importers": importers,
     };
@@ -60774,7 +61618,8 @@ class MessagesFavedStickersNotModified extends MessagesFavedStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9e8fa6d3",
+      "\$hash": "9e8fa6d3",
+      "\$name": "MessagesFavedStickersNotModified",
     };
 
     // Finished toJson.
@@ -60839,7 +61684,8 @@ class MessagesFavedStickers extends MessagesFavedStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2cb51097",
+      "\$hash": "2cb51097",
+      "\$name": "MessagesFavedStickers",
       "hash": hash,
       "packs": packs,
       "stickers": stickers,
@@ -60891,7 +61737,8 @@ class RecentMeUrlUnknown extends RecentMeUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x46e1d13d",
+      "\$hash": "46e1d13d",
+      "\$name": "RecentMeUrlUnknown",
       "url": url,
     };
 
@@ -60950,7 +61797,8 @@ class RecentMeUrlUser extends RecentMeUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb92c09e2",
+      "\$hash": "b92c09e2",
+      "\$name": "RecentMeUrlUser",
       "url": url,
       "userId": userId,
     };
@@ -61010,7 +61858,8 @@ class RecentMeUrlChat extends RecentMeUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb2da71d2",
+      "\$hash": "b2da71d2",
+      "\$name": "RecentMeUrlChat",
       "url": url,
       "chatId": chatId,
     };
@@ -61068,7 +61917,8 @@ class RecentMeUrlChatInvite extends RecentMeUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeb49081d",
+      "\$hash": "eb49081d",
+      "\$name": "RecentMeUrlChatInvite",
       "url": url,
       "chatInvite": chatInvite,
     };
@@ -61126,7 +61976,8 @@ class RecentMeUrlStickerSet extends RecentMeUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbc0a57dc",
+      "\$hash": "bc0a57dc",
+      "\$name": "RecentMeUrlStickerSet",
       "url": url,
       "set": set,
     };
@@ -61191,7 +62042,8 @@ class HelpRecentMeUrls extends HelpRecentMeUrlsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e0310d7",
+      "\$hash": "0e0310d7",
+      "\$name": "HelpRecentMeUrls",
       "urls": urls,
       "chats": chats,
       "users": users,
@@ -61282,7 +62134,8 @@ class InputSingleMedia extends InputSingleMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1cc6e91f",
+      "\$hash": "1cc6e91f",
+      "\$name": "InputSingleMedia",
       "flags": flags,
       "media": media,
       "randomId": randomId,
@@ -61396,7 +62249,8 @@ class WebAuthorization extends WebAuthorizationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa6f8f452",
+      "\$hash": "a6f8f452",
+      "\$name": "WebAuthorization",
       "hash": hash,
       "botId": botId,
       "domain": domain,
@@ -61461,7 +62315,8 @@ class AccountWebAuthorizations extends AccountWebAuthorizationsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed56c9fc",
+      "\$hash": "ed56c9fc",
+      "\$name": "AccountWebAuthorizations",
       "authorizations": authorizations,
       "users": users,
     };
@@ -61514,7 +62369,8 @@ class InputMessageID extends InputMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa676a322",
+      "\$hash": "a676a322",
+      "\$name": "InputMessageID",
       "id": id,
     };
 
@@ -61566,7 +62422,8 @@ class InputMessageReplyTo extends InputMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbad88395",
+      "\$hash": "bad88395",
+      "\$name": "InputMessageReplyTo",
       "id": id,
     };
 
@@ -61603,7 +62460,8 @@ class InputMessagePinned extends InputMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x86872538",
+      "\$hash": "86872538",
+      "\$name": "InputMessagePinned",
     };
 
     // Finished toJson.
@@ -61663,7 +62521,8 @@ class InputMessageCallbackQuery extends InputMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xacfa1a7e",
+      "\$hash": "acfa1a7e",
+      "\$name": "InputMessageCallbackQuery",
       "id": id,
       "queryId": queryId,
     };
@@ -61714,7 +62573,8 @@ class InputDialogPeer extends InputDialogPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfcaafeb7",
+      "\$hash": "fcaafeb7",
+      "\$name": "InputDialogPeer",
       "peer": peer,
     };
 
@@ -61766,7 +62626,8 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64600527",
+      "\$hash": "64600527",
+      "\$name": "InputDialogPeerFolder",
       "folderId": folderId,
     };
 
@@ -61816,7 +62677,8 @@ class DialogPeer extends DialogPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe56dbf05",
+      "\$hash": "e56dbf05",
+      "\$name": "DialogPeer",
       "peer": peer,
     };
 
@@ -61868,7 +62730,8 @@ class DialogPeerFolder extends DialogPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x514519e2",
+      "\$hash": "514519e2",
+      "\$name": "DialogPeerFolder",
       "folderId": folderId,
     };
 
@@ -61905,7 +62768,8 @@ class MessagesFoundStickerSetsNotModified extends MessagesFoundStickerSetsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0d54b65d",
+      "\$hash": "0d54b65d",
+      "\$name": "MessagesFoundStickerSetsNotModified",
     };
 
     // Finished toJson.
@@ -61963,7 +62827,8 @@ class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8af09dd2",
+      "\$hash": "8af09dd2",
+      "\$name": "MessagesFoundStickerSets",
       "hash": hash,
       "sets": sets,
     };
@@ -62032,7 +62897,8 @@ class FileHash extends FileHashBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf39b035c",
+      "\$hash": "f39b035c",
+      "\$name": "FileHash",
       "offset": offset,
       "limit": limit,
       "hash": hash,
@@ -62093,7 +62959,8 @@ class InputClientProxy extends InputClientProxyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x75588b3f",
+      "\$hash": "75588b3f",
+      "\$name": "InputClientProxy",
       "address": address,
       "port": port,
     };
@@ -62144,7 +63011,8 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe3309f7f",
+      "\$hash": "e3309f7f",
+      "\$name": "HelpTermsOfServiceUpdateEmpty",
       "expires": expires.toIso8601String(),
     };
 
@@ -62201,7 +63069,8 @@ class HelpTermsOfServiceUpdate extends HelpTermsOfServiceUpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x28ecf961",
+      "\$hash": "28ecf961",
+      "\$name": "HelpTermsOfServiceUpdate",
       "expires": expires.toIso8601String(),
       "termsOfService": termsOfService,
     };
@@ -62284,7 +63153,8 @@ class InputSecureFileUploaded extends InputSecureFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3334b0f0",
+      "\$hash": "3334b0f0",
+      "\$name": "InputSecureFileUploaded",
       "id": id,
       "parts": parts,
       "md5Checksum": md5Checksum,
@@ -62349,7 +63219,8 @@ class InputSecureFile extends InputSecureFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5367e5be",
+      "\$hash": "5367e5be",
+      "\$name": "InputSecureFile",
       "id": id,
       "accessHash": accessHash,
     };
@@ -62387,7 +63258,8 @@ class SecureFileEmpty extends SecureFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64199744",
+      "\$hash": "64199744",
+      "\$name": "SecureFileEmpty",
     };
 
     // Finished toJson.
@@ -62486,7 +63358,8 @@ class SecureFile extends SecureFileBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7d09c27e",
+      "\$hash": "7d09c27e",
+      "\$name": "SecureFile",
       "id": id,
       "accessHash": accessHash,
       "size": size,
@@ -62556,7 +63429,8 @@ class SecureData extends SecureDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8aeabec3",
+      "\$hash": "8aeabec3",
+      "\$name": "SecureData",
       "data": data,
       "dataHash": dataHash,
       "secret": secret,
@@ -62608,7 +63482,8 @@ class SecurePlainPhone extends SecurePlainDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7d6099dd",
+      "\$hash": "7d6099dd",
+      "\$name": "SecurePlainPhone",
       "phone": phone,
     };
 
@@ -62658,7 +63533,8 @@ class SecurePlainEmail extends SecurePlainDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x21ec5a5f",
+      "\$hash": "21ec5a5f",
+      "\$name": "SecurePlainEmail",
       "email": email,
     };
 
@@ -62695,7 +63571,8 @@ class SecureValueTypePersonalDetails extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9d2a81e3",
+      "\$hash": "9d2a81e3",
+      "\$name": "SecureValueTypePersonalDetails",
     };
 
     // Finished toJson.
@@ -62731,7 +63608,8 @@ class SecureValueTypePassport extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dac6a00",
+      "\$hash": "3dac6a00",
+      "\$name": "SecureValueTypePassport",
     };
 
     // Finished toJson.
@@ -62767,7 +63645,8 @@ class SecureValueTypeDriverLicense extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x06e425c4",
+      "\$hash": "06e425c4",
+      "\$name": "SecureValueTypeDriverLicense",
     };
 
     // Finished toJson.
@@ -62803,7 +63682,8 @@ class SecureValueTypeIdentityCard extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa0d0744b",
+      "\$hash": "a0d0744b",
+      "\$name": "SecureValueTypeIdentityCard",
     };
 
     // Finished toJson.
@@ -62839,7 +63719,8 @@ class SecureValueTypeInternalPassport extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x99a48f23",
+      "\$hash": "99a48f23",
+      "\$name": "SecureValueTypeInternalPassport",
     };
 
     // Finished toJson.
@@ -62875,7 +63756,8 @@ class SecureValueTypeAddress extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcbe31e26",
+      "\$hash": "cbe31e26",
+      "\$name": "SecureValueTypeAddress",
     };
 
     // Finished toJson.
@@ -62911,7 +63793,8 @@ class SecureValueTypeUtilityBill extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfc36954e",
+      "\$hash": "fc36954e",
+      "\$name": "SecureValueTypeUtilityBill",
     };
 
     // Finished toJson.
@@ -62947,7 +63830,8 @@ class SecureValueTypeBankStatement extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x89137c0d",
+      "\$hash": "89137c0d",
+      "\$name": "SecureValueTypeBankStatement",
     };
 
     // Finished toJson.
@@ -62983,7 +63867,8 @@ class SecureValueTypeRentalAgreement extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8b883488",
+      "\$hash": "8b883488",
+      "\$name": "SecureValueTypeRentalAgreement",
     };
 
     // Finished toJson.
@@ -63019,7 +63904,8 @@ class SecureValueTypePassportRegistration extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x99e3806a",
+      "\$hash": "99e3806a",
+      "\$name": "SecureValueTypePassportRegistration",
     };
 
     // Finished toJson.
@@ -63056,7 +63942,8 @@ class SecureValueTypeTemporaryRegistration extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea02ec33",
+      "\$hash": "ea02ec33",
+      "\$name": "SecureValueTypeTemporaryRegistration",
     };
 
     // Finished toJson.
@@ -63092,7 +63979,8 @@ class SecureValueTypePhone extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb320aadb",
+      "\$hash": "b320aadb",
+      "\$name": "SecureValueTypePhone",
     };
 
     // Finished toJson.
@@ -63128,7 +64016,8 @@ class SecureValueTypeEmail extends SecureValueTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8e3ca7ee",
+      "\$hash": "8e3ca7ee",
+      "\$name": "SecureValueTypeEmail",
     };
 
     // Finished toJson.
@@ -63284,7 +64173,8 @@ class SecureValue extends SecureValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x187fa0ca",
+      "\$hash": "187fa0ca",
+      "\$name": "SecureValue",
       "flags": flags,
       "type": type,
       "data": data,
@@ -63444,7 +64334,8 @@ class InputSecureValue extends InputSecureValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb21d0a7",
+      "\$hash": "db21d0a7",
+      "\$name": "InputSecureValue",
       "flags": flags,
       "type": type,
       "data": data,
@@ -63509,7 +64400,8 @@ class SecureValueHash extends SecureValueHashBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed1ecdb0",
+      "\$hash": "ed1ecdb0",
+      "\$name": "SecureValueHash",
       "type": type,
       "hash": hash,
     };
@@ -63581,7 +64473,8 @@ class SecureValueErrorData extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe8a40bd9",
+      "\$hash": "e8a40bd9",
+      "\$name": "SecureValueErrorData",
       "type": type,
       "dataHash": dataHash,
       "field": field,
@@ -63648,7 +64541,8 @@ class SecureValueErrorFrontSide extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x00be3dfa",
+      "\$hash": "00be3dfa",
+      "\$name": "SecureValueErrorFrontSide",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -63714,7 +64608,8 @@ class SecureValueErrorReverseSide extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x868a2aa5",
+      "\$hash": "868a2aa5",
+      "\$name": "SecureValueErrorReverseSide",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -63780,7 +64675,8 @@ class SecureValueErrorSelfie extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe537ced6",
+      "\$hash": "e537ced6",
+      "\$name": "SecureValueErrorSelfie",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -63846,7 +64742,8 @@ class SecureValueErrorFile extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a700873",
+      "\$hash": "7a700873",
+      "\$name": "SecureValueErrorFile",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -63912,7 +64809,8 @@ class SecureValueErrorFiles extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x666220e9",
+      "\$hash": "666220e9",
+      "\$name": "SecureValueErrorFiles",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -63978,7 +64876,8 @@ class SecureValueError extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x869d758f",
+      "\$hash": "869d758f",
+      "\$name": "SecureValueError",
       "type": type,
       "hash": hash,
       "text": text,
@@ -64044,7 +64943,8 @@ class SecureValueErrorTranslationFile extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa1144770",
+      "\$hash": "a1144770",
+      "\$name": "SecureValueErrorTranslationFile",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -64110,7 +65010,8 @@ class SecureValueErrorTranslationFiles extends SecureValueErrorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34636dd8",
+      "\$hash": "34636dd8",
+      "\$name": "SecureValueErrorTranslationFiles",
       "type": type,
       "fileHash": fileHash,
       "text": text,
@@ -64176,7 +65077,8 @@ class SecureCredentialsEncrypted extends SecureCredentialsEncryptedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x33f0ea47",
+      "\$hash": "33f0ea47",
+      "\$name": "SecureCredentialsEncrypted",
       "data": data,
       "hash": hash,
       "secret": secret,
@@ -64272,7 +65174,8 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad2e1cd8",
+      "\$hash": "ad2e1cd8",
+      "\$name": "AccountAuthorizationForm",
       "flags": flags,
       "requiredTypes": requiredTypes,
       "values": values,
@@ -64336,7 +65239,8 @@ class AccountSentEmailCode extends AccountSentEmailCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x811f854f",
+      "\$hash": "811f854f",
+      "\$name": "AccountSentEmailCode",
       "emailPattern": emailPattern,
       "length": length,
     };
@@ -64374,7 +65278,8 @@ class HelpDeepLinkInfoEmpty extends HelpDeepLinkInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x66afa166",
+      "\$hash": "66afa166",
+      "\$name": "HelpDeepLinkInfoEmpty",
     };
 
     // Finished toJson.
@@ -64453,7 +65358,8 @@ class HelpDeepLinkInfo extends HelpDeepLinkInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a4ee832",
+      "\$hash": "6a4ee832",
+      "\$name": "HelpDeepLinkInfo",
       "flags": flags,
       "updateApp": updateApp,
       "message": message,
@@ -64527,7 +65433,8 @@ class SavedPhoneContact extends SavedContactBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1142bd56",
+      "\$hash": "1142bd56",
+      "\$name": "SavedPhoneContact",
       "phone": phone,
       "firstName": firstName,
       "lastName": lastName,
@@ -64582,7 +65489,8 @@ class AccountTakeout extends AccountTakeoutBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4dba4501",
+      "\$hash": "4dba4501",
+      "\$name": "AccountTakeout",
       "id": id,
     };
 
@@ -64619,7 +65527,8 @@ class PasswordKdfAlgoUnknown extends PasswordKdfAlgoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd45ab096",
+      "\$hash": "d45ab096",
+      "\$name": "PasswordKdfAlgoUnknown",
     };
 
     // Finished toJson.
@@ -64694,7 +65603,9 @@ class PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3a912d4a",
+      "\$hash": "3a912d4a",
+      "\$name":
+          "PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow",
       "salt1": salt1,
       "salt2": salt2,
       "g": g,
@@ -64734,7 +65645,8 @@ class SecurePasswordKdfAlgoUnknown extends SecurePasswordKdfAlgoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x004a8537",
+      "\$hash": "004a8537",
+      "\$name": "SecurePasswordKdfAlgoUnknown",
     };
 
     // Finished toJson.
@@ -64785,7 +65697,8 @@ class SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbbf2dda0",
+      "\$hash": "bbf2dda0",
+      "\$name": "SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000",
       "salt": salt,
     };
 
@@ -64835,7 +65748,8 @@ class SecurePasswordKdfAlgoSHA512 extends SecurePasswordKdfAlgoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x86471d92",
+      "\$hash": "86471d92",
+      "\$name": "SecurePasswordKdfAlgoSHA512",
       "salt": salt,
     };
 
@@ -64901,7 +65815,8 @@ class SecureSecretSettings extends SecureSecretSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1527bcac",
+      "\$hash": "1527bcac",
+      "\$name": "SecureSecretSettings",
       "secureAlgo": secureAlgo,
       "secureSecret": secureSecret,
       "secureSecretId": secureSecretId,
@@ -64940,7 +65855,8 @@ class InputCheckPasswordEmpty extends InputCheckPasswordSRPBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9880f658",
+      "\$hash": "9880f658",
+      "\$name": "InputCheckPasswordEmpty",
     };
 
     // Finished toJson.
@@ -65005,7 +65921,8 @@ class InputCheckPasswordSRP extends InputCheckPasswordSRPBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd27ff082",
+      "\$hash": "d27ff082",
+      "\$name": "InputCheckPasswordSRP",
       "srpId": srpId,
       "a": a,
       "m1": m1,
@@ -65088,7 +66005,8 @@ class SecureRequiredType extends SecureRequiredTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x829d99da",
+      "\$hash": "829d99da",
+      "\$name": "SecureRequiredType",
       "flags": flags,
       "nativeNames": nativeNames,
       "selfieRequired": selfieRequired,
@@ -65142,7 +66060,8 @@ class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x027477b4",
+      "\$hash": "027477b4",
+      "\$name": "SecureRequiredTypeOneOf",
       "types": types,
     };
 
@@ -65179,7 +66098,8 @@ class HelpPassportConfigNotModified extends HelpPassportConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbfb9f457",
+      "\$hash": "bfb9f457",
+      "\$name": "HelpPassportConfigNotModified",
     };
 
     // Finished toJson.
@@ -65237,7 +66157,8 @@ class HelpPassportConfig extends HelpPassportConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa098d6af",
+      "\$hash": "a098d6af",
+      "\$name": "HelpPassportConfig",
       "hash": hash,
       "countriesLangs": countriesLangs,
     };
@@ -65311,7 +66232,8 @@ class InputAppEvent extends InputAppEventBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1d1b1245",
+      "\$hash": "1d1b1245",
+      "\$name": "InputAppEvent",
       "time": time,
       "type": type,
       "peer": peer,
@@ -65371,7 +66293,8 @@ class JsonObjectValue extends JSONObjectValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc0de1bd9",
+      "\$hash": "c0de1bd9",
+      "\$name": "JsonObjectValue",
       "key": key,
       "value": value,
     };
@@ -65409,7 +66332,8 @@ class JsonNull extends JSONValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3f6d7b68",
+      "\$hash": "3f6d7b68",
+      "\$name": "JsonNull",
     };
 
     // Finished toJson.
@@ -65458,7 +66382,8 @@ class JsonBool extends JSONValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc7345e6a",
+      "\$hash": "c7345e6a",
+      "\$name": "JsonBool",
       "value": value,
     };
 
@@ -65508,7 +66433,8 @@ class JsonNumber extends JSONValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2be0dfa4",
+      "\$hash": "2be0dfa4",
+      "\$name": "JsonNumber",
       "value": value,
     };
 
@@ -65558,7 +66484,8 @@ class JsonString extends JSONValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb71e767a",
+      "\$hash": "b71e767a",
+      "\$name": "JsonString",
       "value": value,
     };
 
@@ -65608,7 +66535,8 @@ class JsonArray extends JSONValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf7444763",
+      "\$hash": "f7444763",
+      "\$name": "JsonArray",
       "value": value,
     };
 
@@ -65658,7 +66586,8 @@ class JsonObject extends JSONValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x99c1d49d",
+      "\$hash": "99c1d49d",
+      "\$name": "JsonObject",
       "value": value,
     };
 
@@ -65782,7 +66711,8 @@ class PageTableCell extends PageTableCellBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34566b6a",
+      "\$hash": "34566b6a",
+      "\$name": "PageTableCell",
       "flags": flags,
       "header": header,
       "alignCenter": alignCenter,
@@ -65840,7 +66770,8 @@ class PageTableRow extends PageTableRowBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe0c0c5e5",
+      "\$hash": "e0c0c5e5",
+      "\$name": "PageTableRow",
       "cells": cells,
     };
 
@@ -65897,7 +66828,8 @@ class PageCaption extends PageCaptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f747657",
+      "\$hash": "6f747657",
+      "\$name": "PageCaption",
       "text": text,
       "credit": credit,
     };
@@ -65948,7 +66880,8 @@ class PageListItemText extends PageListItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb92fb6cd",
+      "\$hash": "b92fb6cd",
+      "\$name": "PageListItemText",
       "text": text,
     };
 
@@ -65998,7 +66931,8 @@ class PageListItemBlocks extends PageListItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x25e073fc",
+      "\$hash": "25e073fc",
+      "\$name": "PageListItemBlocks",
       "blocks": blocks,
     };
 
@@ -66055,7 +66989,8 @@ class PageListOrderedItemText extends PageListOrderedItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e068047",
+      "\$hash": "5e068047",
+      "\$name": "PageListOrderedItemText",
       "num": num,
       "text": text,
     };
@@ -66113,7 +67048,8 @@ class PageListOrderedItemBlocks extends PageListOrderedItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98dd8936",
+      "\$hash": "98dd8936",
+      "\$name": "PageListOrderedItemBlocks",
       "num": num,
       "blocks": blocks,
     };
@@ -66243,7 +67179,8 @@ class PageRelatedArticle extends PageRelatedArticleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb390dc08",
+      "\$hash": "b390dc08",
+      "\$name": "PageRelatedArticle",
       "flags": flags,
       "url": url,
       "webpageId": webpageId,
@@ -66364,7 +67301,8 @@ class Page extends PageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98657f0d",
+      "\$hash": "98657f0d",
+      "\$name": "Page",
       "flags": flags,
       "part": part,
       "rtl": rtl,
@@ -66422,7 +67360,8 @@ class HelpSupportName extends HelpSupportNameBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c05f1c9",
+      "\$hash": "8c05f1c9",
+      "\$name": "HelpSupportName",
       "name": name,
     };
 
@@ -66459,7 +67398,8 @@ class HelpUserInfoEmpty extends HelpUserInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3ae2eed",
+      "\$hash": "f3ae2eed",
+      "\$name": "HelpUserInfoEmpty",
     };
 
     // Finished toJson.
@@ -66529,7 +67469,8 @@ class HelpUserInfo extends HelpUserInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x01eb3758",
+      "\$hash": "01eb3758",
+      "\$name": "HelpUserInfo",
       "message": message,
       "entities": entities,
       "author": author,
@@ -66589,7 +67530,8 @@ class PollAnswer extends PollAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xff16e2ca",
+      "\$hash": "ff16e2ca",
+      "\$name": "PollAnswer",
       "text": text,
       "option": option,
     };
@@ -66718,7 +67660,8 @@ class Poll extends PollBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58747131",
+      "\$hash": "58747131",
+      "\$name": "Poll",
       "id": id,
       "flags": flags,
       "closed": closed,
@@ -66810,7 +67753,8 @@ class PollAnswerVoters extends PollAnswerVotersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3b6ddad2",
+      "\$hash": "3b6ddad2",
+      "\$name": "PollAnswerVoters",
       "flags": flags,
       "chosen": chosen,
       "correct": correct,
@@ -66938,7 +67882,8 @@ class PollResults extends PollResultsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7adf2420",
+      "\$hash": "7adf2420",
+      "\$name": "PollResults",
       "flags": flags,
       "min": min,
       "results": results,
@@ -66996,7 +67941,8 @@ class ChatOnlines extends ChatOnlinesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf041e250",
+      "\$hash": "f041e250",
+      "\$name": "ChatOnlines",
       "onlines": onlines,
     };
 
@@ -67046,7 +67992,8 @@ class StatsURL extends StatsURLBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x47a971e0",
+      "\$hash": "47a971e0",
+      "\$name": "StatsURL",
       "url": url,
     };
 
@@ -67204,7 +68151,8 @@ class ChatAdminRights extends ChatAdminRightsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5fb224d5",
+      "\$hash": "5fb224d5",
+      "\$name": "ChatAdminRights",
       "flags": flags,
       "changeInfo": changeInfo,
       "postMessages": postMessages,
@@ -67419,7 +68367,8 @@ class ChatBannedRights extends ChatBannedRightsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9f120418",
+      "\$hash": "9f120418",
+      "\$name": "ChatBannedRights",
       "flags": flags,
       "viewMessages": viewMessages,
       "sendMessages": sendMessages,
@@ -67501,7 +68450,8 @@ class InputWallPaper extends InputWallPaperBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe630b979",
+      "\$hash": "e630b979",
+      "\$name": "InputWallPaper",
       "id": id,
       "accessHash": accessHash,
     };
@@ -67552,7 +68502,8 @@ class InputWallPaperSlug extends InputWallPaperBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x72091c80",
+      "\$hash": "72091c80",
+      "\$name": "InputWallPaperSlug",
       "slug": slug,
     };
 
@@ -67604,7 +68555,8 @@ class InputWallPaperNoFile extends InputWallPaperBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x967a462e",
+      "\$hash": "967a462e",
+      "\$name": "InputWallPaperNoFile",
       "id": id,
     };
 
@@ -67641,7 +68593,8 @@ class AccountWallPapersNotModified extends AccountWallPapersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1c199183",
+      "\$hash": "1c199183",
+      "\$name": "AccountWallPapersNotModified",
     };
 
     // Finished toJson.
@@ -67699,7 +68652,8 @@ class AccountWallPapers extends AccountWallPapersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcdc3858c",
+      "\$hash": "cdc3858c",
+      "\$name": "AccountWallPapers",
       "hash": hash,
       "wallpapers": wallpapers,
     };
@@ -67829,7 +68783,8 @@ class CodeSettings extends CodeSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad253d78",
+      "\$hash": "ad253d78",
+      "\$name": "CodeSettings",
       "flags": flags,
       "allowFlashcall": allowFlashcall,
       "currentNumber": currentNumber,
@@ -67991,7 +68946,8 @@ class WallPaperSettings extends WallPaperSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x372efcd0",
+      "\$hash": "372efcd0",
+      "\$name": "WallPaperSettings",
       "flags": flags,
       "blur": blur,
       "motion": motion,
@@ -68142,7 +69098,8 @@ class AutoDownloadSettings extends AutoDownloadSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbaa57628",
+      "\$hash": "baa57628",
+      "\$name": "AutoDownloadSettings",
       "flags": flags,
       "disabled": disabled,
       "videoPreloadLarge": videoPreloadLarge,
@@ -68217,7 +69174,8 @@ class AccountAutoDownloadSettings extends AccountAutoDownloadSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x63cacf26",
+      "\$hash": "63cacf26",
+      "\$name": "AccountAutoDownloadSettings",
       "low": low,
       "medium": medium,
       "high": high,
@@ -68276,7 +69234,8 @@ class EmojiKeyword extends EmojiKeywordBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd5b3b9f9",
+      "\$hash": "d5b3b9f9",
+      "\$name": "EmojiKeyword",
       "keyword": keyword,
       "emoticons": emoticons,
     };
@@ -68334,7 +69293,8 @@ class EmojiKeywordDeleted extends EmojiKeywordBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x236df622",
+      "\$hash": "236df622",
+      "\$name": "EmojiKeywordDeleted",
       "keyword": keyword,
       "emoticons": emoticons,
     };
@@ -68410,7 +69370,8 @@ class EmojiKeywordsDifference extends EmojiKeywordsDifferenceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5cc761bd",
+      "\$hash": "5cc761bd",
+      "\$name": "EmojiKeywordsDifference",
       "langCode": langCode,
       "fromVersion": fromVersion,
       "version": version,
@@ -68463,7 +69424,8 @@ class EmojiURL extends EmojiURLBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa575739d",
+      "\$hash": "a575739d",
+      "\$name": "EmojiURL",
       "url": url,
     };
 
@@ -68513,7 +69475,8 @@ class EmojiLanguage extends EmojiLanguageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb3fb5361",
+      "\$hash": "b3fb5361",
+      "\$name": "EmojiLanguage",
       "langCode": langCode,
     };
 
@@ -68615,7 +69578,8 @@ class Folder extends FolderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xff544e65",
+      "\$hash": "ff544e65",
+      "\$name": "Folder",
       "flags": flags,
       "autofillNewBroadcasts": autofillNewBroadcasts,
       "autofillPublicGroups": autofillPublicGroups,
@@ -68680,7 +69644,8 @@ class InputFolderPeer extends InputFolderPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfbd2c296",
+      "\$hash": "fbd2c296",
+      "\$name": "InputFolderPeer",
       "peer": peer,
       "folderId": folderId,
     };
@@ -68740,7 +69705,8 @@ class FolderPeer extends FolderPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe9baa668",
+      "\$hash": "e9baa668",
+      "\$name": "FolderPeer",
       "peer": peer,
       "folderId": folderId,
     };
@@ -68817,7 +69783,8 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe844ebff",
+      "\$hash": "e844ebff",
+      "\$name": "MessagesSearchCounter",
       "flags": flags,
       "inexact": inexact,
       "filter": filter,
@@ -68894,7 +69861,8 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x92d33a0e",
+      "\$hash": "92d33a0e",
+      "\$name": "UrlAuthResultRequest",
       "flags": flags,
       "requestWriteAccess": requestWriteAccess,
       "bot": bot,
@@ -68947,7 +69915,8 @@ class UrlAuthResultAccepted extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8f8c0e4e",
+      "\$hash": "8f8c0e4e",
+      "\$name": "UrlAuthResultAccepted",
       "url": url,
     };
 
@@ -68984,7 +69953,8 @@ class UrlAuthResultDefault extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa9d6db1f",
+      "\$hash": "a9d6db1f",
+      "\$name": "UrlAuthResultDefault",
     };
 
     // Finished toJson.
@@ -69020,7 +69990,8 @@ class ChannelLocationEmpty extends ChannelLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbfb5ad8b",
+      "\$hash": "bfb5ad8b",
+      "\$name": "ChannelLocationEmpty",
     };
 
     // Finished toJson.
@@ -69076,7 +70047,8 @@ class ChannelLocation extends ChannelLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x209b82db",
+      "\$hash": "209b82db",
+      "\$name": "ChannelLocation",
       "geoPoint": geoPoint,
       "address": address,
     };
@@ -69143,7 +70115,8 @@ class PeerLocated extends PeerLocatedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xca461b5d",
+      "\$hash": "ca461b5d",
+      "\$name": "PeerLocated",
       "peer": peer,
       "expires": expires.toIso8601String(),
       "distance": distance,
@@ -69195,7 +70168,8 @@ class PeerSelfLocated extends PeerLocatedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf8ec284b",
+      "\$hash": "f8ec284b",
+      "\$name": "PeerSelfLocated",
       "expires": expires.toIso8601String(),
     };
 
@@ -69259,7 +70233,8 @@ class RestrictionReason extends RestrictionReasonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd072acb4",
+      "\$hash": "d072acb4",
+      "\$name": "RestrictionReason",
       "platform": platform,
       "reason": reason,
       "text": text,
@@ -69322,7 +70297,8 @@ class InputTheme extends InputThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3c5693e9",
+      "\$hash": "3c5693e9",
+      "\$name": "InputTheme",
       "id": id,
       "accessHash": accessHash,
     };
@@ -69373,7 +70349,8 @@ class InputThemeSlug extends InputThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf5890df1",
+      "\$hash": "f5890df1",
+      "\$name": "InputThemeSlug",
       "slug": slug,
     };
 
@@ -69529,7 +70506,8 @@ class Theme extends ThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa00e67d6",
+      "\$hash": "a00e67d6",
+      "\$name": "Theme",
       "flags": flags,
       "creator": creator,
       "ddefault": ddefault,
@@ -69577,7 +70555,8 @@ class AccountThemesNotModified extends AccountThemesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf41eb622",
+      "\$hash": "f41eb622",
+      "\$name": "AccountThemesNotModified",
     };
 
     // Finished toJson.
@@ -69635,7 +70614,8 @@ class AccountThemes extends AccountThemesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a3d8c6d",
+      "\$hash": "9a3d8c6d",
+      "\$name": "AccountThemes",
       "hash": hash,
       "themes": themes,
     };
@@ -69693,7 +70673,8 @@ class AuthLoginToken extends AuthLoginTokenBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x629f1980",
+      "\$hash": "629f1980",
+      "\$name": "AuthLoginToken",
       "expires": expires.toIso8601String(),
       "token": token,
     };
@@ -69753,7 +70734,8 @@ class AuthLoginTokenMigrateTo extends AuthLoginTokenBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x068e9916",
+      "\$hash": "068e9916",
+      "\$name": "AuthLoginTokenMigrateTo",
       "dcId": dcId,
       "token": token,
     };
@@ -69804,7 +70786,8 @@ class AuthLoginTokenSuccess extends AuthLoginTokenBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x390d5c5e",
+      "\$hash": "390d5c5e",
+      "\$name": "AuthLoginTokenSuccess",
       "authorization": authorization,
     };
 
@@ -69871,7 +70854,8 @@ class AccountContentSettings extends AccountContentSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57e28221",
+      "\$hash": "57e28221",
+      "\$name": "AccountContentSettings",
       "flags": flags,
       "sensitiveEnabled": sensitiveEnabled,
       "sensitiveCanChange": sensitiveCanChange,
@@ -69937,7 +70921,8 @@ class MessagesInactiveChats extends MessagesInactiveChatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa927fec5",
+      "\$hash": "a927fec5",
+      "\$name": "MessagesInactiveChats",
       "dates": dates,
       "chats": chats,
       "users": users,
@@ -69976,7 +70961,8 @@ class BaseThemeClassic extends BaseThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc3a12462",
+      "\$hash": "c3a12462",
+      "\$name": "BaseThemeClassic",
     };
 
     // Finished toJson.
@@ -70012,7 +70998,8 @@ class BaseThemeDay extends BaseThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfbd81688",
+      "\$hash": "fbd81688",
+      "\$name": "BaseThemeDay",
     };
 
     // Finished toJson.
@@ -70048,7 +71035,8 @@ class BaseThemeNight extends BaseThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb7b31ea8",
+      "\$hash": "b7b31ea8",
+      "\$name": "BaseThemeNight",
     };
 
     // Finished toJson.
@@ -70084,7 +71072,8 @@ class BaseThemeTinted extends BaseThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6d5f77ee",
+      "\$hash": "6d5f77ee",
+      "\$name": "BaseThemeTinted",
     };
 
     // Finished toJson.
@@ -70120,7 +71109,8 @@ class BaseThemeArctic extends BaseThemeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5b11125a",
+      "\$hash": "5b11125a",
+      "\$name": "BaseThemeArctic",
     };
 
     // Finished toJson.
@@ -70247,7 +71237,8 @@ class InputThemeSettings extends InputThemeSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8fde504f",
+      "\$hash": "8fde504f",
+      "\$name": "InputThemeSettings",
       "flags": flags,
       "messageColorsAnimated": messageColorsAnimated,
       "baseTheme": baseTheme,
@@ -70369,7 +71360,8 @@ class ThemeSettings extends ThemeSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa58b6d4",
+      "\$hash": "fa58b6d4",
+      "\$name": "ThemeSettings",
       "flags": flags,
       "messageColorsAnimated": messageColorsAnimated,
       "baseTheme": baseTheme,
@@ -70454,7 +71446,8 @@ class WebPageAttributeTheme extends WebPageAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x54b56617",
+      "\$hash": "54b56617",
+      "\$name": "WebPageAttributeTheme",
       "flags": flags,
       "documents": documents,
       "settings": settings,
@@ -70537,7 +71530,8 @@ class WebPageAttributeStory extends WebPageAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2e94c3e7",
+      "\$hash": "2e94c3e7",
+      "\$name": "WebPageAttributeStory",
       "flags": flags,
       "peer": peer,
       "id": id,
@@ -70614,7 +71608,8 @@ class WebPageAttributeStickerSet extends WebPageAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50cc03d3",
+      "\$hash": "50cc03d3",
+      "\$name": "WebPageAttributeStickerSet",
       "flags": flags,
       "emojis": emojis,
       "textColor": textColor,
@@ -70712,7 +71707,8 @@ class MessagesVotesList extends MessagesVotesListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4899484e",
+      "\$hash": "4899484e",
+      "\$name": "MessagesVotesList",
       "flags": flags,
       "count": count,
       "votes": votes,
@@ -70774,7 +71770,8 @@ class BankCardOpenUrl extends BankCardOpenUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf568028a",
+      "\$hash": "f568028a",
+      "\$name": "BankCardOpenUrl",
       "url": url,
       "name": name,
     };
@@ -70832,7 +71829,8 @@ class PaymentsBankCardData extends PaymentsBankCardDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e24e573",
+      "\$hash": "3e24e573",
+      "\$name": "PaymentsBankCardData",
       "title": title,
       "openUrls": openUrls,
     };
@@ -71003,7 +72001,8 @@ class DialogFilter extends DialogFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5fb5523b",
+      "\$hash": "5fb5523b",
+      "\$name": "DialogFilter",
       "flags": flags,
       "contacts": contacts,
       "nonContacts": nonContacts,
@@ -71055,7 +72054,8 @@ class DialogFilterDefault extends DialogFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x363293ae",
+      "\$hash": "363293ae",
+      "\$name": "DialogFilterDefault",
     };
 
     // Finished toJson.
@@ -71168,7 +72168,8 @@ class DialogFilterChatlist extends DialogFilterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9fe28ea4",
+      "\$hash": "9fe28ea4",
+      "\$name": "DialogFilterChatlist",
       "flags": flags,
       "hasMyInvites": hasMyInvites,
       "id": id,
@@ -71232,7 +72233,8 @@ class DialogFilterSuggested extends DialogFilterSuggestedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77744d4a",
+      "\$hash": "77744d4a",
+      "\$name": "DialogFilterSuggested",
       "filter": filter,
       "description": description,
     };
@@ -71290,7 +72292,8 @@ class StatsDateRangeDays extends StatsDateRangeDaysBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb637edaf",
+      "\$hash": "b637edaf",
+      "\$name": "StatsDateRangeDays",
       "minDate": minDate.toIso8601String(),
       "maxDate": maxDate.toIso8601String(),
     };
@@ -71348,7 +72351,8 @@ class StatsAbsValueAndPrev extends StatsAbsValueAndPrevBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb43acde",
+      "\$hash": "cb43acde",
+      "\$name": "StatsAbsValueAndPrev",
       "current": current,
       "previous": previous,
     };
@@ -71406,7 +72410,8 @@ class StatsPercentValue extends StatsPercentValueBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcbce2fe0",
+      "\$hash": "cbce2fe0",
+      "\$name": "StatsPercentValue",
       "part": part,
       "total": total,
     };
@@ -71457,7 +72462,8 @@ class StatsGraphAsync extends StatsGraphBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4a27eb2d",
+      "\$hash": "4a27eb2d",
+      "\$name": "StatsGraphAsync",
       "token": token,
     };
 
@@ -71507,7 +72513,8 @@ class StatsGraphError extends StatsGraphBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbedc9822",
+      "\$hash": "bedc9822",
+      "\$name": "StatsGraphError",
       "error": error,
     };
 
@@ -71579,7 +72586,8 @@ class StatsGraph extends StatsGraphBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ea464b6",
+      "\$hash": "8ea464b6",
+      "\$name": "StatsGraph",
       "flags": flags,
       "json": json,
       "zoomToken": zoomToken,
@@ -71779,7 +72787,8 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x396ca5fc",
+      "\$hash": "396ca5fc",
+      "\$name": "StatsBroadcastStats",
       "period": period,
       "followers": followers,
       "viewsPerPost": viewsPerPost,
@@ -71850,7 +72859,8 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98f6ac75",
+      "\$hash": "98f6ac75",
+      "\$name": "HelpPromoDataEmpty",
       "expires": expires.toIso8601String(),
     };
 
@@ -71962,7 +72972,8 @@ class HelpPromoData extends HelpPromoDataBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c39793f",
+      "\$hash": "8c39793f",
+      "\$name": "HelpPromoData",
       "flags": flags,
       "proxy": proxy,
       "expires": expires.toIso8601String(),
@@ -72068,7 +73079,8 @@ class VideoSize extends VideoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde33b094",
+      "\$hash": "de33b094",
+      "\$name": "VideoSize",
       "flags": flags,
       "type": type,
       "w": w,
@@ -72132,7 +73144,8 @@ class VideoSizeEmojiMarkup extends VideoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf85c413c",
+      "\$hash": "f85c413c",
+      "\$name": "VideoSizeEmojiMarkup",
       "emojiId": emojiId,
       "backgroundColors": backgroundColors,
     };
@@ -72199,7 +73212,8 @@ class VideoSizeStickerMarkup extends VideoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0da082fe",
+      "\$hash": "0da082fe",
+      "\$name": "VideoSizeStickerMarkup",
       "stickerset": stickerset,
       "stickerId": stickerId,
       "backgroundColors": backgroundColors,
@@ -72271,7 +73285,8 @@ class StatsGroupTopPoster extends StatsGroupTopPosterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9d04af9b",
+      "\$hash": "9d04af9b",
+      "\$name": "StatsGroupTopPoster",
       "userId": userId,
       "messages": messages,
       "avgChars": avgChars,
@@ -72352,7 +73367,8 @@ class StatsGroupTopAdmin extends StatsGroupTopAdminBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd7584c87",
+      "\$hash": "d7584c87",
+      "\$name": "StatsGroupTopAdmin",
       "userId": userId,
       "deleted": deleted,
       "kicked": kicked,
@@ -72416,7 +73432,8 @@ class StatsGroupTopInviter extends StatsGroupTopInviterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x535f779d",
+      "\$hash": "535f779d",
+      "\$name": "StatsGroupTopInviter",
       "userId": userId,
       "invitations": invitations,
     };
@@ -72579,7 +73596,8 @@ class StatsMegagroupStats extends StatsMegagroupStatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef7ff916",
+      "\$hash": "ef7ff916",
+      "\$name": "StatsMegagroupStats",
       "period": period,
       "members": members,
       "messages": messages,
@@ -72683,7 +73701,8 @@ class GlobalPrivacySettings extends GlobalPrivacySettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x734c4ccb",
+      "\$hash": "734c4ccb",
+      "\$name": "GlobalPrivacySettings",
       "flags": flags,
       "archiveAndMuteNewNoncontactPeers": archiveAndMuteNewNoncontactPeers,
       "keepArchivedUnmuted": keepArchivedUnmuted,
@@ -72772,7 +73791,8 @@ class HelpCountryCode extends HelpCountryCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4203c5ef",
+      "\$hash": "4203c5ef",
+      "\$name": "HelpCountryCode",
       "flags": flags,
       "countryCode": countryCode,
       "prefixes": prefixes,
@@ -72868,7 +73888,8 @@ class HelpCountry extends HelpCountryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc3878e23",
+      "\$hash": "c3878e23",
+      "\$name": "HelpCountry",
       "flags": flags,
       "hidden": hidden,
       "iso2": iso2,
@@ -72910,7 +73931,8 @@ class HelpCountriesListNotModified extends HelpCountriesListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93cc1f32",
+      "\$hash": "93cc1f32",
+      "\$name": "HelpCountriesListNotModified",
     };
 
     // Finished toJson.
@@ -72968,7 +73990,8 @@ class HelpCountriesList extends HelpCountriesListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x87d0759e",
+      "\$hash": "87d0759e",
+      "\$name": "HelpCountriesList",
       "countries": countries,
       "hash": hash,
     };
@@ -73059,7 +74082,8 @@ class MessageViews extends MessageViewsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x455b853d",
+      "\$hash": "455b853d",
+      "\$name": "MessageViews",
       "flags": flags,
       "views": views,
       "forwards": forwards,
@@ -73126,7 +74150,8 @@ class MessagesMessageViews extends MessagesMessageViewsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6c4f543",
+      "\$hash": "b6c4f543",
+      "\$name": "MessagesMessageViews",
       "views": views,
       "chats": chats,
       "users": users,
@@ -73247,7 +74272,8 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa6341782",
+      "\$hash": "a6341782",
+      "\$name": "MessagesDiscussionMessage",
       "flags": flags,
       "messages": messages,
       "maxId": maxId,
@@ -73429,7 +74455,8 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xafbc09db",
+      "\$hash": "afbc09db",
+      "\$name": "MessageReplyHeader",
       "flags": flags,
       "replyToScheduled": replyToScheduled,
       "forumTopic": forumTopic,
@@ -73499,7 +74526,8 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e5af939",
+      "\$hash": "0e5af939",
+      "\$name": "MessageReplyStoryHeader",
       "peer": peer,
       "storyId": storyId,
     };
@@ -73626,7 +74654,8 @@ class MessageReplies extends MessageRepliesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x83d60fc2",
+      "\$hash": "83d60fc2",
+      "\$name": "MessageReplies",
       "flags": flags,
       "comments": comments,
       "replies": replies,
@@ -73690,7 +74719,8 @@ class PeerBlocked extends PeerBlockedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe8fd8014",
+      "\$hash": "e8fd8014",
+      "\$name": "PeerBlocked",
       "peerId": peerId,
       "date": date.toIso8601String(),
     };
@@ -73748,7 +74778,8 @@ class StatsMessageStats extends StatsMessageStatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7fe91c14",
+      "\$hash": "7fe91c14",
+      "\$name": "StatsMessageStats",
       "viewsGraph": viewsGraph,
       "reactionsByEmotionGraph": reactionsByEmotionGraph,
     };
@@ -73819,7 +74850,8 @@ class GroupCallDiscarded extends GroupCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7780bcb4",
+      "\$hash": "7780bcb4",
+      "\$name": "GroupCallDiscarded",
       "id": id,
       "accessHash": accessHash,
       "duration": duration,
@@ -74037,7 +75069,8 @@ class GroupCall extends GroupCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd597650c",
+      "\$hash": "d597650c",
+      "\$name": "GroupCall",
       "flags": flags,
       "joinMuted": joinMuted,
       "canChangeJoinMuted": canChangeJoinMuted,
@@ -74116,7 +75149,8 @@ class InputGroupCall extends InputGroupCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd8aa840f",
+      "\$hash": "d8aa840f",
+      "\$name": "InputGroupCall",
       "id": id,
       "accessHash": accessHash,
     };
@@ -74339,7 +75373,8 @@ class GroupCallParticipant extends GroupCallParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeba636fe",
+      "\$hash": "eba636fe",
+      "\$name": "GroupCallParticipant",
       "flags": flags,
       "muted": muted,
       "left": left,
@@ -74436,7 +75471,8 @@ class PhoneGroupCall extends PhoneGroupCallBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9e727aad",
+      "\$hash": "9e727aad",
+      "\$name": "PhoneGroupCall",
       "call": call,
       "participants": participants,
       "participantsNextOffset": participantsNextOffset,
@@ -74529,7 +75565,8 @@ class PhoneGroupParticipants extends PhoneGroupParticipantsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf47751b6",
+      "\$hash": "f47751b6",
+      "\$name": "PhoneGroupParticipants",
       "count": count,
       "participants": participants,
       "nextOffset": nextOffset,
@@ -74571,7 +75608,8 @@ class InlineQueryPeerTypeSameBotPM extends InlineQueryPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3081ed9d",
+      "\$hash": "3081ed9d",
+      "\$name": "InlineQueryPeerTypeSameBotPM",
     };
 
     // Finished toJson.
@@ -74607,7 +75645,8 @@ class InlineQueryPeerTypePM extends InlineQueryPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x833c0fac",
+      "\$hash": "833c0fac",
+      "\$name": "InlineQueryPeerTypePM",
     };
 
     // Finished toJson.
@@ -74643,7 +75682,8 @@ class InlineQueryPeerTypeChat extends InlineQueryPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd766c50a",
+      "\$hash": "d766c50a",
+      "\$name": "InlineQueryPeerTypeChat",
     };
 
     // Finished toJson.
@@ -74679,7 +75719,8 @@ class InlineQueryPeerTypeMegagroup extends InlineQueryPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5ec4be43",
+      "\$hash": "5ec4be43",
+      "\$name": "InlineQueryPeerTypeMegagroup",
     };
 
     // Finished toJson.
@@ -74715,7 +75756,8 @@ class InlineQueryPeerTypeBroadcast extends InlineQueryPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6334ee9a",
+      "\$hash": "6334ee9a",
+      "\$name": "InlineQueryPeerTypeBroadcast",
     };
 
     // Finished toJson.
@@ -74751,7 +75793,8 @@ class InlineQueryPeerTypeBotPM extends InlineQueryPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e3b2d0c",
+      "\$hash": "0e3b2d0c",
+      "\$name": "InlineQueryPeerTypeBotPM",
     };
 
     // Finished toJson.
@@ -74802,7 +75845,8 @@ class MessagesHistoryImport extends MessagesHistoryImportBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1662af0b",
+      "\$hash": "1662af0b",
+      "\$name": "MessagesHistoryImport",
       "id": id,
     };
 
@@ -74881,7 +75925,8 @@ class MessagesHistoryImportParsed extends MessagesHistoryImportParsedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e0fb7b9",
+      "\$hash": "5e0fb7b9",
+      "\$name": "MessagesHistoryImportParsed",
       "flags": flags,
       "pm": pm,
       "group": group,
@@ -74961,7 +76006,8 @@ class MessagesAffectedFoundMessages extends MessagesAffectedFoundMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef8d3e6c",
+      "\$hash": "ef8d3e6c",
+      "\$name": "MessagesAffectedFoundMessages",
       "pts": pts,
       "ptsCount": ptsCount,
       "offset": offset,
@@ -75071,7 +76117,8 @@ class ChatInviteImporter extends ChatInviteImporterBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c5adfd9",
+      "\$hash": "8c5adfd9",
+      "\$name": "ChatInviteImporter",
       "flags": flags,
       "requested": requested,
       "viaChatlist": viaChatlist,
@@ -75143,7 +76190,8 @@ class MessagesExportedChatInvites extends MessagesExportedChatInvitesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdc62dcc",
+      "\$hash": "bdc62dcc",
+      "\$name": "MessagesExportedChatInvites",
       "count": count,
       "invites": invites,
       "users": users,
@@ -75202,7 +76250,8 @@ class MessagesExportedChatInvite extends MessagesExportedChatInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1871be50",
+      "\$hash": "1871be50",
+      "\$name": "MessagesExportedChatInvite",
       "invite": invite,
       "users": users,
     };
@@ -75268,7 +76317,8 @@ class MessagesExportedChatInviteReplaced
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x222600ef",
+      "\$hash": "222600ef",
+      "\$name": "MessagesExportedChatInviteReplaced",
       "invite": invite,
       "newInvite": newInvite,
       "users": users,
@@ -75336,7 +76386,8 @@ class MessagesChatInviteImporters extends MessagesChatInviteImportersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x81b6b00a",
+      "\$hash": "81b6b00a",
+      "\$name": "MessagesChatInviteImporters",
       "count": count,
       "importers": importers,
       "users": users,
@@ -75408,7 +76459,8 @@ class ChatAdminWithInvites extends ChatAdminWithInvitesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf2ecef23",
+      "\$hash": "f2ecef23",
+      "\$name": "ChatAdminWithInvites",
       "adminId": adminId,
       "invitesCount": invitesCount,
       "revokedInvitesCount": revokedInvitesCount,
@@ -75467,7 +76519,8 @@ class MessagesChatAdminsWithInvites extends MessagesChatAdminsWithInvitesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb69b72d7",
+      "\$hash": "b69b72d7",
+      "\$name": "MessagesChatAdminsWithInvites",
       "admins": admins,
       "users": users,
     };
@@ -75519,7 +76572,8 @@ class MessagesCheckedHistoryImportPeer
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa24de717",
+      "\$hash": "a24de717",
+      "\$name": "MessagesCheckedHistoryImportPeer",
       "confirmText": confirmText,
     };
 
@@ -75583,7 +76637,8 @@ class PhoneJoinAsPeers extends PhoneJoinAsPeersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xafe5623f",
+      "\$hash": "afe5623f",
+      "\$name": "PhoneJoinAsPeers",
       "peers": peers,
       "chats": chats,
       "users": users,
@@ -75635,7 +76690,8 @@ class PhoneExportedGroupCallInvite extends PhoneExportedGroupCallInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x204bd158",
+      "\$hash": "204bd158",
+      "\$name": "PhoneExportedGroupCallInvite",
       "link": link,
     };
 
@@ -75694,7 +76750,8 @@ class GroupCallParticipantVideoSourceGroup
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdcb118b7",
+      "\$hash": "dcb118b7",
+      "\$name": "GroupCallParticipantVideoSourceGroup",
       "semantics": semantics,
       "sources": sources,
     };
@@ -75782,7 +76839,8 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x67753ac8",
+      "\$hash": "67753ac8",
+      "\$name": "GroupCallParticipantVideo",
       "flags": flags,
       "paused": paused,
       "endpoint": endpoint,
@@ -75836,7 +76894,8 @@ class StickersSuggestedShortName extends StickersSuggestedShortNameBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x85fea03f",
+      "\$hash": "85fea03f",
+      "\$name": "StickersSuggestedShortName",
       "shortName": shortName,
     };
 
@@ -75873,7 +76932,8 @@ class BotCommandScopeDefault extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2f6cb2ab",
+      "\$hash": "2f6cb2ab",
+      "\$name": "BotCommandScopeDefault",
     };
 
     // Finished toJson.
@@ -75909,7 +76969,8 @@ class BotCommandScopeUsers extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3c4f04d8",
+      "\$hash": "3c4f04d8",
+      "\$name": "BotCommandScopeUsers",
     };
 
     // Finished toJson.
@@ -75945,7 +77006,8 @@ class BotCommandScopeChats extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6fe1a881",
+      "\$hash": "6fe1a881",
+      "\$name": "BotCommandScopeChats",
     };
 
     // Finished toJson.
@@ -75981,7 +77043,8 @@ class BotCommandScopeChatAdmins extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9aa606a",
+      "\$hash": "b9aa606a",
+      "\$name": "BotCommandScopeChatAdmins",
     };
 
     // Finished toJson.
@@ -76030,7 +77093,8 @@ class BotCommandScopePeer extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb9d897d",
+      "\$hash": "db9d897d",
+      "\$name": "BotCommandScopePeer",
       "peer": peer,
     };
 
@@ -76080,7 +77144,8 @@ class BotCommandScopePeerAdmins extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3fd863d1",
+      "\$hash": "3fd863d1",
+      "\$name": "BotCommandScopePeerAdmins",
       "peer": peer,
     };
 
@@ -76137,7 +77202,8 @@ class BotCommandScopePeerUser extends BotCommandScopeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a1321f3",
+      "\$hash": "0a1321f3",
+      "\$name": "BotCommandScopePeerUser",
       "peer": peer,
       "userId": userId,
     };
@@ -76188,7 +77254,8 @@ class AccountResetPasswordFailedWait extends AccountResetPasswordResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe3779861",
+      "\$hash": "e3779861",
+      "\$name": "AccountResetPasswordFailedWait",
       "retryDate": retryDate.toIso8601String(),
     };
 
@@ -76238,7 +77305,8 @@ class AccountResetPasswordRequestedWait extends AccountResetPasswordResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe9effc7d",
+      "\$hash": "e9effc7d",
+      "\$name": "AccountResetPasswordRequestedWait",
       "untilDate": untilDate.toIso8601String(),
     };
 
@@ -76275,7 +77343,8 @@ class AccountResetPasswordOk extends AccountResetPasswordResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe926d63e",
+      "\$hash": "e926d63e",
+      "\$name": "AccountResetPasswordOk",
     };
 
     // Finished toJson.
@@ -76450,7 +77519,8 @@ class SponsoredMessage extends SponsoredMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4d93a990",
+      "\$hash": "4d93a990",
+      "\$name": "SponsoredMessage",
       "flags": flags,
       "recommended": recommended,
       "canReport": canReport,
@@ -76549,7 +77619,8 @@ class MessagesSponsoredMessages extends MessagesSponsoredMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9ee1d87",
+      "\$hash": "c9ee1d87",
+      "\$name": "MessagesSponsoredMessages",
       "flags": flags,
       "postsBetween": postsBetween,
       "messages": messages,
@@ -76590,7 +77661,8 @@ class MessagesSponsoredMessagesEmpty extends MessagesSponsoredMessagesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1839490f",
+      "\$hash": "1839490f",
+      "\$name": "MessagesSponsoredMessagesEmpty",
     };
 
     // Finished toJson.
@@ -76666,7 +77738,8 @@ class SearchResultsCalendarPeriod extends SearchResultsCalendarPeriodBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9b0539f",
+      "\$hash": "c9b0539f",
+      "\$name": "SearchResultsCalendarPeriod",
       "date": date.toIso8601String(),
       "minMsgId": minMsgId,
       "maxMsgId": maxMsgId,
@@ -76794,7 +77867,8 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x147ee23c",
+      "\$hash": "147ee23c",
+      "\$name": "MessagesSearchResultsCalendar",
       "flags": flags,
       "inexact": inexact,
       "count": count,
@@ -76871,7 +77945,8 @@ class SearchResultPosition extends SearchResultsPositionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f648b67",
+      "\$hash": "7f648b67",
+      "\$name": "SearchResultPosition",
       "msgId": msgId,
       "date": date.toIso8601String(),
       "offset": offset,
@@ -76933,7 +78008,8 @@ class MessagesSearchResultsPositions
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53b22baf",
+      "\$hash": "53b22baf",
+      "\$name": "MessagesSearchResultsPositions",
       "count": count,
       "positions": positions,
     };
@@ -76998,7 +78074,8 @@ class ChannelsSendAsPeers extends ChannelsSendAsPeersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf496b0c6",
+      "\$hash": "f496b0c6",
+      "\$name": "ChannelsSendAsPeers",
       "peers": peers,
       "chats": chats,
       "users": users,
@@ -77064,7 +78141,8 @@ class UsersUserFull extends UsersUserFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3b6d152e",
+      "\$hash": "3b6d152e",
+      "\$name": "UsersUserFull",
       "fullUser": fullUser,
       "chats": chats,
       "users": users,
@@ -77130,7 +78208,8 @@ class MessagesPeerSettings extends MessagesPeerSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6880b94d",
+      "\$hash": "6880b94d",
+      "\$name": "MessagesPeerSettings",
       "settings": settings,
       "chats": chats,
       "users": users,
@@ -77197,7 +78276,8 @@ class AuthLoggedOut extends AuthLoggedOutBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc3a2835f",
+      "\$hash": "c3a2835f",
+      "\$name": "AuthLoggedOut",
       "flags": flags,
       "futureAuthToken": futureAuthToken,
     };
@@ -77279,7 +78359,8 @@ class ReactionCount extends ReactionCountBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa3d1cb80",
+      "\$hash": "a3d1cb80",
+      "\$name": "ReactionCount",
       "flags": flags,
       "chosenOrder": chosenOrder,
       "reaction": reaction,
@@ -77391,7 +78472,8 @@ class MessageReactions extends MessageReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a339f0b",
+      "\$hash": "0a339f0b",
+      "\$name": "MessageReactions",
       "flags": flags,
       "min": min,
       "canSeeList": canSeeList,
@@ -77492,7 +78574,8 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x31bd492d",
+      "\$hash": "31bd492d",
+      "\$name": "MessagesMessageReactionsList",
       "flags": flags,
       "count": count,
       "reactions": reactions,
@@ -77638,7 +78721,8 @@ class AvailableReaction extends AvailableReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc077ec01",
+      "\$hash": "c077ec01",
+      "\$name": "AvailableReaction",
       "flags": flags,
       "inactive": inactive,
       "premium": premium,
@@ -77688,7 +78772,8 @@ class MessagesAvailableReactionsNotModified
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9f071957",
+      "\$hash": "9f071957",
+      "\$name": "MessagesAvailableReactionsNotModified",
     };
 
     // Finished toJson.
@@ -77746,7 +78831,8 @@ class MessagesAvailableReactions extends MessagesAvailableReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x768e3aad",
+      "\$hash": "768e3aad",
+      "\$name": "MessagesAvailableReactions",
       "hash": hash,
       "reactions": reactions,
     };
@@ -77842,7 +78928,8 @@ class MessagePeerReaction extends MessagePeerReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c79b63c",
+      "\$hash": "8c79b63c",
+      "\$name": "MessagePeerReaction",
       "flags": flags,
       "big": big,
       "unread": unread,
@@ -77918,7 +79005,8 @@ class GroupCallStreamChannel extends GroupCallStreamChannelBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x80eb48af",
+      "\$hash": "80eb48af",
+      "\$name": "GroupCallStreamChannel",
       "channel": channel,
       "scale": scale,
       "lastTimestampMs": lastTimestampMs,
@@ -77970,7 +79058,8 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd0e482b2",
+      "\$hash": "d0e482b2",
+      "\$name": "PhoneGroupCallStreamChannels",
       "channels": channels,
     };
 
@@ -78027,7 +79116,8 @@ class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2dbf3432",
+      "\$hash": "2dbf3432",
+      "\$name": "PhoneGroupCallStreamRtmpUrl",
       "url": url,
       "key": key,
     };
@@ -78087,7 +79177,8 @@ class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4576f3f0",
+      "\$hash": "4576f3f0",
+      "\$name": "AttachMenuBotIconColor",
       "name": name,
       "color": color,
     };
@@ -78169,7 +79260,8 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb2a7386b",
+      "\$hash": "b2a7386b",
+      "\$name": "AttachMenuBotIcon",
       "flags": flags,
       "name": name,
       "icon": icon,
@@ -78303,7 +79395,8 @@ class AttachMenuBot extends AttachMenuBotBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd90d8dfe",
+      "\$hash": "d90d8dfe",
+      "\$name": "AttachMenuBot",
       "flags": flags,
       "inactive": inactive,
       "hasSettings": hasSettings,
@@ -78350,7 +79443,8 @@ class AttachMenuBotsNotModified extends AttachMenuBotsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf1d88a5c",
+      "\$hash": "f1d88a5c",
+      "\$name": "AttachMenuBotsNotModified",
     };
 
     // Finished toJson.
@@ -78415,7 +79509,8 @@ class AttachMenuBots extends AttachMenuBotsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3c4301c0",
+      "\$hash": "3c4301c0",
+      "\$name": "AttachMenuBots",
       "hash": hash,
       "bots": bots,
       "users": users,
@@ -78474,7 +79569,8 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93bf667f",
+      "\$hash": "93bf667f",
+      "\$name": "AttachMenuBotsBot",
       "bot": bot,
       "users": users,
     };
@@ -78561,7 +79657,8 @@ class WebViewResultUrl extends WebViewResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4d22ff98",
+      "\$hash": "4d22ff98",
+      "\$name": "WebViewResultUrl",
       "flags": flags,
       "fullsize": fullsize,
       "fullscreen": fullscreen,
@@ -78632,7 +79729,8 @@ class WebViewMessageSent extends WebViewMessageSentBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0c94511c",
+      "\$hash": "0c94511c",
+      "\$name": "WebViewMessageSent",
       "flags": flags,
       "msgId": msgId,
     };
@@ -78670,7 +79768,8 @@ class BotMenuButtonDefault extends BotMenuButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7533a588",
+      "\$hash": "7533a588",
+      "\$name": "BotMenuButtonDefault",
     };
 
     // Finished toJson.
@@ -78706,7 +79805,8 @@ class BotMenuButtonCommands extends BotMenuButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4258c205",
+      "\$hash": "4258c205",
+      "\$name": "BotMenuButtonCommands",
     };
 
     // Finished toJson.
@@ -78762,7 +79862,8 @@ class BotMenuButton extends BotMenuButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc7b57ce6",
+      "\$hash": "c7b57ce6",
+      "\$name": "BotMenuButton",
       "text": text,
       "url": url,
     };
@@ -78800,7 +79901,8 @@ class AccountSavedRingtonesNotModified extends AccountSavedRingtonesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfbf6e8b1",
+      "\$hash": "fbf6e8b1",
+      "\$name": "AccountSavedRingtonesNotModified",
     };
 
     // Finished toJson.
@@ -78858,7 +79960,8 @@ class AccountSavedRingtones extends AccountSavedRingtonesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc1e92cc5",
+      "\$hash": "c1e92cc5",
+      "\$name": "AccountSavedRingtones",
       "hash": hash,
       "ringtones": ringtones,
     };
@@ -78896,7 +79999,8 @@ class NotificationSoundDefault extends NotificationSoundBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x97e8bebe",
+      "\$hash": "97e8bebe",
+      "\$name": "NotificationSoundDefault",
     };
 
     // Finished toJson.
@@ -78932,7 +80036,8 @@ class NotificationSoundNone extends NotificationSoundBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f0c34df",
+      "\$hash": "6f0c34df",
+      "\$name": "NotificationSoundNone",
     };
 
     // Finished toJson.
@@ -78988,7 +80093,8 @@ class NotificationSoundLocal extends NotificationSoundBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x830b9ae4",
+      "\$hash": "830b9ae4",
+      "\$name": "NotificationSoundLocal",
       "title": title,
       "data": data,
     };
@@ -79041,7 +80147,8 @@ class NotificationSoundRingtone extends NotificationSoundBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xff6c8049",
+      "\$hash": "ff6c8049",
+      "\$name": "NotificationSoundRingtone",
       "id": id,
     };
 
@@ -79078,7 +80185,8 @@ class AccountSavedRingtone extends AccountSavedRingtoneBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb7263f6d",
+      "\$hash": "b7263f6d",
+      "\$name": "AccountSavedRingtone",
     };
 
     // Finished toJson.
@@ -79127,7 +80235,8 @@ class AccountSavedRingtoneConverted extends AccountSavedRingtoneBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1f307eb7",
+      "\$hash": "1f307eb7",
+      "\$name": "AccountSavedRingtoneConverted",
       "document": document,
     };
 
@@ -79164,7 +80273,8 @@ class AttachMenuPeerTypeSameBotPM extends AttachMenuPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7d6be90e",
+      "\$hash": "7d6be90e",
+      "\$name": "AttachMenuPeerTypeSameBotPM",
     };
 
     // Finished toJson.
@@ -79200,7 +80310,8 @@ class AttachMenuPeerTypeBotPM extends AttachMenuPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc32bfa1a",
+      "\$hash": "c32bfa1a",
+      "\$name": "AttachMenuPeerTypeBotPM",
     };
 
     // Finished toJson.
@@ -79236,7 +80347,8 @@ class AttachMenuPeerTypePM extends AttachMenuPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf146d31f",
+      "\$hash": "f146d31f",
+      "\$name": "AttachMenuPeerTypePM",
     };
 
     // Finished toJson.
@@ -79272,7 +80384,8 @@ class AttachMenuPeerTypeChat extends AttachMenuPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0509113f",
+      "\$hash": "0509113f",
+      "\$name": "AttachMenuPeerTypeChat",
     };
 
     // Finished toJson.
@@ -79308,7 +80421,8 @@ class AttachMenuPeerTypeBroadcast extends AttachMenuPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7bfbdefc",
+      "\$hash": "7bfbdefc",
+      "\$name": "AttachMenuPeerTypeBroadcast",
     };
 
     // Finished toJson.
@@ -79366,7 +80480,8 @@ class InputInvoiceMessage extends InputInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc5b56859",
+      "\$hash": "c5b56859",
+      "\$name": "InputInvoiceMessage",
       "peer": peer,
       "msgId": msgId,
     };
@@ -79417,7 +80532,8 @@ class InputInvoiceSlug extends InputInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc326caef",
+      "\$hash": "c326caef",
+      "\$name": "InputInvoiceSlug",
       "slug": slug,
     };
 
@@ -79474,7 +80590,8 @@ class InputInvoicePremiumGiftCode extends InputInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98986c0d",
+      "\$hash": "98986c0d",
+      "\$name": "InputInvoicePremiumGiftCode",
       "purpose": purpose,
       "option": option,
     };
@@ -79525,7 +80642,8 @@ class InputInvoiceStars extends InputInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x65f00ce3",
+      "\$hash": "65f00ce3",
+      "\$name": "InputInvoiceStars",
       "purpose": purpose,
     };
 
@@ -79575,7 +80693,8 @@ class InputInvoiceChatInviteSubscription extends InputInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34e793f1",
+      "\$hash": "34e793f1",
+      "\$name": "InputInvoiceChatInviteSubscription",
       "hash": hash,
     };
 
@@ -79664,7 +80783,8 @@ class InputInvoiceStarGift extends InputInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x25d8c1d8",
+      "\$hash": "25d8c1d8",
+      "\$name": "InputInvoiceStarGift",
       "flags": flags,
       "hideName": hideName,
       "userId": userId,
@@ -79718,7 +80838,8 @@ class PaymentsExportedInvoice extends PaymentsExportedInvoiceBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaed0cbd9",
+      "\$hash": "aed0cbd9",
+      "\$name": "PaymentsExportedInvoice",
       "url": url,
     };
 
@@ -79818,7 +80939,8 @@ class MessagesTranscribedAudio extends MessagesTranscribedAudioBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcfb9d957",
+      "\$hash": "cfb9d957",
+      "\$name": "MessagesTranscribedAudio",
       "flags": flags,
       "pending": pending,
       "transcriptionId": transcriptionId,
@@ -79909,7 +81031,8 @@ class HelpPremiumPromo extends HelpPremiumPromoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5334759c",
+      "\$hash": "5334759c",
+      "\$name": "HelpPremiumPromo",
       "statusText": statusText,
       "statusEntities": statusEntities,
       "videoSections": videoSections,
@@ -79983,7 +81106,8 @@ class InputStorePaymentPremiumSubscription
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa6751e66",
+      "\$hash": "a6751e66",
+      "\$name": "InputStorePaymentPremiumSubscription",
       "flags": flags,
       "restore": restore,
       "upgrade": upgrade,
@@ -80051,7 +81175,8 @@ class InputStorePaymentGiftPremium extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x616f7fe8",
+      "\$hash": "616f7fe8",
+      "\$name": "InputStorePaymentGiftPremium",
       "userId": userId,
       "currency": currency,
       "amount": amount,
@@ -80155,7 +81280,8 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb790393",
+      "\$hash": "fb790393",
+      "\$name": "InputStorePaymentPremiumGiftCode",
       "flags": flags,
       "users": users,
       "boostPeer": boostPeer,
@@ -80306,7 +81432,8 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x160544ca",
+      "\$hash": "160544ca",
+      "\$name": "InputStorePaymentPremiumGiveaway",
       "flags": flags,
       "onlyNewSubscribers": onlyNewSubscribers,
       "winnersAreVisible": winnersAreVisible,
@@ -80384,7 +81511,8 @@ class InputStorePaymentStarsTopup extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdddd0f56",
+      "\$hash": "dddd0f56",
+      "\$name": "InputStorePaymentStarsTopup",
       "stars": stars,
       "currency": currency,
       "amount": amount,
@@ -80461,7 +81589,8 @@ class InputStorePaymentStarsGift extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1d741ef7",
+      "\$hash": "1d741ef7",
+      "\$name": "InputStorePaymentStarsGift",
       "userId": userId,
       "stars": stars,
       "currency": currency,
@@ -80628,7 +81757,8 @@ class InputStorePaymentStarsGiveaway extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x751f08fa",
+      "\$hash": "751f08fa",
+      "\$name": "InputStorePaymentStarsGiveaway",
       "flags": flags,
       "onlyNewSubscribers": onlyNewSubscribers,
       "winnersAreVisible": winnersAreVisible,
@@ -80737,7 +81867,8 @@ class PremiumGiftOption extends PremiumGiftOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74c34319",
+      "\$hash": "74c34319",
+      "\$name": "PremiumGiftOption",
       "flags": flags,
       "months": months,
       "currency": currency,
@@ -80799,7 +81930,8 @@ class PaymentFormMethod extends PaymentFormMethodBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x88f8f21b",
+      "\$hash": "88f8f21b",
+      "\$name": "PaymentFormMethod",
       "url": url,
       "title": title,
     };
@@ -80837,7 +81969,8 @@ class EmojiStatusEmpty extends EmojiStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2de11aae",
+      "\$hash": "2de11aae",
+      "\$name": "EmojiStatusEmpty",
     };
 
     // Finished toJson.
@@ -80888,7 +82021,8 @@ class EmojiStatus extends EmojiStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x929b619d",
+      "\$hash": "929b619d",
+      "\$name": "EmojiStatus",
       "documentId": documentId,
     };
 
@@ -80949,7 +82083,8 @@ class EmojiStatusUntil extends EmojiStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa30a8c7",
+      "\$hash": "fa30a8c7",
+      "\$name": "EmojiStatusUntil",
       "documentId": documentId,
       "until": until,
     };
@@ -80987,7 +82122,8 @@ class AccountEmojiStatusesNotModified extends AccountEmojiStatusesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd08ce645",
+      "\$hash": "d08ce645",
+      "\$name": "AccountEmojiStatusesNotModified",
     };
 
     // Finished toJson.
@@ -81045,7 +82181,8 @@ class AccountEmojiStatuses extends AccountEmojiStatusesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x90c467d1",
+      "\$hash": "90c467d1",
+      "\$name": "AccountEmojiStatuses",
       "hash": hash,
       "statuses": statuses,
     };
@@ -81083,7 +82220,8 @@ class ReactionEmpty extends ReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x79f5d419",
+      "\$hash": "79f5d419",
+      "\$name": "ReactionEmpty",
     };
 
     // Finished toJson.
@@ -81132,7 +82270,8 @@ class ReactionEmoji extends ReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b2286b8",
+      "\$hash": "1b2286b8",
+      "\$name": "ReactionEmoji",
       "emoticon": emoticon,
     };
 
@@ -81184,7 +82323,8 @@ class ReactionCustomEmoji extends ReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8935fc73",
+      "\$hash": "8935fc73",
+      "\$name": "ReactionCustomEmoji",
       "documentId": documentId,
     };
 
@@ -81221,7 +82361,8 @@ class ReactionPaid extends ReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x523da4eb",
+      "\$hash": "523da4eb",
+      "\$name": "ReactionPaid",
     };
 
     // Finished toJson.
@@ -81257,7 +82398,8 @@ class ChatReactionsNone extends ChatReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeafc32bc",
+      "\$hash": "eafc32bc",
+      "\$name": "ChatReactionsNone",
     };
 
     // Finished toJson.
@@ -81316,7 +82458,8 @@ class ChatReactionsAll extends ChatReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x52928bca",
+      "\$hash": "52928bca",
+      "\$name": "ChatReactionsAll",
       "flags": flags,
       "allowCustom": allowCustom,
     };
@@ -81367,7 +82510,8 @@ class ChatReactionsSome extends ChatReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x661d4037",
+      "\$hash": "661d4037",
+      "\$name": "ChatReactionsSome",
       "reactions": reactions,
     };
 
@@ -81404,7 +82548,8 @@ class MessagesReactionsNotModified extends MessagesReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb06fdbdf",
+      "\$hash": "b06fdbdf",
+      "\$name": "MessagesReactionsNotModified",
     };
 
     // Finished toJson.
@@ -81462,7 +82607,8 @@ class MessagesReactions extends MessagesReactionsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeafdf716",
+      "\$hash": "eafdf716",
+      "\$name": "MessagesReactions",
       "hash": hash,
       "reactions": reactions,
     };
@@ -81520,7 +82666,8 @@ class EmailVerifyPurposeLoginSetup extends EmailVerifyPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4345be73",
+      "\$hash": "4345be73",
+      "\$name": "EmailVerifyPurposeLoginSetup",
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
     };
@@ -81558,7 +82705,8 @@ class EmailVerifyPurposeLoginChange extends EmailVerifyPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x527d22eb",
+      "\$hash": "527d22eb",
+      "\$name": "EmailVerifyPurposeLoginChange",
     };
 
     // Finished toJson.
@@ -81594,7 +82742,8 @@ class EmailVerifyPurposePassport extends EmailVerifyPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbbf51685",
+      "\$hash": "bbf51685",
+      "\$name": "EmailVerifyPurposePassport",
     };
 
     // Finished toJson.
@@ -81643,7 +82792,8 @@ class EmailVerificationCode extends EmailVerificationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x922e55a9",
+      "\$hash": "922e55a9",
+      "\$name": "EmailVerificationCode",
       "code": code,
     };
 
@@ -81693,7 +82843,8 @@ class EmailVerificationGoogle extends EmailVerificationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb909ec2",
+      "\$hash": "db909ec2",
+      "\$name": "EmailVerificationGoogle",
       "token": token,
     };
 
@@ -81743,7 +82894,8 @@ class EmailVerificationApple extends EmailVerificationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x96d074fd",
+      "\$hash": "96d074fd",
+      "\$name": "EmailVerificationApple",
       "token": token,
     };
 
@@ -81793,7 +82945,8 @@ class AccountEmailVerified extends AccountEmailVerifiedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2b96cd1b",
+      "\$hash": "2b96cd1b",
+      "\$name": "AccountEmailVerified",
       "email": email,
     };
 
@@ -81850,7 +83003,8 @@ class AccountEmailVerifiedLogin extends AccountEmailVerifiedBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe1bb0d61",
+      "\$hash": "e1bb0d61",
+      "\$name": "AccountEmailVerifiedLogin",
       "email": email,
       "sentCode": sentCode,
     };
@@ -81974,7 +83128,8 @@ class PremiumSubscriptionOption extends PremiumSubscriptionOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5f2d1df2",
+      "\$hash": "5f2d1df2",
+      "\$name": "PremiumSubscriptionOption",
       "flags": flags,
       "current": current,
       "canPurchaseUpgrade": canPurchaseUpgrade,
@@ -82049,7 +83204,8 @@ class SendAsPeer extends SendAsPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb81c7034",
+      "\$hash": "b81c7034",
+      "\$name": "SendAsPeer",
       "flags": flags,
       "premiumRequired": premiumRequired,
       "peer": peer,
@@ -82151,7 +83307,8 @@ class MessageExtendedMediaPreview extends MessageExtendedMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad628cc8",
+      "\$hash": "ad628cc8",
+      "\$name": "MessageExtendedMediaPreview",
       "flags": flags,
       "w": w,
       "h": h,
@@ -82205,7 +83362,8 @@ class MessageExtendedMedia extends MessageExtendedMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xee479c64",
+      "\$hash": "ee479c64",
+      "\$name": "MessageExtendedMedia",
       "media": media,
     };
 
@@ -82264,7 +83422,8 @@ class StickerKeyword extends StickerKeywordBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfcfeb29c",
+      "\$hash": "fcfeb29c",
+      "\$name": "StickerKeyword",
       "documentId": documentId,
       "keyword": keyword,
     };
@@ -82339,7 +83498,8 @@ class Username extends UsernameBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4073647",
+      "\$hash": "b4073647",
+      "\$name": "Username",
       "flags": flags,
       "editable": editable,
       "active": active,
@@ -82394,7 +83554,8 @@ class ForumTopicDeleted extends ForumTopicBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x023f109b",
+      "\$hash": "023f109b",
+      "\$name": "ForumTopicDeleted",
       "id": id,
     };
 
@@ -82607,7 +83768,8 @@ class ForumTopic extends ForumTopicBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x71701da9",
+      "\$hash": "71701da9",
+      "\$name": "ForumTopic",
       "flags": flags,
       "my": my,
       "closed": closed,
@@ -82732,7 +83894,8 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x367617d3",
+      "\$hash": "367617d3",
+      "\$name": "MessagesForumTopics",
       "flags": flags,
       "orderByCreateDate": orderByCreateDate,
       "count": count,
@@ -82791,7 +83954,8 @@ class DefaultHistoryTTL extends DefaultHistoryTTLBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x43b46b20",
+      "\$hash": "43b46b20",
+      "\$name": "DefaultHistoryTTL",
       "period": period,
     };
 
@@ -82848,7 +84012,8 @@ class ExportedContactToken extends ExportedContactTokenBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x41bf109b",
+      "\$hash": "41bf109b",
+      "\$name": "ExportedContactToken",
       "url": url,
       "expires": expires.toIso8601String(),
     };
@@ -82924,7 +84089,8 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5f3b8a00",
+      "\$hash": "5f3b8a00",
+      "\$name": "RequestPeerTypeUser",
       "flags": flags,
       "bot": bot,
       "premium": premium,
@@ -83043,7 +84209,8 @@ class RequestPeerTypeChat extends RequestPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9f06e1b",
+      "\$hash": "c9f06e1b",
+      "\$name": "RequestPeerTypeChat",
       "flags": flags,
       "creator": creator,
       "botParticipant": botParticipant,
@@ -83148,7 +84315,8 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x339bef6c",
+      "\$hash": "339bef6c",
+      "\$name": "RequestPeerTypeBroadcast",
       "flags": flags,
       "creator": creator,
       "hasUsername": hasUsername,
@@ -83189,7 +84357,8 @@ class EmojiListNotModified extends EmojiListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x481eadfa",
+      "\$hash": "481eadfa",
+      "\$name": "EmojiListNotModified",
     };
 
     // Finished toJson.
@@ -83247,7 +84416,8 @@ class EmojiList extends EmojiListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a1e11d1",
+      "\$hash": "7a1e11d1",
+      "\$name": "EmojiList",
       "hash": hash,
       "documentId": documentId,
     };
@@ -83314,7 +84484,8 @@ class EmojiGroup extends EmojiGroupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a9abda9",
+      "\$hash": "7a9abda9",
+      "\$name": "EmojiGroup",
       "title": title,
       "iconEmojiId": iconEmojiId,
       "emoticons": emoticons,
@@ -83382,7 +84553,8 @@ class EmojiGroupGreeting extends EmojiGroupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x80d26cc7",
+      "\$hash": "80d26cc7",
+      "\$name": "EmojiGroupGreeting",
       "title": title,
       "iconEmojiId": iconEmojiId,
       "emoticons": emoticons,
@@ -83443,7 +84615,8 @@ class EmojiGroupPremium extends EmojiGroupBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x093bcf34",
+      "\$hash": "093bcf34",
+      "\$name": "EmojiGroupPremium",
       "title": title,
       "iconEmojiId": iconEmojiId,
     };
@@ -83481,7 +84654,8 @@ class MessagesEmojiGroupsNotModified extends MessagesEmojiGroupsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6fb4ad87",
+      "\$hash": "6fb4ad87",
+      "\$name": "MessagesEmojiGroupsNotModified",
     };
 
     // Finished toJson.
@@ -83539,7 +84713,8 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x881fb94b",
+      "\$hash": "881fb94b",
+      "\$name": "MessagesEmojiGroups",
       "hash": hash,
       "groups": groups,
     };
@@ -83597,7 +84772,8 @@ class TextWithEntities extends TextWithEntitiesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x751f3146",
+      "\$hash": "751f3146",
+      "\$name": "TextWithEntities",
       "text": text,
       "entities": entities,
     };
@@ -83648,7 +84824,8 @@ class MessagesTranslateResult extends MessagesTranslatedTextBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x33db32f8",
+      "\$hash": "33db32f8",
+      "\$name": "MessagesTranslateResult",
       "result": result,
     };
 
@@ -83727,7 +84904,8 @@ class AutoSaveSettings extends AutoSaveSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc84834ce",
+      "\$hash": "c84834ce",
+      "\$name": "AutoSaveSettings",
       "flags": flags,
       "photos": photos,
       "videos": videos,
@@ -83787,7 +84965,8 @@ class AutoSaveException extends AutoSaveExceptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x81602d47",
+      "\$hash": "81602d47",
+      "\$name": "AutoSaveException",
       "peer": peer,
       "settings": settings,
     };
@@ -83873,7 +85052,8 @@ class AccountAutoSaveSettings extends AccountAutoSaveSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4c3e069d",
+      "\$hash": "4c3e069d",
+      "\$name": "AccountAutoSaveSettings",
       "usersSettings": usersSettings,
       "chatsSettings": chatsSettings,
       "broadcastsSettings": broadcastsSettings,
@@ -83915,7 +85095,8 @@ class HelpAppConfigNotModified extends HelpAppConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7cde641d",
+      "\$hash": "7cde641d",
+      "\$name": "HelpAppConfigNotModified",
     };
 
     // Finished toJson.
@@ -83973,7 +85154,8 @@ class HelpAppConfig extends HelpAppConfigBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdd18782e",
+      "\$hash": "dd18782e",
+      "\$name": "HelpAppConfig",
       "hash": hash,
       "config": config,
     };
@@ -84035,7 +85217,8 @@ class InputBotAppID extends InputBotAppBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa920bd7a",
+      "\$hash": "a920bd7a",
+      "\$name": "InputBotAppID",
       "id": id,
       "accessHash": accessHash,
     };
@@ -84093,7 +85276,8 @@ class InputBotAppShortName extends InputBotAppBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x908c0407",
+      "\$hash": "908c0407",
+      "\$name": "InputBotAppShortName",
       "botId": botId,
       "shortName": shortName,
     };
@@ -84131,7 +85315,8 @@ class BotAppNotModified extends BotAppBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5da674b7",
+      "\$hash": "5da674b7",
+      "\$name": "BotAppNotModified",
     };
 
     // Finished toJson.
@@ -84251,7 +85436,8 @@ class BotApp extends BotAppBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x95fcd1d6",
+      "\$hash": "95fcd1d6",
+      "\$name": "BotApp",
       "flags": flags,
       "id": id,
       "accessHash": accessHash,
@@ -84340,7 +85526,8 @@ class MessagesBotApp extends MessagesBotAppBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeb50adf5",
+      "\$hash": "eb50adf5",
+      "\$name": "MessagesBotApp",
       "flags": flags,
       "inactive": inactive,
       "requestWriteAccess": requestWriteAccess,
@@ -84401,7 +85588,8 @@ class InlineBotWebView extends InlineBotWebViewBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb57295d5",
+      "\$hash": "b57295d5",
+      "\$name": "InlineBotWebView",
       "text": text,
       "url": url,
     };
@@ -84461,7 +85649,8 @@ class ReadParticipantDate extends ReadParticipantDateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4a4ff172",
+      "\$hash": "4a4ff172",
+      "\$name": "ReadParticipantDate",
       "userId": userId,
       "date": date.toIso8601String(),
     };
@@ -84514,7 +85703,8 @@ class InputChatlistDialogFilter extends InputChatlistBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3e0da33",
+      "\$hash": "f3e0da33",
+      "\$name": "InputChatlistDialogFilter",
       "filterId": filterId,
     };
 
@@ -84587,7 +85777,8 @@ class ExportedChatlistInvite extends ExportedChatlistInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0c5181ac",
+      "\$hash": "0c5181ac",
+      "\$name": "ExportedChatlistInvite",
       "flags": flags,
       "title": title,
       "url": url,
@@ -84648,7 +85839,8 @@ class ChatlistsExportedChatlistInvite
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10e6e3a6",
+      "\$hash": "10e6e3a6",
+      "\$name": "ChatlistsExportedChatlistInvite",
       "filter": filter,
       "invite": invite,
     };
@@ -84713,7 +85905,8 @@ class ChatlistsExportedInvites extends ChatlistsExportedInvitesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10ab6dc7",
+      "\$hash": "10ab6dc7",
+      "\$name": "ChatlistsExportedInvites",
       "invites": invites,
       "chats": chats,
       "users": users,
@@ -84795,7 +85988,8 @@ class ChatlistsChatlistInviteAlready extends ChatlistsChatlistInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa87f659",
+      "\$hash": "fa87f659",
+      "\$name": "ChatlistsChatlistInviteAlready",
       "filterId": filterId,
       "missingPeers": missingPeers,
       "alreadyPeers": alreadyPeers,
@@ -84892,7 +86086,8 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1dcd839d",
+      "\$hash": "1dcd839d",
+      "\$name": "ChatlistsChatlistInvite",
       "flags": flags,
       "title": title,
       "emoticon": emoticon,
@@ -84961,7 +86156,8 @@ class ChatlistsChatlistUpdates extends ChatlistsChatlistUpdatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93bd878d",
+      "\$hash": "93bd878d",
+      "\$name": "ChatlistsChatlistUpdates",
       "missingPeers": missingPeers,
       "chats": chats,
       "users": users,
@@ -85027,7 +86223,8 @@ class BotsBotInfo extends BotsBotInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe8a775b0",
+      "\$hash": "e8a775b0",
+      "\$name": "BotsBotInfo",
       "name": name,
       "about": about,
       "description": description,
@@ -85093,7 +86290,8 @@ class MessagePeerVote extends MessagePeerVoteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6cc2d5c",
+      "\$hash": "b6cc2d5c",
+      "\$name": "MessagePeerVote",
       "peer": peer,
       "option": option,
       "date": date.toIso8601String(),
@@ -85152,7 +86350,8 @@ class MessagePeerVoteInputOption extends MessagePeerVoteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74cda504",
+      "\$hash": "74cda504",
+      "\$name": "MessagePeerVoteInputOption",
       "peer": peer,
       "date": date.toIso8601String(),
     };
@@ -85217,7 +86416,8 @@ class MessagePeerVoteMultiple extends MessagePeerVoteBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4628f6e6",
+      "\$hash": "4628f6e6",
+      "\$name": "MessagePeerVoteMultiple",
       "peer": peer,
       "options": options,
       "date": date.toIso8601String(),
@@ -85338,7 +86538,8 @@ class StoryViews extends StoryViewsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8d595cd6",
+      "\$hash": "8d595cd6",
+      "\$name": "StoryViews",
       "flags": flags,
       "hasViewers": hasViewers,
       "viewsCount": viewsCount,
@@ -85396,7 +86597,8 @@ class StoryItemDeleted extends StoryItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x51e6ee4f",
+      "\$hash": "51e6ee4f",
+      "\$name": "StoryItemDeleted",
       "id": id,
     };
 
@@ -85479,7 +86681,8 @@ class StoryItemSkipped extends StoryItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xffadc913",
+      "\$hash": "ffadc913",
+      "\$name": "StoryItemSkipped",
       "flags": flags,
       "closeFriends": closeFriends,
       "id": id,
@@ -85730,7 +86933,8 @@ class StoryItem extends StoryItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x79b26a24",
+      "\$hash": "79b26a24",
+      "\$name": "StoryItem",
       "flags": flags,
       "pinned": pinned,
       "public": public,
@@ -85817,7 +87021,8 @@ class StoriesAllStoriesNotModified extends StoriesAllStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1158fe3e",
+      "\$hash": "1158fe3e",
+      "\$name": "StoriesAllStoriesNotModified",
       "flags": flags,
       "state": state,
       "stealthMode": stealthMode,
@@ -85923,7 +87128,8 @@ class StoriesAllStories extends StoriesAllStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6efc5e81",
+      "\$hash": "6efc5e81",
+      "\$name": "StoriesAllStories",
       "flags": flags,
       "hasMore": hasMore,
       "count": count,
@@ -86025,7 +87231,8 @@ class StoriesStories extends StoriesStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x63c3dd0a",
+      "\$hash": "63c3dd0a",
+      "\$name": "StoriesStories",
       "flags": flags,
       "count": count,
       "stories": stories,
@@ -86126,7 +87333,8 @@ class StoryView extends StoryViewBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb0bdeac5",
+      "\$hash": "b0bdeac5",
+      "\$name": "StoryView",
       "flags": flags,
       "blocked": blocked,
       "blockedMyStoriesFrom": blockedMyStoriesFrom,
@@ -86205,7 +87413,8 @@ class StoryViewPublicForward extends StoryViewBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9083670b",
+      "\$hash": "9083670b",
+      "\$name": "StoryViewPublicForward",
       "flags": flags,
       "blocked": blocked,
       "blockedMyStoriesFrom": blockedMyStoriesFrom,
@@ -86289,7 +87498,8 @@ class StoryViewPublicRepost extends StoryViewBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd74cf49",
+      "\$hash": "bd74cf49",
+      "\$name": "StoryViewPublicRepost",
       "flags": flags,
       "blocked": blocked,
       "blockedMyStoriesFrom": blockedMyStoriesFrom,
@@ -86415,7 +87625,8 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x59d78fc5",
+      "\$hash": "59d78fc5",
+      "\$name": "StoriesStoryViewsList",
       "flags": flags,
       "count": count,
       "viewsCount": viewsCount,
@@ -86480,7 +87691,8 @@ class StoriesStoryViews extends StoriesStoryViewsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde9eed1d",
+      "\$hash": "de9eed1d",
+      "\$name": "StoriesStoryViews",
       "views": views,
       "users": users,
     };
@@ -86606,7 +87818,8 @@ class InputReplyToMessage extends InputReplyToBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x22c0f6d5",
+      "\$hash": "22c0f6d5",
+      "\$name": "InputReplyToMessage",
       "flags": flags,
       "replyToMsgId": replyToMsgId,
       "topMsgId": topMsgId,
@@ -86671,7 +87884,8 @@ class InputReplyToStory extends InputReplyToBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5881323a",
+      "\$hash": "5881323a",
+      "\$name": "InputReplyToStory",
       "peer": peer,
       "storyId": storyId,
     };
@@ -86722,7 +87936,8 @@ class ExportedStoryLink extends ExportedStoryLinkBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3fc9053b",
+      "\$hash": "3fc9053b",
+      "\$name": "ExportedStoryLink",
       "link": link,
     };
 
@@ -86801,7 +88016,8 @@ class StoriesStealthMode extends StoriesStealthModeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x712e27fd",
+      "\$hash": "712e27fd",
+      "\$name": "StoriesStealthMode",
       "flags": flags,
       "activeUntilDate": activeUntilDate?.toIso8601String(),
       "cooldownUntilDate": cooldownUntilDate?.toIso8601String(),
@@ -86903,7 +88119,8 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcfc9e002",
+      "\$hash": "cfc9e002",
+      "\$name": "MediaAreaCoordinates",
       "flags": flags,
       "x": x,
       "y": y,
@@ -87001,7 +88218,8 @@ class MediaAreaVenue extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbe82db9c",
+      "\$hash": "be82db9c",
+      "\$name": "MediaAreaVenue",
       "coordinates": coordinates,
       "geo": geo,
       "title": title,
@@ -87073,7 +88291,8 @@ class InputMediaAreaVenue extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb282217f",
+      "\$hash": "b282217f",
+      "\$name": "InputMediaAreaVenue",
       "coordinates": coordinates,
       "queryId": queryId,
       "resultId": resultId,
@@ -87155,7 +88374,8 @@ class MediaAreaGeoPoint extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcad5452d",
+      "\$hash": "cad5452d",
+      "\$name": "MediaAreaGeoPoint",
       "flags": flags,
       "coordinates": coordinates,
       "geo": geo,
@@ -87239,7 +88459,8 @@ class MediaAreaSuggestedReaction extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x14455871",
+      "\$hash": "14455871",
+      "\$name": "MediaAreaSuggestedReaction",
       "flags": flags,
       "dark": dark,
       "flipped": flipped,
@@ -87311,7 +88532,8 @@ class MediaAreaChannelPost extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x770416af",
+      "\$hash": "770416af",
+      "\$name": "MediaAreaChannelPost",
       "coordinates": coordinates,
       "channelId": channelId,
       "msgId": msgId,
@@ -87379,7 +88601,8 @@ class InputMediaAreaChannelPost extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2271f2bf",
+      "\$hash": "2271f2bf",
+      "\$name": "InputMediaAreaChannelPost",
       "coordinates": coordinates,
       "channel": channel,
       "msgId": msgId,
@@ -87438,7 +88661,8 @@ class MediaAreaUrl extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x37381085",
+      "\$hash": "37381085",
+      "\$name": "MediaAreaUrl",
       "coordinates": coordinates,
       "url": url,
     };
@@ -87512,7 +88736,8 @@ class MediaAreaWeather extends MediaAreaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x49a6549c",
+      "\$hash": "49a6549c",
+      "\$name": "MediaAreaWeather",
       "coordinates": coordinates,
       "emoji": emoji,
       "temperatureC": temperatureC,
@@ -87594,7 +88819,8 @@ class PeerStories extends PeerStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a35e999",
+      "\$hash": "9a35e999",
+      "\$name": "PeerStories",
       "flags": flags,
       "peer": peer,
       "maxReadId": maxReadId,
@@ -87661,7 +88887,8 @@ class StoriesPeerStories extends StoriesPeerStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcae68768",
+      "\$hash": "cae68768",
+      "\$name": "StoriesPeerStories",
       "stories": stories,
       "chats": chats,
       "users": users,
@@ -87727,7 +88954,8 @@ class MessagesWebPage extends MessagesWebPageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfd5e12bd",
+      "\$hash": "fd5e12bd",
+      "\$name": "MessagesWebPage",
       "webpage": webpage,
       "chats": chats,
       "users": users,
@@ -87840,7 +89068,8 @@ class PremiumGiftCodeOption extends PremiumGiftCodeOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x257e962b",
+      "\$hash": "257e962b",
+      "\$name": "PremiumGiftCodeOption",
       "flags": flags,
       "users": users,
       "months": months,
@@ -87984,7 +89213,8 @@ class PaymentsCheckedGiftCode extends PaymentsCheckedGiftCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x284a1096",
+      "\$hash": "284a1096",
+      "\$name": "PaymentsCheckedGiftCode",
       "flags": flags,
       "viaGiveaway": viaGiveaway,
       "fromId": fromId,
@@ -88106,7 +89336,8 @@ class PaymentsGiveawayInfo extends PaymentsGiveawayInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4367daa0",
+      "\$hash": "4367daa0",
+      "\$name": "PaymentsGiveawayInfo",
       "flags": flags,
       "participating": participating,
       "preparingResults": preparingResults,
@@ -88238,7 +89469,8 @@ class PaymentsGiveawayInfoResults extends PaymentsGiveawayInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe175e66f",
+      "\$hash": "e175e66f",
+      "\$name": "PaymentsGiveawayInfoResults",
       "flags": flags,
       "winner": winner,
       "refunded": refunded,
@@ -88323,7 +89555,8 @@ class PrepaidGiveaway extends PrepaidGiveawayBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb2539d54",
+      "\$hash": "b2539d54",
+      "\$name": "PrepaidGiveaway",
       "id": id,
       "months": months,
       "quantity": quantity,
@@ -88412,7 +89645,8 @@ class PrepaidStarsGiveaway extends PrepaidGiveawayBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a9d77e0",
+      "\$hash": "9a9d77e0",
+      "\$name": "PrepaidStarsGiveaway",
       "id": id,
       "stars": stars,
       "quantity": quantity,
@@ -88570,7 +89804,8 @@ class Boost extends BoostBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4b3e14d6",
+      "\$hash": "4b3e14d6",
+      "\$name": "Boost",
       "flags": flags,
       "gift": gift,
       "giveaway": giveaway,
@@ -88669,7 +89904,8 @@ class PremiumBoostsList extends PremiumBoostsListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x86f8613c",
+      "\$hash": "86f8613c",
+      "\$name": "PremiumBoostsList",
       "flags": flags,
       "count": count,
       "boosts": boosts,
@@ -88774,7 +90010,8 @@ class MyBoost extends MyBoostBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc448415c",
+      "\$hash": "c448415c",
+      "\$name": "MyBoost",
       "flags": flags,
       "slot": slot,
       "peer": peer,
@@ -88843,7 +90080,8 @@ class PremiumMyBoosts extends PremiumMyBoostsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9ae228e2",
+      "\$hash": "9ae228e2",
+      "\$name": "PremiumMyBoosts",
       "myBoosts": myBoosts,
       "chats": chats,
       "users": users,
@@ -89002,7 +90240,8 @@ class PremiumBoostsStatus extends PremiumBoostsStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4959427a",
+      "\$hash": "4959427a",
+      "\$name": "PremiumBoostsStatus",
       "flags": flags,
       "myBoost": myBoost,
       "level": level,
@@ -89108,7 +90347,8 @@ class StoryFwdHeader extends StoryFwdHeaderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb826e150",
+      "\$hash": "b826e150",
+      "\$name": "StoryFwdHeader",
       "flags": flags,
       "modified": modified,
       "from": from,
@@ -89191,7 +90431,8 @@ class PostInteractionCountersMessage extends PostInteractionCountersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe7058e7f",
+      "\$hash": "e7058e7f",
+      "\$name": "PostInteractionCountersMessage",
       "msgId": msgId,
       "views": views,
       "forwards": forwards,
@@ -89273,7 +90514,8 @@ class PostInteractionCountersStory extends PostInteractionCountersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8a480e27",
+      "\$hash": "8a480e27",
+      "\$name": "PostInteractionCountersStory",
       "storyId": storyId,
       "views": views,
       "forwards": forwards,
@@ -89333,7 +90575,8 @@ class StatsStoryStats extends StatsStoryStatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50cd067c",
+      "\$hash": "50cd067c",
+      "\$name": "StatsStoryStats",
       "viewsGraph": viewsGraph,
       "reactionsByEmotionGraph": reactionsByEmotionGraph,
     };
@@ -89384,7 +90627,8 @@ class PublicForwardMessage extends PublicForwardBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x01f2bf4a",
+      "\$hash": "01f2bf4a",
+      "\$name": "PublicForwardMessage",
       "message": message,
     };
 
@@ -89441,7 +90685,8 @@ class PublicForwardStory extends PublicForwardBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xedf3add0",
+      "\$hash": "edf3add0",
+      "\$name": "PublicForwardStory",
       "peer": peer,
       "story": story,
     };
@@ -89537,7 +90782,8 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93037e20",
+      "\$hash": "93037e20",
+      "\$name": "StatsPublicForwards",
       "flags": flags,
       "count": count,
       "forwards": forwards,
@@ -89620,7 +90866,8 @@ class PeerColor extends PeerColorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb54b5acf",
+      "\$hash": "b54b5acf",
+      "\$name": "PeerColor",
       "flags": flags,
       "color": color,
       "backgroundEmojiId": backgroundEmojiId,
@@ -89672,7 +90919,8 @@ class HelpPeerColorSet extends HelpPeerColorSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x26219a58",
+      "\$hash": "26219a58",
+      "\$name": "HelpPeerColorSet",
       "colors": colors,
     };
 
@@ -89736,7 +90984,8 @@ class HelpPeerColorProfileSet extends HelpPeerColorSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x767d61eb",
+      "\$hash": "767d61eb",
+      "\$name": "HelpPeerColorProfileSet",
       "paletteColors": paletteColors,
       "bgColors": bgColors,
       "storyColors": storyColors,
@@ -89857,7 +91106,8 @@ class HelpPeerColorOption extends HelpPeerColorOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xadec6ebe",
+      "\$hash": "adec6ebe",
+      "\$name": "HelpPeerColorOption",
       "flags": flags,
       "hidden": hidden,
       "colorId": colorId,
@@ -89900,7 +91150,8 @@ class HelpPeerColorsNotModified extends HelpPeerColorsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ba1f5ce",
+      "\$hash": "2ba1f5ce",
+      "\$name": "HelpPeerColorsNotModified",
     };
 
     // Finished toJson.
@@ -89958,7 +91209,8 @@ class HelpPeerColors extends HelpPeerColorsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x00f8ed08",
+      "\$hash": "00f8ed08",
+      "\$name": "HelpPeerColors",
       "hash": hash,
       "colors": colors,
     };
@@ -90023,7 +91275,8 @@ class StoryReaction extends StoryReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6090d6d5",
+      "\$hash": "6090d6d5",
+      "\$name": "StoryReaction",
       "peerId": peerId,
       "date": date.toIso8601String(),
       "reaction": reaction,
@@ -90075,7 +91328,8 @@ class StoryReactionPublicForward extends StoryReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbbab2643",
+      "\$hash": "bbab2643",
+      "\$name": "StoryReactionPublicForward",
       "message": message,
     };
 
@@ -90132,7 +91386,8 @@ class StoryReactionPublicRepost extends StoryReactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcfcd0f13",
+      "\$hash": "cfcd0f13",
+      "\$name": "StoryReactionPublicRepost",
       "peerId": peerId,
       "story": story,
     };
@@ -90228,7 +91483,8 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa5f789c",
+      "\$hash": "aa5f789c",
+      "\$name": "StoriesStoryReactionsList",
       "flags": flags,
       "count": count,
       "reactions": reactions,
@@ -90309,7 +91565,8 @@ class SavedDialog extends SavedDialogBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd87cb6c",
+      "\$hash": "bd87cb6c",
+      "\$name": "SavedDialog",
       "flags": flags,
       "pinned": pinned,
       "peer": peer,
@@ -90383,7 +91640,8 @@ class MessagesSavedDialogs extends MessagesSavedDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf83ae221",
+      "\$hash": "f83ae221",
+      "\$name": "MessagesSavedDialogs",
       "dialogs": dialogs,
       "messages": messages,
       "chats": chats,
@@ -90466,7 +91724,8 @@ class MessagesSavedDialogsSlice extends MessagesSavedDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x44ba9dd9",
+      "\$hash": "44ba9dd9",
+      "\$name": "MessagesSavedDialogsSlice",
       "count": count,
       "dialogs": dialogs,
       "messages": messages,
@@ -90522,7 +91781,8 @@ class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc01f6fe8",
+      "\$hash": "c01f6fe8",
+      "\$name": "MessagesSavedDialogsNotModified",
       "count": count,
     };
 
@@ -90603,7 +91863,8 @@ class SavedReactionTag extends SavedReactionTagBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb6ff828",
+      "\$hash": "cb6ff828",
+      "\$name": "SavedReactionTag",
       "flags": flags,
       "reaction": reaction,
       "title": title,
@@ -90645,7 +91906,8 @@ class MessagesSavedReactionTagsNotModified
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x889b59ef",
+      "\$hash": "889b59ef",
+      "\$name": "MessagesSavedReactionTagsNotModified",
     };
 
     // Finished toJson.
@@ -90703,7 +91965,8 @@ class MessagesSavedReactionTags extends MessagesSavedReactionTagsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3259950a",
+      "\$hash": "3259950a",
+      "\$name": "MessagesSavedReactionTags",
       "tags": tags,
       "hash": hash,
     };
@@ -90754,7 +92017,8 @@ class OutboxReadDate extends OutboxReadDateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3bb842ac",
+      "\$hash": "3bb842ac",
+      "\$name": "OutboxReadDate",
       "date": date.toIso8601String(),
     };
 
@@ -90813,7 +92077,8 @@ class SmsjobsEligibleToJoin extends SmsjobsEligibilityToJoinBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdc8b44cf",
+      "\$hash": "dc8b44cf",
+      "\$name": "SmsjobsEligibleToJoin",
       "termsUrl": termsUrl,
       "monthlySentSms": monthlySentSms,
     };
@@ -90938,7 +92203,8 @@ class SmsjobsStatus extends SmsjobsStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2aee9191",
+      "\$hash": "2aee9191",
+      "\$name": "SmsjobsStatus",
       "flags": flags,
       "allowInternational": allowInternational,
       "recentSent": recentSent,
@@ -91010,7 +92276,8 @@ class SmsJob extends SmsJobBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6a1eeb8",
+      "\$hash": "e6a1eeb8",
+      "\$name": "SmsJob",
       "jobId": jobId,
       "phoneNumber": phoneNumber,
       "text": text,
@@ -91073,7 +92340,8 @@ class BusinessWeeklyOpen extends BusinessWeeklyOpenBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x120b1ab9",
+      "\$hash": "120b1ab9",
+      "\$name": "BusinessWeeklyOpen",
       "startMinute": startMinute,
       "endMinute": endMinute,
     };
@@ -91148,7 +92416,8 @@ class BusinessWorkHours extends BusinessWorkHoursBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c92b098",
+      "\$hash": "8c92b098",
+      "\$name": "BusinessWorkHours",
       "flags": flags,
       "openNow": openNow,
       "timezoneId": timezoneId,
@@ -91224,7 +92493,8 @@ class BusinessLocation extends BusinessLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xac5c1af7",
+      "\$hash": "ac5c1af7",
+      "\$name": "BusinessLocation",
       "flags": flags,
       "geoPoint": geoPoint,
       "address": address,
@@ -91327,7 +92597,8 @@ class InputBusinessRecipients extends InputBusinessRecipientsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f8b32aa",
+      "\$hash": "6f8b32aa",
+      "\$name": "InputBusinessRecipients",
       "flags": flags,
       "existingChats": existingChats,
       "newChats": newChats,
@@ -91433,7 +92704,8 @@ class BusinessRecipients extends BusinessRecipientsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x21108ff7",
+      "\$hash": "21108ff7",
+      "\$name": "BusinessRecipients",
       "flags": flags,
       "existingChats": existingChats,
       "newChats": newChats,
@@ -91477,7 +92749,8 @@ class BusinessAwayMessageScheduleAlways
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9b9e2b9",
+      "\$hash": "c9b9e2b9",
+      "\$name": "BusinessAwayMessageScheduleAlways",
     };
 
     // Finished toJson.
@@ -91515,7 +92788,8 @@ class BusinessAwayMessageScheduleOutsideWorkHours
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc3f2f501",
+      "\$hash": "c3f2f501",
+      "\$name": "BusinessAwayMessageScheduleOutsideWorkHours",
     };
 
     // Finished toJson.
@@ -91572,7 +92846,8 @@ class BusinessAwayMessageScheduleCustom
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc4d9ecc",
+      "\$hash": "cc4d9ecc",
+      "\$name": "BusinessAwayMessageScheduleCustom",
       "startDate": startDate.toIso8601String(),
       "endDate": endDate.toIso8601String(),
     };
@@ -91641,7 +92916,8 @@ class InputBusinessGreetingMessage extends InputBusinessGreetingMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0194cb3b",
+      "\$hash": "0194cb3b",
+      "\$name": "InputBusinessGreetingMessage",
       "shortcutId": shortcutId,
       "recipients": recipients,
       "noActivityDays": noActivityDays,
@@ -91711,7 +92987,8 @@ class BusinessGreetingMessage extends BusinessGreetingMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe519abab",
+      "\$hash": "e519abab",
+      "\$name": "BusinessGreetingMessage",
       "shortcutId": shortcutId,
       "recipients": recipients,
       "noActivityDays": noActivityDays,
@@ -91796,7 +93073,8 @@ class InputBusinessAwayMessage extends InputBusinessAwayMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x832175e0",
+      "\$hash": "832175e0",
+      "\$name": "InputBusinessAwayMessage",
       "flags": flags,
       "offlineOnly": offlineOnly,
       "shortcutId": shortcutId,
@@ -91883,7 +93161,8 @@ class BusinessAwayMessage extends BusinessAwayMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef156a5c",
+      "\$hash": "ef156a5c",
+      "\$name": "BusinessAwayMessage",
       "flags": flags,
       "offlineOnly": offlineOnly,
       "shortcutId": shortcutId,
@@ -91953,7 +93232,8 @@ class Timezone extends TimezoneBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xff9289f5",
+      "\$hash": "ff9289f5",
+      "\$name": "Timezone",
       "id": id,
       "name": name,
       "utcOffset": utcOffset,
@@ -91992,7 +93272,8 @@ class HelpTimezonesListNotModified extends HelpTimezonesListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x970708cc",
+      "\$hash": "970708cc",
+      "\$name": "HelpTimezonesListNotModified",
     };
 
     // Finished toJson.
@@ -92050,7 +93331,8 @@ class HelpTimezonesList extends HelpTimezonesListBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7b74ed71",
+      "\$hash": "7b74ed71",
+      "\$name": "HelpTimezonesList",
       "timezones": timezones,
       "hash": hash,
     };
@@ -92128,7 +93410,8 @@ class QuickReply extends QuickReplyBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0697102b",
+      "\$hash": "0697102b",
+      "\$name": "QuickReply",
       "shortcutId": shortcutId,
       "shortcut": shortcut,
       "topMessage": topMessage,
@@ -92181,7 +93464,8 @@ class InputQuickReplyShortcut extends InputQuickReplyShortcutBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x24596d41",
+      "\$hash": "24596d41",
+      "\$name": "InputQuickReplyShortcut",
       "shortcut": shortcut,
     };
 
@@ -92233,7 +93517,8 @@ class InputQuickReplyShortcutId extends InputQuickReplyShortcutBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x01190cf1",
+      "\$hash": "01190cf1",
+      "\$name": "InputQuickReplyShortcutId",
       "shortcutId": shortcutId,
     };
 
@@ -92304,7 +93589,8 @@ class MessagesQuickReplies extends MessagesQuickRepliesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc68d6695",
+      "\$hash": "c68d6695",
+      "\$name": "MessagesQuickReplies",
       "quickReplies": quickReplies,
       "messages": messages,
       "chats": chats,
@@ -92344,7 +93630,8 @@ class MessagesQuickRepliesNotModified extends MessagesQuickRepliesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5f91eb5b",
+      "\$hash": "5f91eb5b",
+      "\$name": "MessagesQuickRepliesNotModified",
     };
 
     // Finished toJson.
@@ -92419,7 +93706,8 @@ class ConnectedBot extends ConnectedBotBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd068601",
+      "\$hash": "bd068601",
+      "\$name": "ConnectedBot",
       "flags": flags,
       "canReply": canReply,
       "botId": botId,
@@ -92479,7 +93767,8 @@ class AccountConnectedBots extends AccountConnectedBotsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17d7f87b",
+      "\$hash": "17d7f87b",
+      "\$name": "AccountConnectedBots",
       "connectedBots": connectedBots,
       "users": users,
     };
@@ -92547,7 +93836,8 @@ class MessagesDialogFilters extends MessagesDialogFiltersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ad93719",
+      "\$hash": "2ad93719",
+      "\$name": "MessagesDialogFilters",
       "flags": flags,
       "tagsEnabled": tagsEnabled,
       "filters": filters,
@@ -92632,7 +93922,8 @@ class Birthday extends BirthdayBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c8e1e06",
+      "\$hash": "6c8e1e06",
+      "\$name": "Birthday",
       "flags": flags,
       "day": day,
       "month": month,
@@ -92734,7 +94025,8 @@ class BotBusinessConnection extends BotBusinessConnectionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x896433b4",
+      "\$hash": "896433b4",
+      "\$name": "BotBusinessConnection",
       "flags": flags,
       "canReply": canReply,
       "disabled": disabled,
@@ -92820,7 +94112,8 @@ class InputBusinessIntro extends InputBusinessIntroBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x09c469cd",
+      "\$hash": "09c469cd",
+      "\$name": "InputBusinessIntro",
       "flags": flags,
       "title": title,
       "description": description,
@@ -92903,7 +94196,8 @@ class BusinessIntro extends BusinessIntroBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a0a066d",
+      "\$hash": "5a0a066d",
+      "\$name": "BusinessIntro",
       "flags": flags,
       "title": title,
       "description": description,
@@ -92965,7 +94259,8 @@ class MessagesMyStickers extends MessagesMyStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfaff629d",
+      "\$hash": "faff629d",
+      "\$name": "MessagesMyStickers",
       "count": count,
       "sets": sets,
     };
@@ -93016,7 +94311,8 @@ class InputCollectibleUsername extends InputCollectibleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe39460a9",
+      "\$hash": "e39460a9",
+      "\$name": "InputCollectibleUsername",
       "username": username,
     };
 
@@ -93066,7 +94362,8 @@ class InputCollectiblePhone extends InputCollectibleBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2e214a4",
+      "\$hash": "a2e214a4",
+      "\$name": "InputCollectiblePhone",
       "phone": phone,
     };
 
@@ -93155,7 +94452,8 @@ class FragmentCollectibleInfo extends FragmentCollectibleInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6ebdff91",
+      "\$hash": "6ebdff91",
+      "\$name": "FragmentCollectibleInfo",
       "purchaseDate": purchaseDate.toIso8601String(),
       "currency": currency,
       "amount": amount,
@@ -93274,7 +94572,8 @@ class InputBusinessBotRecipients extends InputBusinessBotRecipientsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4e5921e",
+      "\$hash": "c4e5921e",
+      "\$name": "InputBusinessBotRecipients",
       "flags": flags,
       "existingChats": existingChats,
       "newChats": newChats,
@@ -93393,7 +94692,8 @@ class BusinessBotRecipients extends BusinessBotRecipientsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb88cf373",
+      "\$hash": "b88cf373",
+      "\$name": "BusinessBotRecipients",
       "flags": flags,
       "existingChats": existingChats,
       "newChats": newChats,
@@ -93459,7 +94759,8 @@ class ContactBirthday extends ContactBirthdayBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1d998733",
+      "\$hash": "1d998733",
+      "\$name": "ContactBirthday",
       "contactId": contactId,
       "birthday": birthday,
     };
@@ -93517,7 +94818,8 @@ class ContactsContactBirthdays extends ContactsContactBirthdaysBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x114ff30d",
+      "\$hash": "114ff30d",
+      "\$name": "ContactsContactBirthdays",
       "contacts": contacts,
       "users": users,
     };
@@ -93594,7 +94896,8 @@ class MissingInvitee extends MissingInviteeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x628c9224",
+      "\$hash": "628c9224",
+      "\$name": "MissingInvitee",
       "flags": flags,
       "premiumWouldAllowInvite": premiumWouldAllowInvite,
       "premiumRequiredForPm": premiumRequiredForPm,
@@ -93654,7 +94957,8 @@ class MessagesInvitedUsers extends MessagesInvitedUsersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f5defa6",
+      "\$hash": "7f5defa6",
+      "\$name": "MessagesInvitedUsers",
       "updates": updates,
       "missingInvitees": missingInvitees,
     };
@@ -93740,7 +95044,8 @@ class InputBusinessChatLink extends InputBusinessChatLinkBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11679fa7",
+      "\$hash": "11679fa7",
+      "\$name": "InputBusinessChatLink",
       "flags": flags,
       "message": message,
       "entities": entities,
@@ -93844,7 +95149,8 @@ class BusinessChatLink extends BusinessChatLinkBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4ae666f",
+      "\$hash": "b4ae666f",
+      "\$name": "BusinessChatLink",
       "flags": flags,
       "link": link,
       "message": message,
@@ -93913,7 +95219,8 @@ class AccountBusinessChatLinks extends AccountBusinessChatLinksBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec43a2d1",
+      "\$hash": "ec43a2d1",
+      "\$name": "AccountBusinessChatLinks",
       "links": links,
       "chats": chats,
       "users": users,
@@ -94010,7 +95317,8 @@ class AccountResolvedBusinessChatLinks
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a23af21",
+      "\$hash": "9a23af21",
+      "\$name": "AccountResolvedBusinessChatLinks",
       "flags": flags,
       "peer": peer,
       "message": message,
@@ -94124,7 +95432,8 @@ class RequestedPeerUser extends RequestedPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd62ff46a",
+      "\$hash": "d62ff46a",
+      "\$name": "RequestedPeerUser",
       "flags": flags,
       "userId": userId,
       "firstName": firstName,
@@ -94215,7 +95524,8 @@ class RequestedPeerChat extends RequestedPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7307544f",
+      "\$hash": "7307544f",
+      "\$name": "RequestedPeerChat",
       "flags": flags,
       "chatId": chatId,
       "title": title,
@@ -94316,7 +95626,8 @@ class RequestedPeerChannel extends RequestedPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ba403e4",
+      "\$hash": "8ba403e4",
+      "\$name": "RequestedPeerChannel",
       "flags": flags,
       "channelId": channelId,
       "title": title,
@@ -94377,7 +95688,8 @@ class SponsoredMessageReportOption extends SponsoredMessageReportOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x430d3150",
+      "\$hash": "430d3150",
+      "\$name": "SponsoredMessageReportOption",
       "text": text,
       "option": option,
     };
@@ -94437,7 +95749,8 @@ class ChannelsSponsoredMessageReportResultChooseOption
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x846f9e42",
+      "\$hash": "846f9e42",
+      "\$name": "ChannelsSponsoredMessageReportResultChooseOption",
       "title": title,
       "options": options,
     };
@@ -94477,7 +95790,8 @@ class ChannelsSponsoredMessageReportResultAdsHidden
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e3bcf2f",
+      "\$hash": "3e3bcf2f",
+      "\$name": "ChannelsSponsoredMessageReportResultAdsHidden",
     };
 
     // Finished toJson.
@@ -94515,7 +95829,8 @@ class ChannelsSponsoredMessageReportResultReported
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad798849",
+      "\$hash": "ad798849",
+      "\$name": "ChannelsSponsoredMessageReportResultReported",
     };
 
     // Finished toJson.
@@ -94585,7 +95900,8 @@ class StatsBroadcastRevenueStats extends StatsBroadcastRevenueStatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5407e297",
+      "\$hash": "5407e297",
+      "\$name": "StatsBroadcastRevenueStats",
       "topHoursGraph": topHoursGraph,
       "revenueGraph": revenueGraph,
       "balances": balances,
@@ -94639,7 +95955,8 @@ class StatsBroadcastRevenueWithdrawalUrl
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec659737",
+      "\$hash": "ec659737",
+      "\$name": "StatsBroadcastRevenueWithdrawalUrl",
       "url": url,
     };
 
@@ -94706,7 +96023,8 @@ class BroadcastRevenueTransactionProceeds
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x557e2cc4",
+      "\$hash": "557e2cc4",
+      "\$name": "BroadcastRevenueTransactionProceeds",
       "amount": amount,
       "fromDate": fromDate.toIso8601String(),
       "toDate": toDate.toIso8601String(),
@@ -94824,7 +96142,8 @@ class BroadcastRevenueTransactionWithdrawal
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5a590978",
+      "\$hash": "5a590978",
+      "\$name": "BroadcastRevenueTransactionWithdrawal",
       "flags": flags,
       "pending": pending,
       "failed": failed,
@@ -94898,7 +96217,8 @@ class BroadcastRevenueTransactionRefund
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x42d30d2e",
+      "\$hash": "42d30d2e",
+      "\$name": "BroadcastRevenueTransactionRefund",
       "amount": amount,
       "date": date.toIso8601String(),
       "provider": provider,
@@ -94961,7 +96281,8 @@ class StatsBroadcastRevenueTransactions
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x87158466",
+      "\$hash": "87158466",
+      "\$name": "StatsBroadcastRevenueTransactions",
       "count": count,
       "transactions": transactions,
     };
@@ -94999,7 +96320,8 @@ class ReactionNotificationsFromContacts extends ReactionNotificationsFromBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbac3a61a",
+      "\$hash": "bac3a61a",
+      "\$name": "ReactionNotificationsFromContacts",
     };
 
     // Finished toJson.
@@ -95035,7 +96357,8 @@ class ReactionNotificationsFromAll extends ReactionNotificationsFromBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4b9e22a0",
+      "\$hash": "4b9e22a0",
+      "\$name": "ReactionNotificationsFromAll",
     };
 
     // Finished toJson.
@@ -95129,7 +96452,8 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56e34970",
+      "\$hash": "56e34970",
+      "\$name": "ReactionsNotifySettings",
       "flags": flags,
       "messagesNotifyFrom": messagesNotifyFrom,
       "storiesNotifyFrom": storiesNotifyFrom,
@@ -95220,7 +96544,8 @@ class BroadcastRevenueBalances extends BroadcastRevenueBalancesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc3ff71e7",
+      "\$hash": "c3ff71e7",
+      "\$name": "BroadcastRevenueBalances",
       "flags": flags,
       "withdrawalEnabled": withdrawalEnabled,
       "currentBalance": currentBalance,
@@ -95334,7 +96659,8 @@ class AvailableEffect extends AvailableEffectBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x93c3e27e",
+      "\$hash": "93c3e27e",
+      "\$name": "AvailableEffect",
       "flags": flags,
       "premiumRequired": premiumRequired,
       "id": id,
@@ -95377,7 +96703,8 @@ class MessagesAvailableEffectsNotModified extends MessagesAvailableEffectsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1ed9a5b",
+      "\$hash": "d1ed9a5b",
+      "\$name": "MessagesAvailableEffectsNotModified",
     };
 
     // Finished toJson.
@@ -95442,7 +96769,8 @@ class MessagesAvailableEffects extends MessagesAvailableEffectsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbddb616e",
+      "\$hash": "bddb616e",
+      "\$name": "MessagesAvailableEffects",
       "hash": hash,
       "effects": effects,
       "documents": documents,
@@ -95537,7 +96865,8 @@ class FactCheck extends FactCheckBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb89bfccf",
+      "\$hash": "b89bfccf",
+      "\$name": "FactCheck",
       "flags": flags,
       "needCheck": needCheck,
       "country": country,
@@ -95578,7 +96907,8 @@ class StarsTransactionPeerUnsupported extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x95f2bfe4",
+      "\$hash": "95f2bfe4",
+      "\$name": "StarsTransactionPeerUnsupported",
     };
 
     // Finished toJson.
@@ -95614,7 +96944,8 @@ class StarsTransactionPeerAppStore extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb457b375",
+      "\$hash": "b457b375",
+      "\$name": "StarsTransactionPeerAppStore",
     };
 
     // Finished toJson.
@@ -95650,7 +96981,8 @@ class StarsTransactionPeerPlayMarket extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7b560a0b",
+      "\$hash": "7b560a0b",
+      "\$name": "StarsTransactionPeerPlayMarket",
     };
 
     // Finished toJson.
@@ -95686,7 +97018,8 @@ class StarsTransactionPeerPremiumBot extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x250dbaf8",
+      "\$hash": "250dbaf8",
+      "\$name": "StarsTransactionPeerPremiumBot",
     };
 
     // Finished toJson.
@@ -95722,7 +97055,8 @@ class StarsTransactionPeerFragment extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe92fd902",
+      "\$hash": "e92fd902",
+      "\$name": "StarsTransactionPeerFragment",
     };
 
     // Finished toJson.
@@ -95771,7 +97105,8 @@ class StarsTransactionPeer extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd80da15d",
+      "\$hash": "d80da15d",
+      "\$name": "StarsTransactionPeer",
       "peer": peer,
     };
 
@@ -95808,7 +97143,8 @@ class StarsTransactionPeerAds extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x60682812",
+      "\$hash": "60682812",
+      "\$name": "StarsTransactionPeerAds",
     };
 
     // Finished toJson.
@@ -95844,7 +97180,8 @@ class StarsTransactionPeerAPI extends StarsTransactionPeerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf9677aad",
+      "\$hash": "f9677aad",
+      "\$name": "StarsTransactionPeerAPI",
     };
 
     // Finished toJson.
@@ -95940,7 +97277,8 @@ class StarsTopupOption extends StarsTopupOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0bd915c0",
+      "\$hash": "0bd915c0",
+      "\$name": "StarsTopupOption",
       "flags": flags,
       "extended": extended,
       "stars": stars,
@@ -96247,7 +97585,8 @@ class StarsTransaction extends StarsTransactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64dfc926",
+      "\$hash": "64dfc926",
+      "\$name": "StarsTransaction",
       "flags": flags,
       "refund": refund,
       "pending": pending,
@@ -96411,7 +97750,8 @@ class PaymentsStarsStatus extends PaymentsStarsStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c9ce8ed",
+      "\$hash": "6c9ce8ed",
+      "\$name": "PaymentsStarsStatus",
       "flags": flags,
       "balance": balance,
       "subscriptions": subscriptions,
@@ -96476,7 +97816,8 @@ class FoundStory extends FoundStoryBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe87acbc0",
+      "\$hash": "e87acbc0",
+      "\$name": "FoundStory",
       "peer": peer,
       "story": story,
     };
@@ -96572,7 +97913,8 @@ class StoriesFoundStories extends StoriesFoundStoriesBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe2de7737",
+      "\$hash": "e2de7737",
+      "\$name": "StoriesFoundStories",
       "flags": flags,
       "count": count,
       "stories": stories,
@@ -96673,7 +98015,8 @@ class GeoPointAddress extends GeoPointAddressBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde4c5d93",
+      "\$hash": "de4c5d93",
+      "\$name": "GeoPointAddress",
       "flags": flags,
       "countryIso2": countryIso2,
       "state": state,
@@ -96771,7 +98114,8 @@ class StarsRevenueStatus extends StarsRevenueStatusBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfebe5491",
+      "\$hash": "febe5491",
+      "\$name": "StarsRevenueStatus",
       "flags": flags,
       "withdrawalEnabled": withdrawalEnabled,
       "currentBalance": currentBalance,
@@ -96840,7 +98184,8 @@ class PaymentsStarsRevenueStats extends PaymentsStarsRevenueStatsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc92bb73b",
+      "\$hash": "c92bb73b",
+      "\$name": "PaymentsStarsRevenueStats",
       "revenueGraph": revenueGraph,
       "status": status,
       "usdRate": usdRate,
@@ -96893,7 +98238,8 @@ class PaymentsStarsRevenueWithdrawalUrl
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1dab80b7",
+      "\$hash": "1dab80b7",
+      "\$name": "PaymentsStarsRevenueWithdrawalUrl",
       "url": url,
     };
 
@@ -96944,7 +98290,8 @@ class PaymentsStarsRevenueAdsAccountUrl
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x394e7f21",
+      "\$hash": "394e7f21",
+      "\$name": "PaymentsStarsRevenueAdsAccountUrl",
       "url": url,
     };
 
@@ -97011,7 +98358,8 @@ class InputStarsTransaction extends InputStarsTransactionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x206ae6d1",
+      "\$hash": "206ae6d1",
+      "\$name": "InputStarsTransaction",
       "flags": flags,
       "refund": refund,
       "id": id,
@@ -97110,7 +98458,8 @@ class StarsGiftOption extends StarsGiftOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e0589f1",
+      "\$hash": "5e0589f1",
+      "\$name": "StarsGiftOption",
       "flags": flags,
       "extended": extended,
       "stars": stars,
@@ -97187,7 +98536,8 @@ class BotsPopularAppBots extends BotsPopularAppBotsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1991b13b",
+      "\$hash": "1991b13b",
+      "\$name": "BotsPopularAppBots",
       "flags": flags,
       "nextOffset": nextOffset,
       "users": users,
@@ -97246,7 +98596,8 @@ class BotPreviewMedia extends BotPreviewMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x23e91ba3",
+      "\$hash": "23e91ba3",
+      "\$name": "BotPreviewMedia",
       "date": date.toIso8601String(),
       "media": media,
     };
@@ -97304,7 +98655,8 @@ class BotsPreviewInfo extends BotsPreviewInfoBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ca71d64",
+      "\$hash": "0ca71d64",
+      "\$name": "BotsPreviewInfo",
       "media": media,
       "langCodes": langCodes,
     };
@@ -97366,7 +98718,8 @@ class StarsSubscriptionPricing extends StarsSubscriptionPricingBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x05416d58",
+      "\$hash": "05416d58",
+      "\$name": "StarsSubscriptionPricing",
       "period": period,
       "amount": amount,
     };
@@ -97524,7 +98877,8 @@ class StarsSubscription extends StarsSubscriptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2e6eab1a",
+      "\$hash": "2e6eab1a",
+      "\$name": "StarsSubscription",
       "flags": flags,
       "canceled": canceled,
       "canRefulfill": canRefulfill,
@@ -97631,7 +98985,8 @@ class MessageReactor extends MessageReactorBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4ba3a95a",
+      "\$hash": "4ba3a95a",
+      "\$name": "MessageReactor",
       "flags": flags,
       "top": top,
       "my": my,
@@ -97756,7 +99111,8 @@ class StarsGiveawayOption extends StarsGiveawayOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x94ce852a",
+      "\$hash": "94ce852a",
+      "\$name": "StarsGiveawayOption",
       "flags": flags,
       "extended": extended,
       "ddefault": ddefault,
@@ -97842,7 +99198,8 @@ class StarsGiveawayWinnersOption extends StarsGiveawayWinnersOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x54236209",
+      "\$hash": "54236209",
+      "\$name": "StarsGiveawayWinnersOption",
       "flags": flags,
       "ddefault": ddefault,
       "users": users,
@@ -97999,7 +99356,8 @@ class StarGift extends StarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x49c577cd",
+      "\$hash": "49c577cd",
+      "\$name": "StarGift",
       "flags": flags,
       "limited": limited,
       "soldOut": soldOut,
@@ -98047,7 +99405,8 @@ class PaymentsStarGiftsNotModified extends PaymentsStarGiftsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa388a368",
+      "\$hash": "a388a368",
+      "\$name": "PaymentsStarGiftsNotModified",
     };
 
     // Finished toJson.
@@ -98105,7 +99464,8 @@ class PaymentsStarGifts extends PaymentsStarGiftsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x901689ea",
+      "\$hash": "901689ea",
+      "\$name": "PaymentsStarGifts",
       "hash": hash,
       "gifts": gifts,
     };
@@ -98236,7 +99596,8 @@ class UserStarGift extends UserStarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeea49a6e",
+      "\$hash": "eea49a6e",
+      "\$name": "UserStarGift",
       "flags": flags,
       "nameHidden": nameHidden,
       "unsaved": unsaved,
@@ -98332,7 +99693,8 @@ class PaymentsUserStarGifts extends PaymentsUserStarGiftsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6b65b517",
+      "\$hash": "6b65b517",
+      "\$name": "PaymentsUserStarGifts",
       "flags": flags,
       "count": count,
       "gifts": gifts,
@@ -98393,7 +99755,8 @@ class MessageReportOption extends MessageReportOptionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7903e3d9",
+      "\$hash": "7903e3d9",
+      "\$name": "MessageReportOption",
       "text": text,
       "option": option,
     };
@@ -98451,7 +99814,8 @@ class ReportResultChooseOption extends ReportResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf0e4e0b6",
+      "\$hash": "f0e4e0b6",
+      "\$name": "ReportResultChooseOption",
       "title": title,
       "options": options,
     };
@@ -98519,7 +99883,8 @@ class ReportResultAddComment extends ReportResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f09ac31",
+      "\$hash": "6f09ac31",
+      "\$name": "ReportResultAddComment",
       "flags": flags,
       "optional": optional,
       "option": option,
@@ -98558,7 +99923,8 @@ class ReportResultReported extends ReportResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8db33c4b",
+      "\$hash": "8db33c4b",
+      "\$name": "ReportResultReported",
     };
 
     // Finished toJson.
@@ -98615,7 +99981,8 @@ class MessagesBotPreparedInlineMessage
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ecf0511",
+      "\$hash": "8ecf0511",
+      "\$name": "MessagesBotPreparedInlineMessage",
       "id": id,
       "expireDate": expireDate.toIso8601String(),
     };
@@ -98698,7 +100065,8 @@ class MessagesPreparedInlineMessage extends MessagesPreparedInlineMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xff57708d",
+      "\$hash": "ff57708d",
+      "\$name": "MessagesPreparedInlineMessage",
       "queryId": queryId,
       "result": result,
       "peerTypes": peerTypes,
@@ -98816,7 +100184,8 @@ class BotAppSettings extends BotAppSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc99b1950",
+      "\$hash": "c99b1950",
+      "\$name": "BotAppSettings",
       "flags": flags,
       "placeholderPath": placeholderPath,
       "backgroundColor": backgroundColor,
@@ -98930,7 +100299,8 @@ class StarRefProgram extends StarRefProgramBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdd0c66f2",
+      "\$hash": "dd0c66f2",
+      "\$name": "StarRefProgram",
       "flags": flags,
       "botId": botId,
       "commissionPermille": commissionPermille,
@@ -99057,7 +100427,8 @@ class ConnectedBotStarRef extends ConnectedBotStarRefBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x19a13f71",
+      "\$hash": "19a13f71",
+      "\$name": "ConnectedBotStarRef",
       "flags": flags,
       "revoked": revoked,
       "url": url,
@@ -99131,7 +100502,8 @@ class PaymentsConnectedStarRefBots extends PaymentsConnectedStarRefBotsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98d5ea1d",
+      "\$hash": "98d5ea1d",
+      "\$name": "PaymentsConnectedStarRefBots",
       "count": count,
       "connectedBots": connectedBots,
       "users": users,
@@ -99221,7 +100593,8 @@ class PaymentsSuggestedStarRefBots extends PaymentsSuggestedStarRefBotsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4d5d859",
+      "\$hash": "b4d5d859",
+      "\$name": "PaymentsSuggestedStarRefBots",
       "flags": flags,
       "count": count,
       "suggestedBots": suggestedBots,
@@ -99286,7 +100659,8 @@ class StarsAmount extends StarsAmountBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbbb6b4a3",
+      "\$hash": "bbb6b4a3",
+      "\$name": "StarsAmount",
       "amount": amount,
       "nanos": nanos,
     };
@@ -99352,7 +100726,8 @@ class MessagesFoundStickersNotModified extends MessagesFoundStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6010c534",
+      "\$hash": "6010c534",
+      "\$name": "MessagesFoundStickersNotModified",
       "flags": flags,
       "nextOffset": nextOffset,
     };
@@ -99434,7 +100809,8 @@ class MessagesFoundStickers extends MessagesFoundStickersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x82c9e290",
+      "\$hash": "82c9e290",
+      "\$name": "MessagesFoundStickers",
       "flags": flags,
       "nextOffset": nextOffset,
       "hash": hash,
@@ -99497,7 +100873,8 @@ class InvokeAfterMsg extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb9f372d",
+      "\$hash": "cb9f372d",
+      "\$name": "InvokeAfterMsg",
       "msgId": msgId,
       "query": query,
     };
@@ -99556,7 +100933,8 @@ class InvokeAfterMsgs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dc4b4f0",
+      "\$hash": "3dc4b4f0",
+      "\$name": "InvokeAfterMsgs",
       "msgIds": msgIds,
       "query": query,
     };
@@ -99631,7 +101009,8 @@ class AuthSendCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa677244f",
+      "\$hash": "a677244f",
+      "\$name": "AuthSendCode",
       "phoneNumber": phoneNumber,
       "apiId": apiId,
       "apiHash": apiHash,
@@ -99723,7 +101102,8 @@ class AuthSignUp extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaac7b717",
+      "\$hash": "aac7b717",
+      "\$name": "AuthSignUp",
       "flags": flags,
       "noJoinedNotifications": noJoinedNotifications,
       "phoneNumber": phoneNumber,
@@ -99822,7 +101202,8 @@ class AuthSignIn extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8d52a951",
+      "\$hash": "8d52a951",
+      "\$name": "AuthSignIn",
       "flags": flags,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
@@ -99864,7 +101245,8 @@ class AuthLogOut extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e72ba19",
+      "\$hash": "3e72ba19",
+      "\$name": "AuthLogOut",
     };
 
     // Finished toJson.
@@ -99901,7 +101283,8 @@ class AuthResetAuthorizations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9fab0d1a",
+      "\$hash": "9fab0d1a",
+      "\$name": "AuthResetAuthorizations",
     };
 
     // Finished toJson.
@@ -99953,7 +101336,8 @@ class AuthExportAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe5bfffcd",
+      "\$hash": "e5bfffcd",
+      "\$name": "AuthExportAuthorization",
       "dcId": dcId,
     };
 
@@ -100013,7 +101397,8 @@ class AuthImportAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa57a7dad",
+      "\$hash": "a57a7dad",
+      "\$name": "AuthImportAuthorization",
       "id": id,
       "bytes": bytes,
     };
@@ -100090,7 +101475,8 @@ class AuthBindTempAuthKey extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcdd42a05",
+      "\$hash": "cdd42a05",
+      "\$name": "AuthBindTempAuthKey",
       "permAuthKeyId": permAuthKeyId,
       "nonce": nonce,
       "expiresAt": expiresAt.toIso8601String(),
@@ -100191,7 +101577,8 @@ class AccountRegisterDevice extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec86017a",
+      "\$hash": "ec86017a",
+      "\$name": "AccountRegisterDevice",
       "flags": flags,
       "noMuted": noMuted,
       "tokenType": tokenType,
@@ -100264,7 +101651,8 @@ class AccountUnregisterDevice extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a0d3206",
+      "\$hash": "6a0d3206",
+      "\$name": "AccountUnregisterDevice",
       "tokenType": tokenType,
       "token": token,
       "otherUids": otherUids,
@@ -100324,7 +101712,8 @@ class AccountUpdateNotifySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x84be5b93",
+      "\$hash": "84be5b93",
+      "\$name": "AccountUpdateNotifySettings",
       "peer": peer,
       "settings": settings,
     };
@@ -100376,7 +101765,8 @@ class AccountGetNotifySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x12b3ad31",
+      "\$hash": "12b3ad31",
+      "\$name": "AccountGetNotifySettings",
       "peer": peer,
     };
 
@@ -100414,7 +101804,8 @@ class AccountResetNotifySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdb7e1747",
+      "\$hash": "db7e1747",
+      "\$name": "AccountResetNotifySettings",
     };
 
     // Finished toJson.
@@ -100503,7 +101894,8 @@ class AccountUpdateProfile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x78515775",
+      "\$hash": "78515775",
+      "\$name": "AccountUpdateProfile",
       "flags": flags,
       "firstName": firstName,
       "lastName": lastName,
@@ -100557,7 +101949,8 @@ class AccountUpdateStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6628562c",
+      "\$hash": "6628562c",
+      "\$name": "AccountUpdateStatus",
       "offline": offline,
     };
 
@@ -100610,7 +102003,8 @@ class AccountGetWallPapers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x07967d36",
+      "\$hash": "07967d36",
+      "\$name": "AccountGetWallPapers",
       "hash": hash,
     };
 
@@ -100675,7 +102069,8 @@ class AccountReportPeer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc5ba3d86",
+      "\$hash": "c5ba3d86",
+      "\$name": "AccountReportPeer",
       "peer": peer,
       "reason": reason,
       "message": message,
@@ -100728,7 +102123,8 @@ class UsersGetUsers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0d91a548",
+      "\$hash": "0d91a548",
+      "\$name": "UsersGetUsers",
       "id": id,
     };
 
@@ -100779,7 +102175,8 @@ class UsersGetFullUser extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb60f5918",
+      "\$hash": "b60f5918",
+      "\$name": "UsersGetFullUser",
       "id": id,
     };
 
@@ -100832,7 +102229,8 @@ class ContactsGetContactIDs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7adc669d",
+      "\$hash": "7adc669d",
+      "\$name": "ContactsGetContactIDs",
       "hash": hash,
     };
 
@@ -100870,7 +102268,8 @@ class ContactsGetStatuses extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4a353ee",
+      "\$hash": "c4a353ee",
+      "\$name": "ContactsGetStatuses",
     };
 
     // Finished toJson.
@@ -100922,7 +102321,8 @@ class ContactsGetContacts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5dd69e12",
+      "\$hash": "5dd69e12",
+      "\$name": "ContactsGetContacts",
       "hash": hash,
     };
 
@@ -100973,7 +102373,8 @@ class ContactsImportContacts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2c800be5",
+      "\$hash": "2c800be5",
+      "\$name": "ContactsImportContacts",
       "contacts": contacts,
     };
 
@@ -101024,7 +102425,8 @@ class ContactsDeleteContacts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x096a0e00",
+      "\$hash": "096a0e00",
+      "\$name": "ContactsDeleteContacts",
       "id": id,
     };
 
@@ -101075,7 +102477,8 @@ class ContactsDeleteByPhones extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1013fd9e",
+      "\$hash": "1013fd9e",
+      "\$name": "ContactsDeleteByPhones",
       "phones": phones,
     };
 
@@ -101143,7 +102546,8 @@ class ContactsBlock extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2e2e8734",
+      "\$hash": "2e2e8734",
+      "\$name": "ContactsBlock",
       "flags": flags,
       "myStoriesFrom": myStoriesFrom,
       "id": id,
@@ -101213,7 +102617,8 @@ class ContactsUnblock extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb550d328",
+      "\$hash": "b550d328",
+      "\$name": "ContactsUnblock",
       "flags": flags,
       "myStoriesFrom": myStoriesFrom,
       "id": id,
@@ -101294,7 +102699,8 @@ class ContactsGetBlocked extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a868f80",
+      "\$hash": "9a868f80",
+      "\$name": "ContactsGetBlocked",
       "flags": flags,
       "myStoriesFrom": myStoriesFrom,
       "offset": offset,
@@ -101348,7 +102754,8 @@ class MessagesGetMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x63c66506",
+      "\$hash": "63c66506",
+      "\$name": "MessagesGetMessages",
       "id": id,
     };
 
@@ -101462,7 +102869,8 @@ class MessagesGetDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa0f4cb4f",
+      "\$hash": "a0f4cb4f",
+      "\$name": "MessagesGetDialogs",
       "flags": flags,
       "excludePinned": excludePinned,
       "folderId": folderId,
@@ -101581,7 +102989,8 @@ class MessagesGetHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4423e6c5",
+      "\$hash": "4423e6c5",
+      "\$name": "MessagesGetHistory",
       "peer": peer,
       "offsetId": offsetId,
       "offsetDate": offsetDate.toIso8601String(),
@@ -101781,7 +103190,8 @@ class MessagesSearch extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x29ee847a",
+      "\$hash": "29ee847a",
+      "\$name": "MessagesSearch",
       "flags": flags,
       "peer": peer,
       "q": q,
@@ -101856,7 +103266,8 @@ class MessagesReadHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e306d3a",
+      "\$hash": "0e306d3a",
+      "\$name": "MessagesReadHistory",
       "peer": peer,
       "maxId": maxId,
     };
@@ -101965,7 +103376,8 @@ class MessagesDeleteHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb08f922a",
+      "\$hash": "b08f922a",
+      "\$name": "MessagesDeleteHistory",
       "flags": flags,
       "justClear": justClear,
       "revoke": revoke,
@@ -102039,7 +103451,8 @@ class MessagesDeleteMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe58e95d2",
+      "\$hash": "e58e95d2",
+      "\$name": "MessagesDeleteMessages",
       "flags": flags,
       "revoke": revoke,
       "id": id,
@@ -102094,7 +103507,8 @@ class MessagesReceivedMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x05a954c0",
+      "\$hash": "05a954c0",
+      "\$name": "MessagesReceivedMessages",
       "maxId": maxId,
     };
 
@@ -102174,7 +103588,8 @@ class MessagesSetTyping extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58943ee2",
+      "\$hash": "58943ee2",
+      "\$name": "MessagesSetTyping",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -102399,7 +103814,8 @@ class MessagesSendMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x983f9745",
+      "\$hash": "983f9745",
+      "\$name": "MessagesSendMessage",
       "flags": flags,
       "noWebpage": noWebpage,
       "silent": silent,
@@ -102639,7 +104055,8 @@ class MessagesSendMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7852834e",
+      "\$hash": "7852834e",
+      "\$name": "MessagesSendMedia",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -102838,7 +104255,8 @@ class MessagesForwardMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd5039208",
+      "\$hash": "d5039208",
+      "\$name": "MessagesForwardMessages",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -102904,7 +104322,8 @@ class MessagesReportSpam extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcf1592db",
+      "\$hash": "cf1592db",
+      "\$name": "MessagesReportSpam",
       "peer": peer,
     };
 
@@ -102955,7 +104374,8 @@ class MessagesGetPeerSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xefd9a6a2",
+      "\$hash": "efd9a6a2",
+      "\$name": "MessagesGetPeerSettings",
       "peer": peer,
     };
 
@@ -103027,7 +104447,8 @@ class MessagesReport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfc78af9b",
+      "\$hash": "fc78af9b",
+      "\$name": "MessagesReport",
       "peer": peer,
       "id": id,
       "option": option,
@@ -103081,7 +104502,8 @@ class MessagesGetChats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x49e9528f",
+      "\$hash": "49e9528f",
+      "\$name": "MessagesGetChats",
       "id": id,
     };
 
@@ -103134,7 +104556,8 @@ class MessagesGetFullChat extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaeb00b34",
+      "\$hash": "aeb00b34",
+      "\$name": "MessagesGetFullChat",
       "chatId": chatId,
     };
 
@@ -103194,7 +104617,8 @@ class MessagesEditChatTitle extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73783ffd",
+      "\$hash": "73783ffd",
+      "\$name": "MessagesEditChatTitle",
       "chatId": chatId,
       "title": title,
     };
@@ -103255,7 +104679,8 @@ class MessagesEditChatPhoto extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35ddd674",
+      "\$hash": "35ddd674",
+      "\$name": "MessagesEditChatPhoto",
       "chatId": chatId,
       "photo": photo,
     };
@@ -103325,7 +104750,8 @@ class MessagesAddChatUser extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcbc6d107",
+      "\$hash": "cbc6d107",
+      "\$name": "MessagesAddChatUser",
       "chatId": chatId,
       "userId": userId,
       "fwdLimit": fwdLimit,
@@ -103404,7 +104830,8 @@ class MessagesDeleteChatUser extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2185cab",
+      "\$hash": "a2185cab",
+      "\$name": "MessagesDeleteChatUser",
       "flags": flags,
       "revokeHistory": revokeHistory,
       "chatId": chatId,
@@ -103487,7 +104914,8 @@ class MessagesCreateChat extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x92ceddd4",
+      "\$hash": "92ceddd4",
+      "\$name": "MessagesCreateChat",
       "flags": flags,
       "users": users,
       "title": title,
@@ -103528,7 +104956,8 @@ class UpdatesGetState extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xedd4882a",
+      "\$hash": "edd4882a",
+      "\$name": "UpdatesGetState",
     };
 
     // Finished toJson.
@@ -103642,7 +105071,8 @@ class UpdatesGetDifference extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x19c2f763",
+      "\$hash": "19c2f763",
+      "\$name": "UpdatesGetDifference",
       "flags": flags,
       "pts": pts,
       "ptsLimit": ptsLimit,
@@ -103728,7 +105158,8 @@ class PhotosUpdateProfilePhoto extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x09e82039",
+      "\$hash": "09e82039",
+      "\$name": "PhotosUpdateProfilePhoto",
       "flags": flags,
       "fallback": fallback,
       "bot": bot,
@@ -103853,7 +105284,8 @@ class PhotosUploadProfilePhoto extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0388a3b5",
+      "\$hash": "0388a3b5",
+      "\$name": "PhotosUploadProfilePhoto",
       "flags": flags,
       "fallback": fallback,
       "bot": bot,
@@ -103910,7 +105342,8 @@ class PhotosDeletePhotos extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x87cf7f2f",
+      "\$hash": "87cf7f2f",
+      "\$name": "PhotosDeletePhotos",
       "id": id,
     };
 
@@ -103979,7 +105412,8 @@ class UploadSaveFilePart extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb304a621",
+      "\$hash": "b304a621",
+      "\$name": "UploadSaveFilePart",
       "fileId": fileId,
       "filePart": filePart,
       "bytes": bytes,
@@ -104074,7 +105508,8 @@ class UploadGetFile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbe5335be",
+      "\$hash": "be5335be",
+      "\$name": "UploadGetFile",
       "flags": flags,
       "precise": precise,
       "cdnSupported": cdnSupported,
@@ -104117,7 +105552,8 @@ class HelpGetConfig extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4f9186b",
+      "\$hash": "c4f9186b",
+      "\$name": "HelpGetConfig",
     };
 
     // Finished toJson.
@@ -104154,7 +105590,8 @@ class HelpGetNearestDc extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1fb33026",
+      "\$hash": "1fb33026",
+      "\$name": "HelpGetNearestDc",
     };
 
     // Finished toJson.
@@ -104204,7 +105641,8 @@ class HelpGetAppUpdate extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x522d5a7d",
+      "\$hash": "522d5a7d",
+      "\$name": "HelpGetAppUpdate",
       "source": source,
     };
 
@@ -104242,7 +105680,8 @@ class HelpGetInviteText extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4d392343",
+      "\$hash": "4d392343",
+      "\$name": "HelpGetInviteText",
     };
 
     // Finished toJson.
@@ -104319,7 +105758,8 @@ class PhotosGetUserPhotos extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x91cd32a8",
+      "\$hash": "91cd32a8",
+      "\$name": "PhotosGetUserPhotos",
       "userId": userId,
       "offset": offset,
       "maxId": maxId,
@@ -104384,7 +105824,8 @@ class MessagesGetDhConfig extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x26cf8950",
+      "\$hash": "26cf8950",
+      "\$name": "MessagesGetDhConfig",
       "version": version,
       "randomLength": randomLength,
     };
@@ -104452,7 +105893,8 @@ class MessagesRequestEncryption extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf64daf43",
+      "\$hash": "f64daf43",
+      "\$name": "MessagesRequestEncryption",
       "userId": userId,
       "randomId": randomId,
       "gA": gA,
@@ -104521,7 +105963,8 @@ class MessagesAcceptEncryption extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dbc0415",
+      "\$hash": "3dbc0415",
+      "\$name": "MessagesAcceptEncryption",
       "peer": peer,
       "gB": gB,
       "keyFingerprint": keyFingerprint,
@@ -104593,7 +106036,8 @@ class MessagesDiscardEncryption extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf393aea0",
+      "\$hash": "f393aea0",
+      "\$name": "MessagesDiscardEncryption",
       "flags": flags,
       "deleteHistory": deleteHistory,
       "chatId": chatId,
@@ -104653,7 +106097,8 @@ class MessagesSetEncryptedTyping extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x791451ed",
+      "\$hash": "791451ed",
+      "\$name": "MessagesSetEncryptedTyping",
       "peer": peer,
       "typing": typing,
     };
@@ -104712,7 +106157,8 @@ class MessagesReadEncryptedHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f4b690a",
+      "\$hash": "7f4b690a",
+      "\$name": "MessagesReadEncryptedHistory",
       "peer": peer,
       "maxDate": maxDate.toIso8601String(),
     };
@@ -104797,7 +106243,8 @@ class MessagesSendEncrypted extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x44fa7a15",
+      "\$hash": "44fa7a15",
+      "\$name": "MessagesSendEncrypted",
       "flags": flags,
       "silent": silent,
       "peer": peer,
@@ -104892,7 +106339,8 @@ class MessagesSendEncryptedFile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5559481d",
+      "\$hash": "5559481d",
+      "\$name": "MessagesSendEncryptedFile",
       "flags": flags,
       "silent": silent,
       "peer": peer,
@@ -104964,7 +106412,8 @@ class MessagesSendEncryptedService extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x32d439a4",
+      "\$hash": "32d439a4",
+      "\$name": "MessagesSendEncryptedService",
       "peer": peer,
       "randomId": randomId,
       "data": data,
@@ -105019,7 +106468,8 @@ class MessagesReceivedQueue extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x55a5bb66",
+      "\$hash": "55a5bb66",
+      "\$name": "MessagesReceivedQueue",
       "maxQts": maxQts,
     };
 
@@ -105070,7 +106520,8 @@ class MessagesReportEncryptedSpam extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4b0c8c0f",
+      "\$hash": "4b0c8c0f",
+      "\$name": "MessagesReportEncryptedSpam",
       "peer": peer,
     };
 
@@ -105148,7 +106599,8 @@ class UploadSaveBigFilePart extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xde7b673d",
+      "\$hash": "de7b673d",
+      "\$name": "UploadSaveBigFilePart",
       "fileId": fileId,
       "filePart": filePart,
       "fileTotalParts": fileTotalParts,
@@ -105288,7 +106740,8 @@ class InitConnection extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc1cd5ea9",
+      "\$hash": "c1cd5ea9",
+      "\$name": "InitConnection",
       "flags": flags,
       "apiId": apiId,
       "deviceModel": deviceModel,
@@ -105336,7 +106789,8 @@ class HelpGetSupport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9cdf08cd",
+      "\$hash": "9cdf08cd",
+      "\$name": "HelpGetSupport",
     };
 
     // Finished toJson.
@@ -105386,7 +106840,8 @@ class MessagesReadMessageContents extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36a73f77",
+      "\$hash": "36a73f77",
+      "\$name": "MessagesReadMessageContents",
       "id": id,
     };
 
@@ -105437,7 +106892,8 @@ class AccountCheckUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2714d86c",
+      "\$hash": "2714d86c",
+      "\$name": "AccountCheckUsername",
       "username": username,
     };
 
@@ -105488,7 +106944,8 @@ class AccountUpdateUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3e0bdd7c",
+      "\$hash": "3e0bdd7c",
+      "\$name": "AccountUpdateUsername",
       "username": username,
     };
 
@@ -105548,7 +107005,8 @@ class ContactsSearch extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11f812d8",
+      "\$hash": "11f812d8",
+      "\$name": "ContactsSearch",
       "q": q,
       "limit": limit,
     };
@@ -105600,7 +107058,8 @@ class AccountGetPrivacy extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdadbc950",
+      "\$hash": "dadbc950",
+      "\$name": "AccountGetPrivacy",
       "key": key,
     };
 
@@ -105658,7 +107117,8 @@ class AccountSetPrivacy extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9f81ce8",
+      "\$hash": "c9f81ce8",
+      "\$name": "AccountSetPrivacy",
       "key": key,
       "rules": rules,
     };
@@ -105734,7 +107194,8 @@ class AccountDeleteAccount extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2c0cf74",
+      "\$hash": "a2c0cf74",
+      "\$name": "AccountDeleteAccount",
       "flags": flags,
       "reason": reason,
       "password": password,
@@ -105774,7 +107235,8 @@ class AccountGetAccountTTL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x08fc711d",
+      "\$hash": "08fc711d",
+      "\$name": "AccountGetAccountTTL",
     };
 
     // Finished toJson.
@@ -105824,7 +107286,8 @@ class AccountSetAccountTTL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2442485e",
+      "\$hash": "2442485e",
+      "\$name": "AccountSetAccountTTL",
       "ttl": ttl,
     };
 
@@ -105884,7 +107347,8 @@ class InvokeWithLayer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xda9b0d0d",
+      "\$hash": "da9b0d0d",
+      "\$name": "InvokeWithLayer",
       "layer": layer,
       "query": query,
     };
@@ -105958,7 +107422,8 @@ class ContactsResolveUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x725afbbc",
+      "\$hash": "725afbbc",
+      "\$name": "ContactsResolveUsername",
       "flags": flags,
       "username": username,
       "referer": referer,
@@ -106018,7 +107483,8 @@ class AccountSendChangePhoneCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x82574ae5",
+      "\$hash": "82574ae5",
+      "\$name": "AccountSendChangePhoneCode",
       "phoneNumber": phoneNumber,
       "settings": settings,
     };
@@ -106084,7 +107550,8 @@ class AccountChangePhone extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x70c32edb",
+      "\$hash": "70c32edb",
+      "\$name": "AccountChangePhone",
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
       "phoneCode": phoneCode,
@@ -106146,7 +107613,8 @@ class MessagesGetStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd5a5d3a1",
+      "\$hash": "d5a5d3a1",
+      "\$name": "MessagesGetStickers",
       "emoticon": emoticon,
       "hash": hash,
     };
@@ -106200,7 +107668,8 @@ class MessagesGetAllStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb8a0a1a8",
+      "\$hash": "b8a0a1a8",
+      "\$name": "MessagesGetAllStickers",
       "hash": hash,
     };
 
@@ -106253,7 +107722,8 @@ class AccountUpdateDeviceLocked extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x38df3532",
+      "\$hash": "38df3532",
+      "\$name": "AccountUpdateDeviceLocked",
       "period": period,
     };
 
@@ -106329,7 +107799,8 @@ class AuthImportBotAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x67a3ff2c",
+      "\$hash": "67a3ff2c",
+      "\$name": "AuthImportBotAuthorization",
       "flags": flags,
       "apiId": apiId,
       "apiHash": apiHash,
@@ -106406,7 +107877,8 @@ class MessagesGetWebPagePreview extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8b68b0cc",
+      "\$hash": "8b68b0cc",
+      "\$name": "MessagesGetWebPagePreview",
       "flags": flags,
       "message": message,
       "entities": entities,
@@ -106446,7 +107918,8 @@ class AccountGetAuthorizations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe320c158",
+      "\$hash": "e320c158",
+      "\$name": "AccountGetAuthorizations",
     };
 
     // Finished toJson.
@@ -106498,7 +107971,8 @@ class AccountResetAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdf77f3bc",
+      "\$hash": "df77f3bc",
+      "\$name": "AccountResetAuthorization",
       "hash": hash,
     };
 
@@ -106536,7 +108010,8 @@ class AccountGetPassword extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x548a30f5",
+      "\$hash": "548a30f5",
+      "\$name": "AccountGetPassword",
     };
 
     // Finished toJson.
@@ -106586,7 +108061,8 @@ class AccountGetPasswordSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9cd4eaf9",
+      "\$hash": "9cd4eaf9",
+      "\$name": "AccountGetPasswordSettings",
       "password": password,
     };
 
@@ -106644,7 +108120,8 @@ class AccountUpdatePasswordSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa59b102f",
+      "\$hash": "a59b102f",
+      "\$name": "AccountUpdatePasswordSettings",
       "password": password,
       "newSettings": newSettings,
     };
@@ -106696,7 +108173,8 @@ class AuthCheckPassword extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd18b4d16",
+      "\$hash": "d18b4d16",
+      "\$name": "AuthCheckPassword",
       "password": password,
     };
 
@@ -106734,7 +108212,8 @@ class AuthRequestPasswordRecovery extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd897bc66",
+      "\$hash": "d897bc66",
+      "\$name": "AuthRequestPasswordRecovery",
     };
 
     // Finished toJson.
@@ -106808,7 +108287,8 @@ class AuthRecoverPassword extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x37096c70",
+      "\$hash": "37096c70",
+      "\$name": "AuthRecoverPassword",
       "flags": flags,
       "code": code,
       "newSettings": newSettings,
@@ -106861,7 +108341,8 @@ class InvokeWithoutUpdates extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbf9459b7",
+      "\$hash": "bf9459b7",
+      "\$name": "InvokeWithoutUpdates",
       "query": query,
     };
 
@@ -106986,7 +108467,8 @@ class MessagesExportChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa455de90",
+      "\$hash": "a455de90",
+      "\$name": "MessagesExportChatInvite",
       "flags": flags,
       "legacyRevokePermanent": legacyRevokePermanent,
       "requestNeeded": requestNeeded,
@@ -107044,7 +108526,8 @@ class MessagesCheckChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3eadb1bb",
+      "\$hash": "3eadb1bb",
+      "\$name": "MessagesCheckChatInvite",
       "hash": hash,
     };
 
@@ -107095,7 +108578,8 @@ class MessagesImportChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c50051c",
+      "\$hash": "6c50051c",
+      "\$name": "MessagesImportChatInvite",
       "hash": hash,
     };
 
@@ -107155,7 +108639,8 @@ class MessagesGetStickerSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc8a0ec74",
+      "\$hash": "c8a0ec74",
+      "\$name": "MessagesGetStickerSet",
       "stickerset": stickerset,
       "hash": hash,
     };
@@ -107214,7 +108699,8 @@ class MessagesInstallStickerSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc78fe460",
+      "\$hash": "c78fe460",
+      "\$name": "MessagesInstallStickerSet",
       "stickerset": stickerset,
       "archived": archived,
     };
@@ -107266,7 +108752,8 @@ class MessagesUninstallStickerSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf96e55de",
+      "\$hash": "f96e55de",
+      "\$name": "MessagesUninstallStickerSet",
       "stickerset": stickerset,
     };
 
@@ -107340,7 +108827,8 @@ class MessagesStartBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6df7378",
+      "\$hash": "e6df7378",
+      "\$name": "MessagesStartBot",
       "bot": bot,
       "peer": peer,
       "randomId": randomId,
@@ -107408,7 +108896,8 @@ class MessagesGetMessagesViews extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5784d3e1",
+      "\$hash": "5784d3e1",
+      "\$name": "MessagesGetMessagesViews",
       "peer": peer,
       "id": id,
       "increment": increment,
@@ -107470,7 +108959,8 @@ class ChannelsReadHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc104937",
+      "\$hash": "cc104937",
+      "\$name": "ChannelsReadHistory",
       "channel": channel,
       "maxId": maxId,
     };
@@ -107529,7 +109019,8 @@ class ChannelsDeleteMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x84c1fd4e",
+      "\$hash": "84c1fd4e",
+      "\$name": "ChannelsDeleteMessages",
       "channel": channel,
       "id": id,
     };
@@ -107595,7 +109086,8 @@ class ChannelsReportSpam extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf44a8315",
+      "\$hash": "f44a8315",
+      "\$name": "ChannelsReportSpam",
       "channel": channel,
       "participant": participant,
       "id": id,
@@ -107655,7 +109147,8 @@ class ChannelsGetMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad8c9a23",
+      "\$hash": "ad8c9a23",
+      "\$name": "ChannelsGetMessages",
       "channel": channel,
       "id": id,
     };
@@ -107741,7 +109234,8 @@ class ChannelsGetParticipants extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77ced9d0",
+      "\$hash": "77ced9d0",
+      "\$name": "ChannelsGetParticipants",
       "channel": channel,
       "filter": filter,
       "offset": offset,
@@ -107803,7 +109297,8 @@ class ChannelsGetParticipant extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa0ab6cc6",
+      "\$hash": "a0ab6cc6",
+      "\$name": "ChannelsGetParticipant",
       "channel": channel,
       "participant": participant,
     };
@@ -107855,7 +109350,8 @@ class ChannelsGetChannels extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a7f6bbb",
+      "\$hash": "0a7f6bbb",
+      "\$name": "ChannelsGetChannels",
       "id": id,
     };
 
@@ -107906,7 +109402,8 @@ class ChannelsGetFullChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x08736a09",
+      "\$hash": "08736a09",
+      "\$name": "ChannelsGetFullChannel",
       "channel": channel,
     };
 
@@ -108038,7 +109535,8 @@ class ChannelsCreateChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x91006707",
+      "\$hash": "91006707",
+      "\$name": "ChannelsCreateChannel",
       "flags": flags,
       "broadcast": broadcast,
       "megagroup": megagroup,
@@ -108119,7 +109617,8 @@ class ChannelsEditAdmin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd33c8902",
+      "\$hash": "d33c8902",
+      "\$name": "ChannelsEditAdmin",
       "channel": channel,
       "userId": userId,
       "adminRights": adminRights,
@@ -108180,7 +109679,8 @@ class ChannelsEditTitle extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x566decd0",
+      "\$hash": "566decd0",
+      "\$name": "ChannelsEditTitle",
       "channel": channel,
       "title": title,
     };
@@ -108239,7 +109739,8 @@ class ChannelsEditPhoto extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf12e57c9",
+      "\$hash": "f12e57c9",
+      "\$name": "ChannelsEditPhoto",
       "channel": channel,
       "photo": photo,
     };
@@ -108298,7 +109799,8 @@ class ChannelsCheckUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10e6bd2c",
+      "\$hash": "10e6bd2c",
+      "\$name": "ChannelsCheckUsername",
       "channel": channel,
       "username": username,
     };
@@ -108357,7 +109859,8 @@ class ChannelsUpdateUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3514b3de",
+      "\$hash": "3514b3de",
+      "\$name": "ChannelsUpdateUsername",
       "channel": channel,
       "username": username,
     };
@@ -108409,7 +109912,8 @@ class ChannelsJoinChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x24b524c5",
+      "\$hash": "24b524c5",
+      "\$name": "ChannelsJoinChannel",
       "channel": channel,
     };
 
@@ -108460,7 +109964,8 @@ class ChannelsLeaveChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf836aa95",
+      "\$hash": "f836aa95",
+      "\$name": "ChannelsLeaveChannel",
       "channel": channel,
     };
 
@@ -108518,7 +110023,8 @@ class ChannelsInviteToChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9e33d54",
+      "\$hash": "c9e33d54",
+      "\$name": "ChannelsInviteToChannel",
       "channel": channel,
       "users": users,
     };
@@ -108570,7 +110076,8 @@ class ChannelsDeleteChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc0111fe3",
+      "\$hash": "c0111fe3",
+      "\$name": "ChannelsDeleteChannel",
       "channel": channel,
     };
 
@@ -108663,7 +110170,8 @@ class UpdatesGetChannelDifference extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x03173d78",
+      "\$hash": "03173d78",
+      "\$name": "UpdatesGetChannelDifference",
       "flags": flags,
       "force": force,
       "channel": channel,
@@ -108735,7 +110243,8 @@ class MessagesEditChatAdmin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa85bd1c2",
+      "\$hash": "a85bd1c2",
+      "\$name": "MessagesEditChatAdmin",
       "chatId": chatId,
       "userId": userId,
       "isAdmin": isAdmin,
@@ -108790,7 +110299,8 @@ class MessagesMigrateChat extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2875319",
+      "\$hash": "a2875319",
+      "\$name": "MessagesMigrateChat",
       "chatId": chatId,
     };
 
@@ -108939,7 +110449,8 @@ class MessagesSearchGlobal extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4bc6589a",
+      "\$hash": "4bc6589a",
+      "\$name": "MessagesSearchGlobal",
       "flags": flags,
       "broadcastsOnly": broadcastsOnly,
       "groupsOnly": groupsOnly,
@@ -109026,7 +110537,8 @@ class MessagesReorderStickerSets extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x78337739",
+      "\$hash": "78337739",
+      "\$name": "MessagesReorderStickerSets",
       "flags": flags,
       "masks": masks,
       "emojis": emojis,
@@ -109096,7 +110608,8 @@ class MessagesGetDocumentByHash extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb1f2061f",
+      "\$hash": "b1f2061f",
+      "\$name": "MessagesGetDocumentByHash",
       "sha256": sha256,
       "size": size,
       "mimeType": mimeType,
@@ -109151,7 +110664,8 @@ class MessagesGetSavedGifs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5cf09635",
+      "\$hash": "5cf09635",
+      "\$name": "MessagesGetSavedGifs",
       "hash": hash,
     };
 
@@ -109209,7 +110723,8 @@ class MessagesSaveGif extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x327a30cb",
+      "\$hash": "327a30cb",
+      "\$name": "MessagesSaveGif",
       "id": id,
       "unsave": unsave,
     };
@@ -109305,7 +110820,8 @@ class MessagesGetInlineBotResults extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x514e999d",
+      "\$hash": "514e999d",
+      "\$name": "MessagesGetInlineBotResults",
       "flags": flags,
       "bot": bot,
       "peer": peer,
@@ -109442,7 +110958,8 @@ class MessagesSetInlineBotResults extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb12a419",
+      "\$hash": "bb12a419",
+      "\$name": "MessagesSetInlineBotResults",
       "flags": flags,
       "gallery": gallery,
       "private": private,
@@ -109615,7 +111132,8 @@ class MessagesSendInlineBotResult extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3ebee86a",
+      "\$hash": "3ebee86a",
+      "\$name": "MessagesSendInlineBotResult",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -109711,7 +111229,8 @@ class ChannelsExportMessageLink extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe63fadeb",
+      "\$hash": "e63fadeb",
+      "\$name": "ChannelsExportMessageLink",
       "flags": flags,
       "grouped": grouped,
       "thread": thread,
@@ -109790,7 +111309,8 @@ class ChannelsToggleSignatures extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x418d549c",
+      "\$hash": "418d549c",
+      "\$name": "ChannelsToggleSignatures",
       "flags": flags,
       "signaturesEnabled": signaturesEnabled,
       "profilesEnabled": profilesEnabled,
@@ -109873,7 +111393,8 @@ class AuthResendCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcae47523",
+      "\$hash": "cae47523",
+      "\$name": "AuthResendCode",
       "flags": flags,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
@@ -109934,7 +111455,8 @@ class AuthCancelCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1f040578",
+      "\$hash": "1f040578",
+      "\$name": "AuthCancelCode",
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
     };
@@ -109995,7 +111517,8 @@ class MessagesGetMessageEditData extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfda68d36",
+      "\$hash": "fda68d36",
+      "\$name": "MessagesGetMessageEditData",
       "peer": peer,
       "id": id,
     };
@@ -110155,7 +111678,8 @@ class MessagesEditMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdfd14005",
+      "\$hash": "dfd14005",
+      "\$name": "MessagesEditMessage",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -110290,7 +111814,8 @@ class MessagesEditInlineBotMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x83557dba",
+      "\$hash": "83557dba",
+      "\$name": "MessagesEditInlineBotMessage",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -110400,7 +111925,8 @@ class MessagesGetBotCallbackAnswer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9342ca07",
+      "\$hash": "9342ca07",
+      "\$name": "MessagesGetBotCallbackAnswer",
       "flags": flags,
       "game": game,
       "peer": peer,
@@ -110508,7 +112034,8 @@ class MessagesSetBotCallbackAnswer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd58f130a",
+      "\$hash": "d58f130a",
+      "\$name": "MessagesSetBotCallbackAnswer",
       "flags": flags,
       "alert": alert,
       "queryId": queryId,
@@ -110657,7 +112184,8 @@ class ContactsGetTopPeers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x973478b6",
+      "\$hash": "973478b6",
+      "\$name": "ContactsGetTopPeers",
       "flags": flags,
       "correspondents": correspondents,
       "botsPm": botsPm,
@@ -110727,7 +112255,8 @@ class ContactsResetTopPeerRating extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ae373ac",
+      "\$hash": "1ae373ac",
+      "\$name": "ContactsResetTopPeerRating",
       "category": category,
       "peer": peer,
     };
@@ -110779,7 +112308,8 @@ class MessagesGetPeerDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe470bcfd",
+      "\$hash": "e470bcfd",
+      "\$name": "MessagesGetPeerDialogs",
       "peers": peers,
     };
 
@@ -110911,7 +112441,8 @@ class MessagesSaveDraft extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd372c5ce",
+      "\$hash": "d372c5ce",
+      "\$name": "MessagesSaveDraft",
       "flags": flags,
       "noWebpage": noWebpage,
       "invertMedia": invertMedia,
@@ -110957,7 +112488,8 @@ class MessagesGetAllDrafts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a3f8d65",
+      "\$hash": "6a3f8d65",
+      "\$name": "MessagesGetAllDrafts",
     };
 
     // Finished toJson.
@@ -111009,7 +112541,8 @@ class MessagesGetFeaturedStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64780b14",
+      "\$hash": "64780b14",
+      "\$name": "MessagesGetFeaturedStickers",
       "hash": hash,
     };
 
@@ -111060,7 +112593,8 @@ class MessagesReadFeaturedStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5b118126",
+      "\$hash": "5b118126",
+      "\$name": "MessagesReadFeaturedStickers",
       "id": id,
     };
 
@@ -111130,7 +112664,8 @@ class MessagesGetRecentStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9da9403b",
+      "\$hash": "9da9403b",
+      "\$name": "MessagesGetRecentStickers",
       "flags": flags,
       "attached": attached,
       "hash": hash,
@@ -111207,7 +112742,8 @@ class MessagesSaveRecentSticker extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x392718f8",
+      "\$hash": "392718f8",
+      "\$name": "MessagesSaveRecentSticker",
       "flags": flags,
       "attached": attached,
       "id": id,
@@ -111271,7 +112807,8 @@ class MessagesClearRecentStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8999602d",
+      "\$hash": "8999602d",
+      "\$name": "MessagesClearRecentStickers",
       "flags": flags,
       "attached": attached,
     };
@@ -111358,7 +112895,8 @@ class MessagesGetArchivedStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57f17692",
+      "\$hash": "57f17692",
+      "\$name": "MessagesGetArchivedStickers",
       "flags": flags,
       "masks": masks,
       "emojis": emojis,
@@ -111420,7 +112958,8 @@ class AccountSendConfirmPhoneCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1b3faa88",
+      "\$hash": "1b3faa88",
+      "\$name": "AccountSendConfirmPhoneCode",
       "hash": hash,
       "settings": settings,
     };
@@ -111479,7 +113018,8 @@ class AccountConfirmPhone extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5f2178c3",
+      "\$hash": "5f2178c3",
+      "\$name": "AccountConfirmPhone",
       "phoneCodeHash": phoneCodeHash,
       "phoneCode": phoneCode,
     };
@@ -111555,7 +113095,8 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf8b036af",
+      "\$hash": "f8b036af",
+      "\$name": "ChannelsGetAdminedPublicChannels",
       "flags": flags,
       "byLocation": byLocation,
       "checkLimit": checkLimit,
@@ -111611,7 +113152,8 @@ class MessagesGetMaskStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x640f82b8",
+      "\$hash": "640f82b8",
+      "\$name": "MessagesGetMaskStickers",
       "hash": hash,
     };
 
@@ -111662,7 +113204,8 @@ class MessagesGetAttachedStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc5b67cc",
+      "\$hash": "cc5b67cc",
+      "\$name": "MessagesGetAttachedStickers",
       "media": media,
     };
 
@@ -111713,7 +113256,8 @@ class AuthDropTempAuthKeys extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8e48a188",
+      "\$hash": "8e48a188",
+      "\$name": "AuthDropTempAuthKeys",
       "exceptAuthKeys": exceptAuthKeys,
     };
 
@@ -111813,7 +113357,8 @@ class MessagesSetGameScore extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ef8ecc0",
+      "\$hash": "8ef8ecc0",
+      "\$name": "MessagesSetGameScore",
       "flags": flags,
       "editMessage": editMessage,
       "force": force,
@@ -111910,7 +113455,8 @@ class MessagesSetInlineGameScore extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15ad9f64",
+      "\$hash": "15ad9f64",
+      "\$name": "MessagesSetInlineGameScore",
       "flags": flags,
       "editMessage": editMessage,
       "force": force,
@@ -111982,7 +113528,8 @@ class MessagesGetGameHighScores extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe822649d",
+      "\$hash": "e822649d",
+      "\$name": "MessagesGetGameHighScores",
       "peer": peer,
       "id": id,
       "userId": userId,
@@ -112042,7 +113589,8 @@ class MessagesGetInlineGameHighScores extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0f635e1b",
+      "\$hash": "0f635e1b",
+      "\$name": "MessagesGetInlineGameHighScores",
       "id": id,
       "userId": userId,
     };
@@ -112112,7 +113660,8 @@ class MessagesGetCommonChats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe40ca104",
+      "\$hash": "e40ca104",
+      "\$name": "MessagesGetCommonChats",
       "userId": userId,
       "maxId": maxId,
       "limit": limit,
@@ -112174,7 +113723,8 @@ class HelpSetBotUpdatesStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec22cfcd",
+      "\$hash": "ec22cfcd",
+      "\$name": "HelpSetBotUpdatesStatus",
       "pendingUpdatesCount": pendingUpdatesCount,
       "message": message,
     };
@@ -112235,7 +113785,8 @@ class MessagesGetWebPage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8d9692a3",
+      "\$hash": "8d9692a3",
+      "\$name": "MessagesGetWebPage",
       "url": url,
       "hash": hash,
     };
@@ -112304,7 +113855,8 @@ class MessagesToggleDialogPin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa731e257",
+      "\$hash": "a731e257",
+      "\$name": "MessagesToggleDialogPin",
       "flags": flags,
       "pinned": pinned,
       "peer": peer,
@@ -112383,7 +113935,8 @@ class MessagesReorderPinnedDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3b1adf37",
+      "\$hash": "3b1adf37",
+      "\$name": "MessagesReorderPinnedDialogs",
       "flags": flags,
       "force": force,
       "folderId": folderId,
@@ -112439,7 +113992,8 @@ class MessagesGetPinnedDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd6b94df2",
+      "\$hash": "d6b94df2",
+      "\$name": "MessagesGetPinnedDialogs",
       "folderId": folderId,
     };
 
@@ -112497,7 +114051,8 @@ class BotsSendCustomRequest extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa2769ed",
+      "\$hash": "aa2769ed",
+      "\$name": "BotsSendCustomRequest",
       "customMethod": customMethod,
       "params": params,
     };
@@ -112558,7 +114113,8 @@ class BotsAnswerWebhookJSONQuery extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6213f4d",
+      "\$hash": "e6213f4d",
+      "\$name": "BotsAnswerWebhookJSONQuery",
       "queryId": queryId,
       "data": data,
     };
@@ -112628,7 +114184,8 @@ class UploadGetWebFile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x24e6818d",
+      "\$hash": "24e6818d",
+      "\$name": "UploadGetWebFile",
       "location": location,
       "offset": offset,
       "limit": limit,
@@ -112704,7 +114261,8 @@ class PaymentsGetPaymentForm extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x37148dbb",
+      "\$hash": "37148dbb",
+      "\$name": "PaymentsGetPaymentForm",
       "flags": flags,
       "invoice": invoice,
       "themeParams": themeParams,
@@ -112766,7 +114324,8 @@ class PaymentsGetPaymentReceipt extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2478d1cc",
+      "\$hash": "2478d1cc",
+      "\$name": "PaymentsGetPaymentReceipt",
       "peer": peer,
       "msgId": msgId,
     };
@@ -112842,7 +114401,8 @@ class PaymentsValidateRequestedInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6c8f12b",
+      "\$hash": "b6c8f12b",
+      "\$name": "PaymentsValidateRequestedInfo",
       "flags": flags,
       "save": save,
       "invoice": invoice,
@@ -112960,7 +114520,8 @@ class PaymentsSendPaymentForm extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2d03522f",
+      "\$hash": "2d03522f",
+      "\$name": "PaymentsSendPaymentForm",
       "flags": flags,
       "formId": formId,
       "invoice": invoice,
@@ -113026,7 +114587,8 @@ class AccountGetTmpPassword extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x449e0b51",
+      "\$hash": "449e0b51",
+      "\$name": "AccountGetTmpPassword",
       "password": password,
       "period": period,
     };
@@ -113065,7 +114627,8 @@ class PaymentsGetSavedInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x227d824b",
+      "\$hash": "227d824b",
+      "\$name": "PaymentsGetSavedInfo",
     };
 
     // Finished toJson.
@@ -113132,7 +114695,8 @@ class PaymentsClearSavedInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd83d70c1",
+      "\$hash": "d83d70c1",
+      "\$name": "PaymentsClearSavedInfo",
       "flags": flags,
       "credentials": credentials,
       "info": info,
@@ -113223,7 +114787,8 @@ class MessagesSetBotShippingResults extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe5f672fa",
+      "\$hash": "e5f672fa",
+      "\$name": "MessagesSetBotShippingResults",
       "flags": flags,
       "queryId": queryId,
       "error": error,
@@ -113308,7 +114873,8 @@ class MessagesSetBotPrecheckoutResults extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x09c2dd95",
+      "\$hash": "09c2dd95",
+      "\$name": "MessagesSetBotPrecheckoutResults",
       "flags": flags,
       "success": success,
       "queryId": queryId,
@@ -113439,7 +115005,8 @@ class StickersCreateStickerSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9021ab67",
+      "\$hash": "9021ab67",
+      "\$name": "StickersCreateStickerSet",
       "flags": flags,
       "masks": masks,
       "emojis": emojis,
@@ -113499,7 +115066,8 @@ class StickersRemoveStickerFromSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf7760f51",
+      "\$hash": "f7760f51",
+      "\$name": "StickersRemoveStickerFromSet",
       "sticker": sticker,
     };
 
@@ -113559,7 +115127,8 @@ class StickersChangeStickerPosition extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xffb6d4ca",
+      "\$hash": "ffb6d4ca",
+      "\$name": "StickersChangeStickerPosition",
       "sticker": sticker,
       "position": position,
     };
@@ -113618,7 +115187,8 @@ class StickersAddStickerToSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8653febe",
+      "\$hash": "8653febe",
+      "\$name": "StickersAddStickerToSet",
       "stickerset": stickerset,
       "sticker": sticker,
     };
@@ -113700,7 +115270,8 @@ class MessagesUploadMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x14967978",
+      "\$hash": "14967978",
+      "\$name": "MessagesUploadMedia",
       "flags": flags,
       "businessConnectionId": businessConnectionId,
       "peer": peer,
@@ -113741,7 +115312,8 @@ class PhoneGetCallConfig extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x55451fa9",
+      "\$hash": "55451fa9",
+      "\$name": "PhoneGetCallConfig",
     };
 
     // Finished toJson.
@@ -113831,7 +115403,8 @@ class PhoneRequestCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x42ff96ed",
+      "\$hash": "42ff96ed",
+      "\$name": "PhoneRequestCall",
       "flags": flags,
       "video": video,
       "userId": userId,
@@ -113901,7 +115474,8 @@ class PhoneAcceptCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3bd2b4a0",
+      "\$hash": "3bd2b4a0",
+      "\$name": "PhoneAcceptCall",
       "peer": peer,
       "gB": gB,
       "protocol": protocol,
@@ -113977,7 +115551,8 @@ class PhoneConfirmCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2efe1722",
+      "\$hash": "2efe1722",
+      "\$name": "PhoneConfirmCall",
       "peer": peer,
       "gA": gA,
       "keyFingerprint": keyFingerprint,
@@ -114031,7 +115606,8 @@ class PhoneReceivedCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17d54f61",
+      "\$hash": "17d54f61",
+      "\$name": "PhoneReceivedCall",
       "peer": peer,
     };
 
@@ -114124,7 +115700,8 @@ class PhoneDiscardCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb2cbc1c0",
+      "\$hash": "b2cbc1c0",
+      "\$name": "PhoneDiscardCall",
       "flags": flags,
       "video": video,
       "peer": peer,
@@ -114213,7 +115790,8 @@ class PhoneSetCallRating extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x59ead627",
+      "\$hash": "59ead627",
+      "\$name": "PhoneSetCallRating",
       "flags": flags,
       "userInitiative": userInitiative,
       "peer": peer,
@@ -114275,7 +115853,8 @@ class PhoneSaveCallDebug extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x277add7e",
+      "\$hash": "277add7e",
+      "\$name": "PhoneSaveCallDebug",
       "peer": peer,
       "debug": debug,
     };
@@ -114345,7 +115924,8 @@ class UploadGetCdnFile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x395f69da",
+      "\$hash": "395f69da",
+      "\$name": "UploadGetCdnFile",
       "fileToken": fileToken,
       "offset": offset,
       "limit": limit,
@@ -114405,7 +115985,8 @@ class UploadReuploadCdnFile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9b2754a8",
+      "\$hash": "9b2754a8",
+      "\$name": "UploadReuploadCdnFile",
       "fileToken": fileToken,
       "requestToken": requestToken,
     };
@@ -114444,7 +116025,8 @@ class HelpGetCdnConfig extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x52029342",
+      "\$hash": "52029342",
+      "\$name": "HelpGetCdnConfig",
     };
 
     // Finished toJson.
@@ -114501,7 +116083,8 @@ class LangpackGetLangPack extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf2f2330a",
+      "\$hash": "f2f2330a",
+      "\$name": "LangpackGetLangPack",
       "langPack": langPack,
       "langCode": langCode,
     };
@@ -114567,7 +116150,8 @@ class LangpackGetStrings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xefea3803",
+      "\$hash": "efea3803",
+      "\$name": "LangpackGetStrings",
       "langPack": langPack,
       "langCode": langCode,
       "keys": keys,
@@ -114636,7 +116220,8 @@ class LangpackGetDifference extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcd984aa5",
+      "\$hash": "cd984aa5",
+      "\$name": "LangpackGetDifference",
       "langPack": langPack,
       "langCode": langCode,
       "fromVersion": fromVersion,
@@ -114689,7 +116274,8 @@ class LangpackGetLanguages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x42c6978f",
+      "\$hash": "42c6978f",
+      "\$name": "LangpackGetLanguages",
       "langPack": langPack,
     };
 
@@ -114754,7 +116340,8 @@ class ChannelsEditBanned extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x96e6cd81",
+      "\$hash": "96e6cd81",
+      "\$name": "ChannelsEditBanned",
       "channel": channel,
       "participant": participant,
       "bannedRights": bannedRights,
@@ -114878,7 +116465,8 @@ class ChannelsGetAdminLog extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x33ddf480",
+      "\$hash": "33ddf480",
+      "\$name": "ChannelsGetAdminLog",
       "flags": flags,
       "channel": channel,
       "q": q,
@@ -114945,7 +116533,8 @@ class UploadGetCdnFileHashes extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x91dc3f31",
+      "\$hash": "91dc3f31",
+      "\$name": "UploadGetCdnFileHashes",
       "fileToken": fileToken,
       "offset": offset,
     };
@@ -115013,7 +116602,8 @@ class MessagesSendScreenshotNotification extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa1405817",
+      "\$hash": "a1405817",
+      "\$name": "MessagesSendScreenshotNotification",
       "peer": peer,
       "replyTo": replyTo,
       "randomId": randomId,
@@ -115073,7 +116663,8 @@ class ChannelsSetStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xea8ca4f9",
+      "\$hash": "ea8ca4f9",
+      "\$name": "ChannelsSetStickers",
       "channel": channel,
       "stickerset": stickerset,
     };
@@ -115127,7 +116718,8 @@ class MessagesGetFavedStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x04f1aaa9",
+      "\$hash": "04f1aaa9",
+      "\$name": "MessagesGetFavedStickers",
       "hash": hash,
     };
 
@@ -115185,7 +116777,8 @@ class MessagesFaveSticker extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9ffc55b",
+      "\$hash": "b9ffc55b",
+      "\$name": "MessagesFaveSticker",
       "id": id,
       "unfave": unfave,
     };
@@ -115244,7 +116837,8 @@ class ChannelsReadMessageContents extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeab5dc38",
+      "\$hash": "eab5dc38",
+      "\$name": "ChannelsReadMessageContents",
       "channel": channel,
       "id": id,
     };
@@ -115283,7 +116877,8 @@ class ContactsResetSaved extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x879537f1",
+      "\$hash": "879537f1",
+      "\$name": "ContactsResetSaved",
     };
 
     // Finished toJson.
@@ -115400,7 +116995,8 @@ class MessagesGetUnreadMentions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf107e790",
+      "\$hash": "f107e790",
+      "\$name": "MessagesGetUnreadMentions",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -115484,7 +117080,8 @@ class ChannelsDeleteHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9baa9647",
+      "\$hash": "9baa9647",
+      "\$name": "ChannelsDeleteHistory",
       "flags": flags,
       "forEveryone": forEveryone,
       "channel": channel,
@@ -115538,7 +117135,8 @@ class HelpGetRecentMeUrls extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dc0f114",
+      "\$hash": "3dc0f114",
+      "\$name": "HelpGetRecentMeUrls",
       "referer": referer,
     };
 
@@ -115596,7 +117194,8 @@ class ChannelsTogglePreHistoryHidden extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeabbb94c",
+      "\$hash": "eabbb94c",
+      "\$name": "ChannelsTogglePreHistoryHidden",
       "channel": channel,
       "enabled": enabled,
     };
@@ -115670,7 +117269,8 @@ class MessagesReadMentions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36e5bf4d",
+      "\$hash": "36e5bf4d",
+      "\$name": "MessagesReadMentions",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -115741,7 +117341,8 @@ class MessagesGetRecentLocations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x702a40e0",
+      "\$hash": "702a40e0",
+      "\$name": "MessagesGetRecentLocations",
       "peer": peer,
       "limit": limit,
       "hash": hash,
@@ -115923,7 +117524,8 @@ class MessagesSendMultiMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x37b74355",
+      "\$hash": "37b74355",
+      "\$name": "MessagesSendMultiMedia",
       "flags": flags,
       "silent": silent,
       "background": background,
@@ -115995,7 +117597,8 @@ class MessagesUploadEncryptedFile extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5057c497",
+      "\$hash": "5057c497",
+      "\$name": "MessagesUploadEncryptedFile",
       "peer": peer,
       "file": file,
     };
@@ -116034,7 +117637,8 @@ class AccountGetWebAuthorizations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x182e6d6f",
+      "\$hash": "182e6d6f",
+      "\$name": "AccountGetWebAuthorizations",
     };
 
     // Finished toJson.
@@ -116086,7 +117690,8 @@ class AccountResetWebAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2d01b9ef",
+      "\$hash": "2d01b9ef",
+      "\$name": "AccountResetWebAuthorization",
       "hash": hash,
     };
 
@@ -116124,7 +117729,8 @@ class AccountResetWebAuthorizations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x682d2594",
+      "\$hash": "682d2594",
+      "\$name": "AccountResetWebAuthorizations",
     };
 
     // Finished toJson.
@@ -116200,7 +117806,8 @@ class MessagesSearchStickerSets extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35705b8a",
+      "\$hash": "35705b8a",
+      "\$name": "MessagesSearchStickerSets",
       "flags": flags,
       "excludeFeatured": excludeFeatured,
       "q": q,
@@ -116263,7 +117870,8 @@ class UploadGetFileHashes extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9156982a",
+      "\$hash": "9156982a",
+      "\$name": "UploadGetFileHashes",
       "location": location,
       "offset": offset,
     };
@@ -116302,7 +117910,8 @@ class HelpGetTermsOfServiceUpdate extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ca51fd1",
+      "\$hash": "2ca51fd1",
+      "\$name": "HelpGetTermsOfServiceUpdate",
     };
 
     // Finished toJson.
@@ -116352,7 +117961,8 @@ class HelpAcceptTermsOfService extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xee72f79a",
+      "\$hash": "ee72f79a",
+      "\$name": "HelpAcceptTermsOfService",
       "id": id,
     };
 
@@ -116390,7 +118000,8 @@ class AccountGetAllSecureValues extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb288bc7d",
+      "\$hash": "b288bc7d",
+      "\$name": "AccountGetAllSecureValues",
     };
 
     // Finished toJson.
@@ -116440,7 +118051,8 @@ class AccountGetSecureValue extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73665bc2",
+      "\$hash": "73665bc2",
+      "\$name": "AccountGetSecureValue",
       "types": types,
     };
 
@@ -116500,7 +118112,8 @@ class AccountSaveSecureValue extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x899fe31d",
+      "\$hash": "899fe31d",
+      "\$name": "AccountSaveSecureValue",
       "value": value,
       "secureSecretId": secureSecretId,
     };
@@ -116552,7 +118165,8 @@ class AccountDeleteSecureValue extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb880bc4b",
+      "\$hash": "b880bc4b",
+      "\$name": "AccountDeleteSecureValue",
       "types": types,
     };
 
@@ -116610,7 +118224,8 @@ class UsersSetSecureValueErrors extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x90c894b5",
+      "\$hash": "90c894b5",
+      "\$name": "UsersSetSecureValueErrors",
       "id": id,
       "errors": errors,
     };
@@ -116678,7 +118293,8 @@ class AccountGetAuthorizationForm extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa929597a",
+      "\$hash": "a929597a",
+      "\$name": "AccountGetAuthorizationForm",
       "botId": botId,
       "scope": scope,
       "publicKey": publicKey,
@@ -116761,7 +118377,8 @@ class AccountAcceptAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3ed4c73",
+      "\$hash": "f3ed4c73",
+      "\$name": "AccountAcceptAuthorization",
       "botId": botId,
       "scope": scope,
       "publicKey": publicKey,
@@ -116823,7 +118440,8 @@ class AccountSendVerifyPhoneCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa5a356f9",
+      "\$hash": "a5a356f9",
+      "\$name": "AccountSendVerifyPhoneCode",
       "phoneNumber": phoneNumber,
       "settings": settings,
     };
@@ -116889,7 +118507,8 @@ class AccountVerifyPhone extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4dd3a7f6",
+      "\$hash": "4dd3a7f6",
+      "\$name": "AccountVerifyPhone",
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
       "phoneCode": phoneCode,
@@ -116949,7 +118568,8 @@ class AccountSendVerifyEmailCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x98e037bb",
+      "\$hash": "98e037bb",
+      "\$name": "AccountSendVerifyEmailCode",
       "purpose": purpose,
       "email": email,
     };
@@ -117008,7 +118628,8 @@ class AccountVerifyEmail extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x032da4cf",
+      "\$hash": "032da4cf",
+      "\$name": "AccountVerifyEmail",
       "purpose": purpose,
       "verification": verification,
     };
@@ -117060,7 +118681,8 @@ class HelpGetDeepLinkInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3fedc75f",
+      "\$hash": "3fedc75f",
+      "\$name": "HelpGetDeepLinkInfo",
       "path": path,
     };
 
@@ -117098,7 +118720,8 @@ class ContactsGetSaved extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x82f1e39f",
+      "\$hash": "82f1e39f",
+      "\$name": "ContactsGetSaved",
     };
 
     // Finished toJson.
@@ -117150,7 +118773,8 @@ class ChannelsGetLeftChannels extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8341ecc0",
+      "\$hash": "8341ecc0",
+      "\$name": "ChannelsGetLeftChannels",
       "offset": offset,
     };
 
@@ -117257,7 +118881,8 @@ class AccountInitTakeoutSession extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ef3eab0",
+      "\$hash": "8ef3eab0",
+      "\$name": "AccountInitTakeoutSession",
       "flags": flags,
       "contacts": contacts,
       "messageUsers": messageUsers,
@@ -117325,7 +118950,8 @@ class AccountFinishTakeoutSession extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1d2652ee",
+      "\$hash": "1d2652ee",
+      "\$name": "AccountFinishTakeoutSession",
       "flags": flags,
       "success": success,
     };
@@ -117364,7 +118990,8 @@ class MessagesGetSplitRanges extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1cff7e08",
+      "\$hash": "1cff7e08",
+      "\$name": "MessagesGetSplitRanges",
     };
 
     // Finished toJson.
@@ -117421,7 +119048,8 @@ class InvokeWithMessagesRange extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x365275f2",
+      "\$hash": "365275f2",
+      "\$name": "InvokeWithMessagesRange",
       "range": range,
       "query": query,
     };
@@ -117482,7 +119110,8 @@ class InvokeWithTakeout extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaca9fd2e",
+      "\$hash": "aca9fd2e",
+      "\$name": "InvokeWithTakeout",
       "takeoutId": takeoutId,
       "query": query,
     };
@@ -117551,7 +119180,8 @@ class MessagesMarkDialogUnread extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc286d98f",
+      "\$hash": "c286d98f",
+      "\$name": "MessagesMarkDialogUnread",
       "flags": flags,
       "unread": unread,
       "peer": peer,
@@ -117591,7 +119221,8 @@ class MessagesGetDialogUnreadMarks extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x22e24e22",
+      "\$hash": "22e24e22",
+      "\$name": "MessagesGetDialogUnreadMarks",
     };
 
     // Finished toJson.
@@ -117641,7 +119272,8 @@ class ContactsToggleTopPeers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8514bdda",
+      "\$hash": "8514bdda",
+      "\$name": "ContactsToggleTopPeers",
       "enabled": enabled,
     };
 
@@ -117679,7 +119311,8 @@ class MessagesClearAllDrafts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7e58ee9c",
+      "\$hash": "7e58ee9c",
+      "\$name": "MessagesClearAllDrafts",
     };
 
     // Finished toJson.
@@ -117731,7 +119364,8 @@ class HelpGetAppConfig extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x61e3f854",
+      "\$hash": "61e3f854",
+      "\$name": "HelpGetAppConfig",
       "hash": hash,
     };
 
@@ -117782,7 +119416,8 @@ class HelpSaveAppLog extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f02f748",
+      "\$hash": "6f02f748",
+      "\$name": "HelpSaveAppLog",
       "events": events,
     };
 
@@ -117835,7 +119470,8 @@ class HelpGetPassportConfig extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc661ad08",
+      "\$hash": "c661ad08",
+      "\$name": "HelpGetPassportConfig",
       "hash": hash,
     };
 
@@ -117893,7 +119529,8 @@ class LangpackGetLanguage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a596502",
+      "\$hash": "6a596502",
+      "\$name": "LangpackGetLanguage",
       "langPack": langPack,
       "langCode": langCode,
     };
@@ -117985,7 +119622,8 @@ class MessagesUpdatePinnedMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd2aaf7ec",
+      "\$hash": "d2aaf7ec",
+      "\$name": "MessagesUpdatePinnedMessage",
       "flags": flags,
       "silent": silent,
       "unpin": unpin,
@@ -118041,7 +119679,8 @@ class AccountConfirmPasswordEmail extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8fdf1920",
+      "\$hash": "8fdf1920",
+      "\$name": "AccountConfirmPasswordEmail",
       "code": code,
     };
 
@@ -118079,7 +119718,8 @@ class AccountResendPasswordEmail extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a7f2a15",
+      "\$hash": "7a7f2a15",
+      "\$name": "AccountResendPasswordEmail",
     };
 
     // Finished toJson.
@@ -118116,7 +119756,8 @@ class AccountCancelPasswordEmail extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc1cbd5b6",
+      "\$hash": "c1cbd5b6",
+      "\$name": "AccountCancelPasswordEmail",
     };
 
     // Finished toJson.
@@ -118153,7 +119794,8 @@ class HelpGetSupportName extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd360e72c",
+      "\$hash": "d360e72c",
+      "\$name": "HelpGetSupportName",
     };
 
     // Finished toJson.
@@ -118203,7 +119845,8 @@ class HelpGetUserInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x038a08d3",
+      "\$hash": "038a08d3",
+      "\$name": "HelpGetUserInfo",
       "userId": userId,
     };
 
@@ -118268,7 +119911,8 @@ class HelpEditUserInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x66b91b70",
+      "\$hash": "66b91b70",
+      "\$name": "HelpEditUserInfo",
       "userId": userId,
       "message": message,
       "entities": entities,
@@ -118308,7 +119952,8 @@ class AccountGetContactSignUpNotification extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9f07c728",
+      "\$hash": "9f07c728",
+      "\$name": "AccountGetContactSignUpNotification",
     };
 
     // Finished toJson.
@@ -118358,7 +120003,8 @@ class AccountSetContactSignUpNotification extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcff43f61",
+      "\$hash": "cff43f61",
+      "\$name": "AccountSetContactSignUpNotification",
       "silent": silent,
     };
 
@@ -118439,7 +120085,8 @@ class AccountGetNotifyExceptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53577479",
+      "\$hash": "53577479",
+      "\$name": "AccountGetNotifyExceptions",
       "flags": flags,
       "compareSound": compareSound,
       "compareStories": compareStories,
@@ -118509,7 +120156,8 @@ class MessagesSendVote extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10ea6184",
+      "\$hash": "10ea6184",
+      "\$name": "MessagesSendVote",
       "peer": peer,
       "msgId": msgId,
       "options": options,
@@ -118571,7 +120219,8 @@ class MessagesGetPollResults extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73bb643b",
+      "\$hash": "73bb643b",
+      "\$name": "MessagesGetPollResults",
       "peer": peer,
       "msgId": msgId,
     };
@@ -118623,7 +120272,8 @@ class MessagesGetOnlines extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6e2be050",
+      "\$hash": "6e2be050",
+      "\$name": "MessagesGetOnlines",
       "peer": peer,
     };
 
@@ -118681,7 +120331,8 @@ class MessagesEditChatAbout extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdef60797",
+      "\$hash": "def60797",
+      "\$name": "MessagesEditChatAbout",
       "peer": peer,
       "about": about,
     };
@@ -118740,7 +120391,8 @@ class MessagesEditChatDefaultBannedRights extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa5866b41",
+      "\$hash": "a5866b41",
+      "\$name": "MessagesEditChatDefaultBannedRights",
       "peer": peer,
       "bannedRights": bannedRights,
     };
@@ -118792,7 +120444,8 @@ class AccountGetWallPaper extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfc8ddbea",
+      "\$hash": "fc8ddbea",
+      "\$name": "AccountGetWallPaper",
       "wallpaper": wallpaper,
     };
 
@@ -118874,7 +120527,8 @@ class AccountUploadWallPaper extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe39a8f03",
+      "\$hash": "e39a8f03",
+      "\$name": "AccountUploadWallPaper",
       "flags": flags,
       "forChat": forChat,
       "file": file,
@@ -118943,7 +120597,8 @@ class AccountSaveWallPaper extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c5a5b37",
+      "\$hash": "6c5a5b37",
+      "\$name": "AccountSaveWallPaper",
       "wallpaper": wallpaper,
       "unsave": unsave,
       "settings": settings,
@@ -119003,7 +120658,8 @@ class AccountInstallWallPaper extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfeed5769",
+      "\$hash": "feed5769",
+      "\$name": "AccountInstallWallPaper",
       "wallpaper": wallpaper,
       "settings": settings,
     };
@@ -119042,7 +120698,8 @@ class AccountResetWallPapers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb3b9804",
+      "\$hash": "bb3b9804",
+      "\$name": "AccountResetWallPapers",
     };
 
     // Finished toJson.
@@ -119079,7 +120736,8 @@ class AccountGetAutoDownloadSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56da0b3f",
+      "\$hash": "56da0b3f",
+      "\$name": "AccountGetAutoDownloadSettings",
     };
 
     // Finished toJson.
@@ -119153,7 +120811,8 @@ class AccountSaveAutoDownloadSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x76f36233",
+      "\$hash": "76f36233",
+      "\$name": "AccountSaveAutoDownloadSettings",
       "flags": flags,
       "low": low,
       "high": high,
@@ -119207,7 +120866,8 @@ class MessagesGetEmojiKeywords extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35a0e062",
+      "\$hash": "35a0e062",
+      "\$name": "MessagesGetEmojiKeywords",
       "langCode": langCode,
     };
 
@@ -119267,7 +120927,8 @@ class MessagesGetEmojiKeywordsDifference extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1508b6af",
+      "\$hash": "1508b6af",
+      "\$name": "MessagesGetEmojiKeywordsDifference",
       "langCode": langCode,
       "fromVersion": fromVersion,
     };
@@ -119319,7 +120980,8 @@ class MessagesGetEmojiKeywordsLanguages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4e9963b2",
+      "\$hash": "4e9963b2",
+      "\$name": "MessagesGetEmojiKeywordsLanguages",
       "langCodes": langCodes,
     };
 
@@ -119370,7 +121032,8 @@ class MessagesGetEmojiURL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd5b10c26",
+      "\$hash": "d5b10c26",
+      "\$name": "MessagesGetEmojiURL",
       "langCode": langCode,
     };
 
@@ -119421,7 +121084,8 @@ class FoldersEditPeerFolders extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6847d0ab",
+      "\$hash": "6847d0ab",
+      "\$name": "FoldersEditPeerFolders",
       "folderPeers": folderPeers,
     };
 
@@ -119514,7 +121178,8 @@ class MessagesGetSearchCounters extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1bbcf300",
+      "\$hash": "1bbcf300",
+      "\$name": "MessagesGetSearchCounters",
       "flags": flags,
       "peer": peer,
       "savedPeerId": savedPeerId,
@@ -119556,7 +121221,8 @@ class ChannelsGetGroupsForDiscussion extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf5dad378",
+      "\$hash": "f5dad378",
+      "\$name": "ChannelsGetGroupsForDiscussion",
     };
 
     // Finished toJson.
@@ -119613,7 +121279,8 @@ class ChannelsSetDiscussionGroup extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x40582bb2",
+      "\$hash": "40582bb2",
+      "\$name": "ChannelsSetDiscussionGroup",
       "broadcast": broadcast,
       "group": group,
     };
@@ -119714,7 +121381,8 @@ class MessagesRequestUrlAuth extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x198fb446",
+      "\$hash": "198fb446",
+      "\$name": "MessagesRequestUrlAuth",
       "flags": flags,
       "peer": peer,
       "msgId": msgId,
@@ -119825,7 +121493,8 @@ class MessagesAcceptUrlAuth extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb12c7125",
+      "\$hash": "b12c7125",
+      "\$name": "MessagesAcceptUrlAuth",
       "flags": flags,
       "writeAllowed": writeAllowed,
       "peer": peer,
@@ -119881,7 +121550,8 @@ class MessagesHidePeerSettingsBar extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4facb138",
+      "\$hash": "4facb138",
+      "\$name": "MessagesHidePeerSettingsBar",
       "peer": peer,
     };
 
@@ -119970,7 +121640,8 @@ class ContactsAddContact extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe8f463d0",
+      "\$hash": "e8f463d0",
+      "\$name": "ContactsAddContact",
       "flags": flags,
       "addPhonePrivacyException": addPhonePrivacyException,
       "id": id,
@@ -120026,7 +121697,8 @@ class ContactsAcceptContact extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf831a20f",
+      "\$hash": "f831a20f",
+      "\$name": "ContactsAcceptContact",
       "id": id,
     };
 
@@ -120091,7 +121763,8 @@ class ChannelsEditCreator extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8f38cd1f",
+      "\$hash": "8f38cd1f",
+      "\$name": "ChannelsEditCreator",
       "channel": channel,
       "userId": userId,
       "password": password,
@@ -120173,7 +121846,8 @@ class ContactsGetLocated extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd348bc44",
+      "\$hash": "d348bc44",
+      "\$name": "ContactsGetLocated",
       "flags": flags,
       "background": background,
       "geoPoint": geoPoint,
@@ -120241,7 +121915,8 @@ class ChannelsEditLocation extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58e63f6d",
+      "\$hash": "58e63f6d",
+      "\$name": "ChannelsEditLocation",
       "channel": channel,
       "geoPoint": geoPoint,
       "address": address,
@@ -120303,7 +121978,8 @@ class ChannelsToggleSlowMode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xedd49ef0",
+      "\$hash": "edd49ef0",
+      "\$name": "ChannelsToggleSlowMode",
       "channel": channel,
       "seconds": seconds,
     };
@@ -120364,7 +122040,8 @@ class MessagesGetScheduledHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf516760b",
+      "\$hash": "f516760b",
+      "\$name": "MessagesGetScheduledHistory",
       "peer": peer,
       "hash": hash,
     };
@@ -120423,7 +122100,8 @@ class MessagesGetScheduledMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdbb0464",
+      "\$hash": "bdbb0464",
+      "\$name": "MessagesGetScheduledMessages",
       "peer": peer,
       "id": id,
     };
@@ -120482,7 +122160,8 @@ class MessagesSendScheduledMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd38850a",
+      "\$hash": "bd38850a",
+      "\$name": "MessagesSendScheduledMessages",
       "peer": peer,
       "id": id,
     };
@@ -120541,7 +122220,8 @@ class MessagesDeleteScheduledMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x59ae2b16",
+      "\$hash": "59ae2b16",
+      "\$name": "MessagesDeleteScheduledMessages",
       "peer": peer,
       "id": id,
     };
@@ -120629,7 +122309,8 @@ class AccountUploadTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1c3db333",
+      "\$hash": "1c3db333",
+      "\$name": "AccountUploadTheme",
       "flags": flags,
       "file": file,
       "thumb": thumb,
@@ -120728,7 +122409,8 @@ class AccountCreateTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x652e4400",
+      "\$hash": "652e4400",
+      "\$name": "AccountCreateTheme",
       "flags": flags,
       "slug": slug,
       "title": title,
@@ -120851,7 +122533,8 @@ class AccountUpdateTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2bf40ccc",
+      "\$hash": "2bf40ccc",
+      "\$name": "AccountUpdateTheme",
       "flags": flags,
       "format": format,
       "theme": theme,
@@ -120915,7 +122598,8 @@ class AccountSaveTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf257106c",
+      "\$hash": "f257106c",
+      "\$name": "AccountSaveTheme",
       "theme": theme,
       "unsave": unsave,
     };
@@ -121014,7 +122698,8 @@ class AccountInstallTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc727bb3b",
+      "\$hash": "c727bb3b",
+      "\$name": "AccountInstallTheme",
       "flags": flags,
       "dark": dark,
       "theme": theme,
@@ -121076,7 +122761,8 @@ class AccountGetTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3a5869ec",
+      "\$hash": "3a5869ec",
+      "\$name": "AccountGetTheme",
       "format": format,
       "theme": theme,
     };
@@ -121137,7 +122823,8 @@ class AccountGetThemes extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7206e458",
+      "\$hash": "7206e458",
+      "\$name": "AccountGetThemes",
       "format": format,
       "hash": hash,
     };
@@ -121205,7 +122892,8 @@ class AuthExportLoginToken extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb7e085fe",
+      "\$hash": "b7e085fe",
+      "\$name": "AuthExportLoginToken",
       "apiId": apiId,
       "apiHash": apiHash,
       "exceptIds": exceptIds,
@@ -121258,7 +122946,8 @@ class AuthImportLoginToken extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x95ac5ce4",
+      "\$hash": "95ac5ce4",
+      "\$name": "AuthImportLoginToken",
       "token": token,
     };
 
@@ -121309,7 +122998,8 @@ class AuthAcceptLoginToken extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe894ad4d",
+      "\$hash": "e894ad4d",
+      "\$name": "AuthAcceptLoginToken",
       "token": token,
     };
 
@@ -121370,7 +123060,8 @@ class AccountSetContentSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb574b16b",
+      "\$hash": "b574b16b",
+      "\$name": "AccountSetContentSettings",
       "flags": flags,
       "sensitiveEnabled": sensitiveEnabled,
     };
@@ -121409,7 +123100,8 @@ class AccountGetContentSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8b9b4dae",
+      "\$hash": "8b9b4dae",
+      "\$name": "AccountGetContentSettings",
     };
 
     // Finished toJson.
@@ -121446,7 +123138,8 @@ class ChannelsGetInactiveChannels extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11e831ee",
+      "\$hash": "11e831ee",
+      "\$name": "ChannelsGetInactiveChannels",
     };
 
     // Finished toJson.
@@ -121496,7 +123189,8 @@ class AccountGetMultiWallPapers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x65ad71dc",
+      "\$hash": "65ad71dc",
+      "\$name": "AccountGetMultiWallPapers",
       "wallpapers": wallpapers,
     };
 
@@ -121599,7 +123293,8 @@ class MessagesGetPollVotes extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb86e380e",
+      "\$hash": "b86e380e",
+      "\$name": "MessagesGetPollVotes",
       "flags": flags,
       "peer": peer,
       "id": id,
@@ -121686,7 +123381,8 @@ class MessagesToggleStickerSets extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb5052fea",
+      "\$hash": "b5052fea",
+      "\$name": "MessagesToggleStickerSets",
       "flags": flags,
       "uninstall": uninstall,
       "archive": archive,
@@ -121741,7 +123437,8 @@ class PaymentsGetBankCardData extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2e79d779",
+      "\$hash": "2e79d779",
+      "\$name": "PaymentsGetBankCardData",
       "number": number,
     };
 
@@ -121779,7 +123476,8 @@ class MessagesGetDialogFilters extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xefd48c89",
+      "\$hash": "efd48c89",
+      "\$name": "MessagesGetDialogFilters",
     };
 
     // Finished toJson.
@@ -121816,7 +123514,8 @@ class MessagesGetSuggestedDialogFilters extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa29cd42c",
+      "\$hash": "a29cd42c",
+      "\$name": "MessagesGetSuggestedDialogFilters",
     };
 
     // Finished toJson.
@@ -121891,7 +123590,8 @@ class MessagesUpdateDialogFilter extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ad4a04a",
+      "\$hash": "1ad4a04a",
+      "\$name": "MessagesUpdateDialogFilter",
       "flags": flags,
       "id": id,
       "filter": filter,
@@ -121944,7 +123644,8 @@ class MessagesUpdateDialogFiltersOrder extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc563c1e4",
+      "\$hash": "c563c1e4",
+      "\$name": "MessagesUpdateDialogFiltersOrder",
       "order": order,
     };
 
@@ -122012,7 +123713,8 @@ class StatsGetBroadcastStats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xab42441a",
+      "\$hash": "ab42441a",
+      "\$name": "StatsGetBroadcastStats",
       "flags": flags,
       "dark": dark,
       "channel": channel,
@@ -122087,7 +123789,8 @@ class StatsLoadAsyncGraph extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x621d5fa0",
+      "\$hash": "621d5fa0",
+      "\$name": "StatsLoadAsyncGraph",
       "flags": flags,
       "token": token,
       "x": x,
@@ -122175,7 +123878,8 @@ class StickersSetStickerSetThumb extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa76a5392",
+      "\$hash": "a76a5392",
+      "\$name": "StickersSetStickerSetThumb",
       "flags": flags,
       "stickerset": stickerset,
       "thumb": thumb,
@@ -122243,7 +123947,8 @@ class BotsSetBotCommands extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0517165a",
+      "\$hash": "0517165a",
+      "\$name": "BotsSetBotCommands",
       "scope": scope,
       "langCode": langCode,
       "commands": commands,
@@ -122316,7 +124021,8 @@ class MessagesGetOldFeaturedStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7ed094a1",
+      "\$hash": "7ed094a1",
+      "\$name": "MessagesGetOldFeaturedStickers",
       "offset": offset,
       "limit": limit,
       "hash": hash,
@@ -122356,7 +124062,8 @@ class HelpGetPromoData extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc0977421",
+      "\$hash": "c0977421",
+      "\$name": "HelpGetPromoData",
     };
 
     // Finished toJson.
@@ -122406,7 +124113,8 @@ class HelpHidePromoData extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1e251c95",
+      "\$hash": "1e251c95",
+      "\$name": "HelpHidePromoData",
       "peer": peer,
     };
 
@@ -122464,7 +124172,8 @@ class PhoneSendSignalingData extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xff7a9383",
+      "\$hash": "ff7a9383",
+      "\$name": "PhoneSendSignalingData",
       "peer": peer,
       "data": data,
     };
@@ -122533,7 +124242,8 @@ class StatsGetMegagroupStats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdcdf8607",
+      "\$hash": "dcdf8607",
+      "\$name": "StatsGetMegagroupStats",
       "flags": flags,
       "dark": dark,
       "channel": channel,
@@ -122573,7 +124283,8 @@ class AccountGetGlobalPrivacySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeb2b4cf6",
+      "\$hash": "eb2b4cf6",
+      "\$name": "AccountGetGlobalPrivacySettings",
     };
 
     // Finished toJson.
@@ -122623,7 +124334,8 @@ class AccountSetGlobalPrivacySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1edaaac2",
+      "\$hash": "1edaaac2",
+      "\$name": "AccountSetGlobalPrivacySettings",
       "settings": settings,
     };
 
@@ -122681,7 +124393,8 @@ class HelpDismissSuggestion extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf50dbaa1",
+      "\$hash": "f50dbaa1",
+      "\$name": "HelpDismissSuggestion",
       "peer": peer,
       "suggestion": suggestion,
     };
@@ -122742,7 +124455,8 @@ class HelpGetCountriesList extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x735787a8",
+      "\$hash": "735787a8",
+      "\$name": "HelpGetCountriesList",
       "langCode": langCode,
       "hash": hash,
     };
@@ -122864,7 +124578,8 @@ class MessagesGetReplies extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x22ddd30c",
+      "\$hash": "22ddd30c",
+      "\$name": "MessagesGetReplies",
       "peer": peer,
       "msgId": msgId,
       "offsetId": offsetId,
@@ -122932,7 +124647,8 @@ class MessagesGetDiscussionMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x446972fd",
+      "\$hash": "446972fd",
+      "\$name": "MessagesGetDiscussionMessage",
       "peer": peer,
       "msgId": msgId,
     };
@@ -123002,7 +124718,8 @@ class MessagesReadDiscussion extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf731a9f4",
+      "\$hash": "f731a9f4",
+      "\$name": "MessagesReadDiscussion",
       "peer": peer,
       "msgId": msgId,
       "readMaxId": readMaxId,
@@ -123088,7 +124805,8 @@ class ContactsBlockFromReplies extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x29a8962c",
+      "\$hash": "29a8962c",
+      "\$name": "ContactsBlockFromReplies",
       "flags": flags,
       "deleteMessage": deleteMessage,
       "deleteHistory": deleteHistory,
@@ -123168,7 +124886,8 @@ class StatsGetMessagePublicForwards extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5f150144",
+      "\$hash": "5f150144",
+      "\$name": "StatsGetMessagePublicForwards",
       "channel": channel,
       "msgId": msgId,
       "offset": offset,
@@ -123248,7 +124967,8 @@ class StatsGetMessageStats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb6e0a3f5",
+      "\$hash": "b6e0a3f5",
+      "\$name": "StatsGetMessageStats",
       "flags": flags,
       "dark": dark,
       "channel": channel,
@@ -123324,7 +125044,8 @@ class MessagesUnpinAllMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xee22b9a8",
+      "\$hash": "ee22b9a8",
+      "\$name": "MessagesUnpinAllMessages",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -123427,7 +125148,8 @@ class PhoneCreateGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x48cdc6d8",
+      "\$hash": "48cdc6d8",
+      "\$name": "PhoneCreateGroupCall",
       "flags": flags,
       "rtmpStream": rtmpStream,
       "peer": peer,
@@ -123533,7 +125255,8 @@ class PhoneJoinGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb132ff7b",
+      "\$hash": "b132ff7b",
+      "\$name": "PhoneJoinGroupCall",
       "flags": flags,
       "muted": muted,
       "videoStopped": videoStopped,
@@ -123599,7 +125322,8 @@ class PhoneLeaveGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x500377f9",
+      "\$hash": "500377f9",
+      "\$name": "PhoneLeaveGroupCall",
       "call": call,
       "source": source,
     };
@@ -123658,7 +125382,8 @@ class PhoneInviteToGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7b393160",
+      "\$hash": "7b393160",
+      "\$name": "PhoneInviteToGroupCall",
       "call": call,
       "users": users,
     };
@@ -123710,7 +125435,8 @@ class PhoneDiscardGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7a777135",
+      "\$hash": "7a777135",
+      "\$name": "PhoneDiscardGroupCall",
       "call": call,
     };
 
@@ -123789,7 +125515,8 @@ class PhoneToggleGroupCallSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74bbb43d",
+      "\$hash": "74bbb43d",
+      "\$name": "PhoneToggleGroupCallSettings",
       "flags": flags,
       "resetInviteHash": resetInviteHash,
       "call": call,
@@ -123852,7 +125579,8 @@ class PhoneGetGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x041845db",
+      "\$hash": "041845db",
+      "\$name": "PhoneGetGroupCall",
       "call": call,
       "limit": limit,
     };
@@ -123934,7 +125662,8 @@ class PhoneGetGroupParticipants extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc558d8ab",
+      "\$hash": "c558d8ab",
+      "\$name": "PhoneGetGroupParticipants",
       "call": call,
       "ids": ids,
       "sources": sources,
@@ -123996,7 +125725,8 @@ class PhoneCheckGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb59cf977",
+      "\$hash": "b59cf977",
+      "\$name": "PhoneCheckGroupCall",
       "call": call,
       "sources": sources,
     };
@@ -124050,7 +125780,8 @@ class MessagesDeleteChat extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5bd0ee50",
+      "\$hash": "5bd0ee50",
+      "\$name": "MessagesDeleteChat",
       "chatId": chatId,
     };
 
@@ -124111,7 +125842,8 @@ class MessagesDeletePhoneCallHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf9cbe409",
+      "\$hash": "f9cbe409",
+      "\$name": "MessagesDeletePhoneCallHistory",
       "flags": flags,
       "revoke": revoke,
     };
@@ -124163,7 +125895,8 @@ class MessagesCheckHistoryImport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x43fe19f3",
+      "\$hash": "43fe19f3",
+      "\$name": "MessagesCheckHistoryImport",
       "importHead": importHead,
     };
 
@@ -124230,7 +125963,8 @@ class MessagesInitHistoryImport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34090c3b",
+      "\$hash": "34090c3b",
+      "\$name": "MessagesInitHistoryImport",
       "peer": peer,
       "file": file,
       "mediaCount": mediaCount,
@@ -124306,7 +126040,8 @@ class MessagesUploadImportedMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2a862092",
+      "\$hash": "2a862092",
+      "\$name": "MessagesUploadImportedMedia",
       "peer": peer,
       "importId": importId,
       "fileName": fileName,
@@ -124369,7 +126104,8 @@ class MessagesStartHistoryImport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb43df344",
+      "\$hash": "b43df344",
+      "\$name": "MessagesStartHistoryImport",
       "peer": peer,
       "importId": importId,
     };
@@ -124477,7 +126213,8 @@ class MessagesGetExportedChatInvites extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2b5a3f6",
+      "\$hash": "a2b5a3f6",
+      "\$name": "MessagesGetExportedChatInvites",
       "flags": flags,
       "revoked": revoked,
       "peer": peer,
@@ -124541,7 +126278,8 @@ class MessagesGetExportedChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73746f5c",
+      "\$hash": "73746f5c",
+      "\$name": "MessagesGetExportedChatInvite",
       "peer": peer,
       "link": link,
     };
@@ -124664,7 +126402,8 @@ class MessagesEditExportedChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdca2f75",
+      "\$hash": "bdca2f75",
+      "\$name": "MessagesEditExportedChatInvite",
       "flags": flags,
       "revoked": revoked,
       "peer": peer,
@@ -124730,7 +126469,8 @@ class MessagesDeleteRevokedExportedChatInvites extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x56987bd5",
+      "\$hash": "56987bd5",
+      "\$name": "MessagesDeleteRevokedExportedChatInvites",
       "peer": peer,
       "adminId": adminId,
     };
@@ -124789,7 +126529,8 @@ class MessagesDeleteExportedChatInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd464a42b",
+      "\$hash": "d464a42b",
+      "\$name": "MessagesDeleteExportedChatInvite",
       "peer": peer,
       "link": link,
     };
@@ -124841,7 +126582,8 @@ class MessagesGetAdminsWithInvites extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3920e6ef",
+      "\$hash": "3920e6ef",
+      "\$name": "MessagesGetAdminsWithInvites",
       "peer": peer,
     };
 
@@ -124963,7 +126705,8 @@ class MessagesGetChatInviteImporters extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdf04dd4e",
+      "\$hash": "df04dd4e",
+      "\$name": "MessagesGetChatInviteImporters",
       "flags": flags,
       "requested": requested,
       "subscriptionExpired": subscriptionExpired,
@@ -125031,7 +126774,8 @@ class MessagesSetHistoryTTL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb80e5fe4",
+      "\$hash": "b80e5fe4",
+      "\$name": "MessagesSetHistoryTTL",
       "peer": peer,
       "period": period,
     };
@@ -125104,7 +126848,8 @@ class AccountReportProfilePhoto extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa8cc6f5",
+      "\$hash": "fa8cc6f5",
+      "\$name": "AccountReportProfilePhoto",
       "peer": peer,
       "photoId": photoId,
       "reason": reason,
@@ -125158,7 +126903,8 @@ class ChannelsConvertToGigagroup extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0b290c69",
+      "\$hash": "0b290c69",
+      "\$name": "ChannelsConvertToGigagroup",
       "channel": channel,
     };
 
@@ -125209,7 +126955,8 @@ class MessagesCheckHistoryImportPeer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5dc60f03",
+      "\$hash": "5dc60f03",
+      "\$name": "MessagesCheckHistoryImportPeer",
       "peer": peer,
     };
 
@@ -125306,7 +127053,8 @@ class PhoneToggleGroupCallRecord extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf128c708",
+      "\$hash": "f128c708",
+      "\$name": "PhoneToggleGroupCallRecord",
       "flags": flags,
       "start": start,
       "video": video,
@@ -125446,7 +127194,8 @@ class PhoneEditGroupCallParticipant extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa5273abf",
+      "\$hash": "a5273abf",
+      "\$name": "PhoneEditGroupCallParticipant",
       "flags": flags,
       "call": call,
       "participant": participant,
@@ -125512,7 +127261,8 @@ class PhoneEditGroupCallTitle extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ca6ac0a",
+      "\$hash": "1ca6ac0a",
+      "\$name": "PhoneEditGroupCallTitle",
       "call": call,
       "title": title,
     };
@@ -125564,7 +127314,8 @@ class PhoneGetGroupCallJoinAs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef7c213a",
+      "\$hash": "ef7c213a",
+      "\$name": "PhoneGetGroupCallJoinAs",
       "peer": peer,
     };
 
@@ -125632,7 +127383,8 @@ class PhoneExportGroupCallInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6aa647f",
+      "\$hash": "e6aa647f",
+      "\$name": "PhoneExportGroupCallInvite",
       "flags": flags,
       "canSelfUnmute": canSelfUnmute,
       "call": call,
@@ -125693,7 +127445,8 @@ class PhoneToggleGroupCallStartSubscription extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x219c34e6",
+      "\$hash": "219c34e6",
+      "\$name": "PhoneToggleGroupCallStartSubscription",
       "call": call,
       "subscribed": subscribed,
     };
@@ -125745,7 +127498,8 @@ class PhoneStartScheduledGroupCall extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5680e342",
+      "\$hash": "5680e342",
+      "\$name": "PhoneStartScheduledGroupCall",
       "call": call,
     };
 
@@ -125803,7 +127557,8 @@ class PhoneSaveDefaultGroupCallJoinAs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x575e1f8c",
+      "\$hash": "575e1f8c",
+      "\$name": "PhoneSaveDefaultGroupCallJoinAs",
       "peer": peer,
       "joinAs": joinAs,
     };
@@ -125862,7 +127617,8 @@ class PhoneJoinGroupCallPresentation extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcbea6bc4",
+      "\$hash": "cbea6bc4",
+      "\$name": "PhoneJoinGroupCallPresentation",
       "call": call,
       "params": params,
     };
@@ -125914,7 +127670,8 @@ class PhoneLeaveGroupCallPresentation extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1c50d144",
+      "\$hash": "1c50d144",
+      "\$name": "PhoneLeaveGroupCallPresentation",
       "call": call,
     };
 
@@ -125965,7 +127722,8 @@ class StickersCheckShortName extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x284b3639",
+      "\$hash": "284b3639",
+      "\$name": "StickersCheckShortName",
       "shortName": shortName,
     };
 
@@ -126016,7 +127774,8 @@ class StickersSuggestShortName extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4dafc503",
+      "\$hash": "4dafc503",
+      "\$name": "StickersSuggestShortName",
       "title": title,
     };
 
@@ -126074,7 +127833,8 @@ class BotsResetBotCommands extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3d8de0f9",
+      "\$hash": "3d8de0f9",
+      "\$name": "BotsResetBotCommands",
       "scope": scope,
       "langCode": langCode,
     };
@@ -126133,7 +127893,8 @@ class BotsGetBotCommands extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe34c0dd6",
+      "\$hash": "e34c0dd6",
+      "\$name": "BotsGetBotCommands",
       "scope": scope,
       "langCode": langCode,
     };
@@ -126172,7 +127933,8 @@ class AccountResetPassword extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9308ce1b",
+      "\$hash": "9308ce1b",
+      "\$name": "AccountResetPassword",
     };
 
     // Finished toJson.
@@ -126209,7 +127971,8 @@ class AccountDeclinePasswordReset extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4c9409f6",
+      "\$hash": "4c9409f6",
+      "\$name": "AccountDeclinePasswordReset",
     };
 
     // Finished toJson.
@@ -126259,7 +128022,8 @@ class AuthCheckRecoveryPassword extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0d36bf79",
+      "\$hash": "0d36bf79",
+      "\$name": "AuthCheckRecoveryPassword",
       "code": code,
     };
 
@@ -126312,7 +128076,8 @@ class AccountGetChatThemes extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd638de89",
+      "\$hash": "d638de89",
+      "\$name": "AccountGetChatThemes",
       "hash": hash,
     };
 
@@ -126370,7 +128135,8 @@ class MessagesSetChatTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe63be13f",
+      "\$hash": "e63be13f",
+      "\$name": "MessagesSetChatTheme",
       "peer": peer,
       "emoticon": emoticon,
     };
@@ -126431,7 +128197,8 @@ class MessagesGetMessageReadParticipants extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x31c1c44f",
+      "\$hash": "31c1c44f",
+      "\$name": "MessagesGetMessageReadParticipants",
       "peer": peer,
       "msgId": msgId,
     };
@@ -126529,7 +128296,8 @@ class MessagesGetSearchResultsCalendar extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6aa3f6bd",
+      "\$hash": "6aa3f6bd",
+      "\$name": "MessagesGetSearchResultsCalendar",
       "flags": flags,
       "peer": peer,
       "savedPeerId": savedPeerId,
@@ -126633,7 +128401,8 @@ class MessagesGetSearchResultsPositions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9c7f2f10",
+      "\$hash": "9c7f2f10",
+      "\$name": "MessagesGetSearchResultsPositions",
       "flags": flags,
       "peer": peer,
       "savedPeerId": savedPeerId,
@@ -126713,7 +128482,8 @@ class MessagesHideChatJoinRequest extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7fe7e815",
+      "\$hash": "7fe7e815",
+      "\$name": "MessagesHideChatJoinRequest",
       "flags": flags,
       "approved": approved,
       "peer": peer,
@@ -126796,7 +128566,8 @@ class MessagesHideAllChatJoinRequests extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe085f4ea",
+      "\$hash": "e085f4ea",
+      "\$name": "MessagesHideAllChatJoinRequests",
       "flags": flags,
       "approved": approved,
       "peer": peer,
@@ -126857,7 +128628,8 @@ class MessagesToggleNoForwards extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb11eafa2",
+      "\$hash": "b11eafa2",
+      "\$name": "MessagesToggleNoForwards",
       "peer": peer,
       "enabled": enabled,
     };
@@ -126916,7 +128688,8 @@ class MessagesSaveDefaultSendAs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xccfddf96",
+      "\$hash": "ccfddf96",
+      "\$name": "MessagesSaveDefaultSendAs",
       "peer": peer,
       "sendAs": sendAs,
     };
@@ -126968,7 +128741,8 @@ class ChannelsGetSendAs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0dc770ee",
+      "\$hash": "0dc770ee",
+      "\$name": "ChannelsGetSendAs",
       "peer": peer,
     };
 
@@ -127021,7 +128795,8 @@ class AccountSetAuthorizationTTL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbf899aa0",
+      "\$hash": "bf899aa0",
+      "\$name": "AccountSetAuthorizationTTL",
       "authorizationTtlDays": authorizationTtlDays,
     };
 
@@ -127114,7 +128889,8 @@ class AccountChangeAuthorizationSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x40f48462",
+      "\$hash": "40f48462",
+      "\$name": "AccountChangeAuthorizationSettings",
       "flags": flags,
       "confirmed": confirmed,
       "hash": hash,
@@ -127176,7 +128952,8 @@ class ChannelsDeleteParticipantHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x367544db",
+      "\$hash": "367544db",
+      "\$name": "ChannelsDeleteParticipantHistory",
       "channel": channel,
       "participant": participant,
     };
@@ -127274,7 +129051,8 @@ class MessagesSendReaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd30d78d4",
+      "\$hash": "d30d78d4",
+      "\$name": "MessagesSendReaction",
       "flags": flags,
       "big": big,
       "addToRecent": addToRecent,
@@ -127337,7 +129115,8 @@ class MessagesGetMessagesReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8bba90e6",
+      "\$hash": "8bba90e6",
+      "\$name": "MessagesGetMessagesReactions",
       "peer": peer,
       "id": id,
     };
@@ -127442,7 +129221,8 @@ class MessagesGetMessageReactionsList extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x461b3f48",
+      "\$hash": "461b3f48",
+      "\$name": "MessagesGetMessageReactionsList",
       "flags": flags,
       "peer": peer,
       "id": id,
@@ -127538,7 +129318,8 @@ class MessagesSetChatAvailableReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x864b2581",
+      "\$hash": "864b2581",
+      "\$name": "MessagesSetChatAvailableReactions",
       "flags": flags,
       "peer": peer,
       "availableReactions": availableReactions,
@@ -127595,7 +129376,8 @@ class MessagesGetAvailableReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x18dea0ac",
+      "\$hash": "18dea0ac",
+      "\$name": "MessagesGetAvailableReactions",
       "hash": hash,
     };
 
@@ -127646,7 +129428,8 @@ class MessagesSetDefaultReaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f47a016",
+      "\$hash": "4f47a016",
+      "\$name": "MessagesSetDefaultReaction",
       "reaction": reaction,
     };
 
@@ -127743,7 +129526,8 @@ class MessagesTranslateText extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x63183030",
+      "\$hash": "63183030",
+      "\$name": "MessagesTranslateText",
       "flags": flags,
       "peer": peer,
       "id": id,
@@ -127865,7 +129649,8 @@ class MessagesGetUnreadReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3223495b",
+      "\$hash": "3223495b",
+      "\$name": "MessagesGetUnreadReactions",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -127945,7 +129730,8 @@ class MessagesReadReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x54aa7f8e",
+      "\$hash": "54aa7f8e",
+      "\$name": "MessagesReadReactions",
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
@@ -127998,7 +129784,8 @@ class ContactsResolvePhone extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8af94344",
+      "\$hash": "8af94344",
+      "\$name": "ContactsResolvePhone",
       "phone": phone,
     };
 
@@ -128049,7 +129836,8 @@ class PhoneGetGroupCallStreamChannels extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1ab21940",
+      "\$hash": "1ab21940",
+      "\$name": "PhoneGetGroupCallStreamChannels",
       "call": call,
     };
 
@@ -128107,7 +129895,8 @@ class PhoneGetGroupCallStreamRtmpUrl extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdeb3abbf",
+      "\$hash": "deb3abbf",
+      "\$name": "PhoneGetGroupCallStreamRtmpUrl",
       "peer": peer,
       "revoke": revoke,
     };
@@ -128175,7 +129964,8 @@ class MessagesSearchSentMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x107e31a0",
+      "\$hash": "107e31a0",
+      "\$name": "MessagesSearchSentMedia",
       "q": q,
       "filter": filter,
       "limit": limit,
@@ -128230,7 +130020,8 @@ class MessagesGetAttachMenuBots extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x16fcc2cb",
+      "\$hash": "16fcc2cb",
+      "\$name": "MessagesGetAttachMenuBots",
       "hash": hash,
     };
 
@@ -128281,7 +130072,8 @@ class MessagesGetAttachMenuBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77216192",
+      "\$hash": "77216192",
+      "\$name": "MessagesGetAttachMenuBot",
       "bot": bot,
     };
 
@@ -128356,7 +130148,8 @@ class MessagesToggleBotInAttachMenu extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x69f59d69",
+      "\$hash": "69f59d69",
+      "\$name": "MessagesToggleBotInAttachMenu",
       "flags": flags,
       "writeAllowed": writeAllowed,
       "bot": bot,
@@ -128524,7 +130317,8 @@ class MessagesRequestWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x269dc2c1",
+      "\$hash": "269dc2c1",
+      "\$name": "MessagesRequestWebView",
       "flags": flags,
       "fromBotMenu": fromBotMenu,
       "silent": silent,
@@ -128645,7 +130439,8 @@ class MessagesProlongWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb0d81a83",
+      "\$hash": "b0d81a83",
+      "\$name": "MessagesProlongWebView",
       "flags": flags,
       "silent": silent,
       "peer": peer,
@@ -128784,7 +130579,8 @@ class MessagesRequestSimpleWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x413a3e73",
+      "\$hash": "413a3e73",
+      "\$name": "MessagesRequestSimpleWebView",
       "flags": flags,
       "fromSwitchWebview": fromSwitchWebview,
       "fromSideMenu": fromSideMenu,
@@ -128851,7 +130647,8 @@ class MessagesSendWebViewResultMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a4314f5",
+      "\$hash": "0a4314f5",
+      "\$name": "MessagesSendWebViewResultMessage",
       "botQueryId": botQueryId,
       "result": result,
     };
@@ -128926,7 +130723,8 @@ class MessagesSendWebViewData extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdc0242c8",
+      "\$hash": "dc0242c8",
+      "\$name": "MessagesSendWebViewData",
       "bot": bot,
       "randomId": randomId,
       "buttonText": buttonText,
@@ -128987,7 +130785,8 @@ class BotsSetBotMenuButton extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4504d54f",
+      "\$hash": "4504d54f",
+      "\$name": "BotsSetBotMenuButton",
       "userId": userId,
       "button": button,
     };
@@ -129039,7 +130838,8 @@ class BotsGetBotMenuButton extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9c60eb28",
+      "\$hash": "9c60eb28",
+      "\$name": "BotsGetBotMenuButton",
       "userId": userId,
     };
 
@@ -129092,7 +130892,8 @@ class AccountGetSavedRingtones extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe1902288",
+      "\$hash": "e1902288",
+      "\$name": "AccountGetSavedRingtones",
       "hash": hash,
     };
 
@@ -129150,7 +130951,8 @@ class AccountSaveRingtone extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3dea5b03",
+      "\$hash": "3dea5b03",
+      "\$name": "AccountSaveRingtone",
       "id": id,
       "unsave": unsave,
     };
@@ -129216,7 +131018,8 @@ class AccountUploadRingtone extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x831a83a2",
+      "\$hash": "831a83a2",
+      "\$name": "AccountUploadRingtone",
       "file": file,
       "fileName": fileName,
       "mimeType": mimeType,
@@ -129270,7 +131073,8 @@ class BotsSetBotBroadcastDefaultAdminRights extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x788464e1",
+      "\$hash": "788464e1",
+      "\$name": "BotsSetBotBroadcastDefaultAdminRights",
       "adminRights": adminRights,
     };
 
@@ -129321,7 +131125,8 @@ class BotsSetBotGroupDefaultAdminRights extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x925ec9ea",
+      "\$hash": "925ec9ea",
+      "\$name": "BotsSetBotGroupDefaultAdminRights",
       "adminRights": adminRights,
     };
 
@@ -129379,7 +131184,8 @@ class PhoneSaveCallLog extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x41248786",
+      "\$hash": "41248786",
+      "\$name": "PhoneSaveCallLog",
       "peer": peer,
       "file": file,
     };
@@ -129438,7 +131244,8 @@ class ChannelsToggleJoinToSend extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe4cb9580",
+      "\$hash": "e4cb9580",
+      "\$name": "ChannelsToggleJoinToSend",
       "channel": channel,
       "enabled": enabled,
     };
@@ -129497,7 +131304,8 @@ class ChannelsToggleJoinRequest extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4c2985b6",
+      "\$hash": "4c2985b6",
+      "\$name": "ChannelsToggleJoinRequest",
       "channel": channel,
       "enabled": enabled,
     };
@@ -129549,7 +131357,8 @@ class PaymentsExportInvoice extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0f91b065",
+      "\$hash": "0f91b065",
+      "\$name": "PaymentsExportInvoice",
       "invoiceMedia": invoiceMedia,
     };
 
@@ -129609,7 +131418,8 @@ class MessagesTranscribeAudio extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x269e9a49",
+      "\$hash": "269e9a49",
+      "\$name": "MessagesTranscribeAudio",
       "peer": peer,
       "msgId": msgId,
     };
@@ -129686,7 +131496,8 @@ class MessagesRateTranscribedAudio extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7f1d072f",
+      "\$hash": "7f1d072f",
+      "\$name": "MessagesRateTranscribedAudio",
       "peer": peer,
       "msgId": msgId,
       "transcriptionId": transcriptionId,
@@ -129747,7 +131558,8 @@ class PaymentsAssignAppStoreTransaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x80ed747d",
+      "\$hash": "80ed747d",
+      "\$name": "PaymentsAssignAppStoreTransaction",
       "receipt": receipt,
       "purpose": purpose,
     };
@@ -129806,7 +131618,8 @@ class PaymentsAssignPlayMarketTransaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdffd50d3",
+      "\$hash": "dffd50d3",
+      "\$name": "PaymentsAssignPlayMarketTransaction",
       "receipt": receipt,
       "purpose": purpose,
     };
@@ -129858,7 +131671,8 @@ class PaymentsCanPurchasePremium extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9fc19eb6",
+      "\$hash": "9fc19eb6",
+      "\$name": "PaymentsCanPurchasePremium",
       "purpose": purpose,
     };
 
@@ -129896,7 +131710,8 @@ class HelpGetPremiumPromo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb81b93d4",
+      "\$hash": "b81b93d4",
+      "\$name": "HelpGetPremiumPromo",
     };
 
     // Finished toJson.
@@ -129946,7 +131761,8 @@ class MessagesGetCustomEmojiDocuments extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd9ab0f54",
+      "\$hash": "d9ab0f54",
+      "\$name": "MessagesGetCustomEmojiDocuments",
       "documentId": documentId,
     };
 
@@ -129999,7 +131815,8 @@ class MessagesGetEmojiStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfbfca18f",
+      "\$hash": "fbfca18f",
+      "\$name": "MessagesGetEmojiStickers",
       "hash": hash,
     };
 
@@ -130052,7 +131869,8 @@ class MessagesGetFeaturedEmojiStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ecf6736",
+      "\$hash": "0ecf6736",
+      "\$name": "MessagesGetFeaturedEmojiStickers",
       "hash": hash,
     };
 
@@ -130103,7 +131921,8 @@ class AccountUpdateEmojiStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfbd3de6b",
+      "\$hash": "fbd3de6b",
+      "\$name": "AccountUpdateEmojiStatus",
       "emojiStatus": emojiStatus,
     };
 
@@ -130156,7 +131975,8 @@ class AccountGetDefaultEmojiStatuses extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd6753386",
+      "\$hash": "d6753386",
+      "\$name": "AccountGetDefaultEmojiStatuses",
       "hash": hash,
     };
 
@@ -130209,7 +132029,8 @@ class AccountGetRecentEmojiStatuses extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0f578105",
+      "\$hash": "0f578105",
+      "\$name": "AccountGetRecentEmojiStatuses",
       "hash": hash,
     };
 
@@ -130247,7 +132068,8 @@ class AccountClearRecentEmojiStatuses extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x18201aae",
+      "\$hash": "18201aae",
+      "\$name": "AccountClearRecentEmojiStatuses",
     };
 
     // Finished toJson.
@@ -130313,7 +132135,8 @@ class MessagesReportReaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3f64c076",
+      "\$hash": "3f64c076",
+      "\$name": "MessagesReportReaction",
       "peer": peer,
       "id": id,
       "reactionPeer": reactionPeer,
@@ -130377,7 +132200,8 @@ class MessagesGetTopReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb8125ba",
+      "\$hash": "bb8125ba",
+      "\$name": "MessagesGetTopReactions",
       "limit": limit,
       "hash": hash,
     };
@@ -130440,7 +132264,8 @@ class MessagesGetRecentReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x39461db2",
+      "\$hash": "39461db2",
+      "\$name": "MessagesGetRecentReactions",
       "limit": limit,
       "hash": hash,
     };
@@ -130479,7 +132304,8 @@ class MessagesClearRecentReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9dfeefb4",
+      "\$hash": "9dfeefb4",
+      "\$name": "MessagesClearRecentReactions",
     };
 
     // Finished toJson.
@@ -130536,7 +132362,8 @@ class MessagesGetExtendedMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x84f80814",
+      "\$hash": "84f80814",
+      "\$name": "MessagesGetExtendedMedia",
       "peer": peer,
       "id": id,
     };
@@ -130604,7 +132431,8 @@ class AuthImportWebTokenAuthorization extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2db873a9",
+      "\$hash": "2db873a9",
+      "\$name": "AuthImportWebTokenAuthorization",
       "apiId": apiId,
       "apiHash": apiHash,
       "webAuthToken": webAuthToken,
@@ -130657,7 +132485,8 @@ class AccountReorderUsernames extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xef500eab",
+      "\$hash": "ef500eab",
+      "\$name": "AccountReorderUsernames",
       "order": order,
     };
 
@@ -130715,7 +132544,8 @@ class AccountToggleUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x58d6b376",
+      "\$hash": "58d6b376",
+      "\$name": "AccountToggleUsername",
       "username": username,
       "active": active,
     };
@@ -130774,7 +132604,8 @@ class ChannelsReorderUsernames extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb45ced1d",
+      "\$hash": "b45ced1d",
+      "\$name": "ChannelsReorderUsernames",
       "channel": channel,
       "order": order,
     };
@@ -130840,7 +132671,8 @@ class ChannelsToggleUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50f24105",
+      "\$hash": "50f24105",
+      "\$name": "ChannelsToggleUsername",
       "channel": channel,
       "username": username,
       "active": active,
@@ -130893,7 +132725,8 @@ class ChannelsDeactivateAllUsernames extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0a245dd3",
+      "\$hash": "0a245dd3",
+      "\$name": "ChannelsDeactivateAllUsernames",
       "channel": channel,
     };
 
@@ -130951,7 +132784,8 @@ class ChannelsToggleForum extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa4298b29",
+      "\$hash": "a4298b29",
+      "\$name": "ChannelsToggleForum",
       "channel": channel,
       "enabled": enabled,
     };
@@ -131065,7 +132899,8 @@ class ChannelsCreateForumTopic extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf40c0224",
+      "\$hash": "f40c0224",
+      "\$name": "ChannelsCreateForumTopic",
       "flags": flags,
       "channel": channel,
       "title": title,
@@ -131178,7 +133013,8 @@ class ChannelsGetForumTopics extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0de560d1",
+      "\$hash": "0de560d1",
+      "\$name": "ChannelsGetForumTopics",
       "flags": flags,
       "channel": channel,
       "q": q,
@@ -131242,7 +133078,8 @@ class ChannelsGetForumTopicsByID extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb0831eb9",
+      "\$hash": "b0831eb9",
+      "\$name": "ChannelsGetForumTopicsByID",
       "channel": channel,
       "topics": topics,
     };
@@ -131359,7 +133196,8 @@ class ChannelsEditForumTopic extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf4dfa185",
+      "\$hash": "f4dfa185",
+      "\$name": "ChannelsEditForumTopic",
       "flags": flags,
       "channel": channel,
       "topicId": topicId,
@@ -131432,7 +133270,8 @@ class ChannelsUpdatePinnedForumTopic extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c2d9026",
+      "\$hash": "6c2d9026",
+      "\$name": "ChannelsUpdatePinnedForumTopic",
       "channel": channel,
       "topicId": topicId,
       "pinned": pinned,
@@ -131494,7 +133333,8 @@ class ChannelsDeleteTopicHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34435f2d",
+      "\$hash": "34435f2d",
+      "\$name": "ChannelsDeleteTopicHistory",
       "channel": channel,
       "topMsgId": topMsgId,
     };
@@ -131570,7 +133410,8 @@ class ChannelsReorderPinnedForumTopics extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2950a18f",
+      "\$hash": "2950a18f",
+      "\$name": "ChannelsReorderPinnedForumTopics",
       "flags": flags,
       "force": force,
       "channel": channel,
@@ -131631,7 +133472,8 @@ class ChannelsToggleAntiSpam extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x68f3e4eb",
+      "\$hash": "68f3e4eb",
+      "\$name": "ChannelsToggleAntiSpam",
       "channel": channel,
       "enabled": enabled,
     };
@@ -131692,7 +133534,8 @@ class ChannelsReportAntiSpamFalsePositive extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa850a693",
+      "\$hash": "a850a693",
+      "\$name": "ChannelsReportAntiSpamFalsePositive",
       "channel": channel,
       "msgId": msgId,
     };
@@ -131746,7 +133589,8 @@ class MessagesSetDefaultHistoryTTL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9eb51445",
+      "\$hash": "9eb51445",
+      "\$name": "MessagesSetDefaultHistoryTTL",
       "period": period,
     };
 
@@ -131784,7 +133628,8 @@ class MessagesGetDefaultHistoryTTL extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x658b7188",
+      "\$hash": "658b7188",
+      "\$name": "MessagesGetDefaultHistoryTTL",
     };
 
     // Finished toJson.
@@ -131821,7 +133666,8 @@ class ContactsExportContactToken extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf8654027",
+      "\$hash": "f8654027",
+      "\$name": "ContactsExportContactToken",
     };
 
     // Finished toJson.
@@ -131871,7 +133717,8 @@ class ContactsImportContactToken extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x13005788",
+      "\$hash": "13005788",
+      "\$name": "ContactsImportContactToken",
       "token": token,
     };
 
@@ -131995,7 +133842,8 @@ class PhotosUploadContactProfilePhoto extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe14c4a71",
+      "\$hash": "e14c4a71",
+      "\$name": "PhotosUploadContactProfilePhoto",
       "flags": flags,
       "suggest": suggest,
       "save": save,
@@ -132060,7 +133908,8 @@ class ChannelsToggleParticipantsHidden extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6a6e7854",
+      "\$hash": "6a6e7854",
+      "\$name": "ChannelsToggleParticipantsHidden",
       "channel": channel,
       "enabled": enabled,
     };
@@ -132137,7 +133986,8 @@ class MessagesSendBotRequestedPeer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x91b2d060",
+      "\$hash": "91b2d060",
+      "\$name": "MessagesSendBotRequestedPeer",
       "peer": peer,
       "msgId": msgId,
       "buttonId": buttonId,
@@ -132193,7 +134043,8 @@ class AccountGetDefaultProfilePhotoEmojis extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe2750328",
+      "\$hash": "e2750328",
+      "\$name": "AccountGetDefaultProfilePhotoEmojis",
       "hash": hash,
     };
 
@@ -132246,7 +134097,8 @@ class AccountGetDefaultGroupPhotoEmojis extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x915860ae",
+      "\$hash": "915860ae",
+      "\$name": "AccountGetDefaultGroupPhotoEmojis",
       "hash": hash,
     };
 
@@ -132351,7 +134203,8 @@ class AuthRequestFirebaseSms extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8e39261e",
+      "\$hash": "8e39261e",
+      "\$name": "AuthRequestFirebaseSms",
       "flags": flags,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
@@ -132409,7 +134262,8 @@ class MessagesGetEmojiGroups extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7488ce5b",
+      "\$hash": "7488ce5b",
+      "\$name": "MessagesGetEmojiGroups",
       "hash": hash,
     };
 
@@ -132462,7 +134316,8 @@ class MessagesGetEmojiStatusGroups extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2ecd56cd",
+      "\$hash": "2ecd56cd",
+      "\$name": "MessagesGetEmojiStatusGroups",
       "hash": hash,
     };
 
@@ -132515,7 +134370,8 @@ class MessagesGetEmojiProfilePhotoGroups extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x21a548f3",
+      "\$hash": "21a548f3",
+      "\$name": "MessagesGetEmojiProfilePhotoGroups",
       "hash": hash,
     };
 
@@ -132575,7 +134431,8 @@ class MessagesSearchCustomEmoji extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2c11c0d7",
+      "\$hash": "2c11c0d7",
+      "\$name": "MessagesSearchCustomEmoji",
       "emoticon": emoticon,
       "hash": hash,
     };
@@ -132644,7 +134501,8 @@ class MessagesTogglePeerTranslations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe47cb579",
+      "\$hash": "e47cb579",
+      "\$name": "MessagesTogglePeerTranslations",
       "flags": flags,
       "disabled": disabled,
       "peer": peer,
@@ -132684,7 +134542,8 @@ class AccountGetAutoSaveSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xadcbbcda",
+      "\$hash": "adcbbcda",
+      "\$name": "AccountGetAutoSaveSettings",
     };
 
     // Finished toJson.
@@ -132777,7 +134636,8 @@ class AccountSaveAutoSaveSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd69b8361",
+      "\$hash": "d69b8361",
+      "\$name": "AccountSaveAutoSaveSettings",
       "flags": flags,
       "users": users,
       "chats": chats,
@@ -132820,7 +134680,8 @@ class AccountDeleteAutoSaveExceptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53bc0020",
+      "\$hash": "53bc0020",
+      "\$name": "AccountDeleteAutoSaveExceptions",
     };
 
     // Finished toJson.
@@ -132917,7 +134778,8 @@ class StickersChangeSticker extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf5537ebc",
+      "\$hash": "f5537ebc",
+      "\$name": "StickersChangeSticker",
       "flags": flags,
       "sticker": sticker,
       "emoji": emoji,
@@ -132979,7 +134841,8 @@ class StickersRenameStickerSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x124b1c00",
+      "\$hash": "124b1c00",
+      "\$name": "StickersRenameStickerSet",
       "stickerset": stickerset,
       "title": title,
     };
@@ -133031,7 +134894,8 @@ class StickersDeleteStickerSet extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x87704394",
+      "\$hash": "87704394",
+      "\$name": "StickersDeleteStickerSet",
       "stickerset": stickerset,
     };
 
@@ -133091,7 +134955,8 @@ class MessagesGetBotApp extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x34fdc5c3",
+      "\$hash": "34fdc5c3",
+      "\$name": "MessagesGetBotApp",
       "app": app,
       "hash": hash,
     };
@@ -133213,7 +135078,8 @@ class MessagesRequestAppWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53618bce",
+      "\$hash": "53618bce",
+      "\$name": "MessagesRequestAppWebView",
       "flags": flags,
       "writeAllowed": writeAllowed,
       "compact": compact,
@@ -133330,7 +135196,8 @@ class BotsSetBotInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10cf3123",
+      "\$hash": "10cf3123",
+      "\$name": "BotsSetBotInfo",
       "flags": flags,
       "bot": bot,
       "langCode": langCode,
@@ -133408,7 +135275,8 @@ class BotsGetBotInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdcd914fd",
+      "\$hash": "dcd914fd",
+      "\$name": "BotsGetBotInfo",
       "flags": flags,
       "bot": bot,
       "langCode": langCode,
@@ -133468,7 +135336,8 @@ class AuthResetLoginEmail extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7e960193",
+      "\$hash": "7e960193",
+      "\$name": "AuthResetLoginEmail",
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
     };
@@ -133534,7 +135403,8 @@ class ChatlistsExportChatlistInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8472478e",
+      "\$hash": "8472478e",
+      "\$name": "ChatlistsExportChatlistInvite",
       "chatlist": chatlist,
       "title": title,
       "peers": peers,
@@ -133594,7 +135464,8 @@ class ChatlistsDeleteExportedInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x719c5c5e",
+      "\$hash": "719c5c5e",
+      "\$name": "ChatlistsDeleteExportedInvite",
       "chatlist": chatlist,
       "slug": slug,
     };
@@ -133688,7 +135559,8 @@ class ChatlistsEditExportedInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x653db63d",
+      "\$hash": "653db63d",
+      "\$name": "ChatlistsEditExportedInvite",
       "flags": flags,
       "chatlist": chatlist,
       "slug": slug,
@@ -133743,7 +135615,8 @@ class ChatlistsGetExportedInvites extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xce03da83",
+      "\$hash": "ce03da83",
+      "\$name": "ChatlistsGetExportedInvites",
       "chatlist": chatlist,
     };
 
@@ -133794,7 +135667,8 @@ class ChatlistsCheckChatlistInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x41c10fff",
+      "\$hash": "41c10fff",
+      "\$name": "ChatlistsCheckChatlistInvite",
       "slug": slug,
     };
 
@@ -133852,7 +135726,8 @@ class ChatlistsJoinChatlistInvite extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa6b1e39a",
+      "\$hash": "a6b1e39a",
+      "\$name": "ChatlistsJoinChatlistInvite",
       "slug": slug,
       "peers": peers,
     };
@@ -133904,7 +135779,8 @@ class ChatlistsGetChatlistUpdates extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x89419521",
+      "\$hash": "89419521",
+      "\$name": "ChatlistsGetChatlistUpdates",
       "chatlist": chatlist,
     };
 
@@ -133962,7 +135838,8 @@ class ChatlistsJoinChatlistUpdates extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe089f8f5",
+      "\$hash": "e089f8f5",
+      "\$name": "ChatlistsJoinChatlistUpdates",
       "chatlist": chatlist,
       "peers": peers,
     };
@@ -134014,7 +135891,8 @@ class ChatlistsHideChatlistUpdates extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x66e486fb",
+      "\$hash": "66e486fb",
+      "\$name": "ChatlistsHideChatlistUpdates",
       "chatlist": chatlist,
     };
 
@@ -134066,7 +135944,8 @@ class ChatlistsGetLeaveChatlistSuggestions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfdbcd714",
+      "\$hash": "fdbcd714",
+      "\$name": "ChatlistsGetLeaveChatlistSuggestions",
       "chatlist": chatlist,
     };
 
@@ -134124,7 +136003,8 @@ class ChatlistsLeaveChatlist extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x74fae13a",
+      "\$hash": "74fae13a",
+      "\$name": "ChatlistsLeaveChatlist",
       "chatlist": chatlist,
       "peers": peers,
     };
@@ -134183,7 +136063,8 @@ class BotsReorderUsernames extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9709b1c2",
+      "\$hash": "9709b1c2",
+      "\$name": "BotsReorderUsernames",
       "bot": bot,
       "order": order,
     };
@@ -134249,7 +136130,8 @@ class BotsToggleUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x053ca973",
+      "\$hash": "053ca973",
+      "\$name": "BotsToggleUsername",
       "bot": bot,
       "username": username,
       "active": active,
@@ -134364,7 +136246,8 @@ class MessagesSetChatWallPaper extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ffacae1",
+      "\$hash": "8ffacae1",
+      "\$name": "MessagesSetChatWallPaper",
       "flags": flags,
       "forBoth": forBoth,
       "revert": revert,
@@ -134421,7 +136304,8 @@ class AccountInvalidateSignInCodes extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xca8ae8ba",
+      "\$hash": "ca8ae8ba",
+      "\$name": "AccountInvalidateSignInCodes",
       "codes": codes,
     };
 
@@ -134472,7 +136356,8 @@ class ContactsEditCloseFriends extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xba6705f0",
+      "\$hash": "ba6705f0",
+      "\$name": "ContactsEditCloseFriends",
       "id": id,
     };
 
@@ -134523,7 +136408,8 @@ class StoriesCanSendStory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc7dfdfdd",
+      "\$hash": "c7dfdfdd",
+      "\$name": "StoriesCanSendStory",
       "peer": peer,
     };
 
@@ -134702,7 +136588,8 @@ class StoriesSendStory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe4e6694b",
+      "\$hash": "e4e6694b",
+      "\$name": "StoriesSendStory",
       "flags": flags,
       "pinned": pinned,
       "noforwards": noforwards,
@@ -134848,7 +136735,8 @@ class StoriesEditStory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb583ba46",
+      "\$hash": "b583ba46",
+      "\$name": "StoriesEditStory",
       "flags": flags,
       "peer": peer,
       "id": id,
@@ -134913,7 +136801,8 @@ class StoriesDeleteStories extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xae59db5f",
+      "\$hash": "ae59db5f",
+      "\$name": "StoriesDeleteStories",
       "peer": peer,
       "id": id,
     };
@@ -134979,7 +136868,8 @@ class StoriesTogglePinned extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9a75a1ef",
+      "\$hash": "9a75a1ef",
+      "\$name": "StoriesTogglePinned",
       "peer": peer,
       "id": id,
       "pinned": pinned,
@@ -135061,7 +136951,8 @@ class StoriesGetAllStories extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xeeb0d625",
+      "\$hash": "eeb0d625",
+      "\$name": "StoriesGetAllStories",
       "flags": flags,
       "next": next,
       "hidden": hidden,
@@ -135133,7 +137024,8 @@ class StoriesGetPinnedStories extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5821a5dc",
+      "\$hash": "5821a5dc",
+      "\$name": "StoriesGetPinnedStories",
       "peer": peer,
       "offsetId": offsetId,
       "limit": limit,
@@ -135204,7 +137096,8 @@ class StoriesGetStoriesArchive extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb4352016",
+      "\$hash": "b4352016",
+      "\$name": "StoriesGetStoriesArchive",
       "peer": peer,
       "offsetId": offsetId,
       "limit": limit,
@@ -135264,7 +137157,8 @@ class StoriesGetStoriesByID extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5774ca74",
+      "\$hash": "5774ca74",
+      "\$name": "StoriesGetStoriesByID",
       "peer": peer,
       "id": id,
     };
@@ -135316,7 +137210,8 @@ class StoriesToggleAllStoriesHidden extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7c2557c4",
+      "\$hash": "7c2557c4",
+      "\$name": "StoriesToggleAllStoriesHidden",
       "hidden": hidden,
     };
 
@@ -135376,7 +137271,8 @@ class StoriesReadStories extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa556dac8",
+      "\$hash": "a556dac8",
+      "\$name": "StoriesReadStories",
       "peer": peer,
       "maxId": maxId,
     };
@@ -135435,7 +137331,8 @@ class StoriesIncrementStoryViews extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb2028afb",
+      "\$hash": "b2028afb",
+      "\$name": "StoriesIncrementStoryViews",
       "peer": peer,
       "id": id,
     };
@@ -135555,7 +137452,8 @@ class StoriesGetStoryViewsList extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7ed23c57",
+      "\$hash": "7ed23c57",
+      "\$name": "StoriesGetStoryViewsList",
       "flags": flags,
       "justContacts": justContacts,
       "reactionsFirst": reactionsFirst,
@@ -135621,7 +137519,8 @@ class StoriesGetStoriesViews extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x28e16cc8",
+      "\$hash": "28e16cc8",
+      "\$name": "StoriesGetStoriesViews",
       "peer": peer,
       "id": id,
     };
@@ -135682,7 +137581,8 @@ class StoriesExportStoryLink extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7b8def20",
+      "\$hash": "7b8def20",
+      "\$name": "StoriesExportStoryLink",
       "peer": peer,
       "id": id,
     };
@@ -135755,7 +137655,8 @@ class StoriesReport extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x19d8eb45",
+      "\$hash": "19d8eb45",
+      "\$name": "StoriesReport",
       "peer": peer,
       "id": id,
       "option": option,
@@ -135826,7 +137727,8 @@ class StoriesActivateStealthMode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57bbd166",
+      "\$hash": "57bbd166",
+      "\$name": "StoriesActivateStealthMode",
       "flags": flags,
       "past": past,
       "future": future,
@@ -135905,7 +137807,8 @@ class ContactsSetBlocked extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x94c65c76",
+      "\$hash": "94c65c76",
+      "\$name": "ContactsSetBlocked",
       "flags": flags,
       "myStoriesFrom": myStoriesFrom,
       "id": id,
@@ -135992,7 +137895,8 @@ class StoriesSendReaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7fd736b2",
+      "\$hash": "7fd736b2",
+      "\$name": "StoriesSendReaction",
       "flags": flags,
       "addToRecent": addToRecent,
       "peer": peer,
@@ -136047,7 +137951,8 @@ class BotsCanSendMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1359f4e6",
+      "\$hash": "1359f4e6",
+      "\$name": "BotsCanSendMessage",
       "bot": bot,
     };
 
@@ -136098,7 +138003,8 @@ class BotsAllowSendMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf132e3ef",
+      "\$hash": "f132e3ef",
+      "\$name": "BotsAllowSendMessage",
       "bot": bot,
     };
 
@@ -136163,7 +138069,8 @@ class BotsInvokeWebViewCustomMethod extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x087fc5e7",
+      "\$hash": "087fc5e7",
+      "\$name": "BotsInvokeWebViewCustomMethod",
       "bot": bot,
       "customMethod": customMethod,
       "params": params,
@@ -136216,7 +138123,8 @@ class StoriesGetPeerStories extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2c4ada50",
+      "\$hash": "2c4ada50",
+      "\$name": "StoriesGetPeerStories",
       "peer": peer,
     };
 
@@ -136254,7 +138162,8 @@ class StoriesGetAllReadPeerStories extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9b5ae7f9",
+      "\$hash": "9b5ae7f9",
+      "\$name": "StoriesGetAllReadPeerStories",
     };
 
     // Finished toJson.
@@ -136304,7 +138213,8 @@ class StoriesGetPeerMaxIDs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x535983c3",
+      "\$hash": "535983c3",
+      "\$name": "StoriesGetPeerMaxIDs",
       "id": id,
     };
 
@@ -136342,7 +138252,8 @@ class StoriesGetChatsToSend extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa56a8b60",
+      "\$hash": "a56a8b60",
+      "\$name": "StoriesGetChatsToSend",
     };
 
     // Finished toJson.
@@ -136399,7 +138310,8 @@ class StoriesTogglePeerStoriesHidden extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd0415c4",
+      "\$hash": "bd0415c4",
+      "\$name": "StoriesTogglePeerStoriesHidden",
       "peer": peer,
       "hidden": hidden,
     };
@@ -136467,7 +138379,8 @@ class PaymentsGetPremiumGiftCodeOptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2757ba54",
+      "\$hash": "2757ba54",
+      "\$name": "PaymentsGetPremiumGiftCodeOptions",
       "flags": flags,
       "boostPeer": boostPeer,
     };
@@ -136519,7 +138432,8 @@ class PaymentsCheckGiftCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8e51b4c1",
+      "\$hash": "8e51b4c1",
+      "\$name": "PaymentsCheckGiftCode",
       "slug": slug,
     };
 
@@ -136570,7 +138484,8 @@ class PaymentsApplyGiftCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf6e26854",
+      "\$hash": "f6e26854",
+      "\$name": "PaymentsApplyGiftCode",
       "slug": slug,
     };
 
@@ -136630,7 +138545,8 @@ class PaymentsGetGiveawayInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf4239425",
+      "\$hash": "f4239425",
+      "\$name": "PaymentsGetGiveawayInfo",
       "peer": peer,
       "msgId": msgId,
     };
@@ -136698,7 +138614,8 @@ class PaymentsLaunchPrepaidGiveaway extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5ff58f20",
+      "\$hash": "5ff58f20",
+      "\$name": "PaymentsLaunchPrepaidGiveaway",
       "peer": peer,
       "giveawayId": giveawayId,
       "purpose": purpose,
@@ -136786,7 +138703,8 @@ class AccountUpdateColor extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7cefa15d",
+      "\$hash": "7cefa15d",
+      "\$name": "AccountUpdateColor",
       "flags": flags,
       "forProfile": forProfile,
       "color": color,
@@ -136882,7 +138800,8 @@ class ChannelsUpdateColor extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd8aa3671",
+      "\$hash": "d8aa3671",
+      "\$name": "ChannelsUpdateColor",
       "flags": flags,
       "forProfile": forProfile,
       "channel": channel,
@@ -136939,7 +138858,8 @@ class AccountGetDefaultBackgroundEmojis extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa60ab9ce",
+      "\$hash": "a60ab9ce",
+      "\$name": "AccountGetDefaultBackgroundEmojis",
       "hash": hash,
     };
 
@@ -137023,7 +138943,8 @@ class PremiumGetBoostsList extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x60f67660",
+      "\$hash": "60f67660",
+      "\$name": "PremiumGetBoostsList",
       "flags": flags,
       "gifts": gifts,
       "peer": peer,
@@ -137065,7 +138986,8 @@ class PremiumGetMyBoosts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0be77b4a",
+      "\$hash": "0be77b4a",
+      "\$name": "PremiumGetMyBoosts",
     };
 
     // Finished toJson.
@@ -137137,7 +139059,8 @@ class PremiumApplyBoost extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6b7da746",
+      "\$hash": "6b7da746",
+      "\$name": "PremiumApplyBoost",
       "flags": flags,
       "slots": slots,
       "peer": peer,
@@ -137190,7 +139113,8 @@ class PremiumGetBoostsStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x042f1f61",
+      "\$hash": "042f1f61",
+      "\$name": "PremiumGetBoostsStatus",
       "peer": peer,
     };
 
@@ -137248,7 +139172,8 @@ class PremiumGetUserBoosts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x39854d1f",
+      "\$hash": "39854d1f",
+      "\$name": "PremiumGetUserBoosts",
       "peer": peer,
       "userId": userId,
     };
@@ -137307,7 +139232,8 @@ class ChannelsToggleViewForumAsMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9738bb15",
+      "\$hash": "9738bb15",
+      "\$name": "ChannelsToggleViewForumAsMessages",
       "channel": channel,
       "enabled": enabled,
     };
@@ -137385,7 +139311,8 @@ class MessagesSearchEmojiStickerSets extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x92b4494c",
+      "\$hash": "92b4494c",
+      "\$name": "MessagesSearchEmojiStickerSets",
       "flags": flags,
       "excludeFeatured": excludeFeatured,
       "q": q,
@@ -137455,7 +139382,8 @@ class ChannelsGetChannelRecommendations extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x25a71742",
+      "\$hash": "25a71742",
+      "\$name": "ChannelsGetChannelRecommendations",
       "flags": flags,
       "channel": channel,
     };
@@ -137533,7 +139461,8 @@ class StatsGetStoryStats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x374fef40",
+      "\$hash": "374fef40",
+      "\$name": "StatsGetStoryStats",
       "flags": flags,
       "dark": dark,
       "peer": peer,
@@ -137612,7 +139541,8 @@ class StatsGetStoryPublicForwards extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa6437ef6",
+      "\$hash": "a6437ef6",
+      "\$name": "StatsGetStoryPublicForwards",
       "peer": peer,
       "id": id,
       "offset": offset,
@@ -137668,7 +139598,8 @@ class HelpGetPeerColors extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xda80f42f",
+      "\$hash": "da80f42f",
+      "\$name": "HelpGetPeerColors",
       "hash": hash,
     };
 
@@ -137721,7 +139652,8 @@ class HelpGetPeerProfileColors extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xabcfa9fd",
+      "\$hash": "abcfa9fd",
+      "\$name": "HelpGetPeerProfileColors",
       "hash": hash,
     };
 
@@ -137832,7 +139764,8 @@ class StoriesGetStoryReactionsList extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9b2881f",
+      "\$hash": "b9b2881f",
+      "\$name": "StoriesGetStoryReactionsList",
       "flags": flags,
       "forwardsFirst": forwardsFirst,
       "peer": peer,
@@ -137896,7 +139829,8 @@ class ChannelsUpdateEmojiStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf0d3e6a8",
+      "\$hash": "f0d3e6a8",
+      "\$name": "ChannelsUpdateEmojiStatus",
       "channel": channel,
       "emojiStatus": emojiStatus,
     };
@@ -137951,7 +139885,8 @@ class AccountGetChannelDefaultEmojiStatuses extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7727a7d5",
+      "\$hash": "7727a7d5",
+      "\$name": "AccountGetChannelDefaultEmojiStatuses",
       "hash": hash,
     };
 
@@ -138005,7 +139940,8 @@ class AccountGetChannelRestrictedStatusEmojis extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35a9e0d5",
+      "\$hash": "35a9e0d5",
+      "\$name": "AccountGetChannelRestrictedStatusEmojis",
       "hash": hash,
     };
 
@@ -138107,7 +140043,8 @@ class MessagesGetSavedDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5381d21a",
+      "\$hash": "5381d21a",
+      "\$name": "MessagesGetSavedDialogs",
       "flags": flags,
       "excludePinned": excludePinned,
       "offsetDate": offsetDate.toIso8601String(),
@@ -138225,7 +140162,8 @@ class MessagesGetSavedHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3d9a414d",
+      "\$hash": "3d9a414d",
+      "\$name": "MessagesGetSavedHistory",
       "peer": peer,
       "offsetId": offsetId,
       "offsetDate": offsetDate.toIso8601String(),
@@ -138326,7 +140264,8 @@ class MessagesDeleteSavedHistory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6e98102b",
+      "\$hash": "6e98102b",
+      "\$name": "MessagesDeleteSavedHistory",
       "flags": flags,
       "peer": peer,
       "maxId": maxId,
@@ -138368,7 +140307,8 @@ class MessagesGetPinnedSavedDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd63d94e0",
+      "\$hash": "d63d94e0",
+      "\$name": "MessagesGetPinnedSavedDialogs",
     };
 
     // Finished toJson.
@@ -138435,7 +140375,8 @@ class MessagesToggleSavedDialogPin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xac81bbde",
+      "\$hash": "ac81bbde",
+      "\$name": "MessagesToggleSavedDialogPin",
       "flags": flags,
       "pinned": pinned,
       "peer": peer,
@@ -138505,7 +140446,8 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8b716587",
+      "\$hash": "8b716587",
+      "\$name": "MessagesReorderPinnedSavedDialogs",
       "flags": flags,
       "force": force,
       "order": order,
@@ -138582,7 +140524,8 @@ class MessagesGetSavedReactionTags extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3637e05b",
+      "\$hash": "3637e05b",
+      "\$name": "MessagesGetSavedReactionTags",
       "flags": flags,
       "peer": peer,
       "hash": hash,
@@ -138657,7 +140600,8 @@ class MessagesUpdateSavedReactionTag extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x60297dec",
+      "\$hash": "60297dec",
+      "\$name": "MessagesUpdateSavedReactionTag",
       "flags": flags,
       "reaction": reaction,
       "title": title,
@@ -138712,7 +140656,8 @@ class MessagesGetDefaultTagReactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbdf93428",
+      "\$hash": "bdf93428",
+      "\$name": "MessagesGetDefaultTagReactions",
       "hash": hash,
     };
 
@@ -138772,7 +140717,8 @@ class MessagesGetOutboxReadDate extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c4bfe5d",
+      "\$hash": "8c4bfe5d",
+      "\$name": "MessagesGetOutboxReadDate",
       "peer": peer,
       "msgId": msgId,
     };
@@ -138824,7 +140770,8 @@ class UsersGetIsPremiumRequiredToContact extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa622aa10",
+      "\$hash": "a622aa10",
+      "\$name": "UsersGetIsPremiumRequiredToContact",
       "id": id,
     };
 
@@ -138885,7 +140832,8 @@ class ChannelsSetBoostsToUnblockRestrictions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xad399cee",
+      "\$hash": "ad399cee",
+      "\$name": "ChannelsSetBoostsToUnblockRestrictions",
       "channel": channel,
       "boosts": boosts,
     };
@@ -138944,7 +140892,8 @@ class ChannelsSetEmojiStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3cd930b7",
+      "\$hash": "3cd930b7",
+      "\$name": "ChannelsSetEmojiStickers",
       "channel": channel,
       "stickerset": stickerset,
     };
@@ -138983,7 +140932,8 @@ class SmsjobsIsEligibleToJoin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0edc39d0",
+      "\$hash": "0edc39d0",
+      "\$name": "SmsjobsIsEligibleToJoin",
     };
 
     // Finished toJson.
@@ -139020,7 +140970,8 @@ class SmsjobsJoin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa74ece2d",
+      "\$hash": "a74ece2d",
+      "\$name": "SmsjobsJoin",
     };
 
     // Finished toJson.
@@ -139057,7 +141008,8 @@ class SmsjobsLeave extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9898ad73",
+      "\$hash": "9898ad73",
+      "\$name": "SmsjobsLeave",
     };
 
     // Finished toJson.
@@ -139117,7 +141069,8 @@ class SmsjobsUpdateSettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x093fa0bf",
+      "\$hash": "093fa0bf",
+      "\$name": "SmsjobsUpdateSettings",
       "flags": flags,
       "allowInternational": allowInternational,
     };
@@ -139156,7 +141109,8 @@ class SmsjobsGetStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x10a698e8",
+      "\$hash": "10a698e8",
+      "\$name": "SmsjobsGetStatus",
     };
 
     // Finished toJson.
@@ -139206,7 +141160,8 @@ class SmsjobsGetSmsJob extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x778d902f",
+      "\$hash": "778d902f",
+      "\$name": "SmsjobsGetSmsJob",
       "jobId": jobId,
     };
 
@@ -139279,7 +141234,8 @@ class SmsjobsFinishJob extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4f1ebf24",
+      "\$hash": "4f1ebf24",
+      "\$name": "SmsjobsFinishJob",
       "flags": flags,
       "jobId": jobId,
       "error": error,
@@ -139334,7 +141290,8 @@ class HelpGetTimezonesList extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x49b30240",
+      "\$hash": "49b30240",
+      "\$name": "HelpGetTimezonesList",
       "hash": hash,
     };
 
@@ -139402,7 +141359,8 @@ class AccountUpdateBusinessWorkHours extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4b00e066",
+      "\$hash": "4b00e066",
+      "\$name": "AccountUpdateBusinessWorkHours",
       "flags": flags,
       "businessWorkHours": businessWorkHours,
     };
@@ -139482,7 +141440,8 @@ class AccountUpdateBusinessLocation extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9e6b131a",
+      "\$hash": "9e6b131a",
+      "\$name": "AccountUpdateBusinessLocation",
       "flags": flags,
       "geoPoint": geoPoint,
       "address": address,
@@ -139553,7 +141512,8 @@ class AccountUpdateBusinessGreetingMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x66cdafc4",
+      "\$hash": "66cdafc4",
+      "\$name": "AccountUpdateBusinessGreetingMessage",
       "flags": flags,
       "message": message,
     };
@@ -139622,7 +141582,8 @@ class AccountUpdateBusinessAwayMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa26a7fa5",
+      "\$hash": "a26a7fa5",
+      "\$name": "AccountUpdateBusinessAwayMessage",
       "flags": flags,
       "message": message,
     };
@@ -139676,7 +141637,8 @@ class MessagesGetQuickReplies extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd483f2a8",
+      "\$hash": "d483f2a8",
+      "\$name": "MessagesGetQuickReplies",
       "hash": hash,
     };
 
@@ -139727,7 +141689,8 @@ class MessagesReorderQuickReplies extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x60331907",
+      "\$hash": "60331907",
+      "\$name": "MessagesReorderQuickReplies",
       "order": order,
     };
 
@@ -139778,7 +141741,8 @@ class MessagesCheckQuickReplyShortcut extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf1d0fbd3",
+      "\$hash": "f1d0fbd3",
+      "\$name": "MessagesCheckQuickReplyShortcut",
       "shortcut": shortcut,
     };
 
@@ -139838,7 +141802,8 @@ class MessagesEditQuickReplyShortcut extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5c003cef",
+      "\$hash": "5c003cef",
+      "\$name": "MessagesEditQuickReplyShortcut",
       "shortcutId": shortcutId,
       "shortcut": shortcut,
     };
@@ -139892,7 +141857,8 @@ class MessagesDeleteQuickReplyShortcut extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3cc04740",
+      "\$hash": "3cc04740",
+      "\$name": "MessagesDeleteQuickReplyShortcut",
       "shortcutId": shortcutId,
     };
 
@@ -139976,7 +141942,8 @@ class MessagesGetQuickReplyMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x94a495c3",
+      "\$hash": "94a495c3",
+      "\$name": "MessagesGetQuickReplyMessages",
       "flags": flags,
       "shortcutId": shortcutId,
       "id": id,
@@ -140053,7 +142020,8 @@ class MessagesSendQuickReplyMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c750de1",
+      "\$hash": "6c750de1",
+      "\$name": "MessagesSendQuickReplyMessages",
       "peer": peer,
       "shortcutId": shortcutId,
       "id": id,
@@ -140116,7 +142084,8 @@ class MessagesDeleteQuickReplyMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe105e910",
+      "\$hash": "e105e910",
+      "\$name": "MessagesDeleteQuickReplyMessages",
       "shortcutId": shortcutId,
       "id": id,
     };
@@ -140199,7 +142168,8 @@ class AccountUpdateConnectedBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x43d8521d",
+      "\$hash": "43d8521d",
+      "\$name": "AccountUpdateConnectedBot",
       "flags": flags,
       "canReply": canReply,
       "deleted": deleted,
@@ -140241,7 +142211,8 @@ class AccountGetConnectedBots extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4ea4c80f",
+      "\$hash": "4ea4c80f",
+      "\$name": "AccountGetConnectedBots",
     };
 
     // Finished toJson.
@@ -140291,7 +142262,8 @@ class MessagesToggleDialogFilterTags extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfd2dda49",
+      "\$hash": "fd2dda49",
+      "\$name": "MessagesToggleDialogFilterTags",
       "enabled": enabled,
     };
 
@@ -140349,7 +142321,8 @@ class InvokeWithBusinessConnection extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdd289f8e",
+      "\$hash": "dd289f8e",
+      "\$name": "InvokeWithBusinessConnection",
       "connectionId": connectionId,
       "query": query,
     };
@@ -140401,7 +142374,8 @@ class AccountGetBotBusinessConnection extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x76a86270",
+      "\$hash": "76a86270",
+      "\$name": "AccountGetBotBusinessConnection",
       "connectionId": connectionId,
     };
 
@@ -140468,7 +142442,8 @@ class AccountUpdateBusinessIntro extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa614d034",
+      "\$hash": "a614d034",
+      "\$name": "AccountUpdateBusinessIntro",
       "flags": flags,
       "intro": intro,
     };
@@ -140527,7 +142502,8 @@ class StickersReplaceSticker extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4696459a",
+      "\$hash": "4696459a",
+      "\$name": "StickersReplaceSticker",
       "sticker": sticker,
       "newSticker": newSticker,
     };
@@ -140590,7 +142566,8 @@ class MessagesGetMyStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd0b5e1fc",
+      "\$hash": "d0b5e1fc",
+      "\$name": "MessagesGetMyStickers",
       "offsetId": offsetId,
       "limit": limit,
     };
@@ -140642,7 +142619,8 @@ class FragmentGetCollectibleInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbe1e85ba",
+      "\$hash": "be1e85ba",
+      "\$name": "FragmentGetCollectibleInfo",
       "collectible": collectible,
     };
 
@@ -140700,7 +142678,8 @@ class AccountToggleConnectedBotPaused extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x646e1097",
+      "\$hash": "646e1097",
+      "\$name": "AccountToggleConnectedBotPaused",
       "peer": peer,
       "paused": paused,
     };
@@ -140752,7 +142731,8 @@ class AccountDisablePeerConnectedBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e437ed9",
+      "\$hash": "5e437ed9",
+      "\$name": "AccountDisablePeerConnectedBot",
       "peer": peer,
     };
 
@@ -140819,7 +142799,8 @@ class AccountUpdateBirthday extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc6e0c11",
+      "\$hash": "cc6e0c11",
+      "\$name": "AccountUpdateBirthday",
       "flags": flags,
       "birthday": birthday,
     };
@@ -140858,7 +142839,8 @@ class ContactsGetBirthdays extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdaeda864",
+      "\$hash": "daeda864",
+      "\$name": "ContactsGetBirthdays",
     };
 
     // Finished toJson.
@@ -140908,7 +142890,8 @@ class AccountCreateBusinessChatLink extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8851e68e",
+      "\$hash": "8851e68e",
+      "\$name": "AccountCreateBusinessChatLink",
       "link": link,
     };
 
@@ -140966,7 +142949,8 @@ class AccountEditBusinessChatLink extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8c3410af",
+      "\$hash": "8c3410af",
+      "\$name": "AccountEditBusinessChatLink",
       "slug": slug,
       "link": link,
     };
@@ -141018,7 +143002,8 @@ class AccountDeleteBusinessChatLink extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x60073674",
+      "\$hash": "60073674",
+      "\$name": "AccountDeleteBusinessChatLink",
       "slug": slug,
     };
 
@@ -141056,7 +143041,8 @@ class AccountGetBusinessChatLinks extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f70dde1",
+      "\$hash": "6f70dde1",
+      "\$name": "AccountGetBusinessChatLinks",
     };
 
     // Finished toJson.
@@ -141106,7 +143092,8 @@ class AccountResolveBusinessChatLink extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5492e5ee",
+      "\$hash": "5492e5ee",
+      "\$name": "AccountResolveBusinessChatLink",
       "slug": slug,
     };
 
@@ -141157,7 +143144,8 @@ class AccountUpdatePersonalChannel extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd94305e0",
+      "\$hash": "d94305e0",
+      "\$name": "AccountUpdatePersonalChannel",
       "channel": channel,
     };
 
@@ -141225,7 +143213,8 @@ class StatsGetBroadcastRevenueStats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf788ee19",
+      "\$hash": "f788ee19",
+      "\$name": "StatsGetBroadcastRevenueStats",
       "flags": flags,
       "dark": dark,
       "peer": peer,
@@ -141286,7 +143275,8 @@ class StatsGetBroadcastRevenueWithdrawalUrl extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9df4faad",
+      "\$hash": "9df4faad",
+      "\$name": "StatsGetBroadcastRevenueWithdrawalUrl",
       "peer": peer,
       "password": password,
     };
@@ -141357,7 +143347,8 @@ class StatsGetBroadcastRevenueTransactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x70990b6d",
+      "\$hash": "70990b6d",
+      "\$name": "StatsGetBroadcastRevenueTransactions",
       "peer": peer,
       "offset": offset,
       "limit": limit,
@@ -141417,7 +143408,8 @@ class ChannelsRestrictSponsoredMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9ae91519",
+      "\$hash": "9ae91519",
+      "\$name": "ChannelsRestrictSponsoredMessages",
       "channel": channel,
       "restricted": restricted,
     };
@@ -141469,7 +143461,8 @@ class AccountToggleSponsoredMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9d9a38d",
+      "\$hash": "b9d9a38d",
+      "\$name": "AccountToggleSponsoredMessages",
       "enabled": enabled,
     };
 
@@ -141527,7 +143520,8 @@ class StoriesTogglePinnedToTop extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0b297e9b",
+      "\$hash": "0b297e9b",
+      "\$name": "StoriesTogglePinnedToTop",
       "peer": peer,
       "id": id,
     };
@@ -141566,7 +143560,8 @@ class AccountGetReactionsNotifySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x06dd654c",
+      "\$hash": "06dd654c",
+      "\$name": "AccountGetReactionsNotifySettings",
     };
 
     // Finished toJson.
@@ -141616,7 +143611,8 @@ class AccountSetReactionsNotifySettings extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x316ce548",
+      "\$hash": "316ce548",
+      "\$name": "AccountSetReactionsNotifySettings",
       "settings": settings,
     };
 
@@ -141681,7 +143677,8 @@ class AuthReportMissingCode extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcb9deff6",
+      "\$hash": "cb9deff6",
+      "\$name": "AuthReportMissingCode",
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
       "mnc": mnc,
@@ -141736,7 +143733,8 @@ class MessagesGetEmojiStickerGroups extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1dd840f5",
+      "\$hash": "1dd840f5",
+      "\$name": "MessagesGetEmojiStickerGroups",
       "hash": hash,
     };
 
@@ -141801,7 +143799,8 @@ class InvokeWithGooglePlayIntegrity extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1df92984",
+      "\$hash": "1df92984",
+      "\$name": "InvokeWithGooglePlayIntegrity",
       "nonce": nonce,
       "token": token,
       "query": query,
@@ -141868,7 +143867,8 @@ class InvokeWithApnsSecret extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0dae54f8",
+      "\$hash": "0dae54f8",
+      "\$name": "InvokeWithApnsSecret",
       "nonce": nonce,
       "secret": secret,
       "query": query,
@@ -141923,7 +143923,8 @@ class MessagesGetAvailableEffects extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdea20a39",
+      "\$hash": "dea20a39",
+      "\$name": "MessagesGetAvailableEffects",
       "hash": hash,
     };
 
@@ -142008,7 +144009,8 @@ class ChannelsSearchPosts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd19f987b",
+      "\$hash": "d19f987b",
+      "\$name": "ChannelsSearchPosts",
       "hashtag": hashtag,
       "offsetRate": offsetRate,
       "offsetPeer": offsetPeer,
@@ -142079,7 +144081,8 @@ class MessagesEditFactCheck extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0589ee75",
+      "\$hash": "0589ee75",
+      "\$name": "MessagesEditFactCheck",
       "peer": peer,
       "msgId": msgId,
       "text": text,
@@ -142141,7 +144144,8 @@ class MessagesDeleteFactCheck extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1da940c",
+      "\$hash": "d1da940c",
+      "\$name": "MessagesDeleteFactCheck",
       "peer": peer,
       "msgId": msgId,
     };
@@ -142200,7 +144204,8 @@ class MessagesGetFactCheck extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb9cdc5ee",
+      "\$hash": "b9cdc5ee",
+      "\$name": "MessagesGetFactCheck",
       "peer": peer,
       "msgId": msgId,
     };
@@ -142239,7 +144244,8 @@ class PaymentsGetStarsTopupOptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc00ec7d3",
+      "\$hash": "c00ec7d3",
+      "\$name": "PaymentsGetStarsTopupOptions",
     };
 
     // Finished toJson.
@@ -142289,7 +144295,8 @@ class PaymentsGetStarsStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x104fcfa7",
+      "\$hash": "104fcfa7",
+      "\$name": "PaymentsGetStarsStatus",
       "peer": peer,
     };
 
@@ -142399,7 +144406,8 @@ class PaymentsGetStarsTransactions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x69da4557",
+      "\$hash": "69da4557",
+      "\$name": "PaymentsGetStarsTransactions",
       "flags": flags,
       "inbound": inbound,
       "outbound": outbound,
@@ -142466,7 +144474,8 @@ class PaymentsSendStarsForm extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7998c914",
+      "\$hash": "7998c914",
+      "\$name": "PaymentsSendStarsForm",
       "formId": formId,
       "invoice": invoice,
     };
@@ -142525,7 +144534,8 @@ class PaymentsRefundStarsCharge extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x25ae8f4a",
+      "\$hash": "25ae8f4a",
+      "\$name": "PaymentsRefundStarsCharge",
       "userId": userId,
       "chargeId": chargeId,
     };
@@ -142632,7 +144642,8 @@ class StoriesSearchPosts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1810907",
+      "\$hash": "d1810907",
+      "\$name": "StoriesSearchPosts",
       "flags": flags,
       "hashtag": hashtag,
       "area": area,
@@ -142705,7 +144716,8 @@ class PaymentsGetStarsRevenueStats extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd91ffad6",
+      "\$hash": "d91ffad6",
+      "\$name": "PaymentsGetStarsRevenueStats",
       "flags": flags,
       "dark": dark,
       "peer": peer,
@@ -142775,7 +144787,8 @@ class PaymentsGetStarsRevenueWithdrawalUrl extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x13bbe8b3",
+      "\$hash": "13bbe8b3",
+      "\$name": "PaymentsGetStarsRevenueWithdrawalUrl",
       "peer": peer,
       "stars": stars,
       "password": password,
@@ -142829,7 +144842,8 @@ class PaymentsGetStarsRevenueAdsAccountUrl extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd1d7efc5",
+      "\$hash": "d1d7efc5",
+      "\$name": "PaymentsGetStarsRevenueAdsAccountUrl",
       "peer": peer,
     };
 
@@ -142887,7 +144901,8 @@ class PaymentsGetStarsTransactionsByID extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x27842d2e",
+      "\$hash": "27842d2e",
+      "\$name": "PaymentsGetStarsTransactionsByID",
       "peer": peer,
       "id": id,
     };
@@ -142954,7 +144969,8 @@ class PaymentsGetStarsGiftOptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd3c96bc8",
+      "\$hash": "d3c96bc8",
+      "\$name": "PaymentsGetStarsGiftOptions",
       "flags": flags,
       "userId": userId,
     };
@@ -143015,7 +145031,8 @@ class BotsGetPopularAppBots extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc2510192",
+      "\$hash": "c2510192",
+      "\$name": "BotsGetPopularAppBots",
       "offset": offset,
       "limit": limit,
     };
@@ -143081,7 +145098,8 @@ class BotsAddPreviewMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x17aeb75a",
+      "\$hash": "17aeb75a",
+      "\$name": "BotsAddPreviewMedia",
       "bot": bot,
       "langCode": langCode,
       "media": media,
@@ -143155,7 +145173,8 @@ class BotsEditPreviewMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8525606f",
+      "\$hash": "8525606f",
+      "\$name": "BotsEditPreviewMedia",
       "bot": bot,
       "langCode": langCode,
       "media": media,
@@ -143223,7 +145242,8 @@ class BotsDeletePreviewMedia extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x2d0135b3",
+      "\$hash": "2d0135b3",
+      "\$name": "BotsDeletePreviewMedia",
       "bot": bot,
       "langCode": langCode,
       "media": media,
@@ -143290,7 +145310,8 @@ class BotsReorderPreviewMedias extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb627f3aa",
+      "\$hash": "b627f3aa",
+      "\$name": "BotsReorderPreviewMedias",
       "bot": bot,
       "langCode": langCode,
       "order": order,
@@ -143350,7 +145371,8 @@ class BotsGetPreviewInfo extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x423ab3ad",
+      "\$hash": "423ab3ad",
+      "\$name": "BotsGetPreviewInfo",
       "bot": bot,
       "langCode": langCode,
     };
@@ -143402,7 +145424,8 @@ class BotsGetPreviewMedias extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa2a5594d",
+      "\$hash": "a2a5594d",
+      "\$name": "BotsGetPreviewMedias",
       "bot": bot,
     };
 
@@ -143516,7 +145539,8 @@ class MessagesRequestMainWebView extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc9e01e7b",
+      "\$hash": "c9e01e7b",
+      "\$name": "MessagesRequestMainWebView",
       "flags": flags,
       "compact": compact,
       "fullscreen": fullscreen,
@@ -143598,7 +145622,8 @@ class PaymentsGetStarsSubscriptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x032512c5",
+      "\$hash": "032512c5",
+      "\$name": "PaymentsGetStarsSubscriptions",
       "flags": flags,
       "missingBalance": missingBalance,
       "peer": peer,
@@ -143680,7 +145705,8 @@ class PaymentsChangeStarsSubscription extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc7770878",
+      "\$hash": "c7770878",
+      "\$name": "PaymentsChangeStarsSubscription",
       "flags": flags,
       "peer": peer,
       "subscriptionId": subscriptionId,
@@ -143741,7 +145767,8 @@ class PaymentsFulfillStarsSubscription extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xcc5bebb3",
+      "\$hash": "cc5bebb3",
+      "\$name": "PaymentsFulfillStarsSubscription",
       "peer": peer,
       "subscriptionId": subscriptionId,
     };
@@ -143841,7 +145868,8 @@ class MessagesSendPaidReaction extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9dd6a67b",
+      "\$hash": "9dd6a67b",
+      "\$name": "MessagesSendPaidReaction",
       "flags": flags,
       "peer": peer,
       "msgId": msgId,
@@ -143913,7 +145941,8 @@ class MessagesTogglePaidReactionPrivacy extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x849ad397",
+      "\$hash": "849ad397",
+      "\$name": "MessagesTogglePaidReactionPrivacy",
       "peer": peer,
       "msgId": msgId,
       "private": private,
@@ -143953,7 +145982,8 @@ class PaymentsGetStarsGiveawayOptions extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd1efd3e",
+      "\$hash": "bd1efd3e",
+      "\$name": "PaymentsGetStarsGiveawayOptions",
     };
 
     // Finished toJson.
@@ -143990,7 +146020,8 @@ class MessagesGetPaidReactionPrivacy extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x472455aa",
+      "\$hash": "472455aa",
+      "\$name": "MessagesGetPaidReactionPrivacy",
     };
 
     // Finished toJson.
@@ -144042,7 +146073,8 @@ class PaymentsGetStarGifts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc4563590",
+      "\$hash": "c4563590",
+      "\$name": "PaymentsGetStarGifts",
       "hash": hash,
     };
 
@@ -144109,7 +146141,8 @@ class PaymentsGetUserStarGifts extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5e72c7e1",
+      "\$hash": "5e72c7e1",
+      "\$name": "PaymentsGetUserStarGifts",
       "userId": userId,
       "offset": offset,
       "limit": limit,
@@ -144188,7 +146221,8 @@ class PaymentsSaveStarGift extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x87acf08e",
+      "\$hash": "87acf08e",
+      "\$name": "PaymentsSaveStarGift",
       "flags": flags,
       "unsave": unsave,
       "userId": userId,
@@ -144251,7 +146285,8 @@ class PaymentsConvertStarGift extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0421e027",
+      "\$hash": "0421e027",
+      "\$name": "PaymentsConvertStarGift",
       "userId": userId,
       "msgId": msgId,
     };
@@ -144310,7 +146345,8 @@ class MessagesViewSponsoredMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x673ad8f1",
+      "\$hash": "673ad8f1",
+      "\$name": "MessagesViewSponsoredMessage",
       "peer": peer,
       "randomId": randomId,
     };
@@ -144393,7 +146429,8 @@ class MessagesClickSponsoredMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0f093465",
+      "\$hash": "0f093465",
+      "\$name": "MessagesClickSponsoredMessage",
       "flags": flags,
       "media": media,
       "fullscreen": fullscreen,
@@ -144462,7 +146499,8 @@ class MessagesReportSponsoredMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1af3dbb8",
+      "\$hash": "1af3dbb8",
+      "\$name": "MessagesReportSponsoredMessage",
       "peer": peer,
       "randomId": randomId,
       "option": option,
@@ -144515,7 +146553,8 @@ class MessagesGetSponsoredMessages extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9bd2f439",
+      "\$hash": "9bd2f439",
+      "\$name": "MessagesGetSponsoredMessages",
       "peer": peer,
     };
 
@@ -144597,7 +146636,8 @@ class MessagesSavePreparedInlineMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf21f7f2f",
+      "\$hash": "f21f7f2f",
+      "\$name": "MessagesSavePreparedInlineMessage",
       "flags": flags,
       "result": result,
       "userId": userId,
@@ -144658,7 +146698,8 @@ class MessagesGetPreparedInlineMessage extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x857ebdb8",
+      "\$hash": "857ebdb8",
+      "\$name": "MessagesGetPreparedInlineMessage",
       "bot": bot,
       "id": id,
     };
@@ -144717,7 +146758,8 @@ class BotsUpdateUserEmojiStatus extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xed9f30c5",
+      "\$hash": "ed9f30c5",
+      "\$name": "BotsUpdateUserEmojiStatus",
       "userId": userId,
       "emojiStatus": emojiStatus,
     };
@@ -144776,7 +146818,8 @@ class BotsToggleUserEmojiStatusPermission extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x06de6392",
+      "\$hash": "06de6392",
+      "\$name": "BotsToggleUserEmojiStatusPermission",
       "bot": bot,
       "enabled": enabled,
     };
@@ -144842,7 +146885,8 @@ class BotsCheckDownloadFileParams extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x50077589",
+      "\$hash": "50077589",
+      "\$name": "BotsCheckDownloadFileParams",
       "bot": bot,
       "fileName": fileName,
       "url": url,
@@ -144919,7 +146963,8 @@ class PaymentsBotCancelStarsSubscription extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6dfa0622",
+      "\$hash": "6dfa0622",
+      "\$name": "PaymentsBotCancelStarsSubscription",
       "flags": flags,
       "restore": restore,
       "userId": userId,
@@ -144960,7 +147005,8 @@ class BotsGetAdminedBots extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb0711d83",
+      "\$hash": "b0711d83",
+      "\$name": "BotsGetAdminedBots",
     };
 
     // Finished toJson.
@@ -145041,7 +147087,8 @@ class BotsUpdateStarRefProgram extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x778b5ab3",
+      "\$hash": "778b5ab3",
+      "\$name": "BotsUpdateStarRefProgram",
       "flags": flags,
       "bot": bot,
       "commissionPermille": commissionPermille,
@@ -145137,7 +147184,8 @@ class PaymentsGetConnectedStarRefBots extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5869a553",
+      "\$hash": "5869a553",
+      "\$name": "PaymentsGetConnectedStarRefBots",
       "flags": flags,
       "peer": peer,
       "offsetDate": offsetDate?.toIso8601String(),
@@ -145199,7 +147247,8 @@ class PaymentsGetConnectedStarRefBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb7d998f0",
+      "\$hash": "b7d998f0",
+      "\$name": "PaymentsGetConnectedStarRefBot",
       "peer": peer,
       "bot": bot,
     };
@@ -145291,7 +147340,8 @@ class PaymentsGetSuggestedStarRefBots extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0d6b48f7",
+      "\$hash": "0d6b48f7",
+      "\$name": "PaymentsGetSuggestedStarRefBots",
       "flags": flags,
       "orderByRevenue": orderByRevenue,
       "orderByDate": orderByDate,
@@ -145354,7 +147404,8 @@ class PaymentsConnectStarRefBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7ed5348a",
+      "\$hash": "7ed5348a",
+      "\$name": "PaymentsConnectStarRefBot",
       "peer": peer,
       "bot": bot,
     };
@@ -145430,7 +147481,8 @@ class PaymentsEditConnectedStarRefBot extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe4fca4a3",
+      "\$hash": "e4fca4a3",
+      "\$name": "PaymentsEditConnectedStarRefBot",
       "flags": flags,
       "revoked": revoked,
       "peer": peer,
@@ -145542,7 +147594,8 @@ class MessagesSearchStickers extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x29b1c66a",
+      "\$hash": "29b1c66a",
+      "\$name": "MessagesSearchStickers",
       "flags": flags,
       "emojis": emojis,
       "q": q,

@@ -65,7 +65,8 @@ class DecryptedMessage008 extends DecryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1f814f1f",
+      "\$hash": "1f814f1f",
+      "\$name": "DecryptedMessage008",
       "randomId": randomId,
       "randomBytes": randomBytes,
       "message": message,
@@ -144,7 +145,8 @@ class DecryptedMessage017 extends DecryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x204d3878",
+      "\$hash": "204d3878",
+      "\$name": "DecryptedMessage017",
       "randomId": randomId,
       "ttl": ttl,
       "message": message,
@@ -276,7 +278,8 @@ class DecryptedMessage045 extends DecryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x36b091de",
+      "\$hash": "36b091de",
+      "\$name": "DecryptedMessage045",
       "flags": flags,
       "randomId": randomId,
       "ttl": ttl,
@@ -424,7 +427,8 @@ class DecryptedMessage073 extends DecryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x91cc4674",
+      "\$hash": "91cc4674",
+      "\$name": "DecryptedMessage073",
       "flags": flags,
       "randomId": randomId,
       "ttl": ttl,
@@ -499,7 +503,8 @@ class DecryptedMessageService008 extends DecryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xaa48327d",
+      "\$hash": "aa48327d",
+      "\$name": "DecryptedMessageService008",
       "randomId": randomId,
       "randomBytes": randomBytes,
       "action": action,
@@ -561,7 +566,8 @@ class DecryptedMessageService017 extends DecryptedMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73164160",
+      "\$hash": "73164160",
+      "\$name": "DecryptedMessageService017",
       "randomId": randomId,
       "action": action,
     };
@@ -600,7 +606,8 @@ class DecryptedMessageMediaEmpty008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x089f5c4a",
+      "\$hash": "089f5c4a",
+      "\$name": "DecryptedMessageMediaEmpty008",
     };
 
     // Finished toJson.
@@ -709,7 +716,8 @@ class DecryptedMessageMediaPhoto008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x32798a8c",
+      "\$hash": "32798a8c",
+      "\$name": "DecryptedMessageMediaPhoto008",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -833,7 +841,8 @@ class DecryptedMessageMediaPhoto045 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf1fa8d78",
+      "\$hash": "f1fa8d78",
+      "\$name": "DecryptedMessageMediaPhoto045",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -960,7 +969,8 @@ class DecryptedMessageMediaVideo008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x4cee6ef3",
+      "\$hash": "4cee6ef3",
+      "\$name": "DecryptedMessageMediaVideo008",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -1094,7 +1104,8 @@ class DecryptedMessageMediaVideo017 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x524a415d",
+      "\$hash": "524a415d",
+      "\$name": "DecryptedMessageMediaVideo017",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -1236,7 +1247,8 @@ class DecryptedMessageMediaVideo045 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x970c8c0e",
+      "\$hash": "970c8c0e",
+      "\$name": "DecryptedMessageMediaVideo045",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -1304,7 +1316,8 @@ class DecryptedMessageMediaGeoPoint008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x35480a59",
+      "\$hash": "35480a59",
+      "\$name": "DecryptedMessageMediaGeoPoint008",
       "lat": lat,
       "long": long,
     };
@@ -1379,7 +1392,8 @@ class DecryptedMessageMediaContact008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x588a0a97",
+      "\$hash": "588a0a97",
+      "\$name": "DecryptedMessageMediaContact008",
       "phoneNumber": phoneNumber,
       "firstName": firstName,
       "lastName": lastName,
@@ -1488,7 +1502,8 @@ class DecryptedMessageMediaDocument008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xb095434b",
+      "\$hash": "b095434b",
+      "\$name": "DecryptedMessageMediaDocument008",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -1608,7 +1623,8 @@ class DecryptedMessageMediaDocument045 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7afe8ae2",
+      "\$hash": "7afe8ae2",
+      "\$name": "DecryptedMessageMediaDocument045",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -1729,7 +1745,8 @@ class DecryptedMessageMediaDocument143 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6abd9782",
+      "\$hash": "6abd9782",
+      "\$name": "DecryptedMessageMediaDocument143",
       "thumb": thumb,
       "thumbW": thumbW,
       "thumbH": thumbH,
@@ -1813,7 +1830,8 @@ class DecryptedMessageMediaAudio008 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6080758f",
+      "\$hash": "6080758f",
+      "\$name": "DecryptedMessageMediaAudio008",
       "duration": duration,
       "size": size,
       "key": key,
@@ -1899,7 +1917,8 @@ class DecryptedMessageMediaAudio017 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x57e0a9cb",
+      "\$hash": "57e0a9cb",
+      "\$name": "DecryptedMessageMediaAudio017",
       "duration": duration,
       "mimeType": mimeType,
       "size": size,
@@ -2013,7 +2032,8 @@ class DecryptedMessageMediaExternalDocument023
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa95b0dd",
+      "\$hash": "fa95b0dd",
+      "\$name": "DecryptedMessageMediaExternalDocument023",
       "id": id,
       "accessHash": accessHash,
       "date": date.toIso8601String(),
@@ -2106,7 +2126,8 @@ class DecryptedMessageMediaVenue045 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8a0df56f",
+      "\$hash": "8a0df56f",
+      "\$name": "DecryptedMessageMediaVenue045",
       "lat": lat,
       "long": long,
       "title": title,
@@ -2162,7 +2183,8 @@ class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe50511d8",
+      "\$hash": "e50511d8",
+      "\$name": "DecryptedMessageMediaWebPage045",
       "url": url,
     };
 
@@ -2217,7 +2239,8 @@ class DecryptedMessageActionSetMessageTTL008
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa1733aec",
+      "\$hash": "a1733aec",
+      "\$name": "DecryptedMessageActionSetMessageTTL008",
       "ttlSeconds": ttlSeconds,
     };
 
@@ -2269,7 +2292,8 @@ class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0c4f40be",
+      "\$hash": "0c4f40be",
+      "\$name": "DecryptedMessageActionReadMessages008",
       "randomIds": randomIds,
     };
 
@@ -2322,7 +2346,8 @@ class DecryptedMessageActionDeleteMessages008
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x65614304",
+      "\$hash": "65614304",
+      "\$name": "DecryptedMessageActionDeleteMessages008",
       "randomIds": randomIds,
     };
 
@@ -2375,7 +2400,8 @@ class DecryptedMessageActionScreenshotMessages008
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8ac1f475",
+      "\$hash": "8ac1f475",
+      "\$name": "DecryptedMessageActionScreenshotMessages008",
       "randomIds": randomIds,
     };
 
@@ -2414,7 +2440,8 @@ class DecryptedMessageActionFlushHistory008 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6719e45c",
+      "\$hash": "6719e45c",
+      "\$name": "DecryptedMessageActionFlushHistory008",
     };
 
     // Finished toJson.
@@ -2475,7 +2502,8 @@ class DecryptedMessageActionResend017 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x511110b0",
+      "\$hash": "511110b0",
+      "\$name": "DecryptedMessageActionResend017",
       "startSeqNo": startSeqNo,
       "endSeqNo": endSeqNo,
     };
@@ -2530,7 +2558,8 @@ class DecryptedMessageActionNotifyLayer017 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3048883",
+      "\$hash": "f3048883",
+      "\$name": "DecryptedMessageActionNotifyLayer017",
       "layer": layer,
     };
 
@@ -2581,7 +2610,8 @@ class DecryptedMessageActionTyping017 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xccb27641",
+      "\$hash": "ccb27641",
+      "\$name": "DecryptedMessageActionTyping017",
       "action": action,
     };
 
@@ -2641,7 +2671,8 @@ class DecryptedMessageActionRequestKey020 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xf3c9611b",
+      "\$hash": "f3c9611b",
+      "\$name": "DecryptedMessageActionRequestKey020",
       "exchangeId": exchangeId,
       "gA": gA,
     };
@@ -2711,7 +2742,8 @@ class DecryptedMessageActionAcceptKey020 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6fe1735b",
+      "\$hash": "6fe1735b",
+      "\$name": "DecryptedMessageActionAcceptKey020",
       "exchangeId": exchangeId,
       "gB": gB,
       "keyFingerprint": keyFingerprint,
@@ -2766,7 +2798,8 @@ class DecryptedMessageActionAbortKey020 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xdd05ec6b",
+      "\$hash": "dd05ec6b",
+      "\$name": "DecryptedMessageActionAbortKey020",
       "exchangeId": exchangeId,
     };
 
@@ -2828,7 +2861,8 @@ class DecryptedMessageActionCommitKey020 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xec2e0b9b",
+      "\$hash": "ec2e0b9b",
+      "\$name": "DecryptedMessageActionCommitKey020",
       "exchangeId": exchangeId,
       "keyFingerprint": keyFingerprint,
     };
@@ -2867,7 +2901,8 @@ class DecryptedMessageActionNoop020 extends DecryptedMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa82fdd63",
+      "\$hash": "a82fdd63",
+      "\$name": "DecryptedMessageActionNoop020",
     };
 
     // Finished toJson.
@@ -2951,7 +2986,8 @@ class DecryptedMessageLayer017 extends DecryptedMessageLayerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x1be31789",
+      "\$hash": "1be31789",
+      "\$name": "DecryptedMessageLayer017",
       "randomBytes": randomBytes,
       "layer": layer,
       "inSeqNo": inSeqNo,
@@ -2993,7 +3029,8 @@ class SendMessageTypingAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x16bf744e",
+      "\$hash": "16bf744e",
+      "\$name": "SendMessageTypingAction017",
     };
 
     // Finished toJson.
@@ -3030,7 +3067,8 @@ class SendMessageCancelAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfd5ec8f5",
+      "\$hash": "fd5ec8f5",
+      "\$name": "SendMessageCancelAction017",
     };
 
     // Finished toJson.
@@ -3067,7 +3105,8 @@ class SendMessageRecordVideoAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xa187d66f",
+      "\$hash": "a187d66f",
+      "\$name": "SendMessageRecordVideoAction017",
     };
 
     // Finished toJson.
@@ -3104,7 +3143,8 @@ class SendMessageUploadVideoAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x92042ff7",
+      "\$hash": "92042ff7",
+      "\$name": "SendMessageUploadVideoAction017",
     };
 
     // Finished toJson.
@@ -3141,7 +3181,8 @@ class SendMessageRecordAudioAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xd52f73f7",
+      "\$hash": "d52f73f7",
+      "\$name": "SendMessageRecordAudioAction017",
     };
 
     // Finished toJson.
@@ -3178,7 +3219,8 @@ class SendMessageUploadAudioAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe6ac8a6f",
+      "\$hash": "e6ac8a6f",
+      "\$name": "SendMessageUploadAudioAction017",
     };
 
     // Finished toJson.
@@ -3215,7 +3257,8 @@ class SendMessageUploadPhotoAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x990a3c1a",
+      "\$hash": "990a3c1a",
+      "\$name": "SendMessageUploadPhotoAction017",
     };
 
     // Finished toJson.
@@ -3252,7 +3295,8 @@ class SendMessageUploadDocumentAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x8faee98e",
+      "\$hash": "8faee98e",
+      "\$name": "SendMessageUploadDocumentAction017",
     };
 
     // Finished toJson.
@@ -3289,7 +3333,8 @@ class SendMessageGeoLocationAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x176f8ba1",
+      "\$hash": "176f8ba1",
+      "\$name": "SendMessageGeoLocationAction017",
     };
 
     // Finished toJson.
@@ -3326,7 +3371,8 @@ class SendMessageChooseContactAction017 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x628cbc6f",
+      "\$hash": "628cbc6f",
+      "\$name": "SendMessageChooseContactAction017",
     };
 
     // Finished toJson.
@@ -3363,7 +3409,8 @@ class SendMessageRecordRoundAction066 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x88f27fbc",
+      "\$hash": "88f27fbc",
+      "\$name": "SendMessageRecordRoundAction066",
     };
 
     // Finished toJson.
@@ -3400,7 +3447,8 @@ class SendMessageUploadRoundAction066 extends SendMessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb718624",
+      "\$hash": "bb718624",
+      "\$name": "SendMessageUploadRoundAction066",
     };
 
     // Finished toJson.
@@ -3461,7 +3509,8 @@ class DocumentAttributeImageSize023 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6c37c15c",
+      "\$hash": "6c37c15c",
+      "\$name": "DocumentAttributeImageSize023",
       "w": w,
       "h": h,
     };
@@ -3500,7 +3549,8 @@ class DocumentAttributeAnimated023 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x11b58939",
+      "\$hash": "11b58939",
+      "\$name": "DocumentAttributeAnimated023",
     };
 
     // Finished toJson.
@@ -3537,7 +3587,8 @@ class DocumentAttributeSticker023 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfb0a5727",
+      "\$hash": "fb0a5727",
+      "\$name": "DocumentAttributeSticker023",
     };
 
     // Finished toJson.
@@ -3594,7 +3645,8 @@ class DocumentAttributeSticker045 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x3a556302",
+      "\$hash": "3a556302",
+      "\$name": "DocumentAttributeSticker045",
       "alt": alt,
       "stickerset": stickerset,
     };
@@ -3666,7 +3718,8 @@ class DocumentAttributeVideo023 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x5910cccb",
+      "\$hash": "5910cccb",
+      "\$name": "DocumentAttributeVideo023",
       "duration": duration,
       "w": w,
       "h": h,
@@ -3748,7 +3801,8 @@ class DocumentAttributeVideo066 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0ef02ce6",
+      "\$hash": "0ef02ce6",
+      "\$name": "DocumentAttributeVideo066",
       "flags": flags,
       "duration": duration,
       "w": w,
@@ -3804,7 +3858,8 @@ class DocumentAttributeAudio023 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x051448e5",
+      "\$hash": "051448e5",
+      "\$name": "DocumentAttributeAudio023",
       "duration": duration,
     };
 
@@ -3871,7 +3926,8 @@ class DocumentAttributeAudio045 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xded218e0",
+      "\$hash": "ded218e0",
+      "\$name": "DocumentAttributeAudio045",
       "duration": duration,
       "title": title,
       "performer": performer,
@@ -3972,7 +4028,8 @@ class DocumentAttributeAudio046 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9852f9c6",
+      "\$hash": "9852f9c6",
+      "\$name": "DocumentAttributeAudio046",
       "flags": flags,
       "duration": duration,
       "title": title,
@@ -4027,7 +4084,8 @@ class DocumentAttributeFilename023 extends DocumentAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x15590068",
+      "\$hash": "15590068",
+      "\$name": "DocumentAttributeFilename023",
       "fileName": fileName,
     };
 
@@ -4078,7 +4136,8 @@ class PhotoSizeEmpty023 extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x0e17e23c",
+      "\$hash": "0e17e23c",
+      "\$name": "PhotoSizeEmpty023",
       "type": type,
     };
 
@@ -4163,7 +4222,8 @@ class PhotoSize023 extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x77bfb61b",
+      "\$hash": "77bfb61b",
+      "\$name": "PhotoSize023",
       "type": type,
       "location": location,
       "w": w,
@@ -4250,7 +4310,8 @@ class PhotoCachedSize023 extends PhotoSizeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xe9a734fa",
+      "\$hash": "e9a734fa",
+      "\$name": "PhotoCachedSize023",
       "type": type,
       "location": location,
       "w": w,
@@ -4325,7 +4386,8 @@ class FileLocationUnavailable023 extends FileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x7c596b46",
+      "\$hash": "7c596b46",
+      "\$name": "FileLocationUnavailable023",
       "volumeId": volumeId,
       "localId": localId,
       "secret": secret,
@@ -4407,7 +4469,8 @@ class FileLocation023 extends FileLocationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x53d69076",
+      "\$hash": "53d69076",
+      "\$name": "FileLocation023",
       "dcId": dcId,
       "volumeId": volumeId,
       "localId": localId,
@@ -4472,7 +4535,8 @@ class MessageEntityUnknown045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbb92ba95",
+      "\$hash": "bb92ba95",
+      "\$name": "MessageEntityUnknown045",
       "offset": offset,
       "length": length,
     };
@@ -4535,7 +4599,8 @@ class MessageEntityMention045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xfa04579d",
+      "\$hash": "fa04579d",
+      "\$name": "MessageEntityMention045",
       "offset": offset,
       "length": length,
     };
@@ -4598,7 +4663,8 @@ class MessageEntityHashtag045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6f635b0d",
+      "\$hash": "6f635b0d",
+      "\$name": "MessageEntityHashtag045",
       "offset": offset,
       "length": length,
     };
@@ -4661,7 +4727,8 @@ class MessageEntityBotCommand045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6cef8ac7",
+      "\$hash": "6cef8ac7",
+      "\$name": "MessageEntityBotCommand045",
       "offset": offset,
       "length": length,
     };
@@ -4724,7 +4791,8 @@ class MessageEntityUrl045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x6ed02538",
+      "\$hash": "6ed02538",
+      "\$name": "MessageEntityUrl045",
       "offset": offset,
       "length": length,
     };
@@ -4787,7 +4855,8 @@ class MessageEntityEmail045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x64e475c2",
+      "\$hash": "64e475c2",
+      "\$name": "MessageEntityEmail045",
       "offset": offset,
       "length": length,
     };
@@ -4850,7 +4919,8 @@ class MessageEntityBold045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbd610bc9",
+      "\$hash": "bd610bc9",
+      "\$name": "MessageEntityBold045",
       "offset": offset,
       "length": length,
     };
@@ -4913,7 +4983,8 @@ class MessageEntityItalic045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x826f8b60",
+      "\$hash": "826f8b60",
+      "\$name": "MessageEntityItalic045",
       "offset": offset,
       "length": length,
     };
@@ -4976,7 +5047,8 @@ class MessageEntityCode045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x28a20571",
+      "\$hash": "28a20571",
+      "\$name": "MessageEntityCode045",
       "offset": offset,
       "length": length,
     };
@@ -5046,7 +5118,8 @@ class MessageEntityPre045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x73924be0",
+      "\$hash": "73924be0",
+      "\$name": "MessageEntityPre045",
       "offset": offset,
       "length": length,
       "language": language,
@@ -5117,7 +5190,8 @@ class MessageEntityTextUrl045 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x76a6d327",
+      "\$hash": "76a6d327",
+      "\$name": "MessageEntityTextUrl045",
       "offset": offset,
       "length": length,
       "url": url,
@@ -5181,7 +5255,8 @@ class MessageEntityUnderline101 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x9c4e7e8b",
+      "\$hash": "9c4e7e8b",
+      "\$name": "MessageEntityUnderline101",
       "offset": offset,
       "length": length,
     };
@@ -5244,7 +5319,8 @@ class MessageEntityStrike101 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xbf0693d4",
+      "\$hash": "bf0693d4",
+      "\$name": "MessageEntityStrike101",
       "offset": offset,
       "length": length,
     };
@@ -5307,7 +5383,8 @@ class MessageEntityBlockquote101 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x020df5d0",
+      "\$hash": "020df5d0",
+      "\$name": "MessageEntityBlockquote101",
       "offset": offset,
       "length": length,
     };
@@ -5370,7 +5447,8 @@ class MessageEntitySpoiler144 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x32ca960f",
+      "\$hash": "32ca960f",
+      "\$name": "MessageEntitySpoiler144",
       "offset": offset,
       "length": length,
     };
@@ -5442,7 +5520,8 @@ class MessageEntityCustomEmoji144 extends MessageEntityBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xc8cf05f8",
+      "\$hash": "c8cf05f8",
+      "\$name": "MessageEntityCustomEmoji144",
       "offset": offset,
       "length": length,
       "documentId": documentId,
@@ -5495,7 +5574,8 @@ class InputStickerSetShortName045 extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0x861cc8a0",
+      "\$hash": "861cc8a0",
+      "\$name": "InputStickerSetShortName045",
       "shortName": shortName,
     };
 
@@ -5533,7 +5613,8 @@ class InputStickerSetEmpty045 extends InputStickerSetBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$": "0xffb62b95",
+      "\$hash": "ffb62b95",
+      "\$name": "InputStickerSetEmpty045",
     };
 
     // Finished toJson.

@@ -1,3 +1,7 @@
+## 0.0.25
+
+- toJson methods now return `$hash` and `$name` fields.
+
 ## 0.0.24
 
 - Fixes a bug when reading a Vector<> from server response.
