@@ -1,3 +1,7 @@
+## 0.0.26
+
+- Moved AuthorizationKey and Session classes to `tg`.
+
 ## 0.0.25
 
 - toJson methods now return `$hash` and `$name` fields.

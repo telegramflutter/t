@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
-part 'src/auth_key.dart';
 part 'src/binary_reader.dart';
 part 'src/binary_writer.dart';
 part 'src/constants.dart';
