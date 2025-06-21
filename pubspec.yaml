@@ -6,6 +6,7 @@ repository: https://github.com/telegramflutter/t
 topics:
  - telegram
  - tdlib
+ - mtproto
 
 environment:
   sdk: ">=2.12.0 <4.0.0"
