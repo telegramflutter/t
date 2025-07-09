@@ -2262,12 +2262,6 @@ abstract class InputStorePaymentPurposeBase extends TlConstructor {
   const InputStorePaymentPurposeBase._() : super._();
 }
 
-/// Predicate Premium Gift Option.
-abstract class PremiumGiftOptionBase extends TlConstructor {
-  /// Predicate Premium Gift Option constructor.
-  const PremiumGiftOptionBase._() : super._();
-}
-
 /// Predicate Payment Form Method.
 abstract class PaymentFormMethodBase extends TlConstructor {
   /// Predicate Payment Form Method constructor.
@@ -3000,30 +2994,6 @@ abstract class ChannelsSponsoredMessageReportResultBase extends TlConstructor {
   const ChannelsSponsoredMessageReportResultBase._() : super._();
 }
 
-/// Predicate Stats Broadcast Revenue Stats.
-abstract class StatsBroadcastRevenueStatsBase extends TlConstructor {
-  /// Predicate Stats Broadcast Revenue Stats constructor.
-  const StatsBroadcastRevenueStatsBase._() : super._();
-}
-
-/// Predicate Stats Broadcast Revenue Withdrawal Url.
-abstract class StatsBroadcastRevenueWithdrawalUrlBase extends TlConstructor {
-  /// Predicate Stats Broadcast Revenue Withdrawal Url constructor.
-  const StatsBroadcastRevenueWithdrawalUrlBase._() : super._();
-}
-
-/// Predicate Broadcast Revenue Transaction.
-abstract class BroadcastRevenueTransactionBase extends TlConstructor {
-  /// Predicate Broadcast Revenue Transaction constructor.
-  const BroadcastRevenueTransactionBase._() : super._();
-}
-
-/// Predicate Stats Broadcast Revenue Transactions.
-abstract class StatsBroadcastRevenueTransactionsBase extends TlConstructor {
-  /// Predicate Stats Broadcast Revenue Transactions constructor.
-  const StatsBroadcastRevenueTransactionsBase._() : super._();
-}
-
 /// Predicate Reaction Notifications From.
 abstract class ReactionNotificationsFromBase extends TlConstructor {
   /// Predicate Reaction Notifications From constructor.
@@ -3034,12 +3004,6 @@ abstract class ReactionNotificationsFromBase extends TlConstructor {
 abstract class ReactionsNotifySettingsBase extends TlConstructor {
   /// Predicate Reactions Notify Settings constructor.
   const ReactionsNotifySettingsBase._() : super._();
-}
-
-/// Predicate Broadcast Revenue Balances.
-abstract class BroadcastRevenueBalancesBase extends TlConstructor {
-  /// Predicate Broadcast Revenue Balances constructor.
-  const BroadcastRevenueBalancesBase._() : super._();
 }
 
 /// Predicate Available Effect.
@@ -3198,18 +3162,6 @@ abstract class PaymentsStarGiftsBase extends TlConstructor {
   const PaymentsStarGiftsBase._() : super._();
 }
 
-/// Predicate User Star Gift.
-abstract class UserStarGiftBase extends TlConstructor {
-  /// Predicate User Star Gift constructor.
-  const UserStarGiftBase._() : super._();
-}
-
-/// Predicate Payments User Star Gifts.
-abstract class PaymentsUserStarGiftsBase extends TlConstructor {
-  /// Predicate Payments User Star Gifts constructor.
-  const PaymentsUserStarGiftsBase._() : super._();
-}
-
 /// Predicate Message Report Option.
 abstract class MessageReportOptionBase extends TlConstructor {
   /// Predicate Message Report Option constructor.
@@ -3274,6 +3226,168 @@ abstract class StarsAmountBase extends TlConstructor {
 abstract class MessagesFoundStickersBase extends TlConstructor {
   /// Predicate Messages Found Stickers constructor.
   const MessagesFoundStickersBase._() : super._();
+}
+
+/// Predicate Bot Verifier Settings.
+abstract class BotVerifierSettingsBase extends TlConstructor {
+  /// Predicate Bot Verifier Settings constructor.
+  const BotVerifierSettingsBase._() : super._();
+}
+
+/// Predicate Bot Verification.
+abstract class BotVerificationBase extends TlConstructor {
+  /// Predicate Bot Verification constructor.
+  const BotVerificationBase._() : super._();
+}
+
+/// Predicate Star Gift Attribute.
+abstract class StarGiftAttributeBase extends TlConstructor {
+  /// Predicate Star Gift Attribute constructor.
+  const StarGiftAttributeBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Upgrade Preview.
+abstract class PaymentsStarGiftUpgradePreviewBase extends TlConstructor {
+  /// Predicate Payments Star Gift Upgrade Preview constructor.
+  const PaymentsStarGiftUpgradePreviewBase._() : super._();
+}
+
+/// Predicate Users Users.
+abstract class UsersUsersBase extends TlConstructor {
+  /// Predicate Users Users constructor.
+  const UsersUsersBase._() : super._();
+}
+
+/// Predicate Payments Unique Star Gift.
+abstract class PaymentsUniqueStarGiftBase extends TlConstructor {
+  /// Predicate Payments Unique Star Gift constructor.
+  const PaymentsUniqueStarGiftBase._() : super._();
+}
+
+/// Predicate Messages Web Page Preview.
+abstract class MessagesWebPagePreviewBase extends TlConstructor {
+  /// Predicate Messages Web Page Preview constructor.
+  const MessagesWebPagePreviewBase._() : super._();
+}
+
+/// Predicate Saved Star Gift.
+abstract class SavedStarGiftBase extends TlConstructor {
+  /// Predicate Saved Star Gift constructor.
+  const SavedStarGiftBase._() : super._();
+}
+
+/// Predicate Payments Saved Star Gifts.
+abstract class PaymentsSavedStarGiftsBase extends TlConstructor {
+  /// Predicate Payments Saved Star Gifts constructor.
+  const PaymentsSavedStarGiftsBase._() : super._();
+}
+
+/// Predicate Input Saved Star Gift.
+abstract class InputSavedStarGiftBase extends TlConstructor {
+  /// Predicate Input Saved Star Gift constructor.
+  const InputSavedStarGiftBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Withdrawal Url.
+abstract class PaymentsStarGiftWithdrawalUrlBase extends TlConstructor {
+  /// Predicate Payments Star Gift Withdrawal Url constructor.
+  const PaymentsStarGiftWithdrawalUrlBase._() : super._();
+}
+
+/// Predicate Paid Reaction Privacy.
+abstract class PaidReactionPrivacyBase extends TlConstructor {
+  /// Predicate Paid Reaction Privacy constructor.
+  const PaidReactionPrivacyBase._() : super._();
+}
+
+/// Predicate Account Paid Messages Revenue.
+abstract class AccountPaidMessagesRevenueBase extends TlConstructor {
+  /// Predicate Account Paid Messages Revenue constructor.
+  const AccountPaidMessagesRevenueBase._() : super._();
+}
+
+/// Predicate Requirement To Contact.
+abstract class RequirementToContactBase extends TlConstructor {
+  /// Predicate Requirement To Contact constructor.
+  const RequirementToContactBase._() : super._();
+}
+
+/// Predicate Business Bot Rights.
+abstract class BusinessBotRightsBase extends TlConstructor {
+  /// Predicate Business Bot Rights constructor.
+  const BusinessBotRightsBase._() : super._();
+}
+
+/// Predicate Disallowed Gifts Settings.
+abstract class DisallowedGiftsSettingsBase extends TlConstructor {
+  /// Predicate Disallowed Gifts Settings constructor.
+  const DisallowedGiftsSettingsBase._() : super._();
+}
+
+/// Predicate Sponsored Peer.
+abstract class SponsoredPeerBase extends TlConstructor {
+  /// Predicate Sponsored Peer constructor.
+  const SponsoredPeerBase._() : super._();
+}
+
+/// Predicate Contacts Sponsored Peers.
+abstract class ContactsSponsoredPeersBase extends TlConstructor {
+  /// Predicate Contacts Sponsored Peers constructor.
+  const ContactsSponsoredPeersBase._() : super._();
+}
+
+/// Predicate Star Gift Attribute Id.
+abstract class StarGiftAttributeIdBase extends TlConstructor {
+  /// Predicate Star Gift Attribute Id constructor.
+  const StarGiftAttributeIdBase._() : super._();
+}
+
+/// Predicate Star Gift Attribute Counter.
+abstract class StarGiftAttributeCounterBase extends TlConstructor {
+  /// Predicate Star Gift Attribute Counter constructor.
+  const StarGiftAttributeCounterBase._() : super._();
+}
+
+/// Predicate Payments Resale Star Gifts.
+abstract class PaymentsResaleStarGiftsBase extends TlConstructor {
+  /// Predicate Payments Resale Star Gifts constructor.
+  const PaymentsResaleStarGiftsBase._() : super._();
+}
+
+/// Predicate Stories Can Send Story Count.
+abstract class StoriesCanSendStoryCountBase extends TlConstructor {
+  /// Predicate Stories Can Send Story Count constructor.
+  const StoriesCanSendStoryCountBase._() : super._();
+}
+
+/// Predicate Pending Suggestion.
+abstract class PendingSuggestionBase extends TlConstructor {
+  /// Predicate Pending Suggestion constructor.
+  const PendingSuggestionBase._() : super._();
+}
+
+/// Predicate Todo Item.
+abstract class TodoItemBase extends TlConstructor {
+  /// Predicate Todo Item constructor.
+  const TodoItemBase._() : super._();
+}
+
+/// Predicate Todo List.
+abstract class TodoListBase extends TlConstructor {
+  /// Predicate Todo List constructor.
+  const TodoListBase._() : super._();
+}
+
+/// Predicate Todo Completion.
+abstract class TodoCompletionBase extends TlConstructor {
+  /// Predicate Todo Completion constructor.
+  const TodoCompletionBase._() : super._();
+}
+
+/// Predicate Suggested Post.
+abstract class SuggestedPostBase extends TlConstructor {
+  /// Predicate Suggested Post constructor.
+  const SuggestedPostBase._() : super._();
 }
 
 /// Predicate Decrypted Message.

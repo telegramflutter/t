@@ -1,3 +1,7 @@
+## 0.0.27
+
+- Updated to layer 207.
+
 ## 0.0.26
 
 - Moved AuthorizationKey and Session classes to `tg`.

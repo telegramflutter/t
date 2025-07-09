@@ -234,6 +234,22 @@ TlObject _readObject(BinaryReader reader) {
     return InputPeerChat.deserialize(reader);
   }
 
+  if (id == 0xdde8a54c) {
+    return InputPeerUser.deserialize(reader);
+  }
+
+  if (id == 0x27bcbbfc) {
+    return InputPeerChannel.deserialize(reader);
+  }
+
+  if (id == 0xa87b0a1c) {
+    return InputPeerUserFromMessage.deserialize(reader);
+  }
+
+  if (id == 0xbd2a0840) {
+    return InputPeerChannelFromMessage.deserialize(reader);
+  }
+
   if (id == 0xb98886cf) {
     return InputUserEmpty.deserialize(reader);
   }
@@ -242,12 +258,28 @@ TlObject _readObject(BinaryReader reader) {
     return InputUserSelf.deserialize(reader);
   }
 
+  if (id == 0xf21158c6) {
+    return InputUser.deserialize(reader);
+  }
+
+  if (id == 0x1da448e2) {
+    return InputUserFromMessage.deserialize(reader);
+  }
+
   if (id == 0xf392b7f4) {
     return InputPhoneContact.deserialize(reader);
   }
 
   if (id == 0xf52ff27f) {
     return InputFile.deserialize(reader);
+  }
+
+  if (id == 0xfa4f0bb5) {
+    return InputFileBig.deserialize(reader);
+  }
+
+  if (id == 0x62dc8b48) {
+    return InputFileStoryDocument.deserialize(reader);
   }
 
   if (id == 0x9664f57f) {
@@ -268,6 +300,62 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xf8ab7dfb) {
     return InputMediaContact.deserialize(reader);
+  }
+
+  if (id == 0x037c9330) {
+    return InputMediaUploadedDocument.deserialize(reader);
+  }
+
+  if (id == 0xa8763ab5) {
+    return InputMediaDocument.deserialize(reader);
+  }
+
+  if (id == 0xc13d1c11) {
+    return InputMediaVenue.deserialize(reader);
+  }
+
+  if (id == 0xe5bbfe1a) {
+    return InputMediaPhotoExternal.deserialize(reader);
+  }
+
+  if (id == 0x779600f9) {
+    return InputMediaDocumentExternal.deserialize(reader);
+  }
+
+  if (id == 0xd33f43f3) {
+    return InputMediaGame.deserialize(reader);
+  }
+
+  if (id == 0x405fef0d) {
+    return InputMediaInvoice.deserialize(reader);
+  }
+
+  if (id == 0x971fa843) {
+    return InputMediaGeoLive.deserialize(reader);
+  }
+
+  if (id == 0x0f94e5f1) {
+    return InputMediaPoll.deserialize(reader);
+  }
+
+  if (id == 0xe66fbf7b) {
+    return InputMediaDice.deserialize(reader);
+  }
+
+  if (id == 0x89fdd778) {
+    return InputMediaStory.deserialize(reader);
+  }
+
+  if (id == 0xc21b8849) {
+    return InputMediaWebPage.deserialize(reader);
+  }
+
+  if (id == 0xc4103386) {
+    return InputMediaPaidMedia.deserialize(reader);
+  }
+
+  if (id == 0x9fc55fde) {
+    return InputMediaTodo.deserialize(reader);
   }
 
   if (id == 0x1ca48f57) {
@@ -302,12 +390,52 @@ TlObject _readObject(BinaryReader reader) {
     return InputFileLocation.deserialize(reader);
   }
 
+  if (id == 0xf5235d55) {
+    return InputEncryptedFileLocation.deserialize(reader);
+  }
+
+  if (id == 0xbad07584) {
+    return InputDocumentFileLocation.deserialize(reader);
+  }
+
+  if (id == 0xcbc7ee28) {
+    return InputSecureFileLocation.deserialize(reader);
+  }
+
+  if (id == 0x29be5899) {
+    return InputTakeoutFileLocation.deserialize(reader);
+  }
+
+  if (id == 0x40181ffe) {
+    return InputPhotoFileLocation.deserialize(reader);
+  }
+
+  if (id == 0xd83466f3) {
+    return InputPhotoLegacyFileLocation.deserialize(reader);
+  }
+
+  if (id == 0x37257e99) {
+    return InputPeerPhotoFileLocation.deserialize(reader);
+  }
+
+  if (id == 0x9d84f3db) {
+    return InputStickerSetThumb.deserialize(reader);
+  }
+
+  if (id == 0x0598a92a) {
+    return InputGroupCallStream.deserialize(reader);
+  }
+
   if (id == 0x59511722) {
     return PeerUser.deserialize(reader);
   }
 
   if (id == 0x36c6019a) {
     return PeerChat.deserialize(reader);
+  }
+
+  if (id == 0xa2a5371e) {
+    return PeerChannel.deserialize(reader);
   }
 
   if (id == 0xaa963b05) {
@@ -354,6 +482,10 @@ TlObject _readObject(BinaryReader reader) {
     return UserEmpty.deserialize(reader);
   }
 
+  if (id == 0x020b1422) {
+    return User.deserialize(reader);
+  }
+
   if (id == 0x4f11bae1) {
     return UserProfilePhotoEmpty.deserialize(reader);
   }
@@ -374,6 +506,18 @@ TlObject _readObject(BinaryReader reader) {
     return UserStatusOffline.deserialize(reader);
   }
 
+  if (id == 0x7b197dc8) {
+    return UserStatusRecently.deserialize(reader);
+  }
+
+  if (id == 0x541a1d1a) {
+    return UserStatusLastWeek.deserialize(reader);
+  }
+
+  if (id == 0x65899777) {
+    return UserStatusLastMonth.deserialize(reader);
+  }
+
   if (id == 0x29562865) {
     return ChatEmpty.deserialize(reader);
   }
@@ -386,12 +530,32 @@ TlObject _readObject(BinaryReader reader) {
     return ChatForbidden.deserialize(reader);
   }
 
+  if (id == 0xfe685355) {
+    return Channel.deserialize(reader);
+  }
+
+  if (id == 0x17d493d5) {
+    return ChannelForbidden.deserialize(reader);
+  }
+
   if (id == 0x2633421b) {
     return ChatFull.deserialize(reader);
   }
 
+  if (id == 0xe07429de) {
+    return ChannelFull.deserialize(reader);
+  }
+
   if (id == 0xc02d4007) {
     return ChatParticipant.deserialize(reader);
+  }
+
+  if (id == 0xe46bcee4) {
+    return ChatParticipantCreator.deserialize(reader);
+  }
+
+  if (id == 0xa0933f5b) {
+    return ChatParticipantAdmin.deserialize(reader);
   }
 
   if (id == 0x8763d3e1) {
@@ -414,11 +578,11 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEmpty.deserialize(reader);
   }
 
-  if (id == 0x94345242) {
+  if (id == 0x9815cec8) {
     return Message.deserialize(reader);
   }
 
-  if (id == 0x2b085862) {
+  if (id == 0x7a800e0a) {
     return MessageService.deserialize(reader);
   }
 
@@ -440,6 +604,58 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x9f84f49e) {
     return MessageMediaUnsupported.deserialize(reader);
+  }
+
+  if (id == 0x52d8ccd9) {
+    return MessageMediaDocument.deserialize(reader);
+  }
+
+  if (id == 0xddf10c3b) {
+    return MessageMediaWebPage.deserialize(reader);
+  }
+
+  if (id == 0x2ec0533f) {
+    return MessageMediaVenue.deserialize(reader);
+  }
+
+  if (id == 0xfdb19008) {
+    return MessageMediaGame.deserialize(reader);
+  }
+
+  if (id == 0xf6a548d3) {
+    return MessageMediaInvoice.deserialize(reader);
+  }
+
+  if (id == 0xb940c666) {
+    return MessageMediaGeoLive.deserialize(reader);
+  }
+
+  if (id == 0x4bd6e798) {
+    return MessageMediaPoll.deserialize(reader);
+  }
+
+  if (id == 0x3f7ee58b) {
+    return MessageMediaDice.deserialize(reader);
+  }
+
+  if (id == 0x68cb6283) {
+    return MessageMediaStory.deserialize(reader);
+  }
+
+  if (id == 0xaa073beb) {
+    return MessageMediaGiveaway.deserialize(reader);
+  }
+
+  if (id == 0xceaa3ea1) {
+    return MessageMediaGiveawayResults.deserialize(reader);
+  }
+
+  if (id == 0xa8852491) {
+    return MessageMediaPaidMedia.deserialize(reader);
+  }
+
+  if (id == 0x8a53b014) {
+    return MessageMediaToDo.deserialize(reader);
   }
 
   if (id == 0xb6aef7b0) {
@@ -470,8 +686,212 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionChatDeleteUser.deserialize(reader);
   }
 
+  if (id == 0x031224c3) {
+    return MessageActionChatJoinedByLink.deserialize(reader);
+  }
+
+  if (id == 0x95d2ac92) {
+    return MessageActionChannelCreate.deserialize(reader);
+  }
+
+  if (id == 0xe1037f92) {
+    return MessageActionChatMigrateTo.deserialize(reader);
+  }
+
+  if (id == 0xea3948e9) {
+    return MessageActionChannelMigrateFrom.deserialize(reader);
+  }
+
+  if (id == 0x94bd38ed) {
+    return MessageActionPinMessage.deserialize(reader);
+  }
+
+  if (id == 0x9fbab604) {
+    return MessageActionHistoryClear.deserialize(reader);
+  }
+
+  if (id == 0x92a72876) {
+    return MessageActionGameScore.deserialize(reader);
+  }
+
+  if (id == 0xffa00ccc) {
+    return MessageActionPaymentSentMe.deserialize(reader);
+  }
+
+  if (id == 0xc624b16e) {
+    return MessageActionPaymentSent.deserialize(reader);
+  }
+
+  if (id == 0x80e11a7f) {
+    return MessageActionPhoneCall.deserialize(reader);
+  }
+
+  if (id == 0x4792929b) {
+    return MessageActionScreenshotTaken.deserialize(reader);
+  }
+
+  if (id == 0xfae69f56) {
+    return MessageActionCustomAction.deserialize(reader);
+  }
+
+  if (id == 0xc516d679) {
+    return MessageActionBotAllowed.deserialize(reader);
+  }
+
+  if (id == 0x1b287353) {
+    return MessageActionSecureValuesSentMe.deserialize(reader);
+  }
+
+  if (id == 0xd95c6154) {
+    return MessageActionSecureValuesSent.deserialize(reader);
+  }
+
+  if (id == 0xf3f25f76) {
+    return MessageActionContactSignUp.deserialize(reader);
+  }
+
+  if (id == 0x98e0d697) {
+    return MessageActionGeoProximityReached.deserialize(reader);
+  }
+
+  if (id == 0x7a0d7f42) {
+    return MessageActionGroupCall.deserialize(reader);
+  }
+
+  if (id == 0x502f92f7) {
+    return MessageActionInviteToGroupCall.deserialize(reader);
+  }
+
+  if (id == 0x3c134d7b) {
+    return MessageActionSetMessagesTTL.deserialize(reader);
+  }
+
+  if (id == 0xb3a07661) {
+    return MessageActionGroupCallScheduled.deserialize(reader);
+  }
+
+  if (id == 0xaa786345) {
+    return MessageActionSetChatTheme.deserialize(reader);
+  }
+
+  if (id == 0xebbca3cb) {
+    return MessageActionChatJoinedByRequest.deserialize(reader);
+  }
+
+  if (id == 0x47dd8079) {
+    return MessageActionWebViewDataSentMe.deserialize(reader);
+  }
+
+  if (id == 0xb4c38cb5) {
+    return MessageActionWebViewDataSent.deserialize(reader);
+  }
+
+  if (id == 0x6c6274fa) {
+    return MessageActionGiftPremium.deserialize(reader);
+  }
+
+  if (id == 0x0d999256) {
+    return MessageActionTopicCreate.deserialize(reader);
+  }
+
+  if (id == 0xc0944820) {
+    return MessageActionTopicEdit.deserialize(reader);
+  }
+
+  if (id == 0x57de635e) {
+    return MessageActionSuggestProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0x31518e9b) {
+    return MessageActionRequestedPeer.deserialize(reader);
+  }
+
+  if (id == 0x5060a3f4) {
+    return MessageActionSetChatWallPaper.deserialize(reader);
+  }
+
+  if (id == 0x56d03994) {
+    return MessageActionGiftCode.deserialize(reader);
+  }
+
+  if (id == 0xa80f51e4) {
+    return MessageActionGiveawayLaunch.deserialize(reader);
+  }
+
+  if (id == 0x87e2f155) {
+    return MessageActionGiveawayResults.deserialize(reader);
+  }
+
+  if (id == 0xcc02aa6d) {
+    return MessageActionBoostApply.deserialize(reader);
+  }
+
+  if (id == 0x93b31848) {
+    return MessageActionRequestedPeerSentMe.deserialize(reader);
+  }
+
+  if (id == 0x41b3e202) {
+    return MessageActionPaymentRefunded.deserialize(reader);
+  }
+
+  if (id == 0x45d5b021) {
+    return MessageActionGiftStars.deserialize(reader);
+  }
+
+  if (id == 0xb00c47a2) {
+    return MessageActionPrizeStars.deserialize(reader);
+  }
+
+  if (id == 0x4717e8a4) {
+    return MessageActionStarGift.deserialize(reader);
+  }
+
+  if (id == 0x2e3ae60e) {
+    return MessageActionStarGiftUnique.deserialize(reader);
+  }
+
+  if (id == 0xac1f1fcd) {
+    return MessageActionPaidMessagesRefunded.deserialize(reader);
+  }
+
+  if (id == 0x84b88578) {
+    return MessageActionPaidMessagesPrice.deserialize(reader);
+  }
+
+  if (id == 0x2ffe2f7a) {
+    return MessageActionConferenceCall.deserialize(reader);
+  }
+
+  if (id == 0xcc7c5c89) {
+    return MessageActionTodoCompletions.deserialize(reader);
+  }
+
+  if (id == 0xc7edbc83) {
+    return MessageActionTodoAppendTasks.deserialize(reader);
+  }
+
+  if (id == 0xee7a1596) {
+    return MessageActionSuggestedPostApproval.deserialize(reader);
+  }
+
+  if (id == 0x95ddcf69) {
+    return MessageActionSuggestedPostSuccess.deserialize(reader);
+  }
+
+  if (id == 0x69f916f8) {
+    return MessageActionSuggestedPostRefund.deserialize(reader);
+  }
+
+  if (id == 0xa8a3c699) {
+    return MessageActionGiftTon.deserialize(reader);
+  }
+
   if (id == 0xd58a08c6) {
     return Dialog.deserialize(reader);
+  }
+
+  if (id == 0x71bd134c) {
+    return DialogFolder.deserialize(reader);
   }
 
   if (id == 0x2331b22d) {
@@ -494,6 +914,18 @@ TlObject _readObject(BinaryReader reader) {
     return PhotoCachedSize.deserialize(reader);
   }
 
+  if (id == 0xe0b0bc2e) {
+    return PhotoStrippedSize.deserialize(reader);
+  }
+
+  if (id == 0xfa3efb95) {
+    return PhotoSizeProgressive.deserialize(reader);
+  }
+
+  if (id == 0xd8214d41) {
+    return PhotoPathSize.deserialize(reader);
+  }
+
   if (id == 0x1117dd5f) {
     return GeoPointEmpty.deserialize(reader);
   }
@@ -506,8 +938,20 @@ TlObject _readObject(BinaryReader reader) {
     return AuthSentCode.deserialize(reader);
   }
 
+  if (id == 0x2390fe44) {
+    return AuthSentCodeSuccess.deserialize(reader);
+  }
+
+  if (id == 0xd7cef980) {
+    return AuthSentCodePaymentRequired.deserialize(reader);
+  }
+
   if (id == 0x2ea2c0d4) {
     return AuthAuthorization.deserialize(reader);
+  }
+
+  if (id == 0x44747e9a) {
+    return AuthAuthorizationSignUpRequired.deserialize(reader);
   }
 
   if (id == 0xb434e2b8) {
@@ -526,6 +970,14 @@ TlObject _readObject(BinaryReader reader) {
     return InputNotifyChats.deserialize(reader);
   }
 
+  if (id == 0xb1db7c7e) {
+    return InputNotifyBroadcasts.deserialize(reader);
+  }
+
+  if (id == 0x5c467992) {
+    return InputNotifyForumTopic.deserialize(reader);
+  }
+
   if (id == 0xcacb6ae2) {
     return InputPeerNotifySettings.deserialize(reader);
   }
@@ -534,12 +986,16 @@ TlObject _readObject(BinaryReader reader) {
     return PeerNotifySettings.deserialize(reader);
   }
 
-  if (id == 0xacd66c5e) {
+  if (id == 0xf47741f7) {
     return PeerSettings.deserialize(reader);
   }
 
   if (id == 0xa437c3ed) {
     return WallPaper.deserialize(reader);
+  }
+
+  if (id == 0xe0804116) {
+    return WallPaperNoFile.deserialize(reader);
   }
 
   if (id == 0x58dbcab8) {
@@ -562,7 +1018,27 @@ TlObject _readObject(BinaryReader reader) {
     return InputReportReasonOther.deserialize(reader);
   }
 
-  if (id == 0x979d2376) {
+  if (id == 0x9b89f93a) {
+    return InputReportReasonCopyright.deserialize(reader);
+  }
+
+  if (id == 0xdbd4feed) {
+    return InputReportReasonGeoIrrelevant.deserialize(reader);
+  }
+
+  if (id == 0xf5ddd6e7) {
+    return InputReportReasonFake.deserialize(reader);
+  }
+
+  if (id == 0x0a8eb2be) {
+    return InputReportReasonIllegalDrugs.deserialize(reader);
+  }
+
+  if (id == 0x9ec7863d) {
+    return InputReportReasonPersonalDetails.deserialize(reader);
+  }
+
+  if (id == 0x99e78045) {
     return UserFull.deserialize(reader);
   }
 
@@ -606,6 +1082,10 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesDialogsSlice.deserialize(reader);
   }
 
+  if (id == 0xf0e3e596) {
+    return MessagesDialogsNotModified.deserialize(reader);
+  }
+
   if (id == 0x8c718e87) {
     return MessagesMessages.deserialize(reader);
   }
@@ -614,8 +1094,20 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesMessagesSlice.deserialize(reader);
   }
 
+  if (id == 0xc776ba4e) {
+    return MessagesChannelMessages.deserialize(reader);
+  }
+
+  if (id == 0x74535f21) {
+    return MessagesMessagesNotModified.deserialize(reader);
+  }
+
   if (id == 0x64ff9fd5) {
     return MessagesChats.deserialize(reader);
+  }
+
+  if (id == 0x9cd81144) {
+    return MessagesChatsSlice.deserialize(reader);
   }
 
   if (id == 0xe5d7d19c) {
@@ -654,6 +1146,46 @@ TlObject _readObject(BinaryReader reader) {
     return InputMessagesFilterGif.deserialize(reader);
   }
 
+  if (id == 0x50f5c392) {
+    return InputMessagesFilterVoice.deserialize(reader);
+  }
+
+  if (id == 0x3751b49e) {
+    return InputMessagesFilterMusic.deserialize(reader);
+  }
+
+  if (id == 0x3a20ecb8) {
+    return InputMessagesFilterChatPhotos.deserialize(reader);
+  }
+
+  if (id == 0x80c99768) {
+    return InputMessagesFilterPhoneCalls.deserialize(reader);
+  }
+
+  if (id == 0x7a7c17a4) {
+    return InputMessagesFilterRoundVoice.deserialize(reader);
+  }
+
+  if (id == 0xb549da53) {
+    return InputMessagesFilterRoundVideo.deserialize(reader);
+  }
+
+  if (id == 0xc1f8e69a) {
+    return InputMessagesFilterMyMentions.deserialize(reader);
+  }
+
+  if (id == 0xe7026d0d) {
+    return InputMessagesFilterGeo.deserialize(reader);
+  }
+
+  if (id == 0xe062db83) {
+    return InputMessagesFilterContacts.deserialize(reader);
+  }
+
+  if (id == 0x1bb00451) {
+    return InputMessagesFilterPinned.deserialize(reader);
+  }
+
   if (id == 0x1f2b0afd) {
     return UpdateNewMessage.deserialize(reader);
   }
@@ -690,6 +1222,550 @@ TlObject _readObject(BinaryReader reader) {
     return UpdateNewAuthorization.deserialize(reader);
   }
 
+  if (id == 0x12bcbd9a) {
+    return UpdateNewEncryptedMessage.deserialize(reader);
+  }
+
+  if (id == 0x1710f156) {
+    return UpdateEncryptedChatTyping.deserialize(reader);
+  }
+
+  if (id == 0xb4a2e88d) {
+    return UpdateEncryption.deserialize(reader);
+  }
+
+  if (id == 0x38fe25b7) {
+    return UpdateEncryptedMessagesRead.deserialize(reader);
+  }
+
+  if (id == 0x3dda5451) {
+    return UpdateChatParticipantAdd.deserialize(reader);
+  }
+
+  if (id == 0xe32f3d77) {
+    return UpdateChatParticipantDelete.deserialize(reader);
+  }
+
+  if (id == 0x8e5e9873) {
+    return UpdateDcOptions.deserialize(reader);
+  }
+
+  if (id == 0xbec268ef) {
+    return UpdateNotifySettings.deserialize(reader);
+  }
+
+  if (id == 0xebe46819) {
+    return UpdateServiceNotification.deserialize(reader);
+  }
+
+  if (id == 0xee3b272a) {
+    return UpdatePrivacy.deserialize(reader);
+  }
+
+  if (id == 0x05492a13) {
+    return UpdateUserPhone.deserialize(reader);
+  }
+
+  if (id == 0x9c974fdf) {
+    return UpdateReadHistoryInbox.deserialize(reader);
+  }
+
+  if (id == 0x2f2f21bf) {
+    return UpdateReadHistoryOutbox.deserialize(reader);
+  }
+
+  if (id == 0x7f891213) {
+    return UpdateWebPage.deserialize(reader);
+  }
+
+  if (id == 0xf8227181) {
+    return UpdateReadMessagesContents.deserialize(reader);
+  }
+
+  if (id == 0x108d941f) {
+    return UpdateChannelTooLong.deserialize(reader);
+  }
+
+  if (id == 0x635b4c09) {
+    return UpdateChannel.deserialize(reader);
+  }
+
+  if (id == 0x62ba04d9) {
+    return UpdateNewChannelMessage.deserialize(reader);
+  }
+
+  if (id == 0x922e6e10) {
+    return UpdateReadChannelInbox.deserialize(reader);
+  }
+
+  if (id == 0xc32d5b12) {
+    return UpdateDeleteChannelMessages.deserialize(reader);
+  }
+
+  if (id == 0xf226ac08) {
+    return UpdateChannelMessageViews.deserialize(reader);
+  }
+
+  if (id == 0xd7ca61a2) {
+    return UpdateChatParticipantAdmin.deserialize(reader);
+  }
+
+  if (id == 0x688a30aa) {
+    return UpdateNewStickerSet.deserialize(reader);
+  }
+
+  if (id == 0x0bb2d201) {
+    return UpdateStickerSetsOrder.deserialize(reader);
+  }
+
+  if (id == 0x31c24808) {
+    return UpdateStickerSets.deserialize(reader);
+  }
+
+  if (id == 0x9375341e) {
+    return UpdateSavedGifs.deserialize(reader);
+  }
+
+  if (id == 0x496f379c) {
+    return UpdateBotInlineQuery.deserialize(reader);
+  }
+
+  if (id == 0x12f12a07) {
+    return UpdateBotInlineSend.deserialize(reader);
+  }
+
+  if (id == 0x1b3f4df7) {
+    return UpdateEditChannelMessage.deserialize(reader);
+  }
+
+  if (id == 0xb9cfc48d) {
+    return UpdateBotCallbackQuery.deserialize(reader);
+  }
+
+  if (id == 0xe40370a3) {
+    return UpdateEditMessage.deserialize(reader);
+  }
+
+  if (id == 0x691e9052) {
+    return UpdateInlineBotCallbackQuery.deserialize(reader);
+  }
+
+  if (id == 0xb75f99a9) {
+    return UpdateReadChannelOutbox.deserialize(reader);
+  }
+
+  if (id == 0xedfc111e) {
+    return UpdateDraftMessage.deserialize(reader);
+  }
+
+  if (id == 0x571d2742) {
+    return UpdateReadFeaturedStickers.deserialize(reader);
+  }
+
+  if (id == 0x9a422c20) {
+    return UpdateRecentStickers.deserialize(reader);
+  }
+
+  if (id == 0xa229dd06) {
+    return UpdateConfig.deserialize(reader);
+  }
+
+  if (id == 0x3354678f) {
+    return UpdatePtsChanged.deserialize(reader);
+  }
+
+  if (id == 0x2f2ba99f) {
+    return UpdateChannelWebPage.deserialize(reader);
+  }
+
+  if (id == 0x6e6fe51c) {
+    return UpdateDialogPinned.deserialize(reader);
+  }
+
+  if (id == 0xfa0f3ca2) {
+    return UpdatePinnedDialogs.deserialize(reader);
+  }
+
+  if (id == 0x8317c0c3) {
+    return UpdateBotWebhookJSON.deserialize(reader);
+  }
+
+  if (id == 0x9b9240a6) {
+    return UpdateBotWebhookJSONQuery.deserialize(reader);
+  }
+
+  if (id == 0xb5aefd7d) {
+    return UpdateBotShippingQuery.deserialize(reader);
+  }
+
+  if (id == 0x8caa9a96) {
+    return UpdateBotPrecheckoutQuery.deserialize(reader);
+  }
+
+  if (id == 0xab0f6b1e) {
+    return UpdatePhoneCall.deserialize(reader);
+  }
+
+  if (id == 0x46560264) {
+    return UpdateLangPackTooLong.deserialize(reader);
+  }
+
+  if (id == 0x56022f4d) {
+    return UpdateLangPack.deserialize(reader);
+  }
+
+  if (id == 0xe511996d) {
+    return UpdateFavedStickers.deserialize(reader);
+  }
+
+  if (id == 0x25f324f7) {
+    return UpdateChannelReadMessagesContents.deserialize(reader);
+  }
+
+  if (id == 0x7084a7be) {
+    return UpdateContactsReset.deserialize(reader);
+  }
+
+  if (id == 0xb23fc698) {
+    return UpdateChannelAvailableMessages.deserialize(reader);
+  }
+
+  if (id == 0xb658f23e) {
+    return UpdateDialogUnreadMark.deserialize(reader);
+  }
+
+  if (id == 0xaca1657b) {
+    return UpdateMessagePoll.deserialize(reader);
+  }
+
+  if (id == 0x54c01850) {
+    return UpdateChatDefaultBannedRights.deserialize(reader);
+  }
+
+  if (id == 0x19360dc0) {
+    return UpdateFolderPeers.deserialize(reader);
+  }
+
+  if (id == 0x6a7e7366) {
+    return UpdatePeerSettings.deserialize(reader);
+  }
+
+  if (id == 0xb4afcfb0) {
+    return UpdatePeerLocated.deserialize(reader);
+  }
+
+  if (id == 0x39a51dfb) {
+    return UpdateNewScheduledMessage.deserialize(reader);
+  }
+
+  if (id == 0xf2a71983) {
+    return UpdateDeleteScheduledMessages.deserialize(reader);
+  }
+
+  if (id == 0x8216fba3) {
+    return UpdateTheme.deserialize(reader);
+  }
+
+  if (id == 0x871fb939) {
+    return UpdateGeoLiveViewed.deserialize(reader);
+  }
+
+  if (id == 0x564fe691) {
+    return UpdateLoginToken.deserialize(reader);
+  }
+
+  if (id == 0x24f40e77) {
+    return UpdateMessagePollVote.deserialize(reader);
+  }
+
+  if (id == 0x26ffde7d) {
+    return UpdateDialogFilter.deserialize(reader);
+  }
+
+  if (id == 0xa5d72105) {
+    return UpdateDialogFilterOrder.deserialize(reader);
+  }
+
+  if (id == 0x3504914f) {
+    return UpdateDialogFilters.deserialize(reader);
+  }
+
+  if (id == 0x2661bf09) {
+    return UpdatePhoneCallSignalingData.deserialize(reader);
+  }
+
+  if (id == 0xd29a27f4) {
+    return UpdateChannelMessageForwards.deserialize(reader);
+  }
+
+  if (id == 0xd6b19546) {
+    return UpdateReadChannelDiscussionInbox.deserialize(reader);
+  }
+
+  if (id == 0x695c9e7c) {
+    return UpdateReadChannelDiscussionOutbox.deserialize(reader);
+  }
+
+  if (id == 0xebe07752) {
+    return UpdatePeerBlocked.deserialize(reader);
+  }
+
+  if (id == 0x8c88c923) {
+    return UpdateChannelUserTyping.deserialize(reader);
+  }
+
+  if (id == 0xed85eab5) {
+    return UpdatePinnedMessages.deserialize(reader);
+  }
+
+  if (id == 0x5bb98608) {
+    return UpdatePinnedChannelMessages.deserialize(reader);
+  }
+
+  if (id == 0xf89a6a4e) {
+    return UpdateChat.deserialize(reader);
+  }
+
+  if (id == 0xf2ebdb4e) {
+    return UpdateGroupCallParticipants.deserialize(reader);
+  }
+
+  if (id == 0x97d64341) {
+    return UpdateGroupCall.deserialize(reader);
+  }
+
+  if (id == 0xbb9bb9a5) {
+    return UpdatePeerHistoryTTL.deserialize(reader);
+  }
+
+  if (id == 0xd087663a) {
+    return UpdateChatParticipant.deserialize(reader);
+  }
+
+  if (id == 0x985d3abb) {
+    return UpdateChannelParticipant.deserialize(reader);
+  }
+
+  if (id == 0xc4870a49) {
+    return UpdateBotStopped.deserialize(reader);
+  }
+
+  if (id == 0x0b783982) {
+    return UpdateGroupCallConnection.deserialize(reader);
+  }
+
+  if (id == 0x4d712f2e) {
+    return UpdateBotCommands.deserialize(reader);
+  }
+
+  if (id == 0x7063c3db) {
+    return UpdatePendingJoinRequests.deserialize(reader);
+  }
+
+  if (id == 0x11dfa986) {
+    return UpdateBotChatInviteRequester.deserialize(reader);
+  }
+
+  if (id == 0x1e297bfa) {
+    return UpdateMessageReactions.deserialize(reader);
+  }
+
+  if (id == 0x17b7a20b) {
+    return UpdateAttachMenuBots.deserialize(reader);
+  }
+
+  if (id == 0x1592b79d) {
+    return UpdateWebViewResultSent.deserialize(reader);
+  }
+
+  if (id == 0x14b85813) {
+    return UpdateBotMenuButton.deserialize(reader);
+  }
+
+  if (id == 0x74d8be99) {
+    return UpdateSavedRingtones.deserialize(reader);
+  }
+
+  if (id == 0x0084cd5a) {
+    return UpdateTranscribedAudio.deserialize(reader);
+  }
+
+  if (id == 0xfb4c496c) {
+    return UpdateReadFeaturedEmojiStickers.deserialize(reader);
+  }
+
+  if (id == 0x28373599) {
+    return UpdateUserEmojiStatus.deserialize(reader);
+  }
+
+  if (id == 0x30f443db) {
+    return UpdateRecentEmojiStatuses.deserialize(reader);
+  }
+
+  if (id == 0x6f7863f4) {
+    return UpdateRecentReactions.deserialize(reader);
+  }
+
+  if (id == 0x86fccf85) {
+    return UpdateMoveStickerSetToTop.deserialize(reader);
+  }
+
+  if (id == 0xd5a41724) {
+    return UpdateMessageExtendedMedia.deserialize(reader);
+  }
+
+  if (id == 0x192efbe3) {
+    return UpdateChannelPinnedTopic.deserialize(reader);
+  }
+
+  if (id == 0xfe198602) {
+    return UpdateChannelPinnedTopics.deserialize(reader);
+  }
+
+  if (id == 0x20529438) {
+    return UpdateUser.deserialize(reader);
+  }
+
+  if (id == 0xec05b097) {
+    return UpdateAutoSaveSettings.deserialize(reader);
+  }
+
+  if (id == 0x75b3b798) {
+    return UpdateStory.deserialize(reader);
+  }
+
+  if (id == 0xf74e932b) {
+    return UpdateReadStories.deserialize(reader);
+  }
+
+  if (id == 0x1bf335b9) {
+    return UpdateStoryID.deserialize(reader);
+  }
+
+  if (id == 0x2c084dc1) {
+    return UpdateStoriesStealthMode.deserialize(reader);
+  }
+
+  if (id == 0x7d627683) {
+    return UpdateSentStoryReaction.deserialize(reader);
+  }
+
+  if (id == 0x904dd49c) {
+    return UpdateBotChatBoost.deserialize(reader);
+  }
+
+  if (id == 0x07b68920) {
+    return UpdateChannelViewForumAsMessages.deserialize(reader);
+  }
+
+  if (id == 0xae3f101d) {
+    return UpdatePeerWallpaper.deserialize(reader);
+  }
+
+  if (id == 0xac21d3ce) {
+    return UpdateBotMessageReaction.deserialize(reader);
+  }
+
+  if (id == 0x09cb7759) {
+    return UpdateBotMessageReactions.deserialize(reader);
+  }
+
+  if (id == 0xaeaf9e74) {
+    return UpdateSavedDialogPinned.deserialize(reader);
+  }
+
+  if (id == 0x686c85a6) {
+    return UpdatePinnedSavedDialogs.deserialize(reader);
+  }
+
+  if (id == 0x39c67432) {
+    return UpdateSavedReactionTags.deserialize(reader);
+  }
+
+  if (id == 0xf16269d4) {
+    return UpdateSmsJob.deserialize(reader);
+  }
+
+  if (id == 0xf9470ab2) {
+    return UpdateQuickReplies.deserialize(reader);
+  }
+
+  if (id == 0xf53da717) {
+    return UpdateNewQuickReply.deserialize(reader);
+  }
+
+  if (id == 0x53e6f1ec) {
+    return UpdateDeleteQuickReply.deserialize(reader);
+  }
+
+  if (id == 0x3e050d0f) {
+    return UpdateQuickReplyMessage.deserialize(reader);
+  }
+
+  if (id == 0x566fe7cd) {
+    return UpdateDeleteQuickReplyMessages.deserialize(reader);
+  }
+
+  if (id == 0x8ae5c97a) {
+    return UpdateBotBusinessConnect.deserialize(reader);
+  }
+
+  if (id == 0x9ddb347c) {
+    return UpdateBotNewBusinessMessage.deserialize(reader);
+  }
+
+  if (id == 0x07df587c) {
+    return UpdateBotEditBusinessMessage.deserialize(reader);
+  }
+
+  if (id == 0xa02a982e) {
+    return UpdateBotDeleteBusinessMessage.deserialize(reader);
+  }
+
+  if (id == 0x1824e40b) {
+    return UpdateNewStoryReaction.deserialize(reader);
+  }
+
+  if (id == 0x4e80a379) {
+    return UpdateStarsBalance.deserialize(reader);
+  }
+
+  if (id == 0x1ea2fda7) {
+    return UpdateBusinessBotCallbackQuery.deserialize(reader);
+  }
+
+  if (id == 0xa584b019) {
+    return UpdateStarsRevenueStatus.deserialize(reader);
+  }
+
+  if (id == 0x283bd312) {
+    return UpdateBotPurchasedPaidMedia.deserialize(reader);
+  }
+
+  if (id == 0x8b725fce) {
+    return UpdatePaidReactionPrivacy.deserialize(reader);
+  }
+
+  if (id == 0x504aa18f) {
+    return UpdateSentPhoneCode.deserialize(reader);
+  }
+
+  if (id == 0xa477288f) {
+    return UpdateGroupCallChainBlocks.deserialize(reader);
+  }
+
+  if (id == 0x77b0e372) {
+    return UpdateReadMonoForumInbox.deserialize(reader);
+  }
+
+  if (id == 0xa4a79376) {
+    return UpdateReadMonoForumOutbox.deserialize(reader);
+  }
+
+  if (id == 0x9f812b08) {
+    return UpdateMonoForumNoPaidException.deserialize(reader);
+  }
+
   if (id == 0xa56c2a3e) {
     return UpdatesState.deserialize(reader);
   }
@@ -704,6 +1780,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xa8fb1981) {
     return UpdatesDifferenceSlice.deserialize(reader);
+  }
+
+  if (id == 0x4afe8f6d) {
+    return UpdatesDifferenceTooLong.deserialize(reader);
   }
 
   if (id == 0xe317af7e) {
@@ -730,6 +1810,10 @@ TlObject _readObject(BinaryReader reader) {
     return Updates.deserialize(reader);
   }
 
+  if (id == 0x9015e101) {
+    return UpdateShortSentMessage.deserialize(reader);
+  }
+
   if (id == 0x8dca6aa5) {
     return PhotosPhotos.deserialize(reader);
   }
@@ -744,6 +1828,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x096a18d5) {
     return UploadFile.deserialize(reader);
+  }
+
+  if (id == 0xf18cda44) {
+    return UploadFileCdnRedirect.deserialize(reader);
   }
 
   if (id == 0x18b7a10d) {
@@ -768,22 +1856,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x18cb9f78) {
     return HelpInviteText.deserialize(reader);
-  }
-
-  if (id == 0x12bcbd9a) {
-    return UpdateNewEncryptedMessage.deserialize(reader);
-  }
-
-  if (id == 0x1710f156) {
-    return UpdateEncryptedChatTyping.deserialize(reader);
-  }
-
-  if (id == 0xb4a2e88d) {
-    return UpdateEncryption.deserialize(reader);
-  }
-
-  if (id == 0x38fe25b7) {
-    return UpdateEncryptedMessagesRead.deserialize(reader);
   }
 
   if (id == 0xab7ec0a0) {
@@ -830,8 +1902,8 @@ TlObject _readObject(BinaryReader reader) {
     return InputEncryptedFile.deserialize(reader);
   }
 
-  if (id == 0xf5235d55) {
-    return InputEncryptedFileLocation.deserialize(reader);
+  if (id == 0x2dc173c8) {
+    return InputEncryptedFileBigUploaded.deserialize(reader);
   }
 
   if (id == 0xed18c118) {
@@ -858,48 +1930,12 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSentEncryptedFile.deserialize(reader);
   }
 
-  if (id == 0xfa4f0bb5) {
-    return InputFileBig.deserialize(reader);
-  }
-
-  if (id == 0x2dc173c8) {
-    return InputEncryptedFileBigUploaded.deserialize(reader);
-  }
-
-  if (id == 0x3dda5451) {
-    return UpdateChatParticipantAdd.deserialize(reader);
-  }
-
-  if (id == 0xe32f3d77) {
-    return UpdateChatParticipantDelete.deserialize(reader);
-  }
-
-  if (id == 0x8e5e9873) {
-    return UpdateDcOptions.deserialize(reader);
-  }
-
-  if (id == 0x5b38c6c1) {
-    return InputMediaUploadedDocument.deserialize(reader);
-  }
-
-  if (id == 0x33473058) {
-    return InputMediaDocument.deserialize(reader);
-  }
-
-  if (id == 0xdd570bd5) {
-    return MessageMediaDocument.deserialize(reader);
-  }
-
   if (id == 0x72f0eaae) {
     return InputDocumentEmpty.deserialize(reader);
   }
 
   if (id == 0x1abfb575) {
     return InputDocument.deserialize(reader);
-  }
-
-  if (id == 0xbad07584) {
-    return InputDocumentFileLocation.deserialize(reader);
   }
 
   if (id == 0x36f8c871) {
@@ -926,8 +1962,12 @@ TlObject _readObject(BinaryReader reader) {
     return NotifyChats.deserialize(reader);
   }
 
-  if (id == 0xbec268ef) {
-    return UpdateNotifySettings.deserialize(reader);
+  if (id == 0xd612e8ef) {
+    return NotifyBroadcasts.deserialize(reader);
+  }
+
+  if (id == 0x226e6308) {
+    return NotifyForumTopic.deserialize(reader);
   }
 
   if (id == 0x16bf744e) {
@@ -970,36 +2010,144 @@ TlObject _readObject(BinaryReader reader) {
     return SendMessageChooseContactAction.deserialize(reader);
   }
 
+  if (id == 0xdd6a8f48) {
+    return SendMessageGamePlayAction.deserialize(reader);
+  }
+
+  if (id == 0x88f27fbc) {
+    return SendMessageRecordRoundAction.deserialize(reader);
+  }
+
+  if (id == 0x243e1c66) {
+    return SendMessageUploadRoundAction.deserialize(reader);
+  }
+
+  if (id == 0xd92c2285) {
+    return SpeakingInGroupCallAction.deserialize(reader);
+  }
+
+  if (id == 0xdbda9246) {
+    return SendMessageHistoryImportAction.deserialize(reader);
+  }
+
+  if (id == 0xb05ac6b1) {
+    return SendMessageChooseStickerAction.deserialize(reader);
+  }
+
+  if (id == 0x25972bcb) {
+    return SendMessageEmojiInteraction.deserialize(reader);
+  }
+
+  if (id == 0xb665902e) {
+    return SendMessageEmojiInteractionSeen.deserialize(reader);
+  }
+
   if (id == 0xb3134d9d) {
     return ContactsFound.deserialize(reader);
-  }
-
-  if (id == 0xebe46819) {
-    return UpdateServiceNotification.deserialize(reader);
-  }
-
-  if (id == 0x7b197dc8) {
-    return UserStatusRecently.deserialize(reader);
-  }
-
-  if (id == 0x541a1d1a) {
-    return UserStatusLastWeek.deserialize(reader);
-  }
-
-  if (id == 0x65899777) {
-    return UserStatusLastMonth.deserialize(reader);
-  }
-
-  if (id == 0xee3b272a) {
-    return UpdatePrivacy.deserialize(reader);
   }
 
   if (id == 0x4f96cb18) {
     return InputPrivacyKeyStatusTimestamp.deserialize(reader);
   }
 
+  if (id == 0xbdfb0426) {
+    return InputPrivacyKeyChatInvite.deserialize(reader);
+  }
+
+  if (id == 0xfabadc5f) {
+    return InputPrivacyKeyPhoneCall.deserialize(reader);
+  }
+
+  if (id == 0xdb9e70d2) {
+    return InputPrivacyKeyPhoneP2P.deserialize(reader);
+  }
+
+  if (id == 0xa4dd4c08) {
+    return InputPrivacyKeyForwards.deserialize(reader);
+  }
+
+  if (id == 0x5719bacc) {
+    return InputPrivacyKeyProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0x0352dafa) {
+    return InputPrivacyKeyPhoneNumber.deserialize(reader);
+  }
+
+  if (id == 0xd1219bdd) {
+    return InputPrivacyKeyAddedByPhone.deserialize(reader);
+  }
+
+  if (id == 0xaee69d68) {
+    return InputPrivacyKeyVoiceMessages.deserialize(reader);
+  }
+
+  if (id == 0x3823cc40) {
+    return InputPrivacyKeyAbout.deserialize(reader);
+  }
+
+  if (id == 0xd65a11cc) {
+    return InputPrivacyKeyBirthday.deserialize(reader);
+  }
+
+  if (id == 0xe1732341) {
+    return InputPrivacyKeyStarGiftsAutoSave.deserialize(reader);
+  }
+
+  if (id == 0xbdc597b4) {
+    return InputPrivacyKeyNoPaidMessages.deserialize(reader);
+  }
+
   if (id == 0xbc2eab30) {
     return PrivacyKeyStatusTimestamp.deserialize(reader);
+  }
+
+  if (id == 0x500e6dfa) {
+    return PrivacyKeyChatInvite.deserialize(reader);
+  }
+
+  if (id == 0x3d662b7b) {
+    return PrivacyKeyPhoneCall.deserialize(reader);
+  }
+
+  if (id == 0x39491cc8) {
+    return PrivacyKeyPhoneP2P.deserialize(reader);
+  }
+
+  if (id == 0x69ec56a3) {
+    return PrivacyKeyForwards.deserialize(reader);
+  }
+
+  if (id == 0x96151fed) {
+    return PrivacyKeyProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0xd19ae46d) {
+    return PrivacyKeyPhoneNumber.deserialize(reader);
+  }
+
+  if (id == 0x42ffd42b) {
+    return PrivacyKeyAddedByPhone.deserialize(reader);
+  }
+
+  if (id == 0x0697f414) {
+    return PrivacyKeyVoiceMessages.deserialize(reader);
+  }
+
+  if (id == 0xa486b761) {
+    return PrivacyKeyAbout.deserialize(reader);
+  }
+
+  if (id == 0x2000a518) {
+    return PrivacyKeyBirthday.deserialize(reader);
+  }
+
+  if (id == 0x2ca4fdf8) {
+    return PrivacyKeyStarGiftsAutoSave.deserialize(reader);
+  }
+
+  if (id == 0x17d348d2) {
+    return PrivacyKeyNoPaidMessages.deserialize(reader);
   }
 
   if (id == 0x0d09e07b) {
@@ -1026,6 +2174,30 @@ TlObject _readObject(BinaryReader reader) {
     return InputPrivacyValueDisallowUsers.deserialize(reader);
   }
 
+  if (id == 0x840649cf) {
+    return InputPrivacyValueAllowChatParticipants.deserialize(reader);
+  }
+
+  if (id == 0xe94f0f86) {
+    return InputPrivacyValueDisallowChatParticipants.deserialize(reader);
+  }
+
+  if (id == 0x2f453e49) {
+    return InputPrivacyValueAllowCloseFriends.deserialize(reader);
+  }
+
+  if (id == 0x77cdc9f1) {
+    return InputPrivacyValueAllowPremium.deserialize(reader);
+  }
+
+  if (id == 0x5a4fcce5) {
+    return InputPrivacyValueAllowBots.deserialize(reader);
+  }
+
+  if (id == 0xc4e57915) {
+    return InputPrivacyValueDisallowBots.deserialize(reader);
+  }
+
   if (id == 0xfffe1bac) {
     return PrivacyValueAllowContacts.deserialize(reader);
   }
@@ -1050,16 +2222,36 @@ TlObject _readObject(BinaryReader reader) {
     return PrivacyValueDisallowUsers.deserialize(reader);
   }
 
+  if (id == 0x6b134e8e) {
+    return PrivacyValueAllowChatParticipants.deserialize(reader);
+  }
+
+  if (id == 0x41c87565) {
+    return PrivacyValueDisallowChatParticipants.deserialize(reader);
+  }
+
+  if (id == 0xf7e8d89b) {
+    return PrivacyValueAllowCloseFriends.deserialize(reader);
+  }
+
+  if (id == 0xece9814b) {
+    return PrivacyValueAllowPremium.deserialize(reader);
+  }
+
+  if (id == 0x21461b5d) {
+    return PrivacyValueAllowBots.deserialize(reader);
+  }
+
+  if (id == 0xf6a5f82f) {
+    return PrivacyValueDisallowBots.deserialize(reader);
+  }
+
   if (id == 0x50a04e45) {
     return AccountPrivacyRules.deserialize(reader);
   }
 
   if (id == 0xb8d0afdf) {
     return AccountDaysTTL.deserialize(reader);
-  }
-
-  if (id == 0x05492a13) {
-    return UpdateUserPhone.deserialize(reader);
   }
 
   if (id == 0x6c37c15c) {
@@ -1086,6 +2278,14 @@ TlObject _readObject(BinaryReader reader) {
     return DocumentAttributeFilename.deserialize(reader);
   }
 
+  if (id == 0x9801d2f7) {
+    return DocumentAttributeHasStickers.deserialize(reader);
+  }
+
+  if (id == 0xfd149899) {
+    return DocumentAttributeCustomEmoji.deserialize(reader);
+  }
+
   if (id == 0xf1749a22) {
     return MessagesStickersNotModified.deserialize(reader);
   }
@@ -1106,20 +2306,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesAllStickers.deserialize(reader);
   }
 
-  if (id == 0x9c974fdf) {
-    return UpdateReadHistoryInbox.deserialize(reader);
-  }
-
-  if (id == 0x2f2f21bf) {
-    return UpdateReadHistoryOutbox.deserialize(reader);
-  }
-
   if (id == 0x84d19185) {
     return MessagesAffectedMessages.deserialize(reader);
-  }
-
-  if (id == 0x7f891213) {
-    return UpdateWebPage.deserialize(reader);
   }
 
   if (id == 0x211a1788) {
@@ -1134,8 +2322,8 @@ TlObject _readObject(BinaryReader reader) {
     return WebPage.deserialize(reader);
   }
 
-  if (id == 0xddf10c3b) {
-    return MessageMediaWebPage.deserialize(reader);
+  if (id == 0x7311ca11) {
+    return WebPageNotModified.deserialize(reader);
   }
 
   if (id == 0xad01d61d) {
@@ -1162,14 +2350,6 @@ TlObject _readObject(BinaryReader reader) {
     return AuthPasswordRecovery.deserialize(reader);
   }
 
-  if (id == 0xc13d1c11) {
-    return InputMediaVenue.deserialize(reader);
-  }
-
-  if (id == 0x2ec0533f) {
-    return MessageMediaVenue.deserialize(reader);
-  }
-
   if (id == 0xa384b779) {
     return ReceivedNotifyMessage.deserialize(reader);
   }
@@ -1178,20 +2358,20 @@ TlObject _readObject(BinaryReader reader) {
     return ChatInviteExported.deserialize(reader);
   }
 
+  if (id == 0xed107ab7) {
+    return ChatInvitePublicJoinRequests.deserialize(reader);
+  }
+
   if (id == 0x5a686d7c) {
     return ChatInviteAlready.deserialize(reader);
   }
 
-  if (id == 0xfe65389d) {
+  if (id == 0x5c9d3702) {
     return ChatInvite.deserialize(reader);
   }
 
-  if (id == 0x031224c3) {
-    return MessageActionChatJoinedByLink.deserialize(reader);
-  }
-
-  if (id == 0xf8227181) {
-    return UpdateReadMessagesContents.deserialize(reader);
+  if (id == 0x61695cb0) {
+    return ChatInvitePeek.deserialize(reader);
   }
 
   if (id == 0xffb62b95) {
@@ -1206,6 +2386,42 @@ TlObject _readObject(BinaryReader reader) {
     return InputStickerSetShortName.deserialize(reader);
   }
 
+  if (id == 0x028703c8) {
+    return InputStickerSetAnimatedEmoji.deserialize(reader);
+  }
+
+  if (id == 0xe67f520e) {
+    return InputStickerSetDice.deserialize(reader);
+  }
+
+  if (id == 0x0cde3739) {
+    return InputStickerSetAnimatedEmojiAnimations.deserialize(reader);
+  }
+
+  if (id == 0xc88b3b02) {
+    return InputStickerSetPremiumGifts.deserialize(reader);
+  }
+
+  if (id == 0x04c4d4ce) {
+    return InputStickerSetEmojiGenericAnimations.deserialize(reader);
+  }
+
+  if (id == 0x29d0f5ee) {
+    return InputStickerSetEmojiDefaultStatuses.deserialize(reader);
+  }
+
+  if (id == 0x44c1f8e9) {
+    return InputStickerSetEmojiDefaultTopicIcons.deserialize(reader);
+  }
+
+  if (id == 0x49748553) {
+    return InputStickerSetEmojiChannelDefaultStatuses.deserialize(reader);
+  }
+
+  if (id == 0x1cf671a0) {
+    return InputStickerSetTonGifts.deserialize(reader);
+  }
+
   if (id == 0x2dd14edc) {
     return StickerSet.deserialize(reader);
   }
@@ -1214,20 +2430,88 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesStickerSet.deserialize(reader);
   }
 
-  if (id == 0x83314fca) {
-    return User.deserialize(reader);
+  if (id == 0xd3f924eb) {
+    return MessagesStickerSetNotModified.deserialize(reader);
   }
 
   if (id == 0xc27ac8c7) {
     return BotCommand.deserialize(reader);
   }
 
-  if (id == 0x36607333) {
+  if (id == 0x4d8a0299) {
     return BotInfo.deserialize(reader);
   }
 
   if (id == 0xa2fa4880) {
     return KeyboardButton.deserialize(reader);
+  }
+
+  if (id == 0x258aff05) {
+    return KeyboardButtonUrl.deserialize(reader);
+  }
+
+  if (id == 0x35bbdb6b) {
+    return KeyboardButtonCallback.deserialize(reader);
+  }
+
+  if (id == 0xb16a6c29) {
+    return KeyboardButtonRequestPhone.deserialize(reader);
+  }
+
+  if (id == 0xfc796b3f) {
+    return KeyboardButtonRequestGeoLocation.deserialize(reader);
+  }
+
+  if (id == 0x93b9fbb5) {
+    return KeyboardButtonSwitchInline.deserialize(reader);
+  }
+
+  if (id == 0x50f41ccf) {
+    return KeyboardButtonGame.deserialize(reader);
+  }
+
+  if (id == 0xafd93fbb) {
+    return KeyboardButtonBuy.deserialize(reader);
+  }
+
+  if (id == 0x10b78d29) {
+    return KeyboardButtonUrlAuth.deserialize(reader);
+  }
+
+  if (id == 0xd02e7fd4) {
+    return InputKeyboardButtonUrlAuth.deserialize(reader);
+  }
+
+  if (id == 0xbbc7515d) {
+    return KeyboardButtonRequestPoll.deserialize(reader);
+  }
+
+  if (id == 0xe988037b) {
+    return InputKeyboardButtonUserProfile.deserialize(reader);
+  }
+
+  if (id == 0x308660c1) {
+    return KeyboardButtonUserProfile.deserialize(reader);
+  }
+
+  if (id == 0x13767230) {
+    return KeyboardButtonWebView.deserialize(reader);
+  }
+
+  if (id == 0xa0c0505c) {
+    return KeyboardButtonSimpleWebView.deserialize(reader);
+  }
+
+  if (id == 0x53d7bfd8) {
+    return KeyboardButtonRequestPeer.deserialize(reader);
+  }
+
+  if (id == 0xc9662d05) {
+    return InputKeyboardButtonRequestPeer.deserialize(reader);
+  }
+
+  if (id == 0x75d2698e) {
+    return KeyboardButtonCopy.deserialize(reader);
   }
 
   if (id == 0x77608b83) {
@@ -1246,12 +2530,8 @@ TlObject _readObject(BinaryReader reader) {
     return ReplyKeyboardMarkup.deserialize(reader);
   }
 
-  if (id == 0xdde8a54c) {
-    return InputPeerUser.deserialize(reader);
-  }
-
-  if (id == 0xf21158c6) {
-    return InputUser.deserialize(reader);
+  if (id == 0x48a30254) {
+    return ReplyInlineMarkup.deserialize(reader);
   }
 
   if (id == 0xbb92ba95) {
@@ -1298,8 +2578,44 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEntityTextUrl.deserialize(reader);
   }
 
-  if (id == 0x9015e101) {
-    return UpdateShortSentMessage.deserialize(reader);
+  if (id == 0xdc7b1140) {
+    return MessageEntityMentionName.deserialize(reader);
+  }
+
+  if (id == 0x208e68c9) {
+    return InputMessageEntityMentionName.deserialize(reader);
+  }
+
+  if (id == 0x9b69e34b) {
+    return MessageEntityPhone.deserialize(reader);
+  }
+
+  if (id == 0x4c4e743f) {
+    return MessageEntityCashtag.deserialize(reader);
+  }
+
+  if (id == 0x9c4e7e8b) {
+    return MessageEntityUnderline.deserialize(reader);
+  }
+
+  if (id == 0xbf0693d4) {
+    return MessageEntityStrike.deserialize(reader);
+  }
+
+  if (id == 0x761e6af4) {
+    return MessageEntityBankCard.deserialize(reader);
+  }
+
+  if (id == 0x32ca960f) {
+    return MessageEntitySpoiler.deserialize(reader);
+  }
+
+  if (id == 0xc8cf05f8) {
+    return MessageEntityCustomEmoji.deserialize(reader);
+  }
+
+  if (id == 0xf1ccaaac) {
+    return MessageEntityBlockquote.deserialize(reader);
   }
 
   if (id == 0xee8c1e86) {
@@ -1310,64 +2626,16 @@ TlObject _readObject(BinaryReader reader) {
     return InputChannel.deserialize(reader);
   }
 
-  if (id == 0xa2a5371e) {
-    return PeerChannel.deserialize(reader);
-  }
-
-  if (id == 0x27bcbbfc) {
-    return InputPeerChannel.deserialize(reader);
-  }
-
-  if (id == 0xfe4478bd) {
-    return Channel.deserialize(reader);
-  }
-
-  if (id == 0x17d493d5) {
-    return ChannelForbidden.deserialize(reader);
+  if (id == 0x5b934f9d) {
+    return InputChannelFromMessage.deserialize(reader);
   }
 
   if (id == 0x7f077ad9) {
     return ContactsResolvedPeer.deserialize(reader);
   }
 
-  if (id == 0xbbab348d) {
-    return ChannelFull.deserialize(reader);
-  }
-
   if (id == 0x0ae30253) {
     return MessageRange.deserialize(reader);
-  }
-
-  if (id == 0xc776ba4e) {
-    return MessagesChannelMessages.deserialize(reader);
-  }
-
-  if (id == 0x95d2ac92) {
-    return MessageActionChannelCreate.deserialize(reader);
-  }
-
-  if (id == 0x108d941f) {
-    return UpdateChannelTooLong.deserialize(reader);
-  }
-
-  if (id == 0x635b4c09) {
-    return UpdateChannel.deserialize(reader);
-  }
-
-  if (id == 0x62ba04d9) {
-    return UpdateNewChannelMessage.deserialize(reader);
-  }
-
-  if (id == 0x922e6e10) {
-    return UpdateReadChannelInbox.deserialize(reader);
-  }
-
-  if (id == 0xc32d5b12) {
-    return UpdateDeleteChannelMessages.deserialize(reader);
-  }
-
-  if (id == 0xf226ac08) {
-    return UpdateChannelMessageViews.deserialize(reader);
   }
 
   if (id == 0x3e11affb) {
@@ -1402,6 +2670,18 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelParticipantCreator.deserialize(reader);
   }
 
+  if (id == 0x34c3bb53) {
+    return ChannelParticipantAdmin.deserialize(reader);
+  }
+
+  if (id == 0x6df8014e) {
+    return ChannelParticipantBanned.deserialize(reader);
+  }
+
+  if (id == 0x1b03f006) {
+    return ChannelParticipantLeft.deserialize(reader);
+  }
+
   if (id == 0xde3f3c79) {
     return ChannelParticipantsRecent.deserialize(reader);
   }
@@ -1414,52 +2694,40 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelParticipantsKicked.deserialize(reader);
   }
 
+  if (id == 0xb0d1865b) {
+    return ChannelParticipantsBots.deserialize(reader);
+  }
+
+  if (id == 0x1427a5e1) {
+    return ChannelParticipantsBanned.deserialize(reader);
+  }
+
+  if (id == 0x0656ac4b) {
+    return ChannelParticipantsSearch.deserialize(reader);
+  }
+
+  if (id == 0xbb6ae88d) {
+    return ChannelParticipantsContacts.deserialize(reader);
+  }
+
+  if (id == 0xe04b5ceb) {
+    return ChannelParticipantsMentions.deserialize(reader);
+  }
+
   if (id == 0x9ab0feaf) {
     return ChannelsChannelParticipants.deserialize(reader);
+  }
+
+  if (id == 0xf0173fe9) {
+    return ChannelsChannelParticipantsNotModified.deserialize(reader);
   }
 
   if (id == 0xdfb80317) {
     return ChannelsChannelParticipant.deserialize(reader);
   }
 
-  if (id == 0xe46bcee4) {
-    return ChatParticipantCreator.deserialize(reader);
-  }
-
-  if (id == 0xa0933f5b) {
-    return ChatParticipantAdmin.deserialize(reader);
-  }
-
-  if (id == 0xd7ca61a2) {
-    return UpdateChatParticipantAdmin.deserialize(reader);
-  }
-
-  if (id == 0xe1037f92) {
-    return MessageActionChatMigrateTo.deserialize(reader);
-  }
-
-  if (id == 0xea3948e9) {
-    return MessageActionChannelMigrateFrom.deserialize(reader);
-  }
-
-  if (id == 0xb0d1865b) {
-    return ChannelParticipantsBots.deserialize(reader);
-  }
-
   if (id == 0x780a0310) {
     return HelpTermsOfService.deserialize(reader);
-  }
-
-  if (id == 0x688a30aa) {
-    return UpdateNewStickerSet.deserialize(reader);
-  }
-
-  if (id == 0x0bb2d201) {
-    return UpdateStickerSetsOrder.deserialize(reader);
-  }
-
-  if (id == 0x31c24808) {
-    return UpdateStickerSets.deserialize(reader);
   }
 
   if (id == 0xe8025ca2) {
@@ -1470,10 +2738,6 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSavedGifs.deserialize(reader);
   }
 
-  if (id == 0x9375341e) {
-    return UpdateSavedGifs.deserialize(reader);
-  }
-
   if (id == 0x3380c786) {
     return InputBotInlineMessageMediaAuto.deserialize(reader);
   }
@@ -1482,8 +2746,44 @@ TlObject _readObject(BinaryReader reader) {
     return InputBotInlineMessageText.deserialize(reader);
   }
 
+  if (id == 0x96929a85) {
+    return InputBotInlineMessageMediaGeo.deserialize(reader);
+  }
+
+  if (id == 0x417bbf11) {
+    return InputBotInlineMessageMediaVenue.deserialize(reader);
+  }
+
+  if (id == 0xa6edbffd) {
+    return InputBotInlineMessageMediaContact.deserialize(reader);
+  }
+
+  if (id == 0x4b425864) {
+    return InputBotInlineMessageGame.deserialize(reader);
+  }
+
+  if (id == 0xd7e78225) {
+    return InputBotInlineMessageMediaInvoice.deserialize(reader);
+  }
+
+  if (id == 0xbddcc510) {
+    return InputBotInlineMessageMediaWebPage.deserialize(reader);
+  }
+
   if (id == 0x88bf9319) {
     return InputBotInlineResult.deserialize(reader);
+  }
+
+  if (id == 0xa8d864a7) {
+    return InputBotInlineResultPhoto.deserialize(reader);
+  }
+
+  if (id == 0xfff8fdc4) {
+    return InputBotInlineResultDocument.deserialize(reader);
+  }
+
+  if (id == 0x4fa417f2) {
+    return InputBotInlineResultGame.deserialize(reader);
   }
 
   if (id == 0x764cf810) {
@@ -1494,36 +2794,36 @@ TlObject _readObject(BinaryReader reader) {
     return BotInlineMessageText.deserialize(reader);
   }
 
+  if (id == 0x051846fd) {
+    return BotInlineMessageMediaGeo.deserialize(reader);
+  }
+
+  if (id == 0x8a86659c) {
+    return BotInlineMessageMediaVenue.deserialize(reader);
+  }
+
+  if (id == 0x18d1cdc2) {
+    return BotInlineMessageMediaContact.deserialize(reader);
+  }
+
+  if (id == 0x354a9b09) {
+    return BotInlineMessageMediaInvoice.deserialize(reader);
+  }
+
+  if (id == 0x809ad9a6) {
+    return BotInlineMessageMediaWebPage.deserialize(reader);
+  }
+
   if (id == 0x11965f3a) {
     return BotInlineResult.deserialize(reader);
   }
 
+  if (id == 0x17db940b) {
+    return BotInlineMediaResult.deserialize(reader);
+  }
+
   if (id == 0xe021f2f6) {
     return MessagesBotResults.deserialize(reader);
-  }
-
-  if (id == 0x496f379c) {
-    return UpdateBotInlineQuery.deserialize(reader);
-  }
-
-  if (id == 0x12f12a07) {
-    return UpdateBotInlineSend.deserialize(reader);
-  }
-
-  if (id == 0x50f5c392) {
-    return InputMessagesFilterVoice.deserialize(reader);
-  }
-
-  if (id == 0x3751b49e) {
-    return InputMessagesFilterMusic.deserialize(reader);
-  }
-
-  if (id == 0xbdfb0426) {
-    return InputPrivacyKeyChatInvite.deserialize(reader);
-  }
-
-  if (id == 0x500e6dfa) {
-    return PrivacyKeyChatInvite.deserialize(reader);
   }
 
   if (id == 0x5dab1af4) {
@@ -1532,14 +2832,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x4e4df4bb) {
     return MessageFwdHeader.deserialize(reader);
-  }
-
-  if (id == 0x1b3f4df7) {
-    return UpdateEditChannelMessage.deserialize(reader);
-  }
-
-  if (id == 0x94bd38ed) {
-    return MessageActionPinMessage.deserialize(reader);
   }
 
   if (id == 0x72a3158c) {
@@ -1552,6 +2844,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x226ccefb) {
     return AuthCodeTypeFlashCall.deserialize(reader);
+  }
+
+  if (id == 0xd61ad6ee) {
+    return AuthCodeTypeMissedCall.deserialize(reader);
+  }
+
+  if (id == 0x06ed998c) {
+    return AuthCodeTypeFragmentSms.deserialize(reader);
   }
 
   if (id == 0x3dbb5986) {
@@ -1570,88 +2870,48 @@ TlObject _readObject(BinaryReader reader) {
     return AuthSentCodeTypeFlashCall.deserialize(reader);
   }
 
-  if (id == 0x258aff05) {
-    return KeyboardButtonUrl.deserialize(reader);
+  if (id == 0x82006484) {
+    return AuthSentCodeTypeMissedCall.deserialize(reader);
   }
 
-  if (id == 0x35bbdb6b) {
-    return KeyboardButtonCallback.deserialize(reader);
+  if (id == 0xf450f59b) {
+    return AuthSentCodeTypeEmailCode.deserialize(reader);
   }
 
-  if (id == 0xb16a6c29) {
-    return KeyboardButtonRequestPhone.deserialize(reader);
+  if (id == 0xa5491dea) {
+    return AuthSentCodeTypeSetUpEmailRequired.deserialize(reader);
   }
 
-  if (id == 0xfc796b3f) {
-    return KeyboardButtonRequestGeoLocation.deserialize(reader);
+  if (id == 0xd9565c39) {
+    return AuthSentCodeTypeFragmentSms.deserialize(reader);
   }
 
-  if (id == 0x93b9fbb5) {
-    return KeyboardButtonSwitchInline.deserialize(reader);
+  if (id == 0x009fd736) {
+    return AuthSentCodeTypeFirebaseSms.deserialize(reader);
   }
 
-  if (id == 0x48a30254) {
-    return ReplyInlineMarkup.deserialize(reader);
+  if (id == 0xa416ac81) {
+    return AuthSentCodeTypeSmsWord.deserialize(reader);
+  }
+
+  if (id == 0xb37794af) {
+    return AuthSentCodeTypeSmsPhrase.deserialize(reader);
   }
 
   if (id == 0x36585ea4) {
     return MessagesBotCallbackAnswer.deserialize(reader);
   }
 
-  if (id == 0xb9cfc48d) {
-    return UpdateBotCallbackQuery.deserialize(reader);
-  }
-
   if (id == 0x26b5dde6) {
     return MessagesMessageEditData.deserialize(reader);
-  }
-
-  if (id == 0xe40370a3) {
-    return UpdateEditMessage.deserialize(reader);
-  }
-
-  if (id == 0x96929a85) {
-    return InputBotInlineMessageMediaGeo.deserialize(reader);
-  }
-
-  if (id == 0x417bbf11) {
-    return InputBotInlineMessageMediaVenue.deserialize(reader);
-  }
-
-  if (id == 0xa6edbffd) {
-    return InputBotInlineMessageMediaContact.deserialize(reader);
-  }
-
-  if (id == 0x051846fd) {
-    return BotInlineMessageMediaGeo.deserialize(reader);
-  }
-
-  if (id == 0x8a86659c) {
-    return BotInlineMessageMediaVenue.deserialize(reader);
-  }
-
-  if (id == 0x18d1cdc2) {
-    return BotInlineMessageMediaContact.deserialize(reader);
-  }
-
-  if (id == 0xa8d864a7) {
-    return InputBotInlineResultPhoto.deserialize(reader);
-  }
-
-  if (id == 0xfff8fdc4) {
-    return InputBotInlineResultDocument.deserialize(reader);
-  }
-
-  if (id == 0x17db940b) {
-    return BotInlineMediaResult.deserialize(reader);
   }
 
   if (id == 0x890c3d89) {
     return InputBotInlineMessageID.deserialize(reader);
   }
 
-  if (id == 0x691e9052) {
-    return UpdateInlineBotCallbackQuery.deserialize(reader);
+  if (id == 0xb6d915d7) {
+    return InputBotInlineMessageID64.deserialize(reader);
   }
 
   if (id == 0x3c20629f) {
@@ -1686,6 +2946,22 @@ TlObject _readObject(BinaryReader reader) {
     return TopPeerCategoryChannels.deserialize(reader);
   }
 
+  if (id == 0x1e76a78c) {
+    return TopPeerCategoryPhoneCalls.deserialize(reader);
+  }
+
+  if (id == 0xa8406ca9) {
+    return TopPeerCategoryForwardUsers.deserialize(reader);
+  }
+
+  if (id == 0xfbeec0f0) {
+    return TopPeerCategoryForwardChats.deserialize(reader);
+  }
+
+  if (id == 0xfd9e7bec) {
+    return TopPeerCategoryBotsApp.deserialize(reader);
+  }
+
   if (id == 0xfb834291) {
     return TopPeerCategoryPeers.deserialize(reader);
   }
@@ -1698,36 +2974,16 @@ TlObject _readObject(BinaryReader reader) {
     return ContactsTopPeers.deserialize(reader);
   }
 
-  if (id == 0xdc7b1140) {
-    return MessageEntityMentionName.deserialize(reader);
-  }
-
-  if (id == 0x208e68c9) {
-    return InputMessageEntityMentionName.deserialize(reader);
-  }
-
-  if (id == 0x3a20ecb8) {
-    return InputMessagesFilterChatPhotos.deserialize(reader);
-  }
-
-  if (id == 0xb75f99a9) {
-    return UpdateReadChannelOutbox.deserialize(reader);
-  }
-
-  if (id == 0x1b49ec6d) {
-    return UpdateDraftMessage.deserialize(reader);
+  if (id == 0xb52c939d) {
+    return ContactsTopPeersDisabled.deserialize(reader);
   }
 
   if (id == 0x1b0c841a) {
     return DraftMessageEmpty.deserialize(reader);
   }
 
-  if (id == 0x2d65321f) {
+  if (id == 0x96eaa5eb) {
     return DraftMessage.deserialize(reader);
-  }
-
-  if (id == 0x9fbab604) {
-    return MessageActionHistoryClear.deserialize(reader);
   }
 
   if (id == 0xc6dc0c66) {
@@ -1738,20 +2994,12 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesFeaturedStickers.deserialize(reader);
   }
 
-  if (id == 0x571d2742) {
-    return UpdateReadFeaturedStickers.deserialize(reader);
-  }
-
   if (id == 0x0b17f890) {
     return MessagesRecentStickersNotModified.deserialize(reader);
   }
 
   if (id == 0x88d37c56) {
     return MessagesRecentStickers.deserialize(reader);
-  }
-
-  if (id == 0x9a422c20) {
-    return UpdateRecentStickers.deserialize(reader);
   }
 
   if (id == 0x4fcba9c8) {
@@ -1770,32 +3018,20 @@ TlObject _readObject(BinaryReader reader) {
     return StickerSetCovered.deserialize(reader);
   }
 
-  if (id == 0xa229dd06) {
-    return UpdateConfig.deserialize(reader);
-  }
-
-  if (id == 0x3354678f) {
-    return UpdatePtsChanged.deserialize(reader);
-  }
-
-  if (id == 0xe5bbfe1a) {
-    return InputMediaPhotoExternal.deserialize(reader);
-  }
-
-  if (id == 0xfb52dc99) {
-    return InputMediaDocumentExternal.deserialize(reader);
-  }
-
   if (id == 0x3407e51b) {
     return StickerSetMultiCovered.deserialize(reader);
   }
 
-  if (id == 0xaed6dbb2) {
-    return MaskCoords.deserialize(reader);
+  if (id == 0x40d13c0e) {
+    return StickerSetFullCovered.deserialize(reader);
   }
 
-  if (id == 0x9801d2f7) {
-    return DocumentAttributeHasStickers.deserialize(reader);
+  if (id == 0x77b15d1c) {
+    return StickerSetNoCovered.deserialize(reader);
+  }
+
+  if (id == 0xaed6dbb2) {
+    return MaskCoords.deserialize(reader);
   }
 
   if (id == 0x4a992157) {
@@ -1810,22 +3046,6 @@ TlObject _readObject(BinaryReader reader) {
     return Game.deserialize(reader);
   }
 
-  if (id == 0x4fa417f2) {
-    return InputBotInlineResultGame.deserialize(reader);
-  }
-
-  if (id == 0x4b425864) {
-    return InputBotInlineMessageGame.deserialize(reader);
-  }
-
-  if (id == 0xfdb19008) {
-    return MessageMediaGame.deserialize(reader);
-  }
-
-  if (id == 0xd33f43f3) {
-    return InputMediaGame.deserialize(reader);
-  }
-
   if (id == 0x032c3e77) {
     return InputGameID.deserialize(reader);
   }
@@ -1834,32 +3054,12 @@ TlObject _readObject(BinaryReader reader) {
     return InputGameShortName.deserialize(reader);
   }
 
-  if (id == 0x50f41ccf) {
-    return KeyboardButtonGame.deserialize(reader);
-  }
-
-  if (id == 0x92a72876) {
-    return MessageActionGameScore.deserialize(reader);
-  }
-
   if (id == 0x73a379eb) {
     return HighScore.deserialize(reader);
   }
 
   if (id == 0x9a3bfd99) {
     return MessagesHighScores.deserialize(reader);
-  }
-
-  if (id == 0x4afe8f6d) {
-    return UpdatesDifferenceTooLong.deserialize(reader);
-  }
-
-  if (id == 0x2f2ba99f) {
-    return UpdateChannelWebPage.deserialize(reader);
-  }
-
-  if (id == 0x9cd81144) {
-    return MessagesChatsSlice.deserialize(reader);
   }
 
   if (id == 0xdc3d824f) {
@@ -1900,6 +3100,30 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x7e6260d7) {
     return TextConcat.deserialize(reader);
+  }
+
+  if (id == 0xed6a8504) {
+    return TextSubscript.deserialize(reader);
+  }
+
+  if (id == 0xc7fb5e01) {
+    return TextSuperscript.deserialize(reader);
+  }
+
+  if (id == 0x034b8621) {
+    return TextMarked.deserialize(reader);
+  }
+
+  if (id == 0x1ccb966a) {
+    return TextPhone.deserialize(reader);
+  }
+
+  if (id == 0x081ccf4f) {
+    return TextImage.deserialize(reader);
+  }
+
+  if (id == 0x35553762) {
+    return TextAnchor.deserialize(reader);
   }
 
   if (id == 0x13567e8a) {
@@ -1986,20 +3210,36 @@ TlObject _readObject(BinaryReader reader) {
     return PageBlockSlideshow.deserialize(reader);
   }
 
-  if (id == 0x7311ca11) {
-    return WebPageNotModified.deserialize(reader);
+  if (id == 0xef1751b5) {
+    return PageBlockChannel.deserialize(reader);
   }
 
-  if (id == 0xfabadc5f) {
-    return InputPrivacyKeyPhoneCall.deserialize(reader);
+  if (id == 0x804361ea) {
+    return PageBlockAudio.deserialize(reader);
   }
 
-  if (id == 0x3d662b7b) {
-    return PrivacyKeyPhoneCall.deserialize(reader);
+  if (id == 0x1e148390) {
+    return PageBlockKicker.deserialize(reader);
   }
 
-  if (id == 0xdd6a8f48) {
-    return SendMessageGamePlayAction.deserialize(reader);
+  if (id == 0xbf4dea82) {
+    return PageBlockTable.deserialize(reader);
+  }
+
+  if (id == 0x9a8ae1e1) {
+    return PageBlockOrderedList.deserialize(reader);
+  }
+
+  if (id == 0x76768bed) {
+    return PageBlockDetails.deserialize(reader);
+  }
+
+  if (id == 0x16115a96) {
+    return PageBlockRelatedArticles.deserialize(reader);
+  }
+
+  if (id == 0xa44f3ef6) {
+    return PageBlockMap.deserialize(reader);
   }
 
   if (id == 0x85e42301) {
@@ -2018,24 +3258,12 @@ TlObject _readObject(BinaryReader reader) {
     return PhoneCallDiscardReasonBusy.deserialize(reader);
   }
 
-  if (id == 0x6e6fe51c) {
-    return UpdateDialogPinned.deserialize(reader);
-  }
-
-  if (id == 0xfa0f3ca2) {
-    return UpdatePinnedDialogs.deserialize(reader);
+  if (id == 0x9fbbf1f7) {
+    return PhoneCallDiscardReasonMigrateConferenceCall.deserialize(reader);
   }
 
   if (id == 0x7d748d04) {
     return DataJSON.deserialize(reader);
-  }
-
-  if (id == 0x8317c0c3) {
-    return UpdateBotWebhookJSON.deserialize(reader);
-  }
-
-  if (id == 0x9b9240a6) {
-    return UpdateBotWebhookJSONQuery.deserialize(reader);
   }
 
   if (id == 0xcb296bf8) {
@@ -2046,20 +3274,8 @@ TlObject _readObject(BinaryReader reader) {
     return Invoice.deserialize(reader);
   }
 
-  if (id == 0x405fef0d) {
-    return InputMediaInvoice.deserialize(reader);
-  }
-
   if (id == 0xea02c27e) {
     return PaymentCharge.deserialize(reader);
-  }
-
-  if (id == 0xffa00ccc) {
-    return MessageActionPaymentSentMe.deserialize(reader);
-  }
-
-  if (id == 0xf6a548d3) {
-    return MessageMediaInvoice.deserialize(reader);
   }
 
   if (id == 0x1e8caaeb) {
@@ -2070,20 +3286,16 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentRequestedInfo.deserialize(reader);
   }
 
-  if (id == 0xafd93fbb) {
-    return KeyboardButtonBuy.deserialize(reader);
-  }
-
-  if (id == 0xc624b16e) {
-    return MessageActionPaymentSent.deserialize(reader);
-  }
-
   if (id == 0xcdc27a1f) {
     return PaymentSavedCredentialsCard.deserialize(reader);
   }
 
   if (id == 0x1c570ed1) {
     return WebDocument.deserialize(reader);
+  }
+
+  if (id == 0xf9c8bcc6) {
+    return WebDocumentNoProxy.deserialize(reader);
   }
 
   if (id == 0x9bed434d) {
@@ -2094,12 +3306,28 @@ TlObject _readObject(BinaryReader reader) {
     return InputWebFileLocation.deserialize(reader);
   }
 
+  if (id == 0x9f2221c9) {
+    return InputWebFileGeoPointLocation.deserialize(reader);
+  }
+
+  if (id == 0xf46fe924) {
+    return InputWebFileAudioAlbumThumbLocation.deserialize(reader);
+  }
+
   if (id == 0x21e753bc) {
     return UploadWebFile.deserialize(reader);
   }
 
   if (id == 0xa0058751) {
     return PaymentsPaymentForm.deserialize(reader);
+  }
+
+  if (id == 0x7bf6b15c) {
+    return PaymentsPaymentFormStars.deserialize(reader);
+  }
+
+  if (id == 0xb425cfe1) {
+    return PaymentsPaymentFormStarGift.deserialize(reader);
   }
 
   if (id == 0xd1451883) {
@@ -2110,8 +3338,16 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsPaymentResult.deserialize(reader);
   }
 
+  if (id == 0xd8411139) {
+    return PaymentsPaymentVerificationNeeded.deserialize(reader);
+  }
+
   if (id == 0x70c4fe03) {
     return PaymentsPaymentReceipt.deserialize(reader);
+  }
+
+  if (id == 0xdabbf83a) {
+    return PaymentsPaymentReceiptStars.deserialize(reader);
   }
 
   if (id == 0xfb8fe43c) {
@@ -2126,6 +3362,14 @@ TlObject _readObject(BinaryReader reader) {
     return InputPaymentCredentials.deserialize(reader);
   }
 
+  if (id == 0x0aa1c39f) {
+    return InputPaymentCredentialsApplePay.deserialize(reader);
+  }
+
+  if (id == 0x8ac32801) {
+    return InputPaymentCredentialsGooglePay.deserialize(reader);
+  }
+
   if (id == 0xdb64fd34) {
     return AccountTmpPassword.deserialize(reader);
   }
@@ -2134,20 +3378,8 @@ TlObject _readObject(BinaryReader reader) {
     return ShippingOption.deserialize(reader);
   }
 
-  if (id == 0xb5aefd7d) {
-    return UpdateBotShippingQuery.deserialize(reader);
-  }
-
-  if (id == 0x8caa9a96) {
-    return UpdateBotPrecheckoutQuery.deserialize(reader);
-  }
-
   if (id == 0x32da9e9c) {
     return InputStickerSetItem.deserialize(reader);
-  }
-
-  if (id == 0xab0f6b1e) {
-    return UpdatePhoneCall.deserialize(reader);
   }
 
   if (id == 0x1e36fded) {
@@ -2182,40 +3414,16 @@ TlObject _readObject(BinaryReader reader) {
     return PhoneConnection.deserialize(reader);
   }
 
+  if (id == 0x635fe375) {
+    return PhoneConnectionWebrtc.deserialize(reader);
+  }
+
   if (id == 0xfc878fc8) {
     return PhoneCallProtocol.deserialize(reader);
   }
 
   if (id == 0xec82e140) {
     return PhonePhoneCall.deserialize(reader);
-  }
-
-  if (id == 0x80c99768) {
-    return InputMessagesFilterPhoneCalls.deserialize(reader);
-  }
-
-  if (id == 0x80e11a7f) {
-    return MessageActionPhoneCall.deserialize(reader);
-  }
-
-  if (id == 0x7a7c17a4) {
-    return InputMessagesFilterRoundVoice.deserialize(reader);
-  }
-
-  if (id == 0xb549da53) {
-    return InputMessagesFilterRoundVideo.deserialize(reader);
-  }
-
-  if (id == 0x88f27fbc) {
-    return SendMessageRecordRoundAction.deserialize(reader);
-  }
-
-  if (id == 0x243e1c66) {
-    return SendMessageUploadRoundAction.deserialize(reader);
-  }
-
-  if (id == 0xf18cda44) {
-    return UploadFileCdnRedirect.deserialize(reader);
   }
 
   if (id == 0xeea8e46e) {
@@ -2232,10 +3440,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x5725e40a) {
     return CdnConfig.deserialize(reader);
-  }
-
-  if (id == 0xef1751b5) {
-    return PageBlockChannel.deserialize(reader);
   }
 
   if (id == 0xcad181f6) {
@@ -2256,30 +3460,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xeeca5ce3) {
     return LangPackLanguage.deserialize(reader);
-  }
-
-  if (id == 0x46560264) {
-    return UpdateLangPackTooLong.deserialize(reader);
-  }
-
-  if (id == 0x56022f4d) {
-    return UpdateLangPack.deserialize(reader);
-  }
-
-  if (id == 0x34c3bb53) {
-    return ChannelParticipantAdmin.deserialize(reader);
-  }
-
-  if (id == 0x6df8014e) {
-    return ChannelParticipantBanned.deserialize(reader);
-  }
-
-  if (id == 0x1427a5e1) {
-    return ChannelParticipantsBanned.deserialize(reader);
-  }
-
-  if (id == 0x0656ac4b) {
-    return ChannelParticipantsSearch.deserialize(reader);
   }
 
   if (id == 0xe6dfb825) {
@@ -2338,6 +3518,158 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelAdminLogEventActionParticipantToggleAdmin.deserialize(reader);
   }
 
+  if (id == 0xb1c3caa7) {
+    return ChannelAdminLogEventActionChangeStickerSet.deserialize(reader);
+  }
+
+  if (id == 0x5f5c95f1) {
+    return ChannelAdminLogEventActionTogglePreHistoryHidden.deserialize(reader);
+  }
+
+  if (id == 0x2df5fc0a) {
+    return ChannelAdminLogEventActionDefaultBannedRights.deserialize(reader);
+  }
+
+  if (id == 0x8f079643) {
+    return ChannelAdminLogEventActionStopPoll.deserialize(reader);
+  }
+
+  if (id == 0x050c7ac8) {
+    return ChannelAdminLogEventActionChangeLinkedChat.deserialize(reader);
+  }
+
+  if (id == 0x0e6b76ae) {
+    return ChannelAdminLogEventActionChangeLocation.deserialize(reader);
+  }
+
+  if (id == 0x53909779) {
+    return ChannelAdminLogEventActionToggleSlowMode.deserialize(reader);
+  }
+
+  if (id == 0x23209745) {
+    return ChannelAdminLogEventActionStartGroupCall.deserialize(reader);
+  }
+
+  if (id == 0xdb9f9140) {
+    return ChannelAdminLogEventActionDiscardGroupCall.deserialize(reader);
+  }
+
+  if (id == 0xf92424d2) {
+    return ChannelAdminLogEventActionParticipantMute.deserialize(reader);
+  }
+
+  if (id == 0xe64429c0) {
+    return ChannelAdminLogEventActionParticipantUnmute.deserialize(reader);
+  }
+
+  if (id == 0x56d6a247) {
+    return ChannelAdminLogEventActionToggleGroupCallSetting.deserialize(reader);
+  }
+
+  if (id == 0xfe9fc158) {
+    return ChannelAdminLogEventActionParticipantJoinByInvite.deserialize(
+        reader);
+  }
+
+  if (id == 0x5a50fca4) {
+    return ChannelAdminLogEventActionExportedInviteDelete.deserialize(reader);
+  }
+
+  if (id == 0x410a134e) {
+    return ChannelAdminLogEventActionExportedInviteRevoke.deserialize(reader);
+  }
+
+  if (id == 0xe90ebb59) {
+    return ChannelAdminLogEventActionExportedInviteEdit.deserialize(reader);
+  }
+
+  if (id == 0x3e7f6847) {
+    return ChannelAdminLogEventActionParticipantVolume.deserialize(reader);
+  }
+
+  if (id == 0x6e941a38) {
+    return ChannelAdminLogEventActionChangeHistoryTTL.deserialize(reader);
+  }
+
+  if (id == 0xafb6144a) {
+    return ChannelAdminLogEventActionParticipantJoinByRequest.deserialize(
+        reader);
+  }
+
+  if (id == 0xcb2ac766) {
+    return ChannelAdminLogEventActionToggleNoForwards.deserialize(reader);
+  }
+
+  if (id == 0x278f2868) {
+    return ChannelAdminLogEventActionSendMessage.deserialize(reader);
+  }
+
+  if (id == 0xbe4e0ef8) {
+    return ChannelAdminLogEventActionChangeAvailableReactions.deserialize(
+        reader);
+  }
+
+  if (id == 0xf04fb3a9) {
+    return ChannelAdminLogEventActionChangeUsernames.deserialize(reader);
+  }
+
+  if (id == 0x02cc6383) {
+    return ChannelAdminLogEventActionToggleForum.deserialize(reader);
+  }
+
+  if (id == 0x58707d28) {
+    return ChannelAdminLogEventActionCreateTopic.deserialize(reader);
+  }
+
+  if (id == 0xf06fe208) {
+    return ChannelAdminLogEventActionEditTopic.deserialize(reader);
+  }
+
+  if (id == 0xae168909) {
+    return ChannelAdminLogEventActionDeleteTopic.deserialize(reader);
+  }
+
+  if (id == 0x5d8d353b) {
+    return ChannelAdminLogEventActionPinTopic.deserialize(reader);
+  }
+
+  if (id == 0x64f36dfc) {
+    return ChannelAdminLogEventActionToggleAntiSpam.deserialize(reader);
+  }
+
+  if (id == 0x5796e780) {
+    return ChannelAdminLogEventActionChangePeerColor.deserialize(reader);
+  }
+
+  if (id == 0x5e477b25) {
+    return ChannelAdminLogEventActionChangeProfilePeerColor.deserialize(reader);
+  }
+
+  if (id == 0x31bb5d52) {
+    return ChannelAdminLogEventActionChangeWallpaper.deserialize(reader);
+  }
+
+  if (id == 0x3ea9feb1) {
+    return ChannelAdminLogEventActionChangeEmojiStatus.deserialize(reader);
+  }
+
+  if (id == 0x46d840ab) {
+    return ChannelAdminLogEventActionChangeEmojiStickerSet.deserialize(reader);
+  }
+
+  if (id == 0x60a79c79) {
+    return ChannelAdminLogEventActionToggleSignatureProfiles.deserialize(
+        reader);
+  }
+
+  if (id == 0x64642db3) {
+    return ChannelAdminLogEventActionParticipantSubExtend.deserialize(reader);
+  }
+
+  if (id == 0xc517f77e) {
+    return ChannelAdminLogEventActionToggleAutotranslation.deserialize(reader);
+  }
+
   if (id == 0x1fad68cd) {
     return ChannelAdminLogEvent.deserialize(reader);
   }
@@ -2350,20 +3682,8 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelAdminLogEventsFilter.deserialize(reader);
   }
 
-  if (id == 0x1e76a78c) {
-    return TopPeerCategoryPhoneCalls.deserialize(reader);
-  }
-
-  if (id == 0x804361ea) {
-    return PageBlockAudio.deserialize(reader);
-  }
-
   if (id == 0x5ce14175) {
     return PopularContact.deserialize(reader);
-  }
-
-  if (id == 0x4792929b) {
-    return MessageActionScreenshotTaken.deserialize(reader);
   }
 
   if (id == 0x9e8fa6d3) {
@@ -2372,58 +3692,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x2cb51097) {
     return MessagesFavedStickers.deserialize(reader);
-  }
-
-  if (id == 0xe511996d) {
-    return UpdateFavedStickers.deserialize(reader);
-  }
-
-  if (id == 0xea29055d) {
-    return UpdateChannelReadMessagesContents.deserialize(reader);
-  }
-
-  if (id == 0xc1f8e69a) {
-    return InputMessagesFilterMyMentions.deserialize(reader);
-  }
-
-  if (id == 0x7084a7be) {
-    return UpdateContactsReset.deserialize(reader);
-  }
-
-  if (id == 0xb1c3caa7) {
-    return ChannelAdminLogEventActionChangeStickerSet.deserialize(reader);
-  }
-
-  if (id == 0xfae69f56) {
-    return MessageActionCustomAction.deserialize(reader);
-  }
-
-  if (id == 0x0aa1c39f) {
-    return InputPaymentCredentialsApplePay.deserialize(reader);
-  }
-
-  if (id == 0xe7026d0d) {
-    return InputMessagesFilterGeo.deserialize(reader);
-  }
-
-  if (id == 0xe062db83) {
-    return InputMessagesFilterContacts.deserialize(reader);
-  }
-
-  if (id == 0xb23fc698) {
-    return UpdateChannelAvailableMessages.deserialize(reader);
-  }
-
-  if (id == 0x5f5c95f1) {
-    return ChannelAdminLogEventActionTogglePreHistoryHidden.deserialize(reader);
-  }
-
-  if (id == 0x971fa843) {
-    return InputMediaGeoLive.deserialize(reader);
-  }
-
-  if (id == 0xb940c666) {
-    return MessageMediaGeoLive.deserialize(reader);
   }
 
   if (id == 0x46e1d13d) {
@@ -2450,14 +3718,6 @@ TlObject _readObject(BinaryReader reader) {
     return HelpRecentMeUrls.deserialize(reader);
   }
 
-  if (id == 0xf0173fe9) {
-    return ChannelsChannelParticipantsNotModified.deserialize(reader);
-  }
-
-  if (id == 0x74535f21) {
-    return MessagesMessagesNotModified.deserialize(reader);
-  }
-
   if (id == 0x1cc6e91f) {
     return InputSingleMedia.deserialize(reader);
   }
@@ -2482,24 +3742,24 @@ TlObject _readObject(BinaryReader reader) {
     return InputMessagePinned.deserialize(reader);
   }
 
-  if (id == 0x9b69e34b) {
-    return MessageEntityPhone.deserialize(reader);
-  }
-
-  if (id == 0x4c4e743f) {
-    return MessageEntityCashtag.deserialize(reader);
-  }
-
-  if (id == 0xc516d679) {
-    return MessageActionBotAllowed.deserialize(reader);
+  if (id == 0xacfa1a7e) {
+    return InputMessageCallbackQuery.deserialize(reader);
   }
 
   if (id == 0xfcaafeb7) {
     return InputDialogPeer.deserialize(reader);
   }
 
+  if (id == 0x64600527) {
+    return InputDialogPeerFolder.deserialize(reader);
+  }
+
   if (id == 0xe56dbf05) {
     return DialogPeer.deserialize(reader);
+  }
+
+  if (id == 0x514519e2) {
+    return DialogPeerFolder.deserialize(reader);
   }
 
   if (id == 0x0d54b65d) {
@@ -2512,10 +3772,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xf39b035c) {
     return FileHash.deserialize(reader);
-  }
-
-  if (id == 0xf9c8bcc6) {
-    return WebDocumentNoProxy.deserialize(reader);
   }
 
   if (id == 0x75588b3f) {
@@ -2536,10 +3792,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x5367e5be) {
     return InputSecureFile.deserialize(reader);
-  }
-
-  if (id == 0xcbc7ee28) {
-    return InputSecureFileLocation.deserialize(reader);
   }
 
   if (id == 0x64199744) {
@@ -2650,6 +3902,18 @@ TlObject _readObject(BinaryReader reader) {
     return SecureValueErrorFiles.deserialize(reader);
   }
 
+  if (id == 0x869d758f) {
+    return SecureValueError.deserialize(reader);
+  }
+
+  if (id == 0xa1144770) {
+    return SecureValueErrorTranslationFile.deserialize(reader);
+  }
+
+  if (id == 0x34636dd8) {
+    return SecureValueErrorTranslationFiles.deserialize(reader);
+  }
+
   if (id == 0x33f0ea47) {
     return SecureCredentialsEncrypted.deserialize(reader);
   }
@@ -2660,14 +3924,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x811f854f) {
     return AccountSentEmailCode.deserialize(reader);
-  }
-
-  if (id == 0x1b287353) {
-    return MessageActionSecureValuesSentMe.deserialize(reader);
-  }
-
-  if (id == 0xd95c6154) {
-    return MessageActionSecureValuesSent.deserialize(reader);
   }
 
   if (id == 0x66afa166) {
@@ -2686,32 +3942,13 @@ TlObject _readObject(BinaryReader reader) {
     return AccountTakeout.deserialize(reader);
   }
 
-  if (id == 0x29be5899) {
-    return InputTakeoutFileLocation.deserialize(reader);
-  }
-
-  if (id == 0xe16459c3) {
-    return UpdateDialogUnreadMark.deserialize(reader);
-  }
-
-  if (id == 0xf0e3e596) {
-    return MessagesDialogsNotModified.deserialize(reader);
-  }
-
-  if (id == 0x9f2221c9) {
-    return InputWebFileGeoPointLocation.deserialize(reader);
-  }
-
-  if (id == 0xb52c939d) {
-    return ContactsTopPeersDisabled.deserialize(reader);
-  }
-
-  if (id == 0x9b89f93a) {
-    return InputReportReasonCopyright.deserialize(reader);
-  }
-
   if (id == 0xd45ab096) {
     return PasswordKdfAlgoUnknown.deserialize(reader);
+  }
+
+  if (id == 0x3a912d4a) {
+    return PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
+        .deserialize(reader);
   }
 
   if (id == 0x004a8537) {
@@ -2730,29 +3967,12 @@ TlObject _readObject(BinaryReader reader) {
     return SecureSecretSettings.deserialize(reader);
   }
 
-  if (id == 0x3a912d4a) {
-    return PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
-        .deserialize(reader);
-  }
-
   if (id == 0x9880f658) {
     return InputCheckPasswordEmpty.deserialize(reader);
   }
 
   if (id == 0xd27ff082) {
     return InputCheckPasswordSRP.deserialize(reader);
-  }
-
-  if (id == 0x869d758f) {
-    return SecureValueError.deserialize(reader);
-  }
-
-  if (id == 0xa1144770) {
-    return SecureValueErrorTranslationFile.deserialize(reader);
-  }
-
-  if (id == 0x34636dd8) {
-    return SecureValueErrorTranslationFiles.deserialize(reader);
   }
 
   if (id == 0x829d99da) {
@@ -2803,48 +4023,12 @@ TlObject _readObject(BinaryReader reader) {
     return JsonObject.deserialize(reader);
   }
 
-  if (id == 0xb1db7c7e) {
-    return InputNotifyBroadcasts.deserialize(reader);
-  }
-
-  if (id == 0xd612e8ef) {
-    return NotifyBroadcasts.deserialize(reader);
-  }
-
-  if (id == 0xed6a8504) {
-    return TextSubscript.deserialize(reader);
-  }
-
-  if (id == 0xc7fb5e01) {
-    return TextSuperscript.deserialize(reader);
-  }
-
-  if (id == 0x034b8621) {
-    return TextMarked.deserialize(reader);
-  }
-
-  if (id == 0x1ccb966a) {
-    return TextPhone.deserialize(reader);
-  }
-
-  if (id == 0x081ccf4f) {
-    return TextImage.deserialize(reader);
-  }
-
-  if (id == 0x1e148390) {
-    return PageBlockKicker.deserialize(reader);
-  }
-
   if (id == 0x34566b6a) {
     return PageTableCell.deserialize(reader);
   }
 
   if (id == 0xe0c0c5e5) {
     return PageTableRow.deserialize(reader);
-  }
-
-  if (id == 0xbf4dea82) {
-    return PageBlockTable.deserialize(reader);
   }
 
   if (id == 0x6f747657) {
@@ -2867,40 +4051,12 @@ TlObject _readObject(BinaryReader reader) {
     return PageListOrderedItemBlocks.deserialize(reader);
   }
 
-  if (id == 0x9a8ae1e1) {
-    return PageBlockOrderedList.deserialize(reader);
-  }
-
-  if (id == 0x76768bed) {
-    return PageBlockDetails.deserialize(reader);
-  }
-
   if (id == 0xb390dc08) {
     return PageRelatedArticle.deserialize(reader);
   }
 
-  if (id == 0x16115a96) {
-    return PageBlockRelatedArticles.deserialize(reader);
-  }
-
-  if (id == 0xa44f3ef6) {
-    return PageBlockMap.deserialize(reader);
-  }
-
   if (id == 0x98657f0d) {
     return Page.deserialize(reader);
-  }
-
-  if (id == 0xdb9e70d2) {
-    return InputPrivacyKeyPhoneP2P.deserialize(reader);
-  }
-
-  if (id == 0x39491cc8) {
-    return PrivacyKeyPhoneP2P.deserialize(reader);
-  }
-
-  if (id == 0x35553762) {
-    return TextAnchor.deserialize(reader);
   }
 
   if (id == 0x8c05f1c9) {
@@ -2913,14 +4069,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x01eb3758) {
     return HelpUserInfo.deserialize(reader);
-  }
-
-  if (id == 0xf3f25f76) {
-    return MessageActionContactSignUp.deserialize(reader);
-  }
-
-  if (id == 0xaca1657b) {
-    return UpdateMessagePoll.deserialize(reader);
   }
 
   if (id == 0xff16e2ca) {
@@ -2939,24 +4087,12 @@ TlObject _readObject(BinaryReader reader) {
     return PollResults.deserialize(reader);
   }
 
-  if (id == 0x0f94e5f1) {
-    return InputMediaPoll.deserialize(reader);
-  }
-
-  if (id == 0x4bd6e798) {
-    return MessageMediaPoll.deserialize(reader);
-  }
-
   if (id == 0xf041e250) {
     return ChatOnlines.deserialize(reader);
   }
 
   if (id == 0x47a971e0) {
     return StatsURL.deserialize(reader);
-  }
-
-  if (id == 0xe0b0bc2e) {
-    return PhotoStrippedSize.deserialize(reader);
   }
 
   if (id == 0x5fb224d5) {
@@ -2967,10 +4103,6 @@ TlObject _readObject(BinaryReader reader) {
     return ChatBannedRights.deserialize(reader);
   }
 
-  if (id == 0x54c01850) {
-    return UpdateChatDefaultBannedRights.deserialize(reader);
-  }
-
   if (id == 0xe630b979) {
     return InputWallPaper.deserialize(reader);
   }
@@ -2979,16 +4111,8 @@ TlObject _readObject(BinaryReader reader) {
     return InputWallPaperSlug.deserialize(reader);
   }
 
-  if (id == 0xbb6ae88d) {
-    return ChannelParticipantsContacts.deserialize(reader);
-  }
-
-  if (id == 0x2df5fc0a) {
-    return ChannelAdminLogEventActionDefaultBannedRights.deserialize(reader);
-  }
-
-  if (id == 0x8f079643) {
-    return ChannelAdminLogEventActionStopPoll.deserialize(reader);
+  if (id == 0x967a462e) {
+    return InputWallPaperNoFile.deserialize(reader);
   }
 
   if (id == 0x1c199183) {
@@ -3035,52 +4159,8 @@ TlObject _readObject(BinaryReader reader) {
     return EmojiLanguage.deserialize(reader);
   }
 
-  if (id == 0xa4dd4c08) {
-    return InputPrivacyKeyForwards.deserialize(reader);
-  }
-
-  if (id == 0x69ec56a3) {
-    return PrivacyKeyForwards.deserialize(reader);
-  }
-
-  if (id == 0x5719bacc) {
-    return InputPrivacyKeyProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x96151fed) {
-    return PrivacyKeyProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x40181ffe) {
-    return InputPhotoFileLocation.deserialize(reader);
-  }
-
-  if (id == 0xd83466f3) {
-    return InputPhotoLegacyFileLocation.deserialize(reader);
-  }
-
-  if (id == 0x37257e99) {
-    return InputPeerPhotoFileLocation.deserialize(reader);
-  }
-
-  if (id == 0x9d84f3db) {
-    return InputStickerSetThumb.deserialize(reader);
-  }
-
   if (id == 0xff544e65) {
     return Folder.deserialize(reader);
-  }
-
-  if (id == 0x71bd134c) {
-    return DialogFolder.deserialize(reader);
-  }
-
-  if (id == 0x64600527) {
-    return InputDialogPeerFolder.deserialize(reader);
-  }
-
-  if (id == 0x514519e2) {
-    return DialogPeerFolder.deserialize(reader);
   }
 
   if (id == 0xfbd2c296) {
@@ -3091,56 +4171,8 @@ TlObject _readObject(BinaryReader reader) {
     return FolderPeer.deserialize(reader);
   }
 
-  if (id == 0x19360dc0) {
-    return UpdateFolderPeers.deserialize(reader);
-  }
-
-  if (id == 0x1da448e2) {
-    return InputUserFromMessage.deserialize(reader);
-  }
-
-  if (id == 0x5b934f9d) {
-    return InputChannelFromMessage.deserialize(reader);
-  }
-
-  if (id == 0xa87b0a1c) {
-    return InputPeerUserFromMessage.deserialize(reader);
-  }
-
-  if (id == 0xbd2a0840) {
-    return InputPeerChannelFromMessage.deserialize(reader);
-  }
-
-  if (id == 0x0352dafa) {
-    return InputPrivacyKeyPhoneNumber.deserialize(reader);
-  }
-
-  if (id == 0xd19ae46d) {
-    return PrivacyKeyPhoneNumber.deserialize(reader);
-  }
-
-  if (id == 0xa8406ca9) {
-    return TopPeerCategoryForwardUsers.deserialize(reader);
-  }
-
-  if (id == 0xfbeec0f0) {
-    return TopPeerCategoryForwardChats.deserialize(reader);
-  }
-
-  if (id == 0x050c7ac8) {
-    return ChannelAdminLogEventActionChangeLinkedChat.deserialize(reader);
-  }
-
   if (id == 0xe844ebff) {
     return MessagesSearchCounter.deserialize(reader);
-  }
-
-  if (id == 0x10b78d29) {
-    return KeyboardButtonUrlAuth.deserialize(reader);
-  }
-
-  if (id == 0xd02e7fd4) {
-    return InputKeyboardButtonUrlAuth.deserialize(reader);
   }
 
   if (id == 0x92d33a0e) {
@@ -3155,34 +4187,6 @@ TlObject _readObject(BinaryReader reader) {
     return UrlAuthResultDefault.deserialize(reader);
   }
 
-  if (id == 0x840649cf) {
-    return InputPrivacyValueAllowChatParticipants.deserialize(reader);
-  }
-
-  if (id == 0xe94f0f86) {
-    return InputPrivacyValueDisallowChatParticipants.deserialize(reader);
-  }
-
-  if (id == 0x6b134e8e) {
-    return PrivacyValueAllowChatParticipants.deserialize(reader);
-  }
-
-  if (id == 0x41c87565) {
-    return PrivacyValueDisallowChatParticipants.deserialize(reader);
-  }
-
-  if (id == 0x9c4e7e8b) {
-    return MessageEntityUnderline.deserialize(reader);
-  }
-
-  if (id == 0xbf0693d4) {
-    return MessageEntityStrike.deserialize(reader);
-  }
-
-  if (id == 0x6a7e7366) {
-    return UpdatePeerSettings.deserialize(reader);
-  }
-
   if (id == 0xbfb5ad8b) {
     return ChannelLocationEmpty.deserialize(reader);
   }
@@ -3195,40 +4199,8 @@ TlObject _readObject(BinaryReader reader) {
     return PeerLocated.deserialize(reader);
   }
 
-  if (id == 0xb4afcfb0) {
-    return UpdatePeerLocated.deserialize(reader);
-  }
-
-  if (id == 0x0e6b76ae) {
-    return ChannelAdminLogEventActionChangeLocation.deserialize(reader);
-  }
-
-  if (id == 0xdbd4feed) {
-    return InputReportReasonGeoIrrelevant.deserialize(reader);
-  }
-
-  if (id == 0x53909779) {
-    return ChannelAdminLogEventActionToggleSlowMode.deserialize(reader);
-  }
-
-  if (id == 0x44747e9a) {
-    return AuthAuthorizationSignUpRequired.deserialize(reader);
-  }
-
-  if (id == 0xd8411139) {
-    return PaymentsPaymentVerificationNeeded.deserialize(reader);
-  }
-
-  if (id == 0x028703c8) {
-    return InputStickerSetAnimatedEmoji.deserialize(reader);
-  }
-
-  if (id == 0x39a51dfb) {
-    return UpdateNewScheduledMessage.deserialize(reader);
-  }
-
-  if (id == 0xf2a71983) {
-    return UpdateDeleteScheduledMessages.deserialize(reader);
+  if (id == 0xf8ec284b) {
+    return PeerSelfLocated.deserialize(reader);
   }
 
   if (id == 0xd072acb4) {
@@ -3253,26 +4225,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x9a3d8c6d) {
     return AccountThemes.deserialize(reader);
-  }
-
-  if (id == 0x8216fba3) {
-    return UpdateTheme.deserialize(reader);
-  }
-
-  if (id == 0xd1219bdd) {
-    return InputPrivacyKeyAddedByPhone.deserialize(reader);
-  }
-
-  if (id == 0x42ffd42b) {
-    return PrivacyKeyAddedByPhone.deserialize(reader);
-  }
-
-  if (id == 0x871fb939) {
-    return UpdateGeoLiveViewed.deserialize(reader);
-  }
-
-  if (id == 0x564fe691) {
-    return UpdateLoginToken.deserialize(reader);
   }
 
   if (id == 0x629f1980) {
@@ -3315,14 +4267,6 @@ TlObject _readObject(BinaryReader reader) {
     return BaseThemeArctic.deserialize(reader);
   }
 
-  if (id == 0x967a462e) {
-    return InputWallPaperNoFile.deserialize(reader);
-  }
-
-  if (id == 0xe0804116) {
-    return WallPaperNoFile.deserialize(reader);
-  }
-
   if (id == 0x8fde504f) {
     return InputThemeSettings.deserialize(reader);
   }
@@ -3335,20 +4279,20 @@ TlObject _readObject(BinaryReader reader) {
     return WebPageAttributeTheme.deserialize(reader);
   }
 
-  if (id == 0x24f40e77) {
-    return UpdateMessagePollVote.deserialize(reader);
+  if (id == 0x2e94c3e7) {
+    return WebPageAttributeStory.deserialize(reader);
+  }
+
+  if (id == 0x50cc03d3) {
+    return WebPageAttributeStickerSet.deserialize(reader);
+  }
+
+  if (id == 0xcf6f6db8) {
+    return WebPageAttributeUniqueStarGift.deserialize(reader);
   }
 
   if (id == 0x4899484e) {
     return MessagesVotesList.deserialize(reader);
-  }
-
-  if (id == 0xbbc7515d) {
-    return KeyboardButtonRequestPoll.deserialize(reader);
-  }
-
-  if (id == 0x761e6af4) {
-    return MessageEntityBankCard.deserialize(reader);
   }
 
   if (id == 0xf568028a) {
@@ -3359,28 +4303,20 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsBankCardData.deserialize(reader);
   }
 
-  if (id == 0xf8ec284b) {
-    return PeerSelfLocated.deserialize(reader);
+  if (id == 0xaa472651) {
+    return DialogFilter.deserialize(reader);
   }
 
-  if (id == 0x5fb5523b) {
-    return DialogFilter.deserialize(reader);
+  if (id == 0x363293ae) {
+    return DialogFilterDefault.deserialize(reader);
+  }
+
+  if (id == 0x96537bd7) {
+    return DialogFilterChatlist.deserialize(reader);
   }
 
   if (id == 0x77744d4a) {
     return DialogFilterSuggested.deserialize(reader);
-  }
-
-  if (id == 0x26ffde7d) {
-    return UpdateDialogFilter.deserialize(reader);
-  }
-
-  if (id == 0xa5d72105) {
-    return UpdateDialogFilterOrder.deserialize(reader);
-  }
-
-  if (id == 0x3504914f) {
-    return UpdateDialogFilters.deserialize(reader);
   }
 
   if (id == 0xb637edaf) {
@@ -3411,23 +4347,11 @@ TlObject _readObject(BinaryReader reader) {
     return StatsBroadcastStats.deserialize(reader);
   }
 
-  if (id == 0xe66fbf7b) {
-    return InputMediaDice.deserialize(reader);
-  }
-
-  if (id == 0x3f7ee58b) {
-    return MessageMediaDice.deserialize(reader);
-  }
-
-  if (id == 0xe67f520e) {
-    return InputStickerSetDice.deserialize(reader);
-  }
-
   if (id == 0x98f6ac75) {
     return HelpPromoDataEmpty.deserialize(reader);
   }
 
-  if (id == 0x8c39793f) {
+  if (id == 0x08a4d87a) {
     return HelpPromoData.deserialize(reader);
   }
 
@@ -3435,12 +4359,12 @@ TlObject _readObject(BinaryReader reader) {
     return VideoSize.deserialize(reader);
   }
 
-  if (id == 0x2661bf09) {
-    return UpdatePhoneCallSignalingData.deserialize(reader);
+  if (id == 0xf85c413c) {
+    return VideoSizeEmojiMarkup.deserialize(reader);
   }
 
-  if (id == 0x61695cb0) {
-    return ChatInvitePeek.deserialize(reader);
+  if (id == 0x0da082fe) {
+    return VideoSizeStickerMarkup.deserialize(reader);
   }
 
   if (id == 0x9d04af9b) {
@@ -3459,12 +4383,8 @@ TlObject _readObject(BinaryReader reader) {
     return StatsMegagroupStats.deserialize(reader);
   }
 
-  if (id == 0x734c4ccb) {
+  if (id == 0xfe41b34f) {
     return GlobalPrivacySettings.deserialize(reader);
-  }
-
-  if (id == 0x635fe375) {
-    return PhoneConnectionWebrtc.deserialize(reader);
   }
 
   if (id == 0x4203c5ef) {
@@ -3487,24 +4407,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessageViews.deserialize(reader);
   }
 
-  if (id == 0xd29a27f4) {
-    return UpdateChannelMessageForwards.deserialize(reader);
-  }
-
-  if (id == 0xfa3efb95) {
-    return PhotoSizeProgressive.deserialize(reader);
-  }
-
   if (id == 0xb6c4f543) {
     return MessagesMessageViews.deserialize(reader);
-  }
-
-  if (id == 0xd6b19546) {
-    return UpdateReadChannelDiscussionInbox.deserialize(reader);
-  }
-
-  if (id == 0x695c9e7c) {
-    return UpdateReadChannelDiscussionOutbox.deserialize(reader);
   }
 
   if (id == 0xa6341782) {
@@ -3515,67 +4419,27 @@ TlObject _readObject(BinaryReader reader) {
     return MessageReplyHeader.deserialize(reader);
   }
 
-  if (id == 0x83d60fc2) {
-    return MessageReplies.deserialize(reader);
+  if (id == 0x0e5af939) {
+    return MessageReplyStoryHeader.deserialize(reader);
   }
 
-  if (id == 0xebe07752) {
-    return UpdatePeerBlocked.deserialize(reader);
+  if (id == 0x83d60fc2) {
+    return MessageReplies.deserialize(reader);
   }
 
   if (id == 0xe8fd8014) {
     return PeerBlocked.deserialize(reader);
   }
 
-  if (id == 0x8c88c923) {
-    return UpdateChannelUserTyping.deserialize(reader);
-  }
-
-  if (id == 0xacfa1a7e) {
-    return InputMessageCallbackQuery.deserialize(reader);
-  }
-
-  if (id == 0x1b03f006) {
-    return ChannelParticipantLeft.deserialize(reader);
-  }
-
-  if (id == 0xe04b5ceb) {
-    return ChannelParticipantsMentions.deserialize(reader);
-  }
-
-  if (id == 0xed85eab5) {
-    return UpdatePinnedMessages.deserialize(reader);
-  }
-
-  if (id == 0x5bb98608) {
-    return UpdatePinnedChannelMessages.deserialize(reader);
-  }
-
-  if (id == 0x1bb00451) {
-    return InputMessagesFilterPinned.deserialize(reader);
-  }
-
   if (id == 0x7fe91c14) {
     return StatsMessageStats.deserialize(reader);
-  }
-
-  if (id == 0x98e0d697) {
-    return MessageActionGeoProximityReached.deserialize(reader);
-  }
-
-  if (id == 0xd8214d41) {
-    return PhotoPathSize.deserialize(reader);
-  }
-
-  if (id == 0xd92c2285) {
-    return SpeakingInGroupCallAction.deserialize(reader);
   }
 
   if (id == 0x7780bcb4) {
     return GroupCallDiscarded.deserialize(reader);
   }
 
-  if (id == 0xd597650c) {
+  if (id == 0x553b0ba1) {
     return GroupCall.deserialize(reader);
   }
 
@@ -3583,28 +4447,16 @@ TlObject _readObject(BinaryReader reader) {
     return InputGroupCall.deserialize(reader);
   }
 
-  if (id == 0x7a0d7f42) {
-    return MessageActionGroupCall.deserialize(reader);
+  if (id == 0xfe06823f) {
+    return InputGroupCallSlug.deserialize(reader);
   }
 
-  if (id == 0x502f92f7) {
-    return MessageActionInviteToGroupCall.deserialize(reader);
+  if (id == 0x8c10603f) {
+    return InputGroupCallInviteMessage.deserialize(reader);
   }
 
   if (id == 0xeba636fe) {
     return GroupCallParticipant.deserialize(reader);
-  }
-
-  if (id == 0xf89a6a4e) {
-    return UpdateChat.deserialize(reader);
-  }
-
-  if (id == 0xf2ebdb4e) {
-    return UpdateGroupCallParticipants.deserialize(reader);
-  }
-
-  if (id == 0x14b24500) {
-    return UpdateGroupCall.deserialize(reader);
   }
 
   if (id == 0x9e727aad) {
@@ -3635,68 +4487,20 @@ TlObject _readObject(BinaryReader reader) {
     return InlineQueryPeerTypeBroadcast.deserialize(reader);
   }
 
-  if (id == 0x23209745) {
-    return ChannelAdminLogEventActionStartGroupCall.deserialize(reader);
-  }
-
-  if (id == 0xdb9f9140) {
-    return ChannelAdminLogEventActionDiscardGroupCall.deserialize(reader);
-  }
-
-  if (id == 0xf92424d2) {
-    return ChannelAdminLogEventActionParticipantMute.deserialize(reader);
-  }
-
-  if (id == 0xe64429c0) {
-    return ChannelAdminLogEventActionParticipantUnmute.deserialize(reader);
-  }
-
-  if (id == 0x56d6a247) {
-    return ChannelAdminLogEventActionToggleGroupCallSetting.deserialize(reader);
-  }
-
-  if (id == 0x8ac32801) {
-    return InputPaymentCredentialsGooglePay.deserialize(reader);
+  if (id == 0x0e3b2d0c) {
+    return InlineQueryPeerTypeBotPM.deserialize(reader);
   }
 
   if (id == 0x1662af0b) {
     return MessagesHistoryImport.deserialize(reader);
   }
 
-  if (id == 0xdbda9246) {
-    return SendMessageHistoryImportAction.deserialize(reader);
-  }
-
   if (id == 0x5e0fb7b9) {
     return MessagesHistoryImportParsed.deserialize(reader);
   }
 
-  if (id == 0xf5ddd6e7) {
-    return InputReportReasonFake.deserialize(reader);
-  }
-
   if (id == 0xef8d3e6c) {
     return MessagesAffectedFoundMessages.deserialize(reader);
-  }
-
-  if (id == 0x3c134d7b) {
-    return MessageActionSetMessagesTTL.deserialize(reader);
-  }
-
-  if (id == 0xbb9bb9a5) {
-    return UpdatePeerHistoryTTL.deserialize(reader);
-  }
-
-  if (id == 0xd087663a) {
-    return UpdateChatParticipant.deserialize(reader);
-  }
-
-  if (id == 0x985d3abb) {
-    return UpdateChannelParticipant.deserialize(reader);
-  }
-
-  if (id == 0xc4870a49) {
-    return UpdateBotStopped.deserialize(reader);
   }
 
   if (id == 0x8c5adfd9) {
@@ -3727,37 +4531,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesChatAdminsWithInvites.deserialize(reader);
   }
 
-  if (id == 0xfe9fc158) {
-    return ChannelAdminLogEventActionParticipantJoinByInvite.deserialize(
-        reader);
-  }
-
-  if (id == 0x5a50fca4) {
-    return ChannelAdminLogEventActionExportedInviteDelete.deserialize(reader);
-  }
-
-  if (id == 0x410a134e) {
-    return ChannelAdminLogEventActionExportedInviteRevoke.deserialize(reader);
-  }
-
-  if (id == 0xe90ebb59) {
-    return ChannelAdminLogEventActionExportedInviteEdit.deserialize(reader);
-  }
-
-  if (id == 0x3e7f6847) {
-    return ChannelAdminLogEventActionParticipantVolume.deserialize(reader);
-  }
-
-  if (id == 0x6e941a38) {
-    return ChannelAdminLogEventActionChangeHistoryTTL.deserialize(reader);
-  }
-
   if (id == 0xa24de717) {
     return MessagesCheckedHistoryImportPeer.deserialize(reader);
-  }
-
-  if (id == 0x0598a92a) {
-    return InputGroupCallStream.deserialize(reader);
   }
 
   if (id == 0xafe5623f) {
@@ -3768,28 +4543,12 @@ TlObject _readObject(BinaryReader reader) {
     return PhoneExportedGroupCallInvite.deserialize(reader);
   }
 
-  if (id == 0xd7e78225) {
-    return InputBotInlineMessageMediaInvoice.deserialize(reader);
-  }
-
-  if (id == 0x354a9b09) {
-    return BotInlineMessageMediaInvoice.deserialize(reader);
-  }
-
-  if (id == 0xb3a07661) {
-    return MessageActionGroupCallScheduled.deserialize(reader);
-  }
-
   if (id == 0xdcb118b7) {
     return GroupCallParticipantVideoSourceGroup.deserialize(reader);
   }
 
   if (id == 0x67753ac8) {
     return GroupCallParticipantVideo.deserialize(reader);
-  }
-
-  if (id == 0x0b783982) {
-    return UpdateGroupCallConnection.deserialize(reader);
   }
 
   if (id == 0x85fea03f) {
@@ -3836,40 +4595,16 @@ TlObject _readObject(BinaryReader reader) {
     return AccountResetPasswordOk.deserialize(reader);
   }
 
-  if (id == 0x4d712f2e) {
-    return UpdateBotCommands.deserialize(reader);
-  }
-
-  if (id == 0xaa786345) {
-    return MessageActionSetChatTheme.deserialize(reader);
-  }
-
-  if (id == 0xb05ac6b1) {
-    return SendMessageChooseStickerAction.deserialize(reader);
-  }
-
-  if (id == 0x4d93a990) {
+  if (id == 0x7dbf8673) {
     return SponsoredMessage.deserialize(reader);
   }
 
-  if (id == 0xc9ee1d87) {
+  if (id == 0xffda656d) {
     return MessagesSponsoredMessages.deserialize(reader);
   }
 
-  if (id == 0x0cde3739) {
-    return InputStickerSetAnimatedEmojiAnimations.deserialize(reader);
-  }
-
-  if (id == 0x25972bcb) {
-    return SendMessageEmojiInteraction.deserialize(reader);
-  }
-
-  if (id == 0xb665902e) {
-    return SendMessageEmojiInteractionSeen.deserialize(reader);
-  }
-
-  if (id == 0xb6d915d7) {
-    return InputBotInlineMessageID64.deserialize(reader);
+  if (id == 0x1839490f) {
+    return MessagesSponsoredMessagesEmpty.deserialize(reader);
   }
 
   if (id == 0xc9b0539f) {
@@ -3888,41 +4623,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSearchResultsPositions.deserialize(reader);
   }
 
-  if (id == 0xebbca3cb) {
-    return MessageActionChatJoinedByRequest.deserialize(reader);
-  }
-
-  if (id == 0x7063c3db) {
-    return UpdatePendingJoinRequests.deserialize(reader);
-  }
-
-  if (id == 0x11dfa986) {
-    return UpdateBotChatInviteRequester.deserialize(reader);
-  }
-
-  if (id == 0xafb6144a) {
-    return ChannelAdminLogEventActionParticipantJoinByRequest.deserialize(
-        reader);
-  }
-
-  if (id == 0xe988037b) {
-    return InputKeyboardButtonUserProfile.deserialize(reader);
-  }
-
-  if (id == 0x308660c1) {
-    return KeyboardButtonUserProfile.deserialize(reader);
-  }
-
   if (id == 0xf496b0c6) {
     return ChannelsSendAsPeers.deserialize(reader);
-  }
-
-  if (id == 0xcb2ac766) {
-    return ChannelAdminLogEventActionToggleNoForwards.deserialize(reader);
-  }
-
-  if (id == 0xd3f924eb) {
-    return MessagesStickerSetNotModified.deserialize(reader);
   }
 
   if (id == 0x3b6d152e) {
@@ -3933,24 +4635,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesPeerSettings.deserialize(reader);
   }
 
-  if (id == 0x278f2868) {
-    return ChannelAdminLogEventActionSendMessage.deserialize(reader);
-  }
-
-  if (id == 0xd61ad6ee) {
-    return AuthCodeTypeMissedCall.deserialize(reader);
-  }
-
-  if (id == 0x82006484) {
-    return AuthSentCodeTypeMissedCall.deserialize(reader);
-  }
-
   if (id == 0xc3a2835f) {
     return AuthLoggedOut.deserialize(reader);
-  }
-
-  if (id == 0x5e1b3cb8) {
-    return UpdateMessageReactions.deserialize(reader);
   }
 
   if (id == 0xa3d1cb80) {
@@ -3977,15 +4663,6 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesAvailableReactions.deserialize(reader);
   }
 
-  if (id == 0x32ca960f) {
-    return MessageEntitySpoiler.deserialize(reader);
-  }
-
-  if (id == 0xbe4e0ef8) {
-    return ChannelAdminLogEventActionChangeAvailableReactions.deserialize(
-        reader);
-  }
-
   if (id == 0x8c79b63c) {
     return MessagePeerReaction.deserialize(reader);
   }
@@ -3996,14 +4673,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xd0e482b2) {
     return PhoneGroupCallStreamChannels.deserialize(reader);
-  }
-
-  if (id == 0x0a8eb2be) {
-    return InputReportReasonIllegalDrugs.deserialize(reader);
-  }
-
-  if (id == 0x9ec7863d) {
-    return InputReportReasonPersonalDetails.deserialize(reader);
   }
 
   if (id == 0x2dbf3432) {
@@ -4034,40 +4703,12 @@ TlObject _readObject(BinaryReader reader) {
     return AttachMenuBotsBot.deserialize(reader);
   }
 
-  if (id == 0x17b7a20b) {
-    return UpdateAttachMenuBots.deserialize(reader);
-  }
-
   if (id == 0x4d22ff98) {
     return WebViewResultUrl.deserialize(reader);
   }
 
   if (id == 0x0c94511c) {
     return WebViewMessageSent.deserialize(reader);
-  }
-
-  if (id == 0x1592b79d) {
-    return UpdateWebViewResultSent.deserialize(reader);
-  }
-
-  if (id == 0x13767230) {
-    return KeyboardButtonWebView.deserialize(reader);
-  }
-
-  if (id == 0xa0c0505c) {
-    return KeyboardButtonSimpleWebView.deserialize(reader);
-  }
-
-  if (id == 0x47dd8079) {
-    return MessageActionWebViewDataSentMe.deserialize(reader);
-  }
-
-  if (id == 0xb4c38cb5) {
-    return MessageActionWebViewDataSent.deserialize(reader);
-  }
-
-  if (id == 0x14b85813) {
-    return UpdateBotMenuButton.deserialize(reader);
   }
 
   if (id == 0x7533a588) {
@@ -4088,10 +4729,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xc1e92cc5) {
     return AccountSavedRingtones.deserialize(reader);
-  }
-
-  if (id == 0x74d8be99) {
-    return UpdateSavedRingtones.deserialize(reader);
   }
 
   if (id == 0x97e8bebe) {
@@ -4138,10 +4775,6 @@ TlObject _readObject(BinaryReader reader) {
     return AttachMenuPeerTypeBroadcast.deserialize(reader);
   }
 
-  if (id == 0xed107ab7) {
-    return ChatInvitePublicJoinRequests.deserialize(reader);
-  }
-
   if (id == 0xc5b56859) {
     return InputInvoiceMessage.deserialize(reader);
   }
@@ -4150,36 +4783,52 @@ TlObject _readObject(BinaryReader reader) {
     return InputInvoiceSlug.deserialize(reader);
   }
 
-  if (id == 0xaed0cbd9) {
-    return PaymentsExportedInvoice.deserialize(reader);
+  if (id == 0x98986c0d) {
+    return InputInvoicePremiumGiftCode.deserialize(reader);
   }
 
-  if (id == 0x0084cd5a) {
-    return UpdateTranscribedAudio.deserialize(reader);
+  if (id == 0x65f00ce3) {
+    return InputInvoiceStars.deserialize(reader);
+  }
+
+  if (id == 0x34e793f1) {
+    return InputInvoiceChatInviteSubscription.deserialize(reader);
+  }
+
+  if (id == 0xe8625e92) {
+    return InputInvoiceStarGift.deserialize(reader);
+  }
+
+  if (id == 0x4d818d5d) {
+    return InputInvoiceStarGiftUpgrade.deserialize(reader);
+  }
+
+  if (id == 0x4a5f5bd9) {
+    return InputInvoiceStarGiftTransfer.deserialize(reader);
+  }
+
+  if (id == 0xdabab2ef) {
+    return InputInvoicePremiumGiftStars.deserialize(reader);
+  }
+
+  if (id == 0xf4997e42) {
+    return InputInvoiceBusinessBotTransferStars.deserialize(reader);
+  }
+
+  if (id == 0x63cbc38c) {
+    return InputInvoiceStarGiftResale.deserialize(reader);
+  }
+
+  if (id == 0xaed0cbd9) {
+    return PaymentsExportedInvoice.deserialize(reader);
   }
 
   if (id == 0xcfb9d957) {
     return MessagesTranscribedAudio.deserialize(reader);
   }
 
-  if (id == 0x363293ae) {
-    return DialogFilterDefault.deserialize(reader);
-  }
-
   if (id == 0x5334759c) {
     return HelpPremiumPromo.deserialize(reader);
-  }
-
-  if (id == 0xc8cf05f8) {
-    return MessageEntityCustomEmoji.deserialize(reader);
-  }
-
-  if (id == 0xfd149899) {
-    return DocumentAttributeCustomEmoji.deserialize(reader);
-  }
-
-  if (id == 0x40d13c0e) {
-    return StickerSetFullCovered.deserialize(reader);
   }
 
   if (id == 0xa6751e66) {
@@ -4190,56 +4839,48 @@ TlObject _readObject(BinaryReader reader) {
     return InputStorePaymentGiftPremium.deserialize(reader);
   }
 
-  if (id == 0x6c6274fa) {
-    return MessageActionGiftPremium.deserialize(reader);
+  if (id == 0xfb790393) {
+    return InputStorePaymentPremiumGiftCode.deserialize(reader);
   }
 
-  if (id == 0x74c34319) {
-    return PremiumGiftOption.deserialize(reader);
+  if (id == 0x160544ca) {
+    return InputStorePaymentPremiumGiveaway.deserialize(reader);
   }
 
-  if (id == 0xc88b3b02) {
-    return InputStickerSetPremiumGifts.deserialize(reader);
+  if (id == 0xdddd0f56) {
+    return InputStorePaymentStarsTopup.deserialize(reader);
   }
 
-  if (id == 0xfb4c496c) {
-    return UpdateReadFeaturedEmojiStickers.deserialize(reader);
+  if (id == 0x1d741ef7) {
+    return InputStorePaymentStarsGift.deserialize(reader);
   }
 
-  if (id == 0xaee69d68) {
-    return InputPrivacyKeyVoiceMessages.deserialize(reader);
+  if (id == 0x751f08fa) {
+    return InputStorePaymentStarsGiveaway.deserialize(reader);
   }
 
-  if (id == 0x0697f414) {
-    return PrivacyKeyVoiceMessages.deserialize(reader);
+  if (id == 0x9bb2636d) {
+    return InputStorePaymentAuthCode.deserialize(reader);
   }
 
   if (id == 0x88f8f21b) {
     return PaymentFormMethod.deserialize(reader);
   }
 
-  if (id == 0xf46fe924) {
-    return InputWebFileAudioAlbumThumbLocation.deserialize(reader);
-  }
-
   if (id == 0x2de11aae) {
     return EmojiStatusEmpty.deserialize(reader);
   }
 
-  if (id == 0x929b619d) {
+  if (id == 0xe7ff068a) {
     return EmojiStatus.deserialize(reader);
   }
 
-  if (id == 0xfa30a8c7) {
-    return EmojiStatusUntil.deserialize(reader);
+  if (id == 0x7184603b) {
+    return EmojiStatusCollectible.deserialize(reader);
   }
 
-  if (id == 0x28373599) {
-    return UpdateUserEmojiStatus.deserialize(reader);
-  }
-
-  if (id == 0x30f443db) {
-    return UpdateRecentEmojiStatuses.deserialize(reader);
+  if (id == 0x07141dbf) {
+    return InputEmojiStatusCollectible.deserialize(reader);
   }
 
   if (id == 0xd08ce645) {
@@ -4262,6 +4903,10 @@ TlObject _readObject(BinaryReader reader) {
     return ReactionCustomEmoji.deserialize(reader);
   }
 
+  if (id == 0x523da4eb) {
+    return ReactionPaid.deserialize(reader);
+  }
+
   if (id == 0xeafc32bc) {
     return ChatReactionsNone.deserialize(reader);
   }
@@ -4280,22 +4925,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xeafdf716) {
     return MessagesReactions.deserialize(reader);
-  }
-
-  if (id == 0x6f7863f4) {
-    return UpdateRecentReactions.deserialize(reader);
-  }
-
-  if (id == 0x86fccf85) {
-    return UpdateMoveStickerSetToTop.deserialize(reader);
-  }
-
-  if (id == 0xf450f59b) {
-    return AuthSentCodeTypeEmailCode.deserialize(reader);
-  }
-
-  if (id == 0xa5491dea) {
-    return AuthSentCodeTypeSetUpEmailRequired.deserialize(reader);
   }
 
   if (id == 0x4345be73) {
@@ -4334,14 +4963,6 @@ TlObject _readObject(BinaryReader reader) {
     return PremiumSubscriptionOption.deserialize(reader);
   }
 
-  if (id == 0x04c4d4ce) {
-    return InputStickerSetEmojiGenericAnimations.deserialize(reader);
-  }
-
-  if (id == 0x29d0f5ee) {
-    return InputStickerSetEmojiDefaultStatuses.deserialize(reader);
-  }
-
   if (id == 0xb81c7034) {
     return SendAsPeer.deserialize(reader);
   }
@@ -4354,40 +4975,12 @@ TlObject _readObject(BinaryReader reader) {
     return MessageExtendedMedia.deserialize(reader);
   }
 
-  if (id == 0xd5a41724) {
-    return UpdateMessageExtendedMedia.deserialize(reader);
-  }
-
   if (id == 0xfcfeb29c) {
     return StickerKeyword.deserialize(reader);
   }
 
   if (id == 0xb4073647) {
     return Username.deserialize(reader);
-  }
-
-  if (id == 0xf04fb3a9) {
-    return ChannelAdminLogEventActionChangeUsernames.deserialize(reader);
-  }
-
-  if (id == 0x02cc6383) {
-    return ChannelAdminLogEventActionToggleForum.deserialize(reader);
-  }
-
-  if (id == 0x58707d28) {
-    return ChannelAdminLogEventActionCreateTopic.deserialize(reader);
-  }
-
-  if (id == 0xf06fe208) {
-    return ChannelAdminLogEventActionEditTopic.deserialize(reader);
-  }
-
-  if (id == 0xae168909) {
-    return ChannelAdminLogEventActionDeleteTopic.deserialize(reader);
-  }
-
-  if (id == 0x5d8d353b) {
-    return ChannelAdminLogEventActionPinTopic.deserialize(reader);
   }
 
   if (id == 0x023f109b) {
@@ -4402,76 +4995,12 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesForumTopics.deserialize(reader);
   }
 
-  if (id == 0x0d999256) {
-    return MessageActionTopicCreate.deserialize(reader);
-  }
-
-  if (id == 0xc0944820) {
-    return MessageActionTopicEdit.deserialize(reader);
-  }
-
-  if (id == 0x192efbe3) {
-    return UpdateChannelPinnedTopic.deserialize(reader);
-  }
-
-  if (id == 0x5c467992) {
-    return InputNotifyForumTopic.deserialize(reader);
-  }
-
-  if (id == 0x226e6308) {
-    return NotifyForumTopic.deserialize(reader);
-  }
-
-  if (id == 0x44c1f8e9) {
-    return InputStickerSetEmojiDefaultTopicIcons.deserialize(reader);
-  }
-
-  if (id == 0x1839490f) {
-    return MessagesSponsoredMessagesEmpty.deserialize(reader);
-  }
-
-  if (id == 0xfe198602) {
-    return UpdateChannelPinnedTopics.deserialize(reader);
-  }
-
   if (id == 0x43b46b20) {
     return DefaultHistoryTTL.deserialize(reader);
   }
 
-  if (id == 0x06ed998c) {
-    return AuthCodeTypeFragmentSms.deserialize(reader);
-  }
-
-  if (id == 0xd9565c39) {
-    return AuthSentCodeTypeFragmentSms.deserialize(reader);
-  }
-
   if (id == 0x41bf109b) {
     return ExportedContactToken.deserialize(reader);
-  }
-
-  if (id == 0x64f36dfc) {
-    return ChannelAdminLogEventActionToggleAntiSpam.deserialize(reader);
-  }
-
-  if (id == 0x57de635e) {
-    return MessageActionSuggestProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x77b15d1c) {
-    return StickerSetNoCovered.deserialize(reader);
-  }
-
-  if (id == 0x20529438) {
-    return UpdateUser.deserialize(reader);
-  }
-
-  if (id == 0x2390fe44) {
-    return AuthSentCodeSuccess.deserialize(reader);
-  }
-
-  if (id == 0x31518e9b) {
-    return MessageActionRequestedPeer.deserialize(reader);
   }
 
   if (id == 0x5f3b8a00) {
@@ -4486,10 +5015,6 @@ TlObject _readObject(BinaryReader reader) {
     return RequestPeerTypeBroadcast.deserialize(reader);
   }
 
-  if (id == 0x53d7bfd8) {
-    return KeyboardButtonRequestPeer.deserialize(reader);
-  }
-
   if (id == 0x481eadfa) {
     return EmojiListNotModified.deserialize(reader);
   }
@@ -4498,12 +5023,16 @@ TlObject _readObject(BinaryReader reader) {
     return EmojiList.deserialize(reader);
   }
 
-  if (id == 0x009fd736) {
-    return AuthSentCodeTypeFirebaseSms.deserialize(reader);
-  }
-
   if (id == 0x7a9abda9) {
     return EmojiGroup.deserialize(reader);
+  }
+
+  if (id == 0x80d26cc7) {
+    return EmojiGroupGreeting.deserialize(reader);
+  }
+
+  if (id == 0x093bcf34) {
+    return EmojiGroupPremium.deserialize(reader);
   }
 
   if (id == 0x6fb4ad87) {
@@ -4512,14 +5041,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x881fb94b) {
     return MessagesEmojiGroups.deserialize(reader);
-  }
-
-  if (id == 0xf85c413c) {
-    return VideoSizeEmojiMarkup.deserialize(reader);
-  }
-
-  if (id == 0x0da082fe) {
-    return VideoSizeStickerMarkup.deserialize(reader);
   }
 
   if (id == 0x751f3146) {
@@ -4540,10 +5061,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x4c3e069d) {
     return AccountAutoSaveSettings.deserialize(reader);
-  }
-
-  if (id == 0xec05b097) {
-    return UpdateAutoSaveSettings.deserialize(reader);
   }
 
   if (id == 0x7cde641d) {
@@ -4582,10 +5099,6 @@ TlObject _readObject(BinaryReader reader) {
     return ReadParticipantDate.deserialize(reader);
   }
 
-  if (id == 0x9fe28ea4) {
-    return DialogFilterChatlist.deserialize(reader);
-  }
-
   if (id == 0xf3e0da33) {
     return InputChatlistDialogFilter.deserialize(reader);
   }
@@ -4606,7 +5119,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChatlistsChatlistInviteAlready.deserialize(reader);
   }
 
-  if (id == 0x1dcd839d) {
+  if (id == 0xf10ece2f) {
     return ChatlistsChatlistInvite.deserialize(reader);
   }
 
@@ -4614,16 +5127,8 @@ TlObject _readObject(BinaryReader reader) {
     return ChatlistsChatlistUpdates.deserialize(reader);
   }
 
-  if (id == 0x5060a3f4) {
-    return MessageActionSetChatWallPaper.deserialize(reader);
-  }
-
   if (id == 0xe8a775b0) {
     return BotsBotInfo.deserialize(reader);
-  }
-
-  if (id == 0x0e3b2d0c) {
-    return InlineQueryPeerTypeBotPM.deserialize(reader);
   }
 
   if (id == 0xb6cc2d5c) {
@@ -4636,14 +5141,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x4628f6e6) {
     return MessagePeerVoteMultiple.deserialize(reader);
-  }
-
-  if (id == 0x3823cc40) {
-    return InputPrivacyKeyAbout.deserialize(reader);
-  }
-
-  if (id == 0xa486b761) {
-    return PrivacyKeyAbout.deserialize(reader);
   }
 
   if (id == 0x8d595cd6) {
@@ -4662,14 +5159,6 @@ TlObject _readObject(BinaryReader reader) {
     return StoryItem.deserialize(reader);
   }
 
-  if (id == 0x75b3b798) {
-    return UpdateStory.deserialize(reader);
-  }
-
-  if (id == 0xf74e932b) {
-    return UpdateReadStories.deserialize(reader);
-  }
-
   if (id == 0x1158fe3e) {
     return StoriesAllStoriesNotModified.deserialize(reader);
   }
@@ -4682,16 +5171,16 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesStories.deserialize(reader);
   }
 
-  if (id == 0x2f453e49) {
-    return InputPrivacyValueAllowCloseFriends.deserialize(reader);
-  }
-
-  if (id == 0xf7e8d89b) {
-    return PrivacyValueAllowCloseFriends.deserialize(reader);
-  }
-
   if (id == 0xb0bdeac5) {
     return StoryView.deserialize(reader);
+  }
+
+  if (id == 0x9083670b) {
+    return StoryViewPublicForward.deserialize(reader);
+  }
+
+  if (id == 0xbd74cf49) {
+    return StoryViewPublicRepost.deserialize(reader);
   }
 
   if (id == 0x59d78fc5) {
@@ -4702,7 +5191,7 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesStoryViews.deserialize(reader);
   }
 
-  if (id == 0x22c0f6d5) {
+  if (id == 0xb07038b0) {
     return InputReplyToMessage.deserialize(reader);
   }
 
@@ -4710,36 +5199,16 @@ TlObject _readObject(BinaryReader reader) {
     return InputReplyToStory.deserialize(reader);
   }
 
-  if (id == 0x0e5af939) {
-    return MessageReplyStoryHeader.deserialize(reader);
-  }
-
-  if (id == 0x1bf335b9) {
-    return UpdateStoryID.deserialize(reader);
+  if (id == 0x69d66c45) {
+    return InputReplyToMonoForum.deserialize(reader);
   }
 
   if (id == 0x3fc9053b) {
     return ExportedStoryLink.deserialize(reader);
   }
 
-  if (id == 0x89fdd778) {
-    return InputMediaStory.deserialize(reader);
-  }
-
-  if (id == 0x68cb6283) {
-    return MessageMediaStory.deserialize(reader);
-  }
-
-  if (id == 0x2e94c3e7) {
-    return WebPageAttributeStory.deserialize(reader);
-  }
-
   if (id == 0x712e27fd) {
     return StoriesStealthMode.deserialize(reader);
-  }
-
-  if (id == 0x2c084dc1) {
-    return UpdateStoriesStealthMode.deserialize(reader);
   }
 
   if (id == 0xcfc9e002) {
@@ -4758,12 +5227,28 @@ TlObject _readObject(BinaryReader reader) {
     return MediaAreaGeoPoint.deserialize(reader);
   }
 
-  if (id == 0x7d627683) {
-    return UpdateSentStoryReaction.deserialize(reader);
-  }
-
   if (id == 0x14455871) {
     return MediaAreaSuggestedReaction.deserialize(reader);
+  }
+
+  if (id == 0x770416af) {
+    return MediaAreaChannelPost.deserialize(reader);
+  }
+
+  if (id == 0x2271f2bf) {
+    return InputMediaAreaChannelPost.deserialize(reader);
+  }
+
+  if (id == 0x37381085) {
+    return MediaAreaUrl.deserialize(reader);
+  }
+
+  if (id == 0x49a6549c) {
+    return MediaAreaWeather.deserialize(reader);
+  }
+
+  if (id == 0x5787686d) {
+    return MediaAreaStarGift.deserialize(reader);
   }
 
   if (id == 0x9a35e999) {
@@ -4778,36 +5263,12 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesWebPage.deserialize(reader);
   }
 
-  if (id == 0xfb790393) {
-    return InputStorePaymentPremiumGiftCode.deserialize(reader);
-  }
-
-  if (id == 0x160544ca) {
-    return InputStorePaymentPremiumGiveaway.deserialize(reader);
-  }
-
-  if (id == 0x98986c0d) {
-    return InputInvoicePremiumGiftCode.deserialize(reader);
-  }
-
   if (id == 0x257e962b) {
     return PremiumGiftCodeOption.deserialize(reader);
   }
 
   if (id == 0x284a1096) {
     return PaymentsCheckedGiftCode.deserialize(reader);
-  }
-
-  if (id == 0xaa073beb) {
-    return MessageMediaGiveaway.deserialize(reader);
-  }
-
-  if (id == 0x56d03994) {
-    return MessageActionGiftCode.deserialize(reader);
-  }
-
-  if (id == 0xa80f51e4) {
-    return MessageActionGiveawayLaunch.deserialize(reader);
   }
 
   if (id == 0x4367daa0) {
@@ -4818,24 +5279,12 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsGiveawayInfoResults.deserialize(reader);
   }
 
-  if (id == 0xf1ccaaac) {
-    return MessageEntityBlockquote.deserialize(reader);
-  }
-
   if (id == 0xb2539d54) {
     return PrepaidGiveaway.deserialize(reader);
   }
 
-  if (id == 0xc21b8849) {
-    return InputMediaWebPage.deserialize(reader);
-  }
-
-  if (id == 0xbddcc510) {
-    return InputBotInlineMessageMediaWebPage.deserialize(reader);
-  }
-
-  if (id == 0x809ad9a6) {
-    return BotInlineMessageMediaWebPage.deserialize(reader);
+  if (id == 0x9a9d77e0) {
+    return PrepaidStarsGiveaway.deserialize(reader);
   }
 
   if (id == 0x4b3e14d6) {
@@ -4856,22 +5305,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x4959427a) {
     return PremiumBoostsStatus.deserialize(reader);
-  }
-
-  if (id == 0x904dd49c) {
-    return UpdateBotChatBoost.deserialize(reader);
-  }
-
-  if (id == 0x07b68920) {
-    return UpdateChannelViewForumAsMessages.deserialize(reader);
-  }
-
-  if (id == 0x87e2f155) {
-    return MessageActionGiveawayResults.deserialize(reader);
-  }
-
-  if (id == 0xae3f101d) {
-    return UpdatePeerWallpaper.deserialize(reader);
   }
 
   if (id == 0xb826e150) {
@@ -4926,10 +5359,6 @@ TlObject _readObject(BinaryReader reader) {
     return HelpPeerColors.deserialize(reader);
   }
 
-  if (id == 0xceaa3ea1) {
-    return MessageMediaGiveawayResults.deserialize(reader);
-  }
-
   if (id == 0x6090d6d5) {
     return StoryReaction.deserialize(reader);
   }
@@ -4946,60 +5375,12 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesStoryReactionsList.deserialize(reader);
   }
 
-  if (id == 0x9083670b) {
-    return StoryViewPublicForward.deserialize(reader);
-  }
-
-  if (id == 0xbd74cf49) {
-    return StoryViewPublicRepost.deserialize(reader);
-  }
-
-  if (id == 0x5796e780) {
-    return ChannelAdminLogEventActionChangePeerColor.deserialize(reader);
-  }
-
-  if (id == 0x5e477b25) {
-    return ChannelAdminLogEventActionChangeProfilePeerColor.deserialize(reader);
-  }
-
-  if (id == 0x31bb5d52) {
-    return ChannelAdminLogEventActionChangeWallpaper.deserialize(reader);
-  }
-
-  if (id == 0x3ea9feb1) {
-    return ChannelAdminLogEventActionChangeEmojiStatus.deserialize(reader);
-  }
-
-  if (id == 0x49748553) {
-    return InputStickerSetEmojiChannelDefaultStatuses.deserialize(reader);
-  }
-
-  if (id == 0x770416af) {
-    return MediaAreaChannelPost.deserialize(reader);
-  }
-
-  if (id == 0x2271f2bf) {
-    return InputMediaAreaChannelPost.deserialize(reader);
-  }
-
-  if (id == 0xac21d3ce) {
-    return UpdateBotMessageReaction.deserialize(reader);
-  }
-
-  if (id == 0x09cb7759) {
-    return UpdateBotMessageReactions.deserialize(reader);
-  }
-
   if (id == 0xbd87cb6c) {
     return SavedDialog.deserialize(reader);
   }
 
-  if (id == 0xaeaf9e74) {
-    return UpdateSavedDialogPinned.deserialize(reader);
-  }
-
-  if (id == 0x686c85a6) {
-    return UpdatePinnedSavedDialogs.deserialize(reader);
+  if (id == 0x64407ea7) {
+    return MonoForumDialog.deserialize(reader);
   }
 
   if (id == 0xf83ae221) {
@@ -5026,20 +5407,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSavedReactionTags.deserialize(reader);
   }
 
-  if (id == 0x39c67432) {
-    return UpdateSavedReactionTags.deserialize(reader);
-  }
-
   if (id == 0x3bb842ac) {
     return OutboxReadDate.deserialize(reader);
-  }
-
-  if (id == 0xcc02aa6d) {
-    return MessageActionBoostApply.deserialize(reader);
-  }
-
-  if (id == 0x46d840ab) {
-    return ChannelAdminLogEventActionChangeEmojiStickerSet.deserialize(reader);
   }
 
   if (id == 0xdc8b44cf) {
@@ -5048,10 +5417,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x2aee9191) {
     return SmsjobsStatus.deserialize(reader);
-  }
-
-  if (id == 0xf16269d4) {
-    return UpdateSmsJob.deserialize(reader);
   }
 
   if (id == 0xe6a1eeb8) {
@@ -5138,27 +5503,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesQuickRepliesNotModified.deserialize(reader);
   }
 
-  if (id == 0xf9470ab2) {
-    return UpdateQuickReplies.deserialize(reader);
-  }
-
-  if (id == 0xf53da717) {
-    return UpdateNewQuickReply.deserialize(reader);
-  }
-
-  if (id == 0x53e6f1ec) {
-    return UpdateDeleteQuickReply.deserialize(reader);
-  }
-
-  if (id == 0x3e050d0f) {
-    return UpdateQuickReplyMessage.deserialize(reader);
-  }
-
-  if (id == 0x566fe7cd) {
-    return UpdateDeleteQuickReplyMessages.deserialize(reader);
-  }
-
-  if (id == 0xbd068601) {
+  if (id == 0xcd64636c) {
     return ConnectedBot.deserialize(reader);
   }
 
@@ -5174,23 +5519,7 @@ TlObject _readObject(BinaryReader reader) {
     return Birthday.deserialize(reader);
   }
 
-  if (id == 0x8ae5c97a) {
-    return UpdateBotBusinessConnect.deserialize(reader);
-  }
-
-  if (id == 0x9ddb347c) {
-    return UpdateBotNewBusinessMessage.deserialize(reader);
-  }
-
-  if (id == 0x07df587c) {
-    return UpdateBotEditBusinessMessage.deserialize(reader);
-  }
-
-  if (id == 0xa02a982e) {
-    return UpdateBotDeleteBusinessMessage.deserialize(reader);
-  }
-
-  if (id == 0x896433b4) {
+  if (id == 0x8f34b2f5) {
     return BotBusinessConnection.deserialize(reader);
   }
 
@@ -5234,22 +5563,6 @@ TlObject _readObject(BinaryReader reader) {
     return ContactsContactBirthdays.deserialize(reader);
   }
 
-  if (id == 0xd65a11cc) {
-    return InputPrivacyKeyBirthday.deserialize(reader);
-  }
-
-  if (id == 0x2000a518) {
-    return PrivacyKeyBirthday.deserialize(reader);
-  }
-
-  if (id == 0x77cdc9f1) {
-    return InputPrivacyValueAllowPremium.deserialize(reader);
-  }
-
-  if (id == 0xece9814b) {
-    return PrivacyValueAllowPremium.deserialize(reader);
-  }
-
   if (id == 0x628c9224) {
     return MissingInvitee.deserialize(reader);
   }
@@ -5286,14 +5599,6 @@ TlObject _readObject(BinaryReader reader) {
     return RequestedPeerChannel.deserialize(reader);
   }
 
-  if (id == 0x93b31848) {
-    return MessageActionRequestedPeerSentMe.deserialize(reader);
-  }
-
-  if (id == 0xc9662d05) {
-    return InputKeyboardButtonRequestPeer.deserialize(reader);
-  }
-
   if (id == 0x430d3150) {
     return SponsoredMessageReportOption.deserialize(reader);
   }
@@ -5310,34 +5615,6 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsSponsoredMessageReportResultReported.deserialize(reader);
   }
 
-  if (id == 0x5407e297) {
-    return StatsBroadcastRevenueStats.deserialize(reader);
-  }
-
-  if (id == 0xec659737) {
-    return StatsBroadcastRevenueWithdrawalUrl.deserialize(reader);
-  }
-
-  if (id == 0x557e2cc4) {
-    return BroadcastRevenueTransactionProceeds.deserialize(reader);
-  }
-
-  if (id == 0x5a590978) {
-    return BroadcastRevenueTransactionWithdrawal.deserialize(reader);
-  }
-
-  if (id == 0x42d30d2e) {
-    return BroadcastRevenueTransactionRefund.deserialize(reader);
-  }
-
-  if (id == 0x87158466) {
-    return StatsBroadcastRevenueTransactions.deserialize(reader);
-  }
-
-  if (id == 0x50cc03d3) {
-    return WebPageAttributeStickerSet.deserialize(reader);
-  }
-
   if (id == 0xbac3a61a) {
     return ReactionNotificationsFromContacts.deserialize(reader);
   }
@@ -5348,34 +5625,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x56e34970) {
     return ReactionsNotifySettings.deserialize(reader);
-  }
-
-  if (id == 0x1824e40b) {
-    return UpdateNewStoryReaction.deserialize(reader);
-  }
-
-  if (id == 0xa416ac81) {
-    return AuthSentCodeTypeSmsWord.deserialize(reader);
-  }
-
-  if (id == 0xb37794af) {
-    return AuthSentCodeTypeSmsPhrase.deserialize(reader);
-  }
-
-  if (id == 0x80d26cc7) {
-    return EmojiGroupGreeting.deserialize(reader);
-  }
-
-  if (id == 0x093bcf34) {
-    return EmojiGroupPremium.deserialize(reader);
-  }
-
-  if (id == 0xc3ff71e7) {
-    return BroadcastRevenueBalances.deserialize(reader);
-  }
-
-  if (id == 0xdfd961f5) {
-    return UpdateBroadcastRevenueTransactions.deserialize(reader);
   }
 
   if (id == 0x93c3e27e) {
@@ -5418,36 +5667,24 @@ TlObject _readObject(BinaryReader reader) {
     return StarsTransactionPeer.deserialize(reader);
   }
 
+  if (id == 0x60682812) {
+    return StarsTransactionPeerAds.deserialize(reader);
+  }
+
+  if (id == 0xf9677aad) {
+    return StarsTransactionPeerAPI.deserialize(reader);
+  }
+
   if (id == 0x0bd915c0) {
     return StarsTopupOption.deserialize(reader);
   }
 
-  if (id == 0x65f00ce3) {
-    return InputInvoiceStars.deserialize(reader);
-  }
-
-  if (id == 0x64dfc926) {
+  if (id == 0x13659eb0) {
     return StarsTransaction.deserialize(reader);
   }
 
   if (id == 0x6c9ce8ed) {
     return PaymentsStarsStatus.deserialize(reader);
-  }
-
-  if (id == 0x4e80a379) {
-    return UpdateStarsBalance.deserialize(reader);
-  }
-
-  if (id == 0x7bf6b15c) {
-    return PaymentsPaymentFormStars.deserialize(reader);
-  }
-
-  if (id == 0xdabbf83a) {
-    return PaymentsPaymentReceiptStars.deserialize(reader);
-  }
-
-  if (id == 0x37381085) {
-    return MediaAreaUrl.deserialize(reader);
   }
 
   if (id == 0xe87acbc0) {
@@ -5462,36 +5699,16 @@ TlObject _readObject(BinaryReader reader) {
     return GeoPointAddress.deserialize(reader);
   }
 
-  if (id == 0x1ea2fda7) {
-    return UpdateBusinessBotCallbackQuery.deserialize(reader);
-  }
-
   if (id == 0xfebe5491) {
     return StarsRevenueStatus.deserialize(reader);
   }
 
-  if (id == 0xc92bb73b) {
+  if (id == 0x6c207376) {
     return PaymentsStarsRevenueStats.deserialize(reader);
   }
 
   if (id == 0x1dab80b7) {
     return PaymentsStarsRevenueWithdrawalUrl.deserialize(reader);
-  }
-
-  if (id == 0xa584b019) {
-    return UpdateStarsRevenueStatus.deserialize(reader);
-  }
-
-  if (id == 0xc4103386) {
-    return InputMediaPaidMedia.deserialize(reader);
-  }
-
-  if (id == 0xa8852491) {
-    return MessageMediaPaidMedia.deserialize(reader);
-  }
-
-  if (id == 0x60682812) {
-    return StarsTransactionPeerAds.deserialize(reader);
   }
 
   if (id == 0x394e7f21) {
@@ -5502,28 +5719,8 @@ TlObject _readObject(BinaryReader reader) {
     return InputStarsTransaction.deserialize(reader);
   }
 
-  if (id == 0x41b3e202) {
-    return MessageActionPaymentRefunded.deserialize(reader);
-  }
-
-  if (id == 0xdddd0f56) {
-    return InputStorePaymentStarsTopup.deserialize(reader);
-  }
-
-  if (id == 0x1d741ef7) {
-    return InputStorePaymentStarsGift.deserialize(reader);
-  }
-
   if (id == 0x5e0589f1) {
     return StarsGiftOption.deserialize(reader);
-  }
-
-  if (id == 0x45d5b021) {
-    return MessageActionGiftStars.deserialize(reader);
-  }
-
-  if (id == 0xfd9e7bec) {
-    return TopPeerCategoryBotsApp.deserialize(reader);
   }
 
   if (id == 0x1991b13b) {
@@ -5538,18 +5735,6 @@ TlObject _readObject(BinaryReader reader) {
     return BotsPreviewInfo.deserialize(reader);
   }
 
-  if (id == 0x49a6549c) {
-    return MediaAreaWeather.deserialize(reader);
-  }
-
-  if (id == 0x62dc8b48) {
-    return InputFileStoryDocument.deserialize(reader);
-  }
-
-  if (id == 0x34e793f1) {
-    return InputInvoiceChatInviteSubscription.deserialize(reader);
-  }
-
   if (id == 0x05416d58) {
     return StarsSubscriptionPricing.deserialize(reader);
   }
@@ -5558,37 +5743,8 @@ TlObject _readObject(BinaryReader reader) {
     return StarsSubscription.deserialize(reader);
   }
 
-  if (id == 0x523da4eb) {
-    return ReactionPaid.deserialize(reader);
-  }
-
   if (id == 0x4ba3a95a) {
     return MessageReactor.deserialize(reader);
-  }
-
-  if (id == 0x60a79c79) {
-    return ChannelAdminLogEventActionToggleSignatureProfiles.deserialize(
-        reader);
-  }
-
-  if (id == 0x283bd312) {
-    return UpdateBotPurchasedPaidMedia.deserialize(reader);
-  }
-
-  if (id == 0x64642db3) {
-    return ChannelAdminLogEventActionParticipantSubExtend.deserialize(reader);
-  }
-
-  if (id == 0x751f08fa) {
-    return InputStorePaymentStarsGiveaway.deserialize(reader);
-  }
-
-  if (id == 0xb00c47a2) {
-    return MessageActionPrizeStars.deserialize(reader);
-  }
-
-  if (id == 0x51ca7aec) {
-    return UpdatePaidReactionPrivacy.deserialize(reader);
   }
 
   if (id == 0x94ce852a) {
@@ -5599,44 +5755,20 @@ TlObject _readObject(BinaryReader reader) {
     return StarsGiveawayWinnersOption.deserialize(reader);
   }
 
-  if (id == 0x9a9d77e0) {
-    return PrepaidStarsGiveaway.deserialize(reader);
-  }
-
-  if (id == 0x75d2698e) {
-    return KeyboardButtonCopy.deserialize(reader);
-  }
-
-  if (id == 0x49c577cd) {
+  if (id == 0x7f853c12) {
     return StarGift.deserialize(reader);
+  }
+
+  if (id == 0xf63778ae) {
+    return StarGiftUnique.deserialize(reader);
   }
 
   if (id == 0xa388a368) {
     return PaymentsStarGiftsNotModified.deserialize(reader);
   }
 
-  if (id == 0x901689ea) {
+  if (id == 0x2ed82995) {
     return PaymentsStarGifts.deserialize(reader);
-  }
-
-  if (id == 0x25d8c1d8) {
-    return InputInvoiceStarGift.deserialize(reader);
-  }
-
-  if (id == 0xb425cfe1) {
-    return PaymentsPaymentFormStarGift.deserialize(reader);
-  }
-
-  if (id == 0x08557637) {
-    return MessageActionStarGift.deserialize(reader);
-  }
-
-  if (id == 0xeea49a6e) {
-    return UserStarGift.deserialize(reader);
-  }
-
-  if (id == 0x6b65b517) {
-    return PaymentsUserStarGifts.deserialize(reader);
   }
 
   if (id == 0x7903e3d9) {
@@ -5655,10 +5787,6 @@ TlObject _readObject(BinaryReader reader) {
     return ReportResultReported.deserialize(reader);
   }
 
-  if (id == 0xf9677aad) {
-    return StarsTransactionPeerAPI.deserialize(reader);
-  }
-
   if (id == 0x8ecf0511) {
     return MessagesBotPreparedInlineMessage.deserialize(reader);
   }
@@ -5669,30 +5797,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xc99b1950) {
     return BotAppSettings.deserialize(reader);
-  }
-
-  if (id == 0x5a4fcce5) {
-    return InputPrivacyValueAllowBots.deserialize(reader);
-  }
-
-  if (id == 0xc4e57915) {
-    return InputPrivacyValueDisallowBots.deserialize(reader);
-  }
-
-  if (id == 0x21461b5d) {
-    return PrivacyValueAllowBots.deserialize(reader);
-  }
-
-  if (id == 0xf6a5f82f) {
-    return PrivacyValueDisallowBots.deserialize(reader);
-  }
-
-  if (id == 0xe1732341) {
-    return InputPrivacyKeyStarGiftsAutoSave.deserialize(reader);
-  }
-
-  if (id == 0x2ca4fdf8) {
-    return PrivacyKeyStarGiftsAutoSave.deserialize(reader);
   }
 
   if (id == 0xdd0c66f2) {
@@ -5715,6 +5819,10 @@ TlObject _readObject(BinaryReader reader) {
     return StarsAmount.deserialize(reader);
   }
 
+  if (id == 0x74aee3e0) {
+    return StarsTonAmount.deserialize(reader);
+  }
+
   if (id == 0x6010c534) {
     return MessagesFoundStickersNotModified.deserialize(reader);
   }
@@ -5723,12 +5831,208 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesFoundStickers.deserialize(reader);
   }
 
+  if (id == 0xb0cd6617) {
+    return BotVerifierSettings.deserialize(reader);
+  }
+
+  if (id == 0xf93cd45c) {
+    return BotVerification.deserialize(reader);
+  }
+
+  if (id == 0x39d99013) {
+    return StarGiftAttributeModel.deserialize(reader);
+  }
+
+  if (id == 0x13acff19) {
+    return StarGiftAttributePattern.deserialize(reader);
+  }
+
+  if (id == 0xd93d859c) {
+    return StarGiftAttributeBackdrop.deserialize(reader);
+  }
+
+  if (id == 0xe0bff26c) {
+    return StarGiftAttributeOriginalDetails.deserialize(reader);
+  }
+
+  if (id == 0x167bd90b) {
+    return PaymentsStarGiftUpgradePreview.deserialize(reader);
+  }
+
+  if (id == 0x62d706b8) {
+    return UsersUsers.deserialize(reader);
+  }
+
+  if (id == 0x315a4974) {
+    return UsersUsersSlice.deserialize(reader);
+  }
+
+  if (id == 0xcaa2f60b) {
+    return PaymentsUniqueStarGift.deserialize(reader);
+  }
+
+  if (id == 0xb53e8b21) {
+    return MessagesWebPagePreview.deserialize(reader);
+  }
+
+  if (id == 0xdfda0499) {
+    return SavedStarGift.deserialize(reader);
+  }
+
+  if (id == 0x95f389b1) {
+    return PaymentsSavedStarGifts.deserialize(reader);
+  }
+
+  if (id == 0x69279795) {
+    return InputSavedStarGiftUser.deserialize(reader);
+  }
+
+  if (id == 0xf101aa7f) {
+    return InputSavedStarGiftChat.deserialize(reader);
+  }
+
+  if (id == 0x2085c238) {
+    return InputSavedStarGiftSlug.deserialize(reader);
+  }
+
+  if (id == 0x84aa3a9c) {
+    return PaymentsStarGiftWithdrawalUrl.deserialize(reader);
+  }
+
+  if (id == 0x206ad49e) {
+    return PaidReactionPrivacyDefault.deserialize(reader);
+  }
+
+  if (id == 0x1f0c1ad9) {
+    return PaidReactionPrivacyAnonymous.deserialize(reader);
+  }
+
+  if (id == 0xdc6cfcf0) {
+    return PaidReactionPrivacyPeer.deserialize(reader);
+  }
+
+  if (id == 0x1e109708) {
+    return AccountPaidMessagesRevenue.deserialize(reader);
+  }
+
+  if (id == 0x050a9839) {
+    return RequirementToContactEmpty.deserialize(reader);
+  }
+
+  if (id == 0xe581e4e9) {
+    return RequirementToContactPremium.deserialize(reader);
+  }
+
+  if (id == 0xb4f67e93) {
+    return RequirementToContactPaidMessages.deserialize(reader);
+  }
+
+  if (id == 0xa0624cf7) {
+    return BusinessBotRights.deserialize(reader);
+  }
+
+  if (id == 0x71f276c4) {
+    return DisallowedGiftsSettings.deserialize(reader);
+  }
+
+  if (id == 0xc69708d3) {
+    return SponsoredPeer.deserialize(reader);
+  }
+
+  if (id == 0xea32b4b1) {
+    return ContactsSponsoredPeersEmpty.deserialize(reader);
+  }
+
+  if (id == 0xeb032884) {
+    return ContactsSponsoredPeers.deserialize(reader);
+  }
+
+  if (id == 0x48aaae3c) {
+    return StarGiftAttributeIdModel.deserialize(reader);
+  }
+
+  if (id == 0x4a162433) {
+    return StarGiftAttributeIdPattern.deserialize(reader);
+  }
+
+  if (id == 0x1f01c757) {
+    return StarGiftAttributeIdBackdrop.deserialize(reader);
+  }
+
+  if (id == 0x2eb1b658) {
+    return StarGiftAttributeCounter.deserialize(reader);
+  }
+
+  if (id == 0x947a12df) {
+    return PaymentsResaleStarGifts.deserialize(reader);
+  }
+
+  if (id == 0xc387c04e) {
+    return StoriesCanSendStoryCount.deserialize(reader);
+  }
+
+  if (id == 0xe7e82e12) {
+    return PendingSuggestion.deserialize(reader);
+  }
+
+  if (id == 0xcba9a52f) {
+    return TodoItem.deserialize(reader);
+  }
+
+  if (id == 0x49b92a26) {
+    return TodoList.deserialize(reader);
+  }
+
+  if (id == 0x4cc120b7) {
+    return TodoCompletion.deserialize(reader);
+  }
+
+  if (id == 0x0e8e37e5) {
+    return SuggestedPost.deserialize(reader);
+  }
+
   if (id == 0xcb9f372d) {
     return InvokeAfterMsg.deserialize(reader);
   }
 
   if (id == 0x3dc4b4f0) {
     return InvokeAfterMsgs.deserialize(reader);
+  }
+
+  if (id == 0xc1cd5ea9) {
+    return InitConnection.deserialize(reader);
+  }
+
+  if (id == 0xda9b0d0d) {
+    return InvokeWithLayer.deserialize(reader);
+  }
+
+  if (id == 0xbf9459b7) {
+    return InvokeWithoutUpdates.deserialize(reader);
+  }
+
+  if (id == 0x365275f2) {
+    return InvokeWithMessagesRange.deserialize(reader);
+  }
+
+  if (id == 0xaca9fd2e) {
+    return InvokeWithTakeout.deserialize(reader);
+  }
+
+  if (id == 0xdd289f8e) {
+    return InvokeWithBusinessConnection.deserialize(reader);
+  }
+
+  if (id == 0x1df92984) {
+    return InvokeWithGooglePlayIntegrity.deserialize(reader);
+  }
+
+  if (id == 0x0dae54f8) {
+    return InvokeWithApnsSecret.deserialize(reader);
+  }
+
+  if (id == 0xadbb0f94) {
+    return InvokeWithReCaptcha.deserialize(reader);
   }
 
   if (id == 0xa677244f) {
@@ -5761,6 +6065,66 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xcdd42a05) {
     return AuthBindTempAuthKey.deserialize(reader);
+  }
+
+  if (id == 0x67a3ff2c) {
+    return AuthImportBotAuthorization.deserialize(reader);
+  }
+
+  if (id == 0xd18b4d16) {
+    return AuthCheckPassword.deserialize(reader);
+  }
+
+  if (id == 0xd897bc66) {
+    return AuthRequestPasswordRecovery.deserialize(reader);
+  }
+
+  if (id == 0x37096c70) {
+    return AuthRecoverPassword.deserialize(reader);
+  }
+
+  if (id == 0xcae47523) {
+    return AuthResendCode.deserialize(reader);
+  }
+
+  if (id == 0x1f040578) {
+    return AuthCancelCode.deserialize(reader);
+  }
+
+  if (id == 0x8e48a188) {
+    return AuthDropTempAuthKeys.deserialize(reader);
+  }
+
+  if (id == 0xb7e085fe) {
+    return AuthExportLoginToken.deserialize(reader);
+  }
+
+  if (id == 0x95ac5ce4) {
+    return AuthImportLoginToken.deserialize(reader);
+  }
+
+  if (id == 0xe894ad4d) {
+    return AuthAcceptLoginToken.deserialize(reader);
+  }
+
+  if (id == 0x0d36bf79) {
+    return AuthCheckRecoveryPassword.deserialize(reader);
+  }
+
+  if (id == 0x2db873a9) {
+    return AuthImportWebTokenAuthorization.deserialize(reader);
+  }
+
+  if (id == 0x8e39261e) {
+    return AuthRequestFirebaseSms.deserialize(reader);
+  }
+
+  if (id == 0x7e960193) {
+    return AuthResetLoginEmail.deserialize(reader);
+  }
+
+  if (id == 0xcb9deff6) {
+    return AuthReportMissingCode.deserialize(reader);
   }
 
   if (id == 0xec86017a) {
@@ -5799,12 +6163,444 @@ TlObject _readObject(BinaryReader reader) {
     return AccountReportPeer.deserialize(reader);
   }
 
+  if (id == 0x2714d86c) {
+    return AccountCheckUsername.deserialize(reader);
+  }
+
+  if (id == 0x3e0bdd7c) {
+    return AccountUpdateUsername.deserialize(reader);
+  }
+
+  if (id == 0xdadbc950) {
+    return AccountGetPrivacy.deserialize(reader);
+  }
+
+  if (id == 0xc9f81ce8) {
+    return AccountSetPrivacy.deserialize(reader);
+  }
+
+  if (id == 0xa2c0cf74) {
+    return AccountDeleteAccount.deserialize(reader);
+  }
+
+  if (id == 0x08fc711d) {
+    return AccountGetAccountTTL.deserialize(reader);
+  }
+
+  if (id == 0x2442485e) {
+    return AccountSetAccountTTL.deserialize(reader);
+  }
+
+  if (id == 0x82574ae5) {
+    return AccountSendChangePhoneCode.deserialize(reader);
+  }
+
+  if (id == 0x70c32edb) {
+    return AccountChangePhone.deserialize(reader);
+  }
+
+  if (id == 0x38df3532) {
+    return AccountUpdateDeviceLocked.deserialize(reader);
+  }
+
+  if (id == 0xe320c158) {
+    return AccountGetAuthorizations.deserialize(reader);
+  }
+
+  if (id == 0xdf77f3bc) {
+    return AccountResetAuthorization.deserialize(reader);
+  }
+
+  if (id == 0x548a30f5) {
+    return AccountGetPassword.deserialize(reader);
+  }
+
+  if (id == 0x9cd4eaf9) {
+    return AccountGetPasswordSettings.deserialize(reader);
+  }
+
+  if (id == 0xa59b102f) {
+    return AccountUpdatePasswordSettings.deserialize(reader);
+  }
+
+  if (id == 0x1b3faa88) {
+    return AccountSendConfirmPhoneCode.deserialize(reader);
+  }
+
+  if (id == 0x5f2178c3) {
+    return AccountConfirmPhone.deserialize(reader);
+  }
+
+  if (id == 0x449e0b51) {
+    return AccountGetTmpPassword.deserialize(reader);
+  }
+
+  if (id == 0x182e6d6f) {
+    return AccountGetWebAuthorizations.deserialize(reader);
+  }
+
+  if (id == 0x2d01b9ef) {
+    return AccountResetWebAuthorization.deserialize(reader);
+  }
+
+  if (id == 0x682d2594) {
+    return AccountResetWebAuthorizations.deserialize(reader);
+  }
+
+  if (id == 0xb288bc7d) {
+    return AccountGetAllSecureValues.deserialize(reader);
+  }
+
+  if (id == 0x73665bc2) {
+    return AccountGetSecureValue.deserialize(reader);
+  }
+
+  if (id == 0x899fe31d) {
+    return AccountSaveSecureValue.deserialize(reader);
+  }
+
+  if (id == 0xb880bc4b) {
+    return AccountDeleteSecureValue.deserialize(reader);
+  }
+
+  if (id == 0xa929597a) {
+    return AccountGetAuthorizationForm.deserialize(reader);
+  }
+
+  if (id == 0xf3ed4c73) {
+    return AccountAcceptAuthorization.deserialize(reader);
+  }
+
+  if (id == 0xa5a356f9) {
+    return AccountSendVerifyPhoneCode.deserialize(reader);
+  }
+
+  if (id == 0x4dd3a7f6) {
+    return AccountVerifyPhone.deserialize(reader);
+  }
+
+  if (id == 0x98e037bb) {
+    return AccountSendVerifyEmailCode.deserialize(reader);
+  }
+
+  if (id == 0x032da4cf) {
+    return AccountVerifyEmail.deserialize(reader);
+  }
+
+  if (id == 0x8ef3eab0) {
+    return AccountInitTakeoutSession.deserialize(reader);
+  }
+
+  if (id == 0x1d2652ee) {
+    return AccountFinishTakeoutSession.deserialize(reader);
+  }
+
+  if (id == 0x8fdf1920) {
+    return AccountConfirmPasswordEmail.deserialize(reader);
+  }
+
+  if (id == 0x7a7f2a15) {
+    return AccountResendPasswordEmail.deserialize(reader);
+  }
+
+  if (id == 0xc1cbd5b6) {
+    return AccountCancelPasswordEmail.deserialize(reader);
+  }
+
+  if (id == 0x9f07c728) {
+    return AccountGetContactSignUpNotification.deserialize(reader);
+  }
+
+  if (id == 0xcff43f61) {
+    return AccountSetContactSignUpNotification.deserialize(reader);
+  }
+
+  if (id == 0x53577479) {
+    return AccountGetNotifyExceptions.deserialize(reader);
+  }
+
+  if (id == 0xfc8ddbea) {
+    return AccountGetWallPaper.deserialize(reader);
+  }
+
+  if (id == 0xe39a8f03) {
+    return AccountUploadWallPaper.deserialize(reader);
+  }
+
+  if (id == 0x6c5a5b37) {
+    return AccountSaveWallPaper.deserialize(reader);
+  }
+
+  if (id == 0xfeed5769) {
+    return AccountInstallWallPaper.deserialize(reader);
+  }
+
+  if (id == 0xbb3b9804) {
+    return AccountResetWallPapers.deserialize(reader);
+  }
+
+  if (id == 0x56da0b3f) {
+    return AccountGetAutoDownloadSettings.deserialize(reader);
+  }
+
+  if (id == 0x76f36233) {
+    return AccountSaveAutoDownloadSettings.deserialize(reader);
+  }
+
+  if (id == 0x1c3db333) {
+    return AccountUploadTheme.deserialize(reader);
+  }
+
+  if (id == 0x652e4400) {
+    return AccountCreateTheme.deserialize(reader);
+  }
+
+  if (id == 0x2bf40ccc) {
+    return AccountUpdateTheme.deserialize(reader);
+  }
+
+  if (id == 0xf257106c) {
+    return AccountSaveTheme.deserialize(reader);
+  }
+
+  if (id == 0xc727bb3b) {
+    return AccountInstallTheme.deserialize(reader);
+  }
+
+  if (id == 0x3a5869ec) {
+    return AccountGetTheme.deserialize(reader);
+  }
+
+  if (id == 0x7206e458) {
+    return AccountGetThemes.deserialize(reader);
+  }
+
+  if (id == 0xb574b16b) {
+    return AccountSetContentSettings.deserialize(reader);
+  }
+
+  if (id == 0x8b9b4dae) {
+    return AccountGetContentSettings.deserialize(reader);
+  }
+
+  if (id == 0x65ad71dc) {
+    return AccountGetMultiWallPapers.deserialize(reader);
+  }
+
+  if (id == 0xeb2b4cf6) {
+    return AccountGetGlobalPrivacySettings.deserialize(reader);
+  }
+
+  if (id == 0x1edaaac2) {
+    return AccountSetGlobalPrivacySettings.deserialize(reader);
+  }
+
+  if (id == 0xfa8cc6f5) {
+    return AccountReportProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0x9308ce1b) {
+    return AccountResetPassword.deserialize(reader);
+  }
+
+  if (id == 0x4c9409f6) {
+    return AccountDeclinePasswordReset.deserialize(reader);
+  }
+
+  if (id == 0xd638de89) {
+    return AccountGetChatThemes.deserialize(reader);
+  }
+
+  if (id == 0xbf899aa0) {
+    return AccountSetAuthorizationTTL.deserialize(reader);
+  }
+
+  if (id == 0x40f48462) {
+    return AccountChangeAuthorizationSettings.deserialize(reader);
+  }
+
+  if (id == 0xe1902288) {
+    return AccountGetSavedRingtones.deserialize(reader);
+  }
+
+  if (id == 0x3dea5b03) {
+    return AccountSaveRingtone.deserialize(reader);
+  }
+
+  if (id == 0x831a83a2) {
+    return AccountUploadRingtone.deserialize(reader);
+  }
+
+  if (id == 0xfbd3de6b) {
+    return AccountUpdateEmojiStatus.deserialize(reader);
+  }
+
+  if (id == 0xd6753386) {
+    return AccountGetDefaultEmojiStatuses.deserialize(reader);
+  }
+
+  if (id == 0x0f578105) {
+    return AccountGetRecentEmojiStatuses.deserialize(reader);
+  }
+
+  if (id == 0x18201aae) {
+    return AccountClearRecentEmojiStatuses.deserialize(reader);
+  }
+
+  if (id == 0xef500eab) {
+    return AccountReorderUsernames.deserialize(reader);
+  }
+
+  if (id == 0x58d6b376) {
+    return AccountToggleUsername.deserialize(reader);
+  }
+
+  if (id == 0xe2750328) {
+    return AccountGetDefaultProfilePhotoEmojis.deserialize(reader);
+  }
+
+  if (id == 0x915860ae) {
+    return AccountGetDefaultGroupPhotoEmojis.deserialize(reader);
+  }
+
+  if (id == 0xadcbbcda) {
+    return AccountGetAutoSaveSettings.deserialize(reader);
+  }
+
+  if (id == 0xd69b8361) {
+    return AccountSaveAutoSaveSettings.deserialize(reader);
+  }
+
+  if (id == 0x53bc0020) {
+    return AccountDeleteAutoSaveExceptions.deserialize(reader);
+  }
+
+  if (id == 0xca8ae8ba) {
+    return AccountInvalidateSignInCodes.deserialize(reader);
+  }
+
+  if (id == 0x7cefa15d) {
+    return AccountUpdateColor.deserialize(reader);
+  }
+
+  if (id == 0xa60ab9ce) {
+    return AccountGetDefaultBackgroundEmojis.deserialize(reader);
+  }
+
+  if (id == 0x7727a7d5) {
+    return AccountGetChannelDefaultEmojiStatuses.deserialize(reader);
+  }
+
+  if (id == 0x35a9e0d5) {
+    return AccountGetChannelRestrictedStatusEmojis.deserialize(reader);
+  }
+
+  if (id == 0x4b00e066) {
+    return AccountUpdateBusinessWorkHours.deserialize(reader);
+  }
+
+  if (id == 0x9e6b131a) {
+    return AccountUpdateBusinessLocation.deserialize(reader);
+  }
+
+  if (id == 0x66cdafc4) {
+    return AccountUpdateBusinessGreetingMessage.deserialize(reader);
+  }
+
+  if (id == 0xa26a7fa5) {
+    return AccountUpdateBusinessAwayMessage.deserialize(reader);
+  }
+
+  if (id == 0x66a08c7e) {
+    return AccountUpdateConnectedBot.deserialize(reader);
+  }
+
+  if (id == 0x4ea4c80f) {
+    return AccountGetConnectedBots.deserialize(reader);
+  }
+
+  if (id == 0x76a86270) {
+    return AccountGetBotBusinessConnection.deserialize(reader);
+  }
+
+  if (id == 0xa614d034) {
+    return AccountUpdateBusinessIntro.deserialize(reader);
+  }
+
+  if (id == 0x646e1097) {
+    return AccountToggleConnectedBotPaused.deserialize(reader);
+  }
+
+  if (id == 0x5e437ed9) {
+    return AccountDisablePeerConnectedBot.deserialize(reader);
+  }
+
+  if (id == 0xcc6e0c11) {
+    return AccountUpdateBirthday.deserialize(reader);
+  }
+
+  if (id == 0x8851e68e) {
+    return AccountCreateBusinessChatLink.deserialize(reader);
+  }
+
+  if (id == 0x8c3410af) {
+    return AccountEditBusinessChatLink.deserialize(reader);
+  }
+
+  if (id == 0x60073674) {
+    return AccountDeleteBusinessChatLink.deserialize(reader);
+  }
+
+  if (id == 0x6f70dde1) {
+    return AccountGetBusinessChatLinks.deserialize(reader);
+  }
+
+  if (id == 0x5492e5ee) {
+    return AccountResolveBusinessChatLink.deserialize(reader);
+  }
+
+  if (id == 0xd94305e0) {
+    return AccountUpdatePersonalChannel.deserialize(reader);
+  }
+
+  if (id == 0xb9d9a38d) {
+    return AccountToggleSponsoredMessages.deserialize(reader);
+  }
+
+  if (id == 0x06dd654c) {
+    return AccountGetReactionsNotifySettings.deserialize(reader);
+  }
+
+  if (id == 0x316ce548) {
+    return AccountSetReactionsNotifySettings.deserialize(reader);
+  }
+
+  if (id == 0x2e7b4543) {
+    return AccountGetCollectibleEmojiStatuses.deserialize(reader);
+  }
+
+  if (id == 0x19ba4a67) {
+    return AccountGetPaidMessagesRevenue.deserialize(reader);
+  }
+
+  if (id == 0xfe2eda76) {
+    return AccountToggleNoPaidMessagesException.deserialize(reader);
+  }
+
   if (id == 0x0d91a548) {
     return UsersGetUsers.deserialize(reader);
   }
 
   if (id == 0xb60f5918) {
     return UsersGetFullUser.deserialize(reader);
+  }
+
+  if (id == 0x90c894b5) {
+    return UsersSetSecureValueErrors.deserialize(reader);
+  }
+
+  if (id == 0xd89a83a3) {
+    return UsersGetRequirementsToContact.deserialize(reader);
   }
 
   if (id == 0x7adc669d) {
@@ -5843,6 +6639,78 @@ TlObject _readObject(BinaryReader reader) {
     return ContactsGetBlocked.deserialize(reader);
   }
 
+  if (id == 0x11f812d8) {
+    return ContactsSearch.deserialize(reader);
+  }
+
+  if (id == 0x725afbbc) {
+    return ContactsResolveUsername.deserialize(reader);
+  }
+
+  if (id == 0x973478b6) {
+    return ContactsGetTopPeers.deserialize(reader);
+  }
+
+  if (id == 0x1ae373ac) {
+    return ContactsResetTopPeerRating.deserialize(reader);
+  }
+
+  if (id == 0x879537f1) {
+    return ContactsResetSaved.deserialize(reader);
+  }
+
+  if (id == 0x82f1e39f) {
+    return ContactsGetSaved.deserialize(reader);
+  }
+
+  if (id == 0x8514bdda) {
+    return ContactsToggleTopPeers.deserialize(reader);
+  }
+
+  if (id == 0xe8f463d0) {
+    return ContactsAddContact.deserialize(reader);
+  }
+
+  if (id == 0xf831a20f) {
+    return ContactsAcceptContact.deserialize(reader);
+  }
+
+  if (id == 0xd348bc44) {
+    return ContactsGetLocated.deserialize(reader);
+  }
+
+  if (id == 0x29a8962c) {
+    return ContactsBlockFromReplies.deserialize(reader);
+  }
+
+  if (id == 0x8af94344) {
+    return ContactsResolvePhone.deserialize(reader);
+  }
+
+  if (id == 0xf8654027) {
+    return ContactsExportContactToken.deserialize(reader);
+  }
+
+  if (id == 0x13005788) {
+    return ContactsImportContactToken.deserialize(reader);
+  }
+
+  if (id == 0xba6705f0) {
+    return ContactsEditCloseFriends.deserialize(reader);
+  }
+
+  if (id == 0x94c65c76) {
+    return ContactsSetBlocked.deserialize(reader);
+  }
+
+  if (id == 0xdaeda864) {
+    return ContactsGetBirthdays.deserialize(reader);
+  }
+
+  if (id == 0xb6c8c393) {
+    return ContactsGetSponsoredPeers.deserialize(reader);
+  }
+
   if (id == 0x63c66506) {
     return MessagesGetMessages.deserialize(reader);
   }
@@ -5879,15 +6747,15 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSetTyping.deserialize(reader);
   }
 
-  if (id == 0x983f9745) {
+  if (id == 0xfe05dc9a) {
     return MessagesSendMessage.deserialize(reader);
   }
 
-  if (id == 0x7852834e) {
+  if (id == 0xac55d9c1) {
     return MessagesSendMedia.deserialize(reader);
   }
 
-  if (id == 0xd5039208) {
+  if (id == 0x978928ca) {
     return MessagesForwardMessages.deserialize(reader);
   }
 
@@ -5929,54 +6797,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x92ceddd4) {
     return MessagesCreateChat.deserialize(reader);
-  }
-
-  if (id == 0xedd4882a) {
-    return UpdatesGetState.deserialize(reader);
-  }
-
-  if (id == 0x19c2f763) {
-    return UpdatesGetDifference.deserialize(reader);
-  }
-
-  if (id == 0x09e82039) {
-    return PhotosUpdateProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x0388a3b5) {
-    return PhotosUploadProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x87cf7f2f) {
-    return PhotosDeletePhotos.deserialize(reader);
-  }
-
-  if (id == 0xb304a621) {
-    return UploadSaveFilePart.deserialize(reader);
-  }
-
-  if (id == 0xbe5335be) {
-    return UploadGetFile.deserialize(reader);
-  }
-
-  if (id == 0xc4f9186b) {
-    return HelpGetConfig.deserialize(reader);
-  }
-
-  if (id == 0x1fb33026) {
-    return HelpGetNearestDc.deserialize(reader);
-  }
-
-  if (id == 0x522d5a7d) {
-    return HelpGetAppUpdate.deserialize(reader);
-  }
-
-  if (id == 0x4d392343) {
-    return HelpGetInviteText.deserialize(reader);
-  }
-
-  if (id == 0x91cd32a8) {
-    return PhotosGetUserPhotos.deserialize(reader);
   }
 
   if (id == 0x26cf8950) {
@@ -6023,68 +6843,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesReportEncryptedSpam.deserialize(reader);
   }
 
-  if (id == 0xde7b673d) {
-    return UploadSaveBigFilePart.deserialize(reader);
-  }
-
-  if (id == 0xc1cd5ea9) {
-    return InitConnection.deserialize(reader);
-  }
-
-  if (id == 0x9cdf08cd) {
-    return HelpGetSupport.deserialize(reader);
-  }
-
   if (id == 0x36a73f77) {
     return MessagesReadMessageContents.deserialize(reader);
-  }
-
-  if (id == 0x2714d86c) {
-    return AccountCheckUsername.deserialize(reader);
-  }
-
-  if (id == 0x3e0bdd7c) {
-    return AccountUpdateUsername.deserialize(reader);
-  }
-
-  if (id == 0x11f812d8) {
-    return ContactsSearch.deserialize(reader);
-  }
-
-  if (id == 0xdadbc950) {
-    return AccountGetPrivacy.deserialize(reader);
-  }
-
-  if (id == 0xc9f81ce8) {
-    return AccountSetPrivacy.deserialize(reader);
-  }
-
-  if (id == 0xa2c0cf74) {
-    return AccountDeleteAccount.deserialize(reader);
-  }
-
-  if (id == 0x08fc711d) {
-    return AccountGetAccountTTL.deserialize(reader);
-  }
-
-  if (id == 0x2442485e) {
-    return AccountSetAccountTTL.deserialize(reader);
-  }
-
-  if (id == 0xda9b0d0d) {
-    return InvokeWithLayer.deserialize(reader);
-  }
-
-  if (id == 0x725afbbc) {
-    return ContactsResolveUsername.deserialize(reader);
-  }
-
-  if (id == 0x82574ae5) {
-    return AccountSendChangePhoneCode.deserialize(reader);
-  }
-
-  if (id == 0x70c32edb) {
-    return AccountChangePhone.deserialize(reader);
   }
 
   if (id == 0xd5a5d3a1) {
@@ -6095,52 +6855,8 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesGetAllStickers.deserialize(reader);
   }
 
-  if (id == 0x38df3532) {
-    return AccountUpdateDeviceLocked.deserialize(reader);
-  }
-
-  if (id == 0x67a3ff2c) {
-    return AuthImportBotAuthorization.deserialize(reader);
-  }
-
-  if (id == 0x8b68b0cc) {
+  if (id == 0x570d6f6f) {
     return MessagesGetWebPagePreview.deserialize(reader);
-  }
-
-  if (id == 0xe320c158) {
-    return AccountGetAuthorizations.deserialize(reader);
-  }
-
-  if (id == 0xdf77f3bc) {
-    return AccountResetAuthorization.deserialize(reader);
-  }
-
-  if (id == 0x548a30f5) {
-    return AccountGetPassword.deserialize(reader);
-  }
-
-  if (id == 0x9cd4eaf9) {
-    return AccountGetPasswordSettings.deserialize(reader);
-  }
-
-  if (id == 0xa59b102f) {
-    return AccountUpdatePasswordSettings.deserialize(reader);
-  }
-
-  if (id == 0xd18b4d16) {
-    return AuthCheckPassword.deserialize(reader);
-  }
-
-  if (id == 0xd897bc66) {
-    return AuthRequestPasswordRecovery.deserialize(reader);
-  }
-
-  if (id == 0x37096c70) {
-    return AuthRecoverPassword.deserialize(reader);
-  }
-
-  if (id == 0xbf9459b7) {
-    return InvokeWithoutUpdates.deserialize(reader);
   }
 
   if (id == 0xa455de90) {
@@ -6173,6 +6889,910 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x5784d3e1) {
     return MessagesGetMessagesViews.deserialize(reader);
+  }
+
+  if (id == 0xa85bd1c2) {
+    return MessagesEditChatAdmin.deserialize(reader);
+  }
+
+  if (id == 0xa2875319) {
+    return MessagesMigrateChat.deserialize(reader);
+  }
+
+  if (id == 0x4bc6589a) {
+    return MessagesSearchGlobal.deserialize(reader);
+  }
+
+  if (id == 0x78337739) {
+    return MessagesReorderStickerSets.deserialize(reader);
+  }
+
+  if (id == 0xb1f2061f) {
+    return MessagesGetDocumentByHash.deserialize(reader);
+  }
+
+  if (id == 0x5cf09635) {
+    return MessagesGetSavedGifs.deserialize(reader);
+  }
+
+  if (id == 0x327a30cb) {
+    return MessagesSaveGif.deserialize(reader);
+  }
+
+  if (id == 0x514e999d) {
+    return MessagesGetInlineBotResults.deserialize(reader);
+  }
+
+  if (id == 0xbb12a419) {
+    return MessagesSetInlineBotResults.deserialize(reader);
+  }
+
+  if (id == 0xc0cf7646) {
+    return MessagesSendInlineBotResult.deserialize(reader);
+  }
+
+  if (id == 0xfda68d36) {
+    return MessagesGetMessageEditData.deserialize(reader);
+  }
+
+  if (id == 0xdfd14005) {
+    return MessagesEditMessage.deserialize(reader);
+  }
+
+  if (id == 0x83557dba) {
+    return MessagesEditInlineBotMessage.deserialize(reader);
+  }
+
+  if (id == 0x9342ca07) {
+    return MessagesGetBotCallbackAnswer.deserialize(reader);
+  }
+
+  if (id == 0xd58f130a) {
+    return MessagesSetBotCallbackAnswer.deserialize(reader);
+  }
+
+  if (id == 0xe470bcfd) {
+    return MessagesGetPeerDialogs.deserialize(reader);
+  }
+
+  if (id == 0x54ae308e) {
+    return MessagesSaveDraft.deserialize(reader);
+  }
+
+  if (id == 0x6a3f8d65) {
+    return MessagesGetAllDrafts.deserialize(reader);
+  }
+
+  if (id == 0x64780b14) {
+    return MessagesGetFeaturedStickers.deserialize(reader);
+  }
+
+  if (id == 0x5b118126) {
+    return MessagesReadFeaturedStickers.deserialize(reader);
+  }
+
+  if (id == 0x9da9403b) {
+    return MessagesGetRecentStickers.deserialize(reader);
+  }
+
+  if (id == 0x392718f8) {
+    return MessagesSaveRecentSticker.deserialize(reader);
+  }
+
+  if (id == 0x8999602d) {
+    return MessagesClearRecentStickers.deserialize(reader);
+  }
+
+  if (id == 0x57f17692) {
+    return MessagesGetArchivedStickers.deserialize(reader);
+  }
+
+  if (id == 0x640f82b8) {
+    return MessagesGetMaskStickers.deserialize(reader);
+  }
+
+  if (id == 0xcc5b67cc) {
+    return MessagesGetAttachedStickers.deserialize(reader);
+  }
+
+  if (id == 0x8ef8ecc0) {
+    return MessagesSetGameScore.deserialize(reader);
+  }
+
+  if (id == 0x15ad9f64) {
+    return MessagesSetInlineGameScore.deserialize(reader);
+  }
+
+  if (id == 0xe822649d) {
+    return MessagesGetGameHighScores.deserialize(reader);
+  }
+
+  if (id == 0x0f635e1b) {
+    return MessagesGetInlineGameHighScores.deserialize(reader);
+  }
+
+  if (id == 0xe40ca104) {
+    return MessagesGetCommonChats.deserialize(reader);
+  }
+
+  if (id == 0x8d9692a3) {
+    return MessagesGetWebPage.deserialize(reader);
+  }
+
+  if (id == 0xa731e257) {
+    return MessagesToggleDialogPin.deserialize(reader);
+  }
+
+  if (id == 0x3b1adf37) {
+    return MessagesReorderPinnedDialogs.deserialize(reader);
+  }
+
+  if (id == 0xd6b94df2) {
+    return MessagesGetPinnedDialogs.deserialize(reader);
+  }
+
+  if (id == 0xe5f672fa) {
+    return MessagesSetBotShippingResults.deserialize(reader);
+  }
+
+  if (id == 0x09c2dd95) {
+    return MessagesSetBotPrecheckoutResults.deserialize(reader);
+  }
+
+  if (id == 0x14967978) {
+    return MessagesUploadMedia.deserialize(reader);
+  }
+
+  if (id == 0xa1405817) {
+    return MessagesSendScreenshotNotification.deserialize(reader);
+  }
+
+  if (id == 0x04f1aaa9) {
+    return MessagesGetFavedStickers.deserialize(reader);
+  }
+
+  if (id == 0xb9ffc55b) {
+    return MessagesFaveSticker.deserialize(reader);
+  }
+
+  if (id == 0xf107e790) {
+    return MessagesGetUnreadMentions.deserialize(reader);
+  }
+
+  if (id == 0x36e5bf4d) {
+    return MessagesReadMentions.deserialize(reader);
+  }
+
+  if (id == 0x702a40e0) {
+    return MessagesGetRecentLocations.deserialize(reader);
+  }
+
+  if (id == 0x1bf89d74) {
+    return MessagesSendMultiMedia.deserialize(reader);
+  }
+
+  if (id == 0x5057c497) {
+    return MessagesUploadEncryptedFile.deserialize(reader);
+  }
+
+  if (id == 0x35705b8a) {
+    return MessagesSearchStickerSets.deserialize(reader);
+  }
+
+  if (id == 0x1cff7e08) {
+    return MessagesGetSplitRanges.deserialize(reader);
+  }
+
+  if (id == 0x8c5006f8) {
+    return MessagesMarkDialogUnread.deserialize(reader);
+  }
+
+  if (id == 0x21202222) {
+    return MessagesGetDialogUnreadMarks.deserialize(reader);
+  }
+
+  if (id == 0x7e58ee9c) {
+    return MessagesClearAllDrafts.deserialize(reader);
+  }
+
+  if (id == 0xd2aaf7ec) {
+    return MessagesUpdatePinnedMessage.deserialize(reader);
+  }
+
+  if (id == 0x10ea6184) {
+    return MessagesSendVote.deserialize(reader);
+  }
+
+  if (id == 0x73bb643b) {
+    return MessagesGetPollResults.deserialize(reader);
+  }
+
+  if (id == 0x6e2be050) {
+    return MessagesGetOnlines.deserialize(reader);
+  }
+
+  if (id == 0xdef60797) {
+    return MessagesEditChatAbout.deserialize(reader);
+  }
+
+  if (id == 0xa5866b41) {
+    return MessagesEditChatDefaultBannedRights.deserialize(reader);
+  }
+
+  if (id == 0x35a0e062) {
+    return MessagesGetEmojiKeywords.deserialize(reader);
+  }
+
+  if (id == 0x1508b6af) {
+    return MessagesGetEmojiKeywordsDifference.deserialize(reader);
+  }
+
+  if (id == 0x4e9963b2) {
+    return MessagesGetEmojiKeywordsLanguages.deserialize(reader);
+  }
+
+  if (id == 0xd5b10c26) {
+    return MessagesGetEmojiURL.deserialize(reader);
+  }
+
+  if (id == 0x1bbcf300) {
+    return MessagesGetSearchCounters.deserialize(reader);
+  }
+
+  if (id == 0x198fb446) {
+    return MessagesRequestUrlAuth.deserialize(reader);
+  }
+
+  if (id == 0xb12c7125) {
+    return MessagesAcceptUrlAuth.deserialize(reader);
+  }
+
+  if (id == 0x4facb138) {
+    return MessagesHidePeerSettingsBar.deserialize(reader);
+  }
+
+  if (id == 0xf516760b) {
+    return MessagesGetScheduledHistory.deserialize(reader);
+  }
+
+  if (id == 0xbdbb0464) {
+    return MessagesGetScheduledMessages.deserialize(reader);
+  }
+
+  if (id == 0xbd38850a) {
+    return MessagesSendScheduledMessages.deserialize(reader);
+  }
+
+  if (id == 0x59ae2b16) {
+    return MessagesDeleteScheduledMessages.deserialize(reader);
+  }
+
+  if (id == 0xb86e380e) {
+    return MessagesGetPollVotes.deserialize(reader);
+  }
+
+  if (id == 0xb5052fea) {
+    return MessagesToggleStickerSets.deserialize(reader);
+  }
+
+  if (id == 0xefd48c89) {
+    return MessagesGetDialogFilters.deserialize(reader);
+  }
+
+  if (id == 0xa29cd42c) {
+    return MessagesGetSuggestedDialogFilters.deserialize(reader);
+  }
+
+  if (id == 0x1ad4a04a) {
+    return MessagesUpdateDialogFilter.deserialize(reader);
+  }
+
+  if (id == 0xc563c1e4) {
+    return MessagesUpdateDialogFiltersOrder.deserialize(reader);
+  }
+
+  if (id == 0x7ed094a1) {
+    return MessagesGetOldFeaturedStickers.deserialize(reader);
+  }
+
+  if (id == 0x22ddd30c) {
+    return MessagesGetReplies.deserialize(reader);
+  }
+
+  if (id == 0x446972fd) {
+    return MessagesGetDiscussionMessage.deserialize(reader);
+  }
+
+  if (id == 0xf731a9f4) {
+    return MessagesReadDiscussion.deserialize(reader);
+  }
+
+  if (id == 0x062dd747) {
+    return MessagesUnpinAllMessages.deserialize(reader);
+  }
+
+  if (id == 0x5bd0ee50) {
+    return MessagesDeleteChat.deserialize(reader);
+  }
+
+  if (id == 0xf9cbe409) {
+    return MessagesDeletePhoneCallHistory.deserialize(reader);
+  }
+
+  if (id == 0x43fe19f3) {
+    return MessagesCheckHistoryImport.deserialize(reader);
+  }
+
+  if (id == 0x34090c3b) {
+    return MessagesInitHistoryImport.deserialize(reader);
+  }
+
+  if (id == 0x2a862092) {
+    return MessagesUploadImportedMedia.deserialize(reader);
+  }
+
+  if (id == 0xb43df344) {
+    return MessagesStartHistoryImport.deserialize(reader);
+  }
+
+  if (id == 0xa2b5a3f6) {
+    return MessagesGetExportedChatInvites.deserialize(reader);
+  }
+
+  if (id == 0x73746f5c) {
+    return MessagesGetExportedChatInvite.deserialize(reader);
+  }
+
+  if (id == 0xbdca2f75) {
+    return MessagesEditExportedChatInvite.deserialize(reader);
+  }
+
+  if (id == 0x56987bd5) {
+    return MessagesDeleteRevokedExportedChatInvites.deserialize(reader);
+  }
+
+  if (id == 0xd464a42b) {
+    return MessagesDeleteExportedChatInvite.deserialize(reader);
+  }
+
+  if (id == 0x3920e6ef) {
+    return MessagesGetAdminsWithInvites.deserialize(reader);
+  }
+
+  if (id == 0xdf04dd4e) {
+    return MessagesGetChatInviteImporters.deserialize(reader);
+  }
+
+  if (id == 0xb80e5fe4) {
+    return MessagesSetHistoryTTL.deserialize(reader);
+  }
+
+  if (id == 0x5dc60f03) {
+    return MessagesCheckHistoryImportPeer.deserialize(reader);
+  }
+
+  if (id == 0xe63be13f) {
+    return MessagesSetChatTheme.deserialize(reader);
+  }
+
+  if (id == 0x31c1c44f) {
+    return MessagesGetMessageReadParticipants.deserialize(reader);
+  }
+
+  if (id == 0x6aa3f6bd) {
+    return MessagesGetSearchResultsCalendar.deserialize(reader);
+  }
+
+  if (id == 0x9c7f2f10) {
+    return MessagesGetSearchResultsPositions.deserialize(reader);
+  }
+
+  if (id == 0x7fe7e815) {
+    return MessagesHideChatJoinRequest.deserialize(reader);
+  }
+
+  if (id == 0xe085f4ea) {
+    return MessagesHideAllChatJoinRequests.deserialize(reader);
+  }
+
+  if (id == 0xb11eafa2) {
+    return MessagesToggleNoForwards.deserialize(reader);
+  }
+
+  if (id == 0xccfddf96) {
+    return MessagesSaveDefaultSendAs.deserialize(reader);
+  }
+
+  if (id == 0xd30d78d4) {
+    return MessagesSendReaction.deserialize(reader);
+  }
+
+  if (id == 0x8bba90e6) {
+    return MessagesGetMessagesReactions.deserialize(reader);
+  }
+
+  if (id == 0x461b3f48) {
+    return MessagesGetMessageReactionsList.deserialize(reader);
+  }
+
+  if (id == 0x864b2581) {
+    return MessagesSetChatAvailableReactions.deserialize(reader);
+  }
+
+  if (id == 0x18dea0ac) {
+    return MessagesGetAvailableReactions.deserialize(reader);
+  }
+
+  if (id == 0x4f47a016) {
+    return MessagesSetDefaultReaction.deserialize(reader);
+  }
+
+  if (id == 0x63183030) {
+    return MessagesTranslateText.deserialize(reader);
+  }
+
+  if (id == 0xbd7f90ac) {
+    return MessagesGetUnreadReactions.deserialize(reader);
+  }
+
+  if (id == 0x9ec44f93) {
+    return MessagesReadReactions.deserialize(reader);
+  }
+
+  if (id == 0x107e31a0) {
+    return MessagesSearchSentMedia.deserialize(reader);
+  }
+
+  if (id == 0x16fcc2cb) {
+    return MessagesGetAttachMenuBots.deserialize(reader);
+  }
+
+  if (id == 0x77216192) {
+    return MessagesGetAttachMenuBot.deserialize(reader);
+  }
+
+  if (id == 0x69f59d69) {
+    return MessagesToggleBotInAttachMenu.deserialize(reader);
+  }
+
+  if (id == 0x269dc2c1) {
+    return MessagesRequestWebView.deserialize(reader);
+  }
+
+  if (id == 0xb0d81a83) {
+    return MessagesProlongWebView.deserialize(reader);
+  }
+
+  if (id == 0x413a3e73) {
+    return MessagesRequestSimpleWebView.deserialize(reader);
+  }
+
+  if (id == 0x0a4314f5) {
+    return MessagesSendWebViewResultMessage.deserialize(reader);
+  }
+
+  if (id == 0xdc0242c8) {
+    return MessagesSendWebViewData.deserialize(reader);
+  }
+
+  if (id == 0x269e9a49) {
+    return MessagesTranscribeAudio.deserialize(reader);
+  }
+
+  if (id == 0x7f1d072f) {
+    return MessagesRateTranscribedAudio.deserialize(reader);
+  }
+
+  if (id == 0xd9ab0f54) {
+    return MessagesGetCustomEmojiDocuments.deserialize(reader);
+  }
+
+  if (id == 0xfbfca18f) {
+    return MessagesGetEmojiStickers.deserialize(reader);
+  }
+
+  if (id == 0x0ecf6736) {
+    return MessagesGetFeaturedEmojiStickers.deserialize(reader);
+  }
+
+  if (id == 0x3f64c076) {
+    return MessagesReportReaction.deserialize(reader);
+  }
+
+  if (id == 0xbb8125ba) {
+    return MessagesGetTopReactions.deserialize(reader);
+  }
+
+  if (id == 0x39461db2) {
+    return MessagesGetRecentReactions.deserialize(reader);
+  }
+
+  if (id == 0x9dfeefb4) {
+    return MessagesClearRecentReactions.deserialize(reader);
+  }
+
+  if (id == 0x84f80814) {
+    return MessagesGetExtendedMedia.deserialize(reader);
+  }
+
+  if (id == 0x9eb51445) {
+    return MessagesSetDefaultHistoryTTL.deserialize(reader);
+  }
+
+  if (id == 0x658b7188) {
+    return MessagesGetDefaultHistoryTTL.deserialize(reader);
+  }
+
+  if (id == 0x91b2d060) {
+    return MessagesSendBotRequestedPeer.deserialize(reader);
+  }
+
+  if (id == 0x7488ce5b) {
+    return MessagesGetEmojiGroups.deserialize(reader);
+  }
+
+  if (id == 0x2ecd56cd) {
+    return MessagesGetEmojiStatusGroups.deserialize(reader);
+  }
+
+  if (id == 0x21a548f3) {
+    return MessagesGetEmojiProfilePhotoGroups.deserialize(reader);
+  }
+
+  if (id == 0x2c11c0d7) {
+    return MessagesSearchCustomEmoji.deserialize(reader);
+  }
+
+  if (id == 0xe47cb579) {
+    return MessagesTogglePeerTranslations.deserialize(reader);
+  }
+
+  if (id == 0x34fdc5c3) {
+    return MessagesGetBotApp.deserialize(reader);
+  }
+
+  if (id == 0x53618bce) {
+    return MessagesRequestAppWebView.deserialize(reader);
+  }
+
+  if (id == 0x8ffacae1) {
+    return MessagesSetChatWallPaper.deserialize(reader);
+  }
+
+  if (id == 0x92b4494c) {
+    return MessagesSearchEmojiStickerSets.deserialize(reader);
+  }
+
+  if (id == 0x1e91fc99) {
+    return MessagesGetSavedDialogs.deserialize(reader);
+  }
+
+  if (id == 0x998ab009) {
+    return MessagesGetSavedHistory.deserialize(reader);
+  }
+
+  if (id == 0x4dc5085f) {
+    return MessagesDeleteSavedHistory.deserialize(reader);
+  }
+
+  if (id == 0xd63d94e0) {
+    return MessagesGetPinnedSavedDialogs.deserialize(reader);
+  }
+
+  if (id == 0xac81bbde) {
+    return MessagesToggleSavedDialogPin.deserialize(reader);
+  }
+
+  if (id == 0x8b716587) {
+    return MessagesReorderPinnedSavedDialogs.deserialize(reader);
+  }
+
+  if (id == 0x3637e05b) {
+    return MessagesGetSavedReactionTags.deserialize(reader);
+  }
+
+  if (id == 0x60297dec) {
+    return MessagesUpdateSavedReactionTag.deserialize(reader);
+  }
+
+  if (id == 0xbdf93428) {
+    return MessagesGetDefaultTagReactions.deserialize(reader);
+  }
+
+  if (id == 0x8c4bfe5d) {
+    return MessagesGetOutboxReadDate.deserialize(reader);
+  }
+
+  if (id == 0xd483f2a8) {
+    return MessagesGetQuickReplies.deserialize(reader);
+  }
+
+  if (id == 0x60331907) {
+    return MessagesReorderQuickReplies.deserialize(reader);
+  }
+
+  if (id == 0xf1d0fbd3) {
+    return MessagesCheckQuickReplyShortcut.deserialize(reader);
+  }
+
+  if (id == 0x5c003cef) {
+    return MessagesEditQuickReplyShortcut.deserialize(reader);
+  }
+
+  if (id == 0x3cc04740) {
+    return MessagesDeleteQuickReplyShortcut.deserialize(reader);
+  }
+
+  if (id == 0x94a495c3) {
+    return MessagesGetQuickReplyMessages.deserialize(reader);
+  }
+
+  if (id == 0x6c750de1) {
+    return MessagesSendQuickReplyMessages.deserialize(reader);
+  }
+
+  if (id == 0xe105e910) {
+    return MessagesDeleteQuickReplyMessages.deserialize(reader);
+  }
+
+  if (id == 0xfd2dda49) {
+    return MessagesToggleDialogFilterTags.deserialize(reader);
+  }
+
+  if (id == 0xd0b5e1fc) {
+    return MessagesGetMyStickers.deserialize(reader);
+  }
+
+  if (id == 0x1dd840f5) {
+    return MessagesGetEmojiStickerGroups.deserialize(reader);
+  }
+
+  if (id == 0xdea20a39) {
+    return MessagesGetAvailableEffects.deserialize(reader);
+  }
+
+  if (id == 0x0589ee75) {
+    return MessagesEditFactCheck.deserialize(reader);
+  }
+
+  if (id == 0xd1da940c) {
+    return MessagesDeleteFactCheck.deserialize(reader);
+  }
+
+  if (id == 0xb9cdc5ee) {
+    return MessagesGetFactCheck.deserialize(reader);
+  }
+
+  if (id == 0xc9e01e7b) {
+    return MessagesRequestMainWebView.deserialize(reader);
+  }
+
+  if (id == 0x58bbcb50) {
+    return MessagesSendPaidReaction.deserialize(reader);
+  }
+
+  if (id == 0x435885b5) {
+    return MessagesTogglePaidReactionPrivacy.deserialize(reader);
+  }
+
+  if (id == 0x472455aa) {
+    return MessagesGetPaidReactionPrivacy.deserialize(reader);
+  }
+
+  if (id == 0x269e3643) {
+    return MessagesViewSponsoredMessage.deserialize(reader);
+  }
+
+  if (id == 0x8235057e) {
+    return MessagesClickSponsoredMessage.deserialize(reader);
+  }
+
+  if (id == 0x12cbf0c4) {
+    return MessagesReportSponsoredMessage.deserialize(reader);
+  }
+
+  if (id == 0x3d6ce850) {
+    return MessagesGetSponsoredMessages.deserialize(reader);
+  }
+
+  if (id == 0xf21f7f2f) {
+    return MessagesSavePreparedInlineMessage.deserialize(reader);
+  }
+
+  if (id == 0x857ebdb8) {
+    return MessagesGetPreparedInlineMessage.deserialize(reader);
+  }
+
+  if (id == 0x29b1c66a) {
+    return MessagesSearchStickers.deserialize(reader);
+  }
+
+  if (id == 0x5a6d7395) {
+    return MessagesReportMessagesDelivery.deserialize(reader);
+  }
+
+  if (id == 0x6f6f9c96) {
+    return MessagesGetSavedDialogsByID.deserialize(reader);
+  }
+
+  if (id == 0xba4a3b5b) {
+    return MessagesReadSavedHistory.deserialize(reader);
+  }
+
+  if (id == 0xd3e03124) {
+    return MessagesToggleTodoCompleted.deserialize(reader);
+  }
+
+  if (id == 0x21a61057) {
+    return MessagesAppendTodoList.deserialize(reader);
+  }
+
+  if (id == 0x8107455c) {
+    return MessagesToggleSuggestedPostApproval.deserialize(reader);
+  }
+
+  if (id == 0xedd4882a) {
+    return UpdatesGetState.deserialize(reader);
+  }
+
+  if (id == 0x19c2f763) {
+    return UpdatesGetDifference.deserialize(reader);
+  }
+
+  if (id == 0x03173d78) {
+    return UpdatesGetChannelDifference.deserialize(reader);
+  }
+
+  if (id == 0x09e82039) {
+    return PhotosUpdateProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0x0388a3b5) {
+    return PhotosUploadProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0x87cf7f2f) {
+    return PhotosDeletePhotos.deserialize(reader);
+  }
+
+  if (id == 0x91cd32a8) {
+    return PhotosGetUserPhotos.deserialize(reader);
+  }
+
+  if (id == 0xe14c4a71) {
+    return PhotosUploadContactProfilePhoto.deserialize(reader);
+  }
+
+  if (id == 0xb304a621) {
+    return UploadSaveFilePart.deserialize(reader);
+  }
+
+  if (id == 0xbe5335be) {
+    return UploadGetFile.deserialize(reader);
+  }
+
+  if (id == 0xde7b673d) {
+    return UploadSaveBigFilePart.deserialize(reader);
+  }
+
+  if (id == 0x24e6818d) {
+    return UploadGetWebFile.deserialize(reader);
+  }
+
+  if (id == 0x395f69da) {
+    return UploadGetCdnFile.deserialize(reader);
+  }
+
+  if (id == 0x9b2754a8) {
+    return UploadReuploadCdnFile.deserialize(reader);
+  }
+
+  if (id == 0x91dc3f31) {
+    return UploadGetCdnFileHashes.deserialize(reader);
+  }
+
+  if (id == 0x9156982a) {
+    return UploadGetFileHashes.deserialize(reader);
+  }
+
+  if (id == 0xc4f9186b) {
+    return HelpGetConfig.deserialize(reader);
+  }
+
+  if (id == 0x1fb33026) {
+    return HelpGetNearestDc.deserialize(reader);
+  }
+
+  if (id == 0x522d5a7d) {
+    return HelpGetAppUpdate.deserialize(reader);
+  }
+
+  if (id == 0x4d392343) {
+    return HelpGetInviteText.deserialize(reader);
+  }
+
+  if (id == 0x9cdf08cd) {
+    return HelpGetSupport.deserialize(reader);
+  }
+
+  if (id == 0xec22cfcd) {
+    return HelpSetBotUpdatesStatus.deserialize(reader);
+  }
+
+  if (id == 0x52029342) {
+    return HelpGetCdnConfig.deserialize(reader);
+  }
+
+  if (id == 0x3dc0f114) {
+    return HelpGetRecentMeUrls.deserialize(reader);
+  }
+
+  if (id == 0x2ca51fd1) {
+    return HelpGetTermsOfServiceUpdate.deserialize(reader);
+  }
+
+  if (id == 0xee72f79a) {
+    return HelpAcceptTermsOfService.deserialize(reader);
+  }
+
+  if (id == 0x3fedc75f) {
+    return HelpGetDeepLinkInfo.deserialize(reader);
+  }
+
+  if (id == 0x61e3f854) {
+    return HelpGetAppConfig.deserialize(reader);
+  }
+
+  if (id == 0x6f02f748) {
+    return HelpSaveAppLog.deserialize(reader);
+  }
+
+  if (id == 0xc661ad08) {
+    return HelpGetPassportConfig.deserialize(reader);
+  }
+
+  if (id == 0xd360e72c) {
+    return HelpGetSupportName.deserialize(reader);
+  }
+
+  if (id == 0x038a08d3) {
+    return HelpGetUserInfo.deserialize(reader);
+  }
+
+  if (id == 0x66b91b70) {
+    return HelpEditUserInfo.deserialize(reader);
+  }
+
+  if (id == 0xc0977421) {
+    return HelpGetPromoData.deserialize(reader);
+  }
+
+  if (id == 0x1e251c95) {
+    return HelpHidePromoData.deserialize(reader);
+  }
+
+  if (id == 0xf50dbaa1) {
+    return HelpDismissSuggestion.deserialize(reader);
+  }
+
+  if (id == 0x735787a8) {
+    return HelpGetCountriesList.deserialize(reader);
+  }
+
+  if (id == 0xb81b93d4) {
+    return HelpGetPremiumPromo.deserialize(reader);
+  }
+
+  if (id == 0xda80f42f) {
+    return HelpGetPeerColors.deserialize(reader);
+  }
+
+  if (id == 0xabcfa9fd) {
+    return HelpGetPeerProfileColors.deserialize(reader);
+  }
+
+  if (id == 0x49b30240) {
+    return HelpGetTimezonesList.deserialize(reader);
   }
 
   if (id == 0xcc104937) {
@@ -6247,50 +7867,6 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsDeleteChannel.deserialize(reader);
   }
 
-  if (id == 0x03173d78) {
-    return UpdatesGetChannelDifference.deserialize(reader);
-  }
-
-  if (id == 0xa85bd1c2) {
-    return MessagesEditChatAdmin.deserialize(reader);
-  }
-
-  if (id == 0xa2875319) {
-    return MessagesMigrateChat.deserialize(reader);
-  }
-
-  if (id == 0x4bc6589a) {
-    return MessagesSearchGlobal.deserialize(reader);
-  }
-
-  if (id == 0x78337739) {
-    return MessagesReorderStickerSets.deserialize(reader);
-  }
-
-  if (id == 0xb1f2061f) {
-    return MessagesGetDocumentByHash.deserialize(reader);
-  }
-
-  if (id == 0x5cf09635) {
-    return MessagesGetSavedGifs.deserialize(reader);
-  }
-
-  if (id == 0x327a30cb) {
-    return MessagesSaveGif.deserialize(reader);
-  }
-
-  if (id == 0x514e999d) {
-    return MessagesGetInlineBotResults.deserialize(reader);
-  }
-
-  if (id == 0xbb12a419) {
-    return MessagesSetInlineBotResults.deserialize(reader);
-  }
-
-  if (id == 0x3ebee86a) {
-    return MessagesSendInlineBotResult.deserialize(reader);
-  }
-
   if (id == 0xe63fadeb) {
     return ChannelsExportMessageLink.deserialize(reader);
   }
@@ -6299,140 +7875,180 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsToggleSignatures.deserialize(reader);
   }
 
-  if (id == 0xcae47523) {
-    return AuthResendCode.deserialize(reader);
-  }
-
-  if (id == 0x1f040578) {
-    return AuthCancelCode.deserialize(reader);
-  }
-
-  if (id == 0xfda68d36) {
-    return MessagesGetMessageEditData.deserialize(reader);
-  }
-
-  if (id == 0xdfd14005) {
-    return MessagesEditMessage.deserialize(reader);
-  }
-
-  if (id == 0x83557dba) {
-    return MessagesEditInlineBotMessage.deserialize(reader);
-  }
-
-  if (id == 0x9342ca07) {
-    return MessagesGetBotCallbackAnswer.deserialize(reader);
-  }
-
-  if (id == 0xd58f130a) {
-    return MessagesSetBotCallbackAnswer.deserialize(reader);
-  }
-
-  if (id == 0x973478b6) {
-    return ContactsGetTopPeers.deserialize(reader);
-  }
-
-  if (id == 0x1ae373ac) {
-    return ContactsResetTopPeerRating.deserialize(reader);
-  }
-
-  if (id == 0xe470bcfd) {
-    return MessagesGetPeerDialogs.deserialize(reader);
-  }
-
-  if (id == 0xd372c5ce) {
-    return MessagesSaveDraft.deserialize(reader);
-  }
-
-  if (id == 0x6a3f8d65) {
-    return MessagesGetAllDrafts.deserialize(reader);
-  }
-
-  if (id == 0x64780b14) {
-    return MessagesGetFeaturedStickers.deserialize(reader);
-  }
-
-  if (id == 0x5b118126) {
-    return MessagesReadFeaturedStickers.deserialize(reader);
-  }
-
-  if (id == 0x9da9403b) {
-    return MessagesGetRecentStickers.deserialize(reader);
-  }
-
-  if (id == 0x392718f8) {
-    return MessagesSaveRecentSticker.deserialize(reader);
-  }
-
-  if (id == 0x8999602d) {
-    return MessagesClearRecentStickers.deserialize(reader);
-  }
-
-  if (id == 0x57f17692) {
-    return MessagesGetArchivedStickers.deserialize(reader);
-  }
-
-  if (id == 0x1b3faa88) {
-    return AccountSendConfirmPhoneCode.deserialize(reader);
-  }
-
-  if (id == 0x5f2178c3) {
-    return AccountConfirmPhone.deserialize(reader);
-  }
-
   if (id == 0xf8b036af) {
     return ChannelsGetAdminedPublicChannels.deserialize(reader);
   }
 
-  if (id == 0x640f82b8) {
-    return MessagesGetMaskStickers.deserialize(reader);
+  if (id == 0x96e6cd81) {
+    return ChannelsEditBanned.deserialize(reader);
   }
 
-  if (id == 0xcc5b67cc) {
-    return MessagesGetAttachedStickers.deserialize(reader);
+  if (id == 0x33ddf480) {
+    return ChannelsGetAdminLog.deserialize(reader);
   }
 
-  if (id == 0x8e48a188) {
-    return AuthDropTempAuthKeys.deserialize(reader);
+  if (id == 0xea8ca4f9) {
+    return ChannelsSetStickers.deserialize(reader);
   }
 
-  if (id == 0x8ef8ecc0) {
-    return MessagesSetGameScore.deserialize(reader);
+  if (id == 0xeab5dc38) {
+    return ChannelsReadMessageContents.deserialize(reader);
   }
 
-  if (id == 0x15ad9f64) {
-    return MessagesSetInlineGameScore.deserialize(reader);
+  if (id == 0x9baa9647) {
+    return ChannelsDeleteHistory.deserialize(reader);
   }
 
-  if (id == 0xe822649d) {
-    return MessagesGetGameHighScores.deserialize(reader);
+  if (id == 0xeabbb94c) {
+    return ChannelsTogglePreHistoryHidden.deserialize(reader);
   }
 
-  if (id == 0x0f635e1b) {
-    return MessagesGetInlineGameHighScores.deserialize(reader);
+  if (id == 0x8341ecc0) {
+    return ChannelsGetLeftChannels.deserialize(reader);
   }
 
-  if (id == 0xe40ca104) {
-    return MessagesGetCommonChats.deserialize(reader);
+  if (id == 0xf5dad378) {
+    return ChannelsGetGroupsForDiscussion.deserialize(reader);
   }
 
-  if (id == 0xec22cfcd) {
-    return HelpSetBotUpdatesStatus.deserialize(reader);
+  if (id == 0x40582bb2) {
+    return ChannelsSetDiscussionGroup.deserialize(reader);
   }
 
-  if (id == 0x8d9692a3) {
-    return MessagesGetWebPage.deserialize(reader);
+  if (id == 0x8f38cd1f) {
+    return ChannelsEditCreator.deserialize(reader);
   }
 
-  if (id == 0xa731e257) {
-    return MessagesToggleDialogPin.deserialize(reader);
+  if (id == 0x58e63f6d) {
+    return ChannelsEditLocation.deserialize(reader);
   }
 
-  if (id == 0x3b1adf37) {
-    return MessagesReorderPinnedDialogs.deserialize(reader);
+  if (id == 0xedd49ef0) {
+    return ChannelsToggleSlowMode.deserialize(reader);
   }
 
-  if (id == 0xd6b94df2) {
-    return MessagesGetPinnedDialogs.deserialize(reader);
+  if (id == 0x11e831ee) {
+    return ChannelsGetInactiveChannels.deserialize(reader);
+  }
+
+  if (id == 0x0b290c69) {
+    return ChannelsConvertToGigagroup.deserialize(reader);
+  }
+
+  if (id == 0xe785a43f) {
+    return ChannelsGetSendAs.deserialize(reader);
+  }
+
+  if (id == 0x367544db) {
+    return ChannelsDeleteParticipantHistory.deserialize(reader);
+  }
+
+  if (id == 0xe4cb9580) {
+    return ChannelsToggleJoinToSend.deserialize(reader);
+  }
+
+  if (id == 0x4c2985b6) {
+    return ChannelsToggleJoinRequest.deserialize(reader);
+  }
+
+  if (id == 0xb45ced1d) {
+    return ChannelsReorderUsernames.deserialize(reader);
+  }
+
+  if (id == 0x50f24105) {
+    return ChannelsToggleUsername.deserialize(reader);
+  }
+
+  if (id == 0x0a245dd3) {
+    return ChannelsDeactivateAllUsernames.deserialize(reader);
+  }
+
+  if (id == 0x3ff75734) {
+    return ChannelsToggleForum.deserialize(reader);
+  }
+
+  if (id == 0xf40c0224) {
+    return ChannelsCreateForumTopic.deserialize(reader);
+  }
+
+  if (id == 0x0de560d1) {
+    return ChannelsGetForumTopics.deserialize(reader);
+  }
+
+  if (id == 0xb0831eb9) {
+    return ChannelsGetForumTopicsByID.deserialize(reader);
+  }
+
+  if (id == 0xf4dfa185) {
+    return ChannelsEditForumTopic.deserialize(reader);
+  }
+
+  if (id == 0x6c2d9026) {
+    return ChannelsUpdatePinnedForumTopic.deserialize(reader);
+  }
+
+  if (id == 0x34435f2d) {
+    return ChannelsDeleteTopicHistory.deserialize(reader);
+  }
+
+  if (id == 0x2950a18f) {
+    return ChannelsReorderPinnedForumTopics.deserialize(reader);
+  }
+
+  if (id == 0x68f3e4eb) {
+    return ChannelsToggleAntiSpam.deserialize(reader);
+  }
+
+  if (id == 0xa850a693) {
+    return ChannelsReportAntiSpamFalsePositive.deserialize(reader);
+  }
+
+  if (id == 0x6a6e7854) {
+    return ChannelsToggleParticipantsHidden.deserialize(reader);
+  }
+
+  if (id == 0xd8aa3671) {
+    return ChannelsUpdateColor.deserialize(reader);
+  }
+
+  if (id == 0x9738bb15) {
+    return ChannelsToggleViewForumAsMessages.deserialize(reader);
+  }
+
+  if (id == 0x25a71742) {
+    return ChannelsGetChannelRecommendations.deserialize(reader);
+  }
+
+  if (id == 0xf0d3e6a8) {
+    return ChannelsUpdateEmojiStatus.deserialize(reader);
+  }
+
+  if (id == 0xad399cee) {
+    return ChannelsSetBoostsToUnblockRestrictions.deserialize(reader);
+  }
+
+  if (id == 0x3cd930b7) {
+    return ChannelsSetEmojiStickers.deserialize(reader);
+  }
+
+  if (id == 0x9ae91519) {
+    return ChannelsRestrictSponsoredMessages.deserialize(reader);
+  }
+
+  if (id == 0xd19f987b) {
+    return ChannelsSearchPosts.deserialize(reader);
+  }
+
+  if (id == 0x4b12327b) {
+    return ChannelsUpdatePaidMessagesPrice.deserialize(reader);
+  }
+
+  if (id == 0x167fc0a1) {
+    return ChannelsToggleAutotranslation.deserialize(reader);
+  }
+
+  if (id == 0xece2a0e6) {
+    return ChannelsGetMessageAuthor.deserialize(reader);
   }
 
   if (id == 0xaa2769ed) {
@@ -6443,8 +8059,116 @@ TlObject _readObject(BinaryReader reader) {
     return BotsAnswerWebhookJSONQuery.deserialize(reader);
   }
 
-  if (id == 0x24e6818d) {
-    return UploadGetWebFile.deserialize(reader);
+  if (id == 0x0517165a) {
+    return BotsSetBotCommands.deserialize(reader);
+  }
+
+  if (id == 0x3d8de0f9) {
+    return BotsResetBotCommands.deserialize(reader);
+  }
+
+  if (id == 0xe34c0dd6) {
+    return BotsGetBotCommands.deserialize(reader);
+  }
+
+  if (id == 0x4504d54f) {
+    return BotsSetBotMenuButton.deserialize(reader);
+  }
+
+  if (id == 0x9c60eb28) {
+    return BotsGetBotMenuButton.deserialize(reader);
+  }
+
+  if (id == 0x788464e1) {
+    return BotsSetBotBroadcastDefaultAdminRights.deserialize(reader);
+  }
+
+  if (id == 0x925ec9ea) {
+    return BotsSetBotGroupDefaultAdminRights.deserialize(reader);
+  }
+
+  if (id == 0x10cf3123) {
+    return BotsSetBotInfo.deserialize(reader);
+  }
+
+  if (id == 0xdcd914fd) {
+    return BotsGetBotInfo.deserialize(reader);
+  }
+
+  if (id == 0x9709b1c2) {
+    return BotsReorderUsernames.deserialize(reader);
+  }
+
+  if (id == 0x053ca973) {
+    return BotsToggleUsername.deserialize(reader);
+  }
+
+  if (id == 0x1359f4e6) {
+    return BotsCanSendMessage.deserialize(reader);
+  }
+
+  if (id == 0xf132e3ef) {
+    return BotsAllowSendMessage.deserialize(reader);
+  }
+
+  if (id == 0x087fc5e7) {
+    return BotsInvokeWebViewCustomMethod.deserialize(reader);
+  }
+
+  if (id == 0xc2510192) {
+    return BotsGetPopularAppBots.deserialize(reader);
+  }
+
+  if (id == 0x17aeb75a) {
+    return BotsAddPreviewMedia.deserialize(reader);
+  }
+
+  if (id == 0x8525606f) {
+    return BotsEditPreviewMedia.deserialize(reader);
+  }
+
+  if (id == 0x2d0135b3) {
+    return BotsDeletePreviewMedia.deserialize(reader);
+  }
+
+  if (id == 0xb627f3aa) {
+    return BotsReorderPreviewMedias.deserialize(reader);
+  }
+
+  if (id == 0x423ab3ad) {
+    return BotsGetPreviewInfo.deserialize(reader);
+  }
+
+  if (id == 0xa2a5594d) {
+    return BotsGetPreviewMedias.deserialize(reader);
+  }
+
+  if (id == 0xed9f30c5) {
+    return BotsUpdateUserEmojiStatus.deserialize(reader);
+  }
+
+  if (id == 0x06de6392) {
+    return BotsToggleUserEmojiStatusPermission.deserialize(reader);
+  }
+
+  if (id == 0x50077589) {
+    return BotsCheckDownloadFileParams.deserialize(reader);
+  }
+
+  if (id == 0xb0711d83) {
+    return BotsGetAdminedBots.deserialize(reader);
+  }
+
+  if (id == 0x778b5ab3) {
+    return BotsUpdateStarRefProgram.deserialize(reader);
+  }
+
+  if (id == 0x8b89dfbd) {
+    return BotsSetCustomVerification.deserialize(reader);
+  }
+
+  if (id == 0xa1b70815) {
+    return BotsGetBotRecommendations.deserialize(reader);
   }
 
   if (id == 0x37148dbb) {
@@ -6463,10 +8187,6 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsSendPaymentForm.deserialize(reader);
   }
 
-  if (id == 0x449e0b51) {
-    return AccountGetTmpPassword.deserialize(reader);
-  }
-
   if (id == 0x227d824b) {
     return PaymentsGetSavedInfo.deserialize(reader);
   }
@@ -6475,12 +8195,180 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsClearSavedInfo.deserialize(reader);
   }
 
-  if (id == 0xe5f672fa) {
-    return MessagesSetBotShippingResults.deserialize(reader);
+  if (id == 0x2e79d779) {
+    return PaymentsGetBankCardData.deserialize(reader);
   }
 
-  if (id == 0x09c2dd95) {
-    return MessagesSetBotPrecheckoutResults.deserialize(reader);
+  if (id == 0x0f91b065) {
+    return PaymentsExportInvoice.deserialize(reader);
+  }
+
+  if (id == 0x80ed747d) {
+    return PaymentsAssignAppStoreTransaction.deserialize(reader);
+  }
+
+  if (id == 0xdffd50d3) {
+    return PaymentsAssignPlayMarketTransaction.deserialize(reader);
+  }
+
+  if (id == 0x2757ba54) {
+    return PaymentsGetPremiumGiftCodeOptions.deserialize(reader);
+  }
+
+  if (id == 0x8e51b4c1) {
+    return PaymentsCheckGiftCode.deserialize(reader);
+  }
+
+  if (id == 0xf6e26854) {
+    return PaymentsApplyGiftCode.deserialize(reader);
+  }
+
+  if (id == 0xf4239425) {
+    return PaymentsGetGiveawayInfo.deserialize(reader);
+  }
+
+  if (id == 0x5ff58f20) {
+    return PaymentsLaunchPrepaidGiveaway.deserialize(reader);
+  }
+
+  if (id == 0xc00ec7d3) {
+    return PaymentsGetStarsTopupOptions.deserialize(reader);
+  }
+
+  if (id == 0x4ea9b3bf) {
+    return PaymentsGetStarsStatus.deserialize(reader);
+  }
+
+  if (id == 0x69da4557) {
+    return PaymentsGetStarsTransactions.deserialize(reader);
+  }
+
+  if (id == 0x7998c914) {
+    return PaymentsSendStarsForm.deserialize(reader);
+  }
+
+  if (id == 0x25ae8f4a) {
+    return PaymentsRefundStarsCharge.deserialize(reader);
+  }
+
+  if (id == 0xd91ffad6) {
+    return PaymentsGetStarsRevenueStats.deserialize(reader);
+  }
+
+  if (id == 0x2433dc92) {
+    return PaymentsGetStarsRevenueWithdrawalUrl.deserialize(reader);
+  }
+
+  if (id == 0xd1d7efc5) {
+    return PaymentsGetStarsRevenueAdsAccountUrl.deserialize(reader);
+  }
+
+  if (id == 0x2dca16b8) {
+    return PaymentsGetStarsTransactionsByID.deserialize(reader);
+  }
+
+  if (id == 0xd3c96bc8) {
+    return PaymentsGetStarsGiftOptions.deserialize(reader);
+  }
+
+  if (id == 0x032512c5) {
+    return PaymentsGetStarsSubscriptions.deserialize(reader);
+  }
+
+  if (id == 0xc7770878) {
+    return PaymentsChangeStarsSubscription.deserialize(reader);
+  }
+
+  if (id == 0xcc5bebb3) {
+    return PaymentsFulfillStarsSubscription.deserialize(reader);
+  }
+
+  if (id == 0xbd1efd3e) {
+    return PaymentsGetStarsGiveawayOptions.deserialize(reader);
+  }
+
+  if (id == 0xc4563590) {
+    return PaymentsGetStarGifts.deserialize(reader);
+  }
+
+  if (id == 0x2a2a697c) {
+    return PaymentsSaveStarGift.deserialize(reader);
+  }
+
+  if (id == 0x74bf076b) {
+    return PaymentsConvertStarGift.deserialize(reader);
+  }
+
+  if (id == 0x6dfa0622) {
+    return PaymentsBotCancelStarsSubscription.deserialize(reader);
+  }
+
+  if (id == 0x5869a553) {
+    return PaymentsGetConnectedStarRefBots.deserialize(reader);
+  }
+
+  if (id == 0xb7d998f0) {
+    return PaymentsGetConnectedStarRefBot.deserialize(reader);
+  }
+
+  if (id == 0x0d6b48f7) {
+    return PaymentsGetSuggestedStarRefBots.deserialize(reader);
+  }
+
+  if (id == 0x7ed5348a) {
+    return PaymentsConnectStarRefBot.deserialize(reader);
+  }
+
+  if (id == 0xe4fca4a3) {
+    return PaymentsEditConnectedStarRefBot.deserialize(reader);
+  }
+
+  if (id == 0x9c9abcb1) {
+    return PaymentsGetStarGiftUpgradePreview.deserialize(reader);
+  }
+
+  if (id == 0xaed6e4f5) {
+    return PaymentsUpgradeStarGift.deserialize(reader);
+  }
+
+  if (id == 0x7f18176a) {
+    return PaymentsTransferStarGift.deserialize(reader);
+  }
+
+  if (id == 0xa1974d72) {
+    return PaymentsGetUniqueStarGift.deserialize(reader);
+  }
+
+  if (id == 0x23830de9) {
+    return PaymentsGetSavedStarGifts.deserialize(reader);
+  }
+
+  if (id == 0xb455a106) {
+    return PaymentsGetSavedStarGift.deserialize(reader);
+  }
+
+  if (id == 0xd06e93a8) {
+    return PaymentsGetStarGiftWithdrawalUrl.deserialize(reader);
+  }
+
+  if (id == 0x60eaefa1) {
+    return PaymentsToggleChatStarGiftNotifications.deserialize(reader);
+  }
+
+  if (id == 0x1513e7b0) {
+    return PaymentsToggleStarGiftsPinnedToTop.deserialize(reader);
+  }
+
+  if (id == 0x4fdc5ea7) {
+    return PaymentsCanPurchaseStore.deserialize(reader);
+  }
+
+  if (id == 0x7a5fa236) {
+    return PaymentsGetResaleStarGifts.deserialize(reader);
+  }
+
+  if (id == 0x3baea4e1) {
+    return PaymentsUpdateStarGiftPrice.deserialize(reader);
   }
 
   if (id == 0x9021ab67) {
@@ -6499,8 +8387,32 @@ TlObject _readObject(BinaryReader reader) {
     return StickersAddStickerToSet.deserialize(reader);
   }
 
-  if (id == 0x14967978) {
-    return MessagesUploadMedia.deserialize(reader);
+  if (id == 0xa76a5392) {
+    return StickersSetStickerSetThumb.deserialize(reader);
+  }
+
+  if (id == 0x284b3639) {
+    return StickersCheckShortName.deserialize(reader);
+  }
+
+  if (id == 0x4dafc503) {
+    return StickersSuggestShortName.deserialize(reader);
+  }
+
+  if (id == 0xf5537ebc) {
+    return StickersChangeSticker.deserialize(reader);
+  }
+
+  if (id == 0x124b1c00) {
+    return StickersRenameStickerSet.deserialize(reader);
+  }
+
+  if (id == 0x87704394) {
+    return StickersDeleteStickerSet.deserialize(reader);
+  }
+
+  if (id == 0x4696459a) {
+    return StickersReplaceSticker.deserialize(reader);
   }
 
   if (id == 0x55451fa9) {
@@ -6535,579 +8447,15 @@ TlObject _readObject(BinaryReader reader) {
     return PhoneSaveCallDebug.deserialize(reader);
   }
 
-  if (id == 0x395f69da) {
-    return UploadGetCdnFile.deserialize(reader);
-  }
-
-  if (id == 0x9b2754a8) {
-    return UploadReuploadCdnFile.deserialize(reader);
-  }
-
-  if (id == 0x52029342) {
-    return HelpGetCdnConfig.deserialize(reader);
-  }
-
-  if (id == 0xf2f2330a) {
-    return LangpackGetLangPack.deserialize(reader);
-  }
-
-  if (id == 0xefea3803) {
-    return LangpackGetStrings.deserialize(reader);
-  }
-
-  if (id == 0xcd984aa5) {
-    return LangpackGetDifference.deserialize(reader);
-  }
-
-  if (id == 0x42c6978f) {
-    return LangpackGetLanguages.deserialize(reader);
-  }
-
-  if (id == 0x96e6cd81) {
-    return ChannelsEditBanned.deserialize(reader);
-  }
-
-  if (id == 0x33ddf480) {
-    return ChannelsGetAdminLog.deserialize(reader);
-  }
-
-  if (id == 0x91dc3f31) {
-    return UploadGetCdnFileHashes.deserialize(reader);
-  }
-
-  if (id == 0xa1405817) {
-    return MessagesSendScreenshotNotification.deserialize(reader);
-  }
-
-  if (id == 0xea8ca4f9) {
-    return ChannelsSetStickers.deserialize(reader);
-  }
-
-  if (id == 0x04f1aaa9) {
-    return MessagesGetFavedStickers.deserialize(reader);
-  }
-
-  if (id == 0xb9ffc55b) {
-    return MessagesFaveSticker.deserialize(reader);
-  }
-
-  if (id == 0xeab5dc38) {
-    return ChannelsReadMessageContents.deserialize(reader);
-  }
-
-  if (id == 0x879537f1) {
-    return ContactsResetSaved.deserialize(reader);
-  }
-
-  if (id == 0xf107e790) {
-    return MessagesGetUnreadMentions.deserialize(reader);
-  }
-
-  if (id == 0x9baa9647) {
-    return ChannelsDeleteHistory.deserialize(reader);
-  }
-
-  if (id == 0x3dc0f114) {
-    return HelpGetRecentMeUrls.deserialize(reader);
-  }
-
-  if (id == 0xeabbb94c) {
-    return ChannelsTogglePreHistoryHidden.deserialize(reader);
-  }
-
-  if (id == 0x36e5bf4d) {
-    return MessagesReadMentions.deserialize(reader);
-  }
-
-  if (id == 0x702a40e0) {
-    return MessagesGetRecentLocations.deserialize(reader);
-  }
-
-  if (id == 0x37b74355) {
-    return MessagesSendMultiMedia.deserialize(reader);
-  }
-
-  if (id == 0x5057c497) {
-    return MessagesUploadEncryptedFile.deserialize(reader);
-  }
-
-  if (id == 0x182e6d6f) {
-    return AccountGetWebAuthorizations.deserialize(reader);
-  }
-
-  if (id == 0x2d01b9ef) {
-    return AccountResetWebAuthorization.deserialize(reader);
-  }
-
-  if (id == 0x682d2594) {
-    return AccountResetWebAuthorizations.deserialize(reader);
-  }
-
-  if (id == 0x35705b8a) {
-    return MessagesSearchStickerSets.deserialize(reader);
-  }
-
-  if (id == 0x9156982a) {
-    return UploadGetFileHashes.deserialize(reader);
-  }
-
-  if (id == 0x2ca51fd1) {
-    return HelpGetTermsOfServiceUpdate.deserialize(reader);
-  }
-
-  if (id == 0xee72f79a) {
-    return HelpAcceptTermsOfService.deserialize(reader);
-  }
-
-  if (id == 0xb288bc7d) {
-    return AccountGetAllSecureValues.deserialize(reader);
-  }
-
-  if (id == 0x73665bc2) {
-    return AccountGetSecureValue.deserialize(reader);
-  }
-
-  if (id == 0x899fe31d) {
-    return AccountSaveSecureValue.deserialize(reader);
-  }
-
-  if (id == 0xb880bc4b) {
-    return AccountDeleteSecureValue.deserialize(reader);
-  }
-
-  if (id == 0x90c894b5) {
-    return UsersSetSecureValueErrors.deserialize(reader);
-  }
-
-  if (id == 0xa929597a) {
-    return AccountGetAuthorizationForm.deserialize(reader);
-  }
-
-  if (id == 0xf3ed4c73) {
-    return AccountAcceptAuthorization.deserialize(reader);
-  }
-
-  if (id == 0xa5a356f9) {
-    return AccountSendVerifyPhoneCode.deserialize(reader);
-  }
-
-  if (id == 0x4dd3a7f6) {
-    return AccountVerifyPhone.deserialize(reader);
-  }
-
-  if (id == 0x98e037bb) {
-    return AccountSendVerifyEmailCode.deserialize(reader);
-  }
-
-  if (id == 0x032da4cf) {
-    return AccountVerifyEmail.deserialize(reader);
-  }
-
-  if (id == 0x3fedc75f) {
-    return HelpGetDeepLinkInfo.deserialize(reader);
-  }
-
-  if (id == 0x82f1e39f) {
-    return ContactsGetSaved.deserialize(reader);
-  }
-
-  if (id == 0x8341ecc0) {
-    return ChannelsGetLeftChannels.deserialize(reader);
-  }
-
-  if (id == 0x8ef3eab0) {
-    return AccountInitTakeoutSession.deserialize(reader);
-  }
-
-  if (id == 0x1d2652ee) {
-    return AccountFinishTakeoutSession.deserialize(reader);
-  }
-
-  if (id == 0x1cff7e08) {
-    return MessagesGetSplitRanges.deserialize(reader);
-  }
-
-  if (id == 0x365275f2) {
-    return InvokeWithMessagesRange.deserialize(reader);
-  }
-
-  if (id == 0xaca9fd2e) {
-    return InvokeWithTakeout.deserialize(reader);
-  }
-
-  if (id == 0xc286d98f) {
-    return MessagesMarkDialogUnread.deserialize(reader);
-  }
-
-  if (id == 0x22e24e22) {
-    return MessagesGetDialogUnreadMarks.deserialize(reader);
-  }
-
-  if (id == 0x8514bdda) {
-    return ContactsToggleTopPeers.deserialize(reader);
-  }
-
-  if (id == 0x7e58ee9c) {
-    return MessagesClearAllDrafts.deserialize(reader);
-  }
-
-  if (id == 0x61e3f854) {
-    return HelpGetAppConfig.deserialize(reader);
-  }
-
-  if (id == 0x6f02f748) {
-    return HelpSaveAppLog.deserialize(reader);
-  }
-
-  if (id == 0xc661ad08) {
-    return HelpGetPassportConfig.deserialize(reader);
-  }
-
-  if (id == 0x6a596502) {
-    return LangpackGetLanguage.deserialize(reader);
-  }
-
-  if (id == 0xd2aaf7ec) {
-    return MessagesUpdatePinnedMessage.deserialize(reader);
-  }
-
-  if (id == 0x8fdf1920) {
-    return AccountConfirmPasswordEmail.deserialize(reader);
-  }
-
-  if (id == 0x7a7f2a15) {
-    return AccountResendPasswordEmail.deserialize(reader);
-  }
-
-  if (id == 0xc1cbd5b6) {
-    return AccountCancelPasswordEmail.deserialize(reader);
-  }
-
-  if (id == 0xd360e72c) {
-    return HelpGetSupportName.deserialize(reader);
-  }
-
-  if (id == 0x038a08d3) {
-    return HelpGetUserInfo.deserialize(reader);
-  }
-
-  if (id == 0x66b91b70) {
-    return HelpEditUserInfo.deserialize(reader);
-  }
-
-  if (id == 0x9f07c728) {
-    return AccountGetContactSignUpNotification.deserialize(reader);
-  }
-
-  if (id == 0xcff43f61) {
-    return AccountSetContactSignUpNotification.deserialize(reader);
-  }
-
-  if (id == 0x53577479) {
-    return AccountGetNotifyExceptions.deserialize(reader);
-  }
-
-  if (id == 0x10ea6184) {
-    return MessagesSendVote.deserialize(reader);
-  }
-
-  if (id == 0x73bb643b) {
-    return MessagesGetPollResults.deserialize(reader);
-  }
-
-  if (id == 0x6e2be050) {
-    return MessagesGetOnlines.deserialize(reader);
-  }
-
-  if (id == 0xdef60797) {
-    return MessagesEditChatAbout.deserialize(reader);
-  }
-
-  if (id == 0xa5866b41) {
-    return MessagesEditChatDefaultBannedRights.deserialize(reader);
-  }
-
-  if (id == 0xfc8ddbea) {
-    return AccountGetWallPaper.deserialize(reader);
-  }
-
-  if (id == 0xe39a8f03) {
-    return AccountUploadWallPaper.deserialize(reader);
-  }
-
-  if (id == 0x6c5a5b37) {
-    return AccountSaveWallPaper.deserialize(reader);
-  }
-
-  if (id == 0xfeed5769) {
-    return AccountInstallWallPaper.deserialize(reader);
-  }
-
-  if (id == 0xbb3b9804) {
-    return AccountResetWallPapers.deserialize(reader);
-  }
-
-  if (id == 0x56da0b3f) {
-    return AccountGetAutoDownloadSettings.deserialize(reader);
-  }
-
-  if (id == 0x76f36233) {
-    return AccountSaveAutoDownloadSettings.deserialize(reader);
-  }
-
-  if (id == 0x35a0e062) {
-    return MessagesGetEmojiKeywords.deserialize(reader);
-  }
-
-  if (id == 0x1508b6af) {
-    return MessagesGetEmojiKeywordsDifference.deserialize(reader);
-  }
-
-  if (id == 0x4e9963b2) {
-    return MessagesGetEmojiKeywordsLanguages.deserialize(reader);
-  }
-
-  if (id == 0xd5b10c26) {
-    return MessagesGetEmojiURL.deserialize(reader);
-  }
-
-  if (id == 0x6847d0ab) {
-    return FoldersEditPeerFolders.deserialize(reader);
-  }
-
-  if (id == 0x1bbcf300) {
-    return MessagesGetSearchCounters.deserialize(reader);
-  }
-
-  if (id == 0xf5dad378) {
-    return ChannelsGetGroupsForDiscussion.deserialize(reader);
-  }
-
-  if (id == 0x40582bb2) {
-    return ChannelsSetDiscussionGroup.deserialize(reader);
-  }
-
-  if (id == 0x198fb446) {
-    return MessagesRequestUrlAuth.deserialize(reader);
-  }
-
-  if (id == 0xb12c7125) {
-    return MessagesAcceptUrlAuth.deserialize(reader);
-  }
-
-  if (id == 0x4facb138) {
-    return MessagesHidePeerSettingsBar.deserialize(reader);
-  }
-
-  if (id == 0xe8f463d0) {
-    return ContactsAddContact.deserialize(reader);
-  }
-
-  if (id == 0xf831a20f) {
-    return ContactsAcceptContact.deserialize(reader);
-  }
-
-  if (id == 0x8f38cd1f) {
-    return ChannelsEditCreator.deserialize(reader);
-  }
-
-  if (id == 0xd348bc44) {
-    return ContactsGetLocated.deserialize(reader);
-  }
-
-  if (id == 0x58e63f6d) {
-    return ChannelsEditLocation.deserialize(reader);
-  }
-
-  if (id == 0xedd49ef0) {
-    return ChannelsToggleSlowMode.deserialize(reader);
-  }
-
-  if (id == 0xf516760b) {
-    return MessagesGetScheduledHistory.deserialize(reader);
-  }
-
-  if (id == 0xbdbb0464) {
-    return MessagesGetScheduledMessages.deserialize(reader);
-  }
-
-  if (id == 0xbd38850a) {
-    return MessagesSendScheduledMessages.deserialize(reader);
-  }
-
-  if (id == 0x59ae2b16) {
-    return MessagesDeleteScheduledMessages.deserialize(reader);
-  }
-
-  if (id == 0x1c3db333) {
-    return AccountUploadTheme.deserialize(reader);
-  }
-
-  if (id == 0x652e4400) {
-    return AccountCreateTheme.deserialize(reader);
-  }
-
-  if (id == 0x2bf40ccc) {
-    return AccountUpdateTheme.deserialize(reader);
-  }
-
-  if (id == 0xf257106c) {
-    return AccountSaveTheme.deserialize(reader);
-  }
-
-  if (id == 0xc727bb3b) {
-    return AccountInstallTheme.deserialize(reader);
-  }
-
-  if (id == 0x3a5869ec) {
-    return AccountGetTheme.deserialize(reader);
-  }
-
-  if (id == 0x7206e458) {
-    return AccountGetThemes.deserialize(reader);
-  }
-
-  if (id == 0xb7e085fe) {
-    return AuthExportLoginToken.deserialize(reader);
-  }
-
-  if (id == 0x95ac5ce4) {
-    return AuthImportLoginToken.deserialize(reader);
-  }
-
-  if (id == 0xe894ad4d) {
-    return AuthAcceptLoginToken.deserialize(reader);
-  }
-
-  if (id == 0xb574b16b) {
-    return AccountSetContentSettings.deserialize(reader);
-  }
-
-  if (id == 0x8b9b4dae) {
-    return AccountGetContentSettings.deserialize(reader);
-  }
-
-  if (id == 0x11e831ee) {
-    return ChannelsGetInactiveChannels.deserialize(reader);
-  }
-
-  if (id == 0x65ad71dc) {
-    return AccountGetMultiWallPapers.deserialize(reader);
-  }
-
-  if (id == 0xb86e380e) {
-    return MessagesGetPollVotes.deserialize(reader);
-  }
-
-  if (id == 0xb5052fea) {
-    return MessagesToggleStickerSets.deserialize(reader);
-  }
-
-  if (id == 0x2e79d779) {
-    return PaymentsGetBankCardData.deserialize(reader);
-  }
-
-  if (id == 0xefd48c89) {
-    return MessagesGetDialogFilters.deserialize(reader);
-  }
-
-  if (id == 0xa29cd42c) {
-    return MessagesGetSuggestedDialogFilters.deserialize(reader);
-  }
-
-  if (id == 0x1ad4a04a) {
-    return MessagesUpdateDialogFilter.deserialize(reader);
-  }
-
-  if (id == 0xc563c1e4) {
-    return MessagesUpdateDialogFiltersOrder.deserialize(reader);
-  }
-
-  if (id == 0xab42441a) {
-    return StatsGetBroadcastStats.deserialize(reader);
-  }
-
-  if (id == 0x621d5fa0) {
-    return StatsLoadAsyncGraph.deserialize(reader);
-  }
-
-  if (id == 0xa76a5392) {
-    return StickersSetStickerSetThumb.deserialize(reader);
-  }
-
-  if (id == 0x0517165a) {
-    return BotsSetBotCommands.deserialize(reader);
-  }
-
-  if (id == 0x7ed094a1) {
-    return MessagesGetOldFeaturedStickers.deserialize(reader);
-  }
-
-  if (id == 0xc0977421) {
-    return HelpGetPromoData.deserialize(reader);
-  }
-
-  if (id == 0x1e251c95) {
-    return HelpHidePromoData.deserialize(reader);
-  }
-
   if (id == 0xff7a9383) {
     return PhoneSendSignalingData.deserialize(reader);
-  }
-
-  if (id == 0xdcdf8607) {
-    return StatsGetMegagroupStats.deserialize(reader);
-  }
-
-  if (id == 0xeb2b4cf6) {
-    return AccountGetGlobalPrivacySettings.deserialize(reader);
-  }
-
-  if (id == 0x1edaaac2) {
-    return AccountSetGlobalPrivacySettings.deserialize(reader);
-  }
-
-  if (id == 0xf50dbaa1) {
-    return HelpDismissSuggestion.deserialize(reader);
-  }
-
-  if (id == 0x735787a8) {
-    return HelpGetCountriesList.deserialize(reader);
-  }
-
-  if (id == 0x22ddd30c) {
-    return MessagesGetReplies.deserialize(reader);
-  }
-
-  if (id == 0x446972fd) {
-    return MessagesGetDiscussionMessage.deserialize(reader);
-  }
-
-  if (id == 0xf731a9f4) {
-    return MessagesReadDiscussion.deserialize(reader);
-  }
-
-  if (id == 0x29a8962c) {
-    return ContactsBlockFromReplies.deserialize(reader);
-  }
-
-  if (id == 0x5f150144) {
-    return StatsGetMessagePublicForwards.deserialize(reader);
-  }
-
-  if (id == 0xb6e0a3f5) {
-    return StatsGetMessageStats.deserialize(reader);
-  }
-
-  if (id == 0xee22b9a8) {
-    return MessagesUnpinAllMessages.deserialize(reader);
   }
 
   if (id == 0x48cdc6d8) {
     return PhoneCreateGroupCall.deserialize(reader);
   }
 
-  if (id == 0xb132ff7b) {
+  if (id == 0x8fb53057) {
     return PhoneJoinGroupCall.deserialize(reader);
   }
 
@@ -7137,74 +8485,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xb59cf977) {
     return PhoneCheckGroupCall.deserialize(reader);
-  }
-
-  if (id == 0x5bd0ee50) {
-    return MessagesDeleteChat.deserialize(reader);
-  }
-
-  if (id == 0xf9cbe409) {
-    return MessagesDeletePhoneCallHistory.deserialize(reader);
-  }
-
-  if (id == 0x43fe19f3) {
-    return MessagesCheckHistoryImport.deserialize(reader);
-  }
-
-  if (id == 0x34090c3b) {
-    return MessagesInitHistoryImport.deserialize(reader);
-  }
-
-  if (id == 0x2a862092) {
-    return MessagesUploadImportedMedia.deserialize(reader);
-  }
-
-  if (id == 0xb43df344) {
-    return MessagesStartHistoryImport.deserialize(reader);
-  }
-
-  if (id == 0xa2b5a3f6) {
-    return MessagesGetExportedChatInvites.deserialize(reader);
-  }
-
-  if (id == 0x73746f5c) {
-    return MessagesGetExportedChatInvite.deserialize(reader);
-  }
-
-  if (id == 0xbdca2f75) {
-    return MessagesEditExportedChatInvite.deserialize(reader);
-  }
-
-  if (id == 0x56987bd5) {
-    return MessagesDeleteRevokedExportedChatInvites.deserialize(reader);
-  }
-
-  if (id == 0xd464a42b) {
-    return MessagesDeleteExportedChatInvite.deserialize(reader);
-  }
-
-  if (id == 0x3920e6ef) {
-    return MessagesGetAdminsWithInvites.deserialize(reader);
-  }
-
-  if (id == 0xdf04dd4e) {
-    return MessagesGetChatInviteImporters.deserialize(reader);
-  }
-
-  if (id == 0xb80e5fe4) {
-    return MessagesSetHistoryTTL.deserialize(reader);
-  }
-
-  if (id == 0xfa8cc6f5) {
-    return AccountReportProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x0b290c69) {
-    return ChannelsConvertToGigagroup.deserialize(reader);
-  }
-
-  if (id == 0x5dc60f03) {
-    return MessagesCheckHistoryImportPeer.deserialize(reader);
   }
 
   if (id == 0xf128c708) {
@@ -7247,126 +8527,6 @@ TlObject _readObject(BinaryReader reader) {
     return PhoneLeaveGroupCallPresentation.deserialize(reader);
   }
 
-  if (id == 0x284b3639) {
-    return StickersCheckShortName.deserialize(reader);
-  }
-
-  if (id == 0x4dafc503) {
-    return StickersSuggestShortName.deserialize(reader);
-  }
-
-  if (id == 0x3d8de0f9) {
-    return BotsResetBotCommands.deserialize(reader);
-  }
-
-  if (id == 0xe34c0dd6) {
-    return BotsGetBotCommands.deserialize(reader);
-  }
-
-  if (id == 0x9308ce1b) {
-    return AccountResetPassword.deserialize(reader);
-  }
-
-  if (id == 0x4c9409f6) {
-    return AccountDeclinePasswordReset.deserialize(reader);
-  }
-
-  if (id == 0x0d36bf79) {
-    return AuthCheckRecoveryPassword.deserialize(reader);
-  }
-
-  if (id == 0xd638de89) {
-    return AccountGetChatThemes.deserialize(reader);
-  }
-
-  if (id == 0xe63be13f) {
-    return MessagesSetChatTheme.deserialize(reader);
-  }
-
-  if (id == 0x31c1c44f) {
-    return MessagesGetMessageReadParticipants.deserialize(reader);
-  }
-
-  if (id == 0x6aa3f6bd) {
-    return MessagesGetSearchResultsCalendar.deserialize(reader);
-  }
-
-  if (id == 0x9c7f2f10) {
-    return MessagesGetSearchResultsPositions.deserialize(reader);
-  }
-
-  if (id == 0x7fe7e815) {
-    return MessagesHideChatJoinRequest.deserialize(reader);
-  }
-
-  if (id == 0xe085f4ea) {
-    return MessagesHideAllChatJoinRequests.deserialize(reader);
-  }
-
-  if (id == 0xb11eafa2) {
-    return MessagesToggleNoForwards.deserialize(reader);
-  }
-
-  if (id == 0xccfddf96) {
-    return MessagesSaveDefaultSendAs.deserialize(reader);
-  }
-
-  if (id == 0x0dc770ee) {
-    return ChannelsGetSendAs.deserialize(reader);
-  }
-
-  if (id == 0xbf899aa0) {
-    return AccountSetAuthorizationTTL.deserialize(reader);
-  }
-
-  if (id == 0x40f48462) {
-    return AccountChangeAuthorizationSettings.deserialize(reader);
-  }
-
-  if (id == 0x367544db) {
-    return ChannelsDeleteParticipantHistory.deserialize(reader);
-  }
-
-  if (id == 0xd30d78d4) {
-    return MessagesSendReaction.deserialize(reader);
-  }
-
-  if (id == 0x8bba90e6) {
-    return MessagesGetMessagesReactions.deserialize(reader);
-  }
-
-  if (id == 0x461b3f48) {
-    return MessagesGetMessageReactionsList.deserialize(reader);
-  }
-
-  if (id == 0x864b2581) {
-    return MessagesSetChatAvailableReactions.deserialize(reader);
-  }
-
-  if (id == 0x18dea0ac) {
-    return MessagesGetAvailableReactions.deserialize(reader);
-  }
-
-  if (id == 0x4f47a016) {
-    return MessagesSetDefaultReaction.deserialize(reader);
-  }
-
-  if (id == 0x63183030) {
-    return MessagesTranslateText.deserialize(reader);
-  }
-
-  if (id == 0x3223495b) {
-    return MessagesGetUnreadReactions.deserialize(reader);
-  }
-
-  if (id == 0x54aa7f8e) {
-    return MessagesReadReactions.deserialize(reader);
-  }
-
-  if (id == 0x8af94344) {
-    return ContactsResolvePhone.deserialize(reader);
-  }
-
   if (id == 0x1ab21940) {
     return PhoneGetGroupCallStreamChannels.deserialize(reader);
   }
@@ -7375,324 +8535,84 @@ TlObject _readObject(BinaryReader reader) {
     return PhoneGetGroupCallStreamRtmpUrl.deserialize(reader);
   }
 
-  if (id == 0x107e31a0) {
-    return MessagesSearchSentMedia.deserialize(reader);
-  }
-
-  if (id == 0x16fcc2cb) {
-    return MessagesGetAttachMenuBots.deserialize(reader);
-  }
-
-  if (id == 0x77216192) {
-    return MessagesGetAttachMenuBot.deserialize(reader);
-  }
-
-  if (id == 0x69f59d69) {
-    return MessagesToggleBotInAttachMenu.deserialize(reader);
-  }
-
-  if (id == 0x269dc2c1) {
-    return MessagesRequestWebView.deserialize(reader);
-  }
-
-  if (id == 0xb0d81a83) {
-    return MessagesProlongWebView.deserialize(reader);
-  }
-
-  if (id == 0x413a3e73) {
-    return MessagesRequestSimpleWebView.deserialize(reader);
-  }
-
-  if (id == 0x0a4314f5) {
-    return MessagesSendWebViewResultMessage.deserialize(reader);
-  }
-
-  if (id == 0xdc0242c8) {
-    return MessagesSendWebViewData.deserialize(reader);
-  }
-
-  if (id == 0x4504d54f) {
-    return BotsSetBotMenuButton.deserialize(reader);
-  }
-
-  if (id == 0x9c60eb28) {
-    return BotsGetBotMenuButton.deserialize(reader);
-  }
-
-  if (id == 0xe1902288) {
-    return AccountGetSavedRingtones.deserialize(reader);
-  }
-
-  if (id == 0x3dea5b03) {
-    return AccountSaveRingtone.deserialize(reader);
-  }
-
-  if (id == 0x831a83a2) {
-    return AccountUploadRingtone.deserialize(reader);
-  }
-
-  if (id == 0x788464e1) {
-    return BotsSetBotBroadcastDefaultAdminRights.deserialize(reader);
-  }
-
-  if (id == 0x925ec9ea) {
-    return BotsSetBotGroupDefaultAdminRights.deserialize(reader);
-  }
-
   if (id == 0x41248786) {
     return PhoneSaveCallLog.deserialize(reader);
   }
 
-  if (id == 0xe4cb9580) {
-    return ChannelsToggleJoinToSend.deserialize(reader);
+  if (id == 0x7d0444bb) {
+    return PhoneCreateConferenceCall.deserialize(reader);
   }
 
-  if (id == 0x4c2985b6) {
-    return ChannelsToggleJoinRequest.deserialize(reader);
+  if (id == 0x8ca60525) {
+    return PhoneDeleteConferenceCallParticipants.deserialize(reader);
   }
 
-  if (id == 0x0f91b065) {
-    return PaymentsExportInvoice.deserialize(reader);
+  if (id == 0xc6701900) {
+    return PhoneSendConferenceCallBroadcast.deserialize(reader);
   }
 
-  if (id == 0x269e9a49) {
-    return MessagesTranscribeAudio.deserialize(reader);
+  if (id == 0xbcf22685) {
+    return PhoneInviteConferenceCallParticipant.deserialize(reader);
   }
 
-  if (id == 0x7f1d072f) {
-    return MessagesRateTranscribedAudio.deserialize(reader);
+  if (id == 0x3c479971) {
+    return PhoneDeclineConferenceCallInvite.deserialize(reader);
   }
 
-  if (id == 0x80ed747d) {
-    return PaymentsAssignAppStoreTransaction.deserialize(reader);
+  if (id == 0xee9f88a6) {
+    return PhoneGetGroupCallChainBlocks.deserialize(reader);
   }
 
-  if (id == 0xdffd50d3) {
-    return PaymentsAssignPlayMarketTransaction.deserialize(reader);
+  if (id == 0xf2f2330a) {
+    return LangpackGetLangPack.deserialize(reader);
   }
 
-  if (id == 0x9fc19eb6) {
-    return PaymentsCanPurchasePremium.deserialize(reader);
+  if (id == 0xefea3803) {
+    return LangpackGetStrings.deserialize(reader);
   }
 
-  if (id == 0xb81b93d4) {
-    return HelpGetPremiumPromo.deserialize(reader);
+  if (id == 0xcd984aa5) {
+    return LangpackGetDifference.deserialize(reader);
   }
 
-  if (id == 0xd9ab0f54) {
-    return MessagesGetCustomEmojiDocuments.deserialize(reader);
+  if (id == 0x42c6978f) {
+    return LangpackGetLanguages.deserialize(reader);
   }
 
-  if (id == 0xfbfca18f) {
-    return MessagesGetEmojiStickers.deserialize(reader);
+  if (id == 0x6a596502) {
+    return LangpackGetLanguage.deserialize(reader);
   }
 
-  if (id == 0x0ecf6736) {
-    return MessagesGetFeaturedEmojiStickers.deserialize(reader);
+  if (id == 0x6847d0ab) {
+    return FoldersEditPeerFolders.deserialize(reader);
   }
 
-  if (id == 0xfbd3de6b) {
-    return AccountUpdateEmojiStatus.deserialize(reader);
+  if (id == 0xab42441a) {
+    return StatsGetBroadcastStats.deserialize(reader);
   }
 
-  if (id == 0xd6753386) {
-    return AccountGetDefaultEmojiStatuses.deserialize(reader);
+  if (id == 0x621d5fa0) {
+    return StatsLoadAsyncGraph.deserialize(reader);
   }
 
-  if (id == 0x0f578105) {
-    return AccountGetRecentEmojiStatuses.deserialize(reader);
+  if (id == 0xdcdf8607) {
+    return StatsGetMegagroupStats.deserialize(reader);
   }
 
-  if (id == 0x18201aae) {
-    return AccountClearRecentEmojiStatuses.deserialize(reader);
+  if (id == 0x5f150144) {
+    return StatsGetMessagePublicForwards.deserialize(reader);
   }
 
-  if (id == 0x3f64c076) {
-    return MessagesReportReaction.deserialize(reader);
+  if (id == 0xb6e0a3f5) {
+    return StatsGetMessageStats.deserialize(reader);
   }
 
-  if (id == 0xbb8125ba) {
-    return MessagesGetTopReactions.deserialize(reader);
+  if (id == 0x374fef40) {
+    return StatsGetStoryStats.deserialize(reader);
   }
 
-  if (id == 0x39461db2) {
-    return MessagesGetRecentReactions.deserialize(reader);
-  }
-
-  if (id == 0x9dfeefb4) {
-    return MessagesClearRecentReactions.deserialize(reader);
-  }
-
-  if (id == 0x84f80814) {
-    return MessagesGetExtendedMedia.deserialize(reader);
-  }
-
-  if (id == 0x2db873a9) {
-    return AuthImportWebTokenAuthorization.deserialize(reader);
-  }
-
-  if (id == 0xef500eab) {
-    return AccountReorderUsernames.deserialize(reader);
-  }
-
-  if (id == 0x58d6b376) {
-    return AccountToggleUsername.deserialize(reader);
-  }
-
-  if (id == 0xb45ced1d) {
-    return ChannelsReorderUsernames.deserialize(reader);
-  }
-
-  if (id == 0x50f24105) {
-    return ChannelsToggleUsername.deserialize(reader);
-  }
-
-  if (id == 0x0a245dd3) {
-    return ChannelsDeactivateAllUsernames.deserialize(reader);
-  }
-
-  if (id == 0xa4298b29) {
-    return ChannelsToggleForum.deserialize(reader);
-  }
-
-  if (id == 0xf40c0224) {
-    return ChannelsCreateForumTopic.deserialize(reader);
-  }
-
-  if (id == 0x0de560d1) {
-    return ChannelsGetForumTopics.deserialize(reader);
-  }
-
-  if (id == 0xb0831eb9) {
-    return ChannelsGetForumTopicsByID.deserialize(reader);
-  }
-
-  if (id == 0xf4dfa185) {
-    return ChannelsEditForumTopic.deserialize(reader);
-  }
-
-  if (id == 0x6c2d9026) {
-    return ChannelsUpdatePinnedForumTopic.deserialize(reader);
-  }
-
-  if (id == 0x34435f2d) {
-    return ChannelsDeleteTopicHistory.deserialize(reader);
-  }
-
-  if (id == 0x2950a18f) {
-    return ChannelsReorderPinnedForumTopics.deserialize(reader);
-  }
-
-  if (id == 0x68f3e4eb) {
-    return ChannelsToggleAntiSpam.deserialize(reader);
-  }
-
-  if (id == 0xa850a693) {
-    return ChannelsReportAntiSpamFalsePositive.deserialize(reader);
-  }
-
-  if (id == 0x9eb51445) {
-    return MessagesSetDefaultHistoryTTL.deserialize(reader);
-  }
-
-  if (id == 0x658b7188) {
-    return MessagesGetDefaultHistoryTTL.deserialize(reader);
-  }
-
-  if (id == 0xf8654027) {
-    return ContactsExportContactToken.deserialize(reader);
-  }
-
-  if (id == 0x13005788) {
-    return ContactsImportContactToken.deserialize(reader);
-  }
-
-  if (id == 0xe14c4a71) {
-    return PhotosUploadContactProfilePhoto.deserialize(reader);
-  }
-
-  if (id == 0x6a6e7854) {
-    return ChannelsToggleParticipantsHidden.deserialize(reader);
-  }
-
-  if (id == 0x91b2d060) {
-    return MessagesSendBotRequestedPeer.deserialize(reader);
-  }
-
-  if (id == 0xe2750328) {
-    return AccountGetDefaultProfilePhotoEmojis.deserialize(reader);
-  }
-
-  if (id == 0x915860ae) {
-    return AccountGetDefaultGroupPhotoEmojis.deserialize(reader);
-  }
-
-  if (id == 0x8e39261e) {
-    return AuthRequestFirebaseSms.deserialize(reader);
-  }
-
-  if (id == 0x7488ce5b) {
-    return MessagesGetEmojiGroups.deserialize(reader);
-  }
-
-  if (id == 0x2ecd56cd) {
-    return MessagesGetEmojiStatusGroups.deserialize(reader);
-  }
-
-  if (id == 0x21a548f3) {
-    return MessagesGetEmojiProfilePhotoGroups.deserialize(reader);
-  }
-
-  if (id == 0x2c11c0d7) {
-    return MessagesSearchCustomEmoji.deserialize(reader);
-  }
-
-  if (id == 0xe47cb579) {
-    return MessagesTogglePeerTranslations.deserialize(reader);
-  }
-
-  if (id == 0xadcbbcda) {
-    return AccountGetAutoSaveSettings.deserialize(reader);
-  }
-
-  if (id == 0xd69b8361) {
-    return AccountSaveAutoSaveSettings.deserialize(reader);
-  }
-
-  if (id == 0x53bc0020) {
-    return AccountDeleteAutoSaveExceptions.deserialize(reader);
-  }
-
-  if (id == 0xf5537ebc) {
-    return StickersChangeSticker.deserialize(reader);
-  }
-
-  if (id == 0x124b1c00) {
-    return StickersRenameStickerSet.deserialize(reader);
-  }
-
-  if (id == 0x87704394) {
-    return StickersDeleteStickerSet.deserialize(reader);
-  }
-
-  if (id == 0x34fdc5c3) {
-    return MessagesGetBotApp.deserialize(reader);
-  }
-
-  if (id == 0x53618bce) {
-    return MessagesRequestAppWebView.deserialize(reader);
-  }
-
-  if (id == 0x10cf3123) {
-    return BotsSetBotInfo.deserialize(reader);
-  }
-
-  if (id == 0xdcd914fd) {
-    return BotsGetBotInfo.deserialize(reader);
-  }
-
-  if (id == 0x7e960193) {
-    return AuthResetLoginEmail.deserialize(reader);
+  if (id == 0xa6437ef6) {
+    return StatsGetStoryPublicForwards.deserialize(reader);
   }
 
   if (id == 0x8472478e) {
@@ -7739,27 +8659,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChatlistsLeaveChatlist.deserialize(reader);
   }
 
-  if (id == 0x9709b1c2) {
-    return BotsReorderUsernames.deserialize(reader);
-  }
-
-  if (id == 0x053ca973) {
-    return BotsToggleUsername.deserialize(reader);
-  }
-
-  if (id == 0x8ffacae1) {
-    return MessagesSetChatWallPaper.deserialize(reader);
-  }
-
-  if (id == 0xca8ae8ba) {
-    return AccountInvalidateSignInCodes.deserialize(reader);
-  }
-
-  if (id == 0xba6705f0) {
-    return ContactsEditCloseFriends.deserialize(reader);
-  }
-
-  if (id == 0xc7dfdfdd) {
+  if (id == 0x30eb63f0) {
     return StoriesCanSendStory.deserialize(reader);
   }
 
@@ -7827,24 +8727,8 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesActivateStealthMode.deserialize(reader);
   }
 
-  if (id == 0x94c65c76) {
-    return ContactsSetBlocked.deserialize(reader);
-  }
-
   if (id == 0x7fd736b2) {
     return StoriesSendReaction.deserialize(reader);
-  }
-
-  if (id == 0x1359f4e6) {
-    return BotsCanSendMessage.deserialize(reader);
-  }
-
-  if (id == 0xf132e3ef) {
-    return BotsAllowSendMessage.deserialize(reader);
-  }
-
-  if (id == 0x087fc5e7) {
-    return BotsInvokeWebViewCustomMethod.deserialize(reader);
   }
 
   if (id == 0x2c4ada50) {
@@ -7867,36 +8751,16 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesTogglePeerStoriesHidden.deserialize(reader);
   }
 
-  if (id == 0x2757ba54) {
-    return PaymentsGetPremiumGiftCodeOptions.deserialize(reader);
+  if (id == 0xb9b2881f) {
+    return StoriesGetStoryReactionsList.deserialize(reader);
   }
 
-  if (id == 0x8e51b4c1) {
-    return PaymentsCheckGiftCode.deserialize(reader);
+  if (id == 0x0b297e9b) {
+    return StoriesTogglePinnedToTop.deserialize(reader);
   }
 
-  if (id == 0xf6e26854) {
-    return PaymentsApplyGiftCode.deserialize(reader);
-  }
-
-  if (id == 0xf4239425) {
-    return PaymentsGetGiveawayInfo.deserialize(reader);
-  }
-
-  if (id == 0x5ff58f20) {
-    return PaymentsLaunchPrepaidGiveaway.deserialize(reader);
-  }
-
-  if (id == 0x7cefa15d) {
-    return AccountUpdateColor.deserialize(reader);
-  }
-
-  if (id == 0xd8aa3671) {
-    return ChannelsUpdateColor.deserialize(reader);
-  }
-
-  if (id == 0xa60ab9ce) {
-    return AccountGetDefaultBackgroundEmojis.deserialize(reader);
+  if (id == 0xd1810907) {
+    return StoriesSearchPosts.deserialize(reader);
   }
 
   if (id == 0x60f67660) {
@@ -7917,102 +8781,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x39854d1f) {
     return PremiumGetUserBoosts.deserialize(reader);
-  }
-
-  if (id == 0x9738bb15) {
-    return ChannelsToggleViewForumAsMessages.deserialize(reader);
-  }
-
-  if (id == 0x92b4494c) {
-    return MessagesSearchEmojiStickerSets.deserialize(reader);
-  }
-
-  if (id == 0x25a71742) {
-    return ChannelsGetChannelRecommendations.deserialize(reader);
-  }
-
-  if (id == 0x374fef40) {
-    return StatsGetStoryStats.deserialize(reader);
-  }
-
-  if (id == 0xa6437ef6) {
-    return StatsGetStoryPublicForwards.deserialize(reader);
-  }
-
-  if (id == 0xda80f42f) {
-    return HelpGetPeerColors.deserialize(reader);
-  }
-
-  if (id == 0xabcfa9fd) {
-    return HelpGetPeerProfileColors.deserialize(reader);
-  }
-
-  if (id == 0xb9b2881f) {
-    return StoriesGetStoryReactionsList.deserialize(reader);
-  }
-
-  if (id == 0xf0d3e6a8) {
-    return ChannelsUpdateEmojiStatus.deserialize(reader);
-  }
-
-  if (id == 0x7727a7d5) {
-    return AccountGetChannelDefaultEmojiStatuses.deserialize(reader);
-  }
-
-  if (id == 0x35a9e0d5) {
-    return AccountGetChannelRestrictedStatusEmojis.deserialize(reader);
-  }
-
-  if (id == 0x5381d21a) {
-    return MessagesGetSavedDialogs.deserialize(reader);
-  }
-
-  if (id == 0x3d9a414d) {
-    return MessagesGetSavedHistory.deserialize(reader);
-  }
-
-  if (id == 0x6e98102b) {
-    return MessagesDeleteSavedHistory.deserialize(reader);
-  }
-
-  if (id == 0xd63d94e0) {
-    return MessagesGetPinnedSavedDialogs.deserialize(reader);
-  }
-
-  if (id == 0xac81bbde) {
-    return MessagesToggleSavedDialogPin.deserialize(reader);
-  }
-
-  if (id == 0x8b716587) {
-    return MessagesReorderPinnedSavedDialogs.deserialize(reader);
-  }
-
-  if (id == 0x3637e05b) {
-    return MessagesGetSavedReactionTags.deserialize(reader);
-  }
-
-  if (id == 0x60297dec) {
-    return MessagesUpdateSavedReactionTag.deserialize(reader);
-  }
-
-  if (id == 0xbdf93428) {
-    return MessagesGetDefaultTagReactions.deserialize(reader);
-  }
-
-  if (id == 0x8c4bfe5d) {
-    return MessagesGetOutboxReadDate.deserialize(reader);
-  }
-
-  if (id == 0xa622aa10) {
-    return UsersGetIsPremiumRequiredToContact.deserialize(reader);
-  }
-
-  if (id == 0xad399cee) {
-    return ChannelsSetBoostsToUnblockRestrictions.deserialize(reader);
-  }
-
-  if (id == 0x3cd930b7) {
-    return ChannelsSetEmojiStickers.deserialize(reader);
   }
 
   if (id == 0x0edc39d0) {
@@ -8043,392 +8811,8 @@ TlObject _readObject(BinaryReader reader) {
     return SmsjobsFinishJob.deserialize(reader);
   }
 
-  if (id == 0x49b30240) {
-    return HelpGetTimezonesList.deserialize(reader);
-  }
-
-  if (id == 0x4b00e066) {
-    return AccountUpdateBusinessWorkHours.deserialize(reader);
-  }
-
-  if (id == 0x9e6b131a) {
-    return AccountUpdateBusinessLocation.deserialize(reader);
-  }
-
-  if (id == 0x66cdafc4) {
-    return AccountUpdateBusinessGreetingMessage.deserialize(reader);
-  }
-
-  if (id == 0xa26a7fa5) {
-    return AccountUpdateBusinessAwayMessage.deserialize(reader);
-  }
-
-  if (id == 0xd483f2a8) {
-    return MessagesGetQuickReplies.deserialize(reader);
-  }
-
-  if (id == 0x60331907) {
-    return MessagesReorderQuickReplies.deserialize(reader);
-  }
-
-  if (id == 0xf1d0fbd3) {
-    return MessagesCheckQuickReplyShortcut.deserialize(reader);
-  }
-
-  if (id == 0x5c003cef) {
-    return MessagesEditQuickReplyShortcut.deserialize(reader);
-  }
-
-  if (id == 0x3cc04740) {
-    return MessagesDeleteQuickReplyShortcut.deserialize(reader);
-  }
-
-  if (id == 0x94a495c3) {
-    return MessagesGetQuickReplyMessages.deserialize(reader);
-  }
-
-  if (id == 0x6c750de1) {
-    return MessagesSendQuickReplyMessages.deserialize(reader);
-  }
-
-  if (id == 0xe105e910) {
-    return MessagesDeleteQuickReplyMessages.deserialize(reader);
-  }
-
-  if (id == 0x43d8521d) {
-    return AccountUpdateConnectedBot.deserialize(reader);
-  }
-
-  if (id == 0x4ea4c80f) {
-    return AccountGetConnectedBots.deserialize(reader);
-  }
-
-  if (id == 0xfd2dda49) {
-    return MessagesToggleDialogFilterTags.deserialize(reader);
-  }
-
-  if (id == 0xdd289f8e) {
-    return InvokeWithBusinessConnection.deserialize(reader);
-  }
-
-  if (id == 0x76a86270) {
-    return AccountGetBotBusinessConnection.deserialize(reader);
-  }
-
-  if (id == 0xa614d034) {
-    return AccountUpdateBusinessIntro.deserialize(reader);
-  }
-
-  if (id == 0x4696459a) {
-    return StickersReplaceSticker.deserialize(reader);
-  }
-
-  if (id == 0xd0b5e1fc) {
-    return MessagesGetMyStickers.deserialize(reader);
-  }
-
   if (id == 0xbe1e85ba) {
     return FragmentGetCollectibleInfo.deserialize(reader);
-  }
-
-  if (id == 0x646e1097) {
-    return AccountToggleConnectedBotPaused.deserialize(reader);
-  }
-
-  if (id == 0x5e437ed9) {
-    return AccountDisablePeerConnectedBot.deserialize(reader);
-  }
-
-  if (id == 0xcc6e0c11) {
-    return AccountUpdateBirthday.deserialize(reader);
-  }
-
-  if (id == 0xdaeda864) {
-    return ContactsGetBirthdays.deserialize(reader);
-  }
-
-  if (id == 0x8851e68e) {
-    return AccountCreateBusinessChatLink.deserialize(reader);
-  }
-
-  if (id == 0x8c3410af) {
-    return AccountEditBusinessChatLink.deserialize(reader);
-  }
-
-  if (id == 0x60073674) {
-    return AccountDeleteBusinessChatLink.deserialize(reader);
-  }
-
-  if (id == 0x6f70dde1) {
-    return AccountGetBusinessChatLinks.deserialize(reader);
-  }
-
-  if (id == 0x5492e5ee) {
-    return AccountResolveBusinessChatLink.deserialize(reader);
-  }
-
-  if (id == 0xd94305e0) {
-    return AccountUpdatePersonalChannel.deserialize(reader);
-  }
-
-  if (id == 0xf788ee19) {
-    return StatsGetBroadcastRevenueStats.deserialize(reader);
-  }
-
-  if (id == 0x9df4faad) {
-    return StatsGetBroadcastRevenueWithdrawalUrl.deserialize(reader);
-  }
-
-  if (id == 0x70990b6d) {
-    return StatsGetBroadcastRevenueTransactions.deserialize(reader);
-  }
-
-  if (id == 0x9ae91519) {
-    return ChannelsRestrictSponsoredMessages.deserialize(reader);
-  }
-
-  if (id == 0xb9d9a38d) {
-    return AccountToggleSponsoredMessages.deserialize(reader);
-  }
-
-  if (id == 0x0b297e9b) {
-    return StoriesTogglePinnedToTop.deserialize(reader);
-  }
-
-  if (id == 0x06dd654c) {
-    return AccountGetReactionsNotifySettings.deserialize(reader);
-  }
-
-  if (id == 0x316ce548) {
-    return AccountSetReactionsNotifySettings.deserialize(reader);
-  }
-
-  if (id == 0xcb9deff6) {
-    return AuthReportMissingCode.deserialize(reader);
-  }
-
-  if (id == 0x1dd840f5) {
-    return MessagesGetEmojiStickerGroups.deserialize(reader);
-  }
-
-  if (id == 0x1df92984) {
-    return InvokeWithGooglePlayIntegrity.deserialize(reader);
-  }
-
-  if (id == 0x0dae54f8) {
-    return InvokeWithApnsSecret.deserialize(reader);
-  }
-
-  if (id == 0xdea20a39) {
-    return MessagesGetAvailableEffects.deserialize(reader);
-  }
-
-  if (id == 0xd19f987b) {
-    return ChannelsSearchPosts.deserialize(reader);
-  }
-
-  if (id == 0x0589ee75) {
-    return MessagesEditFactCheck.deserialize(reader);
-  }
-
-  if (id == 0xd1da940c) {
-    return MessagesDeleteFactCheck.deserialize(reader);
-  }
-
-  if (id == 0xb9cdc5ee) {
-    return MessagesGetFactCheck.deserialize(reader);
-  }
-
-  if (id == 0xc00ec7d3) {
-    return PaymentsGetStarsTopupOptions.deserialize(reader);
-  }
-
-  if (id == 0x104fcfa7) {
-    return PaymentsGetStarsStatus.deserialize(reader);
-  }
-
-  if (id == 0x69da4557) {
-    return PaymentsGetStarsTransactions.deserialize(reader);
-  }
-
-  if (id == 0x7998c914) {
-    return PaymentsSendStarsForm.deserialize(reader);
-  }
-
-  if (id == 0x25ae8f4a) {
-    return PaymentsRefundStarsCharge.deserialize(reader);
-  }
-
-  if (id == 0xd1810907) {
-    return StoriesSearchPosts.deserialize(reader);
-  }
-
-  if (id == 0xd91ffad6) {
-    return PaymentsGetStarsRevenueStats.deserialize(reader);
-  }
-
-  if (id == 0x13bbe8b3) {
-    return PaymentsGetStarsRevenueWithdrawalUrl.deserialize(reader);
-  }
-
-  if (id == 0xd1d7efc5) {
-    return PaymentsGetStarsRevenueAdsAccountUrl.deserialize(reader);
-  }
-
-  if (id == 0x27842d2e) {
-    return PaymentsGetStarsTransactionsByID.deserialize(reader);
-  }
-
-  if (id == 0xd3c96bc8) {
-    return PaymentsGetStarsGiftOptions.deserialize(reader);
-  }
-
-  if (id == 0xc2510192) {
-    return BotsGetPopularAppBots.deserialize(reader);
-  }
-
-  if (id == 0x17aeb75a) {
-    return BotsAddPreviewMedia.deserialize(reader);
-  }
-
-  if (id == 0x8525606f) {
-    return BotsEditPreviewMedia.deserialize(reader);
-  }
-
-  if (id == 0x2d0135b3) {
-    return BotsDeletePreviewMedia.deserialize(reader);
-  }
-
-  if (id == 0xb627f3aa) {
-    return BotsReorderPreviewMedias.deserialize(reader);
-  }
-
-  if (id == 0x423ab3ad) {
-    return BotsGetPreviewInfo.deserialize(reader);
-  }
-
-  if (id == 0xa2a5594d) {
-    return BotsGetPreviewMedias.deserialize(reader);
-  }
-
-  if (id == 0xc9e01e7b) {
-    return MessagesRequestMainWebView.deserialize(reader);
-  }
-
-  if (id == 0x032512c5) {
-    return PaymentsGetStarsSubscriptions.deserialize(reader);
-  }
-
-  if (id == 0xc7770878) {
-    return PaymentsChangeStarsSubscription.deserialize(reader);
-  }
-
-  if (id == 0xcc5bebb3) {
-    return PaymentsFulfillStarsSubscription.deserialize(reader);
-  }
-
-  if (id == 0x9dd6a67b) {
-    return MessagesSendPaidReaction.deserialize(reader);
-  }
-
-  if (id == 0x849ad397) {
-    return MessagesTogglePaidReactionPrivacy.deserialize(reader);
-  }
-
-  if (id == 0xbd1efd3e) {
-    return PaymentsGetStarsGiveawayOptions.deserialize(reader);
-  }
-
-  if (id == 0x472455aa) {
-    return MessagesGetPaidReactionPrivacy.deserialize(reader);
-  }
-
-  if (id == 0xc4563590) {
-    return PaymentsGetStarGifts.deserialize(reader);
-  }
-
-  if (id == 0x5e72c7e1) {
-    return PaymentsGetUserStarGifts.deserialize(reader);
-  }
-
-  if (id == 0x87acf08e) {
-    return PaymentsSaveStarGift.deserialize(reader);
-  }
-
-  if (id == 0x0421e027) {
-    return PaymentsConvertStarGift.deserialize(reader);
-  }
-
-  if (id == 0x673ad8f1) {
-    return MessagesViewSponsoredMessage.deserialize(reader);
-  }
-
-  if (id == 0x0f093465) {
-    return MessagesClickSponsoredMessage.deserialize(reader);
-  }
-
-  if (id == 0x1af3dbb8) {
-    return MessagesReportSponsoredMessage.deserialize(reader);
-  }
-
-  if (id == 0x9bd2f439) {
-    return MessagesGetSponsoredMessages.deserialize(reader);
-  }
-
-  if (id == 0xf21f7f2f) {
-    return MessagesSavePreparedInlineMessage.deserialize(reader);
-  }
-
-  if (id == 0x857ebdb8) {
-    return MessagesGetPreparedInlineMessage.deserialize(reader);
-  }
-
-  if (id == 0xed9f30c5) {
-    return BotsUpdateUserEmojiStatus.deserialize(reader);
-  }
-
-  if (id == 0x06de6392) {
-    return BotsToggleUserEmojiStatusPermission.deserialize(reader);
-  }
-
-  if (id == 0x50077589) {
-    return BotsCheckDownloadFileParams.deserialize(reader);
-  }
-
-  if (id == 0x6dfa0622) {
-    return PaymentsBotCancelStarsSubscription.deserialize(reader);
-  }
-
-  if (id == 0xb0711d83) {
-    return BotsGetAdminedBots.deserialize(reader);
-  }
-
-  if (id == 0x778b5ab3) {
-    return BotsUpdateStarRefProgram.deserialize(reader);
-  }
-
-  if (id == 0x5869a553) {
-    return PaymentsGetConnectedStarRefBots.deserialize(reader);
-  }
-
-  if (id == 0xb7d998f0) {
-    return PaymentsGetConnectedStarRefBot.deserialize(reader);
-  }
-
-  if (id == 0x0d6b48f7) {
-    return PaymentsGetSuggestedStarRefBots.deserialize(reader);
-  }
-
-  if (id == 0x7ed5348a) {
-    return PaymentsConnectStarRefBot.deserialize(reader);
-  }
-
-  if (id == 0xe4fca4a3) {
-    return PaymentsEditConnectedStarRefBot.deserialize(reader);
-  }
-
-  if (id == 0x29b1c66a) {
-    return MessagesSearchStickers.deserialize(reader);
   }
 
   // From end-to-end.tl
