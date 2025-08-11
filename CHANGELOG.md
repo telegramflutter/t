@@ -1,3 +1,7 @@
+## 0.0.29
+
+- Fixes a bug in DateTime serialization, thanks to @Ilham-Habibullin.
+
 ## 0.0.28
 
 - Updated to layer 211.
