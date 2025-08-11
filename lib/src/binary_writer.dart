@@ -57,7 +57,7 @@ extension _BinaryWriter on List<int> {
   }
 
   void writeDateTime(DateTime v) {
-    final seconds = v.millisecondsSinceEpoch ~/ 1000;
+    final seconds = v.toUtc().millisecondsSinceEpoch ~/ 1000;
     writeInt32(seconds);
   }
 
