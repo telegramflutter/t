@@ -3390,6 +3390,42 @@ abstract class SuggestedPostBase extends TlConstructor {
   const SuggestedPostBase._() : super._();
 }
 
+/// Predicate Stars Rating.
+abstract class StarsRatingBase extends TlConstructor {
+  /// Predicate Stars Rating constructor.
+  const StarsRatingBase._() : super._();
+}
+
+/// Predicate Star Gift Collection.
+abstract class StarGiftCollectionBase extends TlConstructor {
+  /// Predicate Star Gift Collection constructor.
+  const StarGiftCollectionBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Collections.
+abstract class PaymentsStarGiftCollectionsBase extends TlConstructor {
+  /// Predicate Payments Star Gift Collections constructor.
+  const PaymentsStarGiftCollectionsBase._() : super._();
+}
+
+/// Predicate Story Album.
+abstract class StoryAlbumBase extends TlConstructor {
+  /// Predicate Story Album constructor.
+  const StoryAlbumBase._() : super._();
+}
+
+/// Predicate Stories Albums.
+abstract class StoriesAlbumsBase extends TlConstructor {
+  /// Predicate Stories Albums constructor.
+  const StoriesAlbumsBase._() : super._();
+}
+
+/// Predicate Search Posts Flood.
+abstract class SearchPostsFloodBase extends TlConstructor {
+  /// Predicate Search Posts Flood constructor.
+  const SearchPostsFloodBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.

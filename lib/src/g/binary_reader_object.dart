@@ -846,7 +846,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionStarGift.deserialize(reader);
   }
 
-  if (id == 0x2e3ae60e) {
+  if (id == 0x34f762f3) {
     return MessageActionStarGiftUnique.deserialize(reader);
   }
 
@@ -1038,7 +1038,7 @@ TlObject _readObject(BinaryReader reader) {
     return InputReportReasonPersonalDetails.deserialize(reader);
   }
 
-  if (id == 0x99e78045) {
+  if (id == 0x7e63ce1f) {
     return UserFull.deserialize(reader);
   }
 
@@ -1090,7 +1090,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesMessages.deserialize(reader);
   }
 
-  if (id == 0x3a54685e) {
+  if (id == 0x762b263d) {
     return MessagesMessagesSlice.deserialize(reader);
   }
 
@@ -4291,6 +4291,10 @@ TlObject _readObject(BinaryReader reader) {
     return WebPageAttributeUniqueStarGift.deserialize(reader);
   }
 
+  if (id == 0x31cad303) {
+    return WebPageAttributeStarGiftCollection.deserialize(reader);
+  }
+
   if (id == 0x4899484e) {
     return MessagesVotesList.deserialize(reader);
   }
@@ -4415,7 +4419,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesDiscussionMessage.deserialize(reader);
   }
 
-  if (id == 0xafbc09db) {
+  if (id == 0x6917560b) {
     return MessageReplyHeader.deserialize(reader);
   }
 
@@ -4815,7 +4819,7 @@ TlObject _readObject(BinaryReader reader) {
     return InputInvoiceBusinessBotTransferStars.deserialize(reader);
   }
 
-  if (id == 0x63cbc38c) {
+  if (id == 0xc39f5324) {
     return InputInvoiceStarGiftResale.deserialize(reader);
   }
 
@@ -5155,7 +5159,7 @@ TlObject _readObject(BinaryReader reader) {
     return StoryItemSkipped.deserialize(reader);
   }
 
-  if (id == 0x79b26a24) {
+  if (id == 0xedf164f1) {
     return StoryItem.deserialize(reader);
   }
 
@@ -5191,7 +5195,7 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesStoryViews.deserialize(reader);
   }
 
-  if (id == 0xb07038b0) {
+  if (id == 0x869fbe10) {
     return InputReplyToMessage.deserialize(reader);
   }
 
@@ -5755,11 +5759,11 @@ TlObject _readObject(BinaryReader reader) {
     return StarsGiveawayWinnersOption.deserialize(reader);
   }
 
-  if (id == 0x7f853c12) {
+  if (id == 0x00bcff5b) {
     return StarGift.deserialize(reader);
   }
 
-  if (id == 0xf63778ae) {
+  if (id == 0x3a274d50) {
     return StarGiftUnique.deserialize(reader);
   }
 
@@ -5875,7 +5879,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesWebPagePreview.deserialize(reader);
   }
 
-  if (id == 0xdfda0499) {
+  if (id == 0x1ea646df) {
     return SavedStarGift.deserialize(reader);
   }
 
@@ -5989,6 +5993,38 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x0e8e37e5) {
     return SuggestedPost.deserialize(reader);
+  }
+
+  if (id == 0x1b0e4f07) {
+    return StarsRating.deserialize(reader);
+  }
+
+  if (id == 0x9d6b13b0) {
+    return StarGiftCollection.deserialize(reader);
+  }
+
+  if (id == 0xa0ba4f17) {
+    return PaymentsStarGiftCollectionsNotModified.deserialize(reader);
+  }
+
+  if (id == 0x8a2932f3) {
+    return PaymentsStarGiftCollections.deserialize(reader);
+  }
+
+  if (id == 0x9325705a) {
+    return StoryAlbum.deserialize(reader);
+  }
+
+  if (id == 0x564edaeb) {
+    return StoriesAlbumsNotModified.deserialize(reader);
+  }
+
+  if (id == 0xc3987a3a) {
+    return StoriesAlbums.deserialize(reader);
+  }
+
+  if (id == 0x3e0b5b6a) {
+    return SearchPostsFlood.deserialize(reader);
   }
 
   if (id == 0xcb9f372d) {
@@ -8035,7 +8071,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsRestrictSponsoredMessages.deserialize(reader);
   }
 
-  if (id == 0xd19f987b) {
+  if (id == 0xf2c4f24d) {
     return ChannelsSearchPosts.deserialize(reader);
   }
 
@@ -8049,6 +8085,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xece2a0e6) {
     return ChannelsGetMessageAuthor.deserialize(reader);
+  }
+
+  if (id == 0x22567115) {
+    return ChannelsCheckSearchPostsFlood.deserialize(reader);
   }
 
   if (id == 0xaa2769ed) {
@@ -8339,7 +8379,7 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsGetUniqueStarGift.deserialize(reader);
   }
 
-  if (id == 0x23830de9) {
+  if (id == 0xa319e569) {
     return PaymentsGetSavedStarGifts.deserialize(reader);
   }
 
@@ -8367,8 +8407,28 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsGetResaleStarGifts.deserialize(reader);
   }
 
-  if (id == 0x3baea4e1) {
+  if (id == 0xedbe6ccb) {
     return PaymentsUpdateStarGiftPrice.deserialize(reader);
+  }
+
+  if (id == 0x1f4a0e87) {
+    return PaymentsCreateStarGiftCollection.deserialize(reader);
+  }
+
+  if (id == 0x4fddbee7) {
+    return PaymentsUpdateStarGiftCollection.deserialize(reader);
+  }
+
+  if (id == 0xc32af4cc) {
+    return PaymentsReorderStarGiftCollections.deserialize(reader);
+  }
+
+  if (id == 0xad5648e8) {
+    return PaymentsDeleteStarGiftCollection.deserialize(reader);
+  }
+
+  if (id == 0x981b91dd) {
+    return PaymentsGetStarGiftCollections.deserialize(reader);
   }
 
   if (id == 0x9021ab67) {
@@ -8663,7 +8723,7 @@ TlObject _readObject(BinaryReader reader) {
     return StoriesCanSendStory.deserialize(reader);
   }
 
-  if (id == 0xe4e6694b) {
+  if (id == 0x737fc2ec) {
     return StoriesSendStory.deserialize(reader);
   }
 
@@ -8761,6 +8821,30 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xd1810907) {
     return StoriesSearchPosts.deserialize(reader);
+  }
+
+  if (id == 0xa36396e5) {
+    return StoriesCreateAlbum.deserialize(reader);
+  }
+
+  if (id == 0x5e5259b6) {
+    return StoriesUpdateAlbum.deserialize(reader);
+  }
+
+  if (id == 0x8535fbd9) {
+    return StoriesReorderAlbums.deserialize(reader);
+  }
+
+  if (id == 0x8d3456d0) {
+    return StoriesDeleteAlbum.deserialize(reader);
+  }
+
+  if (id == 0x25b3eac7) {
+    return StoriesGetAlbums.deserialize(reader);
+  }
+
+  if (id == 0xac806d61) {
+    return StoriesGetAlbumStories.deserialize(reader);
   }
 
   if (id == 0x60f67660) {

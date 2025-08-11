@@ -10835,21 +10835,25 @@ class ClientChannels {
 
   /// Search Posts.
   ///
-  /// ID: `d19f987b`.
+  /// ID: `f2c4f24d`.
   Future<Result<MessagesMessagesBase>> searchPosts({
-    required String hashtag,
+    String? hashtag,
+    String? query,
     required int offsetRate,
     required InputPeerBase offsetPeer,
     required int offsetId,
     required int limit,
+    int? allowPaidStars,
   }) async {
     // Preparing the request.
     final request = ChannelsSearchPosts(
       hashtag: hashtag,
+      query: query,
       offsetRate: offsetRate,
       offsetPeer: offsetPeer,
       offsetId: offsetId,
       limit: limit,
+      allowPaidStars: allowPaidStars,
     );
 
     // Invoke and wait for response.
@@ -10919,6 +10923,24 @@ class ClientChannels {
 
     // Return the result.
     return response._to<UserBase>();
+  }
+
+  /// Check Search Posts Flood.
+  ///
+  /// ID: `22567115`.
+  Future<Result<SearchPostsFloodBase>> checkSearchPostsFlood({
+    String? query,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsCheckSearchPostsFlood(
+      query: query,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<SearchPostsFloodBase>();
   }
 }
 
@@ -12400,7 +12422,7 @@ class ClientPayments {
 
   /// Get Saved Star Gifts.
   ///
-  /// ID: `23830de9`.
+  /// ID: `a319e569`.
   Future<Result<PaymentsSavedStarGiftsBase>> getSavedStarGifts({
     required bool excludeUnsaved,
     required bool excludeSaved,
@@ -12409,6 +12431,7 @@ class ClientPayments {
     required bool excludeUnique,
     required bool sortByValue,
     required InputPeerBase peer,
+    int? collectionId,
     required String offset,
     required int limit,
   }) async {
@@ -12421,6 +12444,7 @@ class ClientPayments {
       excludeUnique: excludeUnique,
       sortByValue: sortByValue,
       peer: peer,
+      collectionId: collectionId,
       offset: offset,
       limit: limit,
     );
@@ -12560,15 +12584,15 @@ class ClientPayments {
 
   /// Update Star Gift Price.
   ///
-  /// ID: `3baea4e1`.
+  /// ID: `edbe6ccb`.
   Future<Result<UpdatesBase>> updateStarGiftPrice({
     required InputSavedStarGiftBase stargift,
-    required int resellStars,
+    required StarsAmountBase resellAmount,
   }) async {
     // Preparing the request.
     final request = PaymentsUpdateStarGiftPrice(
       stargift: stargift,
-      resellStars: resellStars,
+      resellAmount: resellAmount,
     );
 
     // Invoke and wait for response.
@@ -12576,6 +12600,116 @@ class ClientPayments {
 
     // Return the result.
     return response._to<UpdatesBase>();
+  }
+
+  /// Create Star Gift Collection.
+  ///
+  /// ID: `1f4a0e87`.
+  Future<Result<StarGiftCollectionBase>> createStarGiftCollection({
+    required InputPeerBase peer,
+    required String title,
+    required List<InputSavedStarGiftBase> stargift,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsCreateStarGiftCollection(
+      peer: peer,
+      title: title,
+      stargift: stargift,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StarGiftCollectionBase>();
+  }
+
+  /// Update Star Gift Collection.
+  ///
+  /// ID: `4fddbee7`.
+  Future<Result<StarGiftCollectionBase>> updateStarGiftCollection({
+    required InputPeerBase peer,
+    required int collectionId,
+    String? title,
+    List<InputSavedStarGiftBase>? deleteStargift,
+    List<InputSavedStarGiftBase>? addStargift,
+    List<InputSavedStarGiftBase>? order,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsUpdateStarGiftCollection(
+      peer: peer,
+      collectionId: collectionId,
+      title: title,
+      deleteStargift: deleteStargift,
+      addStargift: addStargift,
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StarGiftCollectionBase>();
+  }
+
+  /// Reorder Star Gift Collections.
+  ///
+  /// ID: `c32af4cc`.
+  Future<Result<Boolean>> reorderStarGiftCollections({
+    required InputPeerBase peer,
+    required List<int> order,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsReorderStarGiftCollections(
+      peer: peer,
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Star Gift Collection.
+  ///
+  /// ID: `ad5648e8`.
+  Future<Result<Boolean>> deleteStarGiftCollection({
+    required InputPeerBase peer,
+    required int collectionId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsDeleteStarGiftCollection(
+      peer: peer,
+      collectionId: collectionId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Star Gift Collections.
+  ///
+  /// ID: `981b91dd`.
+  Future<Result<PaymentsStarGiftCollectionsBase>> getStarGiftCollections({
+    required InputPeerBase peer,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarGiftCollections(
+      peer: peer,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarGiftCollectionsBase>();
   }
 }
 
@@ -14175,7 +14309,7 @@ class ClientStories {
 
   /// Send Story.
   ///
-  /// ID: `e4e6694b`.
+  /// ID: `737fc2ec`.
   Future<Result<UpdatesBase>> sendStory({
     required bool pinned,
     required bool noforwards,
@@ -14190,6 +14324,7 @@ class ClientStories {
     int? period,
     InputPeerBase? fwdFromId,
     int? fwdFromStory,
+    List<int>? albums,
   }) async {
     // Preparing the request.
     final request = StoriesSendStory(
@@ -14206,6 +14341,7 @@ class ClientStories {
       period: period,
       fwdFromId: fwdFromId,
       fwdFromStory: fwdFromStory,
+      albums: albums,
     );
 
     // Invoke and wait for response.
@@ -14727,6 +14863,140 @@ class ClientStories {
 
     // Return the result.
     return response._to<StoriesFoundStoriesBase>();
+  }
+
+  /// Create Album.
+  ///
+  /// ID: `a36396e5`.
+  Future<Result<StoryAlbumBase>> createAlbum({
+    required InputPeerBase peer,
+    required String title,
+    required List<int> stories,
+  }) async {
+    // Preparing the request.
+    final request = StoriesCreateAlbum(
+      peer: peer,
+      title: title,
+      stories: stories,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StoryAlbumBase>();
+  }
+
+  /// Update Album.
+  ///
+  /// ID: `5e5259b6`.
+  Future<Result<StoryAlbumBase>> updateAlbum({
+    required InputPeerBase peer,
+    required int albumId,
+    String? title,
+    List<int>? deleteStories,
+    List<int>? addStories,
+    List<int>? order,
+  }) async {
+    // Preparing the request.
+    final request = StoriesUpdateAlbum(
+      peer: peer,
+      albumId: albumId,
+      title: title,
+      deleteStories: deleteStories,
+      addStories: addStories,
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StoryAlbumBase>();
+  }
+
+  /// Reorder Albums.
+  ///
+  /// ID: `8535fbd9`.
+  Future<Result<Boolean>> reorderAlbums({
+    required InputPeerBase peer,
+    required List<int> order,
+  }) async {
+    // Preparing the request.
+    final request = StoriesReorderAlbums(
+      peer: peer,
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Album.
+  ///
+  /// ID: `8d3456d0`.
+  Future<Result<Boolean>> deleteAlbum({
+    required InputPeerBase peer,
+    required int albumId,
+  }) async {
+    // Preparing the request.
+    final request = StoriesDeleteAlbum(
+      peer: peer,
+      albumId: albumId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Albums.
+  ///
+  /// ID: `25b3eac7`.
+  Future<Result<StoriesAlbumsBase>> getAlbums({
+    required InputPeerBase peer,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = StoriesGetAlbums(
+      peer: peer,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StoriesAlbumsBase>();
+  }
+
+  /// Get Album Stories.
+  ///
+  /// ID: `ac806d61`.
+  Future<Result<StoriesStoriesBase>> getAlbumStories({
+    required InputPeerBase peer,
+    required int albumId,
+    required int offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = StoriesGetAlbumStories(
+      peer: peer,
+      albumId: albumId,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StoriesStoriesBase>();
   }
 }
 
