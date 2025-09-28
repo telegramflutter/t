@@ -821,10 +821,7 @@ class BindAuthKeyInner extends BindAuthKeyInnerBase {
 /// ID: `f35c6d01`.
 class RpcResult extends RpcResultBase {
   /// Rpc Result constructor.
-  const RpcResult({
-    required this.reqMsgId,
-    required this.result,
-  }) : super._();
+  const RpcResult({required this.reqMsgId, required this.result}) : super._();
 
   /// Deserialize.
   factory RpcResult.deserialize(BinaryReader reader) {
@@ -833,10 +830,7 @@ class RpcResult extends RpcResultBase {
     final result = reader.readObject();
 
     // Construct [RpcResult] object.
-    final returnValue = RpcResult(
-      reqMsgId: reqMsgId,
-      result: result,
-    );
+    final returnValue = RpcResult(reqMsgId: reqMsgId, result: result);
 
     // Now return the deserialized [RpcResult].
     return returnValue;
@@ -882,10 +876,8 @@ class RpcResult extends RpcResultBase {
 /// ID: `2144ca19`.
 class RpcError extends RpcErrorBase {
   /// Rpc Error constructor.
-  const RpcError({
-    required this.errorCode,
-    required this.errorMessage,
-  }) : super._();
+  const RpcError({required this.errorCode, required this.errorMessage})
+    : super._();
 
   /// Deserialize.
   factory RpcError.deserialize(BinaryReader reader) {
@@ -1234,10 +1226,7 @@ class FutureSalts extends FutureSaltsBase {
 /// ID: `347773c5`.
 class Pong extends PongBase {
   /// Pong constructor.
-  const Pong({
-    required this.msgId,
-    required this.pingId,
-  }) : super._();
+  const Pong({required this.msgId, required this.pingId}) : super._();
 
   /// Deserialize.
   factory Pong.deserialize(BinaryReader reader) {
@@ -1246,10 +1235,7 @@ class Pong extends PongBase {
     final pingId = reader.readInt64();
 
     // Construct [Pong] object.
-    final returnValue = Pong(
-      msgId: msgId,
-      pingId: pingId,
-    );
+    final returnValue = Pong(msgId: msgId, pingId: pingId);
 
     // Now return the deserialized [Pong].
     return returnValue;
@@ -1297,9 +1283,7 @@ class Pong extends PongBase {
 /// ID: `e22045fc`.
 class DestroySessionOk extends DestroySessionResBase {
   /// Destroy Session Ok constructor.
-  const DestroySessionOk({
-    required this.sessionId,
-  }) : super._();
+  const DestroySessionOk({required this.sessionId}) : super._();
 
   /// Deserialize.
   factory DestroySessionOk.deserialize(BinaryReader reader) {
@@ -1307,9 +1291,7 @@ class DestroySessionOk extends DestroySessionResBase {
     final sessionId = reader.readInt64();
 
     // Construct [DestroySessionOk] object.
-    final returnValue = DestroySessionOk(
-      sessionId: sessionId,
-    );
+    final returnValue = DestroySessionOk(sessionId: sessionId);
 
     // Now return the deserialized [DestroySessionOk].
     return returnValue;
@@ -1350,9 +1332,7 @@ class DestroySessionOk extends DestroySessionResBase {
 /// ID: `62d350c9`.
 class DestroySessionNone extends DestroySessionResBase {
   /// Destroy Session None constructor.
-  const DestroySessionNone({
-    required this.sessionId,
-  }) : super._();
+  const DestroySessionNone({required this.sessionId}) : super._();
 
   /// Deserialize.
   factory DestroySessionNone.deserialize(BinaryReader reader) {
@@ -1360,9 +1340,7 @@ class DestroySessionNone extends DestroySessionResBase {
     final sessionId = reader.readInt64();
 
     // Construct [DestroySessionNone] object.
-    final returnValue = DestroySessionNone(
-      sessionId: sessionId,
-    );
+    final returnValue = DestroySessionNone(sessionId: sessionId);
 
     // Now return the deserialized [DestroySessionNone].
     return returnValue;
@@ -1476,9 +1454,7 @@ class NewSessionCreated extends NewSessionBase {
 /// ID: `73f1f8dc`.
 class MsgContainer extends MessageContainerBase {
   /// Msg Container constructor.
-  const MsgContainer({
-    required this.messages,
-  }) : super._();
+  const MsgContainer({required this.messages}) : super._();
 
   /// Deserialize.
   factory MsgContainer.deserialize(BinaryReader reader) {
@@ -1490,9 +1466,7 @@ class MsgContainer extends MessageContainerBase {
       messages.add(msg);
     }
 
-    return MsgContainer(
-      messages: messages,
-    );
+    return MsgContainer(messages: messages);
   }
 
   /// Messages.
@@ -1609,9 +1583,7 @@ class Msg extends TlConstructor {
 /// ID: `e06046b2`.
 class MsgCopy extends MessageCopyBase {
   /// Msg Copy constructor.
-  const MsgCopy({
-    required this.origMessage,
-  }) : super._();
+  const MsgCopy({required this.origMessage}) : super._();
 
   /// Deserialize.
   factory MsgCopy.deserialize(BinaryReader reader) {
@@ -1619,9 +1591,7 @@ class MsgCopy extends MessageCopyBase {
     final origMessage = reader.readObject() as Msg;
 
     // Construct [MsgCopy] object.
-    final returnValue = MsgCopy(
-      origMessage: origMessage,
-    );
+    final returnValue = MsgCopy(origMessage: origMessage);
 
     // Now return the deserialized [MsgCopy].
     return returnValue;
@@ -1660,9 +1630,7 @@ class MsgCopy extends MessageCopyBase {
 /// ID: `3072cfa1`.
 class GzipPacked extends TlObject {
   /// Gzip Packed constructor.
-  const GzipPacked({
-    required this.packedData,
-  }) : super._();
+  const GzipPacked({required this.packedData}) : super._();
 
   /// Deserialize.
   factory GzipPacked.deserialize(BinaryReader reader) {
@@ -1670,9 +1638,7 @@ class GzipPacked extends TlObject {
     final packedData = reader.readBytes();
 
     // Construct [GzipPacked] object.
-    final returnValue = GzipPacked(
-      packedData: packedData,
-    );
+    final returnValue = GzipPacked(packedData: packedData);
 
     // Now return the deserialized [GzipPacked].
     return returnValue;
@@ -1711,9 +1677,7 @@ class GzipPacked extends TlObject {
 /// ID: `62d6b459`.
 class MsgsAck extends MsgsAckBase {
   /// Msgs Ack constructor.
-  const MsgsAck({
-    required this.msgIds,
-  }) : super._();
+  const MsgsAck({required this.msgIds}) : super._();
 
   /// Deserialize.
   factory MsgsAck.deserialize(BinaryReader reader) {
@@ -1721,9 +1685,7 @@ class MsgsAck extends MsgsAckBase {
     final msgIds = reader.readVectorInt64();
 
     // Construct [MsgsAck] object.
-    final returnValue = MsgsAck(
-      msgIds: msgIds.items,
-    );
+    final returnValue = MsgsAck(msgIds: msgIds.items);
 
     // Now return the deserialized [MsgsAck].
     return returnValue;
@@ -1918,9 +1880,7 @@ class BadServerSalt extends BadMsgNotificationBase {
 /// ID: `7d861a08`.
 class MsgResendReq extends MsgResendReqBase {
   /// Msg Resend Req constructor.
-  const MsgResendReq({
-    required this.msgIds,
-  }) : super._();
+  const MsgResendReq({required this.msgIds}) : super._();
 
   /// Deserialize.
   factory MsgResendReq.deserialize(BinaryReader reader) {
@@ -1928,9 +1888,7 @@ class MsgResendReq extends MsgResendReqBase {
     final msgIds = reader.readVectorInt64();
 
     // Construct [MsgResendReq] object.
-    final returnValue = MsgResendReq(
-      msgIds: msgIds.items,
-    );
+    final returnValue = MsgResendReq(msgIds: msgIds.items);
 
     // Now return the deserialized [MsgResendReq].
     return returnValue;
@@ -1969,9 +1927,7 @@ class MsgResendReq extends MsgResendReqBase {
 /// ID: `da69fb52`.
 class MsgsStateReq extends MsgsStateReqBase {
   /// Msgs State Req constructor.
-  const MsgsStateReq({
-    required this.msgIds,
-  }) : super._();
+  const MsgsStateReq({required this.msgIds}) : super._();
 
   /// Deserialize.
   factory MsgsStateReq.deserialize(BinaryReader reader) {
@@ -1979,9 +1935,7 @@ class MsgsStateReq extends MsgsStateReqBase {
     final msgIds = reader.readVectorInt64();
 
     // Construct [MsgsStateReq] object.
-    final returnValue = MsgsStateReq(
-      msgIds: msgIds.items,
-    );
+    final returnValue = MsgsStateReq(msgIds: msgIds.items);
 
     // Now return the deserialized [MsgsStateReq].
     return returnValue;
@@ -2020,10 +1974,7 @@ class MsgsStateReq extends MsgsStateReqBase {
 /// ID: `04deb57d`.
 class MsgsStateInfo extends MsgsStateInfoBase {
   /// Msgs State Info constructor.
-  const MsgsStateInfo({
-    required this.reqMsgId,
-    required this.info,
-  }) : super._();
+  const MsgsStateInfo({required this.reqMsgId, required this.info}) : super._();
 
   /// Deserialize.
   factory MsgsStateInfo.deserialize(BinaryReader reader) {
@@ -2032,10 +1983,7 @@ class MsgsStateInfo extends MsgsStateInfoBase {
     final info = reader.readBytes();
 
     // Construct [MsgsStateInfo] object.
-    final returnValue = MsgsStateInfo(
-      reqMsgId: reqMsgId,
-      info: info,
-    );
+    final returnValue = MsgsStateInfo(reqMsgId: reqMsgId, info: info);
 
     // Now return the deserialized [MsgsStateInfo].
     return returnValue;
@@ -2081,10 +2029,7 @@ class MsgsStateInfo extends MsgsStateInfoBase {
 /// ID: `8cc0d131`.
 class MsgsAllInfo extends MsgsAllInfoBase {
   /// Msgs All Info constructor.
-  const MsgsAllInfo({
-    required this.msgIds,
-    required this.info,
-  }) : super._();
+  const MsgsAllInfo({required this.msgIds, required this.info}) : super._();
 
   /// Deserialize.
   factory MsgsAllInfo.deserialize(BinaryReader reader) {
@@ -2093,10 +2038,7 @@ class MsgsAllInfo extends MsgsAllInfoBase {
     final info = reader.readBytes();
 
     // Construct [MsgsAllInfo] object.
-    final returnValue = MsgsAllInfo(
-      msgIds: msgIds.items,
-      info: info,
-    );
+    final returnValue = MsgsAllInfo(msgIds: msgIds.items, info: info);
 
     // Now return the deserialized [MsgsAllInfo].
     return returnValue;
@@ -2408,9 +2350,7 @@ class DestroyAuthKeyFail extends DestroyAuthKeyResBase {
 /// ID: `be7e8ef1`.
 class ReqPqMulti extends TlMethod {
   /// Req Pq Multi constructor.
-  const ReqPqMulti({
-    required this.nonce,
-  }) : super._();
+  const ReqPqMulti({required this.nonce}) : super._();
 
   /// Deserialize.
   factory ReqPqMulti.deserialize(BinaryReader reader) {
@@ -2418,9 +2358,7 @@ class ReqPqMulti extends TlMethod {
     final nonce = reader.readInt128();
 
     // Construct [ReqPqMulti] object.
-    final returnValue = ReqPqMulti(
-      nonce: nonce,
-    );
+    final returnValue = ReqPqMulti(nonce: nonce);
 
     // Now return the deserialized [ReqPqMulti].
     return returnValue;
@@ -2622,9 +2560,7 @@ class SetClientDHParams extends TlMethod {
 /// ID: `58e4a740`.
 class RpcDropAnswer extends TlMethod {
   /// Rpc Drop Answer constructor.
-  const RpcDropAnswer({
-    required this.reqMsgId,
-  }) : super._();
+  const RpcDropAnswer({required this.reqMsgId}) : super._();
 
   /// Deserialize.
   factory RpcDropAnswer.deserialize(BinaryReader reader) {
@@ -2632,9 +2568,7 @@ class RpcDropAnswer extends TlMethod {
     final reqMsgId = reader.readInt64();
 
     // Construct [RpcDropAnswer] object.
-    final returnValue = RpcDropAnswer(
-      reqMsgId: reqMsgId,
-    );
+    final returnValue = RpcDropAnswer(reqMsgId: reqMsgId);
 
     // Now return the deserialized [RpcDropAnswer].
     return returnValue;
@@ -2676,9 +2610,7 @@ class RpcDropAnswer extends TlMethod {
 /// ID: `b921bd04`.
 class GetFutureSalts extends TlMethod {
   /// Get Future Salts constructor.
-  const GetFutureSalts({
-    required this.num,
-  }) : super._();
+  const GetFutureSalts({required this.num}) : super._();
 
   /// Deserialize.
   factory GetFutureSalts.deserialize(BinaryReader reader) {
@@ -2686,9 +2618,7 @@ class GetFutureSalts extends TlMethod {
     final num = reader.readInt32();
 
     // Construct [GetFutureSalts] object.
-    final returnValue = GetFutureSalts(
-      num: num,
-    );
+    final returnValue = GetFutureSalts(num: num);
 
     // Now return the deserialized [GetFutureSalts].
     return returnValue;
@@ -2730,9 +2660,7 @@ class GetFutureSalts extends TlMethod {
 /// ID: `7abe77ec`.
 class Ping extends TlMethod {
   /// Ping constructor.
-  const Ping({
-    required this.pingId,
-  }) : super._();
+  const Ping({required this.pingId}) : super._();
 
   /// Deserialize.
   factory Ping.deserialize(BinaryReader reader) {
@@ -2740,9 +2668,7 @@ class Ping extends TlMethod {
     final pingId = reader.readInt64();
 
     // Construct [Ping] object.
-    final returnValue = Ping(
-      pingId: pingId,
-    );
+    final returnValue = Ping(pingId: pingId);
 
     // Now return the deserialized [Ping].
     return returnValue;
@@ -2848,9 +2774,7 @@ class PingDelayDisconnect extends TlMethod {
 /// ID: `e7512126`.
 class DestroySession extends TlMethod {
   /// Destroy Session constructor.
-  const DestroySession({
-    required this.sessionId,
-  }) : super._();
+  const DestroySession({required this.sessionId}) : super._();
 
   /// Deserialize.
   factory DestroySession.deserialize(BinaryReader reader) {
@@ -2858,9 +2782,7 @@ class DestroySession extends TlMethod {
     final sessionId = reader.readInt64();
 
     // Construct [DestroySession] object.
-    final returnValue = DestroySession(
-      sessionId: sessionId,
-    );
+    final returnValue = DestroySession(sessionId: sessionId);
 
     // Now return the deserialized [DestroySession].
     return returnValue;

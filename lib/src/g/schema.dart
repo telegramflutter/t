@@ -5,10 +5,7 @@ part of '../../t.dart';
 /// ID: `c4b9f9bb`.
 class Error extends ErrorBase {
   /// Error constructor.
-  const Error({
-    required this.code,
-    required this.text,
-  }) : super._();
+  const Error({required this.code, required this.text}) : super._();
 
   /// Deserialize.
   factory Error.deserialize(BinaryReader reader) {
@@ -17,10 +14,7 @@ class Error extends ErrorBase {
     final text = reader.readString();
 
     // Construct [Error] object.
-    final returnValue = Error(
-      code: code,
-      text: text,
-    );
+    final returnValue = Error(code: code, text: text);
 
     // Now return the deserialized [Error].
     return returnValue;
@@ -140,9 +134,7 @@ class InputPeerSelf extends InputPeerBase {
 /// ID: `35a95cb9`.
 class InputPeerChat extends InputPeerBase {
   /// Input Peer Chat constructor.
-  const InputPeerChat({
-    required this.chatId,
-  }) : super._();
+  const InputPeerChat({required this.chatId}) : super._();
 
   /// Deserialize.
   factory InputPeerChat.deserialize(BinaryReader reader) {
@@ -150,9 +142,7 @@ class InputPeerChat extends InputPeerBase {
     final chatId = reader.readInt64();
 
     // Construct [InputPeerChat] object.
-    final returnValue = InputPeerChat(
-      chatId: chatId,
-    );
+    final returnValue = InputPeerChat(chatId: chatId);
 
     // Now return the deserialized [InputPeerChat].
     return returnValue;
@@ -193,10 +183,8 @@ class InputPeerChat extends InputPeerBase {
 /// ID: `dde8a54c`.
 class InputPeerUser extends InputPeerBase {
   /// Input Peer User constructor.
-  const InputPeerUser({
-    required this.userId,
-    required this.accessHash,
-  }) : super._();
+  const InputPeerUser({required this.userId, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputPeerUser.deserialize(BinaryReader reader) {
@@ -205,10 +193,7 @@ class InputPeerUser extends InputPeerBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputPeerUser] object.
-    final returnValue = InputPeerUser(
-      userId: userId,
-      accessHash: accessHash,
-    );
+    final returnValue = InputPeerUser(userId: userId, accessHash: accessHash);
 
     // Now return the deserialized [InputPeerUser].
     return returnValue;
@@ -256,10 +241,8 @@ class InputPeerUser extends InputPeerBase {
 /// ID: `27bcbbfc`.
 class InputPeerChannel extends InputPeerBase {
   /// Input Peer Channel constructor.
-  const InputPeerChannel({
-    required this.channelId,
-    required this.accessHash,
-  }) : super._();
+  const InputPeerChannel({required this.channelId, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputPeerChannel.deserialize(BinaryReader reader) {
@@ -535,10 +518,7 @@ class InputUserSelf extends InputUserBase {
 /// ID: `f21158c6`.
 class InputUser extends InputUserBase {
   /// Input User constructor.
-  const InputUser({
-    required this.userId,
-    required this.accessHash,
-  }) : super._();
+  const InputUser({required this.userId, required this.accessHash}) : super._();
 
   /// Deserialize.
   factory InputUser.deserialize(BinaryReader reader) {
@@ -547,10 +527,7 @@ class InputUser extends InputUserBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputUser] object.
-    final returnValue = InputUser(
-      userId: userId,
-      accessHash: accessHash,
-    );
+    final returnValue = InputUser(userId: userId, accessHash: accessHash);
 
     // Now return the deserialized [InputUser].
     return returnValue;
@@ -839,11 +816,7 @@ class InputFileBig extends InputFileBase {
     final name = reader.readString();
 
     // Construct [InputFileBig] object.
-    final returnValue = InputFileBig(
-      id: id,
-      parts: parts,
-      name: name,
-    );
+    final returnValue = InputFileBig(id: id, parts: parts, name: name);
 
     // Now return the deserialized [InputFileBig].
     return returnValue;
@@ -896,9 +869,7 @@ class InputFileBig extends InputFileBase {
 /// ID: `62dc8b48`.
 class InputFileStoryDocument extends InputFileBase {
   /// Input File Story Document constructor.
-  const InputFileStoryDocument({
-    required this.id,
-  }) : super._();
+  const InputFileStoryDocument({required this.id}) : super._();
 
   /// Deserialize.
   factory InputFileStoryDocument.deserialize(BinaryReader reader) {
@@ -906,9 +877,7 @@ class InputFileStoryDocument extends InputFileBase {
     final id = reader.readObject() as InputDocumentBase;
 
     // Construct [InputFileStoryDocument] object.
-    final returnValue = InputFileStoryDocument(
-      id: id,
-    );
+    final returnValue = InputFileStoryDocument(id: id);
 
     // Now return the deserialized [InputFileStoryDocument].
     return returnValue;
@@ -1109,10 +1078,7 @@ class InputMediaPhoto extends InputMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: spoiler,
-      b00: ttlSeconds != null,
-    );
+    final v = _flag(b01: spoiler, b00: ttlSeconds != null);
 
     return v;
   }
@@ -1164,9 +1130,7 @@ class InputMediaPhoto extends InputMediaBase {
 /// ID: `f9c44144`.
 class InputMediaGeoPoint extends InputMediaBase {
   /// Input Media Geo Point constructor.
-  const InputMediaGeoPoint({
-    required this.geoPoint,
-  }) : super._();
+  const InputMediaGeoPoint({required this.geoPoint}) : super._();
 
   /// Deserialize.
   factory InputMediaGeoPoint.deserialize(BinaryReader reader) {
@@ -1174,9 +1138,7 @@ class InputMediaGeoPoint extends InputMediaBase {
     final geoPoint = reader.readObject() as InputGeoPointBase;
 
     // Construct [InputMediaGeoPoint] object.
-    final returnValue = InputMediaGeoPoint(
-      geoPoint: geoPoint,
-    );
+    final returnValue = InputMediaGeoPoint(geoPoint: geoPoint);
 
     // Now return the deserialized [InputMediaGeoPoint].
     return returnValue;
@@ -1701,10 +1663,7 @@ class InputMediaPhotoExternal extends InputMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: spoiler,
-      b00: ttlSeconds != null,
-    );
+    final v = _flag(b01: spoiler, b00: ttlSeconds != null);
 
     return v;
   }
@@ -1866,9 +1825,7 @@ class InputMediaDocumentExternal extends InputMediaBase {
 /// ID: `d33f43f3`.
 class InputMediaGame extends InputMediaBase {
   /// Input Media Game constructor.
-  const InputMediaGame({
-    required this.id,
-  }) : super._();
+  const InputMediaGame({required this.id}) : super._();
 
   /// Deserialize.
   factory InputMediaGame.deserialize(BinaryReader reader) {
@@ -1876,9 +1833,7 @@ class InputMediaGame extends InputMediaBase {
     final id = reader.readObject() as InputGameBase;
 
     // Construct [InputMediaGame] object.
-    final returnValue = InputMediaGame(
-      id: id,
-    );
+    final returnValue = InputMediaGame(id: id);
 
     // Now return the deserialized [InputMediaGame].
     return returnValue;
@@ -2278,9 +2233,7 @@ class InputMediaPoll extends InputMediaBase {
 /// ID: `e66fbf7b`.
 class InputMediaDice extends InputMediaBase {
   /// Input Media Dice constructor.
-  const InputMediaDice({
-    required this.emoticon,
-  }) : super._();
+  const InputMediaDice({required this.emoticon}) : super._();
 
   /// Deserialize.
   factory InputMediaDice.deserialize(BinaryReader reader) {
@@ -2288,9 +2241,7 @@ class InputMediaDice extends InputMediaBase {
     final emoticon = reader.readString();
 
     // Construct [InputMediaDice] object.
-    final returnValue = InputMediaDice(
-      emoticon: emoticon,
-    );
+    final returnValue = InputMediaDice(emoticon: emoticon);
 
     // Now return the deserialized [InputMediaDice].
     return returnValue;
@@ -2329,10 +2280,7 @@ class InputMediaDice extends InputMediaBase {
 /// ID: `89fdd778`.
 class InputMediaStory extends InputMediaBase {
   /// Input Media Story constructor.
-  const InputMediaStory({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const InputMediaStory({required this.peer, required this.id}) : super._();
 
   /// Deserialize.
   factory InputMediaStory.deserialize(BinaryReader reader) {
@@ -2341,10 +2289,7 @@ class InputMediaStory extends InputMediaBase {
     final id = reader.readInt32();
 
     // Construct [InputMediaStory] object.
-    final returnValue = InputMediaStory(
-      peer: peer,
-      id: id,
-    );
+    final returnValue = InputMediaStory(peer: peer, id: id);
 
     // Now return the deserialized [InputMediaStory].
     return returnValue;
@@ -2420,11 +2365,7 @@ class InputMediaWebPage extends InputMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: forceLargeMedia,
-      b01: forceSmallMedia,
-      b02: optional,
-    );
+    final v = _flag(b00: forceLargeMedia, b01: forceSmallMedia, b02: optional);
 
     return v;
   }
@@ -2504,9 +2445,7 @@ class InputMediaPaidMedia extends InputMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: payload != null,
-    );
+    final v = _flag(b00: payload != null);
 
     return v;
   }
@@ -2561,9 +2500,7 @@ class InputMediaPaidMedia extends InputMediaBase {
 /// ID: `9fc55fde`.
 class InputMediaTodo extends InputMediaBase {
   /// Input Media Todo constructor.
-  const InputMediaTodo({
-    required this.todo,
-  }) : super._();
+  const InputMediaTodo({required this.todo}) : super._();
 
   /// Deserialize.
   factory InputMediaTodo.deserialize(BinaryReader reader) {
@@ -2571,9 +2508,7 @@ class InputMediaTodo extends InputMediaBase {
     final todo = reader.readObject() as TodoListBase;
 
     // Construct [InputMediaTodo] object.
-    final returnValue = InputMediaTodo(
-      todo: todo,
-    );
+    final returnValue = InputMediaTodo(todo: todo);
 
     // Now return the deserialized [InputMediaTodo].
     return returnValue;
@@ -2756,9 +2691,7 @@ class InputChatUploadedPhoto extends InputChatPhotoBase {
 /// ID: `8953ad37`.
 class InputChatPhoto extends InputChatPhotoBase {
   /// Input Chat Photo constructor.
-  const InputChatPhoto({
-    required this.id,
-  }) : super._();
+  const InputChatPhoto({required this.id}) : super._();
 
   /// Deserialize.
   factory InputChatPhoto.deserialize(BinaryReader reader) {
@@ -2766,9 +2699,7 @@ class InputChatPhoto extends InputChatPhotoBase {
     final id = reader.readObject() as InputPhotoBase;
 
     // Construct [InputChatPhoto] object.
-    final returnValue = InputChatPhoto(
-      id: id,
-    );
+    final returnValue = InputChatPhoto(id: id);
 
     // Now return the deserialized [InputChatPhoto].
     return returnValue;
@@ -2872,9 +2803,7 @@ class InputGeoPoint extends InputGeoPointBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: accuracyRadius != null,
-    );
+    final v = _flag(b00: accuracyRadius != null);
 
     return v;
   }
@@ -3116,10 +3045,8 @@ class InputFileLocation extends InputFileLocationBase {
 /// ID: `f5235d55`.
 class InputEncryptedFileLocation extends InputFileLocationBase {
   /// Input Encrypted File Location constructor.
-  const InputEncryptedFileLocation({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputEncryptedFileLocation({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputEncryptedFileLocation.deserialize(BinaryReader reader) {
@@ -3258,10 +3185,8 @@ class InputDocumentFileLocation extends InputFileLocationBase {
 /// ID: `cbc7ee28`.
 class InputSecureFileLocation extends InputFileLocationBase {
   /// Input Secure File Location constructor.
-  const InputSecureFileLocation({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputSecureFileLocation({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputSecureFileLocation.deserialize(BinaryReader reader) {
@@ -3270,10 +3195,7 @@ class InputSecureFileLocation extends InputFileLocationBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputSecureFileLocation] object.
-    final returnValue = InputSecureFileLocation(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputSecureFileLocation(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputSecureFileLocation].
     return returnValue;
@@ -3565,9 +3487,7 @@ class InputPeerPhotoFileLocation extends InputFileLocationBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: big,
-    );
+    final v = _flag(b00: big);
 
     return v;
   }
@@ -3714,9 +3634,7 @@ class InputGroupCallStream extends InputFileLocationBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: videoChannel != null || videoQuality != null,
-    );
+    final v = _flag(b00: videoChannel != null || videoQuality != null);
 
     return v;
   }
@@ -3786,9 +3704,7 @@ class InputGroupCallStream extends InputFileLocationBase {
 /// ID: `59511722`.
 class PeerUser extends PeerBase {
   /// Peer User constructor.
-  const PeerUser({
-    required this.userId,
-  }) : super._();
+  const PeerUser({required this.userId}) : super._();
 
   /// Deserialize.
   factory PeerUser.deserialize(BinaryReader reader) {
@@ -3796,9 +3712,7 @@ class PeerUser extends PeerBase {
     final userId = reader.readInt64();
 
     // Construct [PeerUser] object.
-    final returnValue = PeerUser(
-      userId: userId,
-    );
+    final returnValue = PeerUser(userId: userId);
 
     // Now return the deserialized [PeerUser].
     return returnValue;
@@ -3839,9 +3753,7 @@ class PeerUser extends PeerBase {
 /// ID: `36c6019a`.
 class PeerChat extends PeerBase {
   /// Peer Chat constructor.
-  const PeerChat({
-    required this.chatId,
-  }) : super._();
+  const PeerChat({required this.chatId}) : super._();
 
   /// Deserialize.
   factory PeerChat.deserialize(BinaryReader reader) {
@@ -3849,9 +3761,7 @@ class PeerChat extends PeerBase {
     final chatId = reader.readInt64();
 
     // Construct [PeerChat] object.
-    final returnValue = PeerChat(
-      chatId: chatId,
-    );
+    final returnValue = PeerChat(chatId: chatId);
 
     // Now return the deserialized [PeerChat].
     return returnValue;
@@ -3892,9 +3802,7 @@ class PeerChat extends PeerBase {
 /// ID: `a2a5371e`.
 class PeerChannel extends PeerBase {
   /// Peer Channel constructor.
-  const PeerChannel({
-    required this.channelId,
-  }) : super._();
+  const PeerChannel({required this.channelId}) : super._();
 
   /// Deserialize.
   factory PeerChannel.deserialize(BinaryReader reader) {
@@ -3902,9 +3810,7 @@ class PeerChannel extends PeerBase {
     final channelId = reader.readInt64();
 
     // Construct [PeerChannel] object.
-    final returnValue = PeerChannel(
-      channelId: channelId,
-    );
+    final returnValue = PeerChannel(channelId: channelId);
 
     // Now return the deserialized [PeerChannel].
     return returnValue;
@@ -4315,9 +4221,7 @@ class StorageFileWebp extends StorageFileTypeBase {
 /// ID: `d3bc4b7a`.
 class UserEmpty extends UserBase {
   /// User Empty constructor.
-  const UserEmpty({
-    required this.id,
-  }) : super._();
+  const UserEmpty({required this.id}) : super._();
 
   /// Deserialize.
   factory UserEmpty.deserialize(BinaryReader reader) {
@@ -4325,9 +4229,7 @@ class UserEmpty extends UserBase {
     final id = reader.readInt64();
 
     // Construct [UserEmpty] object.
-    final returnValue = UserEmpty(
-      id: id,
-    );
+    final returnValue = UserEmpty(id: id);
 
     // Now return the deserialized [UserEmpty].
     return returnValue;
@@ -4969,11 +4871,7 @@ class UserProfilePhoto extends UserProfilePhotoBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hasVideo,
-      b02: personal,
-      b01: strippedThumb != null,
-    );
+    final v = _flag(b00: hasVideo, b02: personal, b01: strippedThumb != null);
 
     return v;
   }
@@ -5075,9 +4973,7 @@ class UserStatusEmpty extends UserStatusBase {
 /// ID: `edb93949`.
 class UserStatusOnline extends UserStatusBase {
   /// User Status Online constructor.
-  const UserStatusOnline({
-    required this.expires,
-  }) : super._();
+  const UserStatusOnline({required this.expires}) : super._();
 
   /// Deserialize.
   factory UserStatusOnline.deserialize(BinaryReader reader) {
@@ -5085,9 +4981,7 @@ class UserStatusOnline extends UserStatusBase {
     final expires = reader.readDateTime();
 
     // Construct [UserStatusOnline] object.
-    final returnValue = UserStatusOnline(
-      expires: expires,
-    );
+    final returnValue = UserStatusOnline(expires: expires);
 
     // Now return the deserialized [UserStatusOnline].
     return returnValue;
@@ -5126,9 +5020,7 @@ class UserStatusOnline extends UserStatusBase {
 /// ID: `008c703f`.
 class UserStatusOffline extends UserStatusBase {
   /// User Status Offline constructor.
-  const UserStatusOffline({
-    required this.wasOnline,
-  }) : super._();
+  const UserStatusOffline({required this.wasOnline}) : super._();
 
   /// Deserialize.
   factory UserStatusOffline.deserialize(BinaryReader reader) {
@@ -5136,9 +5028,7 @@ class UserStatusOffline extends UserStatusBase {
     final wasOnline = reader.readDateTime();
 
     // Construct [UserStatusOffline] object.
-    final returnValue = UserStatusOffline(
-      wasOnline: wasOnline,
-    );
+    final returnValue = UserStatusOffline(wasOnline: wasOnline);
 
     // Now return the deserialized [UserStatusOffline].
     return returnValue;
@@ -5177,9 +5067,7 @@ class UserStatusOffline extends UserStatusBase {
 /// ID: `7b197dc8`.
 class UserStatusRecently extends UserStatusBase {
   /// User Status Recently constructor.
-  const UserStatusRecently({
-    required this.byMe,
-  }) : super._();
+  const UserStatusRecently({required this.byMe}) : super._();
 
   /// Deserialize.
   factory UserStatusRecently.deserialize(BinaryReader reader) {
@@ -5188,9 +5076,7 @@ class UserStatusRecently extends UserStatusBase {
     final byMe = (flags & 1) != 0;
 
     // Construct [UserStatusRecently] object.
-    final returnValue = UserStatusRecently(
-      byMe: byMe,
-    );
+    final returnValue = UserStatusRecently(byMe: byMe);
 
     // Now return the deserialized [UserStatusRecently].
     return returnValue;
@@ -5198,9 +5084,7 @@ class UserStatusRecently extends UserStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: byMe,
-    );
+    final v = _flag(b00: byMe);
 
     return v;
   }
@@ -5239,9 +5123,7 @@ class UserStatusRecently extends UserStatusBase {
 /// ID: `541a1d1a`.
 class UserStatusLastWeek extends UserStatusBase {
   /// User Status Last Week constructor.
-  const UserStatusLastWeek({
-    required this.byMe,
-  }) : super._();
+  const UserStatusLastWeek({required this.byMe}) : super._();
 
   /// Deserialize.
   factory UserStatusLastWeek.deserialize(BinaryReader reader) {
@@ -5250,9 +5132,7 @@ class UserStatusLastWeek extends UserStatusBase {
     final byMe = (flags & 1) != 0;
 
     // Construct [UserStatusLastWeek] object.
-    final returnValue = UserStatusLastWeek(
-      byMe: byMe,
-    );
+    final returnValue = UserStatusLastWeek(byMe: byMe);
 
     // Now return the deserialized [UserStatusLastWeek].
     return returnValue;
@@ -5260,9 +5140,7 @@ class UserStatusLastWeek extends UserStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: byMe,
-    );
+    final v = _flag(b00: byMe);
 
     return v;
   }
@@ -5301,9 +5179,7 @@ class UserStatusLastWeek extends UserStatusBase {
 /// ID: `65899777`.
 class UserStatusLastMonth extends UserStatusBase {
   /// User Status Last Month constructor.
-  const UserStatusLastMonth({
-    required this.byMe,
-  }) : super._();
+  const UserStatusLastMonth({required this.byMe}) : super._();
 
   /// Deserialize.
   factory UserStatusLastMonth.deserialize(BinaryReader reader) {
@@ -5312,9 +5188,7 @@ class UserStatusLastMonth extends UserStatusBase {
     final byMe = (flags & 1) != 0;
 
     // Construct [UserStatusLastMonth] object.
-    final returnValue = UserStatusLastMonth(
-      byMe: byMe,
-    );
+    final returnValue = UserStatusLastMonth(byMe: byMe);
 
     // Now return the deserialized [UserStatusLastMonth].
     return returnValue;
@@ -5322,9 +5196,7 @@ class UserStatusLastMonth extends UserStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: byMe,
-    );
+    final v = _flag(b00: byMe);
 
     return v;
   }
@@ -5363,9 +5235,7 @@ class UserStatusLastMonth extends UserStatusBase {
 /// ID: `29562865`.
 class ChatEmpty extends ChatBase {
   /// Chat Empty constructor.
-  const ChatEmpty({
-    required this.id,
-  }) : super._();
+  const ChatEmpty({required this.id}) : super._();
 
   /// Deserialize.
   factory ChatEmpty.deserialize(BinaryReader reader) {
@@ -5373,9 +5243,7 @@ class ChatEmpty extends ChatBase {
     final id = reader.readInt64();
 
     // Construct [ChatEmpty] object.
-    final returnValue = ChatEmpty(
-      id: id,
-    );
+    final returnValue = ChatEmpty(id: id);
 
     // Now return the deserialized [ChatEmpty].
     return returnValue;
@@ -5615,10 +5483,7 @@ class Chat extends ChatBase {
 /// ID: `6592a1a7`.
 class ChatForbidden extends ChatBase {
   /// Chat Forbidden constructor.
-  const ChatForbidden({
-    required this.id,
-    required this.title,
-  }) : super._();
+  const ChatForbidden({required this.id, required this.title}) : super._();
 
   /// Deserialize.
   factory ChatForbidden.deserialize(BinaryReader reader) {
@@ -5627,10 +5492,7 @@ class ChatForbidden extends ChatBase {
     final title = reader.readString();
 
     // Construct [ChatForbidden] object.
-    final returnValue = ChatForbidden(
-      id: id,
-      title: title,
-    );
+    final returnValue = ChatForbidden(id: id, title: title);
 
     // Now return the deserialized [ChatForbidden].
     return returnValue;
@@ -6271,11 +6133,7 @@ class ChannelForbidden extends ChatBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b05: broadcast,
-      b08: megagroup,
-      b16: untilDate != null,
-    );
+    final v = _flag(b05: broadcast, b08: megagroup, b16: untilDate != null);
 
     return v;
   }
@@ -6631,7 +6489,7 @@ class ChatFull extends ChatFullBase {
 
 /// Channel Full.
 ///
-/// ID: `e07429de`.
+/// ID: `e4e0b29d`.
 class ChannelFull extends ChatFullBase {
   /// Channel Full constructor.
   const ChannelFull({
@@ -6700,6 +6558,7 @@ class ChannelFull extends ChatFullBase {
     this.botVerification,
     this.stargiftsCount,
     this.sendPaidMessagesStars,
+    this.mainTab,
   }) : super._();
 
   /// Deserialize.
@@ -6829,6 +6688,9 @@ class ChannelFull extends ChatFullBase {
     final hasSendPaidMessagesStarsField = (flags2 & 2097152) != 0;
     final sendPaidMessagesStars =
         hasSendPaidMessagesStarsField ? reader.readInt64() : null;
+    final hasMainTabField = (flags2 & 4194304) != 0;
+    final mainTab =
+        hasMainTabField ? reader.readObject() as ProfileTabBase : null;
 
     // Construct [ChannelFull] object.
     final returnValue = ChannelFull(
@@ -6897,6 +6759,7 @@ class ChannelFull extends ChatFullBase {
       botVerification: botVerification,
       stargiftsCount: stargiftsCount,
       sendPaidMessagesStars: sendPaidMessagesStars,
+      mainTab: mainTab,
     );
 
     // Now return the deserialized [ChannelFull].
@@ -6967,6 +6830,7 @@ class ChannelFull extends ChatFullBase {
       b17: botVerification != null,
       b18: stargiftsCount != null,
       b21: sendPaidMessagesStars != null,
+      b22: mainTab != null,
     );
 
     return v;
@@ -7177,11 +7041,14 @@ class ChannelFull extends ChatFullBase {
   /// Send Paid Messages Stars.
   final int? sendPaidMessagesStars;
 
+  /// Main Tab.
+  final ProfileTabBase? mainTab;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe07429de.
-    buffer.writeInt32(0xe07429de);
+    // Write type-id 0xe4e0b29d.
+    buffer.writeInt32(0xe4e0b29d);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -7335,6 +7202,10 @@ class ChannelFull extends ChatFullBase {
     if (localSendPaidMessagesStarsCopy != null) {
       buffer.writeInt64(localSendPaidMessagesStarsCopy);
     }
+    final localMainTabCopy = mainTab;
+    if (localMainTabCopy != null) {
+      buffer.writeObject(localMainTabCopy);
+    }
 
     // Finished serialization.
   }
@@ -7342,7 +7213,7 @@ class ChannelFull extends ChatFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "e07429de",
+      "\$hash": "e4e0b29d",
       "\$name": "ChannelFull",
       "flags": flags,
       "canViewParticipants": canViewParticipants,
@@ -7411,6 +7282,7 @@ class ChannelFull extends ChatFullBase {
       "botVerification": botVerification,
       "stargiftsCount": stargiftsCount,
       "sendPaidMessagesStars": sendPaidMessagesStars,
+      "mainTab": mainTab,
     };
 
     // Finished toJson.
@@ -7494,9 +7366,7 @@ class ChatParticipant extends ChatParticipantBase {
 /// ID: `e46bcee4`.
 class ChatParticipantCreator extends ChatParticipantBase {
   /// Chat Participant Creator constructor.
-  const ChatParticipantCreator({
-    required this.userId,
-  }) : super._();
+  const ChatParticipantCreator({required this.userId}) : super._();
 
   /// Deserialize.
   factory ChatParticipantCreator.deserialize(BinaryReader reader) {
@@ -7504,9 +7374,7 @@ class ChatParticipantCreator extends ChatParticipantBase {
     final userId = reader.readInt64();
 
     // Construct [ChatParticipantCreator] object.
-    final returnValue = ChatParticipantCreator(
-      userId: userId,
-    );
+    final returnValue = ChatParticipantCreator(userId: userId);
 
     // Now return the deserialized [ChatParticipantCreator].
     return returnValue;
@@ -7618,10 +7486,8 @@ class ChatParticipantAdmin extends ChatParticipantBase {
 /// ID: `8763d3e1`.
 class ChatParticipantsForbidden extends ChatParticipantsBase {
   /// Chat Participants Forbidden constructor.
-  const ChatParticipantsForbidden({
-    required this.chatId,
-    this.selfParticipant,
-  }) : super._();
+  const ChatParticipantsForbidden({required this.chatId, this.selfParticipant})
+      : super._();
 
   /// Deserialize.
   factory ChatParticipantsForbidden.deserialize(BinaryReader reader) {
@@ -7645,9 +7511,7 @@ class ChatParticipantsForbidden extends ChatParticipantsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: selfParticipant != null,
-    );
+    final v = _flag(b00: selfParticipant != null);
 
     return v;
   }
@@ -7836,10 +7700,7 @@ class ChatPhoto extends ChatPhotoBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hasVideo,
-      b01: strippedThumb != null,
-    );
+    final v = _flag(b00: hasVideo, b01: strippedThumb != null);
 
     return v;
   }
@@ -7900,10 +7761,7 @@ class ChatPhoto extends ChatPhotoBase {
 /// ID: `90a6ca84`.
 class MessageEmpty extends MessageBase {
   /// Message Empty constructor.
-  const MessageEmpty({
-    required this.id,
-    this.peerId,
-  }) : super._();
+  const MessageEmpty({required this.id, this.peerId}) : super._();
 
   /// Deserialize.
   factory MessageEmpty.deserialize(BinaryReader reader) {
@@ -7914,10 +7772,7 @@ class MessageEmpty extends MessageBase {
     final peerId = hasPeerIdField ? reader.readObject() as PeerBase : null;
 
     // Construct [MessageEmpty] object.
-    final returnValue = MessageEmpty(
-      id: id,
-      peerId: peerId,
-    );
+    final returnValue = MessageEmpty(id: id, peerId: peerId);
 
     // Now return the deserialized [MessageEmpty].
     return returnValue;
@@ -7925,9 +7780,7 @@ class MessageEmpty extends MessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: peerId != null,
-    );
+    final v = _flag(b00: peerId != null);
 
     return v;
   }
@@ -8786,11 +8639,8 @@ class MessageMediaEmpty extends MessageMediaBase {
 /// ID: `695150d7`.
 class MessageMediaPhoto extends MessageMediaBase {
   /// Message Media Photo constructor.
-  const MessageMediaPhoto({
-    required this.spoiler,
-    this.photo,
-    this.ttlSeconds,
-  }) : super._();
+  const MessageMediaPhoto({required this.spoiler, this.photo, this.ttlSeconds})
+      : super._();
 
   /// Deserialize.
   factory MessageMediaPhoto.deserialize(BinaryReader reader) {
@@ -8815,11 +8665,7 @@ class MessageMediaPhoto extends MessageMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b03: spoiler,
-      b00: photo != null,
-      b02: ttlSeconds != null,
-    );
+    final v = _flag(b03: spoiler, b00: photo != null, b02: ttlSeconds != null);
 
     return v;
   }
@@ -8874,9 +8720,7 @@ class MessageMediaPhoto extends MessageMediaBase {
 /// ID: `56e0d474`.
 class MessageMediaGeo extends MessageMediaBase {
   /// Message Media Geo constructor.
-  const MessageMediaGeo({
-    required this.geo,
-  }) : super._();
+  const MessageMediaGeo({required this.geo}) : super._();
 
   /// Deserialize.
   factory MessageMediaGeo.deserialize(BinaryReader reader) {
@@ -8884,9 +8728,7 @@ class MessageMediaGeo extends MessageMediaBase {
     final geo = reader.readObject() as GeoPointBase;
 
     // Construct [MessageMediaGeo] object.
-    final returnValue = MessageMediaGeo(
-      geo: geo,
-    );
+    final returnValue = MessageMediaGeo(geo: geo);
 
     // Now return the deserialized [MessageMediaGeo].
     return returnValue;
@@ -9394,9 +9236,7 @@ class MessageMediaVenue extends MessageMediaBase {
 /// ID: `fdb19008`.
 class MessageMediaGame extends MessageMediaBase {
   /// Message Media Game constructor.
-  const MessageMediaGame({
-    required this.game,
-  }) : super._();
+  const MessageMediaGame({required this.game}) : super._();
 
   /// Deserialize.
   factory MessageMediaGame.deserialize(BinaryReader reader) {
@@ -9404,9 +9244,7 @@ class MessageMediaGame extends MessageMediaBase {
     final game = reader.readObject() as GameBase;
 
     // Construct [MessageMediaGame] object.
-    final returnValue = MessageMediaGame(
-      game: game,
-    );
+    final returnValue = MessageMediaGame(game: game);
 
     // Now return the deserialized [MessageMediaGame].
     return returnValue;
@@ -9697,10 +9535,8 @@ class MessageMediaGeoLive extends MessageMediaBase {
 /// ID: `4bd6e798`.
 class MessageMediaPoll extends MessageMediaBase {
   /// Message Media Poll constructor.
-  const MessageMediaPoll({
-    required this.poll,
-    required this.results,
-  }) : super._();
+  const MessageMediaPoll({required this.poll, required this.results})
+      : super._();
 
   /// Deserialize.
   factory MessageMediaPoll.deserialize(BinaryReader reader) {
@@ -9709,10 +9545,7 @@ class MessageMediaPoll extends MessageMediaBase {
     final results = reader.readObject() as PollResultsBase;
 
     // Construct [MessageMediaPoll] object.
-    final returnValue = MessageMediaPoll(
-      poll: poll,
-      results: results,
-    );
+    final returnValue = MessageMediaPoll(poll: poll, results: results);
 
     // Now return the deserialized [MessageMediaPoll].
     return returnValue;
@@ -9756,10 +9589,8 @@ class MessageMediaPoll extends MessageMediaBase {
 /// ID: `3f7ee58b`.
 class MessageMediaDice extends MessageMediaBase {
   /// Message Media Dice constructor.
-  const MessageMediaDice({
-    required this.value,
-    required this.emoticon,
-  }) : super._();
+  const MessageMediaDice({required this.value, required this.emoticon})
+      : super._();
 
   /// Deserialize.
   factory MessageMediaDice.deserialize(BinaryReader reader) {
@@ -9768,10 +9599,7 @@ class MessageMediaDice extends MessageMediaBase {
     final emoticon = reader.readString();
 
     // Construct [MessageMediaDice] object.
-    final returnValue = MessageMediaDice(
-      value: value,
-      emoticon: emoticon,
-    );
+    final returnValue = MessageMediaDice(value: value, emoticon: emoticon);
 
     // Now return the deserialized [MessageMediaDice].
     return returnValue;
@@ -9848,10 +9676,7 @@ class MessageMediaStory extends MessageMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: viaMention,
-      b00: story != null,
-    );
+    final v = _flag(b01: viaMention, b00: story != null);
 
     return v;
   }
@@ -10301,10 +10126,7 @@ class MessageMediaPaidMedia extends MessageMediaBase {
 /// ID: `8a53b014`.
 class MessageMediaToDo extends MessageMediaBase {
   /// Message Media To Do constructor.
-  const MessageMediaToDo({
-    required this.todo,
-    this.completions,
-  }) : super._();
+  const MessageMediaToDo({required this.todo, this.completions}) : super._();
 
   /// Deserialize.
   factory MessageMediaToDo.deserialize(BinaryReader reader) {
@@ -10328,9 +10150,7 @@ class MessageMediaToDo extends MessageMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: completions != null,
-    );
+    final v = _flag(b00: completions != null);
 
     return v;
   }
@@ -10415,10 +10235,8 @@ class MessageActionEmpty extends MessageActionBase {
 /// ID: `bd47cbad`.
 class MessageActionChatCreate extends MessageActionBase {
   /// Message Action Chat Create constructor.
-  const MessageActionChatCreate({
-    required this.title,
-    required this.users,
-  }) : super._();
+  const MessageActionChatCreate({required this.title, required this.users})
+      : super._();
 
   /// Deserialize.
   factory MessageActionChatCreate.deserialize(BinaryReader reader) {
@@ -10474,9 +10292,7 @@ class MessageActionChatCreate extends MessageActionBase {
 /// ID: `b5a1ce5a`.
 class MessageActionChatEditTitle extends MessageActionBase {
   /// Message Action Chat Edit Title constructor.
-  const MessageActionChatEditTitle({
-    required this.title,
-  }) : super._();
+  const MessageActionChatEditTitle({required this.title}) : super._();
 
   /// Deserialize.
   factory MessageActionChatEditTitle.deserialize(BinaryReader reader) {
@@ -10484,9 +10300,7 @@ class MessageActionChatEditTitle extends MessageActionBase {
     final title = reader.readString();
 
     // Construct [MessageActionChatEditTitle] object.
-    final returnValue = MessageActionChatEditTitle(
-      title: title,
-    );
+    final returnValue = MessageActionChatEditTitle(title: title);
 
     // Now return the deserialized [MessageActionChatEditTitle].
     return returnValue;
@@ -10525,9 +10339,7 @@ class MessageActionChatEditTitle extends MessageActionBase {
 /// ID: `7fcb13a8`.
 class MessageActionChatEditPhoto extends MessageActionBase {
   /// Message Action Chat Edit Photo constructor.
-  const MessageActionChatEditPhoto({
-    required this.photo,
-  }) : super._();
+  const MessageActionChatEditPhoto({required this.photo}) : super._();
 
   /// Deserialize.
   factory MessageActionChatEditPhoto.deserialize(BinaryReader reader) {
@@ -10535,9 +10347,7 @@ class MessageActionChatEditPhoto extends MessageActionBase {
     final photo = reader.readObject() as PhotoBase;
 
     // Construct [MessageActionChatEditPhoto] object.
-    final returnValue = MessageActionChatEditPhoto(
-      photo: photo,
-    );
+    final returnValue = MessageActionChatEditPhoto(photo: photo);
 
     // Now return the deserialized [MessageActionChatEditPhoto].
     return returnValue;
@@ -10613,9 +10423,7 @@ class MessageActionChatDeletePhoto extends MessageActionBase {
 /// ID: `15cefd00`.
 class MessageActionChatAddUser extends MessageActionBase {
   /// Message Action Chat Add User constructor.
-  const MessageActionChatAddUser({
-    required this.users,
-  }) : super._();
+  const MessageActionChatAddUser({required this.users}) : super._();
 
   /// Deserialize.
   factory MessageActionChatAddUser.deserialize(BinaryReader reader) {
@@ -10623,9 +10431,7 @@ class MessageActionChatAddUser extends MessageActionBase {
     final users = reader.readVectorInt64();
 
     // Construct [MessageActionChatAddUser] object.
-    final returnValue = MessageActionChatAddUser(
-      users: users.items,
-    );
+    final returnValue = MessageActionChatAddUser(users: users.items);
 
     // Now return the deserialized [MessageActionChatAddUser].
     return returnValue;
@@ -10664,9 +10470,7 @@ class MessageActionChatAddUser extends MessageActionBase {
 /// ID: `a43f30cc`.
 class MessageActionChatDeleteUser extends MessageActionBase {
   /// Message Action Chat Delete User constructor.
-  const MessageActionChatDeleteUser({
-    required this.userId,
-  }) : super._();
+  const MessageActionChatDeleteUser({required this.userId}) : super._();
 
   /// Deserialize.
   factory MessageActionChatDeleteUser.deserialize(BinaryReader reader) {
@@ -10674,9 +10478,7 @@ class MessageActionChatDeleteUser extends MessageActionBase {
     final userId = reader.readInt64();
 
     // Construct [MessageActionChatDeleteUser] object.
-    final returnValue = MessageActionChatDeleteUser(
-      userId: userId,
-    );
+    final returnValue = MessageActionChatDeleteUser(userId: userId);
 
     // Now return the deserialized [MessageActionChatDeleteUser].
     return returnValue;
@@ -10717,9 +10519,7 @@ class MessageActionChatDeleteUser extends MessageActionBase {
 /// ID: `031224c3`.
 class MessageActionChatJoinedByLink extends MessageActionBase {
   /// Message Action Chat Joined By Link constructor.
-  const MessageActionChatJoinedByLink({
-    required this.inviterId,
-  }) : super._();
+  const MessageActionChatJoinedByLink({required this.inviterId}) : super._();
 
   /// Deserialize.
   factory MessageActionChatJoinedByLink.deserialize(BinaryReader reader) {
@@ -10727,9 +10527,7 @@ class MessageActionChatJoinedByLink extends MessageActionBase {
     final inviterId = reader.readInt64();
 
     // Construct [MessageActionChatJoinedByLink] object.
-    final returnValue = MessageActionChatJoinedByLink(
-      inviterId: inviterId,
-    );
+    final returnValue = MessageActionChatJoinedByLink(inviterId: inviterId);
 
     // Now return the deserialized [MessageActionChatJoinedByLink].
     return returnValue;
@@ -10770,9 +10568,7 @@ class MessageActionChatJoinedByLink extends MessageActionBase {
 /// ID: `95d2ac92`.
 class MessageActionChannelCreate extends MessageActionBase {
   /// Message Action Channel Create constructor.
-  const MessageActionChannelCreate({
-    required this.title,
-  }) : super._();
+  const MessageActionChannelCreate({required this.title}) : super._();
 
   /// Deserialize.
   factory MessageActionChannelCreate.deserialize(BinaryReader reader) {
@@ -10780,9 +10576,7 @@ class MessageActionChannelCreate extends MessageActionBase {
     final title = reader.readString();
 
     // Construct [MessageActionChannelCreate] object.
-    final returnValue = MessageActionChannelCreate(
-      title: title,
-    );
+    final returnValue = MessageActionChannelCreate(title: title);
 
     // Now return the deserialized [MessageActionChannelCreate].
     return returnValue;
@@ -10821,9 +10615,7 @@ class MessageActionChannelCreate extends MessageActionBase {
 /// ID: `e1037f92`.
 class MessageActionChatMigrateTo extends MessageActionBase {
   /// Message Action Chat Migrate To constructor.
-  const MessageActionChatMigrateTo({
-    required this.channelId,
-  }) : super._();
+  const MessageActionChatMigrateTo({required this.channelId}) : super._();
 
   /// Deserialize.
   factory MessageActionChatMigrateTo.deserialize(BinaryReader reader) {
@@ -10831,9 +10623,7 @@ class MessageActionChatMigrateTo extends MessageActionBase {
     final channelId = reader.readInt64();
 
     // Construct [MessageActionChatMigrateTo] object.
-    final returnValue = MessageActionChatMigrateTo(
-      channelId: channelId,
-    );
+    final returnValue = MessageActionChatMigrateTo(channelId: channelId);
 
     // Now return the deserialized [MessageActionChatMigrateTo].
     return returnValue;
@@ -11009,10 +10799,8 @@ class MessageActionHistoryClear extends MessageActionBase {
 /// ID: `92a72876`.
 class MessageActionGameScore extends MessageActionBase {
   /// Message Action Game Score constructor.
-  const MessageActionGameScore({
-    required this.gameId,
-    required this.score,
-  }) : super._();
+  const MessageActionGameScore({required this.gameId, required this.score})
+      : super._();
 
   /// Deserialize.
   factory MessageActionGameScore.deserialize(BinaryReader reader) {
@@ -11021,10 +10809,7 @@ class MessageActionGameScore extends MessageActionBase {
     final score = reader.readInt32();
 
     // Construct [MessageActionGameScore] object.
-    final returnValue = MessageActionGameScore(
-      gameId: gameId,
-      score: score,
-    );
+    final returnValue = MessageActionGameScore(gameId: gameId, score: score);
 
     // Now return the deserialized [MessageActionGameScore].
     return returnValue;
@@ -11367,11 +11152,7 @@ class MessageActionPhoneCall extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: video,
-      b00: reason != null,
-      b01: duration != null,
-    );
+    final v = _flag(b02: video, b00: reason != null, b01: duration != null);
 
     return v;
   }
@@ -11470,9 +11251,7 @@ class MessageActionScreenshotTaken extends MessageActionBase {
 /// ID: `fae69f56`.
 class MessageActionCustomAction extends MessageActionBase {
   /// Message Action Custom Action constructor.
-  const MessageActionCustomAction({
-    required this.message,
-  }) : super._();
+  const MessageActionCustomAction({required this.message}) : super._();
 
   /// Deserialize.
   factory MessageActionCustomAction.deserialize(BinaryReader reader) {
@@ -11480,9 +11259,7 @@ class MessageActionCustomAction extends MessageActionBase {
     final message = reader.readString();
 
     // Construct [MessageActionCustomAction] object.
-    final returnValue = MessageActionCustomAction(
-      message: message,
-    );
+    final returnValue = MessageActionCustomAction(message: message);
 
     // Now return the deserialized [MessageActionCustomAction].
     return returnValue;
@@ -11676,9 +11453,7 @@ class MessageActionSecureValuesSentMe extends MessageActionBase {
 /// ID: `d95c6154`.
 class MessageActionSecureValuesSent extends MessageActionBase {
   /// Message Action Secure Values Sent constructor.
-  const MessageActionSecureValuesSent({
-    required this.types,
-  }) : super._();
+  const MessageActionSecureValuesSent({required this.types}) : super._();
 
   /// Deserialize.
   factory MessageActionSecureValuesSent.deserialize(BinaryReader reader) {
@@ -11686,9 +11461,7 @@ class MessageActionSecureValuesSent extends MessageActionBase {
     final types = reader.readVectorObject<SecureValueTypeBase>();
 
     // Construct [MessageActionSecureValuesSent] object.
-    final returnValue = MessageActionSecureValuesSent(
-      types: types.items,
-    );
+    final returnValue = MessageActionSecureValuesSent(types: types.items);
 
     // Now return the deserialized [MessageActionSecureValuesSent].
     return returnValue;
@@ -11833,10 +11606,7 @@ class MessageActionGeoProximityReached extends MessageActionBase {
 /// ID: `7a0d7f42`.
 class MessageActionGroupCall extends MessageActionBase {
   /// Message Action Group Call constructor.
-  const MessageActionGroupCall({
-    required this.call,
-    this.duration,
-  }) : super._();
+  const MessageActionGroupCall({required this.call, this.duration}) : super._();
 
   /// Deserialize.
   factory MessageActionGroupCall.deserialize(BinaryReader reader) {
@@ -11847,10 +11617,7 @@ class MessageActionGroupCall extends MessageActionBase {
     final duration = hasDurationField ? reader.readInt32() : null;
 
     // Construct [MessageActionGroupCall] object.
-    final returnValue = MessageActionGroupCall(
-      call: call,
-      duration: duration,
-    );
+    final returnValue = MessageActionGroupCall(call: call, duration: duration);
 
     // Now return the deserialized [MessageActionGroupCall].
     return returnValue;
@@ -11858,9 +11625,7 @@ class MessageActionGroupCall extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: duration != null,
-    );
+    final v = _flag(b00: duration != null);
 
     return v;
   }
@@ -11992,9 +11757,7 @@ class MessageActionSetMessagesTTL extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: autoSettingFrom != null,
-    );
+    final v = _flag(b00: autoSettingFrom != null);
 
     return v;
   }
@@ -12100,38 +11863,34 @@ class MessageActionGroupCallScheduled extends MessageActionBase {
 
 /// Message Action Set Chat Theme.
 ///
-/// ID: `aa786345`.
+/// ID: `b91bbd3a`.
 class MessageActionSetChatTheme extends MessageActionBase {
   /// Message Action Set Chat Theme constructor.
-  const MessageActionSetChatTheme({
-    required this.emoticon,
-  }) : super._();
+  const MessageActionSetChatTheme({required this.theme}) : super._();
 
   /// Deserialize.
   factory MessageActionSetChatTheme.deserialize(BinaryReader reader) {
     // Read [MessageActionSetChatTheme] fields.
-    final emoticon = reader.readString();
+    final theme = reader.readObject() as ChatThemeBase;
 
     // Construct [MessageActionSetChatTheme] object.
-    final returnValue = MessageActionSetChatTheme(
-      emoticon: emoticon,
-    );
+    final returnValue = MessageActionSetChatTheme(theme: theme);
 
     // Now return the deserialized [MessageActionSetChatTheme].
     return returnValue;
   }
 
-  /// Emoticon.
-  final String emoticon;
+  /// Theme.
+  final ChatThemeBase theme;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xaa786345.
-    buffer.writeInt32(0xaa786345);
+    // Write type-id 0xb91bbd3a.
+    buffer.writeInt32(0xb91bbd3a);
 
     // Write fields.
-    buffer.writeString(emoticon);
+    buffer.writeObject(theme);
 
     // Finished serialization.
   }
@@ -12139,9 +11898,9 @@ class MessageActionSetChatTheme extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "aa786345",
+      "\$hash": "b91bbd3a",
       "\$name": "MessageActionSetChatTheme",
-      "emoticon": emoticon,
+      "theme": theme,
     };
 
     // Finished toJson.
@@ -12191,10 +11950,8 @@ class MessageActionChatJoinedByRequest extends MessageActionBase {
 /// ID: `47dd8079`.
 class MessageActionWebViewDataSentMe extends MessageActionBase {
   /// Message Action Web View Data Sent Me constructor.
-  const MessageActionWebViewDataSentMe({
-    required this.text,
-    required this.data,
-  }) : super._();
+  const MessageActionWebViewDataSentMe({required this.text, required this.data})
+      : super._();
 
   /// Deserialize.
   factory MessageActionWebViewDataSentMe.deserialize(BinaryReader reader) {
@@ -12203,10 +11960,7 @@ class MessageActionWebViewDataSentMe extends MessageActionBase {
     final data = reader.readString();
 
     // Construct [MessageActionWebViewDataSentMe] object.
-    final returnValue = MessageActionWebViewDataSentMe(
-      text: text,
-      data: data,
-    );
+    final returnValue = MessageActionWebViewDataSentMe(text: text, data: data);
 
     // Now return the deserialized [MessageActionWebViewDataSentMe].
     return returnValue;
@@ -12250,9 +12004,7 @@ class MessageActionWebViewDataSentMe extends MessageActionBase {
 /// ID: `b4c38cb5`.
 class MessageActionWebViewDataSent extends MessageActionBase {
   /// Message Action Web View Data Sent constructor.
-  const MessageActionWebViewDataSent({
-    required this.text,
-  }) : super._();
+  const MessageActionWebViewDataSent({required this.text}) : super._();
 
   /// Deserialize.
   factory MessageActionWebViewDataSent.deserialize(BinaryReader reader) {
@@ -12260,9 +12012,7 @@ class MessageActionWebViewDataSent extends MessageActionBase {
     final text = reader.readString();
 
     // Construct [MessageActionWebViewDataSent] object.
-    final returnValue = MessageActionWebViewDataSent(
-      text: text,
-    );
+    final returnValue = MessageActionWebViewDataSent(text: text);
 
     // Now return the deserialized [MessageActionWebViewDataSent].
     return returnValue;
@@ -12450,9 +12200,7 @@ class MessageActionTopicCreate extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: iconEmojiId != null,
-    );
+    final v = _flag(b00: iconEmojiId != null);
 
     return v;
   }
@@ -12611,9 +12359,7 @@ class MessageActionTopicEdit extends MessageActionBase {
 /// ID: `57de635e`.
 class MessageActionSuggestProfilePhoto extends MessageActionBase {
   /// Message Action Suggest Profile Photo constructor.
-  const MessageActionSuggestProfilePhoto({
-    required this.photo,
-  }) : super._();
+  const MessageActionSuggestProfilePhoto({required this.photo}) : super._();
 
   /// Deserialize.
   factory MessageActionSuggestProfilePhoto.deserialize(BinaryReader reader) {
@@ -12621,9 +12367,7 @@ class MessageActionSuggestProfilePhoto extends MessageActionBase {
     final photo = reader.readObject() as PhotoBase;
 
     // Construct [MessageActionSuggestProfilePhoto] object.
-    final returnValue = MessageActionSuggestProfilePhoto(
-      photo: photo,
-    );
+    final returnValue = MessageActionSuggestProfilePhoto(photo: photo);
 
     // Now return the deserialized [MessageActionSuggestProfilePhoto].
     return returnValue;
@@ -12750,10 +12494,7 @@ class MessageActionSetChatWallPaper extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: same,
-      b01: forBoth,
-    );
+    final v = _flag(b00: same, b01: forBoth);
 
     return v;
   }
@@ -12967,9 +12708,7 @@ class MessageActionGiftCode extends MessageActionBase {
 /// ID: `a80f51e4`.
 class MessageActionGiveawayLaunch extends MessageActionBase {
   /// Message Action Giveaway Launch constructor.
-  const MessageActionGiveawayLaunch({
-    this.stars,
-  }) : super._();
+  const MessageActionGiveawayLaunch({this.stars}) : super._();
 
   /// Deserialize.
   factory MessageActionGiveawayLaunch.deserialize(BinaryReader reader) {
@@ -12979,9 +12718,7 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
     final stars = hasStarsField ? reader.readInt64() : null;
 
     // Construct [MessageActionGiveawayLaunch] object.
-    final returnValue = MessageActionGiveawayLaunch(
-      stars: stars,
-    );
+    final returnValue = MessageActionGiveawayLaunch(stars: stars);
 
     // Now return the deserialized [MessageActionGiveawayLaunch].
     return returnValue;
@@ -12989,9 +12726,7 @@ class MessageActionGiveawayLaunch extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: stars != null,
-    );
+    final v = _flag(b00: stars != null);
 
     return v;
   }
@@ -13061,9 +12796,7 @@ class MessageActionGiveawayResults extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: stars,
-    );
+    final v = _flag(b00: stars);
 
     return v;
   }
@@ -13116,9 +12849,7 @@ class MessageActionGiveawayResults extends MessageActionBase {
 /// ID: `cc02aa6d`.
 class MessageActionBoostApply extends MessageActionBase {
   /// Message Action Boost Apply constructor.
-  const MessageActionBoostApply({
-    required this.boosts,
-  }) : super._();
+  const MessageActionBoostApply({required this.boosts}) : super._();
 
   /// Deserialize.
   factory MessageActionBoostApply.deserialize(BinaryReader reader) {
@@ -13126,9 +12857,7 @@ class MessageActionBoostApply extends MessageActionBase {
     final boosts = reader.readInt32();
 
     // Construct [MessageActionBoostApply] object.
-    final returnValue = MessageActionBoostApply(
-      boosts: boosts,
-    );
+    final returnValue = MessageActionBoostApply(boosts: boosts);
 
     // Now return the deserialized [MessageActionBoostApply].
     return returnValue;
@@ -13264,9 +12993,7 @@ class MessageActionPaymentRefunded extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: payload != null,
-    );
+    final v = _flag(b00: payload != null);
 
     return v;
   }
@@ -13484,9 +13211,7 @@ class MessageActionPrizeStars extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: unclaimed,
-    );
+    final v = _flag(b00: unclaimed);
 
     return v;
   }
@@ -13546,7 +13271,7 @@ class MessageActionPrizeStars extends MessageActionBase {
 
 /// Message Action Star Gift.
 ///
-/// ID: `4717e8a4`.
+/// ID: `f24de7fa`.
 class MessageActionStarGift extends MessageActionBase {
   /// Message Action Star Gift constructor.
   const MessageActionStarGift({
@@ -13556,6 +13281,8 @@ class MessageActionStarGift extends MessageActionBase {
     required this.upgraded,
     required this.refunded,
     required this.canUpgrade,
+    required this.prepaidUpgrade,
+    required this.upgradeSeparate,
     required this.gift,
     this.message,
     this.convertStars,
@@ -13564,6 +13291,8 @@ class MessageActionStarGift extends MessageActionBase {
     this.fromId,
     this.peer,
     this.savedId,
+    this.prepaidUpgradeHash,
+    this.giftMsgId,
   }) : super._();
 
   /// Deserialize.
@@ -13576,6 +13305,8 @@ class MessageActionStarGift extends MessageActionBase {
     final upgraded = (flags & 32) != 0;
     final refunded = (flags & 512) != 0;
     final canUpgrade = (flags & 1024) != 0;
+    final prepaidUpgrade = (flags & 8192) != 0;
+    final upgradeSeparate = (flags & 65536) != 0;
     final gift = reader.readObject() as StarGiftBase;
     final hasMessageField = (flags & 2) != 0;
     final message =
@@ -13592,6 +13323,11 @@ class MessageActionStarGift extends MessageActionBase {
     final peer = hasPeerField ? reader.readObject() as PeerBase : null;
     final hasSavedIdField = (flags & 4096) != 0;
     final savedId = hasSavedIdField ? reader.readInt64() : null;
+    final hasPrepaidUpgradeHashField = (flags & 16384) != 0;
+    final prepaidUpgradeHash =
+        hasPrepaidUpgradeHashField ? reader.readString() : null;
+    final hasGiftMsgIdField = (flags & 32768) != 0;
+    final giftMsgId = hasGiftMsgIdField ? reader.readInt32() : null;
 
     // Construct [MessageActionStarGift] object.
     final returnValue = MessageActionStarGift(
@@ -13601,6 +13337,8 @@ class MessageActionStarGift extends MessageActionBase {
       upgraded: upgraded,
       refunded: refunded,
       canUpgrade: canUpgrade,
+      prepaidUpgrade: prepaidUpgrade,
+      upgradeSeparate: upgradeSeparate,
       gift: gift,
       message: message,
       convertStars: convertStars,
@@ -13609,6 +13347,8 @@ class MessageActionStarGift extends MessageActionBase {
       fromId: fromId,
       peer: peer,
       savedId: savedId,
+      prepaidUpgradeHash: prepaidUpgradeHash,
+      giftMsgId: giftMsgId,
     );
 
     // Now return the deserialized [MessageActionStarGift].
@@ -13624,11 +13364,15 @@ class MessageActionStarGift extends MessageActionBase {
       b05: upgraded || upgradeMsgId != null,
       b09: refunded,
       b10: canUpgrade,
+      b13: prepaidUpgrade,
+      b16: upgradeSeparate,
       b01: message != null,
       b04: convertStars != null,
       b08: upgradeStars != null,
       b11: fromId != null,
       b12: peer != null || savedId != null,
+      b14: prepaidUpgradeHash != null,
+      b15: giftMsgId != null,
     );
 
     return v;
@@ -13651,6 +13395,12 @@ class MessageActionStarGift extends MessageActionBase {
 
   /// can_upgrade: bit 10 of flags.10?true
   final bool canUpgrade;
+
+  /// prepaid_upgrade: bit 13 of flags.13?true
+  final bool prepaidUpgrade;
+
+  /// upgrade_separate: bit 16 of flags.16?true
+  final bool upgradeSeparate;
 
   /// Gift.
   final StarGiftBase gift;
@@ -13676,11 +13426,17 @@ class MessageActionStarGift extends MessageActionBase {
   /// Saved Id.
   final int? savedId;
 
+  /// Prepaid Upgrade Hash.
+  final String? prepaidUpgradeHash;
+
+  /// Gift Msg Id.
+  final int? giftMsgId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x4717e8a4.
-    buffer.writeInt32(0x4717e8a4);
+    // Write type-id 0xf24de7fa.
+    buffer.writeInt32(0xf24de7fa);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -13713,6 +13469,14 @@ class MessageActionStarGift extends MessageActionBase {
     if (localSavedIdCopy != null) {
       buffer.writeInt64(localSavedIdCopy);
     }
+    final localPrepaidUpgradeHashCopy = prepaidUpgradeHash;
+    if (localPrepaidUpgradeHashCopy != null) {
+      buffer.writeString(localPrepaidUpgradeHashCopy);
+    }
+    final localGiftMsgIdCopy = giftMsgId;
+    if (localGiftMsgIdCopy != null) {
+      buffer.writeInt32(localGiftMsgIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -13720,7 +13484,7 @@ class MessageActionStarGift extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "4717e8a4",
+      "\$hash": "f24de7fa",
       "\$name": "MessageActionStarGift",
       "flags": flags,
       "nameHidden": nameHidden,
@@ -13729,6 +13493,8 @@ class MessageActionStarGift extends MessageActionBase {
       "upgraded": upgraded,
       "refunded": refunded,
       "canUpgrade": canUpgrade,
+      "prepaidUpgrade": prepaidUpgrade,
+      "upgradeSeparate": upgradeSeparate,
       "gift": gift,
       "message": message,
       "convertStars": convertStars,
@@ -13737,6 +13503,8 @@ class MessageActionStarGift extends MessageActionBase {
       "fromId": fromId,
       "peer": peer,
       "savedId": savedId,
+      "prepaidUpgradeHash": prepaidUpgradeHash,
+      "giftMsgId": giftMsgId,
     };
 
     // Finished toJson.
@@ -13754,6 +13522,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     required this.transferred,
     required this.saved,
     required this.refunded,
+    required this.prepaidUpgrade,
     required this.gift,
     this.canExportAt,
     this.transferStars,
@@ -13773,6 +13542,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     final transferred = (flags & 2) != 0;
     final saved = (flags & 4) != 0;
     final refunded = (flags & 32) != 0;
+    final prepaidUpgrade = (flags & 2048) != 0;
     final gift = reader.readObject() as StarGiftBase;
     final hasCanExportAtField = (flags & 8) != 0;
     final canExportAt = hasCanExportAtField ? reader.readInt32() : null;
@@ -13798,6 +13568,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       transferred: transferred,
       saved: saved,
       refunded: refunded,
+      prepaidUpgrade: prepaidUpgrade,
       gift: gift,
       canExportAt: canExportAt,
       transferStars: transferStars,
@@ -13820,6 +13591,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       b01: transferred,
       b02: saved,
       b05: refunded,
+      b11: prepaidUpgrade,
       b03: canExportAt != null,
       b04: transferStars != null,
       b06: fromId != null,
@@ -13843,6 +13615,9 @@ class MessageActionStarGiftUnique extends MessageActionBase {
 
   /// refunded: bit 5 of flags.5?true
   final bool refunded;
+
+  /// prepaid_upgrade: bit 11 of flags.11?true
+  final bool prepaidUpgrade;
 
   /// Gift.
   final StarGiftBase gift;
@@ -13926,6 +13701,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       "transferred": transferred,
       "saved": saved,
       "refunded": refunded,
+      "prepaidUpgrade": prepaidUpgrade,
       "gift": gift,
       "canExportAt": canExportAt,
       "transferStars": transferStars,
@@ -14034,9 +13810,7 @@ class MessageActionPaidMessagesPrice extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: broadcastMessagesAllowed,
-    );
+    final v = _flag(b00: broadcastMessagesAllowed);
 
     return v;
   }
@@ -14256,9 +14030,7 @@ class MessageActionTodoCompletions extends MessageActionBase {
 /// ID: `c7edbc83`.
 class MessageActionTodoAppendTasks extends MessageActionBase {
   /// Message Action Todo Append Tasks constructor.
-  const MessageActionTodoAppendTasks({
-    required this.list,
-  }) : super._();
+  const MessageActionTodoAppendTasks({required this.list}) : super._();
 
   /// Deserialize.
   factory MessageActionTodoAppendTasks.deserialize(BinaryReader reader) {
@@ -14266,9 +14038,7 @@ class MessageActionTodoAppendTasks extends MessageActionBase {
     final list = reader.readVectorObject<TodoItemBase>();
 
     // Construct [MessageActionTodoAppendTasks] object.
-    final returnValue = MessageActionTodoAppendTasks(
-      list: list.items,
-    );
+    final returnValue = MessageActionTodoAppendTasks(list: list.items);
 
     // Now return the deserialized [MessageActionTodoAppendTasks].
     return returnValue;
@@ -14416,9 +14186,7 @@ class MessageActionSuggestedPostApproval extends MessageActionBase {
 /// ID: `95ddcf69`.
 class MessageActionSuggestedPostSuccess extends MessageActionBase {
   /// Message Action Suggested Post Success constructor.
-  const MessageActionSuggestedPostSuccess({
-    required this.price,
-  }) : super._();
+  const MessageActionSuggestedPostSuccess({required this.price}) : super._();
 
   /// Deserialize.
   factory MessageActionSuggestedPostSuccess.deserialize(BinaryReader reader) {
@@ -14426,9 +14194,7 @@ class MessageActionSuggestedPostSuccess extends MessageActionBase {
     final price = reader.readObject() as StarsAmountBase;
 
     // Construct [MessageActionSuggestedPostSuccess] object.
-    final returnValue = MessageActionSuggestedPostSuccess(
-      price: price,
-    );
+    final returnValue = MessageActionSuggestedPostSuccess(price: price);
 
     // Now return the deserialized [MessageActionSuggestedPostSuccess].
     return returnValue;
@@ -14467,9 +14233,8 @@ class MessageActionSuggestedPostSuccess extends MessageActionBase {
 /// ID: `69f916f8`.
 class MessageActionSuggestedPostRefund extends MessageActionBase {
   /// Message Action Suggested Post Refund constructor.
-  const MessageActionSuggestedPostRefund({
-    required this.payerInitiated,
-  }) : super._();
+  const MessageActionSuggestedPostRefund({required this.payerInitiated})
+      : super._();
 
   /// Deserialize.
   factory MessageActionSuggestedPostRefund.deserialize(BinaryReader reader) {
@@ -14488,9 +14253,7 @@ class MessageActionSuggestedPostRefund extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: payerInitiated,
-    );
+    final v = _flag(b00: payerInitiated);
 
     return v;
   }
@@ -14563,9 +14326,7 @@ class MessageActionGiftTon extends MessageActionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: transactionId != null,
-    );
+    final v = _flag(b00: transactionId != null);
 
     return v;
   }
@@ -14881,9 +14642,7 @@ class DialogFolder extends DialogBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: pinned,
-    );
+    final v = _flag(b02: pinned);
 
     return v;
   }
@@ -14967,9 +14726,7 @@ class DialogFolder extends DialogBase {
 /// ID: `2331b22d`.
 class PhotoEmpty extends PhotoBase {
   /// Photo Empty constructor.
-  const PhotoEmpty({
-    required this.id,
-  }) : super._();
+  const PhotoEmpty({required this.id}) : super._();
 
   /// Deserialize.
   factory PhotoEmpty.deserialize(BinaryReader reader) {
@@ -14977,9 +14734,7 @@ class PhotoEmpty extends PhotoBase {
     final id = reader.readInt64();
 
     // Construct [PhotoEmpty] object.
-    final returnValue = PhotoEmpty(
-      id: id,
-    );
+    final returnValue = PhotoEmpty(id: id);
 
     // Now return the deserialized [PhotoEmpty].
     return returnValue;
@@ -15064,10 +14819,7 @@ class Photo extends PhotoBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hasStickers,
-      b01: videoSizes != null,
-    );
+    final v = _flag(b00: hasStickers, b01: videoSizes != null);
 
     return v;
   }
@@ -15150,9 +14902,7 @@ class Photo extends PhotoBase {
 /// ID: `0e17e23c`.
 class PhotoSizeEmpty extends PhotoSizeBase {
   /// Photo Size Empty constructor.
-  const PhotoSizeEmpty({
-    required this.type,
-  }) : super._();
+  const PhotoSizeEmpty({required this.type}) : super._();
 
   /// Deserialize.
   factory PhotoSizeEmpty.deserialize(BinaryReader reader) {
@@ -15160,9 +14910,7 @@ class PhotoSizeEmpty extends PhotoSizeBase {
     final type = reader.readString();
 
     // Construct [PhotoSizeEmpty] object.
-    final returnValue = PhotoSizeEmpty(
-      type: type,
-    );
+    final returnValue = PhotoSizeEmpty(type: type);
 
     // Now return the deserialized [PhotoSizeEmpty].
     return returnValue;
@@ -15217,12 +14965,7 @@ class PhotoSize extends PhotoSizeBase {
     final size = reader.readInt32();
 
     // Construct [PhotoSize] object.
-    final returnValue = PhotoSize(
-      type: type,
-      w: w,
-      h: h,
-      size: size,
-    );
+    final returnValue = PhotoSize(type: type, w: w, h: h, size: size);
 
     // Now return the deserialized [PhotoSize].
     return returnValue;
@@ -15298,12 +15041,7 @@ class PhotoCachedSize extends PhotoSizeBase {
     final bytes = reader.readBytes();
 
     // Construct [PhotoCachedSize] object.
-    final returnValue = PhotoCachedSize(
-      type: type,
-      w: w,
-      h: h,
-      bytes: bytes,
-    );
+    final returnValue = PhotoCachedSize(type: type, w: w, h: h, bytes: bytes);
 
     // Now return the deserialized [PhotoCachedSize].
     return returnValue;
@@ -15361,10 +15099,8 @@ class PhotoCachedSize extends PhotoSizeBase {
 /// ID: `e0b0bc2e`.
 class PhotoStrippedSize extends PhotoSizeBase {
   /// Photo Stripped Size constructor.
-  const PhotoStrippedSize({
-    required this.type,
-    required this.bytes,
-  }) : super._();
+  const PhotoStrippedSize({required this.type, required this.bytes})
+      : super._();
 
   /// Deserialize.
   factory PhotoStrippedSize.deserialize(BinaryReader reader) {
@@ -15373,10 +15109,7 @@ class PhotoStrippedSize extends PhotoSizeBase {
     final bytes = reader.readBytes();
 
     // Construct [PhotoStrippedSize] object.
-    final returnValue = PhotoStrippedSize(
-      type: type,
-      bytes: bytes,
-    );
+    final returnValue = PhotoStrippedSize(type: type, bytes: bytes);
 
     // Now return the deserialized [PhotoStrippedSize].
     return returnValue;
@@ -15499,10 +15232,7 @@ class PhotoSizeProgressive extends PhotoSizeBase {
 /// ID: `d8214d41`.
 class PhotoPathSize extends PhotoSizeBase {
   /// Photo Path Size constructor.
-  const PhotoPathSize({
-    required this.type,
-    required this.bytes,
-  }) : super._();
+  const PhotoPathSize({required this.type, required this.bytes}) : super._();
 
   /// Deserialize.
   factory PhotoPathSize.deserialize(BinaryReader reader) {
@@ -15511,10 +15241,7 @@ class PhotoPathSize extends PhotoSizeBase {
     final bytes = reader.readBytes();
 
     // Construct [PhotoPathSize] object.
-    final returnValue = PhotoPathSize(
-      type: type,
-      bytes: bytes,
-    );
+    final returnValue = PhotoPathSize(type: type, bytes: bytes);
 
     // Now return the deserialized [PhotoPathSize].
     return returnValue;
@@ -15626,9 +15353,7 @@ class GeoPoint extends GeoPointBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: accuracyRadius != null,
-    );
+    final v = _flag(b00: accuracyRadius != null);
 
     return v;
   }
@@ -15721,10 +15446,7 @@ class AuthSentCode extends AuthSentCodeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: nextType != null,
-      b02: timeout != null,
-    );
+    final v = _flag(b01: nextType != null, b02: timeout != null);
 
     return v;
   }
@@ -15785,9 +15507,7 @@ class AuthSentCode extends AuthSentCodeBase {
 /// ID: `2390fe44`.
 class AuthSentCodeSuccess extends AuthSentCodeBase {
   /// Auth Sent Code Success constructor.
-  const AuthSentCodeSuccess({
-    required this.authorization,
-  }) : super._();
+  const AuthSentCodeSuccess({required this.authorization}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeSuccess.deserialize(BinaryReader reader) {
@@ -15795,9 +15515,7 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
     final authorization = reader.readObject() as AuthAuthorizationBase;
 
     // Construct [AuthSentCodeSuccess] object.
-    final returnValue = AuthSentCodeSuccess(
-      authorization: authorization,
-    );
+    final returnValue = AuthSentCodeSuccess(authorization: authorization);
 
     // Now return the deserialized [AuthSentCodeSuccess].
     return returnValue;
@@ -15833,12 +15551,14 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
 
 /// Auth Sent Code Payment Required.
 ///
-/// ID: `d7cef980`.
+/// ID: `d7a2fcf9`.
 class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   /// Auth Sent Code Payment Required constructor.
   const AuthSentCodePaymentRequired({
     required this.storeProduct,
     required this.phoneCodeHash,
+    required this.supportEmailAddress,
+    required this.supportEmailSubject,
   }) : super._();
 
   /// Deserialize.
@@ -15846,11 +15566,15 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
     // Read [AuthSentCodePaymentRequired] fields.
     final storeProduct = reader.readString();
     final phoneCodeHash = reader.readString();
+    final supportEmailAddress = reader.readString();
+    final supportEmailSubject = reader.readString();
 
     // Construct [AuthSentCodePaymentRequired] object.
     final returnValue = AuthSentCodePaymentRequired(
       storeProduct: storeProduct,
       phoneCodeHash: phoneCodeHash,
+      supportEmailAddress: supportEmailAddress,
+      supportEmailSubject: supportEmailSubject,
     );
 
     // Now return the deserialized [AuthSentCodePaymentRequired].
@@ -15863,15 +15587,23 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   /// Phone Code Hash.
   final String phoneCodeHash;
 
+  /// Support Email Address.
+  final String supportEmailAddress;
+
+  /// Support Email Subject.
+  final String supportEmailSubject;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd7cef980.
-    buffer.writeInt32(0xd7cef980);
+    // Write type-id 0xd7a2fcf9.
+    buffer.writeInt32(0xd7a2fcf9);
 
     // Write fields.
     buffer.writeString(storeProduct);
     buffer.writeString(phoneCodeHash);
+    buffer.writeString(supportEmailAddress);
+    buffer.writeString(supportEmailSubject);
 
     // Finished serialization.
   }
@@ -15879,10 +15611,12 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "d7cef980",
+      "\$hash": "d7a2fcf9",
       "\$name": "AuthSentCodePaymentRequired",
       "storeProduct": storeProduct,
       "phoneCodeHash": phoneCodeHash,
+      "supportEmailAddress": supportEmailAddress,
+      "supportEmailSubject": supportEmailSubject,
     };
 
     // Finished toJson.
@@ -16004,9 +15738,7 @@ class AuthAuthorization extends AuthAuthorizationBase {
 /// ID: `44747e9a`.
 class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
   /// Auth Authorization Sign Up Required constructor.
-  const AuthAuthorizationSignUpRequired({
-    this.termsOfService,
-  }) : super._();
+  const AuthAuthorizationSignUpRequired({this.termsOfService}) : super._();
 
   /// Deserialize.
   factory AuthAuthorizationSignUpRequired.deserialize(BinaryReader reader) {
@@ -16028,9 +15760,7 @@ class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: termsOfService != null,
-    );
+    final v = _flag(b00: termsOfService != null);
 
     return v;
   }
@@ -16073,10 +15803,8 @@ class AuthAuthorizationSignUpRequired extends AuthAuthorizationBase {
 /// ID: `b434e2b8`.
 class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
   /// Auth Exported Authorization constructor.
-  const AuthExportedAuthorization({
-    required this.id,
-    required this.bytes,
-  }) : super._();
+  const AuthExportedAuthorization({required this.id, required this.bytes})
+      : super._();
 
   /// Deserialize.
   factory AuthExportedAuthorization.deserialize(BinaryReader reader) {
@@ -16085,10 +15813,7 @@ class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
     final bytes = reader.readBytes();
 
     // Construct [AuthExportedAuthorization] object.
-    final returnValue = AuthExportedAuthorization(
-      id: id,
-      bytes: bytes,
-    );
+    final returnValue = AuthExportedAuthorization(id: id, bytes: bytes);
 
     // Now return the deserialized [AuthExportedAuthorization].
     return returnValue;
@@ -16134,9 +15859,7 @@ class AuthExportedAuthorization extends AuthExportedAuthorizationBase {
 /// ID: `b8bc5b0c`.
 class InputNotifyPeer extends InputNotifyPeerBase {
   /// Input Notify Peer constructor.
-  const InputNotifyPeer({
-    required this.peer,
-  }) : super._();
+  const InputNotifyPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory InputNotifyPeer.deserialize(BinaryReader reader) {
@@ -16144,9 +15867,7 @@ class InputNotifyPeer extends InputNotifyPeerBase {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [InputNotifyPeer] object.
-    final returnValue = InputNotifyPeer(
-      peer: peer,
-    );
+    final returnValue = InputNotifyPeer(peer: peer);
 
     // Now return the deserialized [InputNotifyPeer].
     return returnValue;
@@ -16296,10 +16017,8 @@ class InputNotifyBroadcasts extends InputNotifyPeerBase {
 /// ID: `5c467992`.
 class InputNotifyForumTopic extends InputNotifyPeerBase {
   /// Input Notify Forum Topic constructor.
-  const InputNotifyForumTopic({
-    required this.peer,
-    required this.topMsgId,
-  }) : super._();
+  const InputNotifyForumTopic({required this.peer, required this.topMsgId})
+      : super._();
 
   /// Deserialize.
   factory InputNotifyForumTopic.deserialize(BinaryReader reader) {
@@ -16308,10 +16027,7 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
     final topMsgId = reader.readInt32();
 
     // Construct [InputNotifyForumTopic] object.
-    final returnValue = InputNotifyForumTopic(
-      peer: peer,
-      topMsgId: topMsgId,
-    );
+    final returnValue = InputNotifyForumTopic(peer: peer, topMsgId: topMsgId);
 
     // Now return the deserialized [InputNotifyForumTopic].
     return returnValue;
@@ -17150,11 +16866,7 @@ class WallPaperNoFile extends WallPaperBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: ddefault,
-      b04: dark,
-      b02: settings != null,
-    );
+    final v = _flag(b01: ddefault, b04: dark, b02: settings != null);
 
     return v;
   }
@@ -17579,7 +17291,7 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
 
 /// User Full.
 ///
-/// ID: `7e63ce1f`.
+/// ID: `c577b5ad`.
 class UserFull extends UserFullBase {
   /// User Full constructor.
   const UserFull({
@@ -17612,7 +17324,7 @@ class UserFull extends UserFullBase {
     required this.commonChatsCount,
     this.folderId,
     this.ttlPeriod,
-    this.themeEmoticon,
+    this.theme,
     this.privateForwardName,
     this.botGroupAdminRights,
     this.botBroadcastAdminRights,
@@ -17634,6 +17346,8 @@ class UserFull extends UserFullBase {
     this.starsRating,
     this.starsMyPendingRating,
     this.starsMyPendingRatingDate,
+    this.mainTab,
+    this.savedMusic,
   }) : super._();
 
   /// Deserialize.
@@ -17681,8 +17395,8 @@ class UserFull extends UserFullBase {
     final folderId = hasFolderIdField ? reader.readInt32() : null;
     final hasTtlPeriodField = (flags & 16384) != 0;
     final ttlPeriod = hasTtlPeriodField ? reader.readInt32() : null;
-    final hasThemeEmoticonField = (flags & 32768) != 0;
-    final themeEmoticon = hasThemeEmoticonField ? reader.readString() : null;
+    final hasThemeField = (flags & 32768) != 0;
+    final theme = hasThemeField ? reader.readObject() as ChatThemeBase : null;
     final hasPrivateForwardNameField = (flags & 65536) != 0;
     final privateForwardName =
         hasPrivateForwardNameField ? reader.readString() : null;
@@ -17755,6 +17469,12 @@ class UserFull extends UserFullBase {
     final hasStarsMyPendingRatingDateField = (flags2 & 262144) != 0;
     final starsMyPendingRatingDate =
         hasStarsMyPendingRatingDateField ? reader.readDateTime() : null;
+    final hasMainTabField = (flags2 & 1048576) != 0;
+    final mainTab =
+        hasMainTabField ? reader.readObject() as ProfileTabBase : null;
+    final hasSavedMusicField = (flags2 & 2097152) != 0;
+    final savedMusic =
+        hasSavedMusicField ? reader.readObject() as DocumentBase : null;
 
     // Construct [UserFull] object.
     final returnValue = UserFull(
@@ -17787,7 +17507,7 @@ class UserFull extends UserFullBase {
       commonChatsCount: commonChatsCount,
       folderId: folderId,
       ttlPeriod: ttlPeriod,
-      themeEmoticon: themeEmoticon,
+      theme: theme,
       privateForwardName: privateForwardName,
       botGroupAdminRights: botGroupAdminRights,
       botBroadcastAdminRights: botBroadcastAdminRights,
@@ -17809,6 +17529,8 @@ class UserFull extends UserFullBase {
       starsRating: starsRating,
       starsMyPendingRating: starsMyPendingRating,
       starsMyPendingRatingDate: starsMyPendingRatingDate,
+      mainTab: mainTab,
+      savedMusic: savedMusic,
     );
 
     // Now return the deserialized [UserFull].
@@ -17839,7 +17561,7 @@ class UserFull extends UserFullBase {
       b06: pinnedMsgId != null,
       b11: folderId != null,
       b14: ttlPeriod != null,
-      b15: themeEmoticon != null,
+      b15: theme != null,
       b16: privateForwardName != null,
       b17: botGroupAdminRights != null,
       b18: botBroadcastAdminRights != null,
@@ -17871,6 +17593,8 @@ class UserFull extends UserFullBase {
       b15: disallowedGifts != null,
       b17: starsRating != null,
       b18: starsMyPendingRating != null || starsMyPendingRatingDate != null,
+      b20: mainTab != null,
+      b21: savedMusic != null,
     );
 
     return v;
@@ -17967,8 +17691,8 @@ class UserFull extends UserFullBase {
   /// Ttl Period.
   final int? ttlPeriod;
 
-  /// Theme Emoticon.
-  final String? themeEmoticon;
+  /// Theme.
+  final ChatThemeBase? theme;
 
   /// Private Forward Name.
   final String? privateForwardName;
@@ -18033,11 +17757,17 @@ class UserFull extends UserFullBase {
   /// Stars My Pending Rating Date.
   final DateTime? starsMyPendingRatingDate;
 
+  /// Main Tab.
+  final ProfileTabBase? mainTab;
+
+  /// Saved Music.
+  final DocumentBase? savedMusic;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x7e63ce1f.
-    buffer.writeInt32(0x7e63ce1f);
+    // Write type-id 0xc577b5ad.
+    buffer.writeInt32(0xc577b5ad);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -18078,9 +17808,9 @@ class UserFull extends UserFullBase {
     if (localTtlPeriodCopy != null) {
       buffer.writeInt32(localTtlPeriodCopy);
     }
-    final localThemeEmoticonCopy = themeEmoticon;
-    if (localThemeEmoticonCopy != null) {
-      buffer.writeString(localThemeEmoticonCopy);
+    final localThemeCopy = theme;
+    if (localThemeCopy != null) {
+      buffer.writeObject(localThemeCopy);
     }
     final localPrivateForwardNameCopy = privateForwardName;
     if (localPrivateForwardNameCopy != null) {
@@ -18166,6 +17896,14 @@ class UserFull extends UserFullBase {
     if (localStarsMyPendingRatingDateCopy != null) {
       buffer.writeDateTime(localStarsMyPendingRatingDateCopy);
     }
+    final localMainTabCopy = mainTab;
+    if (localMainTabCopy != null) {
+      buffer.writeObject(localMainTabCopy);
+    }
+    final localSavedMusicCopy = savedMusic;
+    if (localSavedMusicCopy != null) {
+      buffer.writeObject(localSavedMusicCopy);
+    }
 
     // Finished serialization.
   }
@@ -18173,7 +17911,7 @@ class UserFull extends UserFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "7e63ce1f",
+      "\$hash": "c577b5ad",
       "\$name": "UserFull",
       "flags": flags,
       "blocked": blocked,
@@ -18206,7 +17944,7 @@ class UserFull extends UserFullBase {
       "commonChatsCount": commonChatsCount,
       "folderId": folderId,
       "ttlPeriod": ttlPeriod,
-      "themeEmoticon": themeEmoticon,
+      "theme": theme,
       "privateForwardName": privateForwardName,
       "botGroupAdminRights": botGroupAdminRights,
       "botBroadcastAdminRights": botBroadcastAdminRights,
@@ -18228,6 +17966,8 @@ class UserFull extends UserFullBase {
       "starsRating": starsRating,
       "starsMyPendingRating": starsMyPendingRating,
       "starsMyPendingRatingDate": starsMyPendingRatingDate?.toIso8601String(),
+      "mainTab": mainTab,
+      "savedMusic": savedMusic,
     };
 
     // Finished toJson.
@@ -18240,10 +17980,7 @@ class UserFull extends UserFullBase {
 /// ID: `145ade0b`.
 class Contact extends ContactBase {
   /// Contact constructor.
-  const Contact({
-    required this.userId,
-    required this.mutual,
-  }) : super._();
+  const Contact({required this.userId, required this.mutual}) : super._();
 
   /// Deserialize.
   factory Contact.deserialize(BinaryReader reader) {
@@ -18252,10 +17989,7 @@ class Contact extends ContactBase {
     final mutual = reader.readBool();
 
     // Construct [Contact] object.
-    final returnValue = Contact(
-      userId: userId,
-      mutual: mutual,
-    );
+    final returnValue = Contact(userId: userId, mutual: mutual);
 
     // Now return the deserialized [Contact].
     return returnValue;
@@ -18301,10 +18035,8 @@ class Contact extends ContactBase {
 /// ID: `c13e3c50`.
 class ImportedContact extends ImportedContactBase {
   /// Imported Contact constructor.
-  const ImportedContact({
-    required this.userId,
-    required this.clientId,
-  }) : super._();
+  const ImportedContact({required this.userId, required this.clientId})
+      : super._();
 
   /// Deserialize.
   factory ImportedContact.deserialize(BinaryReader reader) {
@@ -18313,10 +18045,7 @@ class ImportedContact extends ImportedContactBase {
     final clientId = reader.readInt64();
 
     // Construct [ImportedContact] object.
-    final returnValue = ImportedContact(
-      userId: userId,
-      clientId: clientId,
-    );
+    final returnValue = ImportedContact(userId: userId, clientId: clientId);
 
     // Now return the deserialized [ImportedContact].
     return returnValue;
@@ -18364,10 +18093,7 @@ class ImportedContact extends ImportedContactBase {
 /// ID: `16d9703b`.
 class ContactStatus extends ContactStatusBase {
   /// Contact Status constructor.
-  const ContactStatus({
-    required this.userId,
-    required this.status,
-  }) : super._();
+  const ContactStatus({required this.userId, required this.status}) : super._();
 
   /// Deserialize.
   factory ContactStatus.deserialize(BinaryReader reader) {
@@ -18376,10 +18102,7 @@ class ContactStatus extends ContactStatusBase {
     final status = reader.readObject() as UserStatusBase;
 
     // Construct [ContactStatus] object.
-    final returnValue = ContactStatus(
-      userId: userId,
-      status: status,
-    );
+    final returnValue = ContactStatus(userId: userId, status: status);
 
     // Now return the deserialized [ContactStatus].
     return returnValue;
@@ -18910,9 +18633,7 @@ class MessagesDialogsSlice extends MessagesDialogsBase {
 /// ID: `f0e3e596`.
 class MessagesDialogsNotModified extends MessagesDialogsBase {
   /// Messages Dialogs Not Modified constructor.
-  const MessagesDialogsNotModified({
-    required this.count,
-  }) : super._();
+  const MessagesDialogsNotModified({required this.count}) : super._();
 
   /// Deserialize.
   factory MessagesDialogsNotModified.deserialize(BinaryReader reader) {
@@ -18920,9 +18641,7 @@ class MessagesDialogsNotModified extends MessagesDialogsBase {
     final count = reader.readInt32();
 
     // Construct [MessagesDialogsNotModified] object.
-    final returnValue = MessagesDialogsNotModified(
-      count: count,
-    );
+    final returnValue = MessagesDialogsNotModified(count: count);
 
     // Now return the deserialized [MessagesDialogsNotModified].
     return returnValue;
@@ -19210,10 +18929,7 @@ class MessagesChannelMessages extends MessagesMessagesBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: inexact,
-      b02: offsetIdOffset != null,
-    );
+    final v = _flag(b01: inexact, b02: offsetIdOffset != null);
 
     return v;
   }
@@ -19294,9 +19010,7 @@ class MessagesChannelMessages extends MessagesMessagesBase {
 /// ID: `74535f21`.
 class MessagesMessagesNotModified extends MessagesMessagesBase {
   /// Messages Messages Not Modified constructor.
-  const MessagesMessagesNotModified({
-    required this.count,
-  }) : super._();
+  const MessagesMessagesNotModified({required this.count}) : super._();
 
   /// Deserialize.
   factory MessagesMessagesNotModified.deserialize(BinaryReader reader) {
@@ -19304,9 +19018,7 @@ class MessagesMessagesNotModified extends MessagesMessagesBase {
     final count = reader.readInt32();
 
     // Construct [MessagesMessagesNotModified] object.
-    final returnValue = MessagesMessagesNotModified(
-      count: count,
-    );
+    final returnValue = MessagesMessagesNotModified(count: count);
 
     // Now return the deserialized [MessagesMessagesNotModified].
     return returnValue;
@@ -19347,9 +19059,7 @@ class MessagesMessagesNotModified extends MessagesMessagesBase {
 /// ID: `64ff9fd5`.
 class MessagesChats extends MessagesChatsBase {
   /// Messages Chats constructor.
-  const MessagesChats({
-    required this.chats,
-  }) : super._();
+  const MessagesChats({required this.chats}) : super._();
 
   /// Deserialize.
   factory MessagesChats.deserialize(BinaryReader reader) {
@@ -19357,9 +19067,7 @@ class MessagesChats extends MessagesChatsBase {
     final chats = reader.readVectorObject<ChatBase>();
 
     // Construct [MessagesChats] object.
-    final returnValue = MessagesChats(
-      chats: chats.items,
-    );
+    final returnValue = MessagesChats(chats: chats.items);
 
     // Now return the deserialized [MessagesChats].
     return returnValue;
@@ -19398,10 +19106,8 @@ class MessagesChats extends MessagesChatsBase {
 /// ID: `9cd81144`.
 class MessagesChatsSlice extends MessagesChatsBase {
   /// Messages Chats Slice constructor.
-  const MessagesChatsSlice({
-    required this.count,
-    required this.chats,
-  }) : super._();
+  const MessagesChatsSlice({required this.count, required this.chats})
+      : super._();
 
   /// Deserialize.
   factory MessagesChatsSlice.deserialize(BinaryReader reader) {
@@ -19410,10 +19116,7 @@ class MessagesChatsSlice extends MessagesChatsBase {
     final chats = reader.readVectorObject<ChatBase>();
 
     // Construct [MessagesChatsSlice] object.
-    final returnValue = MessagesChatsSlice(
-      count: count,
-      chats: chats.items,
-    );
+    final returnValue = MessagesChatsSlice(count: count, chats: chats.items);
 
     // Now return the deserialized [MessagesChatsSlice].
     return returnValue;
@@ -19969,9 +19672,7 @@ class InputMessagesFilterChatPhotos extends MessagesFilterBase {
 /// ID: `80c99768`.
 class InputMessagesFilterPhoneCalls extends MessagesFilterBase {
   /// Input Messages Filter Phone Calls constructor.
-  const InputMessagesFilterPhoneCalls({
-    required this.missed,
-  }) : super._();
+  const InputMessagesFilterPhoneCalls({required this.missed}) : super._();
 
   /// Deserialize.
   factory InputMessagesFilterPhoneCalls.deserialize(BinaryReader reader) {
@@ -19980,9 +19681,7 @@ class InputMessagesFilterPhoneCalls extends MessagesFilterBase {
     final missed = (flags & 1) != 0;
 
     // Construct [InputMessagesFilterPhoneCalls] object.
-    final returnValue = InputMessagesFilterPhoneCalls(
-      missed: missed,
-    );
+    final returnValue = InputMessagesFilterPhoneCalls(missed: missed);
 
     // Now return the deserialized [InputMessagesFilterPhoneCalls].
     return returnValue;
@@ -19990,9 +19689,7 @@ class InputMessagesFilterPhoneCalls extends MessagesFilterBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: missed,
-    );
+    final v = _flag(b00: missed);
 
     return v;
   }
@@ -20324,10 +20021,7 @@ class UpdateNewMessage extends UpdateBase {
 /// ID: `4e90bfd6`.
 class UpdateMessageID extends UpdateBase {
   /// Update Message I D constructor.
-  const UpdateMessageID({
-    required this.id,
-    required this.randomId,
-  }) : super._();
+  const UpdateMessageID({required this.id, required this.randomId}) : super._();
 
   /// Deserialize.
   factory UpdateMessageID.deserialize(BinaryReader reader) {
@@ -20336,10 +20030,7 @@ class UpdateMessageID extends UpdateBase {
     final randomId = reader.readInt64();
 
     // Construct [UpdateMessageID] object.
-    final returnValue = UpdateMessageID(
-      id: id,
-      randomId: randomId,
-    );
+    final returnValue = UpdateMessageID(id: id, randomId: randomId);
 
     // Now return the deserialized [UpdateMessageID].
     return returnValue;
@@ -20458,10 +20149,8 @@ class UpdateDeleteMessages extends UpdateBase {
 /// ID: `c01e857f`.
 class UpdateUserTyping extends UpdateBase {
   /// Update User Typing constructor.
-  const UpdateUserTyping({
-    required this.userId,
-    required this.action,
-  }) : super._();
+  const UpdateUserTyping({required this.userId, required this.action})
+      : super._();
 
   /// Deserialize.
   factory UpdateUserTyping.deserialize(BinaryReader reader) {
@@ -20470,10 +20159,7 @@ class UpdateUserTyping extends UpdateBase {
     final action = reader.readObject() as SendMessageActionBase;
 
     // Construct [UpdateUserTyping] object.
-    final returnValue = UpdateUserTyping(
-      userId: userId,
-      action: action,
-    );
+    final returnValue = UpdateUserTyping(userId: userId, action: action);
 
     // Now return the deserialized [UpdateUserTyping].
     return returnValue;
@@ -20588,9 +20274,7 @@ class UpdateChatUserTyping extends UpdateBase {
 /// ID: `07761198`.
 class UpdateChatParticipants extends UpdateBase {
   /// Update Chat Participants constructor.
-  const UpdateChatParticipants({
-    required this.participants,
-  }) : super._();
+  const UpdateChatParticipants({required this.participants}) : super._();
 
   /// Deserialize.
   factory UpdateChatParticipants.deserialize(BinaryReader reader) {
@@ -20598,9 +20282,7 @@ class UpdateChatParticipants extends UpdateBase {
     final participants = reader.readObject() as ChatParticipantsBase;
 
     // Construct [UpdateChatParticipants] object.
-    final returnValue = UpdateChatParticipants(
-      participants: participants,
-    );
+    final returnValue = UpdateChatParticipants(participants: participants);
 
     // Now return the deserialized [UpdateChatParticipants].
     return returnValue;
@@ -20639,10 +20321,8 @@ class UpdateChatParticipants extends UpdateBase {
 /// ID: `e5bdf8de`.
 class UpdateUserStatus extends UpdateBase {
   /// Update User Status constructor.
-  const UpdateUserStatus({
-    required this.userId,
-    required this.status,
-  }) : super._();
+  const UpdateUserStatus({required this.userId, required this.status})
+      : super._();
 
   /// Deserialize.
   factory UpdateUserStatus.deserialize(BinaryReader reader) {
@@ -20651,10 +20331,7 @@ class UpdateUserStatus extends UpdateBase {
     final status = reader.readObject() as UserStatusBase;
 
     // Construct [UpdateUserStatus] object.
-    final returnValue = UpdateUserStatus(
-      userId: userId,
-      status: status,
-    );
+    final returnValue = UpdateUserStatus(userId: userId, status: status);
 
     // Now return the deserialized [UpdateUserStatus].
     return returnValue;
@@ -20885,10 +20562,8 @@ class UpdateNewAuthorization extends UpdateBase {
 /// ID: `12bcbd9a`.
 class UpdateNewEncryptedMessage extends UpdateBase {
   /// Update New Encrypted Message constructor.
-  const UpdateNewEncryptedMessage({
-    required this.message,
-    required this.qts,
-  }) : super._();
+  const UpdateNewEncryptedMessage({required this.message, required this.qts})
+      : super._();
 
   /// Deserialize.
   factory UpdateNewEncryptedMessage.deserialize(BinaryReader reader) {
@@ -20897,10 +20572,7 @@ class UpdateNewEncryptedMessage extends UpdateBase {
     final qts = reader.readInt32();
 
     // Construct [UpdateNewEncryptedMessage] object.
-    final returnValue = UpdateNewEncryptedMessage(
-      message: message,
-      qts: qts,
-    );
+    final returnValue = UpdateNewEncryptedMessage(message: message, qts: qts);
 
     // Now return the deserialized [UpdateNewEncryptedMessage].
     return returnValue;
@@ -20946,9 +20618,7 @@ class UpdateNewEncryptedMessage extends UpdateBase {
 /// ID: `1710f156`.
 class UpdateEncryptedChatTyping extends UpdateBase {
   /// Update Encrypted Chat Typing constructor.
-  const UpdateEncryptedChatTyping({
-    required this.chatId,
-  }) : super._();
+  const UpdateEncryptedChatTyping({required this.chatId}) : super._();
 
   /// Deserialize.
   factory UpdateEncryptedChatTyping.deserialize(BinaryReader reader) {
@@ -20956,9 +20626,7 @@ class UpdateEncryptedChatTyping extends UpdateBase {
     final chatId = reader.readInt32();
 
     // Construct [UpdateEncryptedChatTyping] object.
-    final returnValue = UpdateEncryptedChatTyping(
-      chatId: chatId,
-    );
+    final returnValue = UpdateEncryptedChatTyping(chatId: chatId);
 
     // Now return the deserialized [UpdateEncryptedChatTyping].
     return returnValue;
@@ -20999,10 +20667,7 @@ class UpdateEncryptedChatTyping extends UpdateBase {
 /// ID: `b4a2e88d`.
 class UpdateEncryption extends UpdateBase {
   /// Update Encryption constructor.
-  const UpdateEncryption({
-    required this.chat,
-    required this.date,
-  }) : super._();
+  const UpdateEncryption({required this.chat, required this.date}) : super._();
 
   /// Deserialize.
   factory UpdateEncryption.deserialize(BinaryReader reader) {
@@ -21011,10 +20676,7 @@ class UpdateEncryption extends UpdateBase {
     final date = reader.readDateTime();
 
     // Construct [UpdateEncryption] object.
-    final returnValue = UpdateEncryption(
-      chat: chat,
-      date: date,
-    );
+    final returnValue = UpdateEncryption(chat: chat, date: date);
 
     // Now return the deserialized [UpdateEncryption].
     return returnValue;
@@ -21291,9 +20953,7 @@ class UpdateChatParticipantDelete extends UpdateBase {
 /// ID: `8e5e9873`.
 class UpdateDcOptions extends UpdateBase {
   /// Update Dc Options constructor.
-  const UpdateDcOptions({
-    required this.dcOptions,
-  }) : super._();
+  const UpdateDcOptions({required this.dcOptions}) : super._();
 
   /// Deserialize.
   factory UpdateDcOptions.deserialize(BinaryReader reader) {
@@ -21301,9 +20961,7 @@ class UpdateDcOptions extends UpdateBase {
     final dcOptions = reader.readVectorObject<DcOptionBase>();
 
     // Construct [UpdateDcOptions] object.
-    final returnValue = UpdateDcOptions(
-      dcOptions: dcOptions.items,
-    );
+    final returnValue = UpdateDcOptions(dcOptions: dcOptions.items);
 
     // Now return the deserialized [UpdateDcOptions].
     return returnValue;
@@ -21342,10 +21000,8 @@ class UpdateDcOptions extends UpdateBase {
 /// ID: `bec268ef`.
 class UpdateNotifySettings extends UpdateBase {
   /// Update Notify Settings constructor.
-  const UpdateNotifySettings({
-    required this.peer,
-    required this.notifySettings,
-  }) : super._();
+  const UpdateNotifySettings({required this.peer, required this.notifySettings})
+      : super._();
 
   /// Deserialize.
   factory UpdateNotifySettings.deserialize(BinaryReader reader) {
@@ -21441,11 +21097,7 @@ class UpdateServiceNotification extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: popup,
-      b02: invertMedia,
-      b01: inboxDate != null,
-    );
+    final v = _flag(b00: popup, b02: invertMedia, b01: inboxDate != null);
 
     return v;
   }
@@ -21516,10 +21168,7 @@ class UpdateServiceNotification extends UpdateBase {
 /// ID: `ee3b272a`.
 class UpdatePrivacy extends UpdateBase {
   /// Update Privacy constructor.
-  const UpdatePrivacy({
-    required this.key,
-    required this.rules,
-  }) : super._();
+  const UpdatePrivacy({required this.key, required this.rules}) : super._();
 
   /// Deserialize.
   factory UpdatePrivacy.deserialize(BinaryReader reader) {
@@ -21528,10 +21177,7 @@ class UpdatePrivacy extends UpdateBase {
     final rules = reader.readVectorObject<PrivacyRuleBase>();
 
     // Construct [UpdatePrivacy] object.
-    final returnValue = UpdatePrivacy(
-      key: key,
-      rules: rules.items,
-    );
+    final returnValue = UpdatePrivacy(key: key, rules: rules.items);
 
     // Now return the deserialized [UpdatePrivacy].
     return returnValue;
@@ -21575,10 +21221,8 @@ class UpdatePrivacy extends UpdateBase {
 /// ID: `05492a13`.
 class UpdateUserPhone extends UpdateBase {
   /// Update User Phone constructor.
-  const UpdateUserPhone({
-    required this.userId,
-    required this.phone,
-  }) : super._();
+  const UpdateUserPhone({required this.userId, required this.phone})
+      : super._();
 
   /// Deserialize.
   factory UpdateUserPhone.deserialize(BinaryReader reader) {
@@ -21587,10 +21231,7 @@ class UpdateUserPhone extends UpdateBase {
     final phone = reader.readString();
 
     // Construct [UpdateUserPhone] object.
-    final returnValue = UpdateUserPhone(
-      userId: userId,
-      phone: phone,
-    );
+    final returnValue = UpdateUserPhone(userId: userId, phone: phone);
 
     // Now return the deserialized [UpdateUserPhone].
     return returnValue;
@@ -21673,9 +21314,7 @@ class UpdateReadHistoryInbox extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: folderId != null,
-    );
+    final v = _flag(b00: folderId != null);
 
     return v;
   }
@@ -21934,9 +21573,7 @@ class UpdateReadMessagesContents extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: date != null,
-    );
+    final v = _flag(b00: date != null);
 
     return v;
   }
@@ -21998,10 +21635,7 @@ class UpdateReadMessagesContents extends UpdateBase {
 /// ID: `108d941f`.
 class UpdateChannelTooLong extends UpdateBase {
   /// Update Channel Too Long constructor.
-  const UpdateChannelTooLong({
-    required this.channelId,
-    this.pts,
-  }) : super._();
+  const UpdateChannelTooLong({required this.channelId, this.pts}) : super._();
 
   /// Deserialize.
   factory UpdateChannelTooLong.deserialize(BinaryReader reader) {
@@ -22012,10 +21646,7 @@ class UpdateChannelTooLong extends UpdateBase {
     final pts = hasPtsField ? reader.readInt32() : null;
 
     // Construct [UpdateChannelTooLong] object.
-    final returnValue = UpdateChannelTooLong(
-      channelId: channelId,
-      pts: pts,
-    );
+    final returnValue = UpdateChannelTooLong(channelId: channelId, pts: pts);
 
     // Now return the deserialized [UpdateChannelTooLong].
     return returnValue;
@@ -22023,9 +21654,7 @@ class UpdateChannelTooLong extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pts != null,
-    );
+    final v = _flag(b00: pts != null);
 
     return v;
   }
@@ -22075,9 +21704,7 @@ class UpdateChannelTooLong extends UpdateBase {
 /// ID: `635b4c09`.
 class UpdateChannel extends UpdateBase {
   /// Update Channel constructor.
-  const UpdateChannel({
-    required this.channelId,
-  }) : super._();
+  const UpdateChannel({required this.channelId}) : super._();
 
   /// Deserialize.
   factory UpdateChannel.deserialize(BinaryReader reader) {
@@ -22085,9 +21712,7 @@ class UpdateChannel extends UpdateBase {
     final channelId = reader.readInt64();
 
     // Construct [UpdateChannel] object.
-    final returnValue = UpdateChannel(
-      channelId: channelId,
-    );
+    final returnValue = UpdateChannel(channelId: channelId);
 
     // Now return the deserialized [UpdateChannel].
     return returnValue;
@@ -22233,9 +21858,7 @@ class UpdateReadChannelInbox extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: folderId != null,
-    );
+    final v = _flag(b00: folderId != null);
 
     return v;
   }
@@ -22541,9 +22164,7 @@ class UpdateChatParticipantAdmin extends UpdateBase {
 /// ID: `688a30aa`.
 class UpdateNewStickerSet extends UpdateBase {
   /// Update New Sticker Set constructor.
-  const UpdateNewStickerSet({
-    required this.stickerset,
-  }) : super._();
+  const UpdateNewStickerSet({required this.stickerset}) : super._();
 
   /// Deserialize.
   factory UpdateNewStickerSet.deserialize(BinaryReader reader) {
@@ -22551,9 +22172,7 @@ class UpdateNewStickerSet extends UpdateBase {
     final stickerset = reader.readObject() as MessagesStickerSetBase;
 
     // Construct [UpdateNewStickerSet] object.
-    final returnValue = UpdateNewStickerSet(
-      stickerset: stickerset,
-    );
+    final returnValue = UpdateNewStickerSet(stickerset: stickerset);
 
     // Now return the deserialized [UpdateNewStickerSet].
     return returnValue;
@@ -22619,10 +22238,7 @@ class UpdateStickerSetsOrder extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: masks,
-      b01: emojis,
-    );
+    final v = _flag(b00: masks, b01: emojis);
 
     return v;
   }
@@ -22670,10 +22286,8 @@ class UpdateStickerSetsOrder extends UpdateBase {
 /// ID: `31c24808`.
 class UpdateStickerSets extends UpdateBase {
   /// Update Sticker Sets constructor.
-  const UpdateStickerSets({
-    required this.masks,
-    required this.emojis,
-  }) : super._();
+  const UpdateStickerSets({required this.masks, required this.emojis})
+      : super._();
 
   /// Deserialize.
   factory UpdateStickerSets.deserialize(BinaryReader reader) {
@@ -22683,10 +22297,7 @@ class UpdateStickerSets extends UpdateBase {
     final emojis = (flags & 2) != 0;
 
     // Construct [UpdateStickerSets] object.
-    final returnValue = UpdateStickerSets(
-      masks: masks,
-      emojis: emojis,
-    );
+    final returnValue = UpdateStickerSets(masks: masks, emojis: emojis);
 
     // Now return the deserialized [UpdateStickerSets].
     return returnValue;
@@ -22694,10 +22305,7 @@ class UpdateStickerSets extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: masks,
-      b01: emojis,
-    );
+    final v = _flag(b00: masks, b01: emojis);
 
     return v;
   }
@@ -22817,10 +22425,7 @@ class UpdateBotInlineQuery extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: geo != null,
-      b01: peerType != null,
-    );
+    final v = _flag(b00: geo != null, b01: peerType != null);
 
     return v;
   }
@@ -22932,10 +22537,7 @@ class UpdateBotInlineSend extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: geo != null,
-      b01: msgId != null,
-    );
+    final v = _flag(b00: geo != null, b01: msgId != null);
 
     return v;
   }
@@ -23115,10 +22717,7 @@ class UpdateBotCallbackQuery extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: data != null,
-      b01: gameShortName != null,
-    );
+    final v = _flag(b00: data != null, b01: gameShortName != null);
 
     return v;
   }
@@ -23311,10 +22910,7 @@ class UpdateInlineBotCallbackQuery extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: data != null,
-      b01: gameShortName != null,
-    );
+    final v = _flag(b00: data != null, b01: gameShortName != null);
 
     return v;
   }
@@ -23391,10 +22987,8 @@ class UpdateInlineBotCallbackQuery extends UpdateBase {
 /// ID: `b75f99a9`.
 class UpdateReadChannelOutbox extends UpdateBase {
   /// Update Read Channel Outbox constructor.
-  const UpdateReadChannelOutbox({
-    required this.channelId,
-    required this.maxId,
-  }) : super._();
+  const UpdateReadChannelOutbox({required this.channelId, required this.maxId})
+      : super._();
 
   /// Deserialize.
   factory UpdateReadChannelOutbox.deserialize(BinaryReader reader) {
@@ -23487,10 +23081,7 @@ class UpdateDraftMessage extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: topMsgId != null, b01: savedPeerId != null);
 
     return v;
   }
@@ -23808,10 +23399,7 @@ class UpdateDialogPinned extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-      b01: folderId != null,
-    );
+    final v = _flag(b00: pinned, b01: folderId != null);
 
     return v;
   }
@@ -23863,10 +23451,7 @@ class UpdateDialogPinned extends UpdateBase {
 /// ID: `fa0f3ca2`.
 class UpdatePinnedDialogs extends UpdateBase {
   /// Update Pinned Dialogs constructor.
-  const UpdatePinnedDialogs({
-    this.folderId,
-    this.order,
-  }) : super._();
+  const UpdatePinnedDialogs({this.folderId, this.order}) : super._();
 
   /// Deserialize.
   factory UpdatePinnedDialogs.deserialize(BinaryReader reader) {
@@ -23890,10 +23475,7 @@ class UpdatePinnedDialogs extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: folderId != null,
-      b00: order != null,
-    );
+    final v = _flag(b01: folderId != null, b00: order != null);
 
     return v;
   }
@@ -23944,9 +23526,7 @@ class UpdatePinnedDialogs extends UpdateBase {
 /// ID: `8317c0c3`.
 class UpdateBotWebhookJSON extends UpdateBase {
   /// Update Bot Webhook J S O N constructor.
-  const UpdateBotWebhookJSON({
-    required this.data,
-  }) : super._();
+  const UpdateBotWebhookJSON({required this.data}) : super._();
 
   /// Deserialize.
   factory UpdateBotWebhookJSON.deserialize(BinaryReader reader) {
@@ -23954,9 +23534,7 @@ class UpdateBotWebhookJSON extends UpdateBase {
     final data = reader.readObject() as DataJSONBase;
 
     // Construct [UpdateBotWebhookJSON] object.
-    final returnValue = UpdateBotWebhookJSON(
-      data: data,
-    );
+    final returnValue = UpdateBotWebhookJSON(data: data);
 
     // Now return the deserialized [UpdateBotWebhookJSON].
     return returnValue;
@@ -24188,10 +23766,7 @@ class UpdateBotPrecheckoutQuery extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: info != null,
-      b01: shippingOptionId != null,
-    );
+    final v = _flag(b00: info != null, b01: shippingOptionId != null);
 
     return v;
   }
@@ -24273,9 +23848,7 @@ class UpdateBotPrecheckoutQuery extends UpdateBase {
 /// ID: `ab0f6b1e`.
 class UpdatePhoneCall extends UpdateBase {
   /// Update Phone Call constructor.
-  const UpdatePhoneCall({
-    required this.phoneCall,
-  }) : super._();
+  const UpdatePhoneCall({required this.phoneCall}) : super._();
 
   /// Deserialize.
   factory UpdatePhoneCall.deserialize(BinaryReader reader) {
@@ -24283,9 +23856,7 @@ class UpdatePhoneCall extends UpdateBase {
     final phoneCall = reader.readObject() as PhoneCallBase;
 
     // Construct [UpdatePhoneCall] object.
-    final returnValue = UpdatePhoneCall(
-      phoneCall: phoneCall,
-    );
+    final returnValue = UpdatePhoneCall(phoneCall: phoneCall);
 
     // Now return the deserialized [UpdatePhoneCall].
     return returnValue;
@@ -24324,9 +23895,7 @@ class UpdatePhoneCall extends UpdateBase {
 /// ID: `46560264`.
 class UpdateLangPackTooLong extends UpdateBase {
   /// Update Lang Pack Too Long constructor.
-  const UpdateLangPackTooLong({
-    required this.langCode,
-  }) : super._();
+  const UpdateLangPackTooLong({required this.langCode}) : super._();
 
   /// Deserialize.
   factory UpdateLangPackTooLong.deserialize(BinaryReader reader) {
@@ -24334,9 +23903,7 @@ class UpdateLangPackTooLong extends UpdateBase {
     final langCode = reader.readString();
 
     // Construct [UpdateLangPackTooLong] object.
-    final returnValue = UpdateLangPackTooLong(
-      langCode: langCode,
-    );
+    final returnValue = UpdateLangPackTooLong(langCode: langCode);
 
     // Now return the deserialized [UpdateLangPackTooLong].
     return returnValue;
@@ -24375,9 +23942,7 @@ class UpdateLangPackTooLong extends UpdateBase {
 /// ID: `56022f4d`.
 class UpdateLangPack extends UpdateBase {
   /// Update Lang Pack constructor.
-  const UpdateLangPack({
-    required this.difference,
-  }) : super._();
+  const UpdateLangPack({required this.difference}) : super._();
 
   /// Deserialize.
   factory UpdateLangPack.deserialize(BinaryReader reader) {
@@ -24385,9 +23950,7 @@ class UpdateLangPack extends UpdateBase {
     final difference = reader.readObject() as LangPackDifferenceBase;
 
     // Construct [UpdateLangPack] object.
-    final returnValue = UpdateLangPack(
-      difference: difference,
-    );
+    final returnValue = UpdateLangPack(difference: difference);
 
     // Now return the deserialized [UpdateLangPack].
     return returnValue;
@@ -24496,10 +24059,7 @@ class UpdateChannelReadMessagesContents extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: topMsgId != null, b01: savedPeerId != null);
 
     return v;
   }
@@ -24691,10 +24251,7 @@ class UpdateDialogUnreadMark extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: unread,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: unread, b01: savedPeerId != null);
 
     return v;
   }
@@ -24774,9 +24331,7 @@ class UpdateMessagePoll extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: poll != null,
-    );
+    final v = _flag(b00: poll != null);
 
     return v;
   }
@@ -24971,10 +24526,8 @@ class UpdateFolderPeers extends UpdateBase {
 /// ID: `6a7e7366`.
 class UpdatePeerSettings extends UpdateBase {
   /// Update Peer Settings constructor.
-  const UpdatePeerSettings({
-    required this.peer,
-    required this.settings,
-  }) : super._();
+  const UpdatePeerSettings({required this.peer, required this.settings})
+      : super._();
 
   /// Deserialize.
   factory UpdatePeerSettings.deserialize(BinaryReader reader) {
@@ -24983,10 +24536,7 @@ class UpdatePeerSettings extends UpdateBase {
     final settings = reader.readObject() as PeerSettingsBase;
 
     // Construct [UpdatePeerSettings] object.
-    final returnValue = UpdatePeerSettings(
-      peer: peer,
-      settings: settings,
-    );
+    final returnValue = UpdatePeerSettings(peer: peer, settings: settings);
 
     // Now return the deserialized [UpdatePeerSettings].
     return returnValue;
@@ -25030,9 +24580,7 @@ class UpdatePeerSettings extends UpdateBase {
 /// ID: `b4afcfb0`.
 class UpdatePeerLocated extends UpdateBase {
   /// Update Peer Located constructor.
-  const UpdatePeerLocated({
-    required this.peers,
-  }) : super._();
+  const UpdatePeerLocated({required this.peers}) : super._();
 
   /// Deserialize.
   factory UpdatePeerLocated.deserialize(BinaryReader reader) {
@@ -25040,9 +24588,7 @@ class UpdatePeerLocated extends UpdateBase {
     final peers = reader.readVectorObject<PeerLocatedBase>();
 
     // Construct [UpdatePeerLocated] object.
-    final returnValue = UpdatePeerLocated(
-      peers: peers.items,
-    );
+    final returnValue = UpdatePeerLocated(peers: peers.items);
 
     // Now return the deserialized [UpdatePeerLocated].
     return returnValue;
@@ -25081,9 +24627,7 @@ class UpdatePeerLocated extends UpdateBase {
 /// ID: `39a51dfb`.
 class UpdateNewScheduledMessage extends UpdateBase {
   /// Update New Scheduled Message constructor.
-  const UpdateNewScheduledMessage({
-    required this.message,
-  }) : super._();
+  const UpdateNewScheduledMessage({required this.message}) : super._();
 
   /// Deserialize.
   factory UpdateNewScheduledMessage.deserialize(BinaryReader reader) {
@@ -25091,9 +24635,7 @@ class UpdateNewScheduledMessage extends UpdateBase {
     final message = reader.readObject() as MessageBase;
 
     // Construct [UpdateNewScheduledMessage] object.
-    final returnValue = UpdateNewScheduledMessage(
-      message: message,
-    );
+    final returnValue = UpdateNewScheduledMessage(message: message);
 
     // Now return the deserialized [UpdateNewScheduledMessage].
     return returnValue;
@@ -25160,9 +24702,7 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: sentMessages != null,
-    );
+    final v = _flag(b00: sentMessages != null);
 
     return v;
   }
@@ -25215,9 +24755,7 @@ class UpdateDeleteScheduledMessages extends UpdateBase {
 /// ID: `8216fba3`.
 class UpdateTheme extends UpdateBase {
   /// Update Theme constructor.
-  const UpdateTheme({
-    required this.theme,
-  }) : super._();
+  const UpdateTheme({required this.theme}) : super._();
 
   /// Deserialize.
   factory UpdateTheme.deserialize(BinaryReader reader) {
@@ -25225,9 +24763,7 @@ class UpdateTheme extends UpdateBase {
     final theme = reader.readObject() as ThemeBase;
 
     // Construct [UpdateTheme] object.
-    final returnValue = UpdateTheme(
-      theme: theme,
-    );
+    final returnValue = UpdateTheme(theme: theme);
 
     // Now return the deserialized [UpdateTheme].
     return returnValue;
@@ -25266,10 +24802,8 @@ class UpdateTheme extends UpdateBase {
 /// ID: `871fb939`.
 class UpdateGeoLiveViewed extends UpdateBase {
   /// Update Geo Live Viewed constructor.
-  const UpdateGeoLiveViewed({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const UpdateGeoLiveViewed({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory UpdateGeoLiveViewed.deserialize(BinaryReader reader) {
@@ -25278,10 +24812,7 @@ class UpdateGeoLiveViewed extends UpdateBase {
     final msgId = reader.readInt32();
 
     // Construct [UpdateGeoLiveViewed] object.
-    final returnValue = UpdateGeoLiveViewed(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = UpdateGeoLiveViewed(peer: peer, msgId: msgId);
 
     // Now return the deserialized [UpdateGeoLiveViewed].
     return returnValue;
@@ -25443,10 +24974,7 @@ class UpdateMessagePollVote extends UpdateBase {
 /// ID: `26ffde7d`.
 class UpdateDialogFilter extends UpdateBase {
   /// Update Dialog Filter constructor.
-  const UpdateDialogFilter({
-    required this.id,
-    this.filter,
-  }) : super._();
+  const UpdateDialogFilter({required this.id, this.filter}) : super._();
 
   /// Deserialize.
   factory UpdateDialogFilter.deserialize(BinaryReader reader) {
@@ -25458,10 +24986,7 @@ class UpdateDialogFilter extends UpdateBase {
         hasFilterField ? reader.readObject() as DialogFilterBase : null;
 
     // Construct [UpdateDialogFilter] object.
-    final returnValue = UpdateDialogFilter(
-      id: id,
-      filter: filter,
-    );
+    final returnValue = UpdateDialogFilter(id: id, filter: filter);
 
     // Now return the deserialized [UpdateDialogFilter].
     return returnValue;
@@ -25469,9 +24994,7 @@ class UpdateDialogFilter extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: filter != null,
-    );
+    final v = _flag(b00: filter != null);
 
     return v;
   }
@@ -25521,9 +25044,7 @@ class UpdateDialogFilter extends UpdateBase {
 /// ID: `a5d72105`.
 class UpdateDialogFilterOrder extends UpdateBase {
   /// Update Dialog Filter Order constructor.
-  const UpdateDialogFilterOrder({
-    required this.order,
-  }) : super._();
+  const UpdateDialogFilterOrder({required this.order}) : super._();
 
   /// Deserialize.
   factory UpdateDialogFilterOrder.deserialize(BinaryReader reader) {
@@ -25531,9 +25052,7 @@ class UpdateDialogFilterOrder extends UpdateBase {
     final order = reader.readVectorInt32();
 
     // Construct [UpdateDialogFilterOrder] object.
-    final returnValue = UpdateDialogFilterOrder(
-      order: order.items,
-    );
+    final returnValue = UpdateDialogFilterOrder(order: order.items);
 
     // Now return the deserialized [UpdateDialogFilterOrder].
     return returnValue;
@@ -25778,9 +25297,7 @@ class UpdateReadChannelDiscussionInbox extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: broadcastId != null || broadcastPost != null,
-    );
+    final v = _flag(b00: broadcastId != null || broadcastPost != null);
 
     return v;
   }
@@ -25952,10 +25469,7 @@ class UpdatePeerBlocked extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: blocked,
-      b01: blockedMyStoriesFrom,
-    );
+    final v = _flag(b00: blocked, b01: blockedMyStoriesFrom);
 
     return v;
   }
@@ -26034,9 +25548,7 @@ class UpdateChannelUserTyping extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-    );
+    final v = _flag(b00: topMsgId != null);
 
     return v;
   }
@@ -26129,9 +25641,7 @@ class UpdatePinnedMessages extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-    );
+    final v = _flag(b00: pinned);
 
     return v;
   }
@@ -26227,9 +25737,7 @@ class UpdatePinnedChannelMessages extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-    );
+    final v = _flag(b00: pinned);
 
     return v;
   }
@@ -26294,9 +25802,7 @@ class UpdatePinnedChannelMessages extends UpdateBase {
 /// ID: `f89a6a4e`.
 class UpdateChat extends UpdateBase {
   /// Update Chat constructor.
-  const UpdateChat({
-    required this.chatId,
-  }) : super._();
+  const UpdateChat({required this.chatId}) : super._();
 
   /// Deserialize.
   factory UpdateChat.deserialize(BinaryReader reader) {
@@ -26304,9 +25810,7 @@ class UpdateChat extends UpdateBase {
     final chatId = reader.readInt64();
 
     // Construct [UpdateChat] object.
-    final returnValue = UpdateChat(
-      chatId: chatId,
-    );
+    final returnValue = UpdateChat(chatId: chatId);
 
     // Now return the deserialized [UpdateChat].
     return returnValue;
@@ -26416,10 +25920,7 @@ class UpdateGroupCallParticipants extends UpdateBase {
 /// ID: `97d64341`.
 class UpdateGroupCall extends UpdateBase {
   /// Update Group Call constructor.
-  const UpdateGroupCall({
-    this.chatId,
-    required this.call,
-  }) : super._();
+  const UpdateGroupCall({this.chatId, required this.call}) : super._();
 
   /// Deserialize.
   factory UpdateGroupCall.deserialize(BinaryReader reader) {
@@ -26430,10 +25931,7 @@ class UpdateGroupCall extends UpdateBase {
     final call = reader.readObject() as GroupCallBase;
 
     // Construct [UpdateGroupCall] object.
-    final returnValue = UpdateGroupCall(
-      chatId: chatId,
-      call: call,
-    );
+    final returnValue = UpdateGroupCall(chatId: chatId, call: call);
 
     // Now return the deserialized [UpdateGroupCall].
     return returnValue;
@@ -26441,9 +25939,7 @@ class UpdateGroupCall extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: chatId != null,
-    );
+    final v = _flag(b00: chatId != null);
 
     return v;
   }
@@ -26491,10 +25987,7 @@ class UpdateGroupCall extends UpdateBase {
 /// ID: `bb9bb9a5`.
 class UpdatePeerHistoryTTL extends UpdateBase {
   /// Update Peer History T T L constructor.
-  const UpdatePeerHistoryTTL({
-    required this.peer,
-    this.ttlPeriod,
-  }) : super._();
+  const UpdatePeerHistoryTTL({required this.peer, this.ttlPeriod}) : super._();
 
   /// Deserialize.
   factory UpdatePeerHistoryTTL.deserialize(BinaryReader reader) {
@@ -26505,10 +25998,7 @@ class UpdatePeerHistoryTTL extends UpdateBase {
     final ttlPeriod = hasTtlPeriodField ? reader.readInt32() : null;
 
     // Construct [UpdatePeerHistoryTTL] object.
-    final returnValue = UpdatePeerHistoryTTL(
-      peer: peer,
-      ttlPeriod: ttlPeriod,
-    );
+    final returnValue = UpdatePeerHistoryTTL(peer: peer, ttlPeriod: ttlPeriod);
 
     // Now return the deserialized [UpdatePeerHistoryTTL].
     return returnValue;
@@ -26516,9 +26006,7 @@ class UpdatePeerHistoryTTL extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ttlPeriod != null,
-    );
+    final v = _flag(b00: ttlPeriod != null);
 
     return v;
   }
@@ -26969,9 +26457,7 @@ class UpdateGroupCallConnection extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: presentation,
-    );
+    final v = _flag(b00: presentation);
 
     return v;
   }
@@ -27284,10 +26770,7 @@ class UpdateMessageReactions extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: topMsgId != null, b01: savedPeerId != null);
 
     return v;
   }
@@ -27392,9 +26875,7 @@ class UpdateAttachMenuBots extends UpdateBase {
 /// ID: `1592b79d`.
 class UpdateWebViewResultSent extends UpdateBase {
   /// Update Web View Result Sent constructor.
-  const UpdateWebViewResultSent({
-    required this.queryId,
-  }) : super._();
+  const UpdateWebViewResultSent({required this.queryId}) : super._();
 
   /// Deserialize.
   factory UpdateWebViewResultSent.deserialize(BinaryReader reader) {
@@ -27402,9 +26883,7 @@ class UpdateWebViewResultSent extends UpdateBase {
     final queryId = reader.readInt64();
 
     // Construct [UpdateWebViewResultSent] object.
-    final returnValue = UpdateWebViewResultSent(
-      queryId: queryId,
-    );
+    final returnValue = UpdateWebViewResultSent(queryId: queryId);
 
     // Now return the deserialized [UpdateWebViewResultSent].
     return returnValue;
@@ -27445,10 +26924,8 @@ class UpdateWebViewResultSent extends UpdateBase {
 /// ID: `14b85813`.
 class UpdateBotMenuButton extends UpdateBase {
   /// Update Bot Menu Button constructor.
-  const UpdateBotMenuButton({
-    required this.botId,
-    required this.button,
-  }) : super._();
+  const UpdateBotMenuButton({required this.botId, required this.button})
+      : super._();
 
   /// Deserialize.
   factory UpdateBotMenuButton.deserialize(BinaryReader reader) {
@@ -27457,10 +26934,7 @@ class UpdateBotMenuButton extends UpdateBase {
     final button = reader.readObject() as BotMenuButtonBase;
 
     // Construct [UpdateBotMenuButton] object.
-    final returnValue = UpdateBotMenuButton(
-      botId: botId,
-      button: button,
-    );
+    final returnValue = UpdateBotMenuButton(botId: botId, button: button);
 
     // Now return the deserialized [UpdateBotMenuButton].
     return returnValue;
@@ -27576,9 +27050,7 @@ class UpdateTranscribedAudio extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pending,
-    );
+    final v = _flag(b00: pending);
 
     return v;
   }
@@ -27678,10 +27150,8 @@ class UpdateReadFeaturedEmojiStickers extends UpdateBase {
 /// ID: `28373599`.
 class UpdateUserEmojiStatus extends UpdateBase {
   /// Update User Emoji Status constructor.
-  const UpdateUserEmojiStatus({
-    required this.userId,
-    required this.emojiStatus,
-  }) : super._();
+  const UpdateUserEmojiStatus({required this.userId, required this.emojiStatus})
+      : super._();
 
   /// Deserialize.
   factory UpdateUserEmojiStatus.deserialize(BinaryReader reader) {
@@ -27840,10 +27310,7 @@ class UpdateMoveStickerSetToTop extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: masks,
-      b01: emojis,
-    );
+    final v = _flag(b00: masks, b01: emojis);
 
     return v;
   }
@@ -27989,9 +27456,7 @@ class UpdateChannelPinnedTopic extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-    );
+    final v = _flag(b00: pinned);
 
     return v;
   }
@@ -28044,10 +27509,8 @@ class UpdateChannelPinnedTopic extends UpdateBase {
 /// ID: `fe198602`.
 class UpdateChannelPinnedTopics extends UpdateBase {
   /// Update Channel Pinned Topics constructor.
-  const UpdateChannelPinnedTopics({
-    required this.channelId,
-    this.order,
-  }) : super._();
+  const UpdateChannelPinnedTopics({required this.channelId, this.order})
+      : super._();
 
   /// Deserialize.
   factory UpdateChannelPinnedTopics.deserialize(BinaryReader reader) {
@@ -28069,9 +27532,7 @@ class UpdateChannelPinnedTopics extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: order != null,
-    );
+    final v = _flag(b00: order != null);
 
     return v;
   }
@@ -28121,9 +27582,7 @@ class UpdateChannelPinnedTopics extends UpdateBase {
 /// ID: `20529438`.
 class UpdateUser extends UpdateBase {
   /// Update User constructor.
-  const UpdateUser({
-    required this.userId,
-  }) : super._();
+  const UpdateUser({required this.userId}) : super._();
 
   /// Deserialize.
   factory UpdateUser.deserialize(BinaryReader reader) {
@@ -28131,9 +27590,7 @@ class UpdateUser extends UpdateBase {
     final userId = reader.readInt64();
 
     // Construct [UpdateUser] object.
-    final returnValue = UpdateUser(
-      userId: userId,
-    );
+    final returnValue = UpdateUser(userId: userId);
 
     // Now return the deserialized [UpdateUser].
     return returnValue;
@@ -28211,10 +27668,7 @@ class UpdateAutoSaveSettings extends UpdateBase {
 /// ID: `75b3b798`.
 class UpdateStory extends UpdateBase {
   /// Update Story constructor.
-  const UpdateStory({
-    required this.peer,
-    required this.story,
-  }) : super._();
+  const UpdateStory({required this.peer, required this.story}) : super._();
 
   /// Deserialize.
   factory UpdateStory.deserialize(BinaryReader reader) {
@@ -28223,10 +27677,7 @@ class UpdateStory extends UpdateBase {
     final story = reader.readObject() as StoryItemBase;
 
     // Construct [UpdateStory] object.
-    final returnValue = UpdateStory(
-      peer: peer,
-      story: story,
-    );
+    final returnValue = UpdateStory(peer: peer, story: story);
 
     // Now return the deserialized [UpdateStory].
     return returnValue;
@@ -28270,10 +27721,8 @@ class UpdateStory extends UpdateBase {
 /// ID: `f74e932b`.
 class UpdateReadStories extends UpdateBase {
   /// Update Read Stories constructor.
-  const UpdateReadStories({
-    required this.peer,
-    required this.maxId,
-  }) : super._();
+  const UpdateReadStories({required this.peer, required this.maxId})
+      : super._();
 
   /// Deserialize.
   factory UpdateReadStories.deserialize(BinaryReader reader) {
@@ -28282,10 +27731,7 @@ class UpdateReadStories extends UpdateBase {
     final maxId = reader.readInt32();
 
     // Construct [UpdateReadStories] object.
-    final returnValue = UpdateReadStories(
-      peer: peer,
-      maxId: maxId,
-    );
+    final returnValue = UpdateReadStories(peer: peer, maxId: maxId);
 
     // Now return the deserialized [UpdateReadStories].
     return returnValue;
@@ -28331,10 +27777,7 @@ class UpdateReadStories extends UpdateBase {
 /// ID: `1bf335b9`.
 class UpdateStoryID extends UpdateBase {
   /// Update Story I D constructor.
-  const UpdateStoryID({
-    required this.id,
-    required this.randomId,
-  }) : super._();
+  const UpdateStoryID({required this.id, required this.randomId}) : super._();
 
   /// Deserialize.
   factory UpdateStoryID.deserialize(BinaryReader reader) {
@@ -28343,10 +27786,7 @@ class UpdateStoryID extends UpdateBase {
     final randomId = reader.readInt64();
 
     // Construct [UpdateStoryID] object.
-    final returnValue = UpdateStoryID(
-      id: id,
-      randomId: randomId,
-    );
+    final returnValue = UpdateStoryID(id: id, randomId: randomId);
 
     // Now return the deserialized [UpdateStoryID].
     return returnValue;
@@ -28394,9 +27834,7 @@ class UpdateStoryID extends UpdateBase {
 /// ID: `2c084dc1`.
 class UpdateStoriesStealthMode extends UpdateBase {
   /// Update Stories Stealth Mode constructor.
-  const UpdateStoriesStealthMode({
-    required this.stealthMode,
-  }) : super._();
+  const UpdateStoriesStealthMode({required this.stealthMode}) : super._();
 
   /// Deserialize.
   factory UpdateStoriesStealthMode.deserialize(BinaryReader reader) {
@@ -28404,9 +27842,7 @@ class UpdateStoriesStealthMode extends UpdateBase {
     final stealthMode = reader.readObject() as StoriesStealthModeBase;
 
     // Construct [UpdateStoriesStealthMode] object.
-    final returnValue = UpdateStoriesStealthMode(
-      stealthMode: stealthMode,
-    );
+    final returnValue = UpdateStoriesStealthMode(stealthMode: stealthMode);
 
     // Now return the deserialized [UpdateStoriesStealthMode].
     return returnValue;
@@ -28528,11 +27964,7 @@ class UpdateBotChatBoost extends UpdateBase {
     final qts = reader.readInt32();
 
     // Construct [UpdateBotChatBoost] object.
-    final returnValue = UpdateBotChatBoost(
-      peer: peer,
-      boost: boost,
-      qts: qts,
-    );
+    final returnValue = UpdateBotChatBoost(peer: peer, boost: boost, qts: qts);
 
     // Now return the deserialized [UpdateBotChatBoost].
     return returnValue;
@@ -28673,10 +28105,7 @@ class UpdatePeerWallpaper extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: wallpaperOverridden,
-      b00: wallpaper != null,
-    );
+    final v = _flag(b01: wallpaperOverridden, b00: wallpaper != null);
 
     return v;
   }
@@ -28918,10 +28347,8 @@ class UpdateBotMessageReactions extends UpdateBase {
 /// ID: `aeaf9e74`.
 class UpdateSavedDialogPinned extends UpdateBase {
   /// Update Saved Dialog Pinned constructor.
-  const UpdateSavedDialogPinned({
-    required this.pinned,
-    required this.peer,
-  }) : super._();
+  const UpdateSavedDialogPinned({required this.pinned, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory UpdateSavedDialogPinned.deserialize(BinaryReader reader) {
@@ -28931,10 +28358,7 @@ class UpdateSavedDialogPinned extends UpdateBase {
     final peer = reader.readObject() as DialogPeerBase;
 
     // Construct [UpdateSavedDialogPinned] object.
-    final returnValue = UpdateSavedDialogPinned(
-      pinned: pinned,
-      peer: peer,
-    );
+    final returnValue = UpdateSavedDialogPinned(pinned: pinned, peer: peer);
 
     // Now return the deserialized [UpdateSavedDialogPinned].
     return returnValue;
@@ -28942,9 +28366,7 @@ class UpdateSavedDialogPinned extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-    );
+    final v = _flag(b00: pinned);
 
     return v;
   }
@@ -28988,9 +28410,7 @@ class UpdateSavedDialogPinned extends UpdateBase {
 /// ID: `686c85a6`.
 class UpdatePinnedSavedDialogs extends UpdateBase {
   /// Update Pinned Saved Dialogs constructor.
-  const UpdatePinnedSavedDialogs({
-    this.order,
-  }) : super._();
+  const UpdatePinnedSavedDialogs({this.order}) : super._();
 
   /// Deserialize.
   factory UpdatePinnedSavedDialogs.deserialize(BinaryReader reader) {
@@ -29001,9 +28421,7 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
         hasOrderField ? reader.readVectorObject<DialogPeerBase>() : null;
 
     // Construct [UpdatePinnedSavedDialogs] object.
-    final returnValue = UpdatePinnedSavedDialogs(
-      order: order?.items,
-    );
+    final returnValue = UpdatePinnedSavedDialogs(order: order?.items);
 
     // Now return the deserialized [UpdatePinnedSavedDialogs].
     return returnValue;
@@ -29011,9 +28429,7 @@ class UpdatePinnedSavedDialogs extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: order != null,
-    );
+    final v = _flag(b00: order != null);
 
     return v;
   }
@@ -29093,9 +28509,7 @@ class UpdateSavedReactionTags extends UpdateBase {
 /// ID: `f16269d4`.
 class UpdateSmsJob extends UpdateBase {
   /// Update Sms Job constructor.
-  const UpdateSmsJob({
-    required this.jobId,
-  }) : super._();
+  const UpdateSmsJob({required this.jobId}) : super._();
 
   /// Deserialize.
   factory UpdateSmsJob.deserialize(BinaryReader reader) {
@@ -29103,9 +28517,7 @@ class UpdateSmsJob extends UpdateBase {
     final jobId = reader.readString();
 
     // Construct [UpdateSmsJob] object.
-    final returnValue = UpdateSmsJob(
-      jobId: jobId,
-    );
+    final returnValue = UpdateSmsJob(jobId: jobId);
 
     // Now return the deserialized [UpdateSmsJob].
     return returnValue;
@@ -29144,9 +28556,7 @@ class UpdateSmsJob extends UpdateBase {
 /// ID: `f9470ab2`.
 class UpdateQuickReplies extends UpdateBase {
   /// Update Quick Replies constructor.
-  const UpdateQuickReplies({
-    required this.quickReplies,
-  }) : super._();
+  const UpdateQuickReplies({required this.quickReplies}) : super._();
 
   /// Deserialize.
   factory UpdateQuickReplies.deserialize(BinaryReader reader) {
@@ -29154,9 +28564,7 @@ class UpdateQuickReplies extends UpdateBase {
     final quickReplies = reader.readVectorObject<QuickReplyBase>();
 
     // Construct [UpdateQuickReplies] object.
-    final returnValue = UpdateQuickReplies(
-      quickReplies: quickReplies.items,
-    );
+    final returnValue = UpdateQuickReplies(quickReplies: quickReplies.items);
 
     // Now return the deserialized [UpdateQuickReplies].
     return returnValue;
@@ -29195,9 +28603,7 @@ class UpdateQuickReplies extends UpdateBase {
 /// ID: `f53da717`.
 class UpdateNewQuickReply extends UpdateBase {
   /// Update New Quick Reply constructor.
-  const UpdateNewQuickReply({
-    required this.quickReply,
-  }) : super._();
+  const UpdateNewQuickReply({required this.quickReply}) : super._();
 
   /// Deserialize.
   factory UpdateNewQuickReply.deserialize(BinaryReader reader) {
@@ -29205,9 +28611,7 @@ class UpdateNewQuickReply extends UpdateBase {
     final quickReply = reader.readObject() as QuickReplyBase;
 
     // Construct [UpdateNewQuickReply] object.
-    final returnValue = UpdateNewQuickReply(
-      quickReply: quickReply,
-    );
+    final returnValue = UpdateNewQuickReply(quickReply: quickReply);
 
     // Now return the deserialized [UpdateNewQuickReply].
     return returnValue;
@@ -29246,9 +28650,7 @@ class UpdateNewQuickReply extends UpdateBase {
 /// ID: `53e6f1ec`.
 class UpdateDeleteQuickReply extends UpdateBase {
   /// Update Delete Quick Reply constructor.
-  const UpdateDeleteQuickReply({
-    required this.shortcutId,
-  }) : super._();
+  const UpdateDeleteQuickReply({required this.shortcutId}) : super._();
 
   /// Deserialize.
   factory UpdateDeleteQuickReply.deserialize(BinaryReader reader) {
@@ -29256,9 +28658,7 @@ class UpdateDeleteQuickReply extends UpdateBase {
     final shortcutId = reader.readInt32();
 
     // Construct [UpdateDeleteQuickReply] object.
-    final returnValue = UpdateDeleteQuickReply(
-      shortcutId: shortcutId,
-    );
+    final returnValue = UpdateDeleteQuickReply(shortcutId: shortcutId);
 
     // Now return the deserialized [UpdateDeleteQuickReply].
     return returnValue;
@@ -29299,9 +28699,7 @@ class UpdateDeleteQuickReply extends UpdateBase {
 /// ID: `3e050d0f`.
 class UpdateQuickReplyMessage extends UpdateBase {
   /// Update Quick Reply Message constructor.
-  const UpdateQuickReplyMessage({
-    required this.message,
-  }) : super._();
+  const UpdateQuickReplyMessage({required this.message}) : super._();
 
   /// Deserialize.
   factory UpdateQuickReplyMessage.deserialize(BinaryReader reader) {
@@ -29309,9 +28707,7 @@ class UpdateQuickReplyMessage extends UpdateBase {
     final message = reader.readObject() as MessageBase;
 
     // Construct [UpdateQuickReplyMessage] object.
-    final returnValue = UpdateQuickReplyMessage(
-      message: message,
-    );
+    final returnValue = UpdateQuickReplyMessage(message: message);
 
     // Now return the deserialized [UpdateQuickReplyMessage].
     return returnValue;
@@ -29411,10 +28807,8 @@ class UpdateDeleteQuickReplyMessages extends UpdateBase {
 /// ID: `8ae5c97a`.
 class UpdateBotBusinessConnect extends UpdateBase {
   /// Update Bot Business Connect constructor.
-  const UpdateBotBusinessConnect({
-    required this.connection,
-    required this.qts,
-  }) : super._();
+  const UpdateBotBusinessConnect({required this.connection, required this.qts})
+      : super._();
 
   /// Deserialize.
   factory UpdateBotBusinessConnect.deserialize(BinaryReader reader) {
@@ -29504,9 +28898,7 @@ class UpdateBotNewBusinessMessage extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: replyToMessage != null,
-    );
+    final v = _flag(b00: replyToMessage != null);
 
     return v;
   }
@@ -29598,9 +28990,7 @@ class UpdateBotEditBusinessMessage extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: replyToMessage != null,
-    );
+    final v = _flag(b00: replyToMessage != null);
 
     return v;
   }
@@ -29806,9 +29196,7 @@ class UpdateNewStoryReaction extends UpdateBase {
 /// ID: `4e80a379`.
 class UpdateStarsBalance extends UpdateBase {
   /// Update Stars Balance constructor.
-  const UpdateStarsBalance({
-    required this.balance,
-  }) : super._();
+  const UpdateStarsBalance({required this.balance}) : super._();
 
   /// Deserialize.
   factory UpdateStarsBalance.deserialize(BinaryReader reader) {
@@ -29816,9 +29204,7 @@ class UpdateStarsBalance extends UpdateBase {
     final balance = reader.readObject() as StarsAmountBase;
 
     // Construct [UpdateStarsBalance] object.
-    final returnValue = UpdateStarsBalance(
-      balance: balance,
-    );
+    final returnValue = UpdateStarsBalance(balance: balance);
 
     // Now return the deserialized [UpdateStarsBalance].
     return returnValue;
@@ -29899,10 +29285,7 @@ class UpdateBusinessBotCallbackQuery extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: replyToMessage != null,
-      b00: data != null,
-    );
+    final v = _flag(b02: replyToMessage != null, b00: data != null);
 
     return v;
   }
@@ -29984,10 +29367,8 @@ class UpdateBusinessBotCallbackQuery extends UpdateBase {
 /// ID: `a584b019`.
 class UpdateStarsRevenueStatus extends UpdateBase {
   /// Update Stars Revenue Status constructor.
-  const UpdateStarsRevenueStatus({
-    required this.peer,
-    required this.status,
-  }) : super._();
+  const UpdateStarsRevenueStatus({required this.peer, required this.status})
+      : super._();
 
   /// Deserialize.
   factory UpdateStarsRevenueStatus.deserialize(BinaryReader reader) {
@@ -29996,10 +29377,7 @@ class UpdateStarsRevenueStatus extends UpdateBase {
     final status = reader.readObject() as StarsRevenueStatusBase;
 
     // Construct [UpdateStarsRevenueStatus] object.
-    final returnValue = UpdateStarsRevenueStatus(
-      peer: peer,
-      status: status,
-    );
+    final returnValue = UpdateStarsRevenueStatus(peer: peer, status: status);
 
     // Now return the deserialized [UpdateStarsRevenueStatus].
     return returnValue;
@@ -30114,9 +29492,7 @@ class UpdateBotPurchasedPaidMedia extends UpdateBase {
 /// ID: `8b725fce`.
 class UpdatePaidReactionPrivacy extends UpdateBase {
   /// Update Paid Reaction Privacy constructor.
-  const UpdatePaidReactionPrivacy({
-    required this.private,
-  }) : super._();
+  const UpdatePaidReactionPrivacy({required this.private}) : super._();
 
   /// Deserialize.
   factory UpdatePaidReactionPrivacy.deserialize(BinaryReader reader) {
@@ -30124,9 +29500,7 @@ class UpdatePaidReactionPrivacy extends UpdateBase {
     final private = reader.readObject() as PaidReactionPrivacyBase;
 
     // Construct [UpdatePaidReactionPrivacy] object.
-    final returnValue = UpdatePaidReactionPrivacy(
-      private: private,
-    );
+    final returnValue = UpdatePaidReactionPrivacy(private: private);
 
     // Now return the deserialized [UpdatePaidReactionPrivacy].
     return returnValue;
@@ -30165,9 +29539,7 @@ class UpdatePaidReactionPrivacy extends UpdateBase {
 /// ID: `504aa18f`.
 class UpdateSentPhoneCode extends UpdateBase {
   /// Update Sent Phone Code constructor.
-  const UpdateSentPhoneCode({
-    required this.sentCode,
-  }) : super._();
+  const UpdateSentPhoneCode({required this.sentCode}) : super._();
 
   /// Deserialize.
   factory UpdateSentPhoneCode.deserialize(BinaryReader reader) {
@@ -30175,9 +29547,7 @@ class UpdateSentPhoneCode extends UpdateBase {
     final sentCode = reader.readObject() as AuthSentCodeBase;
 
     // Construct [UpdateSentPhoneCode] object.
-    final returnValue = UpdateSentPhoneCode(
-      sentCode: sentCode,
-    );
+    final returnValue = UpdateSentPhoneCode(sentCode: sentCode);
 
     // Now return the deserialized [UpdateSentPhoneCode].
     return returnValue;
@@ -30464,9 +29834,7 @@ class UpdateMonoForumNoPaidException extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: exception,
-    );
+    final v = _flag(b00: exception);
 
     return v;
   }
@@ -30608,10 +29976,8 @@ class UpdatesState extends UpdatesStateBase {
 /// ID: `5d75a138`.
 class UpdatesDifferenceEmpty extends UpdatesDifferenceBase {
   /// Updates Difference Empty constructor.
-  const UpdatesDifferenceEmpty({
-    required this.date,
-    required this.seq,
-  }) : super._();
+  const UpdatesDifferenceEmpty({required this.date, required this.seq})
+      : super._();
 
   /// Deserialize.
   factory UpdatesDifferenceEmpty.deserialize(BinaryReader reader) {
@@ -30620,10 +29986,7 @@ class UpdatesDifferenceEmpty extends UpdatesDifferenceBase {
     final seq = reader.readInt32();
 
     // Construct [UpdatesDifferenceEmpty] object.
-    final returnValue = UpdatesDifferenceEmpty(
-      date: date,
-      seq: seq,
-    );
+    final returnValue = UpdatesDifferenceEmpty(date: date, seq: seq);
 
     // Now return the deserialized [UpdatesDifferenceEmpty].
     return returnValue;
@@ -30853,9 +30216,7 @@ class UpdatesDifferenceSlice extends UpdatesDifferenceBase {
 /// ID: `4afe8f6d`.
 class UpdatesDifferenceTooLong extends UpdatesDifferenceBase {
   /// Updates Difference Too Long constructor.
-  const UpdatesDifferenceTooLong({
-    required this.pts,
-  }) : super._();
+  const UpdatesDifferenceTooLong({required this.pts}) : super._();
 
   /// Deserialize.
   factory UpdatesDifferenceTooLong.deserialize(BinaryReader reader) {
@@ -30863,9 +30224,7 @@ class UpdatesDifferenceTooLong extends UpdatesDifferenceBase {
     final pts = reader.readInt32();
 
     // Construct [UpdatesDifferenceTooLong] object.
-    final returnValue = UpdatesDifferenceTooLong(
-      pts: pts,
-    );
+    final returnValue = UpdatesDifferenceTooLong(pts: pts);
 
     // Now return the deserialized [UpdatesDifferenceTooLong].
     return returnValue;
@@ -31373,10 +30732,7 @@ class UpdateShortChatMessage extends UpdatesBase {
 /// ID: `78d4dec1`.
 class UpdateShort extends UpdatesBase {
   /// Update Short constructor.
-  const UpdateShort({
-    required this.update,
-    required this.date,
-  }) : super._();
+  const UpdateShort({required this.update, required this.date}) : super._();
 
   /// Deserialize.
   factory UpdateShort.deserialize(BinaryReader reader) {
@@ -31385,10 +30741,7 @@ class UpdateShort extends UpdatesBase {
     final date = reader.readDateTime();
 
     // Construct [UpdateShort] object.
-    final returnValue = UpdateShort(
-      update: update,
-      date: date,
-    );
+    final returnValue = UpdateShort(update: update, date: date);
 
     // Now return the deserialized [UpdateShort].
     return returnValue;
@@ -31753,10 +31106,7 @@ class UpdateShortSentMessage extends UpdatesBase {
 /// ID: `8dca6aa5`.
 class PhotosPhotos extends PhotosPhotosBase {
   /// Photos Photos constructor.
-  const PhotosPhotos({
-    required this.photos,
-    required this.users,
-  }) : super._();
+  const PhotosPhotos({required this.photos, required this.users}) : super._();
 
   /// Deserialize.
   factory PhotosPhotos.deserialize(BinaryReader reader) {
@@ -31765,10 +31115,7 @@ class PhotosPhotos extends PhotosPhotosBase {
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [PhotosPhotos] object.
-    final returnValue = PhotosPhotos(
-      photos: photos.items,
-      users: users.items,
-    );
+    final returnValue = PhotosPhotos(photos: photos.items, users: users.items);
 
     // Now return the deserialized [PhotosPhotos].
     return returnValue;
@@ -31881,10 +31228,7 @@ class PhotosPhotosSlice extends PhotosPhotosBase {
 /// ID: `20212ca8`.
 class PhotosPhoto extends PhotosPhotoBase {
   /// Photos Photo constructor.
-  const PhotosPhoto({
-    required this.photo,
-    required this.users,
-  }) : super._();
+  const PhotosPhoto({required this.photo, required this.users}) : super._();
 
   /// Deserialize.
   factory PhotosPhoto.deserialize(BinaryReader reader) {
@@ -31893,10 +31237,7 @@ class PhotosPhoto extends PhotosPhotoBase {
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [PhotosPhoto] object.
-    final returnValue = PhotosPhoto(
-      photo: photo,
-      users: users.items,
-    );
+    final returnValue = PhotosPhoto(photo: photo, users: users.items);
 
     // Now return the deserialized [PhotosPhoto].
     return returnValue;
@@ -31954,11 +31295,7 @@ class UploadFile extends UploadFileBase {
     final bytes = reader.readBytes();
 
     // Construct [UploadFile] object.
-    final returnValue = UploadFile(
-      type: type,
-      mtime: mtime,
-      bytes: bytes,
-    );
+    final returnValue = UploadFile(type: type, mtime: mtime, bytes: bytes);
 
     // Now return the deserialized [UploadFile].
     return returnValue;
@@ -33025,9 +32362,7 @@ class HelpNoAppUpdate extends HelpAppUpdateBase {
 /// ID: `18cb9f78`.
 class HelpInviteText extends HelpInviteTextBase {
   /// Help Invite Text constructor.
-  const HelpInviteText({
-    required this.message,
-  }) : super._();
+  const HelpInviteText({required this.message}) : super._();
 
   /// Deserialize.
   factory HelpInviteText.deserialize(BinaryReader reader) {
@@ -33035,9 +32370,7 @@ class HelpInviteText extends HelpInviteTextBase {
     final message = reader.readString();
 
     // Construct [HelpInviteText] object.
-    final returnValue = HelpInviteText(
-      message: message,
-    );
+    final returnValue = HelpInviteText(message: message);
 
     // Now return the deserialized [HelpInviteText].
     return returnValue;
@@ -33076,9 +32409,7 @@ class HelpInviteText extends HelpInviteTextBase {
 /// ID: `ab7ec0a0`.
 class EncryptedChatEmpty extends EncryptedChatBase {
   /// Encrypted Chat Empty constructor.
-  const EncryptedChatEmpty({
-    required this.id,
-  }) : super._();
+  const EncryptedChatEmpty({required this.id}) : super._();
 
   /// Deserialize.
   factory EncryptedChatEmpty.deserialize(BinaryReader reader) {
@@ -33086,9 +32417,7 @@ class EncryptedChatEmpty extends EncryptedChatBase {
     final id = reader.readInt32();
 
     // Construct [EncryptedChatEmpty] object.
-    final returnValue = EncryptedChatEmpty(
-      id: id,
-    );
+    final returnValue = EncryptedChatEmpty(id: id);
 
     // Now return the deserialized [EncryptedChatEmpty].
     return returnValue;
@@ -33260,9 +32589,7 @@ class EncryptedChatRequested extends EncryptedChatBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: folderId != null,
-    );
+    final v = _flag(b00: folderId != null);
 
     return v;
   }
@@ -33452,10 +32779,8 @@ class EncryptedChat extends EncryptedChatBase {
 /// ID: `1e1c7c45`.
 class EncryptedChatDiscarded extends EncryptedChatBase {
   /// Encrypted Chat Discarded constructor.
-  const EncryptedChatDiscarded({
-    required this.historyDeleted,
-    required this.id,
-  }) : super._();
+  const EncryptedChatDiscarded({required this.historyDeleted, required this.id})
+      : super._();
 
   /// Deserialize.
   factory EncryptedChatDiscarded.deserialize(BinaryReader reader) {
@@ -33476,9 +32801,7 @@ class EncryptedChatDiscarded extends EncryptedChatBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: historyDeleted,
-    );
+    final v = _flag(b00: historyDeleted);
 
     return v;
   }
@@ -33524,10 +32847,8 @@ class EncryptedChatDiscarded extends EncryptedChatBase {
 /// ID: `f141b5e1`.
 class InputEncryptedChat extends InputEncryptedChatBase {
   /// Input Encrypted Chat constructor.
-  const InputEncryptedChat({
-    required this.chatId,
-    required this.accessHash,
-  }) : super._();
+  const InputEncryptedChat({required this.chatId, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputEncryptedChat.deserialize(BinaryReader reader) {
@@ -33835,10 +33156,8 @@ class InputEncryptedFileUploaded extends InputEncryptedFileBase {
 /// ID: `5a17b5e5`.
 class InputEncryptedFile extends InputEncryptedFileBase {
   /// Input Encrypted File constructor.
-  const InputEncryptedFile({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputEncryptedFile({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputEncryptedFile.deserialize(BinaryReader reader) {
@@ -33847,10 +33166,7 @@ class InputEncryptedFile extends InputEncryptedFileBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputEncryptedFile] object.
-    final returnValue = InputEncryptedFile(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputEncryptedFile(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputEncryptedFile].
     return returnValue;
@@ -34137,9 +33453,7 @@ class EncryptedMessageService extends EncryptedMessageBase {
 /// ID: `c0e24635`.
 class MessagesDhConfigNotModified extends MessagesDhConfigBase {
   /// Messages Dh Config Not Modified constructor.
-  const MessagesDhConfigNotModified({
-    required this.random,
-  }) : super._();
+  const MessagesDhConfigNotModified({required this.random}) : super._();
 
   /// Deserialize.
   factory MessagesDhConfigNotModified.deserialize(BinaryReader reader) {
@@ -34147,9 +33461,7 @@ class MessagesDhConfigNotModified extends MessagesDhConfigBase {
     final random = reader.readBytes();
 
     // Construct [MessagesDhConfigNotModified] object.
-    final returnValue = MessagesDhConfigNotModified(
-      random: random,
-    );
+    final returnValue = MessagesDhConfigNotModified(random: random);
 
     // Now return the deserialized [MessagesDhConfigNotModified].
     return returnValue;
@@ -34267,9 +33579,7 @@ class MessagesDhConfig extends MessagesDhConfigBase {
 /// ID: `560f8935`.
 class MessagesSentEncryptedMessage extends MessagesSentEncryptedMessageBase {
   /// Messages Sent Encrypted Message constructor.
-  const MessagesSentEncryptedMessage({
-    required this.date,
-  }) : super._();
+  const MessagesSentEncryptedMessage({required this.date}) : super._();
 
   /// Deserialize.
   factory MessagesSentEncryptedMessage.deserialize(BinaryReader reader) {
@@ -34277,9 +33587,7 @@ class MessagesSentEncryptedMessage extends MessagesSentEncryptedMessageBase {
     final date = reader.readDateTime();
 
     // Construct [MessagesSentEncryptedMessage] object.
-    final returnValue = MessagesSentEncryptedMessage(
-      date: date,
-    );
+    final returnValue = MessagesSentEncryptedMessage(date: date);
 
     // Now return the deserialized [MessagesSentEncryptedMessage].
     return returnValue;
@@ -34318,10 +33626,8 @@ class MessagesSentEncryptedMessage extends MessagesSentEncryptedMessageBase {
 /// ID: `9493ff32`.
 class MessagesSentEncryptedFile extends MessagesSentEncryptedMessageBase {
   /// Messages Sent Encrypted File constructor.
-  const MessagesSentEncryptedFile({
-    required this.date,
-    required this.file,
-  }) : super._();
+  const MessagesSentEncryptedFile({required this.date, required this.file})
+      : super._();
 
   /// Deserialize.
   factory MessagesSentEncryptedFile.deserialize(BinaryReader reader) {
@@ -34330,10 +33636,7 @@ class MessagesSentEncryptedFile extends MessagesSentEncryptedMessageBase {
     final file = reader.readObject() as EncryptedFileBase;
 
     // Construct [MessagesSentEncryptedFile] object.
-    final returnValue = MessagesSentEncryptedFile(
-      date: date,
-      file: file,
-    );
+    final returnValue = MessagesSentEncryptedFile(date: date, file: file);
 
     // Now return the deserialized [MessagesSentEncryptedFile].
     return returnValue;
@@ -34485,9 +33788,7 @@ class InputDocument extends InputDocumentBase {
 /// ID: `36f8c871`.
 class DocumentEmpty extends DocumentBase {
   /// Document Empty constructor.
-  const DocumentEmpty({
-    required this.id,
-  }) : super._();
+  const DocumentEmpty({required this.id}) : super._();
 
   /// Deserialize.
   factory DocumentEmpty.deserialize(BinaryReader reader) {
@@ -34495,9 +33796,7 @@ class DocumentEmpty extends DocumentBase {
     final id = reader.readInt64();
 
     // Construct [DocumentEmpty] object.
-    final returnValue = DocumentEmpty(
-      id: id,
-    );
+    final returnValue = DocumentEmpty(id: id);
 
     // Now return the deserialized [DocumentEmpty].
     return returnValue;
@@ -34590,10 +33889,7 @@ class Document extends DocumentBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: thumbs != null,
-      b01: videoThumbs != null,
-    );
+    final v = _flag(b00: thumbs != null, b01: videoThumbs != null);
 
     return v;
   }
@@ -34692,10 +33988,8 @@ class Document extends DocumentBase {
 /// ID: `17c6b5f6`.
 class HelpSupport extends HelpSupportBase {
   /// Help Support constructor.
-  const HelpSupport({
-    required this.phoneNumber,
-    required this.user,
-  }) : super._();
+  const HelpSupport({required this.phoneNumber, required this.user})
+      : super._();
 
   /// Deserialize.
   factory HelpSupport.deserialize(BinaryReader reader) {
@@ -34704,10 +33998,7 @@ class HelpSupport extends HelpSupportBase {
     final user = reader.readObject() as UserBase;
 
     // Construct [HelpSupport] object.
-    final returnValue = HelpSupport(
-      phoneNumber: phoneNumber,
-      user: user,
-    );
+    final returnValue = HelpSupport(phoneNumber: phoneNumber, user: user);
 
     // Now return the deserialized [HelpSupport].
     return returnValue;
@@ -34751,9 +34042,7 @@ class HelpSupport extends HelpSupportBase {
 /// ID: `9fd40bd8`.
 class NotifyPeer extends NotifyPeerBase {
   /// Notify Peer constructor.
-  const NotifyPeer({
-    required this.peer,
-  }) : super._();
+  const NotifyPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory NotifyPeer.deserialize(BinaryReader reader) {
@@ -34761,9 +34050,7 @@ class NotifyPeer extends NotifyPeerBase {
     final peer = reader.readObject() as PeerBase;
 
     // Construct [NotifyPeer] object.
-    final returnValue = NotifyPeer(
-      peer: peer,
-    );
+    final returnValue = NotifyPeer(peer: peer);
 
     // Now return the deserialized [NotifyPeer].
     return returnValue;
@@ -34913,10 +34200,8 @@ class NotifyBroadcasts extends NotifyPeerBase {
 /// ID: `226e6308`.
 class NotifyForumTopic extends NotifyPeerBase {
   /// Notify Forum Topic constructor.
-  const NotifyForumTopic({
-    required this.peer,
-    required this.topMsgId,
-  }) : super._();
+  const NotifyForumTopic({required this.peer, required this.topMsgId})
+      : super._();
 
   /// Deserialize.
   factory NotifyForumTopic.deserialize(BinaryReader reader) {
@@ -34925,10 +34210,7 @@ class NotifyForumTopic extends NotifyPeerBase {
     final topMsgId = reader.readInt32();
 
     // Construct [NotifyForumTopic] object.
-    final returnValue = NotifyForumTopic(
-      peer: peer,
-      topMsgId: topMsgId,
-    );
+    final returnValue = NotifyForumTopic(peer: peer, topMsgId: topMsgId);
 
     // Now return the deserialized [NotifyForumTopic].
     return returnValue;
@@ -35085,9 +34367,7 @@ class SendMessageRecordVideoAction extends SendMessageActionBase {
 /// ID: `e9763aec`.
 class SendMessageUploadVideoAction extends SendMessageActionBase {
   /// Send Message Upload Video Action constructor.
-  const SendMessageUploadVideoAction({
-    required this.progress,
-  }) : super._();
+  const SendMessageUploadVideoAction({required this.progress}) : super._();
 
   /// Deserialize.
   factory SendMessageUploadVideoAction.deserialize(BinaryReader reader) {
@@ -35095,9 +34375,7 @@ class SendMessageUploadVideoAction extends SendMessageActionBase {
     final progress = reader.readInt32();
 
     // Construct [SendMessageUploadVideoAction] object.
-    final returnValue = SendMessageUploadVideoAction(
-      progress: progress,
-    );
+    final returnValue = SendMessageUploadVideoAction(progress: progress);
 
     // Now return the deserialized [SendMessageUploadVideoAction].
     return returnValue;
@@ -35175,9 +34453,7 @@ class SendMessageRecordAudioAction extends SendMessageActionBase {
 /// ID: `f351d7ab`.
 class SendMessageUploadAudioAction extends SendMessageActionBase {
   /// Send Message Upload Audio Action constructor.
-  const SendMessageUploadAudioAction({
-    required this.progress,
-  }) : super._();
+  const SendMessageUploadAudioAction({required this.progress}) : super._();
 
   /// Deserialize.
   factory SendMessageUploadAudioAction.deserialize(BinaryReader reader) {
@@ -35185,9 +34461,7 @@ class SendMessageUploadAudioAction extends SendMessageActionBase {
     final progress = reader.readInt32();
 
     // Construct [SendMessageUploadAudioAction] object.
-    final returnValue = SendMessageUploadAudioAction(
-      progress: progress,
-    );
+    final returnValue = SendMessageUploadAudioAction(progress: progress);
 
     // Now return the deserialized [SendMessageUploadAudioAction].
     return returnValue;
@@ -35228,9 +34502,7 @@ class SendMessageUploadAudioAction extends SendMessageActionBase {
 /// ID: `d1d34a26`.
 class SendMessageUploadPhotoAction extends SendMessageActionBase {
   /// Send Message Upload Photo Action constructor.
-  const SendMessageUploadPhotoAction({
-    required this.progress,
-  }) : super._();
+  const SendMessageUploadPhotoAction({required this.progress}) : super._();
 
   /// Deserialize.
   factory SendMessageUploadPhotoAction.deserialize(BinaryReader reader) {
@@ -35238,9 +34510,7 @@ class SendMessageUploadPhotoAction extends SendMessageActionBase {
     final progress = reader.readInt32();
 
     // Construct [SendMessageUploadPhotoAction] object.
-    final returnValue = SendMessageUploadPhotoAction(
-      progress: progress,
-    );
+    final returnValue = SendMessageUploadPhotoAction(progress: progress);
 
     // Now return the deserialized [SendMessageUploadPhotoAction].
     return returnValue;
@@ -35281,9 +34551,7 @@ class SendMessageUploadPhotoAction extends SendMessageActionBase {
 /// ID: `aa0cd9e4`.
 class SendMessageUploadDocumentAction extends SendMessageActionBase {
   /// Send Message Upload Document Action constructor.
-  const SendMessageUploadDocumentAction({
-    required this.progress,
-  }) : super._();
+  const SendMessageUploadDocumentAction({required this.progress}) : super._();
 
   /// Deserialize.
   factory SendMessageUploadDocumentAction.deserialize(BinaryReader reader) {
@@ -35291,9 +34559,7 @@ class SendMessageUploadDocumentAction extends SendMessageActionBase {
     final progress = reader.readInt32();
 
     // Construct [SendMessageUploadDocumentAction] object.
-    final returnValue = SendMessageUploadDocumentAction(
-      progress: progress,
-    );
+    final returnValue = SendMessageUploadDocumentAction(progress: progress);
 
     // Now return the deserialized [SendMessageUploadDocumentAction].
     return returnValue;
@@ -35482,9 +34748,7 @@ class SendMessageRecordRoundAction extends SendMessageActionBase {
 /// ID: `243e1c66`.
 class SendMessageUploadRoundAction extends SendMessageActionBase {
   /// Send Message Upload Round Action constructor.
-  const SendMessageUploadRoundAction({
-    required this.progress,
-  }) : super._();
+  const SendMessageUploadRoundAction({required this.progress}) : super._();
 
   /// Deserialize.
   factory SendMessageUploadRoundAction.deserialize(BinaryReader reader) {
@@ -35492,9 +34756,7 @@ class SendMessageUploadRoundAction extends SendMessageActionBase {
     final progress = reader.readInt32();
 
     // Construct [SendMessageUploadRoundAction] object.
-    final returnValue = SendMessageUploadRoundAction(
-      progress: progress,
-    );
+    final returnValue = SendMessageUploadRoundAction(progress: progress);
 
     // Now return the deserialized [SendMessageUploadRoundAction].
     return returnValue;
@@ -35572,9 +34834,7 @@ class SpeakingInGroupCallAction extends SendMessageActionBase {
 /// ID: `dbda9246`.
 class SendMessageHistoryImportAction extends SendMessageActionBase {
   /// Send Message History Import Action constructor.
-  const SendMessageHistoryImportAction({
-    required this.progress,
-  }) : super._();
+  const SendMessageHistoryImportAction({required this.progress}) : super._();
 
   /// Deserialize.
   factory SendMessageHistoryImportAction.deserialize(BinaryReader reader) {
@@ -35582,9 +34842,7 @@ class SendMessageHistoryImportAction extends SendMessageActionBase {
     final progress = reader.readInt32();
 
     // Construct [SendMessageHistoryImportAction] object.
-    final returnValue = SendMessageHistoryImportAction(
-      progress: progress,
-    );
+    final returnValue = SendMessageHistoryImportAction(progress: progress);
 
     // Now return the deserialized [SendMessageHistoryImportAction].
     return returnValue;
@@ -35731,9 +34989,7 @@ class SendMessageEmojiInteraction extends SendMessageActionBase {
 /// ID: `b665902e`.
 class SendMessageEmojiInteractionSeen extends SendMessageActionBase {
   /// Send Message Emoji Interaction Seen constructor.
-  const SendMessageEmojiInteractionSeen({
-    required this.emoticon,
-  }) : super._();
+  const SendMessageEmojiInteractionSeen({required this.emoticon}) : super._();
 
   /// Deserialize.
   factory SendMessageEmojiInteractionSeen.deserialize(BinaryReader reader) {
@@ -35741,9 +34997,7 @@ class SendMessageEmojiInteractionSeen extends SendMessageActionBase {
     final emoticon = reader.readString();
 
     // Construct [SendMessageEmojiInteractionSeen] object.
-    final returnValue = SendMessageEmojiInteractionSeen(
-      emoticon: emoticon,
-    );
+    final returnValue = SendMessageEmojiInteractionSeen(emoticon: emoticon);
 
     // Now return the deserialized [SendMessageEmojiInteractionSeen].
     return returnValue;
@@ -36893,9 +36147,7 @@ class InputPrivacyValueAllowAll extends InputPrivacyRuleBase {
 /// ID: `131cc67f`.
 class InputPrivacyValueAllowUsers extends InputPrivacyRuleBase {
   /// Input Privacy Value Allow Users constructor.
-  const InputPrivacyValueAllowUsers({
-    required this.users,
-  }) : super._();
+  const InputPrivacyValueAllowUsers({required this.users}) : super._();
 
   /// Deserialize.
   factory InputPrivacyValueAllowUsers.deserialize(BinaryReader reader) {
@@ -36903,9 +36155,7 @@ class InputPrivacyValueAllowUsers extends InputPrivacyRuleBase {
     final users = reader.readVectorObject<InputUserBase>();
 
     // Construct [InputPrivacyValueAllowUsers] object.
-    final returnValue = InputPrivacyValueAllowUsers(
-      users: users.items,
-    );
+    final returnValue = InputPrivacyValueAllowUsers(users: users.items);
 
     // Now return the deserialized [InputPrivacyValueAllowUsers].
     return returnValue;
@@ -37018,9 +36268,7 @@ class InputPrivacyValueDisallowAll extends InputPrivacyRuleBase {
 /// ID: `90110467`.
 class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
   /// Input Privacy Value Disallow Users constructor.
-  const InputPrivacyValueDisallowUsers({
-    required this.users,
-  }) : super._();
+  const InputPrivacyValueDisallowUsers({required this.users}) : super._();
 
   /// Deserialize.
   factory InputPrivacyValueDisallowUsers.deserialize(BinaryReader reader) {
@@ -37028,9 +36276,7 @@ class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
     final users = reader.readVectorObject<InputUserBase>();
 
     // Construct [InputPrivacyValueDisallowUsers] object.
-    final returnValue = InputPrivacyValueDisallowUsers(
-      users: users.items,
-    );
+    final returnValue = InputPrivacyValueDisallowUsers(users: users.items);
 
     // Now return the deserialized [InputPrivacyValueDisallowUsers].
     return returnValue;
@@ -37069,13 +36315,13 @@ class InputPrivacyValueDisallowUsers extends InputPrivacyRuleBase {
 /// ID: `840649cf`.
 class InputPrivacyValueAllowChatParticipants extends InputPrivacyRuleBase {
   /// Input Privacy Value Allow Chat Participants constructor.
-  const InputPrivacyValueAllowChatParticipants({
-    required this.chats,
-  }) : super._();
+  const InputPrivacyValueAllowChatParticipants({required this.chats})
+      : super._();
 
   /// Deserialize.
   factory InputPrivacyValueAllowChatParticipants.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [InputPrivacyValueAllowChatParticipants] fields.
     final chats = reader.readVectorInt64();
 
@@ -37121,13 +36367,13 @@ class InputPrivacyValueAllowChatParticipants extends InputPrivacyRuleBase {
 /// ID: `e94f0f86`.
 class InputPrivacyValueDisallowChatParticipants extends InputPrivacyRuleBase {
   /// Input Privacy Value Disallow Chat Participants constructor.
-  const InputPrivacyValueDisallowChatParticipants({
-    required this.chats,
-  }) : super._();
+  const InputPrivacyValueDisallowChatParticipants({required this.chats})
+      : super._();
 
   /// Deserialize.
   factory InputPrivacyValueDisallowChatParticipants.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [InputPrivacyValueDisallowChatParticipants] fields.
     final chats = reader.readVectorInt64();
 
@@ -37395,9 +36641,7 @@ class PrivacyValueAllowAll extends PrivacyRuleBase {
 /// ID: `b8905fb2`.
 class PrivacyValueAllowUsers extends PrivacyRuleBase {
   /// Privacy Value Allow Users constructor.
-  const PrivacyValueAllowUsers({
-    required this.users,
-  }) : super._();
+  const PrivacyValueAllowUsers({required this.users}) : super._();
 
   /// Deserialize.
   factory PrivacyValueAllowUsers.deserialize(BinaryReader reader) {
@@ -37405,9 +36649,7 @@ class PrivacyValueAllowUsers extends PrivacyRuleBase {
     final users = reader.readVectorInt64();
 
     // Construct [PrivacyValueAllowUsers] object.
-    final returnValue = PrivacyValueAllowUsers(
-      users: users.items,
-    );
+    final returnValue = PrivacyValueAllowUsers(users: users.items);
 
     // Now return the deserialized [PrivacyValueAllowUsers].
     return returnValue;
@@ -37520,9 +36762,7 @@ class PrivacyValueDisallowAll extends PrivacyRuleBase {
 /// ID: `e4621141`.
 class PrivacyValueDisallowUsers extends PrivacyRuleBase {
   /// Privacy Value Disallow Users constructor.
-  const PrivacyValueDisallowUsers({
-    required this.users,
-  }) : super._();
+  const PrivacyValueDisallowUsers({required this.users}) : super._();
 
   /// Deserialize.
   factory PrivacyValueDisallowUsers.deserialize(BinaryReader reader) {
@@ -37530,9 +36770,7 @@ class PrivacyValueDisallowUsers extends PrivacyRuleBase {
     final users = reader.readVectorInt64();
 
     // Construct [PrivacyValueDisallowUsers] object.
-    final returnValue = PrivacyValueDisallowUsers(
-      users: users.items,
-    );
+    final returnValue = PrivacyValueDisallowUsers(users: users.items);
 
     // Now return the deserialized [PrivacyValueDisallowUsers].
     return returnValue;
@@ -37571,9 +36809,7 @@ class PrivacyValueDisallowUsers extends PrivacyRuleBase {
 /// ID: `6b134e8e`.
 class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
   /// Privacy Value Allow Chat Participants constructor.
-  const PrivacyValueAllowChatParticipants({
-    required this.chats,
-  }) : super._();
+  const PrivacyValueAllowChatParticipants({required this.chats}) : super._();
 
   /// Deserialize.
   factory PrivacyValueAllowChatParticipants.deserialize(BinaryReader reader) {
@@ -37581,9 +36817,7 @@ class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
     final chats = reader.readVectorInt64();
 
     // Construct [PrivacyValueAllowChatParticipants] object.
-    final returnValue = PrivacyValueAllowChatParticipants(
-      chats: chats.items,
-    );
+    final returnValue = PrivacyValueAllowChatParticipants(chats: chats.items);
 
     // Now return the deserialized [PrivacyValueAllowChatParticipants].
     return returnValue;
@@ -37622,13 +36856,12 @@ class PrivacyValueAllowChatParticipants extends PrivacyRuleBase {
 /// ID: `41c87565`.
 class PrivacyValueDisallowChatParticipants extends PrivacyRuleBase {
   /// Privacy Value Disallow Chat Participants constructor.
-  const PrivacyValueDisallowChatParticipants({
-    required this.chats,
-  }) : super._();
+  const PrivacyValueDisallowChatParticipants({required this.chats}) : super._();
 
   /// Deserialize.
   factory PrivacyValueDisallowChatParticipants.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PrivacyValueDisallowChatParticipants] fields.
     final chats = reader.readVectorInt64();
 
@@ -37889,9 +37122,7 @@ class AccountPrivacyRules extends AccountPrivacyRulesBase {
 /// ID: `b8d0afdf`.
 class AccountDaysTTL extends AccountDaysTTLBase {
   /// Account Days T T L constructor.
-  const AccountDaysTTL({
-    required this.days,
-  }) : super._();
+  const AccountDaysTTL({required this.days}) : super._();
 
   /// Deserialize.
   factory AccountDaysTTL.deserialize(BinaryReader reader) {
@@ -37899,9 +37130,7 @@ class AccountDaysTTL extends AccountDaysTTLBase {
     final days = reader.readInt32();
 
     // Construct [AccountDaysTTL] object.
-    final returnValue = AccountDaysTTL(
-      days: days,
-    );
+    final returnValue = AccountDaysTTL(days: days);
 
     // Now return the deserialized [AccountDaysTTL].
     return returnValue;
@@ -37942,10 +37171,8 @@ class AccountDaysTTL extends AccountDaysTTLBase {
 /// ID: `6c37c15c`.
 class DocumentAttributeImageSize extends DocumentAttributeBase {
   /// Document Attribute Image Size constructor.
-  const DocumentAttributeImageSize({
-    required this.w,
-    required this.h,
-  }) : super._();
+  const DocumentAttributeImageSize({required this.w, required this.h})
+      : super._();
 
   /// Deserialize.
   factory DocumentAttributeImageSize.deserialize(BinaryReader reader) {
@@ -37954,10 +37181,7 @@ class DocumentAttributeImageSize extends DocumentAttributeBase {
     final h = reader.readInt32();
 
     // Construct [DocumentAttributeImageSize] object.
-    final returnValue = DocumentAttributeImageSize(
-      w: w,
-      h: h,
-    );
+    final returnValue = DocumentAttributeImageSize(w: w, h: h);
 
     // Now return the deserialized [DocumentAttributeImageSize].
     return returnValue;
@@ -38074,10 +37298,7 @@ class DocumentAttributeSticker extends DocumentAttributeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: mask,
-      b00: maskCoords != null,
-    );
+    final v = _flag(b01: mask, b00: maskCoords != null);
 
     return v;
   }
@@ -38391,9 +37612,7 @@ class DocumentAttributeAudio extends DocumentAttributeBase {
 /// ID: `15590068`.
 class DocumentAttributeFilename extends DocumentAttributeBase {
   /// Document Attribute Filename constructor.
-  const DocumentAttributeFilename({
-    required this.fileName,
-  }) : super._();
+  const DocumentAttributeFilename({required this.fileName}) : super._();
 
   /// Deserialize.
   factory DocumentAttributeFilename.deserialize(BinaryReader reader) {
@@ -38401,9 +37620,7 @@ class DocumentAttributeFilename extends DocumentAttributeBase {
     final fileName = reader.readString();
 
     // Construct [DocumentAttributeFilename] object.
-    final returnValue = DocumentAttributeFilename(
-      fileName: fileName,
-    );
+    final returnValue = DocumentAttributeFilename(fileName: fileName);
 
     // Now return the deserialized [DocumentAttributeFilename].
     return returnValue;
@@ -38509,10 +37726,7 @@ class DocumentAttributeCustomEmoji extends DocumentAttributeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: free,
-      b01: textColor,
-    );
+    final v = _flag(b00: free, b01: textColor);
 
     return v;
   }
@@ -38602,10 +37816,8 @@ class MessagesStickersNotModified extends MessagesStickersBase {
 /// ID: `30a6ec7e`.
 class MessagesStickers extends MessagesStickersBase {
   /// Messages Stickers constructor.
-  const MessagesStickers({
-    required this.hash,
-    required this.stickers,
-  }) : super._();
+  const MessagesStickers({required this.hash, required this.stickers})
+      : super._();
 
   /// Deserialize.
   factory MessagesStickers.deserialize(BinaryReader reader) {
@@ -38614,10 +37826,7 @@ class MessagesStickers extends MessagesStickersBase {
     final stickers = reader.readVectorObject<DocumentBase>();
 
     // Construct [MessagesStickers] object.
-    final returnValue = MessagesStickers(
-      hash: hash,
-      stickers: stickers.items,
-    );
+    final returnValue = MessagesStickers(hash: hash, stickers: stickers.items);
 
     // Now return the deserialized [MessagesStickers].
     return returnValue;
@@ -38663,10 +37872,8 @@ class MessagesStickers extends MessagesStickersBase {
 /// ID: `12b299d4`.
 class StickerPack extends StickerPackBase {
   /// Sticker Pack constructor.
-  const StickerPack({
-    required this.emoticon,
-    required this.documents,
-  }) : super._();
+  const StickerPack({required this.emoticon, required this.documents})
+      : super._();
 
   /// Deserialize.
   factory StickerPack.deserialize(BinaryReader reader) {
@@ -38759,10 +37966,8 @@ class MessagesAllStickersNotModified extends MessagesAllStickersBase {
 /// ID: `cdbbcebb`.
 class MessagesAllStickers extends MessagesAllStickersBase {
   /// Messages All Stickers constructor.
-  const MessagesAllStickers({
-    required this.hash,
-    required this.sets,
-  }) : super._();
+  const MessagesAllStickers({required this.hash, required this.sets})
+      : super._();
 
   /// Deserialize.
   factory MessagesAllStickers.deserialize(BinaryReader reader) {
@@ -38771,10 +37976,7 @@ class MessagesAllStickers extends MessagesAllStickersBase {
     final sets = reader.readVectorObject<StickerSetBase>();
 
     // Construct [MessagesAllStickers] object.
-    final returnValue = MessagesAllStickers(
-      hash: hash,
-      sets: sets.items,
-    );
+    final returnValue = MessagesAllStickers(hash: hash, sets: sets.items);
 
     // Now return the deserialized [MessagesAllStickers].
     return returnValue;
@@ -38820,10 +38022,8 @@ class MessagesAllStickers extends MessagesAllStickersBase {
 /// ID: `84d19185`.
 class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
   /// Messages Affected Messages constructor.
-  const MessagesAffectedMessages({
-    required this.pts,
-    required this.ptsCount,
-  }) : super._();
+  const MessagesAffectedMessages({required this.pts, required this.ptsCount})
+      : super._();
 
   /// Deserialize.
   factory MessagesAffectedMessages.deserialize(BinaryReader reader) {
@@ -38832,10 +38032,7 @@ class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
     final ptsCount = reader.readInt32();
 
     // Construct [MessagesAffectedMessages] object.
-    final returnValue = MessagesAffectedMessages(
-      pts: pts,
-      ptsCount: ptsCount,
-    );
+    final returnValue = MessagesAffectedMessages(pts: pts, ptsCount: ptsCount);
 
     // Now return the deserialized [MessagesAffectedMessages].
     return returnValue;
@@ -38883,10 +38080,7 @@ class MessagesAffectedMessages extends MessagesAffectedMessagesBase {
 /// ID: `211a1788`.
 class WebPageEmpty extends WebPageBase {
   /// Web Page Empty constructor.
-  const WebPageEmpty({
-    required this.id,
-    this.url,
-  }) : super._();
+  const WebPageEmpty({required this.id, this.url}) : super._();
 
   /// Deserialize.
   factory WebPageEmpty.deserialize(BinaryReader reader) {
@@ -38897,10 +38091,7 @@ class WebPageEmpty extends WebPageBase {
     final url = hasUrlField ? reader.readString() : null;
 
     // Construct [WebPageEmpty] object.
-    final returnValue = WebPageEmpty(
-      id: id,
-      url: url,
-    );
+    final returnValue = WebPageEmpty(id: id, url: url);
 
     // Now return the deserialized [WebPageEmpty].
     return returnValue;
@@ -38908,9 +38099,7 @@ class WebPageEmpty extends WebPageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: url != null,
-    );
+    final v = _flag(b00: url != null);
 
     return v;
   }
@@ -38960,11 +38149,8 @@ class WebPageEmpty extends WebPageBase {
 /// ID: `b0d13e47`.
 class WebPagePending extends WebPageBase {
   /// Web Page Pending constructor.
-  const WebPagePending({
-    required this.id,
-    this.url,
-    required this.date,
-  }) : super._();
+  const WebPagePending({required this.id, this.url, required this.date})
+      : super._();
 
   /// Deserialize.
   factory WebPagePending.deserialize(BinaryReader reader) {
@@ -38976,11 +38162,7 @@ class WebPagePending extends WebPageBase {
     final date = reader.readDateTime();
 
     // Construct [WebPagePending] object.
-    final returnValue = WebPagePending(
-      id: id,
-      url: url,
-      date: date,
-    );
+    final returnValue = WebPagePending(id: id, url: url, date: date);
 
     // Now return the deserialized [WebPagePending].
     return returnValue;
@@ -38988,9 +38170,7 @@ class WebPagePending extends WebPageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: url != null,
-    );
+    final v = _flag(b00: url != null);
 
     return v;
   }
@@ -39335,9 +38515,7 @@ class WebPage extends WebPageBase {
 /// ID: `7311ca11`.
 class WebPageNotModified extends WebPageBase {
   /// Web Page Not Modified constructor.
-  const WebPageNotModified({
-    this.cachedPageViews,
-  }) : super._();
+  const WebPageNotModified({this.cachedPageViews}) : super._();
 
   /// Deserialize.
   factory WebPageNotModified.deserialize(BinaryReader reader) {
@@ -39347,9 +38525,7 @@ class WebPageNotModified extends WebPageBase {
     final cachedPageViews = hasCachedPageViewsField ? reader.readInt32() : null;
 
     // Construct [WebPageNotModified] object.
-    final returnValue = WebPageNotModified(
-      cachedPageViews: cachedPageViews,
-    );
+    final returnValue = WebPageNotModified(cachedPageViews: cachedPageViews);
 
     // Now return the deserialized [WebPageNotModified].
     return returnValue;
@@ -39357,9 +38533,7 @@ class WebPageNotModified extends WebPageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: cachedPageViews != null,
-    );
+    final v = _flag(b00: cachedPageViews != null);
 
     return v;
   }
@@ -39859,10 +39033,7 @@ class AccountPassword extends AccountPasswordBase {
 /// ID: `9a5c33e5`.
 class AccountPasswordSettings extends AccountPasswordSettingsBase {
   /// Account Password Settings constructor.
-  const AccountPasswordSettings({
-    this.email,
-    this.secureSettings,
-  }) : super._();
+  const AccountPasswordSettings({this.email, this.secureSettings}) : super._();
 
   /// Deserialize.
   factory AccountPasswordSettings.deserialize(BinaryReader reader) {
@@ -39887,10 +39058,7 @@ class AccountPasswordSettings extends AccountPasswordSettingsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: email != null,
-      b01: secureSettings != null,
-    );
+    final v = _flag(b00: email != null, b01: secureSettings != null);
 
     return v;
   }
@@ -40061,9 +39229,7 @@ class AccountPasswordInputSettings extends AccountPasswordInputSettingsBase {
 /// ID: `137948a5`.
 class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
   /// Auth Password Recovery constructor.
-  const AuthPasswordRecovery({
-    required this.emailPattern,
-  }) : super._();
+  const AuthPasswordRecovery({required this.emailPattern}) : super._();
 
   /// Deserialize.
   factory AuthPasswordRecovery.deserialize(BinaryReader reader) {
@@ -40071,9 +39237,7 @@ class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
     final emailPattern = reader.readString();
 
     // Construct [AuthPasswordRecovery] object.
-    final returnValue = AuthPasswordRecovery(
-      emailPattern: emailPattern,
-    );
+    final returnValue = AuthPasswordRecovery(emailPattern: emailPattern);
 
     // Now return the deserialized [AuthPasswordRecovery].
     return returnValue;
@@ -40112,10 +39276,8 @@ class AuthPasswordRecovery extends AuthPasswordRecoveryBase {
 /// ID: `a384b779`.
 class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
   /// Received Notify Message constructor.
-  const ReceivedNotifyMessage({
-    required this.id,
-    required this.flags,
-  }) : super._();
+  const ReceivedNotifyMessage({required this.id, required this.flags})
+      : super._();
 
   /// Deserialize.
   factory ReceivedNotifyMessage.deserialize(BinaryReader reader) {
@@ -40124,10 +39286,7 @@ class ReceivedNotifyMessage extends ReceivedNotifyMessageBase {
     final flags = reader.readInt32();
 
     // Construct [ReceivedNotifyMessage] object.
-    final returnValue = ReceivedNotifyMessage(
-      id: id,
-      flags: flags,
-    );
+    final returnValue = ReceivedNotifyMessage(id: id, flags: flags);
 
     // Now return the deserialized [ReceivedNotifyMessage].
     return returnValue;
@@ -40423,9 +39582,7 @@ class ChatInvitePublicJoinRequests extends ExportedChatInviteBase {
 /// ID: `5a686d7c`.
 class ChatInviteAlready extends ChatInviteBase {
   /// Chat Invite Already constructor.
-  const ChatInviteAlready({
-    required this.chat,
-  }) : super._();
+  const ChatInviteAlready({required this.chat}) : super._();
 
   /// Deserialize.
   factory ChatInviteAlready.deserialize(BinaryReader reader) {
@@ -40433,9 +39590,7 @@ class ChatInviteAlready extends ChatInviteBase {
     final chat = reader.readObject() as ChatBase;
 
     // Construct [ChatInviteAlready] object.
-    final returnValue = ChatInviteAlready(
-      chat: chat,
-    );
+    final returnValue = ChatInviteAlready(chat: chat);
 
     // Now return the deserialized [ChatInviteAlready].
     return returnValue;
@@ -40707,10 +39862,7 @@ class ChatInvite extends ChatInviteBase {
 /// ID: `61695cb0`.
 class ChatInvitePeek extends ChatInviteBase {
   /// Chat Invite Peek constructor.
-  const ChatInvitePeek({
-    required this.chat,
-    required this.expires,
-  }) : super._();
+  const ChatInvitePeek({required this.chat, required this.expires}) : super._();
 
   /// Deserialize.
   factory ChatInvitePeek.deserialize(BinaryReader reader) {
@@ -40719,10 +39871,7 @@ class ChatInvitePeek extends ChatInviteBase {
     final expires = reader.readDateTime();
 
     // Construct [ChatInvitePeek] object.
-    final returnValue = ChatInvitePeek(
-      chat: chat,
-      expires: expires,
-    );
+    final returnValue = ChatInvitePeek(chat: chat, expires: expires);
 
     // Now return the deserialized [ChatInvitePeek].
     return returnValue;
@@ -40803,10 +39952,8 @@ class InputStickerSetEmpty extends InputStickerSetBase {
 /// ID: `9de7a269`.
 class InputStickerSetID extends InputStickerSetBase {
   /// Input Sticker Set I D constructor.
-  const InputStickerSetID({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputStickerSetID({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputStickerSetID.deserialize(BinaryReader reader) {
@@ -40815,10 +39962,7 @@ class InputStickerSetID extends InputStickerSetBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputStickerSetID] object.
-    final returnValue = InputStickerSetID(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputStickerSetID(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputStickerSetID].
     return returnValue;
@@ -40866,9 +40010,7 @@ class InputStickerSetID extends InputStickerSetBase {
 /// ID: `861cc8a0`.
 class InputStickerSetShortName extends InputStickerSetBase {
   /// Input Sticker Set Short Name constructor.
-  const InputStickerSetShortName({
-    required this.shortName,
-  }) : super._();
+  const InputStickerSetShortName({required this.shortName}) : super._();
 
   /// Deserialize.
   factory InputStickerSetShortName.deserialize(BinaryReader reader) {
@@ -40876,9 +40018,7 @@ class InputStickerSetShortName extends InputStickerSetBase {
     final shortName = reader.readString();
 
     // Construct [InputStickerSetShortName] object.
-    final returnValue = InputStickerSetShortName(
-      shortName: shortName,
-    );
+    final returnValue = InputStickerSetShortName(shortName: shortName);
 
     // Now return the deserialized [InputStickerSetShortName].
     return returnValue;
@@ -40954,9 +40094,7 @@ class InputStickerSetAnimatedEmoji extends InputStickerSetBase {
 /// ID: `e67f520e`.
 class InputStickerSetDice extends InputStickerSetBase {
   /// Input Sticker Set Dice constructor.
-  const InputStickerSetDice({
-    required this.emoticon,
-  }) : super._();
+  const InputStickerSetDice({required this.emoticon}) : super._();
 
   /// Deserialize.
   factory InputStickerSetDice.deserialize(BinaryReader reader) {
@@ -40964,9 +40102,7 @@ class InputStickerSetDice extends InputStickerSetBase {
     final emoticon = reader.readString();
 
     // Construct [InputStickerSetDice] object.
-    final returnValue = InputStickerSetDice(
-      emoticon: emoticon,
-    );
+    final returnValue = InputStickerSetDice(emoticon: emoticon);
 
     // Now return the deserialized [InputStickerSetDice].
     return returnValue;
@@ -41009,7 +40145,8 @@ class InputStickerSetAnimatedEmojiAnimations extends InputStickerSetBase {
 
   /// Deserialize.
   factory InputStickerSetAnimatedEmojiAnimations.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [InputStickerSetAnimatedEmojiAnimations] object.
     final returnValue = InputStickerSetAnimatedEmojiAnimations();
 
@@ -41084,7 +40221,8 @@ class InputStickerSetEmojiGenericAnimations extends InputStickerSetBase {
 
   /// Deserialize.
   factory InputStickerSetEmojiGenericAnimations.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [InputStickerSetEmojiGenericAnimations] object.
     final returnValue = InputStickerSetEmojiGenericAnimations();
 
@@ -41159,7 +40297,8 @@ class InputStickerSetEmojiDefaultTopicIcons extends InputStickerSetBase {
 
   /// Deserialize.
   factory InputStickerSetEmojiDefaultTopicIcons.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [InputStickerSetEmojiDefaultTopicIcons] object.
     final returnValue = InputStickerSetEmojiDefaultTopicIcons();
 
@@ -41197,7 +40336,8 @@ class InputStickerSetEmojiChannelDefaultStatuses extends InputStickerSetBase {
 
   /// Deserialize.
   factory InputStickerSetEmojiChannelDefaultStatuses.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [InputStickerSetEmojiChannelDefaultStatuses] object.
     final returnValue = InputStickerSetEmojiChannelDefaultStatuses();
 
@@ -41610,10 +40750,8 @@ class MessagesStickerSetNotModified extends MessagesStickerSetBase {
 /// ID: `c27ac8c7`.
 class BotCommand extends BotCommandBase {
   /// Bot Command constructor.
-  const BotCommand({
-    required this.command,
-    required this.description,
-  }) : super._();
+  const BotCommand({required this.command, required this.description})
+      : super._();
 
   /// Deserialize.
   factory BotCommand.deserialize(BinaryReader reader) {
@@ -41622,10 +40760,7 @@ class BotCommand extends BotCommandBase {
     final description = reader.readString();
 
     // Construct [BotCommand] object.
-    final returnValue = BotCommand(
-      command: command,
-      description: description,
-    );
+    final returnValue = BotCommand(command: command, description: description);
 
     // Now return the deserialized [BotCommand].
     return returnValue;
@@ -41857,9 +40992,7 @@ class BotInfo extends BotInfoBase {
 /// ID: `a2fa4880`.
 class KeyboardButton extends KeyboardButtonBase {
   /// Keyboard Button constructor.
-  const KeyboardButton({
-    required this.text,
-  }) : super._();
+  const KeyboardButton({required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButton.deserialize(BinaryReader reader) {
@@ -41867,9 +41000,7 @@ class KeyboardButton extends KeyboardButtonBase {
     final text = reader.readString();
 
     // Construct [KeyboardButton] object.
-    final returnValue = KeyboardButton(
-      text: text,
-    );
+    final returnValue = KeyboardButton(text: text);
 
     // Now return the deserialized [KeyboardButton].
     return returnValue;
@@ -41908,10 +41039,7 @@ class KeyboardButton extends KeyboardButtonBase {
 /// ID: `258aff05`.
 class KeyboardButtonUrl extends KeyboardButtonBase {
   /// Keyboard Button Url constructor.
-  const KeyboardButtonUrl({
-    required this.text,
-    required this.url,
-  }) : super._();
+  const KeyboardButtonUrl({required this.text, required this.url}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonUrl.deserialize(BinaryReader reader) {
@@ -41920,10 +41048,7 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
     final url = reader.readString();
 
     // Construct [KeyboardButtonUrl] object.
-    final returnValue = KeyboardButtonUrl(
-      text: text,
-      url: url,
-    );
+    final returnValue = KeyboardButtonUrl(text: text, url: url);
 
     // Now return the deserialized [KeyboardButtonUrl].
     return returnValue;
@@ -41994,9 +41119,7 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: requiresPassword,
-    );
+    final v = _flag(b00: requiresPassword);
 
     return v;
   }
@@ -42045,9 +41168,7 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
 /// ID: `b16a6c29`.
 class KeyboardButtonRequestPhone extends KeyboardButtonBase {
   /// Keyboard Button Request Phone constructor.
-  const KeyboardButtonRequestPhone({
-    required this.text,
-  }) : super._();
+  const KeyboardButtonRequestPhone({required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonRequestPhone.deserialize(BinaryReader reader) {
@@ -42055,9 +41176,7 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestPhone] object.
-    final returnValue = KeyboardButtonRequestPhone(
-      text: text,
-    );
+    final returnValue = KeyboardButtonRequestPhone(text: text);
 
     // Now return the deserialized [KeyboardButtonRequestPhone].
     return returnValue;
@@ -42096,9 +41215,7 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
 /// ID: `fc796b3f`.
 class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
   /// Keyboard Button Request Geo Location constructor.
-  const KeyboardButtonRequestGeoLocation({
-    required this.text,
-  }) : super._();
+  const KeyboardButtonRequestGeoLocation({required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonRequestGeoLocation.deserialize(BinaryReader reader) {
@@ -42106,9 +41223,7 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestGeoLocation] object.
-    final returnValue = KeyboardButtonRequestGeoLocation(
-      text: text,
-    );
+    final returnValue = KeyboardButtonRequestGeoLocation(text: text);
 
     // Now return the deserialized [KeyboardButtonRequestGeoLocation].
     return returnValue;
@@ -42180,10 +41295,7 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: samePeer,
-      b01: peerTypes != null,
-    );
+    final v = _flag(b00: samePeer, b01: peerTypes != null);
 
     return v;
   }
@@ -42240,9 +41352,7 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
 /// ID: `50f41ccf`.
 class KeyboardButtonGame extends KeyboardButtonBase {
   /// Keyboard Button Game constructor.
-  const KeyboardButtonGame({
-    required this.text,
-  }) : super._();
+  const KeyboardButtonGame({required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonGame.deserialize(BinaryReader reader) {
@@ -42250,9 +41360,7 @@ class KeyboardButtonGame extends KeyboardButtonBase {
     final text = reader.readString();
 
     // Construct [KeyboardButtonGame] object.
-    final returnValue = KeyboardButtonGame(
-      text: text,
-    );
+    final returnValue = KeyboardButtonGame(text: text);
 
     // Now return the deserialized [KeyboardButtonGame].
     return returnValue;
@@ -42291,9 +41399,7 @@ class KeyboardButtonGame extends KeyboardButtonBase {
 /// ID: `afd93fbb`.
 class KeyboardButtonBuy extends KeyboardButtonBase {
   /// Keyboard Button Buy constructor.
-  const KeyboardButtonBuy({
-    required this.text,
-  }) : super._();
+  const KeyboardButtonBuy({required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonBuy.deserialize(BinaryReader reader) {
@@ -42301,9 +41407,7 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
     final text = reader.readString();
 
     // Construct [KeyboardButtonBuy] object.
-    final returnValue = KeyboardButtonBuy(
-      text: text,
-    );
+    final returnValue = KeyboardButtonBuy(text: text);
 
     // Now return the deserialized [KeyboardButtonBuy].
     return returnValue;
@@ -42373,9 +41477,7 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: fwdText != null,
-    );
+    final v = _flag(b00: fwdText != null);
 
     return v;
   }
@@ -42469,10 +41571,7 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: requestWriteAccess,
-      b01: fwdText != null,
-    );
+    final v = _flag(b00: requestWriteAccess, b01: fwdText != null);
 
     return v;
   }
@@ -42534,10 +41633,7 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
 /// ID: `bbc7515d`.
 class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Keyboard Button Request Poll constructor.
-  const KeyboardButtonRequestPoll({
-    this.quiz,
-    required this.text,
-  }) : super._();
+  const KeyboardButtonRequestPoll({this.quiz, required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonRequestPoll.deserialize(BinaryReader reader) {
@@ -42547,10 +41643,7 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestPoll] object.
-    final returnValue = KeyboardButtonRequestPoll(
-      quiz: quiz,
-      text: text,
-    );
+    final returnValue = KeyboardButtonRequestPoll(quiz: quiz, text: text);
 
     // Now return the deserialized [KeyboardButtonRequestPoll].
     return returnValue;
@@ -42558,9 +41651,7 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: (quiz != null),
-    );
+    final v = _flag(b00: (quiz != null));
 
     return v;
   }
@@ -42667,10 +41758,8 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
 /// ID: `308660c1`.
 class KeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Keyboard Button User Profile constructor.
-  const KeyboardButtonUserProfile({
-    required this.text,
-    required this.userId,
-  }) : super._();
+  const KeyboardButtonUserProfile({required this.text, required this.userId})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonUserProfile.deserialize(BinaryReader reader) {
@@ -42679,10 +41768,7 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
     final userId = reader.readInt64();
 
     // Construct [KeyboardButtonUserProfile] object.
-    final returnValue = KeyboardButtonUserProfile(
-      text: text,
-      userId: userId,
-    );
+    final returnValue = KeyboardButtonUserProfile(text: text, userId: userId);
 
     // Now return the deserialized [KeyboardButtonUserProfile].
     return returnValue;
@@ -42728,10 +41814,8 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
 /// ID: `13767230`.
 class KeyboardButtonWebView extends KeyboardButtonBase {
   /// Keyboard Button Web View constructor.
-  const KeyboardButtonWebView({
-    required this.text,
-    required this.url,
-  }) : super._();
+  const KeyboardButtonWebView({required this.text, required this.url})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonWebView.deserialize(BinaryReader reader) {
@@ -42740,10 +41824,7 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
     final url = reader.readString();
 
     // Construct [KeyboardButtonWebView] object.
-    final returnValue = KeyboardButtonWebView(
-      text: text,
-      url: url,
-    );
+    final returnValue = KeyboardButtonWebView(text: text, url: url);
 
     // Now return the deserialized [KeyboardButtonWebView].
     return returnValue;
@@ -42787,10 +41868,8 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
 /// ID: `a0c0505c`.
 class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
   /// Keyboard Button Simple Web View constructor.
-  const KeyboardButtonSimpleWebView({
-    required this.text,
-    required this.url,
-  }) : super._();
+  const KeyboardButtonSimpleWebView({required this.text, required this.url})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonSimpleWebView.deserialize(BinaryReader reader) {
@@ -42799,10 +41878,7 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
     final url = reader.readString();
 
     // Construct [KeyboardButtonSimpleWebView] object.
-    final returnValue = KeyboardButtonSimpleWebView(
-      text: text,
-      url: url,
-    );
+    final returnValue = KeyboardButtonSimpleWebView(text: text, url: url);
 
     // Now return the deserialized [KeyboardButtonSimpleWebView].
     return returnValue;
@@ -43039,10 +42115,8 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
 /// ID: `75d2698e`.
 class KeyboardButtonCopy extends KeyboardButtonBase {
   /// Keyboard Button Copy constructor.
-  const KeyboardButtonCopy({
-    required this.text,
-    required this.copyText,
-  }) : super._();
+  const KeyboardButtonCopy({required this.text, required this.copyText})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonCopy.deserialize(BinaryReader reader) {
@@ -43051,10 +42125,7 @@ class KeyboardButtonCopy extends KeyboardButtonBase {
     final copyText = reader.readString();
 
     // Construct [KeyboardButtonCopy] object.
-    final returnValue = KeyboardButtonCopy(
-      text: text,
-      copyText: copyText,
-    );
+    final returnValue = KeyboardButtonCopy(text: text, copyText: copyText);
 
     // Now return the deserialized [KeyboardButtonCopy].
     return returnValue;
@@ -43098,9 +42169,7 @@ class KeyboardButtonCopy extends KeyboardButtonBase {
 /// ID: `77608b83`.
 class KeyboardButtonRow extends KeyboardButtonRowBase {
   /// Keyboard Button Row constructor.
-  const KeyboardButtonRow({
-    required this.buttons,
-  }) : super._();
+  const KeyboardButtonRow({required this.buttons}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonRow.deserialize(BinaryReader reader) {
@@ -43108,9 +42177,7 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
     final buttons = reader.readVectorObject<KeyboardButtonBase>();
 
     // Construct [KeyboardButtonRow] object.
-    final returnValue = KeyboardButtonRow(
-      buttons: buttons.items,
-    );
+    final returnValue = KeyboardButtonRow(buttons: buttons.items);
 
     // Now return the deserialized [KeyboardButtonRow].
     return returnValue;
@@ -43149,9 +42216,7 @@ class KeyboardButtonRow extends KeyboardButtonRowBase {
 /// ID: `a03e5b85`.
 class ReplyKeyboardHide extends ReplyMarkupBase {
   /// Reply Keyboard Hide constructor.
-  const ReplyKeyboardHide({
-    required this.selective,
-  }) : super._();
+  const ReplyKeyboardHide({required this.selective}) : super._();
 
   /// Deserialize.
   factory ReplyKeyboardHide.deserialize(BinaryReader reader) {
@@ -43160,9 +42225,7 @@ class ReplyKeyboardHide extends ReplyMarkupBase {
     final selective = (flags & 4) != 0;
 
     // Construct [ReplyKeyboardHide] object.
-    final returnValue = ReplyKeyboardHide(
-      selective: selective,
-    );
+    final returnValue = ReplyKeyboardHide(selective: selective);
 
     // Now return the deserialized [ReplyKeyboardHide].
     return returnValue;
@@ -43170,9 +42233,7 @@ class ReplyKeyboardHide extends ReplyMarkupBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: selective,
-    );
+    final v = _flag(b02: selective);
 
     return v;
   }
@@ -43239,11 +42300,7 @@ class ReplyKeyboardForceReply extends ReplyMarkupBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: singleUse,
-      b02: selective,
-      b03: placeholder != null,
-    );
+    final v = _flag(b01: singleUse, b02: selective, b03: placeholder != null);
 
     return v;
   }
@@ -43401,9 +42458,7 @@ class ReplyKeyboardMarkup extends ReplyMarkupBase {
 /// ID: `48a30254`.
 class ReplyInlineMarkup extends ReplyMarkupBase {
   /// Reply Inline Markup constructor.
-  const ReplyInlineMarkup({
-    required this.rows,
-  }) : super._();
+  const ReplyInlineMarkup({required this.rows}) : super._();
 
   /// Deserialize.
   factory ReplyInlineMarkup.deserialize(BinaryReader reader) {
@@ -43411,9 +42466,7 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
     final rows = reader.readVectorObject<KeyboardButtonRowBase>();
 
     // Construct [ReplyInlineMarkup] object.
-    final returnValue = ReplyInlineMarkup(
-      rows: rows.items,
-    );
+    final returnValue = ReplyInlineMarkup(rows: rows.items);
 
     // Now return the deserialized [ReplyInlineMarkup].
     return returnValue;
@@ -43452,10 +42505,8 @@ class ReplyInlineMarkup extends ReplyMarkupBase {
 /// ID: `bb92ba95`.
 class MessageEntityUnknown extends MessageEntityBase {
   /// Message Entity Unknown constructor.
-  const MessageEntityUnknown({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityUnknown({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUnknown.deserialize(BinaryReader reader) {
@@ -43464,10 +42515,7 @@ class MessageEntityUnknown extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityUnknown] object.
-    final returnValue = MessageEntityUnknown(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityUnknown(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityUnknown].
     return returnValue;
@@ -43515,10 +42563,8 @@ class MessageEntityUnknown extends MessageEntityBase {
 /// ID: `fa04579d`.
 class MessageEntityMention extends MessageEntityBase {
   /// Message Entity Mention constructor.
-  const MessageEntityMention({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityMention({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityMention.deserialize(BinaryReader reader) {
@@ -43527,10 +42573,7 @@ class MessageEntityMention extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityMention] object.
-    final returnValue = MessageEntityMention(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityMention(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityMention].
     return returnValue;
@@ -43578,10 +42621,8 @@ class MessageEntityMention extends MessageEntityBase {
 /// ID: `6f635b0d`.
 class MessageEntityHashtag extends MessageEntityBase {
   /// Message Entity Hashtag constructor.
-  const MessageEntityHashtag({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityHashtag({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityHashtag.deserialize(BinaryReader reader) {
@@ -43590,10 +42631,7 @@ class MessageEntityHashtag extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityHashtag] object.
-    final returnValue = MessageEntityHashtag(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityHashtag(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityHashtag].
     return returnValue;
@@ -43641,10 +42679,8 @@ class MessageEntityHashtag extends MessageEntityBase {
 /// ID: `6cef8ac7`.
 class MessageEntityBotCommand extends MessageEntityBase {
   /// Message Entity Bot Command constructor.
-  const MessageEntityBotCommand({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityBotCommand({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBotCommand.deserialize(BinaryReader reader) {
@@ -43653,10 +42689,7 @@ class MessageEntityBotCommand extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityBotCommand] object.
-    final returnValue = MessageEntityBotCommand(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityBotCommand(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityBotCommand].
     return returnValue;
@@ -43704,10 +42737,8 @@ class MessageEntityBotCommand extends MessageEntityBase {
 /// ID: `6ed02538`.
 class MessageEntityUrl extends MessageEntityBase {
   /// Message Entity Url constructor.
-  const MessageEntityUrl({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityUrl({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUrl.deserialize(BinaryReader reader) {
@@ -43716,10 +42747,7 @@ class MessageEntityUrl extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityUrl] object.
-    final returnValue = MessageEntityUrl(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityUrl(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityUrl].
     return returnValue;
@@ -43767,10 +42795,8 @@ class MessageEntityUrl extends MessageEntityBase {
 /// ID: `64e475c2`.
 class MessageEntityEmail extends MessageEntityBase {
   /// Message Entity Email constructor.
-  const MessageEntityEmail({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityEmail({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityEmail.deserialize(BinaryReader reader) {
@@ -43779,10 +42805,7 @@ class MessageEntityEmail extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityEmail] object.
-    final returnValue = MessageEntityEmail(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityEmail(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityEmail].
     return returnValue;
@@ -43830,10 +42853,8 @@ class MessageEntityEmail extends MessageEntityBase {
 /// ID: `bd610bc9`.
 class MessageEntityBold extends MessageEntityBase {
   /// Message Entity Bold constructor.
-  const MessageEntityBold({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityBold({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBold.deserialize(BinaryReader reader) {
@@ -43842,10 +42863,7 @@ class MessageEntityBold extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityBold] object.
-    final returnValue = MessageEntityBold(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityBold(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityBold].
     return returnValue;
@@ -43893,10 +42911,8 @@ class MessageEntityBold extends MessageEntityBase {
 /// ID: `826f8b60`.
 class MessageEntityItalic extends MessageEntityBase {
   /// Message Entity Italic constructor.
-  const MessageEntityItalic({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityItalic({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityItalic.deserialize(BinaryReader reader) {
@@ -43905,10 +42921,7 @@ class MessageEntityItalic extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityItalic] object.
-    final returnValue = MessageEntityItalic(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityItalic(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityItalic].
     return returnValue;
@@ -43956,10 +42969,8 @@ class MessageEntityItalic extends MessageEntityBase {
 /// ID: `28a20571`.
 class MessageEntityCode extends MessageEntityBase {
   /// Message Entity Code constructor.
-  const MessageEntityCode({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityCode({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityCode.deserialize(BinaryReader reader) {
@@ -43968,10 +42979,7 @@ class MessageEntityCode extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityCode] object.
-    final returnValue = MessageEntityCode(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityCode(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityCode].
     return returnValue;
@@ -44305,10 +43313,8 @@ class InputMessageEntityMentionName extends MessageEntityBase {
 /// ID: `9b69e34b`.
 class MessageEntityPhone extends MessageEntityBase {
   /// Message Entity Phone constructor.
-  const MessageEntityPhone({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityPhone({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityPhone.deserialize(BinaryReader reader) {
@@ -44317,10 +43323,7 @@ class MessageEntityPhone extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityPhone] object.
-    final returnValue = MessageEntityPhone(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityPhone(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityPhone].
     return returnValue;
@@ -44368,10 +43371,8 @@ class MessageEntityPhone extends MessageEntityBase {
 /// ID: `4c4e743f`.
 class MessageEntityCashtag extends MessageEntityBase {
   /// Message Entity Cashtag constructor.
-  const MessageEntityCashtag({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityCashtag({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityCashtag.deserialize(BinaryReader reader) {
@@ -44380,10 +43381,7 @@ class MessageEntityCashtag extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityCashtag] object.
-    final returnValue = MessageEntityCashtag(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityCashtag(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityCashtag].
     return returnValue;
@@ -44431,10 +43429,8 @@ class MessageEntityCashtag extends MessageEntityBase {
 /// ID: `9c4e7e8b`.
 class MessageEntityUnderline extends MessageEntityBase {
   /// Message Entity Underline constructor.
-  const MessageEntityUnderline({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityUnderline({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUnderline.deserialize(BinaryReader reader) {
@@ -44443,10 +43439,7 @@ class MessageEntityUnderline extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityUnderline] object.
-    final returnValue = MessageEntityUnderline(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityUnderline(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityUnderline].
     return returnValue;
@@ -44494,10 +43487,8 @@ class MessageEntityUnderline extends MessageEntityBase {
 /// ID: `bf0693d4`.
 class MessageEntityStrike extends MessageEntityBase {
   /// Message Entity Strike constructor.
-  const MessageEntityStrike({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityStrike({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityStrike.deserialize(BinaryReader reader) {
@@ -44506,10 +43497,7 @@ class MessageEntityStrike extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityStrike] object.
-    final returnValue = MessageEntityStrike(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityStrike(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityStrike].
     return returnValue;
@@ -44557,10 +43545,8 @@ class MessageEntityStrike extends MessageEntityBase {
 /// ID: `761e6af4`.
 class MessageEntityBankCard extends MessageEntityBase {
   /// Message Entity Bank Card constructor.
-  const MessageEntityBankCard({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityBankCard({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBankCard.deserialize(BinaryReader reader) {
@@ -44569,10 +43555,7 @@ class MessageEntityBankCard extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityBankCard] object.
-    final returnValue = MessageEntityBankCard(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityBankCard(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityBankCard].
     return returnValue;
@@ -44620,10 +43603,8 @@ class MessageEntityBankCard extends MessageEntityBase {
 /// ID: `32ca960f`.
 class MessageEntitySpoiler extends MessageEntityBase {
   /// Message Entity Spoiler constructor.
-  const MessageEntitySpoiler({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntitySpoiler({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntitySpoiler.deserialize(BinaryReader reader) {
@@ -44632,10 +43613,7 @@ class MessageEntitySpoiler extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntitySpoiler] object.
-    final returnValue = MessageEntitySpoiler(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntitySpoiler(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntitySpoiler].
     return returnValue;
@@ -44783,9 +43761,7 @@ class MessageEntityBlockquote extends MessageEntityBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: collapsed,
-    );
+    final v = _flag(b00: collapsed);
 
     return v;
   }
@@ -44875,10 +43851,8 @@ class InputChannelEmpty extends InputChannelBase {
 /// ID: `f35aec28`.
 class InputChannel extends InputChannelBase {
   /// Input Channel constructor.
-  const InputChannel({
-    required this.channelId,
-    required this.accessHash,
-  }) : super._();
+  const InputChannel({required this.channelId, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputChannel.deserialize(BinaryReader reader) {
@@ -45076,10 +44050,7 @@ class ContactsResolvedPeer extends ContactsResolvedPeerBase {
 /// ID: `0ae30253`.
 class MessageRange extends MessageRangeBase {
   /// Message Range constructor.
-  const MessageRange({
-    required this.minId,
-    required this.maxId,
-  }) : super._();
+  const MessageRange({required this.minId, required this.maxId}) : super._();
 
   /// Deserialize.
   factory MessageRange.deserialize(BinaryReader reader) {
@@ -45088,10 +44059,7 @@ class MessageRange extends MessageRangeBase {
     final maxId = reader.readInt32();
 
     // Construct [MessageRange] object.
-    final returnValue = MessageRange(
-      minId: minId,
-      maxId: maxId,
-    );
+    final returnValue = MessageRange(minId: minId, maxId: maxId);
 
     // Now return the deserialized [MessageRange].
     return returnValue;
@@ -45167,10 +44135,7 @@ class UpdatesChannelDifferenceEmpty extends UpdatesChannelDifferenceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ffinal,
-      b01: timeout != null,
-    );
+    final v = _flag(b00: ffinal, b01: timeout != null);
 
     return v;
   }
@@ -45261,10 +44226,7 @@ class UpdatesChannelDifferenceTooLong extends UpdatesChannelDifferenceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ffinal,
-      b01: timeout != null,
-    );
+    final v = _flag(b00: ffinal, b01: timeout != null);
 
     return v;
   }
@@ -45371,10 +44333,7 @@ class UpdatesChannelDifference extends UpdatesChannelDifferenceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ffinal,
-      b01: timeout != null,
-    );
+    final v = _flag(b00: ffinal, b01: timeout != null);
 
     return v;
   }
@@ -45509,9 +44468,7 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: excludeNewMessages,
-    );
+    final v = _flag(b01: excludeNewMessages);
 
     return v;
   }
@@ -45584,9 +44541,7 @@ class ChannelParticipant extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: subscriptionUntilDate != null,
-    );
+    final v = _flag(b00: subscriptionUntilDate != null);
 
     return v;
   }
@@ -45676,10 +44631,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: viaRequest,
-      b01: subscriptionUntilDate != null,
-    );
+    final v = _flag(b00: viaRequest, b01: subscriptionUntilDate != null);
 
     return v;
   }
@@ -45773,9 +44725,7 @@ class ChannelParticipantCreator extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: rank != null,
-    );
+    final v = _flag(b00: rank != null);
 
     return v;
   }
@@ -45994,9 +44944,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: left,
-    );
+    final v = _flag(b00: left);
 
     return v;
   }
@@ -46057,9 +45005,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
 /// ID: `1b03f006`.
 class ChannelParticipantLeft extends ChannelParticipantBase {
   /// Channel Participant Left constructor.
-  const ChannelParticipantLeft({
-    required this.peer,
-  }) : super._();
+  const ChannelParticipantLeft({required this.peer}) : super._();
 
   /// Deserialize.
   factory ChannelParticipantLeft.deserialize(BinaryReader reader) {
@@ -46067,9 +45013,7 @@ class ChannelParticipantLeft extends ChannelParticipantBase {
     final peer = reader.readObject() as PeerBase;
 
     // Construct [ChannelParticipantLeft] object.
-    final returnValue = ChannelParticipantLeft(
-      peer: peer,
-    );
+    final returnValue = ChannelParticipantLeft(peer: peer);
 
     // Now return the deserialized [ChannelParticipantLeft].
     return returnValue;
@@ -46182,9 +45126,7 @@ class ChannelParticipantsAdmins extends ChannelParticipantsFilterBase {
 /// ID: `a3b54985`.
 class ChannelParticipantsKicked extends ChannelParticipantsFilterBase {
   /// Channel Participants Kicked constructor.
-  const ChannelParticipantsKicked({
-    required this.q,
-  }) : super._();
+  const ChannelParticipantsKicked({required this.q}) : super._();
 
   /// Deserialize.
   factory ChannelParticipantsKicked.deserialize(BinaryReader reader) {
@@ -46192,9 +45134,7 @@ class ChannelParticipantsKicked extends ChannelParticipantsFilterBase {
     final q = reader.readString();
 
     // Construct [ChannelParticipantsKicked] object.
-    final returnValue = ChannelParticipantsKicked(
-      q: q,
-    );
+    final returnValue = ChannelParticipantsKicked(q: q);
 
     // Now return the deserialized [ChannelParticipantsKicked].
     return returnValue;
@@ -46270,9 +45210,7 @@ class ChannelParticipantsBots extends ChannelParticipantsFilterBase {
 /// ID: `1427a5e1`.
 class ChannelParticipantsBanned extends ChannelParticipantsFilterBase {
   /// Channel Participants Banned constructor.
-  const ChannelParticipantsBanned({
-    required this.q,
-  }) : super._();
+  const ChannelParticipantsBanned({required this.q}) : super._();
 
   /// Deserialize.
   factory ChannelParticipantsBanned.deserialize(BinaryReader reader) {
@@ -46280,9 +45218,7 @@ class ChannelParticipantsBanned extends ChannelParticipantsFilterBase {
     final q = reader.readString();
 
     // Construct [ChannelParticipantsBanned] object.
-    final returnValue = ChannelParticipantsBanned(
-      q: q,
-    );
+    final returnValue = ChannelParticipantsBanned(q: q);
 
     // Now return the deserialized [ChannelParticipantsBanned].
     return returnValue;
@@ -46321,9 +45257,7 @@ class ChannelParticipantsBanned extends ChannelParticipantsFilterBase {
 /// ID: `0656ac4b`.
 class ChannelParticipantsSearch extends ChannelParticipantsFilterBase {
   /// Channel Participants Search constructor.
-  const ChannelParticipantsSearch({
-    required this.q,
-  }) : super._();
+  const ChannelParticipantsSearch({required this.q}) : super._();
 
   /// Deserialize.
   factory ChannelParticipantsSearch.deserialize(BinaryReader reader) {
@@ -46331,9 +45265,7 @@ class ChannelParticipantsSearch extends ChannelParticipantsFilterBase {
     final q = reader.readString();
 
     // Construct [ChannelParticipantsSearch] object.
-    final returnValue = ChannelParticipantsSearch(
-      q: q,
-    );
+    final returnValue = ChannelParticipantsSearch(q: q);
 
     // Now return the deserialized [ChannelParticipantsSearch].
     return returnValue;
@@ -46372,9 +45304,7 @@ class ChannelParticipantsSearch extends ChannelParticipantsFilterBase {
 /// ID: `bb6ae88d`.
 class ChannelParticipantsContacts extends ChannelParticipantsFilterBase {
   /// Channel Participants Contacts constructor.
-  const ChannelParticipantsContacts({
-    required this.q,
-  }) : super._();
+  const ChannelParticipantsContacts({required this.q}) : super._();
 
   /// Deserialize.
   factory ChannelParticipantsContacts.deserialize(BinaryReader reader) {
@@ -46382,9 +45312,7 @@ class ChannelParticipantsContacts extends ChannelParticipantsFilterBase {
     final q = reader.readString();
 
     // Construct [ChannelParticipantsContacts] object.
-    final returnValue = ChannelParticipantsContacts(
-      q: q,
-    );
+    final returnValue = ChannelParticipantsContacts(q: q);
 
     // Now return the deserialized [ChannelParticipantsContacts].
     return returnValue;
@@ -46423,10 +45351,7 @@ class ChannelParticipantsContacts extends ChannelParticipantsFilterBase {
 /// ID: `e04b5ceb`.
 class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
   /// Channel Participants Mentions constructor.
-  const ChannelParticipantsMentions({
-    this.q,
-    this.topMsgId,
-  }) : super._();
+  const ChannelParticipantsMentions({this.q, this.topMsgId}) : super._();
 
   /// Deserialize.
   factory ChannelParticipantsMentions.deserialize(BinaryReader reader) {
@@ -46438,10 +45363,7 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
     final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
 
     // Construct [ChannelParticipantsMentions] object.
-    final returnValue = ChannelParticipantsMentions(
-      q: q,
-      topMsgId: topMsgId,
-    );
+    final returnValue = ChannelParticipantsMentions(q: q, topMsgId: topMsgId);
 
     // Now return the deserialized [ChannelParticipantsMentions].
     return returnValue;
@@ -46449,10 +45371,7 @@ class ChannelParticipantsMentions extends ChannelParticipantsFilterBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: q != null,
-      b01: topMsgId != null,
-    );
+    final v = _flag(b00: q != null, b01: topMsgId != null);
 
     return v;
   }
@@ -46585,7 +45504,8 @@ class ChannelsChannelParticipantsNotModified
 
   /// Deserialize.
   factory ChannelsChannelParticipantsNotModified.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [ChannelsChannelParticipantsNotModified] object.
     final returnValue = ChannelsChannelParticipantsNotModified();
 
@@ -46720,10 +45640,7 @@ class HelpTermsOfService extends HelpTermsOfServiceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: popup,
-      b01: minAgeConfirm != null,
-    );
+    final v = _flag(b00: popup, b01: minAgeConfirm != null);
 
     return v;
   }
@@ -46822,10 +45739,7 @@ class MessagesSavedGifsNotModified extends MessagesSavedGifsBase {
 /// ID: `84a02a0d`.
 class MessagesSavedGifs extends MessagesSavedGifsBase {
   /// Messages Saved Gifs constructor.
-  const MessagesSavedGifs({
-    required this.hash,
-    required this.gifs,
-  }) : super._();
+  const MessagesSavedGifs({required this.hash, required this.gifs}) : super._();
 
   /// Deserialize.
   factory MessagesSavedGifs.deserialize(BinaryReader reader) {
@@ -46834,10 +45748,7 @@ class MessagesSavedGifs extends MessagesSavedGifsBase {
     final gifs = reader.readVectorObject<DocumentBase>();
 
     // Construct [MessagesSavedGifs] object.
-    final returnValue = MessagesSavedGifs(
-      hash: hash,
-      gifs: gifs.items,
-    );
+    final returnValue = MessagesSavedGifs(hash: hash, gifs: gifs.items);
 
     // Now return the deserialized [MessagesSavedGifs].
     return returnValue;
@@ -47244,9 +46155,7 @@ class InputBotInlineMessageMediaVenue extends InputBotInlineMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: replyMarkup != null,
-    );
+    final v = _flag(b02: replyMarkup != null);
 
     return v;
   }
@@ -47354,9 +46263,7 @@ class InputBotInlineMessageMediaContact extends InputBotInlineMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: replyMarkup != null,
-    );
+    final v = _flag(b02: replyMarkup != null);
 
     return v;
   }
@@ -47419,9 +46326,7 @@ class InputBotInlineMessageMediaContact extends InputBotInlineMessageBase {
 /// ID: `4b425864`.
 class InputBotInlineMessageGame extends InputBotInlineMessageBase {
   /// Input Bot Inline Message Game constructor.
-  const InputBotInlineMessageGame({
-    this.replyMarkup,
-  }) : super._();
+  const InputBotInlineMessageGame({this.replyMarkup}) : super._();
 
   /// Deserialize.
   factory InputBotInlineMessageGame.deserialize(BinaryReader reader) {
@@ -47432,9 +46337,7 @@ class InputBotInlineMessageGame extends InputBotInlineMessageBase {
         hasReplyMarkupField ? reader.readObject() as ReplyMarkupBase : null;
 
     // Construct [InputBotInlineMessageGame] object.
-    final returnValue = InputBotInlineMessageGame(
-      replyMarkup: replyMarkup,
-    );
+    final returnValue = InputBotInlineMessageGame(replyMarkup: replyMarkup);
 
     // Now return the deserialized [InputBotInlineMessageGame].
     return returnValue;
@@ -47442,9 +46345,7 @@ class InputBotInlineMessageGame extends InputBotInlineMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: replyMarkup != null,
-    );
+    final v = _flag(b02: replyMarkup != null);
 
     return v;
   }
@@ -47533,10 +46434,7 @@ class InputBotInlineMessageMediaInvoice extends InputBotInlineMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: photo != null,
-      b02: replyMarkup != null,
-    );
+    final v = _flag(b00: photo != null, b02: replyMarkup != null);
 
     return v;
   }
@@ -48005,10 +46903,7 @@ class InputBotInlineResultDocument extends InputBotInlineResultBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: title != null,
-      b02: description != null,
-    );
+    final v = _flag(b01: title != null, b02: description != null);
 
     return v;
   }
@@ -48507,9 +47402,7 @@ class BotInlineMessageMediaVenue extends BotInlineMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: replyMarkup != null,
-    );
+    final v = _flag(b02: replyMarkup != null);
 
     return v;
   }
@@ -48617,9 +47510,7 @@ class BotInlineMessageMediaContact extends BotInlineMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: replyMarkup != null,
-    );
+    final v = _flag(b02: replyMarkup != null);
 
     return v;
   }
@@ -49366,10 +48257,8 @@ class MessagesBotResults extends MessagesBotResultsBase {
 /// ID: `5dab1af4`.
 class ExportedMessageLink extends ExportedMessageLinkBase {
   /// Exported Message Link constructor.
-  const ExportedMessageLink({
-    required this.link,
-    required this.html,
-  }) : super._();
+  const ExportedMessageLink({required this.link, required this.html})
+      : super._();
 
   /// Deserialize.
   factory ExportedMessageLink.deserialize(BinaryReader reader) {
@@ -49378,10 +48267,7 @@ class ExportedMessageLink extends ExportedMessageLinkBase {
     final html = reader.readString();
 
     // Construct [ExportedMessageLink] object.
-    final returnValue = ExportedMessageLink(
-      link: link,
-      html: html,
-    );
+    final returnValue = ExportedMessageLink(link: link, html: html);
 
     // Now return the deserialized [ExportedMessageLink].
     return returnValue;
@@ -49819,9 +48705,7 @@ class AuthCodeTypeFragmentSms extends AuthCodeTypeBase {
 /// ID: `3dbb5986`.
 class AuthSentCodeTypeApp extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type App constructor.
-  const AuthSentCodeTypeApp({
-    required this.length,
-  }) : super._();
+  const AuthSentCodeTypeApp({required this.length}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeApp.deserialize(BinaryReader reader) {
@@ -49829,9 +48713,7 @@ class AuthSentCodeTypeApp extends AuthSentCodeTypeBase {
     final length = reader.readInt32();
 
     // Construct [AuthSentCodeTypeApp] object.
-    final returnValue = AuthSentCodeTypeApp(
-      length: length,
-    );
+    final returnValue = AuthSentCodeTypeApp(length: length);
 
     // Now return the deserialized [AuthSentCodeTypeApp].
     return returnValue;
@@ -49872,9 +48754,7 @@ class AuthSentCodeTypeApp extends AuthSentCodeTypeBase {
 /// ID: `c000bba2`.
 class AuthSentCodeTypeSms extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Sms constructor.
-  const AuthSentCodeTypeSms({
-    required this.length,
-  }) : super._();
+  const AuthSentCodeTypeSms({required this.length}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeSms.deserialize(BinaryReader reader) {
@@ -49882,9 +48762,7 @@ class AuthSentCodeTypeSms extends AuthSentCodeTypeBase {
     final length = reader.readInt32();
 
     // Construct [AuthSentCodeTypeSms] object.
-    final returnValue = AuthSentCodeTypeSms(
-      length: length,
-    );
+    final returnValue = AuthSentCodeTypeSms(length: length);
 
     // Now return the deserialized [AuthSentCodeTypeSms].
     return returnValue;
@@ -49925,9 +48803,7 @@ class AuthSentCodeTypeSms extends AuthSentCodeTypeBase {
 /// ID: `5353e5a7`.
 class AuthSentCodeTypeCall extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Call constructor.
-  const AuthSentCodeTypeCall({
-    required this.length,
-  }) : super._();
+  const AuthSentCodeTypeCall({required this.length}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeCall.deserialize(BinaryReader reader) {
@@ -49935,9 +48811,7 @@ class AuthSentCodeTypeCall extends AuthSentCodeTypeBase {
     final length = reader.readInt32();
 
     // Construct [AuthSentCodeTypeCall] object.
-    final returnValue = AuthSentCodeTypeCall(
-      length: length,
-    );
+    final returnValue = AuthSentCodeTypeCall(length: length);
 
     // Now return the deserialized [AuthSentCodeTypeCall].
     return returnValue;
@@ -49978,9 +48852,7 @@ class AuthSentCodeTypeCall extends AuthSentCodeTypeBase {
 /// ID: `ab03c6d9`.
 class AuthSentCodeTypeFlashCall extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Flash Call constructor.
-  const AuthSentCodeTypeFlashCall({
-    required this.pattern,
-  }) : super._();
+  const AuthSentCodeTypeFlashCall({required this.pattern}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeFlashCall.deserialize(BinaryReader reader) {
@@ -49988,9 +48860,7 @@ class AuthSentCodeTypeFlashCall extends AuthSentCodeTypeBase {
     final pattern = reader.readString();
 
     // Construct [AuthSentCodeTypeFlashCall] object.
-    final returnValue = AuthSentCodeTypeFlashCall(
-      pattern: pattern,
-    );
+    final returnValue = AuthSentCodeTypeFlashCall(pattern: pattern);
 
     // Now return the deserialized [AuthSentCodeTypeFlashCall].
     return returnValue;
@@ -50029,10 +48899,8 @@ class AuthSentCodeTypeFlashCall extends AuthSentCodeTypeBase {
 /// ID: `82006484`.
 class AuthSentCodeTypeMissedCall extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Missed Call constructor.
-  const AuthSentCodeTypeMissedCall({
-    required this.prefix,
-    required this.length,
-  }) : super._();
+  const AuthSentCodeTypeMissedCall({required this.prefix, required this.length})
+      : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeMissedCall.deserialize(BinaryReader reader) {
@@ -50230,10 +49098,7 @@ class AuthSentCodeTypeSetUpEmailRequired extends AuthSentCodeTypeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: appleSigninAllowed,
-      b01: googleSigninAllowed,
-    );
+    final v = _flag(b00: appleSigninAllowed, b01: googleSigninAllowed);
 
     return v;
   }
@@ -50276,10 +49141,8 @@ class AuthSentCodeTypeSetUpEmailRequired extends AuthSentCodeTypeBase {
 /// ID: `d9565c39`.
 class AuthSentCodeTypeFragmentSms extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Fragment Sms constructor.
-  const AuthSentCodeTypeFragmentSms({
-    required this.url,
-    required this.length,
-  }) : super._();
+  const AuthSentCodeTypeFragmentSms({required this.url, required this.length})
+      : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeFragmentSms.deserialize(BinaryReader reader) {
@@ -50288,10 +49151,7 @@ class AuthSentCodeTypeFragmentSms extends AuthSentCodeTypeBase {
     final length = reader.readInt32();
 
     // Construct [AuthSentCodeTypeFragmentSms] object.
-    final returnValue = AuthSentCodeTypeFragmentSms(
-      url: url,
-      length: length,
-    );
+    final returnValue = AuthSentCodeTypeFragmentSms(url: url, length: length);
 
     // Now return the deserialized [AuthSentCodeTypeFragmentSms].
     return returnValue;
@@ -50466,9 +49326,7 @@ class AuthSentCodeTypeFirebaseSms extends AuthSentCodeTypeBase {
 /// ID: `a416ac81`.
 class AuthSentCodeTypeSmsWord extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Sms Word constructor.
-  const AuthSentCodeTypeSmsWord({
-    this.beginning,
-  }) : super._();
+  const AuthSentCodeTypeSmsWord({this.beginning}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeSmsWord.deserialize(BinaryReader reader) {
@@ -50478,9 +49336,7 @@ class AuthSentCodeTypeSmsWord extends AuthSentCodeTypeBase {
     final beginning = hasBeginningField ? reader.readString() : null;
 
     // Construct [AuthSentCodeTypeSmsWord] object.
-    final returnValue = AuthSentCodeTypeSmsWord(
-      beginning: beginning,
-    );
+    final returnValue = AuthSentCodeTypeSmsWord(beginning: beginning);
 
     // Now return the deserialized [AuthSentCodeTypeSmsWord].
     return returnValue;
@@ -50488,9 +49344,7 @@ class AuthSentCodeTypeSmsWord extends AuthSentCodeTypeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: beginning != null,
-    );
+    final v = _flag(b00: beginning != null);
 
     return v;
   }
@@ -50533,9 +49387,7 @@ class AuthSentCodeTypeSmsWord extends AuthSentCodeTypeBase {
 /// ID: `b37794af`.
 class AuthSentCodeTypeSmsPhrase extends AuthSentCodeTypeBase {
   /// Auth Sent Code Type Sms Phrase constructor.
-  const AuthSentCodeTypeSmsPhrase({
-    this.beginning,
-  }) : super._();
+  const AuthSentCodeTypeSmsPhrase({this.beginning}) : super._();
 
   /// Deserialize.
   factory AuthSentCodeTypeSmsPhrase.deserialize(BinaryReader reader) {
@@ -50545,9 +49397,7 @@ class AuthSentCodeTypeSmsPhrase extends AuthSentCodeTypeBase {
     final beginning = hasBeginningField ? reader.readString() : null;
 
     // Construct [AuthSentCodeTypeSmsPhrase] object.
-    final returnValue = AuthSentCodeTypeSmsPhrase(
-      beginning: beginning,
-    );
+    final returnValue = AuthSentCodeTypeSmsPhrase(beginning: beginning);
 
     // Now return the deserialized [AuthSentCodeTypeSmsPhrase].
     return returnValue;
@@ -50555,9 +49405,7 @@ class AuthSentCodeTypeSmsPhrase extends AuthSentCodeTypeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: beginning != null,
-    );
+    final v = _flag(b00: beginning != null);
 
     return v;
   }
@@ -50714,9 +49562,7 @@ class MessagesBotCallbackAnswer extends MessagesBotCallbackAnswerBase {
 /// ID: `26b5dde6`.
 class MessagesMessageEditData extends MessagesMessageEditDataBase {
   /// Messages Message Edit Data constructor.
-  const MessagesMessageEditData({
-    required this.caption,
-  }) : super._();
+  const MessagesMessageEditData({required this.caption}) : super._();
 
   /// Deserialize.
   factory MessagesMessageEditData.deserialize(BinaryReader reader) {
@@ -50725,9 +49571,7 @@ class MessagesMessageEditData extends MessagesMessageEditDataBase {
     final caption = (flags & 1) != 0;
 
     // Construct [MessagesMessageEditData] object.
-    final returnValue = MessagesMessageEditData(
-      caption: caption,
-    );
+    final returnValue = MessagesMessageEditData(caption: caption);
 
     // Now return the deserialized [MessagesMessageEditData].
     return returnValue;
@@ -50735,9 +49579,7 @@ class MessagesMessageEditData extends MessagesMessageEditDataBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: caption,
-    );
+    final v = _flag(b00: caption);
 
     return v;
   }
@@ -50932,10 +49774,8 @@ class InputBotInlineMessageID64 extends InputBotInlineMessageIDBase {
 /// ID: `3c20629f`.
 class InlineBotSwitchPM extends InlineBotSwitchPMBase {
   /// Inline Bot Switch P M constructor.
-  const InlineBotSwitchPM({
-    required this.text,
-    required this.startParam,
-  }) : super._();
+  const InlineBotSwitchPM({required this.text, required this.startParam})
+      : super._();
 
   /// Deserialize.
   factory InlineBotSwitchPM.deserialize(BinaryReader reader) {
@@ -50944,10 +49784,7 @@ class InlineBotSwitchPM extends InlineBotSwitchPMBase {
     final startParam = reader.readString();
 
     // Construct [InlineBotSwitchPM] object.
-    final returnValue = InlineBotSwitchPM(
-      text: text,
-      startParam: startParam,
-    );
+    final returnValue = InlineBotSwitchPM(text: text, startParam: startParam);
 
     // Now return the deserialized [InlineBotSwitchPM].
     return returnValue;
@@ -51074,10 +49911,7 @@ class MessagesPeerDialogs extends MessagesPeerDialogsBase {
 /// ID: `edcdc05b`.
 class TopPeer extends TopPeerBase {
   /// Top Peer constructor.
-  const TopPeer({
-    required this.peer,
-    required this.rating,
-  }) : super._();
+  const TopPeer({required this.peer, required this.rating}) : super._();
 
   /// Deserialize.
   factory TopPeer.deserialize(BinaryReader reader) {
@@ -51086,10 +49920,7 @@ class TopPeer extends TopPeerBase {
     final rating = reader.readFloat64();
 
     // Construct [TopPeer] object.
-    final returnValue = TopPeer(
-      peer: peer,
-      rating: rating,
-    );
+    final returnValue = TopPeer(peer: peer, rating: rating);
 
     // Now return the deserialized [TopPeer].
     return returnValue;
@@ -51676,9 +50507,7 @@ class ContactsTopPeersDisabled extends ContactsTopPeersBase {
 /// ID: `1b0c841a`.
 class DraftMessageEmpty extends DraftMessageBase {
   /// Draft Message Empty constructor.
-  const DraftMessageEmpty({
-    this.date,
-  }) : super._();
+  const DraftMessageEmpty({this.date}) : super._();
 
   /// Deserialize.
   factory DraftMessageEmpty.deserialize(BinaryReader reader) {
@@ -51688,9 +50517,7 @@ class DraftMessageEmpty extends DraftMessageBase {
     final date = hasDateField ? reader.readDateTime() : null;
 
     // Construct [DraftMessageEmpty] object.
-    final returnValue = DraftMessageEmpty(
-      date: date,
-    );
+    final returnValue = DraftMessageEmpty(date: date);
 
     // Now return the deserialized [DraftMessageEmpty].
     return returnValue;
@@ -51698,9 +50525,7 @@ class DraftMessageEmpty extends DraftMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: date != null,
-    );
+    final v = _flag(b00: date != null);
 
     return v;
   }
@@ -51897,9 +50722,7 @@ class DraftMessage extends DraftMessageBase {
 /// ID: `c6dc0c66`.
 class MessagesFeaturedStickersNotModified extends MessagesFeaturedStickersBase {
   /// Messages Featured Stickers Not Modified constructor.
-  const MessagesFeaturedStickersNotModified({
-    required this.count,
-  }) : super._();
+  const MessagesFeaturedStickersNotModified({required this.count}) : super._();
 
   /// Deserialize.
   factory MessagesFeaturedStickersNotModified.deserialize(BinaryReader reader) {
@@ -51907,9 +50730,7 @@ class MessagesFeaturedStickersNotModified extends MessagesFeaturedStickersBase {
     final count = reader.readInt32();
 
     // Construct [MessagesFeaturedStickersNotModified] object.
-    final returnValue = MessagesFeaturedStickersNotModified(
-      count: count,
-    );
+    final returnValue = MessagesFeaturedStickersNotModified(count: count);
 
     // Now return the deserialized [MessagesFeaturedStickersNotModified].
     return returnValue;
@@ -51983,9 +50804,7 @@ class MessagesFeaturedStickers extends MessagesFeaturedStickersBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: premium,
-    );
+    final v = _flag(b00: premium);
 
     return v;
   }
@@ -52162,10 +50981,8 @@ class MessagesRecentStickers extends MessagesRecentStickersBase {
 /// ID: `4fcba9c8`.
 class MessagesArchivedStickers extends MessagesArchivedStickersBase {
   /// Messages Archived Stickers constructor.
-  const MessagesArchivedStickers({
-    required this.count,
-    required this.sets,
-  }) : super._();
+  const MessagesArchivedStickers({required this.count, required this.sets})
+      : super._();
 
   /// Deserialize.
   factory MessagesArchivedStickers.deserialize(BinaryReader reader) {
@@ -52228,7 +51045,8 @@ class MessagesStickerSetInstallResultSuccess
 
   /// Deserialize.
   factory MessagesStickerSetInstallResultSuccess.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [MessagesStickerSetInstallResultSuccess] object.
     final returnValue = MessagesStickerSetInstallResultSuccess();
 
@@ -52263,13 +51081,13 @@ class MessagesStickerSetInstallResultSuccess
 class MessagesStickerSetInstallResultArchive
     extends MessagesStickerSetInstallResultBase {
   /// Messages Sticker Set Install Result Archive constructor.
-  const MessagesStickerSetInstallResultArchive({
-    required this.sets,
-  }) : super._();
+  const MessagesStickerSetInstallResultArchive({required this.sets})
+      : super._();
 
   /// Deserialize.
   factory MessagesStickerSetInstallResultArchive.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [MessagesStickerSetInstallResultArchive] fields.
     final sets = reader.readVectorObject<StickerSetCoveredBase>();
 
@@ -52315,10 +51133,7 @@ class MessagesStickerSetInstallResultArchive
 /// ID: `6410a5d2`.
 class StickerSetCovered extends StickerSetCoveredBase {
   /// Sticker Set Covered constructor.
-  const StickerSetCovered({
-    required this.set,
-    required this.cover,
-  }) : super._();
+  const StickerSetCovered({required this.set, required this.cover}) : super._();
 
   /// Deserialize.
   factory StickerSetCovered.deserialize(BinaryReader reader) {
@@ -52327,10 +51142,7 @@ class StickerSetCovered extends StickerSetCoveredBase {
     final cover = reader.readObject() as DocumentBase;
 
     // Construct [StickerSetCovered] object.
-    final returnValue = StickerSetCovered(
-      set: set,
-      cover: cover,
-    );
+    final returnValue = StickerSetCovered(set: set, cover: cover);
 
     // Now return the deserialized [StickerSetCovered].
     return returnValue;
@@ -52374,10 +51186,8 @@ class StickerSetCovered extends StickerSetCoveredBase {
 /// ID: `3407e51b`.
 class StickerSetMultiCovered extends StickerSetCoveredBase {
   /// Sticker Set Multi Covered constructor.
-  const StickerSetMultiCovered({
-    required this.set,
-    required this.covers,
-  }) : super._();
+  const StickerSetMultiCovered({required this.set, required this.covers})
+      : super._();
 
   /// Deserialize.
   factory StickerSetMultiCovered.deserialize(BinaryReader reader) {
@@ -52386,10 +51196,7 @@ class StickerSetMultiCovered extends StickerSetCoveredBase {
     final covers = reader.readVectorObject<DocumentBase>();
 
     // Construct [StickerSetMultiCovered] object.
-    final returnValue = StickerSetMultiCovered(
-      set: set,
-      covers: covers.items,
-    );
+    final returnValue = StickerSetMultiCovered(set: set, covers: covers.items);
 
     // Now return the deserialized [StickerSetMultiCovered].
     return returnValue;
@@ -52508,9 +51315,7 @@ class StickerSetFullCovered extends StickerSetCoveredBase {
 /// ID: `77b15d1c`.
 class StickerSetNoCovered extends StickerSetCoveredBase {
   /// Sticker Set No Covered constructor.
-  const StickerSetNoCovered({
-    required this.set,
-  }) : super._();
+  const StickerSetNoCovered({required this.set}) : super._();
 
   /// Deserialize.
   factory StickerSetNoCovered.deserialize(BinaryReader reader) {
@@ -52518,9 +51323,7 @@ class StickerSetNoCovered extends StickerSetCoveredBase {
     final set = reader.readObject() as StickerSetBase;
 
     // Construct [StickerSetNoCovered] object.
-    final returnValue = StickerSetNoCovered(
-      set: set,
-    );
+    final returnValue = StickerSetNoCovered(set: set);
 
     // Now return the deserialized [StickerSetNoCovered].
     return returnValue;
@@ -52575,12 +51378,7 @@ class MaskCoords extends MaskCoordsBase {
     final zoom = reader.readFloat64();
 
     // Construct [MaskCoords] object.
-    final returnValue = MaskCoords(
-      n: n,
-      x: x,
-      y: y,
-      zoom: zoom,
-    );
+    final returnValue = MaskCoords(n: n, x: x, y: y, zoom: zoom);
 
     // Now return the deserialized [MaskCoords].
     return returnValue;
@@ -52636,9 +51434,7 @@ class MaskCoords extends MaskCoordsBase {
 /// ID: `4a992157`.
 class InputStickeredMediaPhoto extends InputStickeredMediaBase {
   /// Input Stickered Media Photo constructor.
-  const InputStickeredMediaPhoto({
-    required this.id,
-  }) : super._();
+  const InputStickeredMediaPhoto({required this.id}) : super._();
 
   /// Deserialize.
   factory InputStickeredMediaPhoto.deserialize(BinaryReader reader) {
@@ -52646,9 +51442,7 @@ class InputStickeredMediaPhoto extends InputStickeredMediaBase {
     final id = reader.readObject() as InputPhotoBase;
 
     // Construct [InputStickeredMediaPhoto] object.
-    final returnValue = InputStickeredMediaPhoto(
-      id: id,
-    );
+    final returnValue = InputStickeredMediaPhoto(id: id);
 
     // Now return the deserialized [InputStickeredMediaPhoto].
     return returnValue;
@@ -52687,9 +51481,7 @@ class InputStickeredMediaPhoto extends InputStickeredMediaBase {
 /// ID: `0438865b`.
 class InputStickeredMediaDocument extends InputStickeredMediaBase {
   /// Input Stickered Media Document constructor.
-  const InputStickeredMediaDocument({
-    required this.id,
-  }) : super._();
+  const InputStickeredMediaDocument({required this.id}) : super._();
 
   /// Deserialize.
   factory InputStickeredMediaDocument.deserialize(BinaryReader reader) {
@@ -52697,9 +51489,7 @@ class InputStickeredMediaDocument extends InputStickeredMediaBase {
     final id = reader.readObject() as InputDocumentBase;
 
     // Construct [InputStickeredMediaDocument] object.
-    final returnValue = InputStickeredMediaDocument(
-      id: id,
-    );
+    final returnValue = InputStickeredMediaDocument(id: id);
 
     // Now return the deserialized [InputStickeredMediaDocument].
     return returnValue;
@@ -52779,9 +51569,7 @@ class Game extends GameBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: document != null,
-    );
+    final v = _flag(b00: document != null);
 
     return v;
   }
@@ -52858,10 +51646,7 @@ class Game extends GameBase {
 /// ID: `032c3e77`.
 class InputGameID extends InputGameBase {
   /// Input Game I D constructor.
-  const InputGameID({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputGameID({required this.id, required this.accessHash}) : super._();
 
   /// Deserialize.
   factory InputGameID.deserialize(BinaryReader reader) {
@@ -52870,10 +51655,7 @@ class InputGameID extends InputGameBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputGameID] object.
-    final returnValue = InputGameID(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputGameID(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputGameID].
     return returnValue;
@@ -52921,10 +51703,8 @@ class InputGameID extends InputGameBase {
 /// ID: `c331e80a`.
 class InputGameShortName extends InputGameBase {
   /// Input Game Short Name constructor.
-  const InputGameShortName({
-    required this.botId,
-    required this.shortName,
-  }) : super._();
+  const InputGameShortName({required this.botId, required this.shortName})
+      : super._();
 
   /// Deserialize.
   factory InputGameShortName.deserialize(BinaryReader reader) {
@@ -52933,10 +51713,7 @@ class InputGameShortName extends InputGameBase {
     final shortName = reader.readString();
 
     // Construct [InputGameShortName] object.
-    final returnValue = InputGameShortName(
-      botId: botId,
-      shortName: shortName,
-    );
+    final returnValue = InputGameShortName(botId: botId, shortName: shortName);
 
     // Now return the deserialized [InputGameShortName].
     return returnValue;
@@ -52994,11 +51771,7 @@ class HighScore extends HighScoreBase {
     final score = reader.readInt32();
 
     // Construct [HighScore] object.
-    final returnValue = HighScore(
-      pos: pos,
-      userId: userId,
-      score: score,
-    );
+    final returnValue = HighScore(pos: pos, userId: userId, score: score);
 
     // Now return the deserialized [HighScore].
     return returnValue;
@@ -53053,10 +51826,8 @@ class HighScore extends HighScoreBase {
 /// ID: `9a3bfd99`.
 class MessagesHighScores extends MessagesHighScoresBase {
   /// Messages High Scores constructor.
-  const MessagesHighScores({
-    required this.scores,
-    required this.users,
-  }) : super._();
+  const MessagesHighScores({required this.scores, required this.users})
+      : super._();
 
   /// Deserialize.
   factory MessagesHighScores.deserialize(BinaryReader reader) {
@@ -53149,9 +51920,7 @@ class TextEmpty extends RichTextBase {
 /// ID: `744694e0`.
 class TextPlain extends RichTextBase {
   /// Text Plain constructor.
-  const TextPlain({
-    required this.text,
-  }) : super._();
+  const TextPlain({required this.text}) : super._();
 
   /// Deserialize.
   factory TextPlain.deserialize(BinaryReader reader) {
@@ -53159,9 +51928,7 @@ class TextPlain extends RichTextBase {
     final text = reader.readString();
 
     // Construct [TextPlain] object.
-    final returnValue = TextPlain(
-      text: text,
-    );
+    final returnValue = TextPlain(text: text);
 
     // Now return the deserialized [TextPlain].
     return returnValue;
@@ -53200,9 +51967,7 @@ class TextPlain extends RichTextBase {
 /// ID: `6724abc4`.
 class TextBold extends RichTextBase {
   /// Text Bold constructor.
-  const TextBold({
-    required this.text,
-  }) : super._();
+  const TextBold({required this.text}) : super._();
 
   /// Deserialize.
   factory TextBold.deserialize(BinaryReader reader) {
@@ -53210,9 +51975,7 @@ class TextBold extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextBold] object.
-    final returnValue = TextBold(
-      text: text,
-    );
+    final returnValue = TextBold(text: text);
 
     // Now return the deserialized [TextBold].
     return returnValue;
@@ -53251,9 +52014,7 @@ class TextBold extends RichTextBase {
 /// ID: `d912a59c`.
 class TextItalic extends RichTextBase {
   /// Text Italic constructor.
-  const TextItalic({
-    required this.text,
-  }) : super._();
+  const TextItalic({required this.text}) : super._();
 
   /// Deserialize.
   factory TextItalic.deserialize(BinaryReader reader) {
@@ -53261,9 +52022,7 @@ class TextItalic extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextItalic] object.
-    final returnValue = TextItalic(
-      text: text,
-    );
+    final returnValue = TextItalic(text: text);
 
     // Now return the deserialized [TextItalic].
     return returnValue;
@@ -53302,9 +52061,7 @@ class TextItalic extends RichTextBase {
 /// ID: `c12622c4`.
 class TextUnderline extends RichTextBase {
   /// Text Underline constructor.
-  const TextUnderline({
-    required this.text,
-  }) : super._();
+  const TextUnderline({required this.text}) : super._();
 
   /// Deserialize.
   factory TextUnderline.deserialize(BinaryReader reader) {
@@ -53312,9 +52069,7 @@ class TextUnderline extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextUnderline] object.
-    final returnValue = TextUnderline(
-      text: text,
-    );
+    final returnValue = TextUnderline(text: text);
 
     // Now return the deserialized [TextUnderline].
     return returnValue;
@@ -53353,9 +52108,7 @@ class TextUnderline extends RichTextBase {
 /// ID: `9bf8bb95`.
 class TextStrike extends RichTextBase {
   /// Text Strike constructor.
-  const TextStrike({
-    required this.text,
-  }) : super._();
+  const TextStrike({required this.text}) : super._();
 
   /// Deserialize.
   factory TextStrike.deserialize(BinaryReader reader) {
@@ -53363,9 +52116,7 @@ class TextStrike extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextStrike] object.
-    final returnValue = TextStrike(
-      text: text,
-    );
+    final returnValue = TextStrike(text: text);
 
     // Now return the deserialized [TextStrike].
     return returnValue;
@@ -53404,9 +52155,7 @@ class TextStrike extends RichTextBase {
 /// ID: `6c3f19b9`.
 class TextFixed extends RichTextBase {
   /// Text Fixed constructor.
-  const TextFixed({
-    required this.text,
-  }) : super._();
+  const TextFixed({required this.text}) : super._();
 
   /// Deserialize.
   factory TextFixed.deserialize(BinaryReader reader) {
@@ -53414,9 +52163,7 @@ class TextFixed extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextFixed] object.
-    final returnValue = TextFixed(
-      text: text,
-    );
+    final returnValue = TextFixed(text: text);
 
     // Now return the deserialized [TextFixed].
     return returnValue;
@@ -53469,11 +52216,7 @@ class TextUrl extends RichTextBase {
     final webpageId = reader.readInt64();
 
     // Construct [TextUrl] object.
-    final returnValue = TextUrl(
-      text: text,
-      url: url,
-      webpageId: webpageId,
-    );
+    final returnValue = TextUrl(text: text, url: url, webpageId: webpageId);
 
     // Now return the deserialized [TextUrl].
     return returnValue;
@@ -53524,10 +52267,7 @@ class TextUrl extends RichTextBase {
 /// ID: `de5a0dd6`.
 class TextEmail extends RichTextBase {
   /// Text Email constructor.
-  const TextEmail({
-    required this.text,
-    required this.email,
-  }) : super._();
+  const TextEmail({required this.text, required this.email}) : super._();
 
   /// Deserialize.
   factory TextEmail.deserialize(BinaryReader reader) {
@@ -53536,10 +52276,7 @@ class TextEmail extends RichTextBase {
     final email = reader.readString();
 
     // Construct [TextEmail] object.
-    final returnValue = TextEmail(
-      text: text,
-      email: email,
-    );
+    final returnValue = TextEmail(text: text, email: email);
 
     // Now return the deserialized [TextEmail].
     return returnValue;
@@ -53583,9 +52320,7 @@ class TextEmail extends RichTextBase {
 /// ID: `7e6260d7`.
 class TextConcat extends RichTextBase {
   /// Text Concat constructor.
-  const TextConcat({
-    required this.texts,
-  }) : super._();
+  const TextConcat({required this.texts}) : super._();
 
   /// Deserialize.
   factory TextConcat.deserialize(BinaryReader reader) {
@@ -53593,9 +52328,7 @@ class TextConcat extends RichTextBase {
     final texts = reader.readVectorObject<RichTextBase>();
 
     // Construct [TextConcat] object.
-    final returnValue = TextConcat(
-      texts: texts.items,
-    );
+    final returnValue = TextConcat(texts: texts.items);
 
     // Now return the deserialized [TextConcat].
     return returnValue;
@@ -53634,9 +52367,7 @@ class TextConcat extends RichTextBase {
 /// ID: `ed6a8504`.
 class TextSubscript extends RichTextBase {
   /// Text Subscript constructor.
-  const TextSubscript({
-    required this.text,
-  }) : super._();
+  const TextSubscript({required this.text}) : super._();
 
   /// Deserialize.
   factory TextSubscript.deserialize(BinaryReader reader) {
@@ -53644,9 +52375,7 @@ class TextSubscript extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextSubscript] object.
-    final returnValue = TextSubscript(
-      text: text,
-    );
+    final returnValue = TextSubscript(text: text);
 
     // Now return the deserialized [TextSubscript].
     return returnValue;
@@ -53685,9 +52414,7 @@ class TextSubscript extends RichTextBase {
 /// ID: `c7fb5e01`.
 class TextSuperscript extends RichTextBase {
   /// Text Superscript constructor.
-  const TextSuperscript({
-    required this.text,
-  }) : super._();
+  const TextSuperscript({required this.text}) : super._();
 
   /// Deserialize.
   factory TextSuperscript.deserialize(BinaryReader reader) {
@@ -53695,9 +52422,7 @@ class TextSuperscript extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextSuperscript] object.
-    final returnValue = TextSuperscript(
-      text: text,
-    );
+    final returnValue = TextSuperscript(text: text);
 
     // Now return the deserialized [TextSuperscript].
     return returnValue;
@@ -53736,9 +52461,7 @@ class TextSuperscript extends RichTextBase {
 /// ID: `034b8621`.
 class TextMarked extends RichTextBase {
   /// Text Marked constructor.
-  const TextMarked({
-    required this.text,
-  }) : super._();
+  const TextMarked({required this.text}) : super._();
 
   /// Deserialize.
   factory TextMarked.deserialize(BinaryReader reader) {
@@ -53746,9 +52469,7 @@ class TextMarked extends RichTextBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [TextMarked] object.
-    final returnValue = TextMarked(
-      text: text,
-    );
+    final returnValue = TextMarked(text: text);
 
     // Now return the deserialized [TextMarked].
     return returnValue;
@@ -53787,10 +52508,7 @@ class TextMarked extends RichTextBase {
 /// ID: `1ccb966a`.
 class TextPhone extends RichTextBase {
   /// Text Phone constructor.
-  const TextPhone({
-    required this.text,
-    required this.phone,
-  }) : super._();
+  const TextPhone({required this.text, required this.phone}) : super._();
 
   /// Deserialize.
   factory TextPhone.deserialize(BinaryReader reader) {
@@ -53799,10 +52517,7 @@ class TextPhone extends RichTextBase {
     final phone = reader.readString();
 
     // Construct [TextPhone] object.
-    final returnValue = TextPhone(
-      text: text,
-      phone: phone,
-    );
+    final returnValue = TextPhone(text: text, phone: phone);
 
     // Now return the deserialized [TextPhone].
     return returnValue;
@@ -53846,11 +52561,8 @@ class TextPhone extends RichTextBase {
 /// ID: `081ccf4f`.
 class TextImage extends RichTextBase {
   /// Text Image constructor.
-  const TextImage({
-    required this.documentId,
-    required this.w,
-    required this.h,
-  }) : super._();
+  const TextImage({required this.documentId, required this.w, required this.h})
+      : super._();
 
   /// Deserialize.
   factory TextImage.deserialize(BinaryReader reader) {
@@ -53860,11 +52572,7 @@ class TextImage extends RichTextBase {
     final h = reader.readInt32();
 
     // Construct [TextImage] object.
-    final returnValue = TextImage(
-      documentId: documentId,
-      w: w,
-      h: h,
-    );
+    final returnValue = TextImage(documentId: documentId, w: w, h: h);
 
     // Now return the deserialized [TextImage].
     return returnValue;
@@ -53919,10 +52627,7 @@ class TextImage extends RichTextBase {
 /// ID: `35553762`.
 class TextAnchor extends RichTextBase {
   /// Text Anchor constructor.
-  const TextAnchor({
-    required this.text,
-    required this.name,
-  }) : super._();
+  const TextAnchor({required this.text, required this.name}) : super._();
 
   /// Deserialize.
   factory TextAnchor.deserialize(BinaryReader reader) {
@@ -53931,10 +52636,7 @@ class TextAnchor extends RichTextBase {
     final name = reader.readString();
 
     // Construct [TextAnchor] object.
-    final returnValue = TextAnchor(
-      text: text,
-      name: name,
-    );
+    final returnValue = TextAnchor(text: text, name: name);
 
     // Now return the deserialized [TextAnchor].
     return returnValue;
@@ -54015,9 +52717,7 @@ class PageBlockUnsupported extends PageBlockBase {
 /// ID: `70abc3fd`.
 class PageBlockTitle extends PageBlockBase {
   /// Page Block Title constructor.
-  const PageBlockTitle({
-    required this.text,
-  }) : super._();
+  const PageBlockTitle({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockTitle.deserialize(BinaryReader reader) {
@@ -54025,9 +52725,7 @@ class PageBlockTitle extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockTitle] object.
-    final returnValue = PageBlockTitle(
-      text: text,
-    );
+    final returnValue = PageBlockTitle(text: text);
 
     // Now return the deserialized [PageBlockTitle].
     return returnValue;
@@ -54066,9 +52764,7 @@ class PageBlockTitle extends PageBlockBase {
 /// ID: `8ffa9a1f`.
 class PageBlockSubtitle extends PageBlockBase {
   /// Page Block Subtitle constructor.
-  const PageBlockSubtitle({
-    required this.text,
-  }) : super._();
+  const PageBlockSubtitle({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockSubtitle.deserialize(BinaryReader reader) {
@@ -54076,9 +52772,7 @@ class PageBlockSubtitle extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockSubtitle] object.
-    final returnValue = PageBlockSubtitle(
-      text: text,
-    );
+    final returnValue = PageBlockSubtitle(text: text);
 
     // Now return the deserialized [PageBlockSubtitle].
     return returnValue;
@@ -54117,10 +52811,8 @@ class PageBlockSubtitle extends PageBlockBase {
 /// ID: `baafe5e0`.
 class PageBlockAuthorDate extends PageBlockBase {
   /// Page Block Author Date constructor.
-  const PageBlockAuthorDate({
-    required this.author,
-    required this.publishedDate,
-  }) : super._();
+  const PageBlockAuthorDate({required this.author, required this.publishedDate})
+      : super._();
 
   /// Deserialize.
   factory PageBlockAuthorDate.deserialize(BinaryReader reader) {
@@ -54176,9 +52868,7 @@ class PageBlockAuthorDate extends PageBlockBase {
 /// ID: `bfd064ec`.
 class PageBlockHeader extends PageBlockBase {
   /// Page Block Header constructor.
-  const PageBlockHeader({
-    required this.text,
-  }) : super._();
+  const PageBlockHeader({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockHeader.deserialize(BinaryReader reader) {
@@ -54186,9 +52876,7 @@ class PageBlockHeader extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockHeader] object.
-    final returnValue = PageBlockHeader(
-      text: text,
-    );
+    final returnValue = PageBlockHeader(text: text);
 
     // Now return the deserialized [PageBlockHeader].
     return returnValue;
@@ -54227,9 +52915,7 @@ class PageBlockHeader extends PageBlockBase {
 /// ID: `f12bb6e1`.
 class PageBlockSubheader extends PageBlockBase {
   /// Page Block Subheader constructor.
-  const PageBlockSubheader({
-    required this.text,
-  }) : super._();
+  const PageBlockSubheader({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockSubheader.deserialize(BinaryReader reader) {
@@ -54237,9 +52923,7 @@ class PageBlockSubheader extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockSubheader] object.
-    final returnValue = PageBlockSubheader(
-      text: text,
-    );
+    final returnValue = PageBlockSubheader(text: text);
 
     // Now return the deserialized [PageBlockSubheader].
     return returnValue;
@@ -54278,9 +52962,7 @@ class PageBlockSubheader extends PageBlockBase {
 /// ID: `467a0766`.
 class PageBlockParagraph extends PageBlockBase {
   /// Page Block Paragraph constructor.
-  const PageBlockParagraph({
-    required this.text,
-  }) : super._();
+  const PageBlockParagraph({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockParagraph.deserialize(BinaryReader reader) {
@@ -54288,9 +52970,7 @@ class PageBlockParagraph extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockParagraph] object.
-    final returnValue = PageBlockParagraph(
-      text: text,
-    );
+    final returnValue = PageBlockParagraph(text: text);
 
     // Now return the deserialized [PageBlockParagraph].
     return returnValue;
@@ -54329,10 +53009,8 @@ class PageBlockParagraph extends PageBlockBase {
 /// ID: `c070d93e`.
 class PageBlockPreformatted extends PageBlockBase {
   /// Page Block Preformatted constructor.
-  const PageBlockPreformatted({
-    required this.text,
-    required this.language,
-  }) : super._();
+  const PageBlockPreformatted({required this.text, required this.language})
+      : super._();
 
   /// Deserialize.
   factory PageBlockPreformatted.deserialize(BinaryReader reader) {
@@ -54341,10 +53019,7 @@ class PageBlockPreformatted extends PageBlockBase {
     final language = reader.readString();
 
     // Construct [PageBlockPreformatted] object.
-    final returnValue = PageBlockPreformatted(
-      text: text,
-      language: language,
-    );
+    final returnValue = PageBlockPreformatted(text: text, language: language);
 
     // Now return the deserialized [PageBlockPreformatted].
     return returnValue;
@@ -54388,9 +53063,7 @@ class PageBlockPreformatted extends PageBlockBase {
 /// ID: `48870999`.
 class PageBlockFooter extends PageBlockBase {
   /// Page Block Footer constructor.
-  const PageBlockFooter({
-    required this.text,
-  }) : super._();
+  const PageBlockFooter({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockFooter.deserialize(BinaryReader reader) {
@@ -54398,9 +53071,7 @@ class PageBlockFooter extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockFooter] object.
-    final returnValue = PageBlockFooter(
-      text: text,
-    );
+    final returnValue = PageBlockFooter(text: text);
 
     // Now return the deserialized [PageBlockFooter].
     return returnValue;
@@ -54476,9 +53147,7 @@ class PageBlockDivider extends PageBlockBase {
 /// ID: `ce0d37b0`.
 class PageBlockAnchor extends PageBlockBase {
   /// Page Block Anchor constructor.
-  const PageBlockAnchor({
-    required this.name,
-  }) : super._();
+  const PageBlockAnchor({required this.name}) : super._();
 
   /// Deserialize.
   factory PageBlockAnchor.deserialize(BinaryReader reader) {
@@ -54486,9 +53155,7 @@ class PageBlockAnchor extends PageBlockBase {
     final name = reader.readString();
 
     // Construct [PageBlockAnchor] object.
-    final returnValue = PageBlockAnchor(
-      name: name,
-    );
+    final returnValue = PageBlockAnchor(name: name);
 
     // Now return the deserialized [PageBlockAnchor].
     return returnValue;
@@ -54527,9 +53194,7 @@ class PageBlockAnchor extends PageBlockBase {
 /// ID: `e4e88011`.
 class PageBlockList extends PageBlockBase {
   /// Page Block List constructor.
-  const PageBlockList({
-    required this.items,
-  }) : super._();
+  const PageBlockList({required this.items}) : super._();
 
   /// Deserialize.
   factory PageBlockList.deserialize(BinaryReader reader) {
@@ -54537,9 +53202,7 @@ class PageBlockList extends PageBlockBase {
     final items = reader.readVectorObject<PageListItemBase>();
 
     // Construct [PageBlockList] object.
-    final returnValue = PageBlockList(
-      items: items.items,
-    );
+    final returnValue = PageBlockList(items: items.items);
 
     // Now return the deserialized [PageBlockList].
     return returnValue;
@@ -54578,10 +53241,8 @@ class PageBlockList extends PageBlockBase {
 /// ID: `263d7c26`.
 class PageBlockBlockquote extends PageBlockBase {
   /// Page Block Blockquote constructor.
-  const PageBlockBlockquote({
-    required this.text,
-    required this.caption,
-  }) : super._();
+  const PageBlockBlockquote({required this.text, required this.caption})
+      : super._();
 
   /// Deserialize.
   factory PageBlockBlockquote.deserialize(BinaryReader reader) {
@@ -54590,10 +53251,7 @@ class PageBlockBlockquote extends PageBlockBase {
     final caption = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockBlockquote] object.
-    final returnValue = PageBlockBlockquote(
-      text: text,
-      caption: caption,
-    );
+    final returnValue = PageBlockBlockquote(text: text, caption: caption);
 
     // Now return the deserialized [PageBlockBlockquote].
     return returnValue;
@@ -54637,10 +53295,8 @@ class PageBlockBlockquote extends PageBlockBase {
 /// ID: `4f4456d3`.
 class PageBlockPullquote extends PageBlockBase {
   /// Page Block Pullquote constructor.
-  const PageBlockPullquote({
-    required this.text,
-    required this.caption,
-  }) : super._();
+  const PageBlockPullquote({required this.text, required this.caption})
+      : super._();
 
   /// Deserialize.
   factory PageBlockPullquote.deserialize(BinaryReader reader) {
@@ -54649,10 +53305,7 @@ class PageBlockPullquote extends PageBlockBase {
     final caption = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockPullquote] object.
-    final returnValue = PageBlockPullquote(
-      text: text,
-      caption: caption,
-    );
+    final returnValue = PageBlockPullquote(text: text, caption: caption);
 
     // Now return the deserialized [PageBlockPullquote].
     return returnValue;
@@ -54728,9 +53381,7 @@ class PageBlockPhoto extends PageBlockBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: url != null || webpageId != null,
-    );
+    final v = _flag(b00: url != null || webpageId != null);
 
     return v;
   }
@@ -54823,10 +53474,7 @@ class PageBlockVideo extends PageBlockBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: autoplay,
-      b01: loop,
-    );
+    final v = _flag(b00: autoplay, b01: loop);
 
     return v;
   }
@@ -54881,9 +53529,7 @@ class PageBlockVideo extends PageBlockBase {
 /// ID: `39f23300`.
 class PageBlockCover extends PageBlockBase {
   /// Page Block Cover constructor.
-  const PageBlockCover({
-    required this.cover,
-  }) : super._();
+  const PageBlockCover({required this.cover}) : super._();
 
   /// Deserialize.
   factory PageBlockCover.deserialize(BinaryReader reader) {
@@ -54891,9 +53537,7 @@ class PageBlockCover extends PageBlockBase {
     final cover = reader.readObject() as PageBlockBase;
 
     // Construct [PageBlockCover] object.
-    final returnValue = PageBlockCover(
-      cover: cover,
-    );
+    final returnValue = PageBlockCover(cover: cover);
 
     // Now return the deserialized [PageBlockCover].
     return returnValue;
@@ -55177,10 +53821,8 @@ class PageBlockEmbedPost extends PageBlockBase {
 /// ID: `65a0fa4d`.
 class PageBlockCollage extends PageBlockBase {
   /// Page Block Collage constructor.
-  const PageBlockCollage({
-    required this.items,
-    required this.caption,
-  }) : super._();
+  const PageBlockCollage({required this.items, required this.caption})
+      : super._();
 
   /// Deserialize.
   factory PageBlockCollage.deserialize(BinaryReader reader) {
@@ -55189,10 +53831,7 @@ class PageBlockCollage extends PageBlockBase {
     final caption = reader.readObject() as PageCaptionBase;
 
     // Construct [PageBlockCollage] object.
-    final returnValue = PageBlockCollage(
-      items: items.items,
-      caption: caption,
-    );
+    final returnValue = PageBlockCollage(items: items.items, caption: caption);
 
     // Now return the deserialized [PageBlockCollage].
     return returnValue;
@@ -55236,10 +53875,8 @@ class PageBlockCollage extends PageBlockBase {
 /// ID: `031f9590`.
 class PageBlockSlideshow extends PageBlockBase {
   /// Page Block Slideshow constructor.
-  const PageBlockSlideshow({
-    required this.items,
-    required this.caption,
-  }) : super._();
+  const PageBlockSlideshow({required this.items, required this.caption})
+      : super._();
 
   /// Deserialize.
   factory PageBlockSlideshow.deserialize(BinaryReader reader) {
@@ -55295,9 +53932,7 @@ class PageBlockSlideshow extends PageBlockBase {
 /// ID: `ef1751b5`.
 class PageBlockChannel extends PageBlockBase {
   /// Page Block Channel constructor.
-  const PageBlockChannel({
-    required this.channel,
-  }) : super._();
+  const PageBlockChannel({required this.channel}) : super._();
 
   /// Deserialize.
   factory PageBlockChannel.deserialize(BinaryReader reader) {
@@ -55305,9 +53940,7 @@ class PageBlockChannel extends PageBlockBase {
     final channel = reader.readObject() as ChatBase;
 
     // Construct [PageBlockChannel] object.
-    final returnValue = PageBlockChannel(
-      channel: channel,
-    );
+    final returnValue = PageBlockChannel(channel: channel);
 
     // Now return the deserialized [PageBlockChannel].
     return returnValue;
@@ -55346,10 +53979,8 @@ class PageBlockChannel extends PageBlockBase {
 /// ID: `804361ea`.
 class PageBlockAudio extends PageBlockBase {
   /// Page Block Audio constructor.
-  const PageBlockAudio({
-    required this.audioId,
-    required this.caption,
-  }) : super._();
+  const PageBlockAudio({required this.audioId, required this.caption})
+      : super._();
 
   /// Deserialize.
   factory PageBlockAudio.deserialize(BinaryReader reader) {
@@ -55358,10 +53989,7 @@ class PageBlockAudio extends PageBlockBase {
     final caption = reader.readObject() as PageCaptionBase;
 
     // Construct [PageBlockAudio] object.
-    final returnValue = PageBlockAudio(
-      audioId: audioId,
-      caption: caption,
-    );
+    final returnValue = PageBlockAudio(audioId: audioId, caption: caption);
 
     // Now return the deserialized [PageBlockAudio].
     return returnValue;
@@ -55407,9 +54035,7 @@ class PageBlockAudio extends PageBlockBase {
 /// ID: `1e148390`.
 class PageBlockKicker extends PageBlockBase {
   /// Page Block Kicker constructor.
-  const PageBlockKicker({
-    required this.text,
-  }) : super._();
+  const PageBlockKicker({required this.text}) : super._();
 
   /// Deserialize.
   factory PageBlockKicker.deserialize(BinaryReader reader) {
@@ -55417,9 +54043,7 @@ class PageBlockKicker extends PageBlockBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageBlockKicker] object.
-    final returnValue = PageBlockKicker(
-      text: text,
-    );
+    final returnValue = PageBlockKicker(text: text);
 
     // Now return the deserialized [PageBlockKicker].
     return returnValue;
@@ -55488,10 +54112,7 @@ class PageBlockTable extends PageBlockBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: bordered,
-      b01: striped,
-    );
+    final v = _flag(b00: bordered, b01: striped);
 
     return v;
   }
@@ -55544,9 +54165,7 @@ class PageBlockTable extends PageBlockBase {
 /// ID: `9a8ae1e1`.
 class PageBlockOrderedList extends PageBlockBase {
   /// Page Block Ordered List constructor.
-  const PageBlockOrderedList({
-    required this.items,
-  }) : super._();
+  const PageBlockOrderedList({required this.items}) : super._();
 
   /// Deserialize.
   factory PageBlockOrderedList.deserialize(BinaryReader reader) {
@@ -55554,9 +54173,7 @@ class PageBlockOrderedList extends PageBlockBase {
     final items = reader.readVectorObject<PageListOrderedItemBase>();
 
     // Construct [PageBlockOrderedList] object.
-    final returnValue = PageBlockOrderedList(
-      items: items.items,
-    );
+    final returnValue = PageBlockOrderedList(items: items.items);
 
     // Now return the deserialized [PageBlockOrderedList].
     return returnValue;
@@ -55622,9 +54239,7 @@ class PageBlockDetails extends PageBlockBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: open,
-    );
+    final v = _flag(b00: open);
 
     return v;
   }
@@ -55673,10 +54288,8 @@ class PageBlockDetails extends PageBlockBase {
 /// ID: `16115a96`.
 class PageBlockRelatedArticles extends PageBlockBase {
   /// Page Block Related Articles constructor.
-  const PageBlockRelatedArticles({
-    required this.title,
-    required this.articles,
-  }) : super._();
+  const PageBlockRelatedArticles({required this.title, required this.articles})
+      : super._();
 
   /// Deserialize.
   factory PageBlockRelatedArticles.deserialize(BinaryReader reader) {
@@ -55970,20 +54583,18 @@ class PhoneCallDiscardReasonBusy extends PhoneCallDiscardReasonBase {
 class PhoneCallDiscardReasonMigrateConferenceCall
     extends PhoneCallDiscardReasonBase {
   /// Phone Call Discard Reason Migrate Conference Call constructor.
-  const PhoneCallDiscardReasonMigrateConferenceCall({
-    required this.slug,
-  }) : super._();
+  const PhoneCallDiscardReasonMigrateConferenceCall({required this.slug})
+      : super._();
 
   /// Deserialize.
   factory PhoneCallDiscardReasonMigrateConferenceCall.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PhoneCallDiscardReasonMigrateConferenceCall] fields.
     final slug = reader.readString();
 
     // Construct [PhoneCallDiscardReasonMigrateConferenceCall] object.
-    final returnValue = PhoneCallDiscardReasonMigrateConferenceCall(
-      slug: slug,
-    );
+    final returnValue = PhoneCallDiscardReasonMigrateConferenceCall(slug: slug);
 
     // Now return the deserialized [PhoneCallDiscardReasonMigrateConferenceCall].
     return returnValue;
@@ -56022,9 +54633,7 @@ class PhoneCallDiscardReasonMigrateConferenceCall
 /// ID: `7d748d04`.
 class DataJSON extends DataJSONBase {
   /// Data J S O N constructor.
-  const DataJSON({
-    required this.data,
-  }) : super._();
+  const DataJSON({required this.data}) : super._();
 
   /// Deserialize.
   factory DataJSON.deserialize(BinaryReader reader) {
@@ -56032,9 +54641,7 @@ class DataJSON extends DataJSONBase {
     final data = reader.readString();
 
     // Construct [DataJSON] object.
-    final returnValue = DataJSON(
-      data: data,
-    );
+    final returnValue = DataJSON(data: data);
 
     // Now return the deserialized [DataJSON].
     return returnValue;
@@ -56073,10 +54680,7 @@ class DataJSON extends DataJSONBase {
 /// ID: `cb296bf8`.
 class LabeledPrice extends LabeledPriceBase {
   /// Labeled Price constructor.
-  const LabeledPrice({
-    required this.label,
-    required this.amount,
-  }) : super._();
+  const LabeledPrice({required this.label, required this.amount}) : super._();
 
   /// Deserialize.
   factory LabeledPrice.deserialize(BinaryReader reader) {
@@ -56085,10 +54689,7 @@ class LabeledPrice extends LabeledPriceBase {
     final amount = reader.readInt64();
 
     // Construct [LabeledPrice] object.
-    final returnValue = LabeledPrice(
-      label: label,
-      amount: amount,
-    );
+    final returnValue = LabeledPrice(label: label, amount: amount);
 
     // Now return the deserialized [LabeledPrice].
     return returnValue;
@@ -56329,10 +54930,8 @@ class Invoice extends InvoiceBase {
 /// ID: `ea02c27e`.
 class PaymentCharge extends PaymentChargeBase {
   /// Payment Charge constructor.
-  const PaymentCharge({
-    required this.id,
-    required this.providerChargeId,
-  }) : super._();
+  const PaymentCharge({required this.id, required this.providerChargeId})
+      : super._();
 
   /// Deserialize.
   factory PaymentCharge.deserialize(BinaryReader reader) {
@@ -56586,10 +55185,8 @@ class PaymentRequestedInfo extends PaymentRequestedInfoBase {
 /// ID: `cdc27a1f`.
 class PaymentSavedCredentialsCard extends PaymentSavedCredentialsBase {
   /// Payment Saved Credentials Card constructor.
-  const PaymentSavedCredentialsCard({
-    required this.id,
-    required this.title,
-  }) : super._();
+  const PaymentSavedCredentialsCard({required this.id, required this.title})
+      : super._();
 
   /// Deserialize.
   factory PaymentSavedCredentialsCard.deserialize(BinaryReader reader) {
@@ -56598,10 +55195,7 @@ class PaymentSavedCredentialsCard extends PaymentSavedCredentialsBase {
     final title = reader.readString();
 
     // Construct [PaymentSavedCredentialsCard] object.
-    final returnValue = PaymentSavedCredentialsCard(
-      id: id,
-      title: title,
-    );
+    final returnValue = PaymentSavedCredentialsCard(id: id, title: title);
 
     // Now return the deserialized [PaymentSavedCredentialsCard].
     return returnValue;
@@ -56886,10 +55480,8 @@ class InputWebDocument extends InputWebDocumentBase {
 /// ID: `c239d686`.
 class InputWebFileLocation extends InputWebFileLocationBase {
   /// Input Web File Location constructor.
-  const InputWebFileLocation({
-    required this.url,
-    required this.accessHash,
-  }) : super._();
+  const InputWebFileLocation({required this.url, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputWebFileLocation.deserialize(BinaryReader reader) {
@@ -56898,10 +55490,7 @@ class InputWebFileLocation extends InputWebFileLocationBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputWebFileLocation] object.
-    final returnValue = InputWebFileLocation(
-      url: url,
-      accessHash: accessHash,
-    );
+    final returnValue = InputWebFileLocation(url: url, accessHash: accessHash);
 
     // Now return the deserialized [InputWebFileLocation].
     return returnValue;
@@ -57500,9 +56089,7 @@ class PaymentsPaymentFormStars extends PaymentsPaymentFormBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b05: photo != null,
-    );
+    final v = _flag(b05: photo != null);
 
     return v;
   }
@@ -57641,10 +56228,8 @@ class PaymentsPaymentFormStarGift extends PaymentsPaymentFormBase {
 class PaymentsValidatedRequestedInfo
     extends PaymentsValidatedRequestedInfoBase {
   /// Payments Validated Requested Info constructor.
-  const PaymentsValidatedRequestedInfo({
-    this.id,
-    this.shippingOptions,
-  }) : super._();
+  const PaymentsValidatedRequestedInfo({this.id, this.shippingOptions})
+      : super._();
 
   /// Deserialize.
   factory PaymentsValidatedRequestedInfo.deserialize(BinaryReader reader) {
@@ -57669,10 +56254,7 @@ class PaymentsValidatedRequestedInfo
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: id != null,
-      b01: shippingOptions != null,
-    );
+    final v = _flag(b00: id != null, b01: shippingOptions != null);
 
     return v;
   }
@@ -57723,9 +56305,7 @@ class PaymentsValidatedRequestedInfo
 /// ID: `4e5f810d`.
 class PaymentsPaymentResult extends PaymentsPaymentResultBase {
   /// Payments Payment Result constructor.
-  const PaymentsPaymentResult({
-    required this.updates,
-  }) : super._();
+  const PaymentsPaymentResult({required this.updates}) : super._();
 
   /// Deserialize.
   factory PaymentsPaymentResult.deserialize(BinaryReader reader) {
@@ -57733,9 +56313,7 @@ class PaymentsPaymentResult extends PaymentsPaymentResultBase {
     final updates = reader.readObject() as UpdatesBase;
 
     // Construct [PaymentsPaymentResult] object.
-    final returnValue = PaymentsPaymentResult(
-      updates: updates,
-    );
+    final returnValue = PaymentsPaymentResult(updates: updates);
 
     // Now return the deserialized [PaymentsPaymentResult].
     return returnValue;
@@ -57774,9 +56352,7 @@ class PaymentsPaymentResult extends PaymentsPaymentResultBase {
 /// ID: `d8411139`.
 class PaymentsPaymentVerificationNeeded extends PaymentsPaymentResultBase {
   /// Payments Payment Verification Needed constructor.
-  const PaymentsPaymentVerificationNeeded({
-    required this.url,
-  }) : super._();
+  const PaymentsPaymentVerificationNeeded({required this.url}) : super._();
 
   /// Deserialize.
   factory PaymentsPaymentVerificationNeeded.deserialize(BinaryReader reader) {
@@ -57784,9 +56360,7 @@ class PaymentsPaymentVerificationNeeded extends PaymentsPaymentResultBase {
     final url = reader.readString();
 
     // Construct [PaymentsPaymentVerificationNeeded] object.
-    final returnValue = PaymentsPaymentVerificationNeeded(
-      url: url,
-    );
+    final returnValue = PaymentsPaymentVerificationNeeded(url: url);
 
     // Now return the deserialized [PaymentsPaymentVerificationNeeded].
     return returnValue;
@@ -58068,9 +56642,7 @@ class PaymentsPaymentReceiptStars extends PaymentsPaymentReceiptBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: photo != null,
-    );
+    final v = _flag(b02: photo != null);
 
     return v;
   }
@@ -58162,10 +56734,8 @@ class PaymentsPaymentReceiptStars extends PaymentsPaymentReceiptBase {
 /// ID: `fb8fe43c`.
 class PaymentsSavedInfo extends PaymentsSavedInfoBase {
   /// Payments Saved Info constructor.
-  const PaymentsSavedInfo({
-    required this.hasSavedCredentials,
-    this.savedInfo,
-  }) : super._();
+  const PaymentsSavedInfo({required this.hasSavedCredentials, this.savedInfo})
+      : super._();
 
   /// Deserialize.
   factory PaymentsSavedInfo.deserialize(BinaryReader reader) {
@@ -58189,10 +56759,7 @@ class PaymentsSavedInfo extends PaymentsSavedInfoBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: hasSavedCredentials,
-      b00: savedInfo != null,
-    );
+    final v = _flag(b01: hasSavedCredentials, b00: savedInfo != null);
 
     return v;
   }
@@ -58298,10 +56865,8 @@ class InputPaymentCredentialsSaved extends InputPaymentCredentialsBase {
 /// ID: `3417d728`.
 class InputPaymentCredentials extends InputPaymentCredentialsBase {
   /// Input Payment Credentials constructor.
-  const InputPaymentCredentials({
-    required this.save,
-    required this.data,
-  }) : super._();
+  const InputPaymentCredentials({required this.save, required this.data})
+      : super._();
 
   /// Deserialize.
   factory InputPaymentCredentials.deserialize(BinaryReader reader) {
@@ -58311,10 +56876,7 @@ class InputPaymentCredentials extends InputPaymentCredentialsBase {
     final data = reader.readObject() as DataJSONBase;
 
     // Construct [InputPaymentCredentials] object.
-    final returnValue = InputPaymentCredentials(
-      save: save,
-      data: data,
-    );
+    final returnValue = InputPaymentCredentials(save: save, data: data);
 
     // Now return the deserialized [InputPaymentCredentials].
     return returnValue;
@@ -58322,9 +56884,7 @@ class InputPaymentCredentials extends InputPaymentCredentialsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: save,
-    );
+    final v = _flag(b00: save);
 
     return v;
   }
@@ -58368,9 +56928,8 @@ class InputPaymentCredentials extends InputPaymentCredentialsBase {
 /// ID: `0aa1c39f`.
 class InputPaymentCredentialsApplePay extends InputPaymentCredentialsBase {
   /// Input Payment Credentials Apple Pay constructor.
-  const InputPaymentCredentialsApplePay({
-    required this.paymentData,
-  }) : super._();
+  const InputPaymentCredentialsApplePay({required this.paymentData})
+      : super._();
 
   /// Deserialize.
   factory InputPaymentCredentialsApplePay.deserialize(BinaryReader reader) {
@@ -58419,9 +56978,8 @@ class InputPaymentCredentialsApplePay extends InputPaymentCredentialsBase {
 /// ID: `8ac32801`.
 class InputPaymentCredentialsGooglePay extends InputPaymentCredentialsBase {
   /// Input Payment Credentials Google Pay constructor.
-  const InputPaymentCredentialsGooglePay({
-    required this.paymentToken,
-  }) : super._();
+  const InputPaymentCredentialsGooglePay({required this.paymentToken})
+      : super._();
 
   /// Deserialize.
   factory InputPaymentCredentialsGooglePay.deserialize(BinaryReader reader) {
@@ -58631,10 +57189,7 @@ class InputStickerSetItem extends InputStickerSetItemBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: maskCoords != null,
-      b01: keywords != null,
-    );
+    final v = _flag(b00: maskCoords != null, b01: keywords != null);
 
     return v;
   }
@@ -58695,10 +57250,8 @@ class InputStickerSetItem extends InputStickerSetItemBase {
 /// ID: `1e36fded`.
 class InputPhoneCall extends InputPhoneCallBase {
   /// Input Phone Call constructor.
-  const InputPhoneCall({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputPhoneCall({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputPhoneCall.deserialize(BinaryReader reader) {
@@ -58707,10 +57260,7 @@ class InputPhoneCall extends InputPhoneCallBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputPhoneCall] object.
-    final returnValue = InputPhoneCall(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputPhoneCall(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputPhoneCall].
     return returnValue;
@@ -58758,9 +57308,7 @@ class InputPhoneCall extends InputPhoneCallBase {
 /// ID: `5366c915`.
 class PhoneCallEmpty extends PhoneCallBase {
   /// Phone Call Empty constructor.
-  const PhoneCallEmpty({
-    required this.id,
-  }) : super._();
+  const PhoneCallEmpty({required this.id}) : super._();
 
   /// Deserialize.
   factory PhoneCallEmpty.deserialize(BinaryReader reader) {
@@ -58768,9 +57316,7 @@ class PhoneCallEmpty extends PhoneCallBase {
     final id = reader.readInt64();
 
     // Construct [PhoneCallEmpty] object.
-    final returnValue = PhoneCallEmpty(
-      id: id,
-    );
+    final returnValue = PhoneCallEmpty(id: id);
 
     // Now return the deserialized [PhoneCallEmpty].
     return returnValue;
@@ -58854,10 +57400,7 @@ class PhoneCallWaiting extends PhoneCallBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b06: video,
-      b00: receiveDate != null,
-    );
+    final v = _flag(b06: video, b00: receiveDate != null);
 
     return v;
   }
@@ -58984,9 +57527,7 @@ class PhoneCallRequested extends PhoneCallBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b06: video,
-    );
+    final v = _flag(b06: video);
 
     return v;
   }
@@ -59110,9 +57651,7 @@ class PhoneCallAccepted extends PhoneCallBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b06: video,
-    );
+    final v = _flag(b06: video);
 
     return v;
   }
@@ -59528,9 +58067,7 @@ class PhoneConnection extends PhoneConnectionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: tcp,
-    );
+    final v = _flag(b00: tcp);
 
     return v;
   }
@@ -59640,10 +58177,7 @@ class PhoneConnectionWebrtc extends PhoneConnectionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: turn,
-      b01: stun,
-    );
+    final v = _flag(b00: turn, b01: stun);
 
     return v;
   }
@@ -59753,10 +58287,7 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: udpP2p,
-      b01: udpReflector,
-    );
+    final v = _flag(b00: udpP2p, b01: udpReflector);
 
     return v;
   }
@@ -59818,10 +58349,8 @@ class PhoneCallProtocol extends PhoneCallProtocolBase {
 /// ID: `ec82e140`.
 class PhonePhoneCall extends PhonePhoneCallBase {
   /// Phone Phone Call constructor.
-  const PhonePhoneCall({
-    required this.phoneCall,
-    required this.users,
-  }) : super._();
+  const PhonePhoneCall({required this.phoneCall, required this.users})
+      : super._();
 
   /// Deserialize.
   factory PhonePhoneCall.deserialize(BinaryReader reader) {
@@ -59877,9 +58406,7 @@ class PhonePhoneCall extends PhonePhoneCallBase {
 /// ID: `eea8e46e`.
 class UploadCdnFileReuploadNeeded extends UploadCdnFileBase {
   /// Upload Cdn File Reupload Needed constructor.
-  const UploadCdnFileReuploadNeeded({
-    required this.requestToken,
-  }) : super._();
+  const UploadCdnFileReuploadNeeded({required this.requestToken}) : super._();
 
   /// Deserialize.
   factory UploadCdnFileReuploadNeeded.deserialize(BinaryReader reader) {
@@ -59887,9 +58414,7 @@ class UploadCdnFileReuploadNeeded extends UploadCdnFileBase {
     final requestToken = reader.readBytes();
 
     // Construct [UploadCdnFileReuploadNeeded] object.
-    final returnValue = UploadCdnFileReuploadNeeded(
-      requestToken: requestToken,
-    );
+    final returnValue = UploadCdnFileReuploadNeeded(requestToken: requestToken);
 
     // Now return the deserialized [UploadCdnFileReuploadNeeded].
     return returnValue;
@@ -59928,9 +58453,7 @@ class UploadCdnFileReuploadNeeded extends UploadCdnFileBase {
 /// ID: `a99fca4f`.
 class UploadCdnFile extends UploadCdnFileBase {
   /// Upload Cdn File constructor.
-  const UploadCdnFile({
-    required this.bytes,
-  }) : super._();
+  const UploadCdnFile({required this.bytes}) : super._();
 
   /// Deserialize.
   factory UploadCdnFile.deserialize(BinaryReader reader) {
@@ -59938,9 +58461,7 @@ class UploadCdnFile extends UploadCdnFileBase {
     final bytes = reader.readBytes();
 
     // Construct [UploadCdnFile] object.
-    final returnValue = UploadCdnFile(
-      bytes: bytes,
-    );
+    final returnValue = UploadCdnFile(bytes: bytes);
 
     // Now return the deserialized [UploadCdnFile].
     return returnValue;
@@ -59979,10 +58500,7 @@ class UploadCdnFile extends UploadCdnFileBase {
 /// ID: `c982eaba`.
 class CdnPublicKey extends CdnPublicKeyBase {
   /// Cdn Public Key constructor.
-  const CdnPublicKey({
-    required this.dcId,
-    required this.publicKey,
-  }) : super._();
+  const CdnPublicKey({required this.dcId, required this.publicKey}) : super._();
 
   /// Deserialize.
   factory CdnPublicKey.deserialize(BinaryReader reader) {
@@ -59991,10 +58509,7 @@ class CdnPublicKey extends CdnPublicKeyBase {
     final publicKey = reader.readString();
 
     // Construct [CdnPublicKey] object.
-    final returnValue = CdnPublicKey(
-      dcId: dcId,
-      publicKey: publicKey,
-    );
+    final returnValue = CdnPublicKey(dcId: dcId, publicKey: publicKey);
 
     // Now return the deserialized [CdnPublicKey].
     return returnValue;
@@ -60040,9 +58555,7 @@ class CdnPublicKey extends CdnPublicKeyBase {
 /// ID: `5725e40a`.
 class CdnConfig extends CdnConfigBase {
   /// Cdn Config constructor.
-  const CdnConfig({
-    required this.publicKeys,
-  }) : super._();
+  const CdnConfig({required this.publicKeys}) : super._();
 
   /// Deserialize.
   factory CdnConfig.deserialize(BinaryReader reader) {
@@ -60050,9 +58563,7 @@ class CdnConfig extends CdnConfigBase {
     final publicKeys = reader.readVectorObject<CdnPublicKeyBase>();
 
     // Construct [CdnConfig] object.
-    final returnValue = CdnConfig(
-      publicKeys: publicKeys.items,
-    );
+    final returnValue = CdnConfig(publicKeys: publicKeys.items);
 
     // Now return the deserialized [CdnConfig].
     return returnValue;
@@ -60091,10 +58602,7 @@ class CdnConfig extends CdnConfigBase {
 /// ID: `cad181f6`.
 class LangPackString extends LangPackStringBase {
   /// Lang Pack String constructor.
-  const LangPackString({
-    required this.key,
-    required this.value,
-  }) : super._();
+  const LangPackString({required this.key, required this.value}) : super._();
 
   /// Deserialize.
   factory LangPackString.deserialize(BinaryReader reader) {
@@ -60103,10 +58611,7 @@ class LangPackString extends LangPackStringBase {
     final value = reader.readString();
 
     // Construct [LangPackString] object.
-    final returnValue = LangPackString(
-      key: key,
-      value: value,
-    );
+    final returnValue = LangPackString(key: key, value: value);
 
     // Now return the deserialized [LangPackString].
     return returnValue;
@@ -60285,9 +58790,7 @@ class LangPackStringPluralized extends LangPackStringBase {
 /// ID: `2979eeb2`.
 class LangPackStringDeleted extends LangPackStringBase {
   /// Lang Pack String Deleted constructor.
-  const LangPackStringDeleted({
-    required this.key,
-  }) : super._();
+  const LangPackStringDeleted({required this.key}) : super._();
 
   /// Deserialize.
   factory LangPackStringDeleted.deserialize(BinaryReader reader) {
@@ -60295,9 +58798,7 @@ class LangPackStringDeleted extends LangPackStringBase {
     final key = reader.readString();
 
     // Construct [LangPackStringDeleted] object.
-    final returnValue = LangPackStringDeleted(
-      key: key,
-    );
+    final returnValue = LangPackStringDeleted(key: key);
 
     // Now return the deserialized [LangPackStringDeleted].
     return returnValue;
@@ -60574,7 +59075,8 @@ class ChannelAdminLogEventActionChangeTitle
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeTitle.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeTitle] fields.
     final prevValue = reader.readString();
     final newValue = reader.readString();
@@ -60635,7 +59137,8 @@ class ChannelAdminLogEventActionChangeAbout
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeAbout.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeAbout] fields.
     final prevValue = reader.readString();
     final newValue = reader.readString();
@@ -60696,7 +59199,8 @@ class ChannelAdminLogEventActionChangeUsername
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeUsername.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeUsername] fields.
     final prevValue = reader.readString();
     final newValue = reader.readString();
@@ -60757,7 +59261,8 @@ class ChannelAdminLogEventActionChangePhoto
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangePhoto.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangePhoto] fields.
     final prevPhoto = reader.readObject() as PhotoBase;
     final newPhoto = reader.readObject() as PhotoBase;
@@ -60811,13 +59316,13 @@ class ChannelAdminLogEventActionChangePhoto
 class ChannelAdminLogEventActionToggleInvites
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Toggle Invites constructor.
-  const ChannelAdminLogEventActionToggleInvites({
-    required this.newValue,
-  }) : super._();
+  const ChannelAdminLogEventActionToggleInvites({required this.newValue})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleInvites.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleInvites] fields.
     final newValue = reader.readBool();
 
@@ -60864,13 +59369,13 @@ class ChannelAdminLogEventActionToggleInvites
 class ChannelAdminLogEventActionToggleSignatures
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Toggle Signatures constructor.
-  const ChannelAdminLogEventActionToggleSignatures({
-    required this.newValue,
-  }) : super._();
+  const ChannelAdminLogEventActionToggleSignatures({required this.newValue})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleSignatures.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleSignatures] fields.
     final newValue = reader.readBool();
 
@@ -60917,13 +59422,13 @@ class ChannelAdminLogEventActionToggleSignatures
 class ChannelAdminLogEventActionUpdatePinned
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Update Pinned constructor.
-  const ChannelAdminLogEventActionUpdatePinned({
-    required this.message,
-  }) : super._();
+  const ChannelAdminLogEventActionUpdatePinned({required this.message})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionUpdatePinned.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionUpdatePinned] fields.
     final message = reader.readObject() as MessageBase;
 
@@ -60977,7 +59482,8 @@ class ChannelAdminLogEventActionEditMessage
 
   /// Deserialize.
   factory ChannelAdminLogEventActionEditMessage.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionEditMessage] fields.
     final prevMessage = reader.readObject() as MessageBase;
     final newMessage = reader.readObject() as MessageBase;
@@ -61031,13 +59537,13 @@ class ChannelAdminLogEventActionEditMessage
 class ChannelAdminLogEventActionDeleteMessage
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Delete Message constructor.
-  const ChannelAdminLogEventActionDeleteMessage({
-    required this.message,
-  }) : super._();
+  const ChannelAdminLogEventActionDeleteMessage({required this.message})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionDeleteMessage.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionDeleteMessage] fields.
     final message = reader.readObject() as MessageBase;
 
@@ -61088,7 +59594,8 @@ class ChannelAdminLogEventActionParticipantJoin
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantJoin.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [ChannelAdminLogEventActionParticipantJoin] object.
     final returnValue = ChannelAdminLogEventActionParticipantJoin();
 
@@ -61127,7 +59634,8 @@ class ChannelAdminLogEventActionParticipantLeave
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantLeave.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [ChannelAdminLogEventActionParticipantLeave] object.
     final returnValue = ChannelAdminLogEventActionParticipantLeave();
 
@@ -61162,13 +59670,13 @@ class ChannelAdminLogEventActionParticipantLeave
 class ChannelAdminLogEventActionParticipantInvite
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Participant Invite constructor.
-  const ChannelAdminLogEventActionParticipantInvite({
-    required this.participant,
-  }) : super._();
+  const ChannelAdminLogEventActionParticipantInvite({required this.participant})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantInvite.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantInvite] fields.
     final participant = reader.readObject() as ChannelParticipantBase;
 
@@ -61222,7 +59730,8 @@ class ChannelAdminLogEventActionParticipantToggleBan
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantToggleBan.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantToggleBan] fields.
     final prevParticipant = reader.readObject() as ChannelParticipantBase;
     final newParticipant = reader.readObject() as ChannelParticipantBase;
@@ -61283,7 +59792,8 @@ class ChannelAdminLogEventActionParticipantToggleAdmin
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantToggleAdmin.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantToggleAdmin] fields.
     final prevParticipant = reader.readObject() as ChannelParticipantBase;
     final newParticipant = reader.readObject() as ChannelParticipantBase;
@@ -61344,7 +59854,8 @@ class ChannelAdminLogEventActionChangeStickerSet
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeStickerSet.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeStickerSet] fields.
     final prevStickerset = reader.readObject() as InputStickerSetBase;
     final newStickerset = reader.readObject() as InputStickerSetBase;
@@ -61404,7 +59915,8 @@ class ChannelAdminLogEventActionTogglePreHistoryHidden
 
   /// Deserialize.
   factory ChannelAdminLogEventActionTogglePreHistoryHidden.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionTogglePreHistoryHidden] fields.
     final newValue = reader.readBool();
 
@@ -61458,7 +59970,8 @@ class ChannelAdminLogEventActionDefaultBannedRights
 
   /// Deserialize.
   factory ChannelAdminLogEventActionDefaultBannedRights.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionDefaultBannedRights] fields.
     final prevBannedRights = reader.readObject() as ChatBannedRightsBase;
     final newBannedRights = reader.readObject() as ChatBannedRightsBase;
@@ -61512,9 +60025,7 @@ class ChannelAdminLogEventActionDefaultBannedRights
 class ChannelAdminLogEventActionStopPoll
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Stop Poll constructor.
-  const ChannelAdminLogEventActionStopPoll({
-    required this.message,
-  }) : super._();
+  const ChannelAdminLogEventActionStopPoll({required this.message}) : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionStopPoll.deserialize(BinaryReader reader) {
@@ -61522,9 +60033,7 @@ class ChannelAdminLogEventActionStopPoll
     final message = reader.readObject() as MessageBase;
 
     // Construct [ChannelAdminLogEventActionStopPoll] object.
-    final returnValue = ChannelAdminLogEventActionStopPoll(
-      message: message,
-    );
+    final returnValue = ChannelAdminLogEventActionStopPoll(message: message);
 
     // Now return the deserialized [ChannelAdminLogEventActionStopPoll].
     return returnValue;
@@ -61571,7 +60080,8 @@ class ChannelAdminLogEventActionChangeLinkedChat
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeLinkedChat.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeLinkedChat] fields.
     final prevValue = reader.readInt64();
     final newValue = reader.readInt64();
@@ -61636,7 +60146,8 @@ class ChannelAdminLogEventActionChangeLocation
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeLocation.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeLocation] fields.
     final prevValue = reader.readObject() as ChannelLocationBase;
     final newValue = reader.readObject() as ChannelLocationBase;
@@ -61697,7 +60208,8 @@ class ChannelAdminLogEventActionToggleSlowMode
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleSlowMode.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleSlowMode] fields.
     final prevValue = reader.readInt32();
     final newValue = reader.readInt32();
@@ -61755,20 +60267,18 @@ class ChannelAdminLogEventActionToggleSlowMode
 class ChannelAdminLogEventActionStartGroupCall
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Start Group Call constructor.
-  const ChannelAdminLogEventActionStartGroupCall({
-    required this.call,
-  }) : super._();
+  const ChannelAdminLogEventActionStartGroupCall({required this.call})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionStartGroupCall.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionStartGroupCall] fields.
     final call = reader.readObject() as InputGroupCallBase;
 
     // Construct [ChannelAdminLogEventActionStartGroupCall] object.
-    final returnValue = ChannelAdminLogEventActionStartGroupCall(
-      call: call,
-    );
+    final returnValue = ChannelAdminLogEventActionStartGroupCall(call: call);
 
     // Now return the deserialized [ChannelAdminLogEventActionStartGroupCall].
     return returnValue;
@@ -61808,20 +60318,18 @@ class ChannelAdminLogEventActionStartGroupCall
 class ChannelAdminLogEventActionDiscardGroupCall
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Discard Group Call constructor.
-  const ChannelAdminLogEventActionDiscardGroupCall({
-    required this.call,
-  }) : super._();
+  const ChannelAdminLogEventActionDiscardGroupCall({required this.call})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionDiscardGroupCall.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionDiscardGroupCall] fields.
     final call = reader.readObject() as InputGroupCallBase;
 
     // Construct [ChannelAdminLogEventActionDiscardGroupCall] object.
-    final returnValue = ChannelAdminLogEventActionDiscardGroupCall(
-      call: call,
-    );
+    final returnValue = ChannelAdminLogEventActionDiscardGroupCall(call: call);
 
     // Now return the deserialized [ChannelAdminLogEventActionDiscardGroupCall].
     return returnValue;
@@ -61861,13 +60369,13 @@ class ChannelAdminLogEventActionDiscardGroupCall
 class ChannelAdminLogEventActionParticipantMute
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Participant Mute constructor.
-  const ChannelAdminLogEventActionParticipantMute({
-    required this.participant,
-  }) : super._();
+  const ChannelAdminLogEventActionParticipantMute({required this.participant})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantMute.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantMute] fields.
     final participant = reader.readObject() as GroupCallParticipantBase;
 
@@ -61914,13 +60422,13 @@ class ChannelAdminLogEventActionParticipantMute
 class ChannelAdminLogEventActionParticipantUnmute
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Participant Unmute constructor.
-  const ChannelAdminLogEventActionParticipantUnmute({
-    required this.participant,
-  }) : super._();
+  const ChannelAdminLogEventActionParticipantUnmute({required this.participant})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantUnmute.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantUnmute] fields.
     final participant = reader.readObject() as GroupCallParticipantBase;
 
@@ -61973,7 +60481,8 @@ class ChannelAdminLogEventActionToggleGroupCallSetting
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleGroupCallSetting.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleGroupCallSetting] fields.
     final joinMuted = reader.readBool();
 
@@ -62027,7 +60536,8 @@ class ChannelAdminLogEventActionParticipantJoinByInvite
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantJoinByInvite.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantJoinByInvite] fields.
     final flags = reader.readInt32();
     final viaChatlist = (flags & 1) != 0;
@@ -62045,9 +60555,7 @@ class ChannelAdminLogEventActionParticipantJoinByInvite
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: viaChatlist,
-    );
+    final v = _flag(b00: viaChatlist);
 
     return v;
   }
@@ -62092,13 +60600,13 @@ class ChannelAdminLogEventActionParticipantJoinByInvite
 class ChannelAdminLogEventActionExportedInviteDelete
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Exported Invite Delete constructor.
-  const ChannelAdminLogEventActionExportedInviteDelete({
-    required this.invite,
-  }) : super._();
+  const ChannelAdminLogEventActionExportedInviteDelete({required this.invite})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionExportedInviteDelete.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionExportedInviteDelete] fields.
     final invite = reader.readObject() as ExportedChatInviteBase;
 
@@ -62145,13 +60653,13 @@ class ChannelAdminLogEventActionExportedInviteDelete
 class ChannelAdminLogEventActionExportedInviteRevoke
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Exported Invite Revoke constructor.
-  const ChannelAdminLogEventActionExportedInviteRevoke({
-    required this.invite,
-  }) : super._();
+  const ChannelAdminLogEventActionExportedInviteRevoke({required this.invite})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionExportedInviteRevoke.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionExportedInviteRevoke] fields.
     final invite = reader.readObject() as ExportedChatInviteBase;
 
@@ -62205,7 +60713,8 @@ class ChannelAdminLogEventActionExportedInviteEdit
 
   /// Deserialize.
   factory ChannelAdminLogEventActionExportedInviteEdit.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionExportedInviteEdit] fields.
     final prevInvite = reader.readObject() as ExportedChatInviteBase;
     final newInvite = reader.readObject() as ExportedChatInviteBase;
@@ -62259,13 +60768,13 @@ class ChannelAdminLogEventActionExportedInviteEdit
 class ChannelAdminLogEventActionParticipantVolume
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Participant Volume constructor.
-  const ChannelAdminLogEventActionParticipantVolume({
-    required this.participant,
-  }) : super._();
+  const ChannelAdminLogEventActionParticipantVolume({required this.participant})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantVolume.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantVolume] fields.
     final participant = reader.readObject() as GroupCallParticipantBase;
 
@@ -62319,7 +60828,8 @@ class ChannelAdminLogEventActionChangeHistoryTTL
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeHistoryTTL.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeHistoryTTL] fields.
     final prevValue = reader.readInt32();
     final newValue = reader.readInt32();
@@ -62384,7 +60894,8 @@ class ChannelAdminLogEventActionParticipantJoinByRequest
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantJoinByRequest.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantJoinByRequest] fields.
     final invite = reader.readObject() as ExportedChatInviteBase;
     final approvedBy = reader.readInt64();
@@ -62440,13 +60951,13 @@ class ChannelAdminLogEventActionParticipantJoinByRequest
 class ChannelAdminLogEventActionToggleNoForwards
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Toggle No Forwards constructor.
-  const ChannelAdminLogEventActionToggleNoForwards({
-    required this.newValue,
-  }) : super._();
+  const ChannelAdminLogEventActionToggleNoForwards({required this.newValue})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleNoForwards.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleNoForwards] fields.
     final newValue = reader.readBool();
 
@@ -62493,20 +61004,18 @@ class ChannelAdminLogEventActionToggleNoForwards
 class ChannelAdminLogEventActionSendMessage
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Send Message constructor.
-  const ChannelAdminLogEventActionSendMessage({
-    required this.message,
-  }) : super._();
+  const ChannelAdminLogEventActionSendMessage({required this.message})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionSendMessage.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionSendMessage] fields.
     final message = reader.readObject() as MessageBase;
 
     // Construct [ChannelAdminLogEventActionSendMessage] object.
-    final returnValue = ChannelAdminLogEventActionSendMessage(
-      message: message,
-    );
+    final returnValue = ChannelAdminLogEventActionSendMessage(message: message);
 
     // Now return the deserialized [ChannelAdminLogEventActionSendMessage].
     return returnValue;
@@ -62553,7 +61062,8 @@ class ChannelAdminLogEventActionChangeAvailableReactions
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeAvailableReactions.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeAvailableReactions] fields.
     final prevValue = reader.readObject() as ChatReactionsBase;
     final newValue = reader.readObject() as ChatReactionsBase;
@@ -62614,7 +61124,8 @@ class ChannelAdminLogEventActionChangeUsernames
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeUsernames.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeUsernames] fields.
     final prevValue = reader.readVectorString();
     final newValue = reader.readVectorString();
@@ -62668,13 +61179,13 @@ class ChannelAdminLogEventActionChangeUsernames
 class ChannelAdminLogEventActionToggleForum
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Toggle Forum constructor.
-  const ChannelAdminLogEventActionToggleForum({
-    required this.newValue,
-  }) : super._();
+  const ChannelAdminLogEventActionToggleForum({required this.newValue})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleForum.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleForum] fields.
     final newValue = reader.readBool();
 
@@ -62721,20 +61232,18 @@ class ChannelAdminLogEventActionToggleForum
 class ChannelAdminLogEventActionCreateTopic
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Create Topic constructor.
-  const ChannelAdminLogEventActionCreateTopic({
-    required this.topic,
-  }) : super._();
+  const ChannelAdminLogEventActionCreateTopic({required this.topic})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionCreateTopic.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionCreateTopic] fields.
     final topic = reader.readObject() as ForumTopicBase;
 
     // Construct [ChannelAdminLogEventActionCreateTopic] object.
-    final returnValue = ChannelAdminLogEventActionCreateTopic(
-      topic: topic,
-    );
+    final returnValue = ChannelAdminLogEventActionCreateTopic(topic: topic);
 
     // Now return the deserialized [ChannelAdminLogEventActionCreateTopic].
     return returnValue;
@@ -62834,20 +61343,18 @@ class ChannelAdminLogEventActionEditTopic
 class ChannelAdminLogEventActionDeleteTopic
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Delete Topic constructor.
-  const ChannelAdminLogEventActionDeleteTopic({
-    required this.topic,
-  }) : super._();
+  const ChannelAdminLogEventActionDeleteTopic({required this.topic})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionDeleteTopic.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionDeleteTopic] fields.
     final topic = reader.readObject() as ForumTopicBase;
 
     // Construct [ChannelAdminLogEventActionDeleteTopic] object.
-    final returnValue = ChannelAdminLogEventActionDeleteTopic(
-      topic: topic,
-    );
+    final returnValue = ChannelAdminLogEventActionDeleteTopic(topic: topic);
 
     // Now return the deserialized [ChannelAdminLogEventActionDeleteTopic].
     return returnValue;
@@ -62887,10 +61394,8 @@ class ChannelAdminLogEventActionDeleteTopic
 class ChannelAdminLogEventActionPinTopic
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Pin Topic constructor.
-  const ChannelAdminLogEventActionPinTopic({
-    this.prevTopic,
-    this.newTopic,
-  }) : super._();
+  const ChannelAdminLogEventActionPinTopic({this.prevTopic, this.newTopic})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionPinTopic.deserialize(BinaryReader reader) {
@@ -62915,10 +61420,7 @@ class ChannelAdminLogEventActionPinTopic
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: prevTopic != null,
-      b01: newTopic != null,
-    );
+    final v = _flag(b00: prevTopic != null, b01: newTopic != null);
 
     return v;
   }
@@ -62970,13 +61472,13 @@ class ChannelAdminLogEventActionPinTopic
 class ChannelAdminLogEventActionToggleAntiSpam
     extends ChannelAdminLogEventActionBase {
   /// Channel Admin Log Event Action Toggle Anti Spam constructor.
-  const ChannelAdminLogEventActionToggleAntiSpam({
-    required this.newValue,
-  }) : super._();
+  const ChannelAdminLogEventActionToggleAntiSpam({required this.newValue})
+      : super._();
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleAntiSpam.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleAntiSpam] fields.
     final newValue = reader.readBool();
 
@@ -63030,7 +61532,8 @@ class ChannelAdminLogEventActionChangePeerColor
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangePeerColor.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangePeerColor] fields.
     final prevValue = reader.readObject() as PeerColorBase;
     final newValue = reader.readObject() as PeerColorBase;
@@ -63091,7 +61594,8 @@ class ChannelAdminLogEventActionChangeProfilePeerColor
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeProfilePeerColor.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeProfilePeerColor] fields.
     final prevValue = reader.readObject() as PeerColorBase;
     final newValue = reader.readObject() as PeerColorBase;
@@ -63152,7 +61656,8 @@ class ChannelAdminLogEventActionChangeWallpaper
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeWallpaper.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeWallpaper] fields.
     final prevValue = reader.readObject() as WallPaperBase;
     final newValue = reader.readObject() as WallPaperBase;
@@ -63213,7 +61718,8 @@ class ChannelAdminLogEventActionChangeEmojiStatus
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeEmojiStatus.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeEmojiStatus] fields.
     final prevValue = reader.readObject() as EmojiStatusBase;
     final newValue = reader.readObject() as EmojiStatusBase;
@@ -63274,7 +61780,8 @@ class ChannelAdminLogEventActionChangeEmojiStickerSet
 
   /// Deserialize.
   factory ChannelAdminLogEventActionChangeEmojiStickerSet.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionChangeEmojiStickerSet] fields.
     final prevStickerset = reader.readObject() as InputStickerSetBase;
     final newStickerset = reader.readObject() as InputStickerSetBase;
@@ -63334,7 +61841,8 @@ class ChannelAdminLogEventActionToggleSignatureProfiles
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleSignatureProfiles.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleSignatureProfiles] fields.
     final newValue = reader.readBool();
 
@@ -63388,7 +61896,8 @@ class ChannelAdminLogEventActionParticipantSubExtend
 
   /// Deserialize.
   factory ChannelAdminLogEventActionParticipantSubExtend.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionParticipantSubExtend] fields.
     final prevParticipant = reader.readObject() as ChannelParticipantBase;
     final newParticipant = reader.readObject() as ChannelParticipantBase;
@@ -63448,7 +61957,8 @@ class ChannelAdminLogEventActionToggleAutotranslation
 
   /// Deserialize.
   factory ChannelAdminLogEventActionToggleAutotranslation.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelAdminLogEventActionToggleAutotranslation] fields.
     final newValue = reader.readBool();
 
@@ -63846,10 +62356,8 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
 /// ID: `5ce14175`.
 class PopularContact extends PopularContactBase {
   /// Popular Contact constructor.
-  const PopularContact({
-    required this.clientId,
-    required this.importers,
-  }) : super._();
+  const PopularContact({required this.clientId, required this.importers})
+      : super._();
 
   /// Deserialize.
   factory PopularContact.deserialize(BinaryReader reader) {
@@ -64015,9 +62523,7 @@ class MessagesFavedStickers extends MessagesFavedStickersBase {
 /// ID: `46e1d13d`.
 class RecentMeUrlUnknown extends RecentMeUrlBase {
   /// Recent Me Url Unknown constructor.
-  const RecentMeUrlUnknown({
-    required this.url,
-  }) : super._();
+  const RecentMeUrlUnknown({required this.url}) : super._();
 
   /// Deserialize.
   factory RecentMeUrlUnknown.deserialize(BinaryReader reader) {
@@ -64025,9 +62531,7 @@ class RecentMeUrlUnknown extends RecentMeUrlBase {
     final url = reader.readString();
 
     // Construct [RecentMeUrlUnknown] object.
-    final returnValue = RecentMeUrlUnknown(
-      url: url,
-    );
+    final returnValue = RecentMeUrlUnknown(url: url);
 
     // Now return the deserialized [RecentMeUrlUnknown].
     return returnValue;
@@ -64066,10 +62570,7 @@ class RecentMeUrlUnknown extends RecentMeUrlBase {
 /// ID: `b92c09e2`.
 class RecentMeUrlUser extends RecentMeUrlBase {
   /// Recent Me Url User constructor.
-  const RecentMeUrlUser({
-    required this.url,
-    required this.userId,
-  }) : super._();
+  const RecentMeUrlUser({required this.url, required this.userId}) : super._();
 
   /// Deserialize.
   factory RecentMeUrlUser.deserialize(BinaryReader reader) {
@@ -64078,10 +62579,7 @@ class RecentMeUrlUser extends RecentMeUrlBase {
     final userId = reader.readInt64();
 
     // Construct [RecentMeUrlUser] object.
-    final returnValue = RecentMeUrlUser(
-      url: url,
-      userId: userId,
-    );
+    final returnValue = RecentMeUrlUser(url: url, userId: userId);
 
     // Now return the deserialized [RecentMeUrlUser].
     return returnValue;
@@ -64127,10 +62625,7 @@ class RecentMeUrlUser extends RecentMeUrlBase {
 /// ID: `b2da71d2`.
 class RecentMeUrlChat extends RecentMeUrlBase {
   /// Recent Me Url Chat constructor.
-  const RecentMeUrlChat({
-    required this.url,
-    required this.chatId,
-  }) : super._();
+  const RecentMeUrlChat({required this.url, required this.chatId}) : super._();
 
   /// Deserialize.
   factory RecentMeUrlChat.deserialize(BinaryReader reader) {
@@ -64139,10 +62634,7 @@ class RecentMeUrlChat extends RecentMeUrlBase {
     final chatId = reader.readInt64();
 
     // Construct [RecentMeUrlChat] object.
-    final returnValue = RecentMeUrlChat(
-      url: url,
-      chatId: chatId,
-    );
+    final returnValue = RecentMeUrlChat(url: url, chatId: chatId);
 
     // Now return the deserialized [RecentMeUrlChat].
     return returnValue;
@@ -64188,10 +62680,8 @@ class RecentMeUrlChat extends RecentMeUrlBase {
 /// ID: `eb49081d`.
 class RecentMeUrlChatInvite extends RecentMeUrlBase {
   /// Recent Me Url Chat Invite constructor.
-  const RecentMeUrlChatInvite({
-    required this.url,
-    required this.chatInvite,
-  }) : super._();
+  const RecentMeUrlChatInvite({required this.url, required this.chatInvite})
+      : super._();
 
   /// Deserialize.
   factory RecentMeUrlChatInvite.deserialize(BinaryReader reader) {
@@ -64200,10 +62690,7 @@ class RecentMeUrlChatInvite extends RecentMeUrlBase {
     final chatInvite = reader.readObject() as ChatInviteBase;
 
     // Construct [RecentMeUrlChatInvite] object.
-    final returnValue = RecentMeUrlChatInvite(
-      url: url,
-      chatInvite: chatInvite,
-    );
+    final returnValue = RecentMeUrlChatInvite(url: url, chatInvite: chatInvite);
 
     // Now return the deserialized [RecentMeUrlChatInvite].
     return returnValue;
@@ -64247,10 +62734,8 @@ class RecentMeUrlChatInvite extends RecentMeUrlBase {
 /// ID: `bc0a57dc`.
 class RecentMeUrlStickerSet extends RecentMeUrlBase {
   /// Recent Me Url Sticker Set constructor.
-  const RecentMeUrlStickerSet({
-    required this.url,
-    required this.set,
-  }) : super._();
+  const RecentMeUrlStickerSet({required this.url, required this.set})
+      : super._();
 
   /// Deserialize.
   factory RecentMeUrlStickerSet.deserialize(BinaryReader reader) {
@@ -64259,10 +62744,7 @@ class RecentMeUrlStickerSet extends RecentMeUrlBase {
     final set = reader.readObject() as StickerSetCoveredBase;
 
     // Construct [RecentMeUrlStickerSet] object.
-    final returnValue = RecentMeUrlStickerSet(
-      url: url,
-      set: set,
-    );
+    final returnValue = RecentMeUrlStickerSet(url: url, set: set);
 
     // Now return the deserialized [RecentMeUrlStickerSet].
     return returnValue;
@@ -64405,9 +62887,7 @@ class InputSingleMedia extends InputSingleMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: entities != null,
-    );
+    final v = _flag(b00: entities != null);
 
     return v;
   }
@@ -64645,9 +63125,7 @@ class AccountWebAuthorizations extends AccountWebAuthorizationsBase {
 /// ID: `a676a322`.
 class InputMessageID extends InputMessageBase {
   /// Input Message I D constructor.
-  const InputMessageID({
-    required this.id,
-  }) : super._();
+  const InputMessageID({required this.id}) : super._();
 
   /// Deserialize.
   factory InputMessageID.deserialize(BinaryReader reader) {
@@ -64655,9 +63133,7 @@ class InputMessageID extends InputMessageBase {
     final id = reader.readInt32();
 
     // Construct [InputMessageID] object.
-    final returnValue = InputMessageID(
-      id: id,
-    );
+    final returnValue = InputMessageID(id: id);
 
     // Now return the deserialized [InputMessageID].
     return returnValue;
@@ -64698,9 +63174,7 @@ class InputMessageID extends InputMessageBase {
 /// ID: `bad88395`.
 class InputMessageReplyTo extends InputMessageBase {
   /// Input Message Reply To constructor.
-  const InputMessageReplyTo({
-    required this.id,
-  }) : super._();
+  const InputMessageReplyTo({required this.id}) : super._();
 
   /// Deserialize.
   factory InputMessageReplyTo.deserialize(BinaryReader reader) {
@@ -64708,9 +63182,7 @@ class InputMessageReplyTo extends InputMessageBase {
     final id = reader.readInt32();
 
     // Construct [InputMessageReplyTo] object.
-    final returnValue = InputMessageReplyTo(
-      id: id,
-    );
+    final returnValue = InputMessageReplyTo(id: id);
 
     // Now return the deserialized [InputMessageReplyTo].
     return returnValue;
@@ -64788,10 +63260,8 @@ class InputMessagePinned extends InputMessageBase {
 /// ID: `acfa1a7e`.
 class InputMessageCallbackQuery extends InputMessageBase {
   /// Input Message Callback Query constructor.
-  const InputMessageCallbackQuery({
-    required this.id,
-    required this.queryId,
-  }) : super._();
+  const InputMessageCallbackQuery({required this.id, required this.queryId})
+      : super._();
 
   /// Deserialize.
   factory InputMessageCallbackQuery.deserialize(BinaryReader reader) {
@@ -64800,10 +63270,7 @@ class InputMessageCallbackQuery extends InputMessageBase {
     final queryId = reader.readInt64();
 
     // Construct [InputMessageCallbackQuery] object.
-    final returnValue = InputMessageCallbackQuery(
-      id: id,
-      queryId: queryId,
-    );
+    final returnValue = InputMessageCallbackQuery(id: id, queryId: queryId);
 
     // Now return the deserialized [InputMessageCallbackQuery].
     return returnValue;
@@ -64851,9 +63318,7 @@ class InputMessageCallbackQuery extends InputMessageBase {
 /// ID: `fcaafeb7`.
 class InputDialogPeer extends InputDialogPeerBase {
   /// Input Dialog Peer constructor.
-  const InputDialogPeer({
-    required this.peer,
-  }) : super._();
+  const InputDialogPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory InputDialogPeer.deserialize(BinaryReader reader) {
@@ -64861,9 +63326,7 @@ class InputDialogPeer extends InputDialogPeerBase {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [InputDialogPeer] object.
-    final returnValue = InputDialogPeer(
-      peer: peer,
-    );
+    final returnValue = InputDialogPeer(peer: peer);
 
     // Now return the deserialized [InputDialogPeer].
     return returnValue;
@@ -64902,9 +63365,7 @@ class InputDialogPeer extends InputDialogPeerBase {
 /// ID: `64600527`.
 class InputDialogPeerFolder extends InputDialogPeerBase {
   /// Input Dialog Peer Folder constructor.
-  const InputDialogPeerFolder({
-    required this.folderId,
-  }) : super._();
+  const InputDialogPeerFolder({required this.folderId}) : super._();
 
   /// Deserialize.
   factory InputDialogPeerFolder.deserialize(BinaryReader reader) {
@@ -64912,9 +63373,7 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
     final folderId = reader.readInt32();
 
     // Construct [InputDialogPeerFolder] object.
-    final returnValue = InputDialogPeerFolder(
-      folderId: folderId,
-    );
+    final returnValue = InputDialogPeerFolder(folderId: folderId);
 
     // Now return the deserialized [InputDialogPeerFolder].
     return returnValue;
@@ -64955,9 +63414,7 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
 /// ID: `e56dbf05`.
 class DialogPeer extends DialogPeerBase {
   /// Dialog Peer constructor.
-  const DialogPeer({
-    required this.peer,
-  }) : super._();
+  const DialogPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory DialogPeer.deserialize(BinaryReader reader) {
@@ -64965,9 +63422,7 @@ class DialogPeer extends DialogPeerBase {
     final peer = reader.readObject() as PeerBase;
 
     // Construct [DialogPeer] object.
-    final returnValue = DialogPeer(
-      peer: peer,
-    );
+    final returnValue = DialogPeer(peer: peer);
 
     // Now return the deserialized [DialogPeer].
     return returnValue;
@@ -65006,9 +63461,7 @@ class DialogPeer extends DialogPeerBase {
 /// ID: `514519e2`.
 class DialogPeerFolder extends DialogPeerBase {
   /// Dialog Peer Folder constructor.
-  const DialogPeerFolder({
-    required this.folderId,
-  }) : super._();
+  const DialogPeerFolder({required this.folderId}) : super._();
 
   /// Deserialize.
   factory DialogPeerFolder.deserialize(BinaryReader reader) {
@@ -65016,9 +63469,7 @@ class DialogPeerFolder extends DialogPeerBase {
     final folderId = reader.readInt32();
 
     // Construct [DialogPeerFolder] object.
-    final returnValue = DialogPeerFolder(
-      folderId: folderId,
-    );
+    final returnValue = DialogPeerFolder(folderId: folderId);
 
     // Now return the deserialized [DialogPeerFolder].
     return returnValue;
@@ -65096,10 +63547,8 @@ class MessagesFoundStickerSetsNotModified extends MessagesFoundStickerSetsBase {
 /// ID: `8af09dd2`.
 class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
   /// Messages Found Sticker Sets constructor.
-  const MessagesFoundStickerSets({
-    required this.hash,
-    required this.sets,
-  }) : super._();
+  const MessagesFoundStickerSets({required this.hash, required this.sets})
+      : super._();
 
   /// Deserialize.
   factory MessagesFoundStickerSets.deserialize(BinaryReader reader) {
@@ -65108,10 +63557,7 @@ class MessagesFoundStickerSets extends MessagesFoundStickerSetsBase {
     final sets = reader.readVectorObject<StickerSetCoveredBase>();
 
     // Construct [MessagesFoundStickerSets] object.
-    final returnValue = MessagesFoundStickerSets(
-      hash: hash,
-      sets: sets.items,
-    );
+    final returnValue = MessagesFoundStickerSets(hash: hash, sets: sets.items);
 
     // Now return the deserialized [MessagesFoundStickerSets].
     return returnValue;
@@ -65171,11 +63617,7 @@ class FileHash extends FileHashBase {
     final hash = reader.readBytes();
 
     // Construct [FileHash] object.
-    final returnValue = FileHash(
-      offset: offset,
-      limit: limit,
-      hash: hash,
-    );
+    final returnValue = FileHash(offset: offset, limit: limit, hash: hash);
 
     // Now return the deserialized [FileHash].
     return returnValue;
@@ -65228,10 +63670,8 @@ class FileHash extends FileHashBase {
 /// ID: `75588b3f`.
 class InputClientProxy extends InputClientProxyBase {
   /// Input Client Proxy constructor.
-  const InputClientProxy({
-    required this.address,
-    required this.port,
-  }) : super._();
+  const InputClientProxy({required this.address, required this.port})
+      : super._();
 
   /// Deserialize.
   factory InputClientProxy.deserialize(BinaryReader reader) {
@@ -65240,10 +63680,7 @@ class InputClientProxy extends InputClientProxyBase {
     final port = reader.readInt32();
 
     // Construct [InputClientProxy] object.
-    final returnValue = InputClientProxy(
-      address: address,
-      port: port,
-    );
+    final returnValue = InputClientProxy(address: address, port: port);
 
     // Now return the deserialized [InputClientProxy].
     return returnValue;
@@ -65289,9 +63726,7 @@ class InputClientProxy extends InputClientProxyBase {
 /// ID: `e3309f7f`.
 class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
   /// Help Terms Of Service Update Empty constructor.
-  const HelpTermsOfServiceUpdateEmpty({
-    required this.expires,
-  }) : super._();
+  const HelpTermsOfServiceUpdateEmpty({required this.expires}) : super._();
 
   /// Deserialize.
   factory HelpTermsOfServiceUpdateEmpty.deserialize(BinaryReader reader) {
@@ -65299,9 +63734,7 @@ class HelpTermsOfServiceUpdateEmpty extends HelpTermsOfServiceUpdateBase {
     final expires = reader.readDateTime();
 
     // Construct [HelpTermsOfServiceUpdateEmpty] object.
-    final returnValue = HelpTermsOfServiceUpdateEmpty(
-      expires: expires,
-    );
+    final returnValue = HelpTermsOfServiceUpdateEmpty(expires: expires);
 
     // Now return the deserialized [HelpTermsOfServiceUpdateEmpty].
     return returnValue;
@@ -65486,10 +63919,8 @@ class InputSecureFileUploaded extends InputSecureFileBase {
 /// ID: `5367e5be`.
 class InputSecureFile extends InputSecureFileBase {
   /// Input Secure File constructor.
-  const InputSecureFile({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputSecureFile({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputSecureFile.deserialize(BinaryReader reader) {
@@ -65498,10 +63929,7 @@ class InputSecureFile extends InputSecureFileBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputSecureFile] object.
-    final returnValue = InputSecureFile(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputSecureFile(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputSecureFile].
     return returnValue;
@@ -65760,9 +64188,7 @@ class SecureData extends SecureDataBase {
 /// ID: `7d6099dd`.
 class SecurePlainPhone extends SecurePlainDataBase {
   /// Secure Plain Phone constructor.
-  const SecurePlainPhone({
-    required this.phone,
-  }) : super._();
+  const SecurePlainPhone({required this.phone}) : super._();
 
   /// Deserialize.
   factory SecurePlainPhone.deserialize(BinaryReader reader) {
@@ -65770,9 +64196,7 @@ class SecurePlainPhone extends SecurePlainDataBase {
     final phone = reader.readString();
 
     // Construct [SecurePlainPhone] object.
-    final returnValue = SecurePlainPhone(
-      phone: phone,
-    );
+    final returnValue = SecurePlainPhone(phone: phone);
 
     // Now return the deserialized [SecurePlainPhone].
     return returnValue;
@@ -65811,9 +64235,7 @@ class SecurePlainPhone extends SecurePlainDataBase {
 /// ID: `21ec5a5f`.
 class SecurePlainEmail extends SecurePlainDataBase {
   /// Secure Plain Email constructor.
-  const SecurePlainEmail({
-    required this.email,
-  }) : super._();
+  const SecurePlainEmail({required this.email}) : super._();
 
   /// Deserialize.
   factory SecurePlainEmail.deserialize(BinaryReader reader) {
@@ -65821,9 +64243,7 @@ class SecurePlainEmail extends SecurePlainDataBase {
     final email = reader.readString();
 
     // Construct [SecurePlainEmail] object.
-    final returnValue = SecurePlainEmail(
-      email: email,
-    );
+    final returnValue = SecurePlainEmail(email: email);
 
     // Now return the deserialized [SecurePlainEmail].
     return returnValue;
@@ -66236,7 +64656,8 @@ class SecureValueTypeTemporaryRegistration extends SecureValueTypeBase {
 
   /// Deserialize.
   factory SecureValueTypeTemporaryRegistration.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [SecureValueTypeTemporaryRegistration] object.
     final returnValue = SecureValueTypeTemporaryRegistration();
 
@@ -66671,10 +65092,7 @@ class InputSecureValue extends InputSecureValueBase {
 /// ID: `ed1ecdb0`.
 class SecureValueHash extends SecureValueHashBase {
   /// Secure Value Hash constructor.
-  const SecureValueHash({
-    required this.type,
-    required this.hash,
-  }) : super._();
+  const SecureValueHash({required this.type, required this.hash}) : super._();
 
   /// Deserialize.
   factory SecureValueHash.deserialize(BinaryReader reader) {
@@ -66683,10 +65101,7 @@ class SecureValueHash extends SecureValueHashBase {
     final hash = reader.readBytes();
 
     // Construct [SecureValueHash] object.
-    final returnValue = SecureValueHash(
-      type: type,
-      hash: hash,
-    );
+    final returnValue = SecureValueHash(type: type, hash: hash);
 
     // Now return the deserialized [SecureValueHash].
     return returnValue;
@@ -67154,11 +65569,7 @@ class SecureValueError extends SecureValueErrorBase {
     final text = reader.readString();
 
     // Construct [SecureValueError] object.
-    final returnValue = SecureValueError(
-      type: type,
-      hash: hash,
-      text: text,
-    );
+    final returnValue = SecureValueError(type: type, hash: hash, text: text);
 
     // Now return the deserialized [SecureValueError].
     return returnValue;
@@ -67443,9 +65854,7 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: privacyPolicyUrl != null,
-    );
+    final v = _flag(b00: privacyPolicyUrl != null);
 
     return v;
   }
@@ -67508,10 +65917,8 @@ class AccountAuthorizationForm extends AccountAuthorizationFormBase {
 /// ID: `811f854f`.
 class AccountSentEmailCode extends AccountSentEmailCodeBase {
   /// Account Sent Email Code constructor.
-  const AccountSentEmailCode({
-    required this.emailPattern,
-    required this.length,
-  }) : super._();
+  const AccountSentEmailCode({required this.emailPattern, required this.length})
+      : super._();
 
   /// Deserialize.
   factory AccountSentEmailCode.deserialize(BinaryReader reader) {
@@ -67635,10 +66042,7 @@ class HelpDeepLinkInfo extends HelpDeepLinkInfoBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: updateApp,
-      b01: entities != null,
-    );
+    final v = _flag(b00: updateApp, b01: entities != null);
 
     return v;
   }
@@ -67765,9 +66169,7 @@ class SavedPhoneContact extends SavedContactBase {
 /// ID: `4dba4501`.
 class AccountTakeout extends AccountTakeoutBase {
   /// Account Takeout constructor.
-  const AccountTakeout({
-    required this.id,
-  }) : super._();
+  const AccountTakeout({required this.id}) : super._();
 
   /// Deserialize.
   factory AccountTakeout.deserialize(BinaryReader reader) {
@@ -67775,9 +66177,7 @@ class AccountTakeout extends AccountTakeoutBase {
     final id = reader.readInt64();
 
     // Construct [AccountTakeout] object.
-    final returnValue = AccountTakeout(
-      id: id,
-    );
+    final returnValue = AccountTakeout(id: id);
 
     // Now return the deserialized [AccountTakeout].
     return returnValue;
@@ -67865,7 +66265,8 @@ class PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
 
   /// Deserialize.
   factory PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow] fields.
     final salt1 = reader.readBytes();
     final salt2 = reader.readBytes();
@@ -67974,13 +66375,13 @@ class SecurePasswordKdfAlgoUnknown extends SecurePasswordKdfAlgoBase {
 class SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
     extends SecurePasswordKdfAlgoBase {
   /// Secure Password Kdf Algo P B K D F2 H M A C S H A512iter100000 constructor.
-  const SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000({
-    required this.salt,
-  }) : super._();
+  const SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000({required this.salt})
+      : super._();
 
   /// Deserialize.
   factory SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000] fields.
     final salt = reader.readBytes();
 
@@ -68026,9 +66427,7 @@ class SecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000
 /// ID: `86471d92`.
 class SecurePasswordKdfAlgoSHA512 extends SecurePasswordKdfAlgoBase {
   /// Secure Password Kdf Algo S H A512 constructor.
-  const SecurePasswordKdfAlgoSHA512({
-    required this.salt,
-  }) : super._();
+  const SecurePasswordKdfAlgoSHA512({required this.salt}) : super._();
 
   /// Deserialize.
   factory SecurePasswordKdfAlgoSHA512.deserialize(BinaryReader reader) {
@@ -68036,9 +66435,7 @@ class SecurePasswordKdfAlgoSHA512 extends SecurePasswordKdfAlgoBase {
     final salt = reader.readBytes();
 
     // Construct [SecurePasswordKdfAlgoSHA512] object.
-    final returnValue = SecurePasswordKdfAlgoSHA512(
-      salt: salt,
-    );
+    final returnValue = SecurePasswordKdfAlgoSHA512(salt: salt);
 
     // Now return the deserialized [SecurePasswordKdfAlgoSHA512].
     return returnValue;
@@ -68197,11 +66594,7 @@ class InputCheckPasswordSRP extends InputCheckPasswordSRPBase {
     final m1 = reader.readBytes();
 
     // Construct [InputCheckPasswordSRP] object.
-    final returnValue = InputCheckPasswordSRP(
-      srpId: srpId,
-      a: a,
-      m1: m1,
-    );
+    final returnValue = InputCheckPasswordSRP(srpId: srpId, a: a, m1: m1);
 
     // Now return the deserialized [InputCheckPasswordSRP].
     return returnValue;
@@ -68338,9 +66731,7 @@ class SecureRequiredType extends SecureRequiredTypeBase {
 /// ID: `027477b4`.
 class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
   /// Secure Required Type One Of constructor.
-  const SecureRequiredTypeOneOf({
-    required this.types,
-  }) : super._();
+  const SecureRequiredTypeOneOf({required this.types}) : super._();
 
   /// Deserialize.
   factory SecureRequiredTypeOneOf.deserialize(BinaryReader reader) {
@@ -68348,9 +66739,7 @@ class SecureRequiredTypeOneOf extends SecureRequiredTypeBase {
     final types = reader.readVectorObject<SecureRequiredTypeBase>();
 
     // Construct [SecureRequiredTypeOneOf] object.
-    final returnValue = SecureRequiredTypeOneOf(
-      types: types.items,
-    );
+    final returnValue = SecureRequiredTypeOneOf(types: types.items);
 
     // Now return the deserialized [SecureRequiredTypeOneOf].
     return returnValue;
@@ -68426,10 +66815,8 @@ class HelpPassportConfigNotModified extends HelpPassportConfigBase {
 /// ID: `a098d6af`.
 class HelpPassportConfig extends HelpPassportConfigBase {
   /// Help Passport Config constructor.
-  const HelpPassportConfig({
-    required this.hash,
-    required this.countriesLangs,
-  }) : super._();
+  const HelpPassportConfig({required this.hash, required this.countriesLangs})
+      : super._();
 
   /// Deserialize.
   factory HelpPassportConfig.deserialize(BinaryReader reader) {
@@ -68564,10 +66951,7 @@ class InputAppEvent extends InputAppEventBase {
 /// ID: `c0de1bd9`.
 class JsonObjectValue extends JSONObjectValueBase {
   /// Json Object Value constructor.
-  const JsonObjectValue({
-    required this.key,
-    required this.value,
-  }) : super._();
+  const JsonObjectValue({required this.key, required this.value}) : super._();
 
   /// Deserialize.
   factory JsonObjectValue.deserialize(BinaryReader reader) {
@@ -68576,10 +66960,7 @@ class JsonObjectValue extends JSONObjectValueBase {
     final value = reader.readObject() as JSONValueBase;
 
     // Construct [JsonObjectValue] object.
-    final returnValue = JsonObjectValue(
-      key: key,
-      value: value,
-    );
+    final returnValue = JsonObjectValue(key: key, value: value);
 
     // Now return the deserialized [JsonObjectValue].
     return returnValue;
@@ -68660,9 +67041,7 @@ class JsonNull extends JSONValueBase {
 /// ID: `c7345e6a`.
 class JsonBool extends JSONValueBase {
   /// Json Bool constructor.
-  const JsonBool({
-    required this.value,
-  }) : super._();
+  const JsonBool({required this.value}) : super._();
 
   /// Deserialize.
   factory JsonBool.deserialize(BinaryReader reader) {
@@ -68670,9 +67049,7 @@ class JsonBool extends JSONValueBase {
     final value = reader.readBool();
 
     // Construct [JsonBool] object.
-    final returnValue = JsonBool(
-      value: value,
-    );
+    final returnValue = JsonBool(value: value);
 
     // Now return the deserialized [JsonBool].
     return returnValue;
@@ -68711,9 +67088,7 @@ class JsonBool extends JSONValueBase {
 /// ID: `2be0dfa4`.
 class JsonNumber extends JSONValueBase {
   /// Json Number constructor.
-  const JsonNumber({
-    required this.value,
-  }) : super._();
+  const JsonNumber({required this.value}) : super._();
 
   /// Deserialize.
   factory JsonNumber.deserialize(BinaryReader reader) {
@@ -68721,9 +67096,7 @@ class JsonNumber extends JSONValueBase {
     final value = reader.readFloat64();
 
     // Construct [JsonNumber] object.
-    final returnValue = JsonNumber(
-      value: value,
-    );
+    final returnValue = JsonNumber(value: value);
 
     // Now return the deserialized [JsonNumber].
     return returnValue;
@@ -68762,9 +67135,7 @@ class JsonNumber extends JSONValueBase {
 /// ID: `b71e767a`.
 class JsonString extends JSONValueBase {
   /// Json String constructor.
-  const JsonString({
-    required this.value,
-  }) : super._();
+  const JsonString({required this.value}) : super._();
 
   /// Deserialize.
   factory JsonString.deserialize(BinaryReader reader) {
@@ -68772,9 +67143,7 @@ class JsonString extends JSONValueBase {
     final value = reader.readString();
 
     // Construct [JsonString] object.
-    final returnValue = JsonString(
-      value: value,
-    );
+    final returnValue = JsonString(value: value);
 
     // Now return the deserialized [JsonString].
     return returnValue;
@@ -68813,9 +67182,7 @@ class JsonString extends JSONValueBase {
 /// ID: `f7444763`.
 class JsonArray extends JSONValueBase {
   /// Json Array constructor.
-  const JsonArray({
-    required this.value,
-  }) : super._();
+  const JsonArray({required this.value}) : super._();
 
   /// Deserialize.
   factory JsonArray.deserialize(BinaryReader reader) {
@@ -68823,9 +67190,7 @@ class JsonArray extends JSONValueBase {
     final value = reader.readVectorObject<JSONValueBase>();
 
     // Construct [JsonArray] object.
-    final returnValue = JsonArray(
-      value: value.items,
-    );
+    final returnValue = JsonArray(value: value.items);
 
     // Now return the deserialized [JsonArray].
     return returnValue;
@@ -68864,9 +67229,7 @@ class JsonArray extends JSONValueBase {
 /// ID: `99c1d49d`.
 class JsonObject extends JSONValueBase {
   /// Json Object constructor.
-  const JsonObject({
-    required this.value,
-  }) : super._();
+  const JsonObject({required this.value}) : super._();
 
   /// Deserialize.
   factory JsonObject.deserialize(BinaryReader reader) {
@@ -68874,9 +67237,7 @@ class JsonObject extends JSONValueBase {
     final value = reader.readVectorObject<JSONObjectValueBase>();
 
     // Construct [JsonObject] object.
-    final returnValue = JsonObject(
-      value: value.items,
-    );
+    final returnValue = JsonObject(value: value.items);
 
     // Now return the deserialized [JsonObject].
     return returnValue;
@@ -69048,9 +67409,7 @@ class PageTableCell extends PageTableCellBase {
 /// ID: `e0c0c5e5`.
 class PageTableRow extends PageTableRowBase {
   /// Page Table Row constructor.
-  const PageTableRow({
-    required this.cells,
-  }) : super._();
+  const PageTableRow({required this.cells}) : super._();
 
   /// Deserialize.
   factory PageTableRow.deserialize(BinaryReader reader) {
@@ -69058,9 +67417,7 @@ class PageTableRow extends PageTableRowBase {
     final cells = reader.readVectorObject<PageTableCellBase>();
 
     // Construct [PageTableRow] object.
-    final returnValue = PageTableRow(
-      cells: cells.items,
-    );
+    final returnValue = PageTableRow(cells: cells.items);
 
     // Now return the deserialized [PageTableRow].
     return returnValue;
@@ -69099,10 +67456,7 @@ class PageTableRow extends PageTableRowBase {
 /// ID: `6f747657`.
 class PageCaption extends PageCaptionBase {
   /// Page Caption constructor.
-  const PageCaption({
-    required this.text,
-    required this.credit,
-  }) : super._();
+  const PageCaption({required this.text, required this.credit}) : super._();
 
   /// Deserialize.
   factory PageCaption.deserialize(BinaryReader reader) {
@@ -69111,10 +67465,7 @@ class PageCaption extends PageCaptionBase {
     final credit = reader.readObject() as RichTextBase;
 
     // Construct [PageCaption] object.
-    final returnValue = PageCaption(
-      text: text,
-      credit: credit,
-    );
+    final returnValue = PageCaption(text: text, credit: credit);
 
     // Now return the deserialized [PageCaption].
     return returnValue;
@@ -69158,9 +67509,7 @@ class PageCaption extends PageCaptionBase {
 /// ID: `b92fb6cd`.
 class PageListItemText extends PageListItemBase {
   /// Page List Item Text constructor.
-  const PageListItemText({
-    required this.text,
-  }) : super._();
+  const PageListItemText({required this.text}) : super._();
 
   /// Deserialize.
   factory PageListItemText.deserialize(BinaryReader reader) {
@@ -69168,9 +67517,7 @@ class PageListItemText extends PageListItemBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageListItemText] object.
-    final returnValue = PageListItemText(
-      text: text,
-    );
+    final returnValue = PageListItemText(text: text);
 
     // Now return the deserialized [PageListItemText].
     return returnValue;
@@ -69209,9 +67556,7 @@ class PageListItemText extends PageListItemBase {
 /// ID: `25e073fc`.
 class PageListItemBlocks extends PageListItemBase {
   /// Page List Item Blocks constructor.
-  const PageListItemBlocks({
-    required this.blocks,
-  }) : super._();
+  const PageListItemBlocks({required this.blocks}) : super._();
 
   /// Deserialize.
   factory PageListItemBlocks.deserialize(BinaryReader reader) {
@@ -69219,9 +67564,7 @@ class PageListItemBlocks extends PageListItemBase {
     final blocks = reader.readVectorObject<PageBlockBase>();
 
     // Construct [PageListItemBlocks] object.
-    final returnValue = PageListItemBlocks(
-      blocks: blocks.items,
-    );
+    final returnValue = PageListItemBlocks(blocks: blocks.items);
 
     // Now return the deserialized [PageListItemBlocks].
     return returnValue;
@@ -69260,10 +67603,8 @@ class PageListItemBlocks extends PageListItemBase {
 /// ID: `5e068047`.
 class PageListOrderedItemText extends PageListOrderedItemBase {
   /// Page List Ordered Item Text constructor.
-  const PageListOrderedItemText({
-    required this.num,
-    required this.text,
-  }) : super._();
+  const PageListOrderedItemText({required this.num, required this.text})
+      : super._();
 
   /// Deserialize.
   factory PageListOrderedItemText.deserialize(BinaryReader reader) {
@@ -69272,10 +67613,7 @@ class PageListOrderedItemText extends PageListOrderedItemBase {
     final text = reader.readObject() as RichTextBase;
 
     // Construct [PageListOrderedItemText] object.
-    final returnValue = PageListOrderedItemText(
-      num: num,
-      text: text,
-    );
+    final returnValue = PageListOrderedItemText(num: num, text: text);
 
     // Now return the deserialized [PageListOrderedItemText].
     return returnValue;
@@ -69319,10 +67657,8 @@ class PageListOrderedItemText extends PageListOrderedItemBase {
 /// ID: `98dd8936`.
 class PageListOrderedItemBlocks extends PageListOrderedItemBase {
   /// Page List Ordered Item Blocks constructor.
-  const PageListOrderedItemBlocks({
-    required this.num,
-    required this.blocks,
-  }) : super._();
+  const PageListOrderedItemBlocks({required this.num, required this.blocks})
+      : super._();
 
   /// Deserialize.
   factory PageListOrderedItemBlocks.deserialize(BinaryReader reader) {
@@ -69558,12 +67894,7 @@ class Page extends PageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: part,
-      b01: rtl,
-      b02: v2,
-      b03: views != null,
-    );
+    final v = _flag(b00: part, b01: rtl, b02: v2, b03: views != null);
 
     return v;
   }
@@ -69638,9 +67969,7 @@ class Page extends PageBase {
 /// ID: `8c05f1c9`.
 class HelpSupportName extends HelpSupportNameBase {
   /// Help Support Name constructor.
-  const HelpSupportName({
-    required this.name,
-  }) : super._();
+  const HelpSupportName({required this.name}) : super._();
 
   /// Deserialize.
   factory HelpSupportName.deserialize(BinaryReader reader) {
@@ -69648,9 +67977,7 @@ class HelpSupportName extends HelpSupportNameBase {
     final name = reader.readString();
 
     // Construct [HelpSupportName] object.
-    final returnValue = HelpSupportName(
-      name: name,
-    );
+    final returnValue = HelpSupportName(name: name);
 
     // Now return the deserialized [HelpSupportName].
     return returnValue;
@@ -69801,10 +68128,7 @@ class HelpUserInfo extends HelpUserInfoBase {
 /// ID: `ff16e2ca`.
 class PollAnswer extends PollAnswerBase {
   /// Poll Answer constructor.
-  const PollAnswer({
-    required this.text,
-    required this.option,
-  }) : super._();
+  const PollAnswer({required this.text, required this.option}) : super._();
 
   /// Deserialize.
   factory PollAnswer.deserialize(BinaryReader reader) {
@@ -69813,10 +68137,7 @@ class PollAnswer extends PollAnswerBase {
     final option = reader.readBytes();
 
     // Construct [PollAnswer] object.
-    final returnValue = PollAnswer(
-      text: text,
-      option: option,
-    );
+    final returnValue = PollAnswer(text: text, option: option);
 
     // Now return the deserialized [PollAnswer].
     return returnValue;
@@ -70028,10 +68349,7 @@ class PollAnswerVoters extends PollAnswerVotersBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: chosen,
-      b01: correct,
-    );
+    final v = _flag(b00: chosen, b01: correct);
 
     return v;
   }
@@ -70217,9 +68535,7 @@ class PollResults extends PollResultsBase {
 /// ID: `f041e250`.
 class ChatOnlines extends ChatOnlinesBase {
   /// Chat Onlines constructor.
-  const ChatOnlines({
-    required this.onlines,
-  }) : super._();
+  const ChatOnlines({required this.onlines}) : super._();
 
   /// Deserialize.
   factory ChatOnlines.deserialize(BinaryReader reader) {
@@ -70227,9 +68543,7 @@ class ChatOnlines extends ChatOnlinesBase {
     final onlines = reader.readInt32();
 
     // Construct [ChatOnlines] object.
-    final returnValue = ChatOnlines(
-      onlines: onlines,
-    );
+    final returnValue = ChatOnlines(onlines: onlines);
 
     // Now return the deserialized [ChatOnlines].
     return returnValue;
@@ -70270,9 +68584,7 @@ class ChatOnlines extends ChatOnlinesBase {
 /// ID: `47a971e0`.
 class StatsURL extends StatsURLBase {
   /// Stats U R L constructor.
-  const StatsURL({
-    required this.url,
-  }) : super._();
+  const StatsURL({required this.url}) : super._();
 
   /// Deserialize.
   factory StatsURL.deserialize(BinaryReader reader) {
@@ -70280,9 +68592,7 @@ class StatsURL extends StatsURLBase {
     final url = reader.readString();
 
     // Construct [StatsURL] object.
-    final returnValue = StatsURL(
-      url: url,
-    );
+    final returnValue = StatsURL(url: url);
 
     // Now return the deserialized [StatsURL].
     return returnValue;
@@ -70725,10 +69035,8 @@ class ChatBannedRights extends ChatBannedRightsBase {
 /// ID: `e630b979`.
 class InputWallPaper extends InputWallPaperBase {
   /// Input Wall Paper constructor.
-  const InputWallPaper({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputWallPaper({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputWallPaper.deserialize(BinaryReader reader) {
@@ -70737,10 +69045,7 @@ class InputWallPaper extends InputWallPaperBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputWallPaper] object.
-    final returnValue = InputWallPaper(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputWallPaper(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputWallPaper].
     return returnValue;
@@ -70788,9 +69093,7 @@ class InputWallPaper extends InputWallPaperBase {
 /// ID: `72091c80`.
 class InputWallPaperSlug extends InputWallPaperBase {
   /// Input Wall Paper Slug constructor.
-  const InputWallPaperSlug({
-    required this.slug,
-  }) : super._();
+  const InputWallPaperSlug({required this.slug}) : super._();
 
   /// Deserialize.
   factory InputWallPaperSlug.deserialize(BinaryReader reader) {
@@ -70798,9 +69101,7 @@ class InputWallPaperSlug extends InputWallPaperBase {
     final slug = reader.readString();
 
     // Construct [InputWallPaperSlug] object.
-    final returnValue = InputWallPaperSlug(
-      slug: slug,
-    );
+    final returnValue = InputWallPaperSlug(slug: slug);
 
     // Now return the deserialized [InputWallPaperSlug].
     return returnValue;
@@ -70839,9 +69140,7 @@ class InputWallPaperSlug extends InputWallPaperBase {
 /// ID: `967a462e`.
 class InputWallPaperNoFile extends InputWallPaperBase {
   /// Input Wall Paper No File constructor.
-  const InputWallPaperNoFile({
-    required this.id,
-  }) : super._();
+  const InputWallPaperNoFile({required this.id}) : super._();
 
   /// Deserialize.
   factory InputWallPaperNoFile.deserialize(BinaryReader reader) {
@@ -70849,9 +69148,7 @@ class InputWallPaperNoFile extends InputWallPaperBase {
     final id = reader.readInt64();
 
     // Construct [InputWallPaperNoFile] object.
-    final returnValue = InputWallPaperNoFile(
-      id: id,
-    );
+    final returnValue = InputWallPaperNoFile(id: id);
 
     // Now return the deserialized [InputWallPaperNoFile].
     return returnValue;
@@ -70929,10 +69226,8 @@ class AccountWallPapersNotModified extends AccountWallPapersBase {
 /// ID: `cdc3858c`.
 class AccountWallPapers extends AccountWallPapersBase {
   /// Account Wall Papers constructor.
-  const AccountWallPapers({
-    required this.hash,
-    required this.wallpapers,
-  }) : super._();
+  const AccountWallPapers({required this.hash, required this.wallpapers})
+      : super._();
 
   /// Deserialize.
   factory AccountWallPapers.deserialize(BinaryReader reader) {
@@ -71513,10 +69808,8 @@ class AccountAutoDownloadSettings extends AccountAutoDownloadSettingsBase {
 /// ID: `d5b3b9f9`.
 class EmojiKeyword extends EmojiKeywordBase {
   /// Emoji Keyword constructor.
-  const EmojiKeyword({
-    required this.keyword,
-    required this.emoticons,
-  }) : super._();
+  const EmojiKeyword({required this.keyword, required this.emoticons})
+      : super._();
 
   /// Deserialize.
   factory EmojiKeyword.deserialize(BinaryReader reader) {
@@ -71572,10 +69865,8 @@ class EmojiKeyword extends EmojiKeywordBase {
 /// ID: `236df622`.
 class EmojiKeywordDeleted extends EmojiKeywordBase {
   /// Emoji Keyword Deleted constructor.
-  const EmojiKeywordDeleted({
-    required this.keyword,
-    required this.emoticons,
-  }) : super._();
+  const EmojiKeywordDeleted({required this.keyword, required this.emoticons})
+      : super._();
 
   /// Deserialize.
   factory EmojiKeywordDeleted.deserialize(BinaryReader reader) {
@@ -71710,9 +70001,7 @@ class EmojiKeywordsDifference extends EmojiKeywordsDifferenceBase {
 /// ID: `a575739d`.
 class EmojiURL extends EmojiURLBase {
   /// Emoji U R L constructor.
-  const EmojiURL({
-    required this.url,
-  }) : super._();
+  const EmojiURL({required this.url}) : super._();
 
   /// Deserialize.
   factory EmojiURL.deserialize(BinaryReader reader) {
@@ -71720,9 +70009,7 @@ class EmojiURL extends EmojiURLBase {
     final url = reader.readString();
 
     // Construct [EmojiURL] object.
-    final returnValue = EmojiURL(
-      url: url,
-    );
+    final returnValue = EmojiURL(url: url);
 
     // Now return the deserialized [EmojiURL].
     return returnValue;
@@ -71761,9 +70048,7 @@ class EmojiURL extends EmojiURLBase {
 /// ID: `b3fb5361`.
 class EmojiLanguage extends EmojiLanguageBase {
   /// Emoji Language constructor.
-  const EmojiLanguage({
-    required this.langCode,
-  }) : super._();
+  const EmojiLanguage({required this.langCode}) : super._();
 
   /// Deserialize.
   factory EmojiLanguage.deserialize(BinaryReader reader) {
@@ -71771,9 +70056,7 @@ class EmojiLanguage extends EmojiLanguageBase {
     final langCode = reader.readString();
 
     // Construct [EmojiLanguage] object.
-    final returnValue = EmojiLanguage(
-      langCode: langCode,
-    );
+    final returnValue = EmojiLanguage(langCode: langCode);
 
     // Now return the deserialized [EmojiLanguage].
     return returnValue;
@@ -71921,10 +70204,8 @@ class Folder extends FolderBase {
 /// ID: `fbd2c296`.
 class InputFolderPeer extends InputFolderPeerBase {
   /// Input Folder Peer constructor.
-  const InputFolderPeer({
-    required this.peer,
-    required this.folderId,
-  }) : super._();
+  const InputFolderPeer({required this.peer, required this.folderId})
+      : super._();
 
   /// Deserialize.
   factory InputFolderPeer.deserialize(BinaryReader reader) {
@@ -71933,10 +70214,7 @@ class InputFolderPeer extends InputFolderPeerBase {
     final folderId = reader.readInt32();
 
     // Construct [InputFolderPeer] object.
-    final returnValue = InputFolderPeer(
-      peer: peer,
-      folderId: folderId,
-    );
+    final returnValue = InputFolderPeer(peer: peer, folderId: folderId);
 
     // Now return the deserialized [InputFolderPeer].
     return returnValue;
@@ -71982,10 +70260,7 @@ class InputFolderPeer extends InputFolderPeerBase {
 /// ID: `e9baa668`.
 class FolderPeer extends FolderPeerBase {
   /// Folder Peer constructor.
-  const FolderPeer({
-    required this.peer,
-    required this.folderId,
-  }) : super._();
+  const FolderPeer({required this.peer, required this.folderId}) : super._();
 
   /// Deserialize.
   factory FolderPeer.deserialize(BinaryReader reader) {
@@ -71994,10 +70269,7 @@ class FolderPeer extends FolderPeerBase {
     final folderId = reader.readInt32();
 
     // Construct [FolderPeer] object.
-    final returnValue = FolderPeer(
-      peer: peer,
-      folderId: folderId,
-    );
+    final returnValue = FolderPeer(peer: peer, folderId: folderId);
 
     // Now return the deserialized [FolderPeer].
     return returnValue;
@@ -72070,9 +70342,7 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: inexact,
-    );
+    final v = _flag(b01: inexact);
 
     return v;
   }
@@ -72150,9 +70420,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: requestWriteAccess,
-    );
+    final v = _flag(b00: requestWriteAccess);
 
     return v;
   }
@@ -72201,9 +70469,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 /// ID: `8f8c0e4e`.
 class UrlAuthResultAccepted extends UrlAuthResultBase {
   /// Url Auth Result Accepted constructor.
-  const UrlAuthResultAccepted({
-    required this.url,
-  }) : super._();
+  const UrlAuthResultAccepted({required this.url}) : super._();
 
   /// Deserialize.
   factory UrlAuthResultAccepted.deserialize(BinaryReader reader) {
@@ -72211,9 +70477,7 @@ class UrlAuthResultAccepted extends UrlAuthResultBase {
     final url = reader.readString();
 
     // Construct [UrlAuthResultAccepted] object.
-    final returnValue = UrlAuthResultAccepted(
-      url: url,
-    );
+    final returnValue = UrlAuthResultAccepted(url: url);
 
     // Now return the deserialized [UrlAuthResultAccepted].
     return returnValue;
@@ -72326,10 +70590,8 @@ class ChannelLocationEmpty extends ChannelLocationBase {
 /// ID: `209b82db`.
 class ChannelLocation extends ChannelLocationBase {
   /// Channel Location constructor.
-  const ChannelLocation({
-    required this.geoPoint,
-    required this.address,
-  }) : super._();
+  const ChannelLocation({required this.geoPoint, required this.address})
+      : super._();
 
   /// Deserialize.
   factory ChannelLocation.deserialize(BinaryReader reader) {
@@ -72338,10 +70600,7 @@ class ChannelLocation extends ChannelLocationBase {
     final address = reader.readString();
 
     // Construct [ChannelLocation] object.
-    final returnValue = ChannelLocation(
-      geoPoint: geoPoint,
-      address: address,
-    );
+    final returnValue = ChannelLocation(geoPoint: geoPoint, address: address);
 
     // Now return the deserialized [ChannelLocation].
     return returnValue;
@@ -72454,9 +70713,7 @@ class PeerLocated extends PeerLocatedBase {
 /// ID: `f8ec284b`.
 class PeerSelfLocated extends PeerLocatedBase {
   /// Peer Self Located constructor.
-  const PeerSelfLocated({
-    required this.expires,
-  }) : super._();
+  const PeerSelfLocated({required this.expires}) : super._();
 
   /// Deserialize.
   factory PeerSelfLocated.deserialize(BinaryReader reader) {
@@ -72464,9 +70721,7 @@ class PeerSelfLocated extends PeerLocatedBase {
     final expires = reader.readDateTime();
 
     // Construct [PeerSelfLocated] object.
-    final returnValue = PeerSelfLocated(
-      expires: expires,
-    );
+    final returnValue = PeerSelfLocated(expires: expires);
 
     // Now return the deserialized [PeerSelfLocated].
     return returnValue;
@@ -72572,10 +70827,7 @@ class RestrictionReason extends RestrictionReasonBase {
 /// ID: `3c5693e9`.
 class InputTheme extends InputThemeBase {
   /// Input Theme constructor.
-  const InputTheme({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputTheme({required this.id, required this.accessHash}) : super._();
 
   /// Deserialize.
   factory InputTheme.deserialize(BinaryReader reader) {
@@ -72584,10 +70836,7 @@ class InputTheme extends InputThemeBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputTheme] object.
-    final returnValue = InputTheme(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputTheme(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputTheme].
     return returnValue;
@@ -72635,9 +70884,7 @@ class InputTheme extends InputThemeBase {
 /// ID: `f5890df1`.
 class InputThemeSlug extends InputThemeBase {
   /// Input Theme Slug constructor.
-  const InputThemeSlug({
-    required this.slug,
-  }) : super._();
+  const InputThemeSlug({required this.slug}) : super._();
 
   /// Deserialize.
   factory InputThemeSlug.deserialize(BinaryReader reader) {
@@ -72645,9 +70892,7 @@ class InputThemeSlug extends InputThemeBase {
     final slug = reader.readString();
 
     // Construct [InputThemeSlug] object.
-    final returnValue = InputThemeSlug(
-      slug: slug,
-    );
+    final returnValue = InputThemeSlug(slug: slug);
 
     // Now return the deserialized [InputThemeSlug].
     return returnValue;
@@ -72891,10 +71136,7 @@ class AccountThemesNotModified extends AccountThemesBase {
 /// ID: `9a3d8c6d`.
 class AccountThemes extends AccountThemesBase {
   /// Account Themes constructor.
-  const AccountThemes({
-    required this.hash,
-    required this.themes,
-  }) : super._();
+  const AccountThemes({required this.hash, required this.themes}) : super._();
 
   /// Deserialize.
   factory AccountThemes.deserialize(BinaryReader reader) {
@@ -72903,10 +71145,7 @@ class AccountThemes extends AccountThemesBase {
     final themes = reader.readVectorObject<ThemeBase>();
 
     // Construct [AccountThemes] object.
-    final returnValue = AccountThemes(
-      hash: hash,
-      themes: themes.items,
-    );
+    final returnValue = AccountThemes(hash: hash, themes: themes.items);
 
     // Now return the deserialized [AccountThemes].
     return returnValue;
@@ -72952,10 +71191,8 @@ class AccountThemes extends AccountThemesBase {
 /// ID: `629f1980`.
 class AuthLoginToken extends AuthLoginTokenBase {
   /// Auth Login Token constructor.
-  const AuthLoginToken({
-    required this.expires,
-    required this.token,
-  }) : super._();
+  const AuthLoginToken({required this.expires, required this.token})
+      : super._();
 
   /// Deserialize.
   factory AuthLoginToken.deserialize(BinaryReader reader) {
@@ -72964,10 +71201,7 @@ class AuthLoginToken extends AuthLoginTokenBase {
     final token = reader.readBytes();
 
     // Construct [AuthLoginToken] object.
-    final returnValue = AuthLoginToken(
-      expires: expires,
-      token: token,
-    );
+    final returnValue = AuthLoginToken(expires: expires, token: token);
 
     // Now return the deserialized [AuthLoginToken].
     return returnValue;
@@ -73011,10 +71245,8 @@ class AuthLoginToken extends AuthLoginTokenBase {
 /// ID: `068e9916`.
 class AuthLoginTokenMigrateTo extends AuthLoginTokenBase {
   /// Auth Login Token Migrate To constructor.
-  const AuthLoginTokenMigrateTo({
-    required this.dcId,
-    required this.token,
-  }) : super._();
+  const AuthLoginTokenMigrateTo({required this.dcId, required this.token})
+      : super._();
 
   /// Deserialize.
   factory AuthLoginTokenMigrateTo.deserialize(BinaryReader reader) {
@@ -73023,10 +71255,7 @@ class AuthLoginTokenMigrateTo extends AuthLoginTokenBase {
     final token = reader.readBytes();
 
     // Construct [AuthLoginTokenMigrateTo] object.
-    final returnValue = AuthLoginTokenMigrateTo(
-      dcId: dcId,
-      token: token,
-    );
+    final returnValue = AuthLoginTokenMigrateTo(dcId: dcId, token: token);
 
     // Now return the deserialized [AuthLoginTokenMigrateTo].
     return returnValue;
@@ -73072,9 +71301,7 @@ class AuthLoginTokenMigrateTo extends AuthLoginTokenBase {
 /// ID: `390d5c5e`.
 class AuthLoginTokenSuccess extends AuthLoginTokenBase {
   /// Auth Login Token Success constructor.
-  const AuthLoginTokenSuccess({
-    required this.authorization,
-  }) : super._();
+  const AuthLoginTokenSuccess({required this.authorization}) : super._();
 
   /// Deserialize.
   factory AuthLoginTokenSuccess.deserialize(BinaryReader reader) {
@@ -73082,9 +71309,7 @@ class AuthLoginTokenSuccess extends AuthLoginTokenBase {
     final authorization = reader.readObject() as AuthAuthorizationBase;
 
     // Construct [AuthLoginTokenSuccess] object.
-    final returnValue = AuthLoginTokenSuccess(
-      authorization: authorization,
-    );
+    final returnValue = AuthLoginTokenSuccess(authorization: authorization);
 
     // Now return the deserialized [AuthLoginTokenSuccess].
     return returnValue;
@@ -73147,10 +71372,7 @@ class AccountContentSettings extends AccountContentSettingsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: sensitiveEnabled,
-      b01: sensitiveCanChange,
-    );
+    final v = _flag(b00: sensitiveEnabled, b01: sensitiveCanChange);
 
     return v;
   }
@@ -73703,10 +71925,7 @@ class ThemeSettings extends ThemeSettingsBase {
 /// ID: `54b56617`.
 class WebPageAttributeTheme extends WebPageAttributeBase {
   /// Web Page Attribute Theme constructor.
-  const WebPageAttributeTheme({
-    this.documents,
-    this.settings,
-  }) : super._();
+  const WebPageAttributeTheme({this.documents, this.settings}) : super._();
 
   /// Deserialize.
   factory WebPageAttributeTheme.deserialize(BinaryReader reader) {
@@ -73731,10 +71950,7 @@ class WebPageAttributeTheme extends WebPageAttributeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: documents != null,
-      b01: settings != null,
-    );
+    final v = _flag(b00: documents != null, b01: settings != null);
 
     return v;
   }
@@ -73801,11 +72017,7 @@ class WebPageAttributeStory extends WebPageAttributeBase {
     final story = hasStoryField ? reader.readObject() as StoryItemBase : null;
 
     // Construct [WebPageAttributeStory] object.
-    final returnValue = WebPageAttributeStory(
-      peer: peer,
-      id: id,
-      story: story,
-    );
+    final returnValue = WebPageAttributeStory(peer: peer, id: id, story: story);
 
     // Now return the deserialized [WebPageAttributeStory].
     return returnValue;
@@ -73813,9 +72025,7 @@ class WebPageAttributeStory extends WebPageAttributeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: story != null,
-    );
+    final v = _flag(b00: story != null);
 
     return v;
   }
@@ -73897,10 +72107,7 @@ class WebPageAttributeStickerSet extends WebPageAttributeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: emojis,
-      b01: textColor,
-    );
+    final v = _flag(b00: emojis, b01: textColor);
 
     return v;
   }
@@ -73948,9 +72155,7 @@ class WebPageAttributeStickerSet extends WebPageAttributeBase {
 /// ID: `cf6f6db8`.
 class WebPageAttributeUniqueStarGift extends WebPageAttributeBase {
   /// Web Page Attribute Unique Star Gift constructor.
-  const WebPageAttributeUniqueStarGift({
-    required this.gift,
-  }) : super._();
+  const WebPageAttributeUniqueStarGift({required this.gift}) : super._();
 
   /// Deserialize.
   factory WebPageAttributeUniqueStarGift.deserialize(BinaryReader reader) {
@@ -73958,9 +72163,7 @@ class WebPageAttributeUniqueStarGift extends WebPageAttributeBase {
     final gift = reader.readObject() as StarGiftBase;
 
     // Construct [WebPageAttributeUniqueStarGift] object.
-    final returnValue = WebPageAttributeUniqueStarGift(
-      gift: gift,
-    );
+    final returnValue = WebPageAttributeUniqueStarGift(gift: gift);
 
     // Now return the deserialized [WebPageAttributeUniqueStarGift].
     return returnValue;
@@ -73999,9 +72202,7 @@ class WebPageAttributeUniqueStarGift extends WebPageAttributeBase {
 /// ID: `31cad303`.
 class WebPageAttributeStarGiftCollection extends WebPageAttributeBase {
   /// Web Page Attribute Star Gift Collection constructor.
-  const WebPageAttributeStarGiftCollection({
-    required this.icons,
-  }) : super._();
+  const WebPageAttributeStarGiftCollection({required this.icons}) : super._();
 
   /// Deserialize.
   factory WebPageAttributeStarGiftCollection.deserialize(BinaryReader reader) {
@@ -74009,9 +72210,7 @@ class WebPageAttributeStarGiftCollection extends WebPageAttributeBase {
     final icons = reader.readVectorObject<DocumentBase>();
 
     // Construct [WebPageAttributeStarGiftCollection] object.
-    final returnValue = WebPageAttributeStarGiftCollection(
-      icons: icons.items,
-    );
+    final returnValue = WebPageAttributeStarGiftCollection(icons: icons.items);
 
     // Now return the deserialized [WebPageAttributeStarGiftCollection].
     return returnValue;
@@ -74084,9 +72283,7 @@ class MessagesVotesList extends MessagesVotesListBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -74151,10 +72348,7 @@ class MessagesVotesList extends MessagesVotesListBase {
 /// ID: `f568028a`.
 class BankCardOpenUrl extends BankCardOpenUrlBase {
   /// Bank Card Open Url constructor.
-  const BankCardOpenUrl({
-    required this.url,
-    required this.name,
-  }) : super._();
+  const BankCardOpenUrl({required this.url, required this.name}) : super._();
 
   /// Deserialize.
   factory BankCardOpenUrl.deserialize(BinaryReader reader) {
@@ -74163,10 +72357,7 @@ class BankCardOpenUrl extends BankCardOpenUrlBase {
     final name = reader.readString();
 
     // Construct [BankCardOpenUrl] object.
-    final returnValue = BankCardOpenUrl(
-      url: url,
-      name: name,
-    );
+    final returnValue = BankCardOpenUrl(url: url, name: name);
 
     // Now return the deserialized [BankCardOpenUrl].
     return returnValue;
@@ -74210,10 +72401,8 @@ class BankCardOpenUrl extends BankCardOpenUrlBase {
 /// ID: `3e24e573`.
 class PaymentsBankCardData extends PaymentsBankCardDataBase {
   /// Payments Bank Card Data constructor.
-  const PaymentsBankCardData({
-    required this.title,
-    required this.openUrls,
-  }) : super._();
+  const PaymentsBankCardData({required this.title, required this.openUrls})
+      : super._();
 
   /// Deserialize.
   factory PaymentsBankCardData.deserialize(BinaryReader reader) {
@@ -74630,10 +72819,8 @@ class DialogFilterChatlist extends DialogFilterBase {
 /// ID: `77744d4a`.
 class DialogFilterSuggested extends DialogFilterSuggestedBase {
   /// Dialog Filter Suggested constructor.
-  const DialogFilterSuggested({
-    required this.filter,
-    required this.description,
-  }) : super._();
+  const DialogFilterSuggested({required this.filter, required this.description})
+      : super._();
 
   /// Deserialize.
   factory DialogFilterSuggested.deserialize(BinaryReader reader) {
@@ -74689,10 +72876,8 @@ class DialogFilterSuggested extends DialogFilterSuggestedBase {
 /// ID: `b637edaf`.
 class StatsDateRangeDays extends StatsDateRangeDaysBase {
   /// Stats Date Range Days constructor.
-  const StatsDateRangeDays({
-    required this.minDate,
-    required this.maxDate,
-  }) : super._();
+  const StatsDateRangeDays({required this.minDate, required this.maxDate})
+      : super._();
 
   /// Deserialize.
   factory StatsDateRangeDays.deserialize(BinaryReader reader) {
@@ -74701,10 +72886,7 @@ class StatsDateRangeDays extends StatsDateRangeDaysBase {
     final maxDate = reader.readDateTime();
 
     // Construct [StatsDateRangeDays] object.
-    final returnValue = StatsDateRangeDays(
-      minDate: minDate,
-      maxDate: maxDate,
-    );
+    final returnValue = StatsDateRangeDays(minDate: minDate, maxDate: maxDate);
 
     // Now return the deserialized [StatsDateRangeDays].
     return returnValue;
@@ -74748,10 +72930,8 @@ class StatsDateRangeDays extends StatsDateRangeDaysBase {
 /// ID: `cb43acde`.
 class StatsAbsValueAndPrev extends StatsAbsValueAndPrevBase {
   /// Stats Abs Value And Prev constructor.
-  const StatsAbsValueAndPrev({
-    required this.current,
-    required this.previous,
-  }) : super._();
+  const StatsAbsValueAndPrev({required this.current, required this.previous})
+      : super._();
 
   /// Deserialize.
   factory StatsAbsValueAndPrev.deserialize(BinaryReader reader) {
@@ -74807,10 +72987,8 @@ class StatsAbsValueAndPrev extends StatsAbsValueAndPrevBase {
 /// ID: `cbce2fe0`.
 class StatsPercentValue extends StatsPercentValueBase {
   /// Stats Percent Value constructor.
-  const StatsPercentValue({
-    required this.part,
-    required this.total,
-  }) : super._();
+  const StatsPercentValue({required this.part, required this.total})
+      : super._();
 
   /// Deserialize.
   factory StatsPercentValue.deserialize(BinaryReader reader) {
@@ -74819,10 +72997,7 @@ class StatsPercentValue extends StatsPercentValueBase {
     final total = reader.readFloat64();
 
     // Construct [StatsPercentValue] object.
-    final returnValue = StatsPercentValue(
-      part: part,
-      total: total,
-    );
+    final returnValue = StatsPercentValue(part: part, total: total);
 
     // Now return the deserialized [StatsPercentValue].
     return returnValue;
@@ -74866,9 +73041,7 @@ class StatsPercentValue extends StatsPercentValueBase {
 /// ID: `4a27eb2d`.
 class StatsGraphAsync extends StatsGraphBase {
   /// Stats Graph Async constructor.
-  const StatsGraphAsync({
-    required this.token,
-  }) : super._();
+  const StatsGraphAsync({required this.token}) : super._();
 
   /// Deserialize.
   factory StatsGraphAsync.deserialize(BinaryReader reader) {
@@ -74876,9 +73049,7 @@ class StatsGraphAsync extends StatsGraphBase {
     final token = reader.readString();
 
     // Construct [StatsGraphAsync] object.
-    final returnValue = StatsGraphAsync(
-      token: token,
-    );
+    final returnValue = StatsGraphAsync(token: token);
 
     // Now return the deserialized [StatsGraphAsync].
     return returnValue;
@@ -74917,9 +73088,7 @@ class StatsGraphAsync extends StatsGraphBase {
 /// ID: `bedc9822`.
 class StatsGraphError extends StatsGraphBase {
   /// Stats Graph Error constructor.
-  const StatsGraphError({
-    required this.error,
-  }) : super._();
+  const StatsGraphError({required this.error}) : super._();
 
   /// Deserialize.
   factory StatsGraphError.deserialize(BinaryReader reader) {
@@ -74927,9 +73096,7 @@ class StatsGraphError extends StatsGraphBase {
     final error = reader.readString();
 
     // Construct [StatsGraphError] object.
-    final returnValue = StatsGraphError(
-      error: error,
-    );
+    final returnValue = StatsGraphError(error: error);
 
     // Now return the deserialized [StatsGraphError].
     return returnValue;
@@ -74968,10 +73135,7 @@ class StatsGraphError extends StatsGraphBase {
 /// ID: `8ea464b6`.
 class StatsGraph extends StatsGraphBase {
   /// Stats Graph constructor.
-  const StatsGraph({
-    required this.json,
-    this.zoomToken,
-  }) : super._();
+  const StatsGraph({required this.json, this.zoomToken}) : super._();
 
   /// Deserialize.
   factory StatsGraph.deserialize(BinaryReader reader) {
@@ -74982,10 +73146,7 @@ class StatsGraph extends StatsGraphBase {
     final zoomToken = hasZoomTokenField ? reader.readString() : null;
 
     // Construct [StatsGraph] object.
-    final returnValue = StatsGraph(
-      json: json,
-      zoomToken: zoomToken,
-    );
+    final returnValue = StatsGraph(json: json, zoomToken: zoomToken);
 
     // Now return the deserialized [StatsGraph].
     return returnValue;
@@ -74993,9 +73154,7 @@ class StatsGraph extends StatsGraphBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: zoomToken != null,
-    );
+    final v = _flag(b00: zoomToken != null);
 
     return v;
   }
@@ -75263,9 +73422,7 @@ class StatsBroadcastStats extends StatsBroadcastStatsBase {
 /// ID: `98f6ac75`.
 class HelpPromoDataEmpty extends HelpPromoDataBase {
   /// Help Promo Data Empty constructor.
-  const HelpPromoDataEmpty({
-    required this.expires,
-  }) : super._();
+  const HelpPromoDataEmpty({required this.expires}) : super._();
 
   /// Deserialize.
   factory HelpPromoDataEmpty.deserialize(BinaryReader reader) {
@@ -75273,9 +73430,7 @@ class HelpPromoDataEmpty extends HelpPromoDataBase {
     final expires = reader.readDateTime();
 
     // Construct [HelpPromoDataEmpty] object.
-    final returnValue = HelpPromoDataEmpty(
-      expires: expires,
-    );
+    final returnValue = HelpPromoDataEmpty(expires: expires);
 
     // Now return the deserialized [HelpPromoDataEmpty].
     return returnValue;
@@ -75504,9 +73659,7 @@ class VideoSize extends VideoSizeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: videoStartTs != null,
-    );
+    final v = _flag(b00: videoStartTs != null);
 
     return v;
   }
@@ -75861,10 +74014,8 @@ class StatsGroupTopAdmin extends StatsGroupTopAdminBase {
 /// ID: `535f779d`.
 class StatsGroupTopInviter extends StatsGroupTopInviterBase {
   /// Stats Group Top Inviter constructor.
-  const StatsGroupTopInviter({
-    required this.userId,
-    required this.invitations,
-  }) : super._();
+  const StatsGroupTopInviter({required this.userId, required this.invitations})
+      : super._();
 
   /// Deserialize.
   factory StatsGroupTopInviter.deserialize(BinaryReader reader) {
@@ -76263,10 +74414,7 @@ class HelpCountryCode extends HelpCountryCodeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: prefixes != null,
-      b01: patterns != null,
-    );
+    final v = _flag(b00: prefixes != null, b01: patterns != null);
 
     return v;
   }
@@ -76356,10 +74504,7 @@ class HelpCountry extends HelpCountryBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hidden,
-      b01: name != null,
-    );
+    final v = _flag(b00: hidden, b01: name != null);
 
     return v;
   }
@@ -76458,10 +74603,8 @@ class HelpCountriesListNotModified extends HelpCountriesListBase {
 /// ID: `87d0759e`.
 class HelpCountriesList extends HelpCountriesListBase {
   /// Help Countries List constructor.
-  const HelpCountriesList({
-    required this.countries,
-    required this.hash,
-  }) : super._();
+  const HelpCountriesList({required this.countries, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory HelpCountriesList.deserialize(BinaryReader reader) {
@@ -76519,11 +74662,7 @@ class HelpCountriesList extends HelpCountriesListBase {
 /// ID: `455b853d`.
 class MessageViews extends MessageViewsBase {
   /// Message Views constructor.
-  const MessageViews({
-    this.views,
-    this.forwards,
-    this.replies,
-  }) : super._();
+  const MessageViews({this.views, this.forwards, this.replies}) : super._();
 
   /// Deserialize.
   factory MessageViews.deserialize(BinaryReader reader) {
@@ -77007,10 +75146,8 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
 /// ID: `0e5af939`.
 class MessageReplyStoryHeader extends MessageReplyHeaderBase {
   /// Message Reply Story Header constructor.
-  const MessageReplyStoryHeader({
-    required this.peer,
-    required this.storyId,
-  }) : super._();
+  const MessageReplyStoryHeader({required this.peer, required this.storyId})
+      : super._();
 
   /// Deserialize.
   factory MessageReplyStoryHeader.deserialize(BinaryReader reader) {
@@ -77019,10 +75156,7 @@ class MessageReplyStoryHeader extends MessageReplyHeaderBase {
     final storyId = reader.readInt32();
 
     // Construct [MessageReplyStoryHeader] object.
-    final returnValue = MessageReplyStoryHeader(
-      peer: peer,
-      storyId: storyId,
-    );
+    final returnValue = MessageReplyStoryHeader(peer: peer, storyId: storyId);
 
     // Now return the deserialized [MessageReplyStoryHeader].
     return returnValue;
@@ -77202,10 +75336,7 @@ class MessageReplies extends MessageRepliesBase {
 /// ID: `e8fd8014`.
 class PeerBlocked extends PeerBlockedBase {
   /// Peer Blocked constructor.
-  const PeerBlocked({
-    required this.peerId,
-    required this.date,
-  }) : super._();
+  const PeerBlocked({required this.peerId, required this.date}) : super._();
 
   /// Deserialize.
   factory PeerBlocked.deserialize(BinaryReader reader) {
@@ -77214,10 +75345,7 @@ class PeerBlocked extends PeerBlockedBase {
     final date = reader.readDateTime();
 
     // Construct [PeerBlocked] object.
-    final returnValue = PeerBlocked(
-      peerId: peerId,
-      date: date,
-    );
+    final returnValue = PeerBlocked(peerId: peerId, date: date);
 
     // Now return the deserialized [PeerBlocked].
     return returnValue;
@@ -77657,10 +75785,8 @@ class GroupCall extends GroupCallBase {
 /// ID: `d8aa840f`.
 class InputGroupCall extends InputGroupCallBase {
   /// Input Group Call constructor.
-  const InputGroupCall({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputGroupCall({required this.id, required this.accessHash})
+      : super._();
 
   /// Deserialize.
   factory InputGroupCall.deserialize(BinaryReader reader) {
@@ -77669,10 +75795,7 @@ class InputGroupCall extends InputGroupCallBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputGroupCall] object.
-    final returnValue = InputGroupCall(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputGroupCall(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputGroupCall].
     return returnValue;
@@ -77720,9 +75843,7 @@ class InputGroupCall extends InputGroupCallBase {
 /// ID: `fe06823f`.
 class InputGroupCallSlug extends InputGroupCallBase {
   /// Input Group Call Slug constructor.
-  const InputGroupCallSlug({
-    required this.slug,
-  }) : super._();
+  const InputGroupCallSlug({required this.slug}) : super._();
 
   /// Deserialize.
   factory InputGroupCallSlug.deserialize(BinaryReader reader) {
@@ -77730,9 +75851,7 @@ class InputGroupCallSlug extends InputGroupCallBase {
     final slug = reader.readString();
 
     // Construct [InputGroupCallSlug] object.
-    final returnValue = InputGroupCallSlug(
-      slug: slug,
-    );
+    final returnValue = InputGroupCallSlug(slug: slug);
 
     // Now return the deserialized [InputGroupCallSlug].
     return returnValue;
@@ -77771,9 +75890,7 @@ class InputGroupCallSlug extends InputGroupCallBase {
 /// ID: `8c10603f`.
 class InputGroupCallInviteMessage extends InputGroupCallBase {
   /// Input Group Call Invite Message constructor.
-  const InputGroupCallInviteMessage({
-    required this.msgId,
-  }) : super._();
+  const InputGroupCallInviteMessage({required this.msgId}) : super._();
 
   /// Deserialize.
   factory InputGroupCallInviteMessage.deserialize(BinaryReader reader) {
@@ -77781,9 +75898,7 @@ class InputGroupCallInviteMessage extends InputGroupCallBase {
     final msgId = reader.readInt32();
 
     // Construct [InputGroupCallInviteMessage] object.
-    final returnValue = InputGroupCallInviteMessage(
-      msgId: msgId,
-    );
+    final returnValue = InputGroupCallInviteMessage(msgId: msgId);
 
     // Now return the deserialized [InputGroupCallInviteMessage].
     return returnValue;
@@ -78466,9 +76581,7 @@ class InlineQueryPeerTypeBotPM extends InlineQueryPeerTypeBase {
 /// ID: `1662af0b`.
 class MessagesHistoryImport extends MessagesHistoryImportBase {
   /// Messages History Import constructor.
-  const MessagesHistoryImport({
-    required this.id,
-  }) : super._();
+  const MessagesHistoryImport({required this.id}) : super._();
 
   /// Deserialize.
   factory MessagesHistoryImport.deserialize(BinaryReader reader) {
@@ -78476,9 +76589,7 @@ class MessagesHistoryImport extends MessagesHistoryImportBase {
     final id = reader.readInt64();
 
     // Construct [MessagesHistoryImport] object.
-    final returnValue = MessagesHistoryImport(
-      id: id,
-    );
+    final returnValue = MessagesHistoryImport(id: id);
 
     // Now return the deserialized [MessagesHistoryImport].
     return returnValue;
@@ -78547,11 +76658,7 @@ class MessagesHistoryImportParsed extends MessagesHistoryImportParsedBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pm,
-      b01: group,
-      b02: title != null,
-    );
+    final v = _flag(b00: pm, b01: group, b02: title != null);
 
     return v;
   }
@@ -78866,10 +76973,8 @@ class MessagesExportedChatInvites extends MessagesExportedChatInvitesBase {
 /// ID: `1871be50`.
 class MessagesExportedChatInvite extends MessagesExportedChatInviteBase {
   /// Messages Exported Chat Invite constructor.
-  const MessagesExportedChatInvite({
-    required this.invite,
-    required this.users,
-  }) : super._();
+  const MessagesExportedChatInvite({required this.invite, required this.users})
+      : super._();
 
   /// Deserialize.
   factory MessagesExportedChatInvite.deserialize(BinaryReader reader) {
@@ -79195,9 +77300,8 @@ class MessagesChatAdminsWithInvites extends MessagesChatAdminsWithInvitesBase {
 class MessagesCheckedHistoryImportPeer
     extends MessagesCheckedHistoryImportPeerBase {
   /// Messages Checked History Import Peer constructor.
-  const MessagesCheckedHistoryImportPeer({
-    required this.confirmText,
-  }) : super._();
+  const MessagesCheckedHistoryImportPeer({required this.confirmText})
+      : super._();
 
   /// Deserialize.
   factory MessagesCheckedHistoryImportPeer.deserialize(BinaryReader reader) {
@@ -79313,9 +77417,7 @@ class PhoneJoinAsPeers extends PhoneJoinAsPeersBase {
 /// ID: `204bd158`.
 class PhoneExportedGroupCallInvite extends PhoneExportedGroupCallInviteBase {
   /// Phone Exported Group Call Invite constructor.
-  const PhoneExportedGroupCallInvite({
-    required this.link,
-  }) : super._();
+  const PhoneExportedGroupCallInvite({required this.link}) : super._();
 
   /// Deserialize.
   factory PhoneExportedGroupCallInvite.deserialize(BinaryReader reader) {
@@ -79323,9 +77425,7 @@ class PhoneExportedGroupCallInvite extends PhoneExportedGroupCallInviteBase {
     final link = reader.readString();
 
     // Construct [PhoneExportedGroupCallInvite] object.
-    final returnValue = PhoneExportedGroupCallInvite(
-      link: link,
-    );
+    final returnValue = PhoneExportedGroupCallInvite(link: link);
 
     // Now return the deserialized [PhoneExportedGroupCallInvite].
     return returnValue;
@@ -79372,7 +77472,8 @@ class GroupCallParticipantVideoSourceGroup
 
   /// Deserialize.
   factory GroupCallParticipantVideoSourceGroup.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [GroupCallParticipantVideoSourceGroup] fields.
     final semantics = reader.readString();
     final sources = reader.readVectorInt32();
@@ -79457,10 +77558,7 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: paused,
-      b01: audioSource != null,
-    );
+    final v = _flag(b00: paused, b01: audioSource != null);
 
     return v;
   }
@@ -79517,9 +77615,7 @@ class GroupCallParticipantVideo extends GroupCallParticipantVideoBase {
 /// ID: `85fea03f`.
 class StickersSuggestedShortName extends StickersSuggestedShortNameBase {
   /// Stickers Suggested Short Name constructor.
-  const StickersSuggestedShortName({
-    required this.shortName,
-  }) : super._();
+  const StickersSuggestedShortName({required this.shortName}) : super._();
 
   /// Deserialize.
   factory StickersSuggestedShortName.deserialize(BinaryReader reader) {
@@ -79527,9 +77623,7 @@ class StickersSuggestedShortName extends StickersSuggestedShortNameBase {
     final shortName = reader.readString();
 
     // Construct [StickersSuggestedShortName] object.
-    final returnValue = StickersSuggestedShortName(
-      shortName: shortName,
-    );
+    final returnValue = StickersSuggestedShortName(shortName: shortName);
 
     // Now return the deserialized [StickersSuggestedShortName].
     return returnValue;
@@ -79716,9 +77810,7 @@ class BotCommandScopeChatAdmins extends BotCommandScopeBase {
 /// ID: `db9d897d`.
 class BotCommandScopePeer extends BotCommandScopeBase {
   /// Bot Command Scope Peer constructor.
-  const BotCommandScopePeer({
-    required this.peer,
-  }) : super._();
+  const BotCommandScopePeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory BotCommandScopePeer.deserialize(BinaryReader reader) {
@@ -79726,9 +77818,7 @@ class BotCommandScopePeer extends BotCommandScopeBase {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [BotCommandScopePeer] object.
-    final returnValue = BotCommandScopePeer(
-      peer: peer,
-    );
+    final returnValue = BotCommandScopePeer(peer: peer);
 
     // Now return the deserialized [BotCommandScopePeer].
     return returnValue;
@@ -79767,9 +77857,7 @@ class BotCommandScopePeer extends BotCommandScopeBase {
 /// ID: `3fd863d1`.
 class BotCommandScopePeerAdmins extends BotCommandScopeBase {
   /// Bot Command Scope Peer Admins constructor.
-  const BotCommandScopePeerAdmins({
-    required this.peer,
-  }) : super._();
+  const BotCommandScopePeerAdmins({required this.peer}) : super._();
 
   /// Deserialize.
   factory BotCommandScopePeerAdmins.deserialize(BinaryReader reader) {
@@ -79777,9 +77865,7 @@ class BotCommandScopePeerAdmins extends BotCommandScopeBase {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [BotCommandScopePeerAdmins] object.
-    final returnValue = BotCommandScopePeerAdmins(
-      peer: peer,
-    );
+    final returnValue = BotCommandScopePeerAdmins(peer: peer);
 
     // Now return the deserialized [BotCommandScopePeerAdmins].
     return returnValue;
@@ -79818,10 +77904,8 @@ class BotCommandScopePeerAdmins extends BotCommandScopeBase {
 /// ID: `0a1321f3`.
 class BotCommandScopePeerUser extends BotCommandScopeBase {
   /// Bot Command Scope Peer User constructor.
-  const BotCommandScopePeerUser({
-    required this.peer,
-    required this.userId,
-  }) : super._();
+  const BotCommandScopePeerUser({required this.peer, required this.userId})
+      : super._();
 
   /// Deserialize.
   factory BotCommandScopePeerUser.deserialize(BinaryReader reader) {
@@ -79830,10 +77914,7 @@ class BotCommandScopePeerUser extends BotCommandScopeBase {
     final userId = reader.readObject() as InputUserBase;
 
     // Construct [BotCommandScopePeerUser] object.
-    final returnValue = BotCommandScopePeerUser(
-      peer: peer,
-      userId: userId,
-    );
+    final returnValue = BotCommandScopePeerUser(peer: peer, userId: userId);
 
     // Now return the deserialized [BotCommandScopePeerUser].
     return returnValue;
@@ -79877,9 +77958,7 @@ class BotCommandScopePeerUser extends BotCommandScopeBase {
 /// ID: `e3779861`.
 class AccountResetPasswordFailedWait extends AccountResetPasswordResultBase {
   /// Account Reset Password Failed Wait constructor.
-  const AccountResetPasswordFailedWait({
-    required this.retryDate,
-  }) : super._();
+  const AccountResetPasswordFailedWait({required this.retryDate}) : super._();
 
   /// Deserialize.
   factory AccountResetPasswordFailedWait.deserialize(BinaryReader reader) {
@@ -79887,9 +77966,7 @@ class AccountResetPasswordFailedWait extends AccountResetPasswordResultBase {
     final retryDate = reader.readDateTime();
 
     // Construct [AccountResetPasswordFailedWait] object.
-    final returnValue = AccountResetPasswordFailedWait(
-      retryDate: retryDate,
-    );
+    final returnValue = AccountResetPasswordFailedWait(retryDate: retryDate);
 
     // Now return the deserialized [AccountResetPasswordFailedWait].
     return returnValue;
@@ -79928,9 +78005,8 @@ class AccountResetPasswordFailedWait extends AccountResetPasswordResultBase {
 /// ID: `e9effc7d`.
 class AccountResetPasswordRequestedWait extends AccountResetPasswordResultBase {
   /// Account Reset Password Requested Wait constructor.
-  const AccountResetPasswordRequestedWait({
-    required this.untilDate,
-  }) : super._();
+  const AccountResetPasswordRequestedWait({required this.untilDate})
+      : super._();
 
   /// Deserialize.
   factory AccountResetPasswordRequestedWait.deserialize(BinaryReader reader) {
@@ -79938,9 +78014,7 @@ class AccountResetPasswordRequestedWait extends AccountResetPasswordResultBase {
     final untilDate = reader.readDateTime();
 
     // Construct [AccountResetPasswordRequestedWait] object.
-    final returnValue = AccountResetPasswordRequestedWait(
-      untilDate: untilDate,
-    );
+    final returnValue = AccountResetPasswordRequestedWait(untilDate: untilDate);
 
     // Now return the deserialized [AccountResetPasswordRequestedWait].
     return returnValue;
@@ -80004,6 +78078,246 @@ class AccountResetPasswordOk extends AccountResetPasswordResultBase {
     final returnValue = <String, dynamic>{
       "\$hash": "e926d63e",
       "\$name": "AccountResetPasswordOk",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Chat Theme.
+///
+/// ID: `c3dffc04`.
+class ChatTheme extends ChatThemeBase {
+  /// Chat Theme constructor.
+  const ChatTheme({required this.emoticon}) : super._();
+
+  /// Deserialize.
+  factory ChatTheme.deserialize(BinaryReader reader) {
+    // Read [ChatTheme] fields.
+    final emoticon = reader.readString();
+
+    // Construct [ChatTheme] object.
+    final returnValue = ChatTheme(emoticon: emoticon);
+
+    // Now return the deserialized [ChatTheme].
+    return returnValue;
+  }
+
+  /// Emoticon.
+  final String emoticon;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc3dffc04.
+    buffer.writeInt32(0xc3dffc04);
+
+    // Write fields.
+    buffer.writeString(emoticon);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c3dffc04",
+      "\$name": "ChatTheme",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Chat Theme Unique Gift.
+///
+/// ID: `3458f9c8`.
+class ChatThemeUniqueGift extends ChatThemeBase {
+  /// Chat Theme Unique Gift constructor.
+  const ChatThemeUniqueGift({required this.gift, required this.themeSettings})
+      : super._();
+
+  /// Deserialize.
+  factory ChatThemeUniqueGift.deserialize(BinaryReader reader) {
+    // Read [ChatThemeUniqueGift] fields.
+    final gift = reader.readObject() as StarGiftBase;
+    final themeSettings = reader.readVectorObject<ThemeSettingsBase>();
+
+    // Construct [ChatThemeUniqueGift] object.
+    final returnValue = ChatThemeUniqueGift(
+      gift: gift,
+      themeSettings: themeSettings.items,
+    );
+
+    // Now return the deserialized [ChatThemeUniqueGift].
+    return returnValue;
+  }
+
+  /// Gift.
+  final StarGiftBase gift;
+
+  /// Theme Settings.
+  final List<ThemeSettingsBase> themeSettings;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3458f9c8.
+    buffer.writeInt32(0x3458f9c8);
+
+    // Write fields.
+    buffer.writeObject(gift);
+    buffer.writeVectorObject(themeSettings);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3458f9c8",
+      "\$name": "ChatThemeUniqueGift",
+      "gift": gift,
+      "themeSettings": themeSettings,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Chat Themes Not Modified.
+///
+/// ID: `e011e1c4`.
+class AccountChatThemesNotModified extends AccountChatThemesBase {
+  /// Account Chat Themes Not Modified constructor.
+  const AccountChatThemesNotModified() : super._();
+
+  /// Deserialize.
+  factory AccountChatThemesNotModified.deserialize(BinaryReader reader) {
+    // Construct [AccountChatThemesNotModified] object.
+    final returnValue = AccountChatThemesNotModified();
+
+    // Now return the deserialized [AccountChatThemesNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe011e1c4.
+    buffer.writeInt32(0xe011e1c4);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e011e1c4",
+      "\$name": "AccountChatThemesNotModified",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Chat Themes.
+///
+/// ID: `16484857`.
+class AccountChatThemes extends AccountChatThemesBase {
+  /// Account Chat Themes constructor.
+  const AccountChatThemes({
+    required this.hash,
+    required this.themes,
+    required this.chats,
+    required this.users,
+    this.nextOffset,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountChatThemes.deserialize(BinaryReader reader) {
+    // Read [AccountChatThemes] fields.
+    final flags = reader.readInt32();
+    final hash = reader.readInt64();
+    final themes = reader.readVectorObject<ChatThemeBase>();
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readInt32() : null;
+
+    // Construct [AccountChatThemes] object.
+    final returnValue = AccountChatThemes(
+      hash: hash,
+      themes: themes.items,
+      chats: chats.items,
+      users: users.items,
+      nextOffset: nextOffset,
+    );
+
+    // Now return the deserialized [AccountChatThemes].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: nextOffset != null);
+
+    return v;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Themes.
+  final List<ChatThemeBase> themes;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Next Offset.
+  final int? nextOffset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x16484857.
+    buffer.writeInt32(0x16484857);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(hash);
+    buffer.writeVectorObject(themes);
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeInt32(localNextOffsetCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "16484857",
+      "\$name": "AccountChatThemes",
+      "flags": flags,
+      "hash": hash,
+      "themes": themes,
+      "chats": chats,
+      "users": users,
+      "nextOffset": nextOffset,
     };
 
     // Finished toJson.
@@ -80514,10 +78828,7 @@ class MessagesSearchResultsCalendar extends MessagesSearchResultsCalendarBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: inexact,
-      b01: offsetIdOffset != null,
-    );
+    final v = _flag(b00: inexact, b01: offsetIdOffset != null);
 
     return v;
   }
@@ -80937,9 +79248,7 @@ class MessagesPeerSettings extends MessagesPeerSettingsBase {
 /// ID: `c3a2835f`.
 class AuthLoggedOut extends AuthLoggedOutBase {
   /// Auth Logged Out constructor.
-  const AuthLoggedOut({
-    this.futureAuthToken,
-  }) : super._();
+  const AuthLoggedOut({this.futureAuthToken}) : super._();
 
   /// Deserialize.
   factory AuthLoggedOut.deserialize(BinaryReader reader) {
@@ -80949,9 +79258,7 @@ class AuthLoggedOut extends AuthLoggedOutBase {
     final futureAuthToken = hasFutureAuthTokenField ? reader.readBytes() : null;
 
     // Construct [AuthLoggedOut] object.
-    final returnValue = AuthLoggedOut(
-      futureAuthToken: futureAuthToken,
-    );
+    final returnValue = AuthLoggedOut(futureAuthToken: futureAuthToken);
 
     // Now return the deserialized [AuthLoggedOut].
     return returnValue;
@@ -80959,9 +79266,7 @@ class AuthLoggedOut extends AuthLoggedOutBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: futureAuthToken != null,
-    );
+    final v = _flag(b00: futureAuthToken != null);
 
     return v;
   }
@@ -81032,9 +79337,7 @@ class ReactionCount extends ReactionCountBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: chosenOrder != null,
-    );
+    final v = _flag(b00: chosenOrder != null);
 
     return v;
   }
@@ -81239,9 +79542,7 @@ class MessagesMessageReactionsList extends MessagesMessageReactionsListBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -81464,7 +79765,8 @@ class MessagesAvailableReactionsNotModified
 
   /// Deserialize.
   factory MessagesAvailableReactionsNotModified.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [MessagesAvailableReactionsNotModified] object.
     final returnValue = MessagesAvailableReactionsNotModified();
 
@@ -81595,11 +79897,7 @@ class MessagePeerReaction extends MessagePeerReactionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: big,
-      b01: unread,
-      b02: my,
-    );
+    final v = _flag(b00: big, b01: unread, b02: my);
 
     return v;
   }
@@ -81734,9 +80032,7 @@ class GroupCallStreamChannel extends GroupCallStreamChannelBase {
 /// ID: `d0e482b2`.
 class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
   /// Phone Group Call Stream Channels constructor.
-  const PhoneGroupCallStreamChannels({
-    required this.channels,
-  }) : super._();
+  const PhoneGroupCallStreamChannels({required this.channels}) : super._();
 
   /// Deserialize.
   factory PhoneGroupCallStreamChannels.deserialize(BinaryReader reader) {
@@ -81744,9 +80040,7 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
     final channels = reader.readVectorObject<GroupCallStreamChannelBase>();
 
     // Construct [PhoneGroupCallStreamChannels] object.
-    final returnValue = PhoneGroupCallStreamChannels(
-      channels: channels.items,
-    );
+    final returnValue = PhoneGroupCallStreamChannels(channels: channels.items);
 
     // Now return the deserialized [PhoneGroupCallStreamChannels].
     return returnValue;
@@ -81785,10 +80079,8 @@ class PhoneGroupCallStreamChannels extends PhoneGroupCallStreamChannelsBase {
 /// ID: `2dbf3432`.
 class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
   /// Phone Group Call Stream Rtmp Url constructor.
-  const PhoneGroupCallStreamRtmpUrl({
-    required this.url,
-    required this.key,
-  }) : super._();
+  const PhoneGroupCallStreamRtmpUrl({required this.url, required this.key})
+      : super._();
 
   /// Deserialize.
   factory PhoneGroupCallStreamRtmpUrl.deserialize(BinaryReader reader) {
@@ -81797,10 +80089,7 @@ class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
     final key = reader.readString();
 
     // Construct [PhoneGroupCallStreamRtmpUrl] object.
-    final returnValue = PhoneGroupCallStreamRtmpUrl(
-      url: url,
-      key: key,
-    );
+    final returnValue = PhoneGroupCallStreamRtmpUrl(url: url, key: key);
 
     // Now return the deserialized [PhoneGroupCallStreamRtmpUrl].
     return returnValue;
@@ -81844,10 +80133,8 @@ class PhoneGroupCallStreamRtmpUrl extends PhoneGroupCallStreamRtmpUrlBase {
 /// ID: `4576f3f0`.
 class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
   /// Attach Menu Bot Icon Color constructor.
-  const AttachMenuBotIconColor({
-    required this.name,
-    required this.color,
-  }) : super._();
+  const AttachMenuBotIconColor({required this.name, required this.color})
+      : super._();
 
   /// Deserialize.
   factory AttachMenuBotIconColor.deserialize(BinaryReader reader) {
@@ -81856,10 +80143,7 @@ class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
     final color = reader.readInt32();
 
     // Construct [AttachMenuBotIconColor] object.
-    final returnValue = AttachMenuBotIconColor(
-      name: name,
-      color: color,
-    );
+    final returnValue = AttachMenuBotIconColor(name: name, color: color);
 
     // Now return the deserialized [AttachMenuBotIconColor].
     return returnValue;
@@ -81905,11 +80189,8 @@ class AttachMenuBotIconColor extends AttachMenuBotIconColorBase {
 /// ID: `b2a7386b`.
 class AttachMenuBotIcon extends AttachMenuBotIconBase {
   /// Attach Menu Bot Icon constructor.
-  const AttachMenuBotIcon({
-    required this.name,
-    required this.icon,
-    this.colors,
-  }) : super._();
+  const AttachMenuBotIcon({required this.name, required this.icon, this.colors})
+      : super._();
 
   /// Deserialize.
   factory AttachMenuBotIcon.deserialize(BinaryReader reader) {
@@ -81935,9 +80216,7 @@ class AttachMenuBotIcon extends AttachMenuBotIconBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: colors != null,
-    );
+    final v = _flag(b00: colors != null);
 
     return v;
   }
@@ -82238,10 +80517,7 @@ class AttachMenuBots extends AttachMenuBotsBase {
 /// ID: `93bf667f`.
 class AttachMenuBotsBot extends AttachMenuBotsBotBase {
   /// Attach Menu Bots Bot constructor.
-  const AttachMenuBotsBot({
-    required this.bot,
-    required this.users,
-  }) : super._();
+  const AttachMenuBotsBot({required this.bot, required this.users}) : super._();
 
   /// Deserialize.
   factory AttachMenuBotsBot.deserialize(BinaryReader reader) {
@@ -82250,10 +80526,7 @@ class AttachMenuBotsBot extends AttachMenuBotsBotBase {
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [AttachMenuBotsBot] object.
-    final returnValue = AttachMenuBotsBot(
-      bot: bot,
-      users: users.items,
-    );
+    final returnValue = AttachMenuBotsBot(bot: bot, users: users.items);
 
     // Now return the deserialized [AttachMenuBotsBot].
     return returnValue;
@@ -82328,11 +80601,7 @@ class WebViewResultUrl extends WebViewResultBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: fullsize,
-      b02: fullscreen,
-      b00: queryId != null,
-    );
+    final v = _flag(b01: fullsize, b02: fullscreen, b00: queryId != null);
 
     return v;
   }
@@ -82388,9 +80657,7 @@ class WebViewResultUrl extends WebViewResultBase {
 /// ID: `0c94511c`.
 class WebViewMessageSent extends WebViewMessageSentBase {
   /// Web View Message Sent constructor.
-  const WebViewMessageSent({
-    this.msgId,
-  }) : super._();
+  const WebViewMessageSent({this.msgId}) : super._();
 
   /// Deserialize.
   factory WebViewMessageSent.deserialize(BinaryReader reader) {
@@ -82402,9 +80669,7 @@ class WebViewMessageSent extends WebViewMessageSentBase {
         : null;
 
     // Construct [WebViewMessageSent] object.
-    final returnValue = WebViewMessageSent(
-      msgId: msgId,
-    );
+    final returnValue = WebViewMessageSent(msgId: msgId);
 
     // Now return the deserialized [WebViewMessageSent].
     return returnValue;
@@ -82412,9 +80677,7 @@ class WebViewMessageSent extends WebViewMessageSentBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: msgId != null,
-    );
+    final v = _flag(b00: msgId != null);
 
     return v;
   }
@@ -82531,10 +80794,7 @@ class BotMenuButtonCommands extends BotMenuButtonBase {
 /// ID: `c7b57ce6`.
 class BotMenuButton extends BotMenuButtonBase {
   /// Bot Menu Button constructor.
-  const BotMenuButton({
-    required this.text,
-    required this.url,
-  }) : super._();
+  const BotMenuButton({required this.text, required this.url}) : super._();
 
   /// Deserialize.
   factory BotMenuButton.deserialize(BinaryReader reader) {
@@ -82543,10 +80803,7 @@ class BotMenuButton extends BotMenuButtonBase {
     final url = reader.readString();
 
     // Construct [BotMenuButton] object.
-    final returnValue = BotMenuButton(
-      text: text,
-      url: url,
-    );
+    final returnValue = BotMenuButton(text: text, url: url);
 
     // Now return the deserialized [BotMenuButton].
     return returnValue;
@@ -82627,10 +80884,8 @@ class AccountSavedRingtonesNotModified extends AccountSavedRingtonesBase {
 /// ID: `c1e92cc5`.
 class AccountSavedRingtones extends AccountSavedRingtonesBase {
   /// Account Saved Ringtones constructor.
-  const AccountSavedRingtones({
-    required this.hash,
-    required this.ringtones,
-  }) : super._();
+  const AccountSavedRingtones({required this.hash, required this.ringtones})
+      : super._();
 
   /// Deserialize.
   factory AccountSavedRingtones.deserialize(BinaryReader reader) {
@@ -82762,10 +81017,8 @@ class NotificationSoundNone extends NotificationSoundBase {
 /// ID: `830b9ae4`.
 class NotificationSoundLocal extends NotificationSoundBase {
   /// Notification Sound Local constructor.
-  const NotificationSoundLocal({
-    required this.title,
-    required this.data,
-  }) : super._();
+  const NotificationSoundLocal({required this.title, required this.data})
+      : super._();
 
   /// Deserialize.
   factory NotificationSoundLocal.deserialize(BinaryReader reader) {
@@ -82774,10 +81027,7 @@ class NotificationSoundLocal extends NotificationSoundBase {
     final data = reader.readString();
 
     // Construct [NotificationSoundLocal] object.
-    final returnValue = NotificationSoundLocal(
-      title: title,
-      data: data,
-    );
+    final returnValue = NotificationSoundLocal(title: title, data: data);
 
     // Now return the deserialized [NotificationSoundLocal].
     return returnValue;
@@ -82821,9 +81071,7 @@ class NotificationSoundLocal extends NotificationSoundBase {
 /// ID: `ff6c8049`.
 class NotificationSoundRingtone extends NotificationSoundBase {
   /// Notification Sound Ringtone constructor.
-  const NotificationSoundRingtone({
-    required this.id,
-  }) : super._();
+  const NotificationSoundRingtone({required this.id}) : super._();
 
   /// Deserialize.
   factory NotificationSoundRingtone.deserialize(BinaryReader reader) {
@@ -82831,9 +81079,7 @@ class NotificationSoundRingtone extends NotificationSoundBase {
     final id = reader.readInt64();
 
     // Construct [NotificationSoundRingtone] object.
-    final returnValue = NotificationSoundRingtone(
-      id: id,
-    );
+    final returnValue = NotificationSoundRingtone(id: id);
 
     // Now return the deserialized [NotificationSoundRingtone].
     return returnValue;
@@ -82911,9 +81157,7 @@ class AccountSavedRingtone extends AccountSavedRingtoneBase {
 /// ID: `1f307eb7`.
 class AccountSavedRingtoneConverted extends AccountSavedRingtoneBase {
   /// Account Saved Ringtone Converted constructor.
-  const AccountSavedRingtoneConverted({
-    required this.document,
-  }) : super._();
+  const AccountSavedRingtoneConverted({required this.document}) : super._();
 
   /// Deserialize.
   factory AccountSavedRingtoneConverted.deserialize(BinaryReader reader) {
@@ -82921,9 +81165,7 @@ class AccountSavedRingtoneConverted extends AccountSavedRingtoneBase {
     final document = reader.readObject() as DocumentBase;
 
     // Construct [AccountSavedRingtoneConverted] object.
-    final returnValue = AccountSavedRingtoneConverted(
-      document: document,
-    );
+    final returnValue = AccountSavedRingtoneConverted(document: document);
 
     // Now return the deserialized [AccountSavedRingtoneConverted].
     return returnValue;
@@ -83147,10 +81389,8 @@ class AttachMenuPeerTypeBroadcast extends AttachMenuPeerTypeBase {
 /// ID: `c5b56859`.
 class InputInvoiceMessage extends InputInvoiceBase {
   /// Input Invoice Message constructor.
-  const InputInvoiceMessage({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const InputInvoiceMessage({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory InputInvoiceMessage.deserialize(BinaryReader reader) {
@@ -83159,10 +81399,7 @@ class InputInvoiceMessage extends InputInvoiceBase {
     final msgId = reader.readInt32();
 
     // Construct [InputInvoiceMessage] object.
-    final returnValue = InputInvoiceMessage(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = InputInvoiceMessage(peer: peer, msgId: msgId);
 
     // Now return the deserialized [InputInvoiceMessage].
     return returnValue;
@@ -83208,9 +81445,7 @@ class InputInvoiceMessage extends InputInvoiceBase {
 /// ID: `c326caef`.
 class InputInvoiceSlug extends InputInvoiceBase {
   /// Input Invoice Slug constructor.
-  const InputInvoiceSlug({
-    required this.slug,
-  }) : super._();
+  const InputInvoiceSlug({required this.slug}) : super._();
 
   /// Deserialize.
   factory InputInvoiceSlug.deserialize(BinaryReader reader) {
@@ -83218,9 +81453,7 @@ class InputInvoiceSlug extends InputInvoiceBase {
     final slug = reader.readString();
 
     // Construct [InputInvoiceSlug] object.
-    final returnValue = InputInvoiceSlug(
-      slug: slug,
-    );
+    final returnValue = InputInvoiceSlug(slug: slug);
 
     // Now return the deserialized [InputInvoiceSlug].
     return returnValue;
@@ -83318,9 +81551,7 @@ class InputInvoicePremiumGiftCode extends InputInvoiceBase {
 /// ID: `65f00ce3`.
 class InputInvoiceStars extends InputInvoiceBase {
   /// Input Invoice Stars constructor.
-  const InputInvoiceStars({
-    required this.purpose,
-  }) : super._();
+  const InputInvoiceStars({required this.purpose}) : super._();
 
   /// Deserialize.
   factory InputInvoiceStars.deserialize(BinaryReader reader) {
@@ -83328,9 +81559,7 @@ class InputInvoiceStars extends InputInvoiceBase {
     final purpose = reader.readObject() as InputStorePaymentPurposeBase;
 
     // Construct [InputInvoiceStars] object.
-    final returnValue = InputInvoiceStars(
-      purpose: purpose,
-    );
+    final returnValue = InputInvoiceStars(purpose: purpose);
 
     // Now return the deserialized [InputInvoiceStars].
     return returnValue;
@@ -83369,9 +81598,7 @@ class InputInvoiceStars extends InputInvoiceBase {
 /// ID: `34e793f1`.
 class InputInvoiceChatInviteSubscription extends InputInvoiceBase {
   /// Input Invoice Chat Invite Subscription constructor.
-  const InputInvoiceChatInviteSubscription({
-    required this.hash,
-  }) : super._();
+  const InputInvoiceChatInviteSubscription({required this.hash}) : super._();
 
   /// Deserialize.
   factory InputInvoiceChatInviteSubscription.deserialize(BinaryReader reader) {
@@ -83379,9 +81606,7 @@ class InputInvoiceChatInviteSubscription extends InputInvoiceBase {
     final hash = reader.readString();
 
     // Construct [InputInvoiceChatInviteSubscription] object.
-    final returnValue = InputInvoiceChatInviteSubscription(
-      hash: hash,
-    );
+    final returnValue = InputInvoiceChatInviteSubscription(hash: hash);
 
     // Now return the deserialized [InputInvoiceChatInviteSubscription].
     return returnValue;
@@ -83455,11 +81680,7 @@ class InputInvoiceStarGift extends InputInvoiceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hideName,
-      b02: includeUpgrade,
-      b01: message != null,
-    );
+    final v = _flag(b00: hideName, b02: includeUpgrade, b01: message != null);
 
     return v;
   }
@@ -83546,9 +81767,7 @@ class InputInvoiceStarGiftUpgrade extends InputInvoiceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: keepOriginalDetails,
-    );
+    final v = _flag(b00: keepOriginalDetails);
 
     return v;
   }
@@ -83680,9 +81899,7 @@ class InputInvoicePremiumGiftStars extends InputInvoiceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: message != null,
-    );
+    final v = _flag(b00: message != null);
 
     return v;
   }
@@ -83744,7 +81961,8 @@ class InputInvoiceBusinessBotTransferStars extends InputInvoiceBase {
 
   /// Deserialize.
   factory InputInvoiceBusinessBotTransferStars.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [InputInvoiceBusinessBotTransferStars] fields.
     final bot = reader.readObject() as InputUserBase;
     final stars = reader.readInt64();
@@ -83826,9 +82044,7 @@ class InputInvoiceStarGiftResale extends InputInvoiceBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ton,
-    );
+    final v = _flag(b00: ton);
 
     return v;
   }
@@ -83872,14 +82088,71 @@ class InputInvoiceStarGiftResale extends InputInvoiceBase {
   }
 }
 
+/// Input Invoice Star Gift Prepaid Upgrade.
+///
+/// ID: `9a0b48b8`.
+class InputInvoiceStarGiftPrepaidUpgrade extends InputInvoiceBase {
+  /// Input Invoice Star Gift Prepaid Upgrade constructor.
+  const InputInvoiceStarGiftPrepaidUpgrade({
+    required this.peer,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputInvoiceStarGiftPrepaidUpgrade.deserialize(BinaryReader reader) {
+    // Read [InputInvoiceStarGiftPrepaidUpgrade] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final hash = reader.readString();
+
+    // Construct [InputInvoiceStarGiftPrepaidUpgrade] object.
+    final returnValue = InputInvoiceStarGiftPrepaidUpgrade(
+      peer: peer,
+      hash: hash,
+    );
+
+    // Now return the deserialized [InputInvoiceStarGiftPrepaidUpgrade].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Hash.
+  final String hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9a0b48b8.
+    buffer.writeInt32(0x9a0b48b8);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeString(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9a0b48b8",
+      "\$name": "InputInvoiceStarGiftPrepaidUpgrade",
+      "peer": peer,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Payments Exported Invoice.
 ///
 /// ID: `aed0cbd9`.
 class PaymentsExportedInvoice extends PaymentsExportedInvoiceBase {
   /// Payments Exported Invoice constructor.
-  const PaymentsExportedInvoice({
-    required this.url,
-  }) : super._();
+  const PaymentsExportedInvoice({required this.url}) : super._();
 
   /// Deserialize.
   factory PaymentsExportedInvoice.deserialize(BinaryReader reader) {
@@ -83887,9 +82160,7 @@ class PaymentsExportedInvoice extends PaymentsExportedInvoiceBase {
     final url = reader.readString();
 
     // Construct [PaymentsExportedInvoice] object.
-    final returnValue = PaymentsExportedInvoice(
-      url: url,
-    );
+    final returnValue = PaymentsExportedInvoice(url: url);
 
     // Now return the deserialized [PaymentsExportedInvoice].
     return returnValue;
@@ -84134,7 +82405,8 @@ class InputStorePaymentPremiumSubscription
 
   /// Deserialize.
   factory InputStorePaymentPremiumSubscription.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [InputStorePaymentPremiumSubscription] fields.
     final flags = reader.readInt32();
     final restore = (flags & 1) != 0;
@@ -84152,10 +82424,7 @@ class InputStorePaymentPremiumSubscription
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: restore,
-      b01: upgrade,
-    );
+    final v = _flag(b00: restore, b01: upgrade);
 
     return v;
   }
@@ -84304,10 +82573,7 @@ class InputStorePaymentPremiumGiftCode extends InputStorePaymentPurposeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: boostPeer != null,
-      b01: message != null,
-    );
+    final v = _flag(b00: boostPeer != null, b01: message != null);
 
     return v;
   }
@@ -84529,31 +82795,44 @@ class InputStorePaymentPremiumGiveaway extends InputStorePaymentPurposeBase {
 
 /// Input Store Payment Stars Topup.
 ///
-/// ID: `dddd0f56`.
+/// ID: `f9a2a6cb`.
 class InputStorePaymentStarsTopup extends InputStorePaymentPurposeBase {
   /// Input Store Payment Stars Topup constructor.
   const InputStorePaymentStarsTopup({
     required this.stars,
     required this.currency,
     required this.amount,
+    this.spendPurposePeer,
   }) : super._();
 
   /// Deserialize.
   factory InputStorePaymentStarsTopup.deserialize(BinaryReader reader) {
     // Read [InputStorePaymentStarsTopup] fields.
+    final flags = reader.readInt32();
     final stars = reader.readInt64();
     final currency = reader.readString();
     final amount = reader.readInt64();
+    final hasSpendPurposePeerField = (flags & 1) != 0;
+    final spendPurposePeer =
+        hasSpendPurposePeerField ? reader.readObject() as InputPeerBase : null;
 
     // Construct [InputStorePaymentStarsTopup] object.
     final returnValue = InputStorePaymentStarsTopup(
       stars: stars,
       currency: currency,
       amount: amount,
+      spendPurposePeer: spendPurposePeer,
     );
 
     // Now return the deserialized [InputStorePaymentStarsTopup].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: spendPurposePeer != null);
+
+    return v;
   }
 
   /// Stars.
@@ -84569,16 +82848,24 @@ class InputStorePaymentStarsTopup extends InputStorePaymentPurposeBase {
   /// Field type is Int64.
   final int amount;
 
+  /// Spend Purpose Peer.
+  final InputPeerBase? spendPurposePeer;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xdddd0f56.
-    buffer.writeInt32(0xdddd0f56);
+    // Write type-id 0xf9a2a6cb.
+    buffer.writeInt32(0xf9a2a6cb);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt64(stars);
     buffer.writeString(currency);
     buffer.writeInt64(amount);
+    final localSpendPurposePeerCopy = spendPurposePeer;
+    if (localSpendPurposePeerCopy != null) {
+      buffer.writeObject(localSpendPurposePeerCopy);
+    }
 
     // Finished serialization.
   }
@@ -84586,11 +82873,13 @@ class InputStorePaymentStarsTopup extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "dddd0f56",
+      "\$hash": "f9a2a6cb",
       "\$name": "InputStorePaymentStarsTopup",
+      "flags": flags,
       "stars": stars,
       "currency": currency,
       "amount": amount,
+      "spendPurposePeer": spendPurposePeer,
     };
 
     // Finished toJson.
@@ -84892,9 +83181,7 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: restore,
-    );
+    final v = _flag(b00: restore);
 
     return v;
   }
@@ -84955,10 +83242,7 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
 /// ID: `88f8f21b`.
 class PaymentFormMethod extends PaymentFormMethodBase {
   /// Payment Form Method constructor.
-  const PaymentFormMethod({
-    required this.url,
-    required this.title,
-  }) : super._();
+  const PaymentFormMethod({required this.url, required this.title}) : super._();
 
   /// Deserialize.
   factory PaymentFormMethod.deserialize(BinaryReader reader) {
@@ -84967,10 +83251,7 @@ class PaymentFormMethod extends PaymentFormMethodBase {
     final title = reader.readString();
 
     // Construct [PaymentFormMethod] object.
-    final returnValue = PaymentFormMethod(
-      url: url,
-      title: title,
-    );
+    final returnValue = PaymentFormMethod(url: url, title: title);
 
     // Now return the deserialized [PaymentFormMethod].
     return returnValue;
@@ -85051,10 +83332,7 @@ class EmojiStatusEmpty extends EmojiStatusBase {
 /// ID: `e7ff068a`.
 class EmojiStatus extends EmojiStatusBase {
   /// Emoji Status constructor.
-  const EmojiStatus({
-    required this.documentId,
-    this.until,
-  }) : super._();
+  const EmojiStatus({required this.documentId, this.until}) : super._();
 
   /// Deserialize.
   factory EmojiStatus.deserialize(BinaryReader reader) {
@@ -85065,10 +83343,7 @@ class EmojiStatus extends EmojiStatusBase {
     final until = hasUntilField ? reader.readInt32() : null;
 
     // Construct [EmojiStatus] object.
-    final returnValue = EmojiStatus(
-      documentId: documentId,
-      until: until,
-    );
+    final returnValue = EmojiStatus(documentId: documentId, until: until);
 
     // Now return the deserialized [EmojiStatus].
     return returnValue;
@@ -85076,9 +83351,7 @@ class EmojiStatus extends EmojiStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: until != null,
-    );
+    final v = _flag(b00: until != null);
 
     return v;
   }
@@ -85177,9 +83450,7 @@ class EmojiStatusCollectible extends EmojiStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: until != null,
-    );
+    final v = _flag(b00: until != null);
 
     return v;
   }
@@ -85281,10 +83552,8 @@ class EmojiStatusCollectible extends EmojiStatusBase {
 /// ID: `07141dbf`.
 class InputEmojiStatusCollectible extends EmojiStatusBase {
   /// Input Emoji Status Collectible constructor.
-  const InputEmojiStatusCollectible({
-    required this.collectibleId,
-    this.until,
-  }) : super._();
+  const InputEmojiStatusCollectible({required this.collectibleId, this.until})
+      : super._();
 
   /// Deserialize.
   factory InputEmojiStatusCollectible.deserialize(BinaryReader reader) {
@@ -85306,9 +83575,7 @@ class InputEmojiStatusCollectible extends EmojiStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: until != null,
-    );
+    final v = _flag(b00: until != null);
 
     return v;
   }
@@ -85395,10 +83662,8 @@ class AccountEmojiStatusesNotModified extends AccountEmojiStatusesBase {
 /// ID: `90c467d1`.
 class AccountEmojiStatuses extends AccountEmojiStatusesBase {
   /// Account Emoji Statuses constructor.
-  const AccountEmojiStatuses({
-    required this.hash,
-    required this.statuses,
-  }) : super._();
+  const AccountEmojiStatuses({required this.hash, required this.statuses})
+      : super._();
 
   /// Deserialize.
   factory AccountEmojiStatuses.deserialize(BinaryReader reader) {
@@ -85493,9 +83758,7 @@ class ReactionEmpty extends ReactionBase {
 /// ID: `1b2286b8`.
 class ReactionEmoji extends ReactionBase {
   /// Reaction Emoji constructor.
-  const ReactionEmoji({
-    required this.emoticon,
-  }) : super._();
+  const ReactionEmoji({required this.emoticon}) : super._();
 
   /// Deserialize.
   factory ReactionEmoji.deserialize(BinaryReader reader) {
@@ -85503,9 +83766,7 @@ class ReactionEmoji extends ReactionBase {
     final emoticon = reader.readString();
 
     // Construct [ReactionEmoji] object.
-    final returnValue = ReactionEmoji(
-      emoticon: emoticon,
-    );
+    final returnValue = ReactionEmoji(emoticon: emoticon);
 
     // Now return the deserialized [ReactionEmoji].
     return returnValue;
@@ -85544,9 +83805,7 @@ class ReactionEmoji extends ReactionBase {
 /// ID: `8935fc73`.
 class ReactionCustomEmoji extends ReactionBase {
   /// Reaction Custom Emoji constructor.
-  const ReactionCustomEmoji({
-    required this.documentId,
-  }) : super._();
+  const ReactionCustomEmoji({required this.documentId}) : super._();
 
   /// Deserialize.
   factory ReactionCustomEmoji.deserialize(BinaryReader reader) {
@@ -85554,9 +83813,7 @@ class ReactionCustomEmoji extends ReactionBase {
     final documentId = reader.readInt64();
 
     // Construct [ReactionCustomEmoji] object.
-    final returnValue = ReactionCustomEmoji(
-      documentId: documentId,
-    );
+    final returnValue = ReactionCustomEmoji(documentId: documentId);
 
     // Now return the deserialized [ReactionCustomEmoji].
     return returnValue;
@@ -85671,9 +83928,7 @@ class ChatReactionsNone extends ChatReactionsBase {
 /// ID: `52928bca`.
 class ChatReactionsAll extends ChatReactionsBase {
   /// Chat Reactions All constructor.
-  const ChatReactionsAll({
-    required this.allowCustom,
-  }) : super._();
+  const ChatReactionsAll({required this.allowCustom}) : super._();
 
   /// Deserialize.
   factory ChatReactionsAll.deserialize(BinaryReader reader) {
@@ -85682,9 +83937,7 @@ class ChatReactionsAll extends ChatReactionsBase {
     final allowCustom = (flags & 1) != 0;
 
     // Construct [ChatReactionsAll] object.
-    final returnValue = ChatReactionsAll(
-      allowCustom: allowCustom,
-    );
+    final returnValue = ChatReactionsAll(allowCustom: allowCustom);
 
     // Now return the deserialized [ChatReactionsAll].
     return returnValue;
@@ -85692,9 +83945,7 @@ class ChatReactionsAll extends ChatReactionsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: allowCustom,
-    );
+    final v = _flag(b00: allowCustom);
 
     return v;
   }
@@ -85733,9 +83984,7 @@ class ChatReactionsAll extends ChatReactionsBase {
 /// ID: `661d4037`.
 class ChatReactionsSome extends ChatReactionsBase {
   /// Chat Reactions Some constructor.
-  const ChatReactionsSome({
-    required this.reactions,
-  }) : super._();
+  const ChatReactionsSome({required this.reactions}) : super._();
 
   /// Deserialize.
   factory ChatReactionsSome.deserialize(BinaryReader reader) {
@@ -85743,9 +83992,7 @@ class ChatReactionsSome extends ChatReactionsBase {
     final reactions = reader.readVectorObject<ReactionBase>();
 
     // Construct [ChatReactionsSome] object.
-    final returnValue = ChatReactionsSome(
-      reactions: reactions.items,
-    );
+    final returnValue = ChatReactionsSome(reactions: reactions.items);
 
     // Now return the deserialized [ChatReactionsSome].
     return returnValue;
@@ -85821,10 +84068,8 @@ class MessagesReactionsNotModified extends MessagesReactionsBase {
 /// ID: `eafdf716`.
 class MessagesReactions extends MessagesReactionsBase {
   /// Messages Reactions constructor.
-  const MessagesReactions({
-    required this.hash,
-    required this.reactions,
-  }) : super._();
+  const MessagesReactions({required this.hash, required this.reactions})
+      : super._();
 
   /// Deserialize.
   factory MessagesReactions.deserialize(BinaryReader reader) {
@@ -86015,9 +84260,7 @@ class EmailVerifyPurposePassport extends EmailVerifyPurposeBase {
 /// ID: `922e55a9`.
 class EmailVerificationCode extends EmailVerificationBase {
   /// Email Verification Code constructor.
-  const EmailVerificationCode({
-    required this.code,
-  }) : super._();
+  const EmailVerificationCode({required this.code}) : super._();
 
   /// Deserialize.
   factory EmailVerificationCode.deserialize(BinaryReader reader) {
@@ -86025,9 +84268,7 @@ class EmailVerificationCode extends EmailVerificationBase {
     final code = reader.readString();
 
     // Construct [EmailVerificationCode] object.
-    final returnValue = EmailVerificationCode(
-      code: code,
-    );
+    final returnValue = EmailVerificationCode(code: code);
 
     // Now return the deserialized [EmailVerificationCode].
     return returnValue;
@@ -86066,9 +84307,7 @@ class EmailVerificationCode extends EmailVerificationBase {
 /// ID: `db909ec2`.
 class EmailVerificationGoogle extends EmailVerificationBase {
   /// Email Verification Google constructor.
-  const EmailVerificationGoogle({
-    required this.token,
-  }) : super._();
+  const EmailVerificationGoogle({required this.token}) : super._();
 
   /// Deserialize.
   factory EmailVerificationGoogle.deserialize(BinaryReader reader) {
@@ -86076,9 +84315,7 @@ class EmailVerificationGoogle extends EmailVerificationBase {
     final token = reader.readString();
 
     // Construct [EmailVerificationGoogle] object.
-    final returnValue = EmailVerificationGoogle(
-      token: token,
-    );
+    final returnValue = EmailVerificationGoogle(token: token);
 
     // Now return the deserialized [EmailVerificationGoogle].
     return returnValue;
@@ -86117,9 +84354,7 @@ class EmailVerificationGoogle extends EmailVerificationBase {
 /// ID: `96d074fd`.
 class EmailVerificationApple extends EmailVerificationBase {
   /// Email Verification Apple constructor.
-  const EmailVerificationApple({
-    required this.token,
-  }) : super._();
+  const EmailVerificationApple({required this.token}) : super._();
 
   /// Deserialize.
   factory EmailVerificationApple.deserialize(BinaryReader reader) {
@@ -86127,9 +84362,7 @@ class EmailVerificationApple extends EmailVerificationBase {
     final token = reader.readString();
 
     // Construct [EmailVerificationApple] object.
-    final returnValue = EmailVerificationApple(
-      token: token,
-    );
+    final returnValue = EmailVerificationApple(token: token);
 
     // Now return the deserialized [EmailVerificationApple].
     return returnValue;
@@ -86168,9 +84401,7 @@ class EmailVerificationApple extends EmailVerificationBase {
 /// ID: `2b96cd1b`.
 class AccountEmailVerified extends AccountEmailVerifiedBase {
   /// Account Email Verified constructor.
-  const AccountEmailVerified({
-    required this.email,
-  }) : super._();
+  const AccountEmailVerified({required this.email}) : super._();
 
   /// Deserialize.
   factory AccountEmailVerified.deserialize(BinaryReader reader) {
@@ -86178,9 +84409,7 @@ class AccountEmailVerified extends AccountEmailVerifiedBase {
     final email = reader.readString();
 
     // Construct [AccountEmailVerified] object.
-    final returnValue = AccountEmailVerified(
-      email: email,
-    );
+    final returnValue = AccountEmailVerified(email: email);
 
     // Now return the deserialized [AccountEmailVerified].
     return returnValue;
@@ -86219,10 +84448,8 @@ class AccountEmailVerified extends AccountEmailVerifiedBase {
 /// ID: `e1bb0d61`.
 class AccountEmailVerifiedLogin extends AccountEmailVerifiedBase {
   /// Account Email Verified Login constructor.
-  const AccountEmailVerifiedLogin({
-    required this.email,
-    required this.sentCode,
-  }) : super._();
+  const AccountEmailVerifiedLogin({required this.email, required this.sentCode})
+      : super._();
 
   /// Deserialize.
   factory AccountEmailVerifiedLogin.deserialize(BinaryReader reader) {
@@ -86410,10 +84637,8 @@ class PremiumSubscriptionOption extends PremiumSubscriptionOptionBase {
 /// ID: `b81c7034`.
 class SendAsPeer extends SendAsPeerBase {
   /// Send As Peer constructor.
-  const SendAsPeer({
-    required this.premiumRequired,
-    required this.peer,
-  }) : super._();
+  const SendAsPeer({required this.premiumRequired, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory SendAsPeer.deserialize(BinaryReader reader) {
@@ -86434,9 +84659,7 @@ class SendAsPeer extends SendAsPeerBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: premiumRequired,
-    );
+    final v = _flag(b00: premiumRequired);
 
     return v;
   }
@@ -86585,9 +84808,7 @@ class MessageExtendedMediaPreview extends MessageExtendedMediaBase {
 /// ID: `ee479c64`.
 class MessageExtendedMedia extends MessageExtendedMediaBase {
   /// Message Extended Media constructor.
-  const MessageExtendedMedia({
-    required this.media,
-  }) : super._();
+  const MessageExtendedMedia({required this.media}) : super._();
 
   /// Deserialize.
   factory MessageExtendedMedia.deserialize(BinaryReader reader) {
@@ -86595,9 +84816,7 @@ class MessageExtendedMedia extends MessageExtendedMediaBase {
     final media = reader.readObject() as MessageMediaBase;
 
     // Construct [MessageExtendedMedia] object.
-    final returnValue = MessageExtendedMedia(
-      media: media,
-    );
+    final returnValue = MessageExtendedMedia(media: media);
 
     // Now return the deserialized [MessageExtendedMedia].
     return returnValue;
@@ -86636,10 +84855,8 @@ class MessageExtendedMedia extends MessageExtendedMediaBase {
 /// ID: `fcfeb29c`.
 class StickerKeyword extends StickerKeywordBase {
   /// Sticker Keyword constructor.
-  const StickerKeyword({
-    required this.documentId,
-    required this.keyword,
-  }) : super._();
+  const StickerKeyword({required this.documentId, required this.keyword})
+      : super._();
 
   /// Deserialize.
   factory StickerKeyword.deserialize(BinaryReader reader) {
@@ -86724,10 +84941,7 @@ class Username extends UsernameBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: editable,
-      b01: active,
-    );
+    final v = _flag(b00: editable, b01: active);
 
     return v;
   }
@@ -86775,9 +84989,7 @@ class Username extends UsernameBase {
 /// ID: `023f109b`.
 class ForumTopicDeleted extends ForumTopicBase {
   /// Forum Topic Deleted constructor.
-  const ForumTopicDeleted({
-    required this.id,
-  }) : super._();
+  const ForumTopicDeleted({required this.id}) : super._();
 
   /// Deserialize.
   factory ForumTopicDeleted.deserialize(BinaryReader reader) {
@@ -86785,9 +84997,7 @@ class ForumTopicDeleted extends ForumTopicBase {
     final id = reader.readInt32();
 
     // Construct [ForumTopicDeleted] object.
-    final returnValue = ForumTopicDeleted(
-      id: id,
-    );
+    final returnValue = ForumTopicDeleted(id: id);
 
     // Now return the deserialized [ForumTopicDeleted].
     return returnValue;
@@ -87100,9 +85310,7 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: orderByCreateDate,
-    );
+    final v = _flag(b00: orderByCreateDate);
 
     return v;
   }
@@ -87175,9 +85383,7 @@ class MessagesForumTopics extends MessagesForumTopicsBase {
 /// ID: `43b46b20`.
 class DefaultHistoryTTL extends DefaultHistoryTTLBase {
   /// Default History T T L constructor.
-  const DefaultHistoryTTL({
-    required this.period,
-  }) : super._();
+  const DefaultHistoryTTL({required this.period}) : super._();
 
   /// Deserialize.
   factory DefaultHistoryTTL.deserialize(BinaryReader reader) {
@@ -87185,9 +85391,7 @@ class DefaultHistoryTTL extends DefaultHistoryTTLBase {
     final period = reader.readInt32();
 
     // Construct [DefaultHistoryTTL] object.
-    final returnValue = DefaultHistoryTTL(
-      period: period,
-    );
+    final returnValue = DefaultHistoryTTL(period: period);
 
     // Now return the deserialized [DefaultHistoryTTL].
     return returnValue;
@@ -87228,10 +85432,8 @@ class DefaultHistoryTTL extends DefaultHistoryTTLBase {
 /// ID: `41bf109b`.
 class ExportedContactToken extends ExportedContactTokenBase {
   /// Exported Contact Token constructor.
-  const ExportedContactToken({
-    required this.url,
-    required this.expires,
-  }) : super._();
+  const ExportedContactToken({required this.url, required this.expires})
+      : super._();
 
   /// Deserialize.
   factory ExportedContactToken.deserialize(BinaryReader reader) {
@@ -87240,10 +85442,7 @@ class ExportedContactToken extends ExportedContactTokenBase {
     final expires = reader.readDateTime();
 
     // Construct [ExportedContactToken] object.
-    final returnValue = ExportedContactToken(
-      url: url,
-      expires: expires,
-    );
+    final returnValue = ExportedContactToken(url: url, expires: expires);
 
     // Now return the deserialized [ExportedContactToken].
     return returnValue;
@@ -87287,10 +85486,7 @@ class ExportedContactToken extends ExportedContactTokenBase {
 /// ID: `5f3b8a00`.
 class RequestPeerTypeUser extends RequestPeerTypeBase {
   /// Request Peer Type User constructor.
-  const RequestPeerTypeUser({
-    this.bot,
-    this.premium,
-  }) : super._();
+  const RequestPeerTypeUser({this.bot, this.premium}) : super._();
 
   /// Deserialize.
   factory RequestPeerTypeUser.deserialize(BinaryReader reader) {
@@ -87300,10 +85496,7 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
     final premium = (flags & 2) != 0 ? reader.readBool() : null;
 
     // Construct [RequestPeerTypeUser] object.
-    final returnValue = RequestPeerTypeUser(
-      bot: bot,
-      premium: premium,
-    );
+    final returnValue = RequestPeerTypeUser(bot: bot, premium: premium);
 
     // Now return the deserialized [RequestPeerTypeUser].
     return returnValue;
@@ -87311,10 +85504,7 @@ class RequestPeerTypeUser extends RequestPeerTypeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: (bot != null),
-      b01: (premium != null),
-    );
+    final v = _flag(b00: (bot != null), b01: (premium != null));
 
     return v;
   }
@@ -87630,10 +85820,7 @@ class EmojiListNotModified extends EmojiListBase {
 /// ID: `7a1e11d1`.
 class EmojiList extends EmojiListBase {
   /// Emoji List constructor.
-  const EmojiList({
-    required this.hash,
-    required this.documentId,
-  }) : super._();
+  const EmojiList({required this.hash, required this.documentId}) : super._();
 
   /// Deserialize.
   factory EmojiList.deserialize(BinaryReader reader) {
@@ -87642,10 +85829,7 @@ class EmojiList extends EmojiListBase {
     final documentId = reader.readVectorInt64();
 
     // Construct [EmojiList] object.
-    final returnValue = EmojiList(
-      hash: hash,
-      documentId: documentId.items,
-    );
+    final returnValue = EmojiList(hash: hash, documentId: documentId.items);
 
     // Now return the deserialized [EmojiList].
     return returnValue;
@@ -87829,10 +86013,8 @@ class EmojiGroupGreeting extends EmojiGroupBase {
 /// ID: `093bcf34`.
 class EmojiGroupPremium extends EmojiGroupBase {
   /// Emoji Group Premium constructor.
-  const EmojiGroupPremium({
-    required this.title,
-    required this.iconEmojiId,
-  }) : super._();
+  const EmojiGroupPremium({required this.title, required this.iconEmojiId})
+      : super._();
 
   /// Deserialize.
   factory EmojiGroupPremium.deserialize(BinaryReader reader) {
@@ -87927,10 +86109,8 @@ class MessagesEmojiGroupsNotModified extends MessagesEmojiGroupsBase {
 /// ID: `881fb94b`.
 class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
   /// Messages Emoji Groups constructor.
-  const MessagesEmojiGroups({
-    required this.hash,
-    required this.groups,
-  }) : super._();
+  const MessagesEmojiGroups({required this.hash, required this.groups})
+      : super._();
 
   /// Deserialize.
   factory MessagesEmojiGroups.deserialize(BinaryReader reader) {
@@ -87939,10 +86119,7 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
     final groups = reader.readVectorObject<EmojiGroupBase>();
 
     // Construct [MessagesEmojiGroups] object.
-    final returnValue = MessagesEmojiGroups(
-      hash: hash,
-      groups: groups.items,
-    );
+    final returnValue = MessagesEmojiGroups(hash: hash, groups: groups.items);
 
     // Now return the deserialized [MessagesEmojiGroups].
     return returnValue;
@@ -87988,10 +86165,8 @@ class MessagesEmojiGroups extends MessagesEmojiGroupsBase {
 /// ID: `751f3146`.
 class TextWithEntities extends TextWithEntitiesBase {
   /// Text With Entities constructor.
-  const TextWithEntities({
-    required this.text,
-    required this.entities,
-  }) : super._();
+  const TextWithEntities({required this.text, required this.entities})
+      : super._();
 
   /// Deserialize.
   factory TextWithEntities.deserialize(BinaryReader reader) {
@@ -88000,10 +86175,7 @@ class TextWithEntities extends TextWithEntitiesBase {
     final entities = reader.readVectorObject<MessageEntityBase>();
 
     // Construct [TextWithEntities] object.
-    final returnValue = TextWithEntities(
-      text: text,
-      entities: entities.items,
-    );
+    final returnValue = TextWithEntities(text: text, entities: entities.items);
 
     // Now return the deserialized [TextWithEntities].
     return returnValue;
@@ -88047,9 +86219,7 @@ class TextWithEntities extends TextWithEntitiesBase {
 /// ID: `33db32f8`.
 class MessagesTranslateResult extends MessagesTranslatedTextBase {
   /// Messages Translate Result constructor.
-  const MessagesTranslateResult({
-    required this.result,
-  }) : super._();
+  const MessagesTranslateResult({required this.result}) : super._();
 
   /// Deserialize.
   factory MessagesTranslateResult.deserialize(BinaryReader reader) {
@@ -88057,9 +86227,7 @@ class MessagesTranslateResult extends MessagesTranslatedTextBase {
     final result = reader.readVectorObject<TextWithEntitiesBase>();
 
     // Construct [MessagesTranslateResult] object.
-    final returnValue = MessagesTranslateResult(
-      result: result.items,
-    );
+    final returnValue = MessagesTranslateResult(result: result.items);
 
     // Now return the deserialized [MessagesTranslateResult].
     return returnValue;
@@ -88126,11 +86294,7 @@ class AutoSaveSettings extends AutoSaveSettingsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: photos,
-      b01: videos,
-      b02: videoMaxSize != null,
-    );
+    final v = _flag(b00: photos, b01: videos, b02: videoMaxSize != null);
 
     return v;
   }
@@ -88181,10 +86345,8 @@ class AutoSaveSettings extends AutoSaveSettingsBase {
 /// ID: `81602d47`.
 class AutoSaveException extends AutoSaveExceptionBase {
   /// Auto Save Exception constructor.
-  const AutoSaveException({
-    required this.peer,
-    required this.settings,
-  }) : super._();
+  const AutoSaveException({required this.peer, required this.settings})
+      : super._();
 
   /// Deserialize.
   factory AutoSaveException.deserialize(BinaryReader reader) {
@@ -88193,10 +86355,7 @@ class AutoSaveException extends AutoSaveExceptionBase {
     final settings = reader.readObject() as AutoSaveSettingsBase;
 
     // Construct [AutoSaveException] object.
-    final returnValue = AutoSaveException(
-      peer: peer,
-      settings: settings,
-    );
+    final returnValue = AutoSaveException(peer: peer, settings: settings);
 
     // Now return the deserialized [AutoSaveException].
     return returnValue;
@@ -88368,10 +86527,7 @@ class HelpAppConfigNotModified extends HelpAppConfigBase {
 /// ID: `dd18782e`.
 class HelpAppConfig extends HelpAppConfigBase {
   /// Help App Config constructor.
-  const HelpAppConfig({
-    required this.hash,
-    required this.config,
-  }) : super._();
+  const HelpAppConfig({required this.hash, required this.config}) : super._();
 
   /// Deserialize.
   factory HelpAppConfig.deserialize(BinaryReader reader) {
@@ -88380,10 +86536,7 @@ class HelpAppConfig extends HelpAppConfigBase {
     final config = reader.readObject() as JSONValueBase;
 
     // Construct [HelpAppConfig] object.
-    final returnValue = HelpAppConfig(
-      hash: hash,
-      config: config,
-    );
+    final returnValue = HelpAppConfig(hash: hash, config: config);
 
     // Now return the deserialized [HelpAppConfig].
     return returnValue;
@@ -88429,10 +86582,7 @@ class HelpAppConfig extends HelpAppConfigBase {
 /// ID: `a920bd7a`.
 class InputBotAppID extends InputBotAppBase {
   /// Input Bot App I D constructor.
-  const InputBotAppID({
-    required this.id,
-    required this.accessHash,
-  }) : super._();
+  const InputBotAppID({required this.id, required this.accessHash}) : super._();
 
   /// Deserialize.
   factory InputBotAppID.deserialize(BinaryReader reader) {
@@ -88441,10 +86591,7 @@ class InputBotAppID extends InputBotAppBase {
     final accessHash = reader.readInt64();
 
     // Construct [InputBotAppID] object.
-    final returnValue = InputBotAppID(
-      id: id,
-      accessHash: accessHash,
-    );
+    final returnValue = InputBotAppID(id: id, accessHash: accessHash);
 
     // Now return the deserialized [InputBotAppID].
     return returnValue;
@@ -88492,10 +86639,8 @@ class InputBotAppID extends InputBotAppBase {
 /// ID: `908c0407`.
 class InputBotAppShortName extends InputBotAppBase {
   /// Input Bot App Short Name constructor.
-  const InputBotAppShortName({
-    required this.botId,
-    required this.shortName,
-  }) : super._();
+  const InputBotAppShortName({required this.botId, required this.shortName})
+      : super._();
 
   /// Deserialize.
   factory InputBotAppShortName.deserialize(BinaryReader reader) {
@@ -88632,9 +86777,7 @@ class BotApp extends BotAppBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: document != null,
-    );
+    final v = _flag(b00: document != null);
 
     return v;
   }
@@ -88748,11 +86891,7 @@ class MessagesBotApp extends MessagesBotAppBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: inactive,
-      b01: requestWriteAccess,
-      b02: hasSettings,
-    );
+    final v = _flag(b00: inactive, b01: requestWriteAccess, b02: hasSettings);
 
     return v;
   }
@@ -88804,10 +86943,7 @@ class MessagesBotApp extends MessagesBotAppBase {
 /// ID: `b57295d5`.
 class InlineBotWebView extends InlineBotWebViewBase {
   /// Inline Bot Web View constructor.
-  const InlineBotWebView({
-    required this.text,
-    required this.url,
-  }) : super._();
+  const InlineBotWebView({required this.text, required this.url}) : super._();
 
   /// Deserialize.
   factory InlineBotWebView.deserialize(BinaryReader reader) {
@@ -88816,10 +86952,7 @@ class InlineBotWebView extends InlineBotWebViewBase {
     final url = reader.readString();
 
     // Construct [InlineBotWebView] object.
-    final returnValue = InlineBotWebView(
-      text: text,
-      url: url,
-    );
+    final returnValue = InlineBotWebView(text: text, url: url);
 
     // Now return the deserialized [InlineBotWebView].
     return returnValue;
@@ -88863,10 +86996,8 @@ class InlineBotWebView extends InlineBotWebViewBase {
 /// ID: `4a4ff172`.
 class ReadParticipantDate extends ReadParticipantDateBase {
   /// Read Participant Date constructor.
-  const ReadParticipantDate({
-    required this.userId,
-    required this.date,
-  }) : super._();
+  const ReadParticipantDate({required this.userId, required this.date})
+      : super._();
 
   /// Deserialize.
   factory ReadParticipantDate.deserialize(BinaryReader reader) {
@@ -88875,10 +87006,7 @@ class ReadParticipantDate extends ReadParticipantDateBase {
     final date = reader.readDateTime();
 
     // Construct [ReadParticipantDate] object.
-    final returnValue = ReadParticipantDate(
-      userId: userId,
-      date: date,
-    );
+    final returnValue = ReadParticipantDate(userId: userId, date: date);
 
     // Now return the deserialized [ReadParticipantDate].
     return returnValue;
@@ -88924,9 +87052,7 @@ class ReadParticipantDate extends ReadParticipantDateBase {
 /// ID: `f3e0da33`.
 class InputChatlistDialogFilter extends InputChatlistBase {
   /// Input Chatlist Dialog Filter constructor.
-  const InputChatlistDialogFilter({
-    required this.filterId,
-  }) : super._();
+  const InputChatlistDialogFilter({required this.filterId}) : super._();
 
   /// Deserialize.
   factory InputChatlistDialogFilter.deserialize(BinaryReader reader) {
@@ -88934,9 +87060,7 @@ class InputChatlistDialogFilter extends InputChatlistBase {
     final filterId = reader.readInt32();
 
     // Construct [InputChatlistDialogFilter] object.
-    final returnValue = InputChatlistDialogFilter(
-      filterId: filterId,
-    );
+    final returnValue = InputChatlistDialogFilter(filterId: filterId);
 
     // Now return the deserialized [InputChatlistDialogFilter].
     return returnValue;
@@ -89303,10 +87427,7 @@ class ChatlistsChatlistInvite extends ChatlistsChatlistInviteBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: titleNoanimate,
-      b00: emoticon != null,
-    );
+    final v = _flag(b01: titleNoanimate, b00: emoticon != null);
 
     return v;
   }
@@ -89521,11 +87642,7 @@ class MessagePeerVote extends MessagePeerVoteBase {
     final date = reader.readDateTime();
 
     // Construct [MessagePeerVote] object.
-    final returnValue = MessagePeerVote(
-      peer: peer,
-      option: option,
-      date: date,
-    );
+    final returnValue = MessagePeerVote(peer: peer, option: option, date: date);
 
     // Now return the deserialized [MessagePeerVote].
     return returnValue;
@@ -89574,10 +87691,8 @@ class MessagePeerVote extends MessagePeerVoteBase {
 /// ID: `74cda504`.
 class MessagePeerVoteInputOption extends MessagePeerVoteBase {
   /// Message Peer Vote Input Option constructor.
-  const MessagePeerVoteInputOption({
-    required this.peer,
-    required this.date,
-  }) : super._();
+  const MessagePeerVoteInputOption({required this.peer, required this.date})
+      : super._();
 
   /// Deserialize.
   factory MessagePeerVoteInputOption.deserialize(BinaryReader reader) {
@@ -89586,10 +87701,7 @@ class MessagePeerVoteInputOption extends MessagePeerVoteBase {
     final date = reader.readDateTime();
 
     // Construct [MessagePeerVoteInputOption] object.
-    final returnValue = MessagePeerVoteInputOption(
-      peer: peer,
-      date: date,
-    );
+    final returnValue = MessagePeerVoteInputOption(peer: peer, date: date);
 
     // Now return the deserialized [MessagePeerVoteInputOption].
     return returnValue;
@@ -89826,9 +87938,7 @@ class StoryViews extends StoryViewsBase {
 /// ID: `51e6ee4f`.
 class StoryItemDeleted extends StoryItemBase {
   /// Story Item Deleted constructor.
-  const StoryItemDeleted({
-    required this.id,
-  }) : super._();
+  const StoryItemDeleted({required this.id}) : super._();
 
   /// Deserialize.
   factory StoryItemDeleted.deserialize(BinaryReader reader) {
@@ -89836,9 +87946,7 @@ class StoryItemDeleted extends StoryItemBase {
     final id = reader.readInt32();
 
     // Construct [StoryItemDeleted] object.
-    final returnValue = StoryItemDeleted(
-      id: id,
-    );
+    final returnValue = StoryItemDeleted(id: id);
 
     // Now return the deserialized [StoryItemDeleted].
     return returnValue;
@@ -89909,9 +88017,7 @@ class StoryItemSkipped extends StoryItemBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b08: closeFriends,
-    );
+    final v = _flag(b08: closeFriends);
 
     return v;
   }
@@ -90357,9 +88463,7 @@ class StoriesAllStories extends StoriesAllStoriesBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hasMore,
-    );
+    final v = _flag(b00: hasMore);
 
     return v;
   }
@@ -90464,9 +88568,7 @@ class StoriesStories extends StoriesStoriesBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinnedToTop != null,
-    );
+    final v = _flag(b00: pinnedToTop != null);
 
     return v;
   }
@@ -90660,10 +88762,7 @@ class StoryViewPublicForward extends StoryViewBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: blocked,
-      b01: blockedMyStoriesFrom,
-    );
+    final v = _flag(b00: blocked, b01: blockedMyStoriesFrom);
 
     return v;
   }
@@ -90741,10 +88840,7 @@ class StoryViewPublicRepost extends StoryViewBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: blocked,
-      b01: blockedMyStoriesFrom,
-    );
+    final v = _flag(b00: blocked, b01: blockedMyStoriesFrom);
 
     return v;
   }
@@ -90840,9 +88936,7 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -90928,10 +89022,8 @@ class StoriesStoryViewsList extends StoriesStoryViewsListBase {
 /// ID: `de9eed1d`.
 class StoriesStoryViews extends StoriesStoryViewsBase {
   /// Stories Story Views constructor.
-  const StoriesStoryViews({
-    required this.views,
-    required this.users,
-  }) : super._();
+  const StoriesStoryViews({required this.views, required this.users})
+      : super._();
 
   /// Deserialize.
   factory StoriesStoryViews.deserialize(BinaryReader reader) {
@@ -91146,10 +89238,8 @@ class InputReplyToMessage extends InputReplyToBase {
 /// ID: `5881323a`.
 class InputReplyToStory extends InputReplyToBase {
   /// Input Reply To Story constructor.
-  const InputReplyToStory({
-    required this.peer,
-    required this.storyId,
-  }) : super._();
+  const InputReplyToStory({required this.peer, required this.storyId})
+      : super._();
 
   /// Deserialize.
   factory InputReplyToStory.deserialize(BinaryReader reader) {
@@ -91158,10 +89248,7 @@ class InputReplyToStory extends InputReplyToBase {
     final storyId = reader.readInt32();
 
     // Construct [InputReplyToStory] object.
-    final returnValue = InputReplyToStory(
-      peer: peer,
-      storyId: storyId,
-    );
+    final returnValue = InputReplyToStory(peer: peer, storyId: storyId);
 
     // Now return the deserialized [InputReplyToStory].
     return returnValue;
@@ -91207,9 +89294,7 @@ class InputReplyToStory extends InputReplyToBase {
 /// ID: `69d66c45`.
 class InputReplyToMonoForum extends InputReplyToBase {
   /// Input Reply To Mono Forum constructor.
-  const InputReplyToMonoForum({
-    required this.monoforumPeerId,
-  }) : super._();
+  const InputReplyToMonoForum({required this.monoforumPeerId}) : super._();
 
   /// Deserialize.
   factory InputReplyToMonoForum.deserialize(BinaryReader reader) {
@@ -91217,9 +89302,7 @@ class InputReplyToMonoForum extends InputReplyToBase {
     final monoforumPeerId = reader.readObject() as InputPeerBase;
 
     // Construct [InputReplyToMonoForum] object.
-    final returnValue = InputReplyToMonoForum(
-      monoforumPeerId: monoforumPeerId,
-    );
+    final returnValue = InputReplyToMonoForum(monoforumPeerId: monoforumPeerId);
 
     // Now return the deserialized [InputReplyToMonoForum].
     return returnValue;
@@ -91258,9 +89341,7 @@ class InputReplyToMonoForum extends InputReplyToBase {
 /// ID: `3fc9053b`.
 class ExportedStoryLink extends ExportedStoryLinkBase {
   /// Exported Story Link constructor.
-  const ExportedStoryLink({
-    required this.link,
-  }) : super._();
+  const ExportedStoryLink({required this.link}) : super._();
 
   /// Deserialize.
   factory ExportedStoryLink.deserialize(BinaryReader reader) {
@@ -91268,9 +89349,7 @@ class ExportedStoryLink extends ExportedStoryLinkBase {
     final link = reader.readString();
 
     // Construct [ExportedStoryLink] object.
-    final returnValue = ExportedStoryLink(
-      link: link,
-    );
+    final returnValue = ExportedStoryLink(link: link);
 
     // Now return the deserialized [ExportedStoryLink].
     return returnValue;
@@ -91309,10 +89388,8 @@ class ExportedStoryLink extends ExportedStoryLinkBase {
 /// ID: `712e27fd`.
 class StoriesStealthMode extends StoriesStealthModeBase {
   /// Stories Stealth Mode constructor.
-  const StoriesStealthMode({
-    this.activeUntilDate,
-    this.cooldownUntilDate,
-  }) : super._();
+  const StoriesStealthMode({this.activeUntilDate, this.cooldownUntilDate})
+      : super._();
 
   /// Deserialize.
   factory StoriesStealthMode.deserialize(BinaryReader reader) {
@@ -91428,9 +89505,7 @@ class MediaAreaCoordinates extends MediaAreaCoordinatesBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: radius != null,
-    );
+    final v = _flag(b00: radius != null);
 
     return v;
   }
@@ -91695,9 +89770,7 @@ class MediaAreaGeoPoint extends MediaAreaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: address != null,
-    );
+    final v = _flag(b00: address != null);
 
     return v;
   }
@@ -91780,10 +89853,7 @@ class MediaAreaSuggestedReaction extends MediaAreaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: dark,
-      b01: flipped,
-    );
+    final v = _flag(b00: dark, b01: flipped);
 
     return v;
   }
@@ -91976,10 +90046,8 @@ class InputMediaAreaChannelPost extends MediaAreaBase {
 /// ID: `37381085`.
 class MediaAreaUrl extends MediaAreaBase {
   /// Media Area Url constructor.
-  const MediaAreaUrl({
-    required this.coordinates,
-    required this.url,
-  }) : super._();
+  const MediaAreaUrl({required this.coordinates, required this.url})
+      : super._();
 
   /// Deserialize.
   factory MediaAreaUrl.deserialize(BinaryReader reader) {
@@ -91988,10 +90056,7 @@ class MediaAreaUrl extends MediaAreaBase {
     final url = reader.readString();
 
     // Construct [MediaAreaUrl] object.
-    final returnValue = MediaAreaUrl(
-      coordinates: coordinates,
-      url: url,
-    );
+    final returnValue = MediaAreaUrl(coordinates: coordinates, url: url);
 
     // Now return the deserialized [MediaAreaUrl].
     return returnValue;
@@ -92112,10 +90177,8 @@ class MediaAreaWeather extends MediaAreaBase {
 /// ID: `5787686d`.
 class MediaAreaStarGift extends MediaAreaBase {
   /// Media Area Star Gift constructor.
-  const MediaAreaStarGift({
-    required this.coordinates,
-    required this.slug,
-  }) : super._();
+  const MediaAreaStarGift({required this.coordinates, required this.slug})
+      : super._();
 
   /// Deserialize.
   factory MediaAreaStarGift.deserialize(BinaryReader reader) {
@@ -92124,10 +90187,7 @@ class MediaAreaStarGift extends MediaAreaBase {
     final slug = reader.readString();
 
     // Construct [MediaAreaStarGift] object.
-    final returnValue = MediaAreaStarGift(
-      coordinates: coordinates,
-      slug: slug,
-    );
+    final returnValue = MediaAreaStarGift(coordinates: coordinates, slug: slug);
 
     // Now return the deserialized [MediaAreaStarGift].
     return returnValue;
@@ -92171,11 +90231,8 @@ class MediaAreaStarGift extends MediaAreaBase {
 /// ID: `9a35e999`.
 class PeerStories extends PeerStoriesBase {
   /// Peer Stories constructor.
-  const PeerStories({
-    required this.peer,
-    this.maxReadId,
-    required this.stories,
-  }) : super._();
+  const PeerStories({required this.peer, this.maxReadId, required this.stories})
+      : super._();
 
   /// Deserialize.
   factory PeerStories.deserialize(BinaryReader reader) {
@@ -92199,9 +90256,7 @@ class PeerStories extends PeerStoriesBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: maxReadId != null,
-    );
+    final v = _flag(b00: maxReadId != null);
 
     return v;
   }
@@ -92426,10 +90481,7 @@ class PremiumGiftCodeOption extends PremiumGiftCodeOptionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: storeProduct != null,
-      b01: storeQuantity != null,
-    );
+    final v = _flag(b00: storeProduct != null, b01: storeQuantity != null);
 
     return v;
   }
@@ -93278,9 +91330,7 @@ class PremiumBoostsList extends PremiumBoostsListBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -93376,10 +91426,7 @@ class MyBoost extends MyBoostBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: peer != null,
-      b01: cooldownUntilDate != null,
-    );
+    final v = _flag(b00: peer != null, b01: cooldownUntilDate != null);
 
     return v;
   }
@@ -94008,9 +92055,7 @@ class StatsStoryStats extends StatsStoryStatsBase {
 /// ID: `01f2bf4a`.
 class PublicForwardMessage extends PublicForwardBase {
   /// Public Forward Message constructor.
-  const PublicForwardMessage({
-    required this.message,
-  }) : super._();
+  const PublicForwardMessage({required this.message}) : super._();
 
   /// Deserialize.
   factory PublicForwardMessage.deserialize(BinaryReader reader) {
@@ -94018,9 +92063,7 @@ class PublicForwardMessage extends PublicForwardBase {
     final message = reader.readObject() as MessageBase;
 
     // Construct [PublicForwardMessage] object.
-    final returnValue = PublicForwardMessage(
-      message: message,
-    );
+    final returnValue = PublicForwardMessage(message: message);
 
     // Now return the deserialized [PublicForwardMessage].
     return returnValue;
@@ -94059,10 +92102,8 @@ class PublicForwardMessage extends PublicForwardBase {
 /// ID: `edf3add0`.
 class PublicForwardStory extends PublicForwardBase {
   /// Public Forward Story constructor.
-  const PublicForwardStory({
-    required this.peer,
-    required this.story,
-  }) : super._();
+  const PublicForwardStory({required this.peer, required this.story})
+      : super._();
 
   /// Deserialize.
   factory PublicForwardStory.deserialize(BinaryReader reader) {
@@ -94071,10 +92112,7 @@ class PublicForwardStory extends PublicForwardBase {
     final story = reader.readObject() as StoryItemBase;
 
     // Construct [PublicForwardStory] object.
-    final returnValue = PublicForwardStory(
-      peer: peer,
-      story: story,
-    );
+    final returnValue = PublicForwardStory(peer: peer, story: story);
 
     // Now return the deserialized [PublicForwardStory].
     return returnValue;
@@ -94152,9 +92190,7 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -94219,10 +92255,7 @@ class StatsPublicForwards extends StatsPublicForwardsBase {
 /// ID: `b54b5acf`.
 class PeerColor extends PeerColorBase {
   /// Peer Color constructor.
-  const PeerColor({
-    this.color,
-    this.backgroundEmojiId,
-  }) : super._();
+  const PeerColor({this.color, this.backgroundEmojiId}) : super._();
 
   /// Deserialize.
   factory PeerColor.deserialize(BinaryReader reader) {
@@ -94246,10 +92279,7 @@ class PeerColor extends PeerColorBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: color != null,
-      b01: backgroundEmojiId != null,
-    );
+    final v = _flag(b00: color != null, b01: backgroundEmojiId != null);
 
     return v;
   }
@@ -94300,9 +92330,7 @@ class PeerColor extends PeerColorBase {
 /// ID: `26219a58`.
 class HelpPeerColorSet extends HelpPeerColorSetBase {
   /// Help Peer Color Set constructor.
-  const HelpPeerColorSet({
-    required this.colors,
-  }) : super._();
+  const HelpPeerColorSet({required this.colors}) : super._();
 
   /// Deserialize.
   factory HelpPeerColorSet.deserialize(BinaryReader reader) {
@@ -94310,9 +92338,7 @@ class HelpPeerColorSet extends HelpPeerColorSetBase {
     final colors = reader.readVectorInt32();
 
     // Construct [HelpPeerColorSet] object.
-    final returnValue = HelpPeerColorSet(
-      colors: colors.items,
-    );
+    final returnValue = HelpPeerColorSet(colors: colors.items);
 
     // Now return the deserialized [HelpPeerColorSet].
     return returnValue;
@@ -94581,10 +92607,7 @@ class HelpPeerColorsNotModified extends HelpPeerColorsBase {
 /// ID: `00f8ed08`.
 class HelpPeerColors extends HelpPeerColorsBase {
   /// Help Peer Colors constructor.
-  const HelpPeerColors({
-    required this.hash,
-    required this.colors,
-  }) : super._();
+  const HelpPeerColors({required this.hash, required this.colors}) : super._();
 
   /// Deserialize.
   factory HelpPeerColors.deserialize(BinaryReader reader) {
@@ -94593,10 +92616,7 @@ class HelpPeerColors extends HelpPeerColorsBase {
     final colors = reader.readVectorObject<HelpPeerColorOptionBase>();
 
     // Construct [HelpPeerColors] object.
-    final returnValue = HelpPeerColors(
-      hash: hash,
-      colors: colors.items,
-    );
+    final returnValue = HelpPeerColors(hash: hash, colors: colors.items);
 
     // Now return the deserialized [HelpPeerColors].
     return returnValue;
@@ -94709,9 +92729,7 @@ class StoryReaction extends StoryReactionBase {
 /// ID: `bbab2643`.
 class StoryReactionPublicForward extends StoryReactionBase {
   /// Story Reaction Public Forward constructor.
-  const StoryReactionPublicForward({
-    required this.message,
-  }) : super._();
+  const StoryReactionPublicForward({required this.message}) : super._();
 
   /// Deserialize.
   factory StoryReactionPublicForward.deserialize(BinaryReader reader) {
@@ -94719,9 +92737,7 @@ class StoryReactionPublicForward extends StoryReactionBase {
     final message = reader.readObject() as MessageBase;
 
     // Construct [StoryReactionPublicForward] object.
-    final returnValue = StoryReactionPublicForward(
-      message: message,
-    );
+    final returnValue = StoryReactionPublicForward(message: message);
 
     // Now return the deserialized [StoryReactionPublicForward].
     return returnValue;
@@ -94760,10 +92776,8 @@ class StoryReactionPublicForward extends StoryReactionBase {
 /// ID: `cfcd0f13`.
 class StoryReactionPublicRepost extends StoryReactionBase {
   /// Story Reaction Public Repost constructor.
-  const StoryReactionPublicRepost({
-    required this.peerId,
-    required this.story,
-  }) : super._();
+  const StoryReactionPublicRepost({required this.peerId, required this.story})
+      : super._();
 
   /// Deserialize.
   factory StoryReactionPublicRepost.deserialize(BinaryReader reader) {
@@ -94772,10 +92786,7 @@ class StoryReactionPublicRepost extends StoryReactionBase {
     final story = reader.readObject() as StoryItemBase;
 
     // Construct [StoryReactionPublicRepost] object.
-    final returnValue = StoryReactionPublicRepost(
-      peerId: peerId,
-      story: story,
-    );
+    final returnValue = StoryReactionPublicRepost(peerId: peerId, story: story);
 
     // Now return the deserialized [StoryReactionPublicRepost].
     return returnValue;
@@ -94853,9 +92864,7 @@ class StoriesStoryReactionsList extends StoriesStoryReactionsListBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -94947,9 +92956,7 @@ class SavedDialog extends SavedDialogBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: pinned,
-    );
+    final v = _flag(b02: pinned);
 
     return v;
   }
@@ -95302,9 +93309,7 @@ class MessagesSavedDialogsSlice extends MessagesSavedDialogsBase {
 /// ID: `c01f6fe8`.
 class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
   /// Messages Saved Dialogs Not Modified constructor.
-  const MessagesSavedDialogsNotModified({
-    required this.count,
-  }) : super._();
+  const MessagesSavedDialogsNotModified({required this.count}) : super._();
 
   /// Deserialize.
   factory MessagesSavedDialogsNotModified.deserialize(BinaryReader reader) {
@@ -95312,9 +93317,7 @@ class MessagesSavedDialogsNotModified extends MessagesSavedDialogsBase {
     final count = reader.readInt32();
 
     // Construct [MessagesSavedDialogsNotModified] object.
-    final returnValue = MessagesSavedDialogsNotModified(
-      count: count,
-    );
+    final returnValue = MessagesSavedDialogsNotModified(count: count);
 
     // Now return the deserialized [MessagesSavedDialogsNotModified].
     return returnValue;
@@ -95383,9 +93386,7 @@ class SavedReactionTag extends SavedReactionTagBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: title != null,
-    );
+    final v = _flag(b00: title != null);
 
     return v;
   }
@@ -95445,7 +93446,8 @@ class MessagesSavedReactionTagsNotModified
 
   /// Deserialize.
   factory MessagesSavedReactionTagsNotModified.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [MessagesSavedReactionTagsNotModified] object.
     final returnValue = MessagesSavedReactionTagsNotModified();
 
@@ -95479,10 +93481,8 @@ class MessagesSavedReactionTagsNotModified
 /// ID: `3259950a`.
 class MessagesSavedReactionTags extends MessagesSavedReactionTagsBase {
   /// Messages Saved Reaction Tags constructor.
-  const MessagesSavedReactionTags({
-    required this.tags,
-    required this.hash,
-  }) : super._();
+  const MessagesSavedReactionTags({required this.tags, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesSavedReactionTags.deserialize(BinaryReader reader) {
@@ -95491,10 +93491,7 @@ class MessagesSavedReactionTags extends MessagesSavedReactionTagsBase {
     final hash = reader.readInt64();
 
     // Construct [MessagesSavedReactionTags] object.
-    final returnValue = MessagesSavedReactionTags(
-      tags: tags.items,
-      hash: hash,
-    );
+    final returnValue = MessagesSavedReactionTags(tags: tags.items, hash: hash);
 
     // Now return the deserialized [MessagesSavedReactionTags].
     return returnValue;
@@ -95540,9 +93537,7 @@ class MessagesSavedReactionTags extends MessagesSavedReactionTagsBase {
 /// ID: `3bb842ac`.
 class OutboxReadDate extends OutboxReadDateBase {
   /// Outbox Read Date constructor.
-  const OutboxReadDate({
-    required this.date,
-  }) : super._();
+  const OutboxReadDate({required this.date}) : super._();
 
   /// Deserialize.
   factory OutboxReadDate.deserialize(BinaryReader reader) {
@@ -95550,9 +93545,7 @@ class OutboxReadDate extends OutboxReadDateBase {
     final date = reader.readDateTime();
 
     // Construct [OutboxReadDate] object.
-    final returnValue = OutboxReadDate(
-      date: date,
-    );
+    final returnValue = OutboxReadDate(date: date);
 
     // Now return the deserialized [OutboxReadDate].
     return returnValue;
@@ -95695,10 +93688,7 @@ class SmsjobsStatus extends SmsjobsStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: allowInternational,
-      b01: lastGiftSlug != null,
-    );
+    final v = _flag(b00: allowInternational, b01: lastGiftSlug != null);
 
     return v;
   }
@@ -95852,10 +93842,8 @@ class SmsJob extends SmsJobBase {
 /// ID: `120b1ab9`.
 class BusinessWeeklyOpen extends BusinessWeeklyOpenBase {
   /// Business Weekly Open constructor.
-  const BusinessWeeklyOpen({
-    required this.startMinute,
-    required this.endMinute,
-  }) : super._();
+  const BusinessWeeklyOpen({required this.startMinute, required this.endMinute})
+      : super._();
 
   /// Deserialize.
   factory BusinessWeeklyOpen.deserialize(BinaryReader reader) {
@@ -95942,9 +93930,7 @@ class BusinessWorkHours extends BusinessWorkHoursBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: openNow,
-    );
+    final v = _flag(b00: openNow);
 
     return v;
   }
@@ -95993,10 +93979,7 @@ class BusinessWorkHours extends BusinessWorkHoursBase {
 /// ID: `ac5c1af7`.
 class BusinessLocation extends BusinessLocationBase {
   /// Business Location constructor.
-  const BusinessLocation({
-    this.geoPoint,
-    required this.address,
-  }) : super._();
+  const BusinessLocation({this.geoPoint, required this.address}) : super._();
 
   /// Deserialize.
   factory BusinessLocation.deserialize(BinaryReader reader) {
@@ -96008,10 +93991,7 @@ class BusinessLocation extends BusinessLocationBase {
     final address = reader.readString();
 
     // Construct [BusinessLocation] object.
-    final returnValue = BusinessLocation(
-      geoPoint: geoPoint,
-      address: address,
-    );
+    final returnValue = BusinessLocation(geoPoint: geoPoint, address: address);
 
     // Now return the deserialized [BusinessLocation].
     return returnValue;
@@ -96019,9 +93999,7 @@ class BusinessLocation extends BusinessLocationBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: geoPoint != null,
-    );
+    final v = _flag(b00: geoPoint != null);
 
     return v;
   }
@@ -96327,7 +94305,8 @@ class BusinessAwayMessageScheduleOutsideWorkHours
 
   /// Deserialize.
   factory BusinessAwayMessageScheduleOutsideWorkHours.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [BusinessAwayMessageScheduleOutsideWorkHours] object.
     final returnValue = BusinessAwayMessageScheduleOutsideWorkHours();
 
@@ -96593,9 +94572,7 @@ class InputBusinessAwayMessage extends InputBusinessAwayMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: offlineOnly,
-    );
+    final v = _flag(b00: offlineOnly);
 
     return v;
   }
@@ -96681,9 +94658,7 @@ class BusinessAwayMessage extends BusinessAwayMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: offlineOnly,
-    );
+    final v = _flag(b00: offlineOnly);
 
     return v;
   }
@@ -96753,11 +94728,7 @@ class Timezone extends TimezoneBase {
     final utcOffset = reader.readInt32();
 
     // Construct [Timezone] object.
-    final returnValue = Timezone(
-      id: id,
-      name: name,
-      utcOffset: utcOffset,
-    );
+    final returnValue = Timezone(id: id, name: name, utcOffset: utcOffset);
 
     // Now return the deserialized [Timezone].
     return returnValue;
@@ -96845,10 +94816,8 @@ class HelpTimezonesListNotModified extends HelpTimezonesListBase {
 /// ID: `7b74ed71`.
 class HelpTimezonesList extends HelpTimezonesListBase {
   /// Help Timezones List constructor.
-  const HelpTimezonesList({
-    required this.timezones,
-    required this.hash,
-  }) : super._();
+  const HelpTimezonesList({required this.timezones, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory HelpTimezonesList.deserialize(BinaryReader reader) {
@@ -96987,9 +94956,7 @@ class QuickReply extends QuickReplyBase {
 /// ID: `24596d41`.
 class InputQuickReplyShortcut extends InputQuickReplyShortcutBase {
   /// Input Quick Reply Shortcut constructor.
-  const InputQuickReplyShortcut({
-    required this.shortcut,
-  }) : super._();
+  const InputQuickReplyShortcut({required this.shortcut}) : super._();
 
   /// Deserialize.
   factory InputQuickReplyShortcut.deserialize(BinaryReader reader) {
@@ -96997,9 +94964,7 @@ class InputQuickReplyShortcut extends InputQuickReplyShortcutBase {
     final shortcut = reader.readString();
 
     // Construct [InputQuickReplyShortcut] object.
-    final returnValue = InputQuickReplyShortcut(
-      shortcut: shortcut,
-    );
+    final returnValue = InputQuickReplyShortcut(shortcut: shortcut);
 
     // Now return the deserialized [InputQuickReplyShortcut].
     return returnValue;
@@ -97038,9 +95003,7 @@ class InputQuickReplyShortcut extends InputQuickReplyShortcutBase {
 /// ID: `01190cf1`.
 class InputQuickReplyShortcutId extends InputQuickReplyShortcutBase {
   /// Input Quick Reply Shortcut Id constructor.
-  const InputQuickReplyShortcutId({
-    required this.shortcutId,
-  }) : super._();
+  const InputQuickReplyShortcutId({required this.shortcutId}) : super._();
 
   /// Deserialize.
   factory InputQuickReplyShortcutId.deserialize(BinaryReader reader) {
@@ -97048,9 +95011,7 @@ class InputQuickReplyShortcutId extends InputQuickReplyShortcutBase {
     final shortcutId = reader.readInt32();
 
     // Construct [InputQuickReplyShortcutId] object.
-    final returnValue = InputQuickReplyShortcutId(
-      shortcutId: shortcutId,
-    );
+    final returnValue = InputQuickReplyShortcutId(shortcutId: shortcutId);
 
     // Now return the deserialized [InputQuickReplyShortcutId].
     return returnValue;
@@ -97282,10 +95243,8 @@ class ConnectedBot extends ConnectedBotBase {
 /// ID: `17d7f87b`.
 class AccountConnectedBots extends AccountConnectedBotsBase {
   /// Account Connected Bots constructor.
-  const AccountConnectedBots({
-    required this.connectedBots,
-    required this.users,
-  }) : super._();
+  const AccountConnectedBots({required this.connectedBots, required this.users})
+      : super._();
 
   /// Deserialize.
   factory AccountConnectedBots.deserialize(BinaryReader reader) {
@@ -97365,9 +95324,7 @@ class MessagesDialogFilters extends MessagesDialogFiltersBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: tagsEnabled,
-    );
+    final v = _flag(b00: tagsEnabled);
 
     return v;
   }
@@ -97411,11 +95368,8 @@ class MessagesDialogFilters extends MessagesDialogFiltersBase {
 /// ID: `6c8e1e06`.
 class Birthday extends BirthdayBase {
   /// Birthday constructor.
-  const Birthday({
-    required this.day,
-    required this.month,
-    this.year,
-  }) : super._();
+  const Birthday({required this.day, required this.month, this.year})
+      : super._();
 
   /// Deserialize.
   factory Birthday.deserialize(BinaryReader reader) {
@@ -97427,11 +95381,7 @@ class Birthday extends BirthdayBase {
     final year = hasYearField ? reader.readInt32() : null;
 
     // Construct [Birthday] object.
-    final returnValue = Birthday(
-      day: day,
-      month: month,
-      year: year,
-    );
+    final returnValue = Birthday(day: day, month: month, year: year);
 
     // Now return the deserialized [Birthday].
     return returnValue;
@@ -97439,9 +95389,7 @@ class Birthday extends BirthdayBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: year != null,
-    );
+    final v = _flag(b00: year != null);
 
     return v;
   }
@@ -97536,10 +95484,7 @@ class BotBusinessConnection extends BotBusinessConnectionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: disabled,
-      b02: rights != null,
-    );
+    final v = _flag(b01: disabled, b02: rights != null);
 
     return v;
   }
@@ -97639,9 +95584,7 @@ class InputBusinessIntro extends InputBusinessIntroBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: sticker != null,
-    );
+    final v = _flag(b00: sticker != null);
 
     return v;
   }
@@ -97723,9 +95666,7 @@ class BusinessIntro extends BusinessIntroBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: sticker != null,
-    );
+    final v = _flag(b00: sticker != null);
 
     return v;
   }
@@ -97778,10 +95719,8 @@ class BusinessIntro extends BusinessIntroBase {
 /// ID: `faff629d`.
 class MessagesMyStickers extends MessagesMyStickersBase {
   /// Messages My Stickers constructor.
-  const MessagesMyStickers({
-    required this.count,
-    required this.sets,
-  }) : super._();
+  const MessagesMyStickers({required this.count, required this.sets})
+      : super._();
 
   /// Deserialize.
   factory MessagesMyStickers.deserialize(BinaryReader reader) {
@@ -97790,10 +95729,7 @@ class MessagesMyStickers extends MessagesMyStickersBase {
     final sets = reader.readVectorObject<StickerSetCoveredBase>();
 
     // Construct [MessagesMyStickers] object.
-    final returnValue = MessagesMyStickers(
-      count: count,
-      sets: sets.items,
-    );
+    final returnValue = MessagesMyStickers(count: count, sets: sets.items);
 
     // Now return the deserialized [MessagesMyStickers].
     return returnValue;
@@ -97839,9 +95775,7 @@ class MessagesMyStickers extends MessagesMyStickersBase {
 /// ID: `e39460a9`.
 class InputCollectibleUsername extends InputCollectibleBase {
   /// Input Collectible Username constructor.
-  const InputCollectibleUsername({
-    required this.username,
-  }) : super._();
+  const InputCollectibleUsername({required this.username}) : super._();
 
   /// Deserialize.
   factory InputCollectibleUsername.deserialize(BinaryReader reader) {
@@ -97849,9 +95783,7 @@ class InputCollectibleUsername extends InputCollectibleBase {
     final username = reader.readString();
 
     // Construct [InputCollectibleUsername] object.
-    final returnValue = InputCollectibleUsername(
-      username: username,
-    );
+    final returnValue = InputCollectibleUsername(username: username);
 
     // Now return the deserialized [InputCollectibleUsername].
     return returnValue;
@@ -97890,9 +95822,7 @@ class InputCollectibleUsername extends InputCollectibleBase {
 /// ID: `a2e214a4`.
 class InputCollectiblePhone extends InputCollectibleBase {
   /// Input Collectible Phone constructor.
-  const InputCollectiblePhone({
-    required this.phone,
-  }) : super._();
+  const InputCollectiblePhone({required this.phone}) : super._();
 
   /// Deserialize.
   factory InputCollectiblePhone.deserialize(BinaryReader reader) {
@@ -97900,9 +95830,7 @@ class InputCollectiblePhone extends InputCollectibleBase {
     final phone = reader.readString();
 
     // Construct [InputCollectiblePhone] object.
-    final returnValue = InputCollectiblePhone(
-      phone: phone,
-    );
+    final returnValue = InputCollectiblePhone(phone: phone);
 
     // Now return the deserialized [InputCollectiblePhone].
     return returnValue;
@@ -98278,10 +96206,8 @@ class BusinessBotRecipients extends BusinessBotRecipientsBase {
 /// ID: `1d998733`.
 class ContactBirthday extends ContactBirthdayBase {
   /// Contact Birthday constructor.
-  const ContactBirthday({
-    required this.contactId,
-    required this.birthday,
-  }) : super._();
+  const ContactBirthday({required this.contactId, required this.birthday})
+      : super._();
 
   /// Deserialize.
   factory ContactBirthday.deserialize(BinaryReader reader) {
@@ -98339,10 +96265,8 @@ class ContactBirthday extends ContactBirthdayBase {
 /// ID: `114ff30d`.
 class ContactsContactBirthdays extends ContactsContactBirthdaysBase {
   /// Contacts Contact Birthdays constructor.
-  const ContactsContactBirthdays({
-    required this.contacts,
-    required this.users,
-  }) : super._();
+  const ContactsContactBirthdays({required this.contacts, required this.users})
+      : super._();
 
   /// Deserialize.
   factory ContactsContactBirthdays.deserialize(BinaryReader reader) {
@@ -98425,10 +96349,7 @@ class MissingInvitee extends MissingInviteeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: premiumWouldAllowInvite,
-      b01: premiumRequiredForPm,
-    );
+    final v = _flag(b00: premiumWouldAllowInvite, b01: premiumRequiredForPm);
 
     return v;
   }
@@ -98567,10 +96488,7 @@ class InputBusinessChatLink extends InputBusinessChatLinkBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: entities != null,
-      b01: title != null,
-    );
+    final v = _flag(b00: entities != null, b01: title != null);
 
     return v;
   }
@@ -98662,10 +96580,7 @@ class BusinessChatLink extends BusinessChatLinkBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: entities != null,
-      b01: title != null,
-    );
+    final v = _flag(b00: entities != null, b01: title != null);
 
     return v;
   }
@@ -98836,9 +96751,7 @@ class AccountResolvedBusinessChatLinks
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: entities != null,
-    );
+    final v = _flag(b00: entities != null);
 
     return v;
   }
@@ -99016,11 +96929,8 @@ class RequestedPeerUser extends RequestedPeerBase {
 /// ID: `7307544f`.
 class RequestedPeerChat extends RequestedPeerBase {
   /// Requested Peer Chat constructor.
-  const RequestedPeerChat({
-    required this.chatId,
-    this.title,
-    this.photo,
-  }) : super._();
+  const RequestedPeerChat({required this.chatId, this.title, this.photo})
+      : super._();
 
   /// Deserialize.
   factory RequestedPeerChat.deserialize(BinaryReader reader) {
@@ -99045,10 +96955,7 @@ class RequestedPeerChat extends RequestedPeerBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: title != null,
-      b02: photo != null,
-    );
+    final v = _flag(b00: title != null, b02: photo != null);
 
     return v;
   }
@@ -99209,10 +97116,8 @@ class RequestedPeerChannel extends RequestedPeerBase {
 /// ID: `430d3150`.
 class SponsoredMessageReportOption extends SponsoredMessageReportOptionBase {
   /// Sponsored Message Report Option constructor.
-  const SponsoredMessageReportOption({
-    required this.text,
-    required this.option,
-  }) : super._();
+  const SponsoredMessageReportOption({required this.text, required this.option})
+      : super._();
 
   /// Deserialize.
   factory SponsoredMessageReportOption.deserialize(BinaryReader reader) {
@@ -99276,7 +97181,8 @@ class ChannelsSponsoredMessageReportResultChooseOption
 
   /// Deserialize.
   factory ChannelsSponsoredMessageReportResultChooseOption.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelsSponsoredMessageReportResultChooseOption] fields.
     final title = reader.readString();
     final options = reader.readVectorObject<SponsoredMessageReportOptionBase>();
@@ -99334,7 +97240,8 @@ class ChannelsSponsoredMessageReportResultAdsHidden
 
   /// Deserialize.
   factory ChannelsSponsoredMessageReportResultAdsHidden.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [ChannelsSponsoredMessageReportResultAdsHidden] object.
     final returnValue = ChannelsSponsoredMessageReportResultAdsHidden();
 
@@ -99373,7 +97280,8 @@ class ChannelsSponsoredMessageReportResultReported
 
   /// Deserialize.
   factory ChannelsSponsoredMessageReportResultReported.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [ChannelsSponsoredMessageReportResultReported] object.
     final returnValue = ChannelsSponsoredMessageReportResultReported();
 
@@ -99837,10 +97745,7 @@ class FactCheck extends FactCheckBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: needCheck,
-      b01: country != null || text != null,
-    );
+    final v = _flag(b00: needCheck, b01: country != null || text != null);
 
     return v;
   }
@@ -100087,9 +97992,7 @@ class StarsTransactionPeerFragment extends StarsTransactionPeerBase {
 /// ID: `d80da15d`.
 class StarsTransactionPeer extends StarsTransactionPeerBase {
   /// Stars Transaction Peer constructor.
-  const StarsTransactionPeer({
-    required this.peer,
-  }) : super._();
+  const StarsTransactionPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory StarsTransactionPeer.deserialize(BinaryReader reader) {
@@ -100097,9 +98000,7 @@ class StarsTransactionPeer extends StarsTransactionPeerBase {
     final peer = reader.readObject() as PeerBase;
 
     // Construct [StarsTransactionPeer] object.
-    final returnValue = StarsTransactionPeer(
-      peer: peer,
-    );
+    final returnValue = StarsTransactionPeer(peer: peer);
 
     // Now return the deserialized [StarsTransactionPeer].
     return returnValue;
@@ -100246,10 +98147,7 @@ class StarsTopupOption extends StarsTopupOptionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: extended,
-      b00: storeProduct != null,
-    );
+    final v = _flag(b01: extended, b00: storeProduct != null);
 
     return v;
   }
@@ -100324,6 +98222,8 @@ class StarsTransaction extends StarsTransactionBase {
     required this.stargiftUpgrade,
     required this.businessTransfer,
     required this.stargiftResale,
+    required this.postsSearch,
+    required this.stargiftPrepaidUpgrade,
     required this.id,
     required this.amount,
     required this.date,
@@ -100361,6 +98261,8 @@ class StarsTransaction extends StarsTransactionBase {
     final stargiftUpgrade = (flags & 262144) != 0;
     final businessTransfer = (flags & 2097152) != 0;
     final stargiftResale = (flags & 4194304) != 0;
+    final postsSearch = (flags & 16777216) != 0;
+    final stargiftPrepaidUpgrade = (flags & 33554432) != 0;
     final id = reader.readString();
     final amount = reader.readObject() as StarsAmountBase;
     final date = reader.readDateTime();
@@ -100425,6 +98327,8 @@ class StarsTransaction extends StarsTransactionBase {
       stargiftUpgrade: stargiftUpgrade,
       businessTransfer: businessTransfer,
       stargiftResale: stargiftResale,
+      postsSearch: postsSearch,
+      stargiftPrepaidUpgrade: stargiftPrepaidUpgrade,
       id: id,
       amount: amount,
       date: date,
@@ -100465,6 +98369,8 @@ class StarsTransaction extends StarsTransactionBase {
       b18: stargiftUpgrade,
       b21: businessTransfer,
       b22: stargiftResale,
+      b24: postsSearch,
+      b25: stargiftPrepaidUpgrade,
       b00: title != null,
       b01: description != null,
       b02: photo != null,
@@ -100509,6 +98415,12 @@ class StarsTransaction extends StarsTransactionBase {
 
   /// stargift_resale: bit 22 of flags.22?true
   final bool stargiftResale;
+
+  /// posts_search: bit 24 of flags.24?true
+  final bool postsSearch;
+
+  /// stargift_prepaid_upgrade: bit 25 of flags.25?true
+  final bool stargiftPrepaidUpgrade;
 
   /// Id.
   final String id;
@@ -100685,6 +98597,8 @@ class StarsTransaction extends StarsTransactionBase {
       "stargiftUpgrade": stargiftUpgrade,
       "businessTransfer": businessTransfer,
       "stargiftResale": stargiftResale,
+      "postsSearch": postsSearch,
+      "stargiftPrepaidUpgrade": stargiftPrepaidUpgrade,
       "id": id,
       "amount": amount,
       "date": date.toIso8601String(),
@@ -100869,10 +98783,7 @@ class PaymentsStarsStatus extends PaymentsStarsStatusBase {
 /// ID: `e87acbc0`.
 class FoundStory extends FoundStoryBase {
   /// Found Story constructor.
-  const FoundStory({
-    required this.peer,
-    required this.story,
-  }) : super._();
+  const FoundStory({required this.peer, required this.story}) : super._();
 
   /// Deserialize.
   factory FoundStory.deserialize(BinaryReader reader) {
@@ -100881,10 +98792,7 @@ class FoundStory extends FoundStoryBase {
     final story = reader.readObject() as StoryItemBase;
 
     // Construct [FoundStory] object.
-    final returnValue = FoundStory(
-      peer: peer,
-      story: story,
-    );
+    final returnValue = FoundStory(peer: peer, story: story);
 
     // Now return the deserialized [FoundStory].
     return returnValue;
@@ -100962,9 +98870,7 @@ class StoriesFoundStories extends StoriesFoundStoriesBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -101062,11 +98968,7 @@ class GeoPointAddress extends GeoPointAddressBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: state != null,
-      b01: city != null,
-      b02: street != null,
-    );
+    final v = _flag(b00: state != null, b01: city != null, b02: street != null);
 
     return v;
   }
@@ -101165,10 +99067,7 @@ class StarsRevenueStatus extends StarsRevenueStatusBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: withdrawalEnabled,
-      b01: nextWithdrawalAt != null,
-    );
+    final v = _flag(b00: withdrawalEnabled, b01: nextWithdrawalAt != null);
 
     return v;
   }
@@ -101262,9 +99161,7 @@ class PaymentsStarsRevenueStats extends PaymentsStarsRevenueStatsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topHoursGraph != null,
-    );
+    final v = _flag(b00: topHoursGraph != null);
 
     return v;
   }
@@ -101323,9 +99220,7 @@ class PaymentsStarsRevenueStats extends PaymentsStarsRevenueStatsBase {
 class PaymentsStarsRevenueWithdrawalUrl
     extends PaymentsStarsRevenueWithdrawalUrlBase {
   /// Payments Stars Revenue Withdrawal Url constructor.
-  const PaymentsStarsRevenueWithdrawalUrl({
-    required this.url,
-  }) : super._();
+  const PaymentsStarsRevenueWithdrawalUrl({required this.url}) : super._();
 
   /// Deserialize.
   factory PaymentsStarsRevenueWithdrawalUrl.deserialize(BinaryReader reader) {
@@ -101333,9 +99228,7 @@ class PaymentsStarsRevenueWithdrawalUrl
     final url = reader.readString();
 
     // Construct [PaymentsStarsRevenueWithdrawalUrl] object.
-    final returnValue = PaymentsStarsRevenueWithdrawalUrl(
-      url: url,
-    );
+    final returnValue = PaymentsStarsRevenueWithdrawalUrl(url: url);
 
     // Now return the deserialized [PaymentsStarsRevenueWithdrawalUrl].
     return returnValue;
@@ -101375,9 +99268,7 @@ class PaymentsStarsRevenueWithdrawalUrl
 class PaymentsStarsRevenueAdsAccountUrl
     extends PaymentsStarsRevenueAdsAccountUrlBase {
   /// Payments Stars Revenue Ads Account Url constructor.
-  const PaymentsStarsRevenueAdsAccountUrl({
-    required this.url,
-  }) : super._();
+  const PaymentsStarsRevenueAdsAccountUrl({required this.url}) : super._();
 
   /// Deserialize.
   factory PaymentsStarsRevenueAdsAccountUrl.deserialize(BinaryReader reader) {
@@ -101385,9 +99276,7 @@ class PaymentsStarsRevenueAdsAccountUrl
     final url = reader.readString();
 
     // Construct [PaymentsStarsRevenueAdsAccountUrl] object.
-    final returnValue = PaymentsStarsRevenueAdsAccountUrl(
-      url: url,
-    );
+    final returnValue = PaymentsStarsRevenueAdsAccountUrl(url: url);
 
     // Now return the deserialized [PaymentsStarsRevenueAdsAccountUrl].
     return returnValue;
@@ -101426,10 +99315,8 @@ class PaymentsStarsRevenueAdsAccountUrl
 /// ID: `206ae6d1`.
 class InputStarsTransaction extends InputStarsTransactionBase {
   /// Input Stars Transaction constructor.
-  const InputStarsTransaction({
-    required this.refund,
-    required this.id,
-  }) : super._();
+  const InputStarsTransaction({required this.refund, required this.id})
+      : super._();
 
   /// Deserialize.
   factory InputStarsTransaction.deserialize(BinaryReader reader) {
@@ -101439,10 +99326,7 @@ class InputStarsTransaction extends InputStarsTransactionBase {
     final id = reader.readString();
 
     // Construct [InputStarsTransaction] object.
-    final returnValue = InputStarsTransaction(
-      refund: refund,
-      id: id,
-    );
+    final returnValue = InputStarsTransaction(refund: refund, id: id);
 
     // Now return the deserialized [InputStarsTransaction].
     return returnValue;
@@ -101450,9 +99334,7 @@ class InputStarsTransaction extends InputStarsTransactionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: refund,
-    );
+    final v = _flag(b00: refund);
 
     return v;
   }
@@ -101530,10 +99412,7 @@ class StarsGiftOption extends StarsGiftOptionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: extended,
-      b00: storeProduct != null,
-    );
+    final v = _flag(b01: extended, b00: storeProduct != null);
 
     return v;
   }
@@ -101599,10 +99478,7 @@ class StarsGiftOption extends StarsGiftOptionBase {
 /// ID: `1991b13b`.
 class BotsPopularAppBots extends BotsPopularAppBotsBase {
   /// Bots Popular App Bots constructor.
-  const BotsPopularAppBots({
-    this.nextOffset,
-    required this.users,
-  }) : super._();
+  const BotsPopularAppBots({this.nextOffset, required this.users}) : super._();
 
   /// Deserialize.
   factory BotsPopularAppBots.deserialize(BinaryReader reader) {
@@ -101624,9 +99500,7 @@ class BotsPopularAppBots extends BotsPopularAppBotsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -101674,10 +99548,7 @@ class BotsPopularAppBots extends BotsPopularAppBotsBase {
 /// ID: `23e91ba3`.
 class BotPreviewMedia extends BotPreviewMediaBase {
   /// Bot Preview Media constructor.
-  const BotPreviewMedia({
-    required this.date,
-    required this.media,
-  }) : super._();
+  const BotPreviewMedia({required this.date, required this.media}) : super._();
 
   /// Deserialize.
   factory BotPreviewMedia.deserialize(BinaryReader reader) {
@@ -101686,10 +99557,7 @@ class BotPreviewMedia extends BotPreviewMediaBase {
     final media = reader.readObject() as MessageMediaBase;
 
     // Construct [BotPreviewMedia] object.
-    final returnValue = BotPreviewMedia(
-      date: date,
-      media: media,
-    );
+    final returnValue = BotPreviewMedia(date: date, media: media);
 
     // Now return the deserialized [BotPreviewMedia].
     return returnValue;
@@ -101733,10 +99601,8 @@ class BotPreviewMedia extends BotPreviewMediaBase {
 /// ID: `0ca71d64`.
 class BotsPreviewInfo extends BotsPreviewInfoBase {
   /// Bots Preview Info constructor.
-  const BotsPreviewInfo({
-    required this.media,
-    required this.langCodes,
-  }) : super._();
+  const BotsPreviewInfo({required this.media, required this.langCodes})
+      : super._();
 
   /// Deserialize.
   factory BotsPreviewInfo.deserialize(BinaryReader reader) {
@@ -101792,10 +99658,8 @@ class BotsPreviewInfo extends BotsPreviewInfoBase {
 /// ID: `05416d58`.
 class StarsSubscriptionPricing extends StarsSubscriptionPricingBase {
   /// Stars Subscription Pricing constructor.
-  const StarsSubscriptionPricing({
-    required this.period,
-    required this.amount,
-  }) : super._();
+  const StarsSubscriptionPricing({required this.period, required this.amount})
+      : super._();
 
   /// Deserialize.
   factory StarsSubscriptionPricing.deserialize(BinaryReader reader) {
@@ -102059,12 +99923,7 @@ class MessageReactor extends MessageReactorBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: top,
-      b01: my,
-      b02: anonymous,
-      b03: peerId != null,
-    );
+    final v = _flag(b00: top, b01: my, b02: anonymous, b03: peerId != null);
 
     return v;
   }
@@ -102169,11 +100028,7 @@ class StarsGiveawayOption extends StarsGiveawayOptionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: extended,
-      b01: ddefault,
-      b02: storeProduct != null,
-    );
+    final v = _flag(b00: extended, b01: ddefault, b02: storeProduct != null);
 
     return v;
   }
@@ -102282,9 +100137,7 @@ class StarsGiveawayWinnersOption extends StarsGiveawayWinnersOptionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ddefault,
-    );
+    final v = _flag(b00: ddefault);
 
     return v;
   }
@@ -102334,7 +100187,7 @@ class StarsGiveawayWinnersOption extends StarsGiveawayWinnersOptionBase {
 
 /// Star Gift.
 ///
-/// ID: `00bcff5b`.
+/// ID: `80ac53c3`.
 class StarGift extends StarGiftBase {
   /// Star Gift constructor.
   const StarGift({
@@ -102358,6 +100211,7 @@ class StarGift extends StarGiftBase {
     this.releasedBy,
     this.perUserTotal,
     this.perUserRemains,
+    this.lockedUntilDate,
   }) : super._();
 
   /// Deserialize.
@@ -102399,6 +100253,9 @@ class StarGift extends StarGiftBase {
     final perUserTotal = hasPerUserTotalField ? reader.readInt32() : null;
     final hasPerUserRemainsField = (flags & 256) != 0;
     final perUserRemains = hasPerUserRemainsField ? reader.readInt32() : null;
+    final hasLockedUntilDateField = (flags & 512) != 0;
+    final lockedUntilDate =
+        hasLockedUntilDateField ? reader.readDateTime() : null;
 
     // Construct [StarGift] object.
     final returnValue = StarGift(
@@ -102422,6 +100279,7 @@ class StarGift extends StarGiftBase {
       releasedBy: releasedBy,
       perUserTotal: perUserTotal,
       perUserRemains: perUserRemains,
+      lockedUntilDate: lockedUntilDate,
     );
 
     // Now return the deserialized [StarGift].
@@ -102440,6 +100298,7 @@ class StarGift extends StarGiftBase {
       b03: upgradeStars != null,
       b05: title != null,
       b06: releasedBy != null,
+      b09: lockedUntilDate != null,
     );
 
     return v;
@@ -102511,11 +100370,14 @@ class StarGift extends StarGiftBase {
   /// Per User Remains.
   final int? perUserRemains;
 
+  /// Locked Until Date.
+  final DateTime? lockedUntilDate;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x00bcff5b.
-    buffer.writeInt32(0x00bcff5b);
+    // Write type-id 0x80ac53c3.
+    buffer.writeInt32(0x80ac53c3);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -102567,6 +100429,10 @@ class StarGift extends StarGiftBase {
     if (localPerUserRemainsCopy != null) {
       buffer.writeInt32(localPerUserRemainsCopy);
     }
+    final localLockedUntilDateCopy = lockedUntilDate;
+    if (localLockedUntilDateCopy != null) {
+      buffer.writeDateTime(localLockedUntilDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -102574,7 +100440,7 @@ class StarGift extends StarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "00bcff5b",
+      "\$hash": "80ac53c3",
       "\$name": "StarGift",
       "flags": flags,
       "limited": limited,
@@ -102597,6 +100463,7 @@ class StarGift extends StarGiftBase {
       "releasedBy": releasedBy,
       "perUserTotal": perUserTotal,
       "perUserRemains": perUserRemains,
+      "lockedUntilDate": lockedUntilDate?.toIso8601String(),
     };
 
     // Finished toJson.
@@ -102606,13 +100473,15 @@ class StarGift extends StarGiftBase {
 
 /// Star Gift Unique.
 ///
-/// ID: `3a274d50`.
+/// ID: `1befe865`.
 class StarGiftUnique extends StarGiftBase {
   /// Star Gift Unique constructor.
   const StarGiftUnique({
     required this.requirePremium,
     required this.resaleTonOnly,
+    required this.themeAvailable,
     required this.id,
+    required this.giftId,
     required this.title,
     required this.slug,
     required this.num,
@@ -102625,6 +100494,9 @@ class StarGiftUnique extends StarGiftBase {
     this.giftAddress,
     this.resellAmount,
     this.releasedBy,
+    this.valueAmount,
+    this.valueCurrency,
+    this.themePeer,
   }) : super._();
 
   /// Deserialize.
@@ -102633,7 +100505,9 @@ class StarGiftUnique extends StarGiftBase {
     final flags = reader.readInt32();
     final requirePremium = (flags & 64) != 0;
     final resaleTonOnly = (flags & 128) != 0;
+    final themeAvailable = (flags & 512) != 0;
     final id = reader.readInt64();
+    final giftId = reader.readInt64();
     final title = reader.readString();
     final slug = reader.readString();
     final num = reader.readInt32();
@@ -102655,12 +100529,21 @@ class StarGiftUnique extends StarGiftBase {
     final hasReleasedByField = (flags & 32) != 0;
     final releasedBy =
         hasReleasedByField ? reader.readObject() as PeerBase : null;
+    final hasValueAmountField = (flags & 256) != 0;
+    final valueAmount = hasValueAmountField ? reader.readInt64() : null;
+    final hasValueCurrencyField = (flags & 256) != 0;
+    final valueCurrency = hasValueCurrencyField ? reader.readString() : null;
+    final hasThemePeerField = (flags & 1024) != 0;
+    final themePeer =
+        hasThemePeerField ? reader.readObject() as PeerBase : null;
 
     // Construct [StarGiftUnique] object.
     final returnValue = StarGiftUnique(
       requirePremium: requirePremium,
       resaleTonOnly: resaleTonOnly,
+      themeAvailable: themeAvailable,
       id: id,
+      giftId: giftId,
       title: title,
       slug: slug,
       num: num,
@@ -102673,6 +100556,9 @@ class StarGiftUnique extends StarGiftBase {
       giftAddress: giftAddress,
       resellAmount: resellAmount?.items,
       releasedBy: releasedBy,
+      valueAmount: valueAmount,
+      valueCurrency: valueCurrency,
+      themePeer: themePeer,
     );
 
     // Now return the deserialized [StarGiftUnique].
@@ -102684,12 +100570,15 @@ class StarGiftUnique extends StarGiftBase {
     final v = _flag(
       b06: requirePremium,
       b07: resaleTonOnly,
+      b09: themeAvailable,
       b00: ownerId != null,
       b01: ownerName != null,
       b02: ownerAddress != null,
       b03: giftAddress != null,
       b04: resellAmount != null,
       b05: releasedBy != null,
+      b08: valueAmount != null || valueCurrency != null,
+      b10: themePeer != null,
     );
 
     return v;
@@ -102701,10 +100590,18 @@ class StarGiftUnique extends StarGiftBase {
   /// resale_ton_only: bit 7 of flags.7?true
   final bool resaleTonOnly;
 
+  /// theme_available: bit 9 of flags.9?true
+  final bool themeAvailable;
+
   /// Id.
   ///
   /// Field type is Int64.
   final int id;
+
+  /// Gift Id.
+  ///
+  /// Field type is Int64.
+  final int giftId;
 
   /// Title.
   final String title;
@@ -102748,15 +100645,25 @@ class StarGiftUnique extends StarGiftBase {
   /// Released By.
   final PeerBase? releasedBy;
 
+  /// Value Amount.
+  final int? valueAmount;
+
+  /// Value Currency.
+  final String? valueCurrency;
+
+  /// Theme Peer.
+  final PeerBase? themePeer;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x3a274d50.
-    buffer.writeInt32(0x3a274d50);
+    // Write type-id 0x1befe865.
+    buffer.writeInt32(0x1befe865);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeInt64(id);
+    buffer.writeInt64(giftId);
     buffer.writeString(title);
     buffer.writeString(slug);
     buffer.writeInt32(num);
@@ -102787,6 +100694,18 @@ class StarGiftUnique extends StarGiftBase {
     if (localReleasedByCopy != null) {
       buffer.writeObject(localReleasedByCopy);
     }
+    final localValueAmountCopy = valueAmount;
+    if (localValueAmountCopy != null) {
+      buffer.writeInt64(localValueAmountCopy);
+    }
+    final localValueCurrencyCopy = valueCurrency;
+    if (localValueCurrencyCopy != null) {
+      buffer.writeString(localValueCurrencyCopy);
+    }
+    final localThemePeerCopy = themePeer;
+    if (localThemePeerCopy != null) {
+      buffer.writeObject(localThemePeerCopy);
+    }
 
     // Finished serialization.
   }
@@ -102794,12 +100713,14 @@ class StarGiftUnique extends StarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "3a274d50",
+      "\$hash": "1befe865",
       "\$name": "StarGiftUnique",
       "flags": flags,
       "requirePremium": requirePremium,
       "resaleTonOnly": resaleTonOnly,
+      "themeAvailable": themeAvailable,
       "id": id,
+      "giftId": giftId,
       "title": title,
       "slug": slug,
       "num": num,
@@ -102812,6 +100733,9 @@ class StarGiftUnique extends StarGiftBase {
       "giftAddress": giftAddress,
       "resellAmount": resellAmount,
       "releasedBy": releasedBy,
+      "valueAmount": valueAmount,
+      "valueCurrency": valueCurrency,
+      "themePeer": themePeer,
     };
 
     // Finished toJson.
@@ -102938,10 +100862,8 @@ class PaymentsStarGifts extends PaymentsStarGiftsBase {
 /// ID: `7903e3d9`.
 class MessageReportOption extends MessageReportOptionBase {
   /// Message Report Option constructor.
-  const MessageReportOption({
-    required this.text,
-    required this.option,
-  }) : super._();
+  const MessageReportOption({required this.text, required this.option})
+      : super._();
 
   /// Deserialize.
   factory MessageReportOption.deserialize(BinaryReader reader) {
@@ -102950,10 +100872,7 @@ class MessageReportOption extends MessageReportOptionBase {
     final option = reader.readBytes();
 
     // Construct [MessageReportOption] object.
-    final returnValue = MessageReportOption(
-      text: text,
-      option: option,
-    );
+    final returnValue = MessageReportOption(text: text, option: option);
 
     // Now return the deserialized [MessageReportOption].
     return returnValue;
@@ -102997,10 +100916,8 @@ class MessageReportOption extends MessageReportOptionBase {
 /// ID: `f0e4e0b6`.
 class ReportResultChooseOption extends ReportResultBase {
   /// Report Result Choose Option constructor.
-  const ReportResultChooseOption({
-    required this.title,
-    required this.options,
-  }) : super._();
+  const ReportResultChooseOption({required this.title, required this.options})
+      : super._();
 
   /// Deserialize.
   factory ReportResultChooseOption.deserialize(BinaryReader reader) {
@@ -103056,10 +100973,8 @@ class ReportResultChooseOption extends ReportResultBase {
 /// ID: `6f09ac31`.
 class ReportResultAddComment extends ReportResultBase {
   /// Report Result Add Comment constructor.
-  const ReportResultAddComment({
-    required this.optional,
-    required this.option,
-  }) : super._();
+  const ReportResultAddComment({required this.optional, required this.option})
+      : super._();
 
   /// Deserialize.
   factory ReportResultAddComment.deserialize(BinaryReader reader) {
@@ -103080,9 +100995,7 @@ class ReportResultAddComment extends ReportResultBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: optional,
-    );
+    final v = _flag(b00: optional);
 
     return v;
   }
@@ -103588,10 +101501,7 @@ class ConnectedBotStarRef extends ConnectedBotStarRefBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: revoked,
-      b00: durationMonths != null,
-    );
+    final v = _flag(b01: revoked, b00: durationMonths != null);
 
     return v;
   }
@@ -103776,9 +101686,7 @@ class PaymentsSuggestedStarRefBots extends PaymentsSuggestedStarRefBotsBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -103838,10 +101746,7 @@ class PaymentsSuggestedStarRefBots extends PaymentsSuggestedStarRefBotsBase {
 /// ID: `bbb6b4a3`.
 class StarsAmount extends StarsAmountBase {
   /// Stars Amount constructor.
-  const StarsAmount({
-    required this.amount,
-    required this.nanos,
-  }) : super._();
+  const StarsAmount({required this.amount, required this.nanos}) : super._();
 
   /// Deserialize.
   factory StarsAmount.deserialize(BinaryReader reader) {
@@ -103850,10 +101755,7 @@ class StarsAmount extends StarsAmountBase {
     final nanos = reader.readInt32();
 
     // Construct [StarsAmount] object.
-    final returnValue = StarsAmount(
-      amount: amount,
-      nanos: nanos,
-    );
+    final returnValue = StarsAmount(amount: amount, nanos: nanos);
 
     // Now return the deserialized [StarsAmount].
     return returnValue;
@@ -103901,9 +101803,7 @@ class StarsAmount extends StarsAmountBase {
 /// ID: `74aee3e0`.
 class StarsTonAmount extends StarsAmountBase {
   /// Stars Ton Amount constructor.
-  const StarsTonAmount({
-    required this.amount,
-  }) : super._();
+  const StarsTonAmount({required this.amount}) : super._();
 
   /// Deserialize.
   factory StarsTonAmount.deserialize(BinaryReader reader) {
@@ -103911,9 +101811,7 @@ class StarsTonAmount extends StarsAmountBase {
     final amount = reader.readInt64();
 
     // Construct [StarsTonAmount] object.
-    final returnValue = StarsTonAmount(
-      amount: amount,
-    );
+    final returnValue = StarsTonAmount(amount: amount);
 
     // Now return the deserialized [StarsTonAmount].
     return returnValue;
@@ -103954,9 +101852,7 @@ class StarsTonAmount extends StarsAmountBase {
 /// ID: `6010c534`.
 class MessagesFoundStickersNotModified extends MessagesFoundStickersBase {
   /// Messages Found Stickers Not Modified constructor.
-  const MessagesFoundStickersNotModified({
-    this.nextOffset,
-  }) : super._();
+  const MessagesFoundStickersNotModified({this.nextOffset}) : super._();
 
   /// Deserialize.
   factory MessagesFoundStickersNotModified.deserialize(BinaryReader reader) {
@@ -103976,9 +101872,7 @@ class MessagesFoundStickersNotModified extends MessagesFoundStickersBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -104049,9 +101943,7 @@ class MessagesFoundStickers extends MessagesFoundStickersBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextOffset != null,
-    );
+    final v = _flag(b00: nextOffset != null);
 
     return v;
   }
@@ -104553,10 +102445,7 @@ class StarGiftAttributeOriginalDetails extends StarGiftAttributeBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: senderId != null,
-      b01: message != null,
-    );
+    final v = _flag(b00: senderId != null, b01: message != null);
 
     return v;
   }
@@ -104618,9 +102507,8 @@ class StarGiftAttributeOriginalDetails extends StarGiftAttributeBase {
 class PaymentsStarGiftUpgradePreview
     extends PaymentsStarGiftUpgradePreviewBase {
   /// Payments Star Gift Upgrade Preview constructor.
-  const PaymentsStarGiftUpgradePreview({
-    required this.sampleAttributes,
-  }) : super._();
+  const PaymentsStarGiftUpgradePreview({required this.sampleAttributes})
+      : super._();
 
   /// Deserialize.
   factory PaymentsStarGiftUpgradePreview.deserialize(BinaryReader reader) {
@@ -104669,9 +102557,7 @@ class PaymentsStarGiftUpgradePreview
 /// ID: `62d706b8`.
 class UsersUsers extends UsersUsersBase {
   /// Users Users constructor.
-  const UsersUsers({
-    required this.users,
-  }) : super._();
+  const UsersUsers({required this.users}) : super._();
 
   /// Deserialize.
   factory UsersUsers.deserialize(BinaryReader reader) {
@@ -104679,9 +102565,7 @@ class UsersUsers extends UsersUsersBase {
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [UsersUsers] object.
-    final returnValue = UsersUsers(
-      users: users.items,
-    );
+    final returnValue = UsersUsers(users: users.items);
 
     // Now return the deserialized [UsersUsers].
     return returnValue;
@@ -104720,10 +102604,7 @@ class UsersUsers extends UsersUsersBase {
 /// ID: `315a4974`.
 class UsersUsersSlice extends UsersUsersBase {
   /// Users Users Slice constructor.
-  const UsersUsersSlice({
-    required this.count,
-    required this.users,
-  }) : super._();
+  const UsersUsersSlice({required this.count, required this.users}) : super._();
 
   /// Deserialize.
   factory UsersUsersSlice.deserialize(BinaryReader reader) {
@@ -104732,10 +102613,7 @@ class UsersUsersSlice extends UsersUsersBase {
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [UsersUsersSlice] object.
-    final returnValue = UsersUsersSlice(
-      count: count,
-      users: users.items,
-    );
+    final returnValue = UsersUsersSlice(count: count, users: users.items);
 
     // Now return the deserialized [UsersUsersSlice].
     return returnValue;
@@ -104778,11 +102656,12 @@ class UsersUsersSlice extends UsersUsersBase {
 
 /// Payments Unique Star Gift.
 ///
-/// ID: `caa2f60b`.
+/// ID: `416c56e8`.
 class PaymentsUniqueStarGift extends PaymentsUniqueStarGiftBase {
   /// Payments Unique Star Gift constructor.
   const PaymentsUniqueStarGift({
     required this.gift,
+    required this.chats,
     required this.users,
   }) : super._();
 
@@ -104790,11 +102669,13 @@ class PaymentsUniqueStarGift extends PaymentsUniqueStarGiftBase {
   factory PaymentsUniqueStarGift.deserialize(BinaryReader reader) {
     // Read [PaymentsUniqueStarGift] fields.
     final gift = reader.readObject() as StarGiftBase;
+    final chats = reader.readVectorObject<ChatBase>();
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [PaymentsUniqueStarGift] object.
     final returnValue = PaymentsUniqueStarGift(
       gift: gift,
+      chats: chats.items,
       users: users.items,
     );
 
@@ -104805,17 +102686,21 @@ class PaymentsUniqueStarGift extends PaymentsUniqueStarGiftBase {
   /// Gift.
   final StarGiftBase gift;
 
+  /// Chats.
+  final List<ChatBase> chats;
+
   /// Users.
   final List<UserBase> users;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xcaa2f60b.
-    buffer.writeInt32(0xcaa2f60b);
+    // Write type-id 0x416c56e8.
+    buffer.writeInt32(0x416c56e8);
 
     // Write fields.
     buffer.writeObject(gift);
+    buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
 
     // Finished serialization.
@@ -104824,9 +102709,10 @@ class PaymentsUniqueStarGift extends PaymentsUniqueStarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "caa2f60b",
+      "\$hash": "416c56e8",
       "\$name": "PaymentsUniqueStarGift",
       "gift": gift,
+      "chats": chats,
       "users": users,
     };
 
@@ -104837,11 +102723,12 @@ class PaymentsUniqueStarGift extends PaymentsUniqueStarGiftBase {
 
 /// Messages Web Page Preview.
 ///
-/// ID: `b53e8b21`.
+/// ID: `8c9a88ac`.
 class MessagesWebPagePreview extends MessagesWebPagePreviewBase {
   /// Messages Web Page Preview constructor.
   const MessagesWebPagePreview({
     required this.media,
+    required this.chats,
     required this.users,
   }) : super._();
 
@@ -104849,11 +102736,13 @@ class MessagesWebPagePreview extends MessagesWebPagePreviewBase {
   factory MessagesWebPagePreview.deserialize(BinaryReader reader) {
     // Read [MessagesWebPagePreview] fields.
     final media = reader.readObject() as MessageMediaBase;
+    final chats = reader.readVectorObject<ChatBase>();
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [MessagesWebPagePreview] object.
     final returnValue = MessagesWebPagePreview(
       media: media,
+      chats: chats.items,
       users: users.items,
     );
 
@@ -104864,17 +102753,21 @@ class MessagesWebPagePreview extends MessagesWebPagePreviewBase {
   /// Media.
   final MessageMediaBase media;
 
+  /// Chats.
+  final List<ChatBase> chats;
+
   /// Users.
   final List<UserBase> users;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb53e8b21.
-    buffer.writeInt32(0xb53e8b21);
+    // Write type-id 0x8c9a88ac.
+    buffer.writeInt32(0x8c9a88ac);
 
     // Write fields.
     buffer.writeObject(media);
+    buffer.writeVectorObject(chats);
     buffer.writeVectorObject(users);
 
     // Finished serialization.
@@ -104883,9 +102776,10 @@ class MessagesWebPagePreview extends MessagesWebPagePreviewBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b53e8b21",
+      "\$hash": "8c9a88ac",
       "\$name": "MessagesWebPagePreview",
       "media": media,
+      "chats": chats,
       "users": users,
     };
 
@@ -104896,7 +102790,7 @@ class MessagesWebPagePreview extends MessagesWebPagePreviewBase {
 
 /// Saved Star Gift.
 ///
-/// ID: `1ea646df`.
+/// ID: `19a9b572`.
 class SavedStarGift extends SavedStarGiftBase {
   /// Saved Star Gift constructor.
   const SavedStarGift({
@@ -104905,6 +102799,7 @@ class SavedStarGift extends SavedStarGiftBase {
     required this.refunded,
     required this.canUpgrade,
     required this.pinnedToTop,
+    required this.upgradeSeparate,
     this.fromId,
     required this.date,
     required this.gift,
@@ -104918,6 +102813,7 @@ class SavedStarGift extends SavedStarGiftBase {
     this.canTransferAt,
     this.canResellAt,
     this.collectionId,
+    this.prepaidUpgradeHash,
   }) : super._();
 
   /// Deserialize.
@@ -104929,6 +102825,7 @@ class SavedStarGift extends SavedStarGiftBase {
     final refunded = (flags & 512) != 0;
     final canUpgrade = (flags & 1024) != 0;
     final pinnedToTop = (flags & 4096) != 0;
+    final upgradeSeparate = (flags & 131072) != 0;
     final hasFromIdField = (flags & 2) != 0;
     final fromId = hasFromIdField ? reader.readObject() as PeerBase : null;
     final date = reader.readDateTime();
@@ -104954,6 +102851,9 @@ class SavedStarGift extends SavedStarGiftBase {
     final canResellAt = hasCanResellAtField ? reader.readInt32() : null;
     final hasCollectionIdField = (flags & 32768) != 0;
     final collectionId = hasCollectionIdField ? reader.readVectorInt32() : null;
+    final hasPrepaidUpgradeHashField = (flags & 65536) != 0;
+    final prepaidUpgradeHash =
+        hasPrepaidUpgradeHashField ? reader.readString() : null;
 
     // Construct [SavedStarGift] object.
     final returnValue = SavedStarGift(
@@ -104962,6 +102862,7 @@ class SavedStarGift extends SavedStarGiftBase {
       refunded: refunded,
       canUpgrade: canUpgrade,
       pinnedToTop: pinnedToTop,
+      upgradeSeparate: upgradeSeparate,
       fromId: fromId,
       date: date,
       gift: gift,
@@ -104975,6 +102876,7 @@ class SavedStarGift extends SavedStarGiftBase {
       canTransferAt: canTransferAt,
       canResellAt: canResellAt,
       collectionId: collectionId?.items,
+      prepaidUpgradeHash: prepaidUpgradeHash,
     );
 
     // Now return the deserialized [SavedStarGift].
@@ -104989,6 +102891,7 @@ class SavedStarGift extends SavedStarGiftBase {
       b09: refunded,
       b10: canUpgrade,
       b12: pinnedToTop,
+      b17: upgradeSeparate,
       b01: fromId != null,
       b02: message != null,
       b03: msgId != null,
@@ -105000,6 +102903,7 @@ class SavedStarGift extends SavedStarGiftBase {
       b13: canTransferAt != null,
       b14: canResellAt != null,
       b15: collectionId != null,
+      b16: prepaidUpgradeHash != null,
     );
 
     return v;
@@ -105019,6 +102923,9 @@ class SavedStarGift extends SavedStarGiftBase {
 
   /// pinned_to_top: bit 12 of flags.12?true
   final bool pinnedToTop;
+
+  /// upgrade_separate: bit 17 of flags.17?true
+  final bool upgradeSeparate;
 
   /// From Id.
   final PeerBase? fromId;
@@ -105059,11 +102966,14 @@ class SavedStarGift extends SavedStarGiftBase {
   /// Collection Id.
   final List<int>? collectionId;
 
+  /// Prepaid Upgrade Hash.
+  final String? prepaidUpgradeHash;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x1ea646df.
-    buffer.writeInt32(0x1ea646df);
+    // Write type-id 0x19a9b572.
+    buffer.writeInt32(0x19a9b572);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -105113,6 +103023,10 @@ class SavedStarGift extends SavedStarGiftBase {
     if (localCollectionIdCopy != null) {
       buffer.writeVectorInt32(localCollectionIdCopy);
     }
+    final localPrepaidUpgradeHashCopy = prepaidUpgradeHash;
+    if (localPrepaidUpgradeHashCopy != null) {
+      buffer.writeString(localPrepaidUpgradeHashCopy);
+    }
 
     // Finished serialization.
   }
@@ -105120,7 +103034,7 @@ class SavedStarGift extends SavedStarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "1ea646df",
+      "\$hash": "19a9b572",
       "\$name": "SavedStarGift",
       "flags": flags,
       "nameHidden": nameHidden,
@@ -105128,6 +103042,7 @@ class SavedStarGift extends SavedStarGiftBase {
       "refunded": refunded,
       "canUpgrade": canUpgrade,
       "pinnedToTop": pinnedToTop,
+      "upgradeSeparate": upgradeSeparate,
       "fromId": fromId,
       "date": date.toIso8601String(),
       "gift": gift,
@@ -105141,6 +103056,7 @@ class SavedStarGift extends SavedStarGiftBase {
       "canTransferAt": canTransferAt,
       "canResellAt": canResellAt,
       "collectionId": collectionId,
+      "prepaidUpgradeHash": prepaidUpgradeHash,
     };
 
     // Finished toJson.
@@ -105267,9 +103183,7 @@ class PaymentsSavedStarGifts extends PaymentsSavedStarGiftsBase {
 /// ID: `69279795`.
 class InputSavedStarGiftUser extends InputSavedStarGiftBase {
   /// Input Saved Star Gift User constructor.
-  const InputSavedStarGiftUser({
-    required this.msgId,
-  }) : super._();
+  const InputSavedStarGiftUser({required this.msgId}) : super._();
 
   /// Deserialize.
   factory InputSavedStarGiftUser.deserialize(BinaryReader reader) {
@@ -105277,9 +103191,7 @@ class InputSavedStarGiftUser extends InputSavedStarGiftBase {
     final msgId = reader.readInt32();
 
     // Construct [InputSavedStarGiftUser] object.
-    final returnValue = InputSavedStarGiftUser(
-      msgId: msgId,
-    );
+    final returnValue = InputSavedStarGiftUser(msgId: msgId);
 
     // Now return the deserialized [InputSavedStarGiftUser].
     return returnValue;
@@ -105320,10 +103232,8 @@ class InputSavedStarGiftUser extends InputSavedStarGiftBase {
 /// ID: `f101aa7f`.
 class InputSavedStarGiftChat extends InputSavedStarGiftBase {
   /// Input Saved Star Gift Chat constructor.
-  const InputSavedStarGiftChat({
-    required this.peer,
-    required this.savedId,
-  }) : super._();
+  const InputSavedStarGiftChat({required this.peer, required this.savedId})
+      : super._();
 
   /// Deserialize.
   factory InputSavedStarGiftChat.deserialize(BinaryReader reader) {
@@ -105332,10 +103242,7 @@ class InputSavedStarGiftChat extends InputSavedStarGiftBase {
     final savedId = reader.readInt64();
 
     // Construct [InputSavedStarGiftChat] object.
-    final returnValue = InputSavedStarGiftChat(
-      peer: peer,
-      savedId: savedId,
-    );
+    final returnValue = InputSavedStarGiftChat(peer: peer, savedId: savedId);
 
     // Now return the deserialized [InputSavedStarGiftChat].
     return returnValue;
@@ -105381,9 +103288,7 @@ class InputSavedStarGiftChat extends InputSavedStarGiftBase {
 /// ID: `2085c238`.
 class InputSavedStarGiftSlug extends InputSavedStarGiftBase {
   /// Input Saved Star Gift Slug constructor.
-  const InputSavedStarGiftSlug({
-    required this.slug,
-  }) : super._();
+  const InputSavedStarGiftSlug({required this.slug}) : super._();
 
   /// Deserialize.
   factory InputSavedStarGiftSlug.deserialize(BinaryReader reader) {
@@ -105391,9 +103296,7 @@ class InputSavedStarGiftSlug extends InputSavedStarGiftBase {
     final slug = reader.readString();
 
     // Construct [InputSavedStarGiftSlug] object.
-    final returnValue = InputSavedStarGiftSlug(
-      slug: slug,
-    );
+    final returnValue = InputSavedStarGiftSlug(slug: slug);
 
     // Now return the deserialized [InputSavedStarGiftSlug].
     return returnValue;
@@ -105432,9 +103335,7 @@ class InputSavedStarGiftSlug extends InputSavedStarGiftBase {
 /// ID: `84aa3a9c`.
 class PaymentsStarGiftWithdrawalUrl extends PaymentsStarGiftWithdrawalUrlBase {
   /// Payments Star Gift Withdrawal Url constructor.
-  const PaymentsStarGiftWithdrawalUrl({
-    required this.url,
-  }) : super._();
+  const PaymentsStarGiftWithdrawalUrl({required this.url}) : super._();
 
   /// Deserialize.
   factory PaymentsStarGiftWithdrawalUrl.deserialize(BinaryReader reader) {
@@ -105442,9 +103343,7 @@ class PaymentsStarGiftWithdrawalUrl extends PaymentsStarGiftWithdrawalUrlBase {
     final url = reader.readString();
 
     // Construct [PaymentsStarGiftWithdrawalUrl] object.
-    final returnValue = PaymentsStarGiftWithdrawalUrl(
-      url: url,
-    );
+    final returnValue = PaymentsStarGiftWithdrawalUrl(url: url);
 
     // Now return the deserialized [PaymentsStarGiftWithdrawalUrl].
     return returnValue;
@@ -105557,9 +103456,7 @@ class PaidReactionPrivacyAnonymous extends PaidReactionPrivacyBase {
 /// ID: `dc6cfcf0`.
 class PaidReactionPrivacyPeer extends PaidReactionPrivacyBase {
   /// Paid Reaction Privacy Peer constructor.
-  const PaidReactionPrivacyPeer({
-    required this.peer,
-  }) : super._();
+  const PaidReactionPrivacyPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory PaidReactionPrivacyPeer.deserialize(BinaryReader reader) {
@@ -105567,9 +103464,7 @@ class PaidReactionPrivacyPeer extends PaidReactionPrivacyBase {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [PaidReactionPrivacyPeer] object.
-    final returnValue = PaidReactionPrivacyPeer(
-      peer: peer,
-    );
+    final returnValue = PaidReactionPrivacyPeer(peer: peer);
 
     // Now return the deserialized [PaidReactionPrivacyPeer].
     return returnValue;
@@ -105608,9 +103503,7 @@ class PaidReactionPrivacyPeer extends PaidReactionPrivacyBase {
 /// ID: `1e109708`.
 class AccountPaidMessagesRevenue extends AccountPaidMessagesRevenueBase {
   /// Account Paid Messages Revenue constructor.
-  const AccountPaidMessagesRevenue({
-    required this.starsAmount,
-  }) : super._();
+  const AccountPaidMessagesRevenue({required this.starsAmount}) : super._();
 
   /// Deserialize.
   factory AccountPaidMessagesRevenue.deserialize(BinaryReader reader) {
@@ -105618,9 +103511,7 @@ class AccountPaidMessagesRevenue extends AccountPaidMessagesRevenueBase {
     final starsAmount = reader.readInt64();
 
     // Construct [AccountPaidMessagesRevenue] object.
-    final returnValue = AccountPaidMessagesRevenue(
-      starsAmount: starsAmount,
-    );
+    final returnValue = AccountPaidMessagesRevenue(starsAmount: starsAmount);
 
     // Now return the deserialized [AccountPaidMessagesRevenue].
     return returnValue;
@@ -105735,9 +103626,8 @@ class RequirementToContactPremium extends RequirementToContactBase {
 /// ID: `b4f67e93`.
 class RequirementToContactPaidMessages extends RequirementToContactBase {
   /// Requirement To Contact Paid Messages constructor.
-  const RequirementToContactPaidMessages({
-    required this.starsAmount,
-  }) : super._();
+  const RequirementToContactPaidMessages({required this.starsAmount})
+      : super._();
 
   /// Deserialize.
   factory RequirementToContactPaidMessages.deserialize(BinaryReader reader) {
@@ -106072,10 +103962,7 @@ class SponsoredPeer extends SponsoredPeerBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: sponsorInfo != null,
-      b01: additionalInfo != null,
-    );
+    final v = _flag(b00: sponsorInfo != null, b01: additionalInfo != null);
 
     return v;
   }
@@ -106240,9 +104127,7 @@ class ContactsSponsoredPeers extends ContactsSponsoredPeersBase {
 /// ID: `48aaae3c`.
 class StarGiftAttributeIdModel extends StarGiftAttributeIdBase {
   /// Star Gift Attribute Id Model constructor.
-  const StarGiftAttributeIdModel({
-    required this.documentId,
-  }) : super._();
+  const StarGiftAttributeIdModel({required this.documentId}) : super._();
 
   /// Deserialize.
   factory StarGiftAttributeIdModel.deserialize(BinaryReader reader) {
@@ -106250,9 +104135,7 @@ class StarGiftAttributeIdModel extends StarGiftAttributeIdBase {
     final documentId = reader.readInt64();
 
     // Construct [StarGiftAttributeIdModel] object.
-    final returnValue = StarGiftAttributeIdModel(
-      documentId: documentId,
-    );
+    final returnValue = StarGiftAttributeIdModel(documentId: documentId);
 
     // Now return the deserialized [StarGiftAttributeIdModel].
     return returnValue;
@@ -106293,9 +104176,7 @@ class StarGiftAttributeIdModel extends StarGiftAttributeIdBase {
 /// ID: `4a162433`.
 class StarGiftAttributeIdPattern extends StarGiftAttributeIdBase {
   /// Star Gift Attribute Id Pattern constructor.
-  const StarGiftAttributeIdPattern({
-    required this.documentId,
-  }) : super._();
+  const StarGiftAttributeIdPattern({required this.documentId}) : super._();
 
   /// Deserialize.
   factory StarGiftAttributeIdPattern.deserialize(BinaryReader reader) {
@@ -106303,9 +104184,7 @@ class StarGiftAttributeIdPattern extends StarGiftAttributeIdBase {
     final documentId = reader.readInt64();
 
     // Construct [StarGiftAttributeIdPattern] object.
-    final returnValue = StarGiftAttributeIdPattern(
-      documentId: documentId,
-    );
+    final returnValue = StarGiftAttributeIdPattern(documentId: documentId);
 
     // Now return the deserialized [StarGiftAttributeIdPattern].
     return returnValue;
@@ -106346,9 +104225,7 @@ class StarGiftAttributeIdPattern extends StarGiftAttributeIdBase {
 /// ID: `1f01c757`.
 class StarGiftAttributeIdBackdrop extends StarGiftAttributeIdBase {
   /// Star Gift Attribute Id Backdrop constructor.
-  const StarGiftAttributeIdBackdrop({
-    required this.backdropId,
-  }) : super._();
+  const StarGiftAttributeIdBackdrop({required this.backdropId}) : super._();
 
   /// Deserialize.
   factory StarGiftAttributeIdBackdrop.deserialize(BinaryReader reader) {
@@ -106356,9 +104233,7 @@ class StarGiftAttributeIdBackdrop extends StarGiftAttributeIdBase {
     final backdropId = reader.readInt32();
 
     // Construct [StarGiftAttributeIdBackdrop] object.
-    final returnValue = StarGiftAttributeIdBackdrop(
-      backdropId: backdropId,
-    );
+    final returnValue = StarGiftAttributeIdBackdrop(backdropId: backdropId);
 
     // Now return the deserialized [StarGiftAttributeIdBackdrop].
     return returnValue;
@@ -106399,10 +104274,8 @@ class StarGiftAttributeIdBackdrop extends StarGiftAttributeIdBase {
 /// ID: `2eb1b658`.
 class StarGiftAttributeCounter extends StarGiftAttributeCounterBase {
   /// Star Gift Attribute Counter constructor.
-  const StarGiftAttributeCounter({
-    required this.attribute,
-    required this.count,
-  }) : super._();
+  const StarGiftAttributeCounter({required this.attribute, required this.count})
+      : super._();
 
   /// Deserialize.
   factory StarGiftAttributeCounter.deserialize(BinaryReader reader) {
@@ -106603,9 +104476,7 @@ class PaymentsResaleStarGifts extends PaymentsResaleStarGiftsBase {
 /// ID: `c387c04e`.
 class StoriesCanSendStoryCount extends StoriesCanSendStoryCountBase {
   /// Stories Can Send Story Count constructor.
-  const StoriesCanSendStoryCount({
-    required this.countRemains,
-  }) : super._();
+  const StoriesCanSendStoryCount({required this.countRemains}) : super._();
 
   /// Deserialize.
   factory StoriesCanSendStoryCount.deserialize(BinaryReader reader) {
@@ -106613,9 +104484,7 @@ class StoriesCanSendStoryCount extends StoriesCanSendStoryCountBase {
     final countRemains = reader.readInt32();
 
     // Construct [StoriesCanSendStoryCount] object.
-    final returnValue = StoriesCanSendStoryCount(
-      countRemains: countRemains,
-    );
+    final returnValue = StoriesCanSendStoryCount(countRemains: countRemains);
 
     // Now return the deserialized [StoriesCanSendStoryCount].
     return returnValue;
@@ -106731,10 +104600,7 @@ class PendingSuggestion extends PendingSuggestionBase {
 /// ID: `cba9a52f`.
 class TodoItem extends TodoItemBase {
   /// Todo Item constructor.
-  const TodoItem({
-    required this.id,
-    required this.title,
-  }) : super._();
+  const TodoItem({required this.id, required this.title}) : super._();
 
   /// Deserialize.
   factory TodoItem.deserialize(BinaryReader reader) {
@@ -106743,10 +104609,7 @@ class TodoItem extends TodoItemBase {
     final title = reader.readObject() as TextWithEntitiesBase;
 
     // Construct [TodoItem] object.
-    final returnValue = TodoItem(
-      id: id,
-      title: title,
-    );
+    final returnValue = TodoItem(id: id, title: title);
 
     // Now return the deserialized [TodoItem].
     return returnValue;
@@ -106822,10 +104685,7 @@ class TodoList extends TodoListBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: othersCanAppend,
-      b01: othersCanComplete,
-    );
+    final v = _flag(b00: othersCanAppend, b01: othersCanComplete);
 
     return v;
   }
@@ -107076,9 +104936,7 @@ class StarsRating extends StarsRatingBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: nextLevelStars != null,
-    );
+    final v = _flag(b00: nextLevelStars != null);
 
     return v;
   }
@@ -107176,9 +105034,7 @@ class StarGiftCollection extends StarGiftCollectionBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: icon != null,
-    );
+    final v = _flag(b00: icon != null);
 
     return v;
   }
@@ -107252,7 +105108,8 @@ class PaymentsStarGiftCollectionsNotModified
 
   /// Deserialize.
   factory PaymentsStarGiftCollectionsNotModified.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [PaymentsStarGiftCollectionsNotModified] object.
     final returnValue = PaymentsStarGiftCollectionsNotModified();
 
@@ -107286,9 +105143,7 @@ class PaymentsStarGiftCollectionsNotModified
 /// ID: `8a2932f3`.
 class PaymentsStarGiftCollections extends PaymentsStarGiftCollectionsBase {
   /// Payments Star Gift Collections constructor.
-  const PaymentsStarGiftCollections({
-    required this.collections,
-  }) : super._();
+  const PaymentsStarGiftCollections({required this.collections}) : super._();
 
   /// Deserialize.
   factory PaymentsStarGiftCollections.deserialize(BinaryReader reader) {
@@ -107371,10 +105226,7 @@ class StoryAlbum extends StoryAlbumBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: iconPhoto != null,
-      b01: iconVideo != null,
-    );
+    final v = _flag(b00: iconPhoto != null, b01: iconVideo != null);
 
     return v;
   }
@@ -107474,10 +105326,7 @@ class StoriesAlbumsNotModified extends StoriesAlbumsBase {
 /// ID: `c3987a3a`.
 class StoriesAlbums extends StoriesAlbumsBase {
   /// Stories Albums constructor.
-  const StoriesAlbums({
-    required this.hash,
-    required this.albums,
-  }) : super._();
+  const StoriesAlbums({required this.hash, required this.albums}) : super._();
 
   /// Deserialize.
   factory StoriesAlbums.deserialize(BinaryReader reader) {
@@ -107486,10 +105335,7 @@ class StoriesAlbums extends StoriesAlbumsBase {
     final albums = reader.readVectorObject<StoryAlbumBase>();
 
     // Construct [StoriesAlbums] object.
-    final returnValue = StoriesAlbums(
-      hash: hash,
-      albums: albums.items,
-    );
+    final returnValue = StoriesAlbums(hash: hash, albums: albums.items);
 
     // Now return the deserialized [StoriesAlbums].
     return returnValue;
@@ -107569,10 +105415,7 @@ class SearchPostsFlood extends SearchPostsFloodBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: queryIsFree,
-      b01: waitTill != null,
-    );
+    final v = _flag(b00: queryIsFree, b01: waitTill != null);
 
     return v;
   }
@@ -107635,16 +105478,926 @@ class SearchPostsFlood extends SearchPostsFloodBase {
   }
 }
 
+/// Payments Unique Star Gift Value Info.
+///
+/// ID: `512fe446`.
+class PaymentsUniqueStarGiftValueInfo
+    extends PaymentsUniqueStarGiftValueInfoBase {
+  /// Payments Unique Star Gift Value Info constructor.
+  const PaymentsUniqueStarGiftValueInfo({
+    required this.lastSaleOnFragment,
+    required this.valueIsAverage,
+    required this.currency,
+    required this.value,
+    required this.initialSaleDate,
+    required this.initialSaleStars,
+    required this.initialSalePrice,
+    this.lastSaleDate,
+    this.lastSalePrice,
+    this.floorPrice,
+    this.averagePrice,
+    this.listedCount,
+    this.fragmentListedCount,
+    this.fragmentListedUrl,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsUniqueStarGiftValueInfo.deserialize(BinaryReader reader) {
+    // Read [PaymentsUniqueStarGiftValueInfo] fields.
+    final flags = reader.readInt32();
+    final lastSaleOnFragment = (flags & 2) != 0;
+    final valueIsAverage = (flags & 64) != 0;
+    final currency = reader.readString();
+    final value = reader.readInt64();
+    final initialSaleDate = reader.readDateTime();
+    final initialSaleStars = reader.readInt64();
+    final initialSalePrice = reader.readInt64();
+    final hasLastSaleDateField = (flags & 1) != 0;
+    final lastSaleDate = hasLastSaleDateField ? reader.readDateTime() : null;
+    final hasLastSalePriceField = (flags & 1) != 0;
+    final lastSalePrice = hasLastSalePriceField ? reader.readInt64() : null;
+    final hasFloorPriceField = (flags & 4) != 0;
+    final floorPrice = hasFloorPriceField ? reader.readInt64() : null;
+    final hasAveragePriceField = (flags & 8) != 0;
+    final averagePrice = hasAveragePriceField ? reader.readInt64() : null;
+    final hasListedCountField = (flags & 16) != 0;
+    final listedCount = hasListedCountField ? reader.readInt32() : null;
+    final hasFragmentListedCountField = (flags & 32) != 0;
+    final fragmentListedCount =
+        hasFragmentListedCountField ? reader.readInt32() : null;
+    final hasFragmentListedUrlField = (flags & 32) != 0;
+    final fragmentListedUrl =
+        hasFragmentListedUrlField ? reader.readString() : null;
+
+    // Construct [PaymentsUniqueStarGiftValueInfo] object.
+    final returnValue = PaymentsUniqueStarGiftValueInfo(
+      lastSaleOnFragment: lastSaleOnFragment,
+      valueIsAverage: valueIsAverage,
+      currency: currency,
+      value: value,
+      initialSaleDate: initialSaleDate,
+      initialSaleStars: initialSaleStars,
+      initialSalePrice: initialSalePrice,
+      lastSaleDate: lastSaleDate,
+      lastSalePrice: lastSalePrice,
+      floorPrice: floorPrice,
+      averagePrice: averagePrice,
+      listedCount: listedCount,
+      fragmentListedCount: fragmentListedCount,
+      fragmentListedUrl: fragmentListedUrl,
+    );
+
+    // Now return the deserialized [PaymentsUniqueStarGiftValueInfo].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: lastSaleOnFragment,
+      b06: valueIsAverage,
+      b00: lastSaleDate != null || lastSalePrice != null,
+      b02: floorPrice != null,
+      b03: averagePrice != null,
+      b04: listedCount != null,
+      b05: fragmentListedCount != null || fragmentListedUrl != null,
+    );
+
+    return v;
+  }
+
+  /// last_sale_on_fragment: bit 1 of flags.1?true
+  final bool lastSaleOnFragment;
+
+  /// value_is_average: bit 6 of flags.6?true
+  final bool valueIsAverage;
+
+  /// Currency.
+  final String currency;
+
+  /// Value.
+  ///
+  /// Field type is Int64.
+  final int value;
+
+  /// Initial Sale Date.
+  final DateTime initialSaleDate;
+
+  /// Initial Sale Stars.
+  ///
+  /// Field type is Int64.
+  final int initialSaleStars;
+
+  /// Initial Sale Price.
+  ///
+  /// Field type is Int64.
+  final int initialSalePrice;
+
+  /// Last Sale Date.
+  final DateTime? lastSaleDate;
+
+  /// Last Sale Price.
+  final int? lastSalePrice;
+
+  /// Floor Price.
+  final int? floorPrice;
+
+  /// Average Price.
+  final int? averagePrice;
+
+  /// Listed Count.
+  final int? listedCount;
+
+  /// Fragment Listed Count.
+  final int? fragmentListedCount;
+
+  /// Fragment Listed Url.
+  final String? fragmentListedUrl;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x512fe446.
+    buffer.writeInt32(0x512fe446);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(currency);
+    buffer.writeInt64(value);
+    buffer.writeDateTime(initialSaleDate);
+    buffer.writeInt64(initialSaleStars);
+    buffer.writeInt64(initialSalePrice);
+    final localLastSaleDateCopy = lastSaleDate;
+    if (localLastSaleDateCopy != null) {
+      buffer.writeDateTime(localLastSaleDateCopy);
+    }
+    final localLastSalePriceCopy = lastSalePrice;
+    if (localLastSalePriceCopy != null) {
+      buffer.writeInt64(localLastSalePriceCopy);
+    }
+    final localFloorPriceCopy = floorPrice;
+    if (localFloorPriceCopy != null) {
+      buffer.writeInt64(localFloorPriceCopy);
+    }
+    final localAveragePriceCopy = averagePrice;
+    if (localAveragePriceCopy != null) {
+      buffer.writeInt64(localAveragePriceCopy);
+    }
+    final localListedCountCopy = listedCount;
+    if (localListedCountCopy != null) {
+      buffer.writeInt32(localListedCountCopy);
+    }
+    final localFragmentListedCountCopy = fragmentListedCount;
+    if (localFragmentListedCountCopy != null) {
+      buffer.writeInt32(localFragmentListedCountCopy);
+    }
+    final localFragmentListedUrlCopy = fragmentListedUrl;
+    if (localFragmentListedUrlCopy != null) {
+      buffer.writeString(localFragmentListedUrlCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "512fe446",
+      "\$name": "PaymentsUniqueStarGiftValueInfo",
+      "flags": flags,
+      "lastSaleOnFragment": lastSaleOnFragment,
+      "valueIsAverage": valueIsAverage,
+      "currency": currency,
+      "value": value,
+      "initialSaleDate": initialSaleDate.toIso8601String(),
+      "initialSaleStars": initialSaleStars,
+      "initialSalePrice": initialSalePrice,
+      "lastSaleDate": lastSaleDate?.toIso8601String(),
+      "lastSalePrice": lastSalePrice,
+      "floorPrice": floorPrice,
+      "averagePrice": averagePrice,
+      "listedCount": listedCount,
+      "fragmentListedCount": fragmentListedCount,
+      "fragmentListedUrl": fragmentListedUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Posts.
+///
+/// ID: `b98cd696`.
+class ProfileTabPosts extends ProfileTabBase {
+  /// Profile Tab Posts constructor.
+  const ProfileTabPosts() : super._();
+
+  /// Deserialize.
+  factory ProfileTabPosts.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabPosts] object.
+    final returnValue = ProfileTabPosts();
+
+    // Now return the deserialized [ProfileTabPosts].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb98cd696.
+    buffer.writeInt32(0xb98cd696);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "b98cd696",
+      "\$name": "ProfileTabPosts",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Gifts.
+///
+/// ID: `4d4bd46a`.
+class ProfileTabGifts extends ProfileTabBase {
+  /// Profile Tab Gifts constructor.
+  const ProfileTabGifts() : super._();
+
+  /// Deserialize.
+  factory ProfileTabGifts.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabGifts] object.
+    final returnValue = ProfileTabGifts();
+
+    // Now return the deserialized [ProfileTabGifts].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4d4bd46a.
+    buffer.writeInt32(0x4d4bd46a);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4d4bd46a",
+      "\$name": "ProfileTabGifts",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Media.
+///
+/// ID: `72c64955`.
+class ProfileTabMedia extends ProfileTabBase {
+  /// Profile Tab Media constructor.
+  const ProfileTabMedia() : super._();
+
+  /// Deserialize.
+  factory ProfileTabMedia.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabMedia] object.
+    final returnValue = ProfileTabMedia();
+
+    // Now return the deserialized [ProfileTabMedia].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x72c64955.
+    buffer.writeInt32(0x72c64955);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "72c64955",
+      "\$name": "ProfileTabMedia",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Files.
+///
+/// ID: `ab339c00`.
+class ProfileTabFiles extends ProfileTabBase {
+  /// Profile Tab Files constructor.
+  const ProfileTabFiles() : super._();
+
+  /// Deserialize.
+  factory ProfileTabFiles.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabFiles] object.
+    final returnValue = ProfileTabFiles();
+
+    // Now return the deserialized [ProfileTabFiles].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xab339c00.
+    buffer.writeInt32(0xab339c00);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ab339c00",
+      "\$name": "ProfileTabFiles",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Music.
+///
+/// ID: `9f27d26e`.
+class ProfileTabMusic extends ProfileTabBase {
+  /// Profile Tab Music constructor.
+  const ProfileTabMusic() : super._();
+
+  /// Deserialize.
+  factory ProfileTabMusic.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabMusic] object.
+    final returnValue = ProfileTabMusic();
+
+    // Now return the deserialized [ProfileTabMusic].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9f27d26e.
+    buffer.writeInt32(0x9f27d26e);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9f27d26e",
+      "\$name": "ProfileTabMusic",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Voice.
+///
+/// ID: `e477092e`.
+class ProfileTabVoice extends ProfileTabBase {
+  /// Profile Tab Voice constructor.
+  const ProfileTabVoice() : super._();
+
+  /// Deserialize.
+  factory ProfileTabVoice.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabVoice] object.
+    final returnValue = ProfileTabVoice();
+
+    // Now return the deserialized [ProfileTabVoice].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe477092e.
+    buffer.writeInt32(0xe477092e);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e477092e",
+      "\$name": "ProfileTabVoice",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Links.
+///
+/// ID: `d3656499`.
+class ProfileTabLinks extends ProfileTabBase {
+  /// Profile Tab Links constructor.
+  const ProfileTabLinks() : super._();
+
+  /// Deserialize.
+  factory ProfileTabLinks.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabLinks] object.
+    final returnValue = ProfileTabLinks();
+
+    // Now return the deserialized [ProfileTabLinks].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd3656499.
+    buffer.writeInt32(0xd3656499);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d3656499",
+      "\$name": "ProfileTabLinks",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Profile Tab Gifs.
+///
+/// ID: `a2c0f695`.
+class ProfileTabGifs extends ProfileTabBase {
+  /// Profile Tab Gifs constructor.
+  const ProfileTabGifs() : super._();
+
+  /// Deserialize.
+  factory ProfileTabGifs.deserialize(BinaryReader reader) {
+    // Construct [ProfileTabGifs] object.
+    final returnValue = ProfileTabGifs();
+
+    // Now return the deserialized [ProfileTabGifs].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa2c0f695.
+    buffer.writeInt32(0xa2c0f695);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a2c0f695",
+      "\$name": "ProfileTabGifs",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Users Saved Music Not Modified.
+///
+/// ID: `e3878aa4`.
+class UsersSavedMusicNotModified extends UsersSavedMusicBase {
+  /// Users Saved Music Not Modified constructor.
+  const UsersSavedMusicNotModified({required this.count}) : super._();
+
+  /// Deserialize.
+  factory UsersSavedMusicNotModified.deserialize(BinaryReader reader) {
+    // Read [UsersSavedMusicNotModified] fields.
+    final count = reader.readInt32();
+
+    // Construct [UsersSavedMusicNotModified] object.
+    final returnValue = UsersSavedMusicNotModified(count: count);
+
+    // Now return the deserialized [UsersSavedMusicNotModified].
+    return returnValue;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe3878aa4.
+    buffer.writeInt32(0xe3878aa4);
+
+    // Write fields.
+    buffer.writeInt32(count);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e3878aa4",
+      "\$name": "UsersSavedMusicNotModified",
+      "count": count,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Users Saved Music.
+///
+/// ID: `34a2f297`.
+class UsersSavedMusic extends UsersSavedMusicBase {
+  /// Users Saved Music constructor.
+  const UsersSavedMusic({required this.count, required this.documents})
+      : super._();
+
+  /// Deserialize.
+  factory UsersSavedMusic.deserialize(BinaryReader reader) {
+    // Read [UsersSavedMusic] fields.
+    final count = reader.readInt32();
+    final documents = reader.readVectorObject<DocumentBase>();
+
+    // Construct [UsersSavedMusic] object.
+    final returnValue = UsersSavedMusic(
+      count: count,
+      documents: documents.items,
+    );
+
+    // Now return the deserialized [UsersSavedMusic].
+    return returnValue;
+  }
+
+  /// Count.
+  ///
+  /// Field type is Int32.
+  final int count;
+
+  /// Documents.
+  final List<DocumentBase> documents;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x34a2f297.
+    buffer.writeInt32(0x34a2f297);
+
+    // Write fields.
+    buffer.writeInt32(count);
+    buffer.writeVectorObject(documents);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "34a2f297",
+      "\$name": "UsersSavedMusic",
+      "count": count,
+      "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Saved Music Ids Not Modified.
+///
+/// ID: `4fc81d6e`.
+class AccountSavedMusicIdsNotModified extends AccountSavedMusicIdsBase {
+  /// Account Saved Music Ids Not Modified constructor.
+  const AccountSavedMusicIdsNotModified() : super._();
+
+  /// Deserialize.
+  factory AccountSavedMusicIdsNotModified.deserialize(BinaryReader reader) {
+    // Construct [AccountSavedMusicIdsNotModified] object.
+    final returnValue = AccountSavedMusicIdsNotModified();
+
+    // Now return the deserialized [AccountSavedMusicIdsNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4fc81d6e.
+    buffer.writeInt32(0x4fc81d6e);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4fc81d6e",
+      "\$name": "AccountSavedMusicIdsNotModified",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Saved Music Ids.
+///
+/// ID: `998d6636`.
+class AccountSavedMusicIds extends AccountSavedMusicIdsBase {
+  /// Account Saved Music Ids constructor.
+  const AccountSavedMusicIds({required this.ids}) : super._();
+
+  /// Deserialize.
+  factory AccountSavedMusicIds.deserialize(BinaryReader reader) {
+    // Read [AccountSavedMusicIds] fields.
+    final ids = reader.readVectorInt64();
+
+    // Construct [AccountSavedMusicIds] object.
+    final returnValue = AccountSavedMusicIds(ids: ids.items);
+
+    // Now return the deserialized [AccountSavedMusicIds].
+    return returnValue;
+  }
+
+  /// Ids.
+  final List<int> ids;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x998d6636.
+    buffer.writeInt32(0x998d6636);
+
+    // Write fields.
+    buffer.writeVectorInt64(ids);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "998d6636",
+      "\$name": "AccountSavedMusicIds",
+      "ids": ids,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Check Can Send Gift Result Ok.
+///
+/// ID: `374fa7ad`.
+class PaymentsCheckCanSendGiftResultOk
+    extends PaymentsCheckCanSendGiftResultBase {
+  /// Payments Check Can Send Gift Result Ok constructor.
+  const PaymentsCheckCanSendGiftResultOk() : super._();
+
+  /// Deserialize.
+  factory PaymentsCheckCanSendGiftResultOk.deserialize(BinaryReader reader) {
+    // Construct [PaymentsCheckCanSendGiftResultOk] object.
+    final returnValue = PaymentsCheckCanSendGiftResultOk();
+
+    // Now return the deserialized [PaymentsCheckCanSendGiftResultOk].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x374fa7ad.
+    buffer.writeInt32(0x374fa7ad);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "374fa7ad",
+      "\$name": "PaymentsCheckCanSendGiftResultOk",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Check Can Send Gift Result Fail.
+///
+/// ID: `d5e58274`.
+class PaymentsCheckCanSendGiftResultFail
+    extends PaymentsCheckCanSendGiftResultBase {
+  /// Payments Check Can Send Gift Result Fail constructor.
+  const PaymentsCheckCanSendGiftResultFail({required this.reason}) : super._();
+
+  /// Deserialize.
+  factory PaymentsCheckCanSendGiftResultFail.deserialize(BinaryReader reader) {
+    // Read [PaymentsCheckCanSendGiftResultFail] fields.
+    final reason = reader.readObject() as TextWithEntitiesBase;
+
+    // Construct [PaymentsCheckCanSendGiftResultFail] object.
+    final returnValue = PaymentsCheckCanSendGiftResultFail(reason: reason);
+
+    // Now return the deserialized [PaymentsCheckCanSendGiftResultFail].
+    return returnValue;
+  }
+
+  /// Reason.
+  final TextWithEntitiesBase reason;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd5e58274.
+    buffer.writeInt32(0xd5e58274);
+
+    // Write fields.
+    buffer.writeObject(reason);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d5e58274",
+      "\$name": "PaymentsCheckCanSendGiftResultFail",
+      "reason": reason,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Chat Theme Empty.
+///
+/// ID: `83268483`.
+class InputChatThemeEmpty extends InputChatThemeBase {
+  /// Input Chat Theme Empty constructor.
+  const InputChatThemeEmpty() : super._();
+
+  /// Deserialize.
+  factory InputChatThemeEmpty.deserialize(BinaryReader reader) {
+    // Construct [InputChatThemeEmpty] object.
+    final returnValue = InputChatThemeEmpty();
+
+    // Now return the deserialized [InputChatThemeEmpty].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x83268483.
+    buffer.writeInt32(0x83268483);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "83268483",
+      "\$name": "InputChatThemeEmpty",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Chat Theme.
+///
+/// ID: `c93de95c`.
+class InputChatTheme extends InputChatThemeBase {
+  /// Input Chat Theme constructor.
+  const InputChatTheme({required this.emoticon}) : super._();
+
+  /// Deserialize.
+  factory InputChatTheme.deserialize(BinaryReader reader) {
+    // Read [InputChatTheme] fields.
+    final emoticon = reader.readString();
+
+    // Construct [InputChatTheme] object.
+    final returnValue = InputChatTheme(emoticon: emoticon);
+
+    // Now return the deserialized [InputChatTheme].
+    return returnValue;
+  }
+
+  /// Emoticon.
+  final String emoticon;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc93de95c.
+    buffer.writeInt32(0xc93de95c);
+
+    // Write fields.
+    buffer.writeString(emoticon);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c93de95c",
+      "\$name": "InputChatTheme",
+      "emoticon": emoticon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Chat Theme Unique Gift.
+///
+/// ID: `87e5dfe4`.
+class InputChatThemeUniqueGift extends InputChatThemeBase {
+  /// Input Chat Theme Unique Gift constructor.
+  const InputChatThemeUniqueGift({required this.slug}) : super._();
+
+  /// Deserialize.
+  factory InputChatThemeUniqueGift.deserialize(BinaryReader reader) {
+    // Read [InputChatThemeUniqueGift] fields.
+    final slug = reader.readString();
+
+    // Construct [InputChatThemeUniqueGift] object.
+    final returnValue = InputChatThemeUniqueGift(slug: slug);
+
+    // Now return the deserialized [InputChatThemeUniqueGift].
+    return returnValue;
+  }
+
+  /// Slug.
+  final String slug;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x87e5dfe4.
+    buffer.writeInt32(0x87e5dfe4);
+
+    // Write fields.
+    buffer.writeString(slug);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "87e5dfe4",
+      "\$name": "InputChatThemeUniqueGift",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Invoke After Msg.
 ///
 /// Return Type: `X`.
 /// ID: `cb9f372d`.
 class InvokeAfterMsg extends TlMethod {
   /// Invoke After Msg constructor.
-  const InvokeAfterMsg({
-    required this.msgId,
-    required this.query,
-  }) : super._();
+  const InvokeAfterMsg({required this.msgId, required this.query}) : super._();
 
   /// Deserialize.
   factory InvokeAfterMsg.deserialize(BinaryReader reader) {
@@ -107653,10 +106406,7 @@ class InvokeAfterMsg extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeAfterMsg] object.
-    final returnValue = InvokeAfterMsg(
-      msgId: msgId,
-      query: query,
-    );
+    final returnValue = InvokeAfterMsg(msgId: msgId, query: query);
 
     // Now return the deserialized [InvokeAfterMsg].
     return returnValue;
@@ -107703,10 +106453,8 @@ class InvokeAfterMsg extends TlMethod {
 /// ID: `3dc4b4f0`.
 class InvokeAfterMsgs extends TlMethod {
   /// Invoke After Msgs constructor.
-  const InvokeAfterMsgs({
-    required this.msgIds,
-    required this.query,
-  }) : super._();
+  const InvokeAfterMsgs({required this.msgIds, required this.query})
+      : super._();
 
   /// Deserialize.
   factory InvokeAfterMsgs.deserialize(BinaryReader reader) {
@@ -107715,10 +106463,7 @@ class InvokeAfterMsgs extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeAfterMsgs] object.
-    final returnValue = InvokeAfterMsgs(
-      msgIds: msgIds.items,
-      query: query,
-    );
+    final returnValue = InvokeAfterMsgs(msgIds: msgIds.items, query: query);
 
     // Now return the deserialized [InvokeAfterMsgs].
     return returnValue;
@@ -107814,10 +106559,7 @@ class InitConnection extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: proxy != null,
-      b01: params != null,
-    );
+    final v = _flag(b00: proxy != null, b01: params != null);
 
     return v;
   }
@@ -107911,10 +106653,7 @@ class InitConnection extends TlMethod {
 /// ID: `da9b0d0d`.
 class InvokeWithLayer extends TlMethod {
   /// Invoke With Layer constructor.
-  const InvokeWithLayer({
-    required this.layer,
-    required this.query,
-  }) : super._();
+  const InvokeWithLayer({required this.layer, required this.query}) : super._();
 
   /// Deserialize.
   factory InvokeWithLayer.deserialize(BinaryReader reader) {
@@ -107923,10 +106662,7 @@ class InvokeWithLayer extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithLayer] object.
-    final returnValue = InvokeWithLayer(
-      layer: layer,
-      query: query,
-    );
+    final returnValue = InvokeWithLayer(layer: layer, query: query);
 
     // Now return the deserialized [InvokeWithLayer].
     return returnValue;
@@ -107973,9 +106709,7 @@ class InvokeWithLayer extends TlMethod {
 /// ID: `bf9459b7`.
 class InvokeWithoutUpdates extends TlMethod {
   /// Invoke Without Updates constructor.
-  const InvokeWithoutUpdates({
-    required this.query,
-  }) : super._();
+  const InvokeWithoutUpdates({required this.query}) : super._();
 
   /// Deserialize.
   factory InvokeWithoutUpdates.deserialize(BinaryReader reader) {
@@ -107983,9 +106717,7 @@ class InvokeWithoutUpdates extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithoutUpdates] object.
-    final returnValue = InvokeWithoutUpdates(
-      query: query,
-    );
+    final returnValue = InvokeWithoutUpdates(query: query);
 
     // Now return the deserialized [InvokeWithoutUpdates].
     return returnValue;
@@ -108025,10 +106757,8 @@ class InvokeWithoutUpdates extends TlMethod {
 /// ID: `365275f2`.
 class InvokeWithMessagesRange extends TlMethod {
   /// Invoke With Messages Range constructor.
-  const InvokeWithMessagesRange({
-    required this.range,
-    required this.query,
-  }) : super._();
+  const InvokeWithMessagesRange({required this.range, required this.query})
+      : super._();
 
   /// Deserialize.
   factory InvokeWithMessagesRange.deserialize(BinaryReader reader) {
@@ -108037,10 +106767,7 @@ class InvokeWithMessagesRange extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithMessagesRange] object.
-    final returnValue = InvokeWithMessagesRange(
-      range: range,
-      query: query,
-    );
+    final returnValue = InvokeWithMessagesRange(range: range, query: query);
 
     // Now return the deserialized [InvokeWithMessagesRange].
     return returnValue;
@@ -108085,10 +106812,8 @@ class InvokeWithMessagesRange extends TlMethod {
 /// ID: `aca9fd2e`.
 class InvokeWithTakeout extends TlMethod {
   /// Invoke With Takeout constructor.
-  const InvokeWithTakeout({
-    required this.takeoutId,
-    required this.query,
-  }) : super._();
+  const InvokeWithTakeout({required this.takeoutId, required this.query})
+      : super._();
 
   /// Deserialize.
   factory InvokeWithTakeout.deserialize(BinaryReader reader) {
@@ -108097,10 +106822,7 @@ class InvokeWithTakeout extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithTakeout] object.
-    final returnValue = InvokeWithTakeout(
-      takeoutId: takeoutId,
-      query: query,
-    );
+    final returnValue = InvokeWithTakeout(takeoutId: takeoutId, query: query);
 
     // Now return the deserialized [InvokeWithTakeout].
     return returnValue;
@@ -108343,10 +107065,8 @@ class InvokeWithApnsSecret extends TlMethod {
 /// ID: `adbb0f94`.
 class InvokeWithReCaptcha extends TlMethod {
   /// Invoke With Re Captcha constructor.
-  const InvokeWithReCaptcha({
-    required this.token,
-    required this.query,
-  }) : super._();
+  const InvokeWithReCaptcha({required this.token, required this.query})
+      : super._();
 
   /// Deserialize.
   factory InvokeWithReCaptcha.deserialize(BinaryReader reader) {
@@ -108355,10 +107075,7 @@ class InvokeWithReCaptcha extends TlMethod {
     final query = reader.readObject() as TlMethod;
 
     // Construct [InvokeWithReCaptcha] object.
-    final returnValue = InvokeWithReCaptcha(
-      token: token,
-      query: query,
-    );
+    final returnValue = InvokeWithReCaptcha(token: token, query: query);
 
     // Now return the deserialized [InvokeWithReCaptcha].
     return returnValue;
@@ -108514,9 +107231,7 @@ class AuthSignUp extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: noJoinedNotifications,
-    );
+    final v = _flag(b00: noJoinedNotifications);
 
     return v;
   }
@@ -108610,10 +107325,7 @@ class AuthSignIn extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: phoneCode != null,
-      b01: emailVerification != null,
-    );
+    final v = _flag(b00: phoneCode != null, b01: emailVerification != null);
 
     return v;
   }
@@ -108751,9 +107463,7 @@ class AuthResetAuthorizations extends TlMethod {
 /// ID: `e5bfffcd`.
 class AuthExportAuthorization extends TlMethod {
   /// Auth Export Authorization constructor.
-  const AuthExportAuthorization({
-    required this.dcId,
-  }) : super._();
+  const AuthExportAuthorization({required this.dcId}) : super._();
 
   /// Deserialize.
   factory AuthExportAuthorization.deserialize(BinaryReader reader) {
@@ -108761,9 +107471,7 @@ class AuthExportAuthorization extends TlMethod {
     final dcId = reader.readInt32();
 
     // Construct [AuthExportAuthorization] object.
-    final returnValue = AuthExportAuthorization(
-      dcId: dcId,
-    );
+    final returnValue = AuthExportAuthorization(dcId: dcId);
 
     // Now return the deserialized [AuthExportAuthorization].
     return returnValue;
@@ -108805,10 +107513,8 @@ class AuthExportAuthorization extends TlMethod {
 /// ID: `a57a7dad`.
 class AuthImportAuthorization extends TlMethod {
   /// Auth Import Authorization constructor.
-  const AuthImportAuthorization({
-    required this.id,
-    required this.bytes,
-  }) : super._();
+  const AuthImportAuthorization({required this.id, required this.bytes})
+      : super._();
 
   /// Deserialize.
   factory AuthImportAuthorization.deserialize(BinaryReader reader) {
@@ -108817,10 +107523,7 @@ class AuthImportAuthorization extends TlMethod {
     final bytes = reader.readBytes();
 
     // Construct [AuthImportAuthorization] object.
-    final returnValue = AuthImportAuthorization(
-      id: id,
-      bytes: bytes,
-    );
+    final returnValue = AuthImportAuthorization(id: id, bytes: bytes);
 
     // Now return the deserialized [AuthImportAuthorization].
     return returnValue;
@@ -109027,9 +107730,7 @@ class AuthImportBotAuthorization extends TlMethod {
 /// ID: `d18b4d16`.
 class AuthCheckPassword extends TlMethod {
   /// Auth Check Password constructor.
-  const AuthCheckPassword({
-    required this.password,
-  }) : super._();
+  const AuthCheckPassword({required this.password}) : super._();
 
   /// Deserialize.
   factory AuthCheckPassword.deserialize(BinaryReader reader) {
@@ -109037,9 +107738,7 @@ class AuthCheckPassword extends TlMethod {
     final password = reader.readObject() as InputCheckPasswordSRPBase;
 
     // Construct [AuthCheckPassword] object.
-    final returnValue = AuthCheckPassword(
-      password: password,
-    );
+    final returnValue = AuthCheckPassword(password: password);
 
     // Now return the deserialized [AuthCheckPassword].
     return returnValue;
@@ -109117,10 +107816,7 @@ class AuthRequestPasswordRecovery extends TlMethod {
 /// ID: `37096c70`.
 class AuthRecoverPassword extends TlMethod {
   /// Auth Recover Password constructor.
-  const AuthRecoverPassword({
-    required this.code,
-    this.newSettings,
-  }) : super._();
+  const AuthRecoverPassword({required this.code, this.newSettings}) : super._();
 
   /// Deserialize.
   factory AuthRecoverPassword.deserialize(BinaryReader reader) {
@@ -109144,9 +107840,7 @@ class AuthRecoverPassword extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: newSettings != null,
-    );
+    final v = _flag(b00: newSettings != null);
 
     return v;
   }
@@ -109223,9 +107917,7 @@ class AuthResendCode extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: reason != null,
-    );
+    final v = _flag(b00: reason != null);
 
     return v;
   }
@@ -109279,10 +107971,8 @@ class AuthResendCode extends TlMethod {
 /// ID: `1f040578`.
 class AuthCancelCode extends TlMethod {
   /// Auth Cancel Code constructor.
-  const AuthCancelCode({
-    required this.phoneNumber,
-    required this.phoneCodeHash,
-  }) : super._();
+  const AuthCancelCode({required this.phoneNumber, required this.phoneCodeHash})
+      : super._();
 
   /// Deserialize.
   factory AuthCancelCode.deserialize(BinaryReader reader) {
@@ -109339,9 +108029,7 @@ class AuthCancelCode extends TlMethod {
 /// ID: `8e48a188`.
 class AuthDropTempAuthKeys extends TlMethod {
   /// Auth Drop Temp Auth Keys constructor.
-  const AuthDropTempAuthKeys({
-    required this.exceptAuthKeys,
-  }) : super._();
+  const AuthDropTempAuthKeys({required this.exceptAuthKeys}) : super._();
 
   /// Deserialize.
   factory AuthDropTempAuthKeys.deserialize(BinaryReader reader) {
@@ -109461,9 +108149,7 @@ class AuthExportLoginToken extends TlMethod {
 /// ID: `95ac5ce4`.
 class AuthImportLoginToken extends TlMethod {
   /// Auth Import Login Token constructor.
-  const AuthImportLoginToken({
-    required this.token,
-  }) : super._();
+  const AuthImportLoginToken({required this.token}) : super._();
 
   /// Deserialize.
   factory AuthImportLoginToken.deserialize(BinaryReader reader) {
@@ -109471,9 +108157,7 @@ class AuthImportLoginToken extends TlMethod {
     final token = reader.readBytes();
 
     // Construct [AuthImportLoginToken] object.
-    final returnValue = AuthImportLoginToken(
-      token: token,
-    );
+    final returnValue = AuthImportLoginToken(token: token);
 
     // Now return the deserialized [AuthImportLoginToken].
     return returnValue;
@@ -109513,9 +108197,7 @@ class AuthImportLoginToken extends TlMethod {
 /// ID: `e894ad4d`.
 class AuthAcceptLoginToken extends TlMethod {
   /// Auth Accept Login Token constructor.
-  const AuthAcceptLoginToken({
-    required this.token,
-  }) : super._();
+  const AuthAcceptLoginToken({required this.token}) : super._();
 
   /// Deserialize.
   factory AuthAcceptLoginToken.deserialize(BinaryReader reader) {
@@ -109523,9 +108205,7 @@ class AuthAcceptLoginToken extends TlMethod {
     final token = reader.readBytes();
 
     // Construct [AuthAcceptLoginToken] object.
-    final returnValue = AuthAcceptLoginToken(
-      token: token,
-    );
+    final returnValue = AuthAcceptLoginToken(token: token);
 
     // Now return the deserialized [AuthAcceptLoginToken].
     return returnValue;
@@ -109565,9 +108245,7 @@ class AuthAcceptLoginToken extends TlMethod {
 /// ID: `0d36bf79`.
 class AuthCheckRecoveryPassword extends TlMethod {
   /// Auth Check Recovery Password constructor.
-  const AuthCheckRecoveryPassword({
-    required this.code,
-  }) : super._();
+  const AuthCheckRecoveryPassword({required this.code}) : super._();
 
   /// Deserialize.
   factory AuthCheckRecoveryPassword.deserialize(BinaryReader reader) {
@@ -109575,9 +108253,7 @@ class AuthCheckRecoveryPassword extends TlMethod {
     final code = reader.readString();
 
     // Construct [AuthCheckRecoveryPassword] object.
-    final returnValue = AuthCheckRecoveryPassword(
-      code: code,
-    );
+    final returnValue = AuthCheckRecoveryPassword(code: code);
 
     // Now return the deserialized [AuthCheckRecoveryPassword].
     return returnValue;
@@ -109962,9 +108638,7 @@ class AccountRegisterDevice extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: noMuted,
-    );
+    final v = _flag(b00: noMuted);
 
     return v;
   }
@@ -110161,9 +108835,7 @@ class AccountUpdateNotifySettings extends TlMethod {
 /// ID: `12b3ad31`.
 class AccountGetNotifySettings extends TlMethod {
   /// Account Get Notify Settings constructor.
-  const AccountGetNotifySettings({
-    required this.peer,
-  }) : super._();
+  const AccountGetNotifySettings({required this.peer}) : super._();
 
   /// Deserialize.
   factory AccountGetNotifySettings.deserialize(BinaryReader reader) {
@@ -110171,9 +108843,7 @@ class AccountGetNotifySettings extends TlMethod {
     final peer = reader.readObject() as InputNotifyPeerBase;
 
     // Construct [AccountGetNotifySettings] object.
-    final returnValue = AccountGetNotifySettings(
-      peer: peer,
-    );
+    final returnValue = AccountGetNotifySettings(peer: peer);
 
     // Now return the deserialized [AccountGetNotifySettings].
     return returnValue;
@@ -110251,11 +108921,8 @@ class AccountResetNotifySettings extends TlMethod {
 /// ID: `78515775`.
 class AccountUpdateProfile extends TlMethod {
   /// Account Update Profile constructor.
-  const AccountUpdateProfile({
-    this.firstName,
-    this.lastName,
-    this.about,
-  }) : super._();
+  const AccountUpdateProfile({this.firstName, this.lastName, this.about})
+      : super._();
 
   /// Deserialize.
   factory AccountUpdateProfile.deserialize(BinaryReader reader) {
@@ -110345,9 +109012,7 @@ class AccountUpdateProfile extends TlMethod {
 /// ID: `6628562c`.
 class AccountUpdateStatus extends TlMethod {
   /// Account Update Status constructor.
-  const AccountUpdateStatus({
-    required this.offline,
-  }) : super._();
+  const AccountUpdateStatus({required this.offline}) : super._();
 
   /// Deserialize.
   factory AccountUpdateStatus.deserialize(BinaryReader reader) {
@@ -110355,9 +109020,7 @@ class AccountUpdateStatus extends TlMethod {
     final offline = reader.readBool();
 
     // Construct [AccountUpdateStatus] object.
-    final returnValue = AccountUpdateStatus(
-      offline: offline,
-    );
+    final returnValue = AccountUpdateStatus(offline: offline);
 
     // Now return the deserialized [AccountUpdateStatus].
     return returnValue;
@@ -110397,9 +109060,7 @@ class AccountUpdateStatus extends TlMethod {
 /// ID: `07967d36`.
 class AccountGetWallPapers extends TlMethod {
   /// Account Get Wall Papers constructor.
-  const AccountGetWallPapers({
-    required this.hash,
-  }) : super._();
+  const AccountGetWallPapers({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetWallPapers.deserialize(BinaryReader reader) {
@@ -110407,9 +109068,7 @@ class AccountGetWallPapers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetWallPapers] object.
-    final returnValue = AccountGetWallPapers(
-      hash: hash,
-    );
+    final returnValue = AccountGetWallPapers(hash: hash);
 
     // Now return the deserialized [AccountGetWallPapers].
     return returnValue;
@@ -110519,9 +109178,7 @@ class AccountReportPeer extends TlMethod {
 /// ID: `2714d86c`.
 class AccountCheckUsername extends TlMethod {
   /// Account Check Username constructor.
-  const AccountCheckUsername({
-    required this.username,
-  }) : super._();
+  const AccountCheckUsername({required this.username}) : super._();
 
   /// Deserialize.
   factory AccountCheckUsername.deserialize(BinaryReader reader) {
@@ -110529,9 +109186,7 @@ class AccountCheckUsername extends TlMethod {
     final username = reader.readString();
 
     // Construct [AccountCheckUsername] object.
-    final returnValue = AccountCheckUsername(
-      username: username,
-    );
+    final returnValue = AccountCheckUsername(username: username);
 
     // Now return the deserialized [AccountCheckUsername].
     return returnValue;
@@ -110571,9 +109226,7 @@ class AccountCheckUsername extends TlMethod {
 /// ID: `3e0bdd7c`.
 class AccountUpdateUsername extends TlMethod {
   /// Account Update Username constructor.
-  const AccountUpdateUsername({
-    required this.username,
-  }) : super._();
+  const AccountUpdateUsername({required this.username}) : super._();
 
   /// Deserialize.
   factory AccountUpdateUsername.deserialize(BinaryReader reader) {
@@ -110581,9 +109234,7 @@ class AccountUpdateUsername extends TlMethod {
     final username = reader.readString();
 
     // Construct [AccountUpdateUsername] object.
-    final returnValue = AccountUpdateUsername(
-      username: username,
-    );
+    final returnValue = AccountUpdateUsername(username: username);
 
     // Now return the deserialized [AccountUpdateUsername].
     return returnValue;
@@ -110623,9 +109274,7 @@ class AccountUpdateUsername extends TlMethod {
 /// ID: `dadbc950`.
 class AccountGetPrivacy extends TlMethod {
   /// Account Get Privacy constructor.
-  const AccountGetPrivacy({
-    required this.key,
-  }) : super._();
+  const AccountGetPrivacy({required this.key}) : super._();
 
   /// Deserialize.
   factory AccountGetPrivacy.deserialize(BinaryReader reader) {
@@ -110633,9 +109282,7 @@ class AccountGetPrivacy extends TlMethod {
     final key = reader.readObject() as InputPrivacyKeyBase;
 
     // Construct [AccountGetPrivacy] object.
-    final returnValue = AccountGetPrivacy(
-      key: key,
-    );
+    final returnValue = AccountGetPrivacy(key: key);
 
     // Now return the deserialized [AccountGetPrivacy].
     return returnValue;
@@ -110675,10 +109322,7 @@ class AccountGetPrivacy extends TlMethod {
 /// ID: `c9f81ce8`.
 class AccountSetPrivacy extends TlMethod {
   /// Account Set Privacy constructor.
-  const AccountSetPrivacy({
-    required this.key,
-    required this.rules,
-  }) : super._();
+  const AccountSetPrivacy({required this.key, required this.rules}) : super._();
 
   /// Deserialize.
   factory AccountSetPrivacy.deserialize(BinaryReader reader) {
@@ -110687,10 +109331,7 @@ class AccountSetPrivacy extends TlMethod {
     final rules = reader.readVectorObject<InputPrivacyRuleBase>();
 
     // Construct [AccountSetPrivacy] object.
-    final returnValue = AccountSetPrivacy(
-      key: key,
-      rules: rules.items,
-    );
+    final returnValue = AccountSetPrivacy(key: key, rules: rules.items);
 
     // Now return the deserialized [AccountSetPrivacy].
     return returnValue;
@@ -110735,10 +109376,7 @@ class AccountSetPrivacy extends TlMethod {
 /// ID: `a2c0cf74`.
 class AccountDeleteAccount extends TlMethod {
   /// Account Delete Account constructor.
-  const AccountDeleteAccount({
-    required this.reason,
-    this.password,
-  }) : super._();
+  const AccountDeleteAccount({required this.reason, this.password}) : super._();
 
   /// Deserialize.
   factory AccountDeleteAccount.deserialize(BinaryReader reader) {
@@ -110762,9 +109400,7 @@ class AccountDeleteAccount extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: password != null,
-    );
+    final v = _flag(b00: password != null);
 
     return v;
   }
@@ -110851,9 +109487,7 @@ class AccountGetAccountTTL extends TlMethod {
 /// ID: `2442485e`.
 class AccountSetAccountTTL extends TlMethod {
   /// Account Set Account T T L constructor.
-  const AccountSetAccountTTL({
-    required this.ttl,
-  }) : super._();
+  const AccountSetAccountTTL({required this.ttl}) : super._();
 
   /// Deserialize.
   factory AccountSetAccountTTL.deserialize(BinaryReader reader) {
@@ -110861,9 +109495,7 @@ class AccountSetAccountTTL extends TlMethod {
     final ttl = reader.readObject() as AccountDaysTTLBase;
 
     // Construct [AccountSetAccountTTL] object.
-    final returnValue = AccountSetAccountTTL(
-      ttl: ttl,
-    );
+    final returnValue = AccountSetAccountTTL(ttl: ttl);
 
     // Now return the deserialized [AccountSetAccountTTL].
     return returnValue;
@@ -111031,9 +109663,7 @@ class AccountChangePhone extends TlMethod {
 /// ID: `38df3532`.
 class AccountUpdateDeviceLocked extends TlMethod {
   /// Account Update Device Locked constructor.
-  const AccountUpdateDeviceLocked({
-    required this.period,
-  }) : super._();
+  const AccountUpdateDeviceLocked({required this.period}) : super._();
 
   /// Deserialize.
   factory AccountUpdateDeviceLocked.deserialize(BinaryReader reader) {
@@ -111041,9 +109671,7 @@ class AccountUpdateDeviceLocked extends TlMethod {
     final period = reader.readInt32();
 
     // Construct [AccountUpdateDeviceLocked] object.
-    final returnValue = AccountUpdateDeviceLocked(
-      period: period,
-    );
+    final returnValue = AccountUpdateDeviceLocked(period: period);
 
     // Now return the deserialized [AccountUpdateDeviceLocked].
     return returnValue;
@@ -111123,9 +109751,7 @@ class AccountGetAuthorizations extends TlMethod {
 /// ID: `df77f3bc`.
 class AccountResetAuthorization extends TlMethod {
   /// Account Reset Authorization constructor.
-  const AccountResetAuthorization({
-    required this.hash,
-  }) : super._();
+  const AccountResetAuthorization({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountResetAuthorization.deserialize(BinaryReader reader) {
@@ -111133,9 +109759,7 @@ class AccountResetAuthorization extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountResetAuthorization] object.
-    final returnValue = AccountResetAuthorization(
-      hash: hash,
-    );
+    final returnValue = AccountResetAuthorization(hash: hash);
 
     // Now return the deserialized [AccountResetAuthorization].
     return returnValue;
@@ -111215,9 +109839,7 @@ class AccountGetPassword extends TlMethod {
 /// ID: `9cd4eaf9`.
 class AccountGetPasswordSettings extends TlMethod {
   /// Account Get Password Settings constructor.
-  const AccountGetPasswordSettings({
-    required this.password,
-  }) : super._();
+  const AccountGetPasswordSettings({required this.password}) : super._();
 
   /// Deserialize.
   factory AccountGetPasswordSettings.deserialize(BinaryReader reader) {
@@ -111225,9 +109847,7 @@ class AccountGetPasswordSettings extends TlMethod {
     final password = reader.readObject() as InputCheckPasswordSRPBase;
 
     // Construct [AccountGetPasswordSettings] object.
-    final returnValue = AccountGetPasswordSettings(
-      password: password,
-    );
+    final returnValue = AccountGetPasswordSettings(password: password);
 
     // Now return the deserialized [AccountGetPasswordSettings].
     return returnValue;
@@ -111447,10 +110067,8 @@ class AccountConfirmPhone extends TlMethod {
 /// ID: `449e0b51`.
 class AccountGetTmpPassword extends TlMethod {
   /// Account Get Tmp Password constructor.
-  const AccountGetTmpPassword({
-    required this.password,
-    required this.period,
-  }) : super._();
+  const AccountGetTmpPassword({required this.password, required this.period})
+      : super._();
 
   /// Deserialize.
   factory AccountGetTmpPassword.deserialize(BinaryReader reader) {
@@ -111547,9 +110165,7 @@ class AccountGetWebAuthorizations extends TlMethod {
 /// ID: `2d01b9ef`.
 class AccountResetWebAuthorization extends TlMethod {
   /// Account Reset Web Authorization constructor.
-  const AccountResetWebAuthorization({
-    required this.hash,
-  }) : super._();
+  const AccountResetWebAuthorization({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountResetWebAuthorization.deserialize(BinaryReader reader) {
@@ -111557,9 +110173,7 @@ class AccountResetWebAuthorization extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountResetWebAuthorization] object.
-    final returnValue = AccountResetWebAuthorization(
-      hash: hash,
-    );
+    final returnValue = AccountResetWebAuthorization(hash: hash);
 
     // Now return the deserialized [AccountResetWebAuthorization].
     return returnValue;
@@ -111677,9 +110291,7 @@ class AccountGetAllSecureValues extends TlMethod {
 /// ID: `73665bc2`.
 class AccountGetSecureValue extends TlMethod {
   /// Account Get Secure Value constructor.
-  const AccountGetSecureValue({
-    required this.types,
-  }) : super._();
+  const AccountGetSecureValue({required this.types}) : super._();
 
   /// Deserialize.
   factory AccountGetSecureValue.deserialize(BinaryReader reader) {
@@ -111687,9 +110299,7 @@ class AccountGetSecureValue extends TlMethod {
     final types = reader.readVectorObject<SecureValueTypeBase>();
 
     // Construct [AccountGetSecureValue] object.
-    final returnValue = AccountGetSecureValue(
-      types: types.items,
-    );
+    final returnValue = AccountGetSecureValue(types: types.items);
 
     // Now return the deserialized [AccountGetSecureValue].
     return returnValue;
@@ -111791,9 +110401,7 @@ class AccountSaveSecureValue extends TlMethod {
 /// ID: `b880bc4b`.
 class AccountDeleteSecureValue extends TlMethod {
   /// Account Delete Secure Value constructor.
-  const AccountDeleteSecureValue({
-    required this.types,
-  }) : super._();
+  const AccountDeleteSecureValue({required this.types}) : super._();
 
   /// Deserialize.
   factory AccountDeleteSecureValue.deserialize(BinaryReader reader) {
@@ -111801,9 +110409,7 @@ class AccountDeleteSecureValue extends TlMethod {
     final types = reader.readVectorObject<SecureValueTypeBase>();
 
     // Construct [AccountDeleteSecureValue] object.
-    final returnValue = AccountDeleteSecureValue(
-      types: types.items,
-    );
+    final returnValue = AccountDeleteSecureValue(types: types.items);
 
     // Now return the deserialized [AccountDeleteSecureValue].
     return returnValue;
@@ -112127,10 +110733,8 @@ class AccountVerifyPhone extends TlMethod {
 /// ID: `98e037bb`.
 class AccountSendVerifyEmailCode extends TlMethod {
   /// Account Send Verify Email Code constructor.
-  const AccountSendVerifyEmailCode({
-    required this.purpose,
-    required this.email,
-  }) : super._();
+  const AccountSendVerifyEmailCode({required this.purpose, required this.email})
+      : super._();
 
   /// Deserialize.
   factory AccountSendVerifyEmailCode.deserialize(BinaryReader reader) {
@@ -112187,10 +110791,8 @@ class AccountSendVerifyEmailCode extends TlMethod {
 /// ID: `032da4cf`.
 class AccountVerifyEmail extends TlMethod {
   /// Account Verify Email constructor.
-  const AccountVerifyEmail({
-    required this.purpose,
-    required this.verification,
-  }) : super._();
+  const AccountVerifyEmail({required this.purpose, required this.verification})
+      : super._();
 
   /// Deserialize.
   factory AccountVerifyEmail.deserialize(BinaryReader reader) {
@@ -112362,9 +110964,7 @@ class AccountInitTakeoutSession extends TlMethod {
 /// ID: `1d2652ee`.
 class AccountFinishTakeoutSession extends TlMethod {
   /// Account Finish Takeout Session constructor.
-  const AccountFinishTakeoutSession({
-    required this.success,
-  }) : super._();
+  const AccountFinishTakeoutSession({required this.success}) : super._();
 
   /// Deserialize.
   factory AccountFinishTakeoutSession.deserialize(BinaryReader reader) {
@@ -112373,9 +110973,7 @@ class AccountFinishTakeoutSession extends TlMethod {
     final success = (flags & 1) != 0;
 
     // Construct [AccountFinishTakeoutSession] object.
-    final returnValue = AccountFinishTakeoutSession(
-      success: success,
-    );
+    final returnValue = AccountFinishTakeoutSession(success: success);
 
     // Now return the deserialized [AccountFinishTakeoutSession].
     return returnValue;
@@ -112383,9 +110981,7 @@ class AccountFinishTakeoutSession extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: success,
-    );
+    final v = _flag(b00: success);
 
     return v;
   }
@@ -112425,9 +111021,7 @@ class AccountFinishTakeoutSession extends TlMethod {
 /// ID: `8fdf1920`.
 class AccountConfirmPasswordEmail extends TlMethod {
   /// Account Confirm Password Email constructor.
-  const AccountConfirmPasswordEmail({
-    required this.code,
-  }) : super._();
+  const AccountConfirmPasswordEmail({required this.code}) : super._();
 
   /// Deserialize.
   factory AccountConfirmPasswordEmail.deserialize(BinaryReader reader) {
@@ -112435,9 +111029,7 @@ class AccountConfirmPasswordEmail extends TlMethod {
     final code = reader.readString();
 
     // Construct [AccountConfirmPasswordEmail] object.
-    final returnValue = AccountConfirmPasswordEmail(
-      code: code,
-    );
+    final returnValue = AccountConfirmPasswordEmail(code: code);
 
     // Now return the deserialized [AccountConfirmPasswordEmail].
     return returnValue;
@@ -112591,9 +111183,7 @@ class AccountGetContactSignUpNotification extends TlMethod {
 /// ID: `cff43f61`.
 class AccountSetContactSignUpNotification extends TlMethod {
   /// Account Set Contact Sign Up Notification constructor.
-  const AccountSetContactSignUpNotification({
-    required this.silent,
-  }) : super._();
+  const AccountSetContactSignUpNotification({required this.silent}) : super._();
 
   /// Deserialize.
   factory AccountSetContactSignUpNotification.deserialize(BinaryReader reader) {
@@ -112601,9 +111191,7 @@ class AccountSetContactSignUpNotification extends TlMethod {
     final silent = reader.readBool();
 
     // Construct [AccountSetContactSignUpNotification] object.
-    final returnValue = AccountSetContactSignUpNotification(
-      silent: silent,
-    );
+    final returnValue = AccountSetContactSignUpNotification(silent: silent);
 
     // Now return the deserialized [AccountSetContactSignUpNotification].
     return returnValue;
@@ -112672,11 +111260,7 @@ class AccountGetNotifyExceptions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: compareSound,
-      b02: compareStories,
-      b00: peer != null,
-    );
+    final v = _flag(b01: compareSound, b02: compareStories, b00: peer != null);
 
     return v;
   }
@@ -112728,9 +111312,7 @@ class AccountGetNotifyExceptions extends TlMethod {
 /// ID: `fc8ddbea`.
 class AccountGetWallPaper extends TlMethod {
   /// Account Get Wall Paper constructor.
-  const AccountGetWallPaper({
-    required this.wallpaper,
-  }) : super._();
+  const AccountGetWallPaper({required this.wallpaper}) : super._();
 
   /// Deserialize.
   factory AccountGetWallPaper.deserialize(BinaryReader reader) {
@@ -112738,9 +111320,7 @@ class AccountGetWallPaper extends TlMethod {
     final wallpaper = reader.readObject() as InputWallPaperBase;
 
     // Construct [AccountGetWallPaper] object.
-    final returnValue = AccountGetWallPaper(
-      wallpaper: wallpaper,
-    );
+    final returnValue = AccountGetWallPaper(wallpaper: wallpaper);
 
     // Now return the deserialized [AccountGetWallPaper].
     return returnValue;
@@ -112810,9 +111390,7 @@ class AccountUploadWallPaper extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: forChat,
-    );
+    final v = _flag(b00: forChat);
 
     return v;
   }
@@ -113098,10 +111676,7 @@ class AccountSaveAutoDownloadSettings extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: low,
-      b01: high,
-    );
+    final v = _flag(b00: low, b01: high);
 
     return v;
   }
@@ -113181,9 +111756,7 @@ class AccountUploadTheme extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: thumb != null,
-    );
+    final v = _flag(b00: thumb != null);
 
     return v;
   }
@@ -113277,10 +111850,7 @@ class AccountCreateTheme extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: document != null,
-      b03: settings != null,
-    );
+    final v = _flag(b02: document != null, b03: settings != null);
 
     return v;
   }
@@ -113468,10 +112038,8 @@ class AccountUpdateTheme extends TlMethod {
 /// ID: `f257106c`.
 class AccountSaveTheme extends TlMethod {
   /// Account Save Theme constructor.
-  const AccountSaveTheme({
-    required this.theme,
-    required this.unsave,
-  }) : super._();
+  const AccountSaveTheme({required this.theme, required this.unsave})
+      : super._();
 
   /// Deserialize.
   factory AccountSaveTheme.deserialize(BinaryReader reader) {
@@ -113480,10 +112048,7 @@ class AccountSaveTheme extends TlMethod {
     final unsave = reader.readBool();
 
     // Construct [AccountSaveTheme] object.
-    final returnValue = AccountSaveTheme(
-      theme: theme,
-      unsave: unsave,
-    );
+    final returnValue = AccountSaveTheme(theme: theme, unsave: unsave);
 
     // Now return the deserialized [AccountSaveTheme].
     return returnValue;
@@ -113631,10 +112196,8 @@ class AccountInstallTheme extends TlMethod {
 /// ID: `3a5869ec`.
 class AccountGetTheme extends TlMethod {
   /// Account Get Theme constructor.
-  const AccountGetTheme({
-    required this.format,
-    required this.theme,
-  }) : super._();
+  const AccountGetTheme({required this.format, required this.theme})
+      : super._();
 
   /// Deserialize.
   factory AccountGetTheme.deserialize(BinaryReader reader) {
@@ -113643,10 +112206,7 @@ class AccountGetTheme extends TlMethod {
     final theme = reader.readObject() as InputThemeBase;
 
     // Construct [AccountGetTheme] object.
-    final returnValue = AccountGetTheme(
-      format: format,
-      theme: theme,
-    );
+    final returnValue = AccountGetTheme(format: format, theme: theme);
 
     // Now return the deserialized [AccountGetTheme].
     return returnValue;
@@ -113691,10 +112251,8 @@ class AccountGetTheme extends TlMethod {
 /// ID: `7206e458`.
 class AccountGetThemes extends TlMethod {
   /// Account Get Themes constructor.
-  const AccountGetThemes({
-    required this.format,
-    required this.hash,
-  }) : super._();
+  const AccountGetThemes({required this.format, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory AccountGetThemes.deserialize(BinaryReader reader) {
@@ -113703,10 +112261,7 @@ class AccountGetThemes extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetThemes] object.
-    final returnValue = AccountGetThemes(
-      format: format,
-      hash: hash,
-    );
+    final returnValue = AccountGetThemes(format: format, hash: hash);
 
     // Now return the deserialized [AccountGetThemes].
     return returnValue;
@@ -113753,9 +112308,7 @@ class AccountGetThemes extends TlMethod {
 /// ID: `b574b16b`.
 class AccountSetContentSettings extends TlMethod {
   /// Account Set Content Settings constructor.
-  const AccountSetContentSettings({
-    required this.sensitiveEnabled,
-  }) : super._();
+  const AccountSetContentSettings({required this.sensitiveEnabled}) : super._();
 
   /// Deserialize.
   factory AccountSetContentSettings.deserialize(BinaryReader reader) {
@@ -113774,9 +112327,7 @@ class AccountSetContentSettings extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: sensitiveEnabled,
-    );
+    final v = _flag(b00: sensitiveEnabled);
 
     return v;
   }
@@ -113854,9 +112405,7 @@ class AccountGetContentSettings extends TlMethod {
 /// ID: `65ad71dc`.
 class AccountGetMultiWallPapers extends TlMethod {
   /// Account Get Multi Wall Papers constructor.
-  const AccountGetMultiWallPapers({
-    required this.wallpapers,
-  }) : super._();
+  const AccountGetMultiWallPapers({required this.wallpapers}) : super._();
 
   /// Deserialize.
   factory AccountGetMultiWallPapers.deserialize(BinaryReader reader) {
@@ -113864,9 +112413,7 @@ class AccountGetMultiWallPapers extends TlMethod {
     final wallpapers = reader.readVectorObject<InputWallPaperBase>();
 
     // Construct [AccountGetMultiWallPapers] object.
-    final returnValue = AccountGetMultiWallPapers(
-      wallpapers: wallpapers.items,
-    );
+    final returnValue = AccountGetMultiWallPapers(wallpapers: wallpapers.items);
 
     // Now return the deserialized [AccountGetMultiWallPapers].
     return returnValue;
@@ -113944,9 +112491,7 @@ class AccountGetGlobalPrivacySettings extends TlMethod {
 /// ID: `1edaaac2`.
 class AccountSetGlobalPrivacySettings extends TlMethod {
   /// Account Set Global Privacy Settings constructor.
-  const AccountSetGlobalPrivacySettings({
-    required this.settings,
-  }) : super._();
+  const AccountSetGlobalPrivacySettings({required this.settings}) : super._();
 
   /// Deserialize.
   factory AccountSetGlobalPrivacySettings.deserialize(BinaryReader reader) {
@@ -113954,9 +112499,7 @@ class AccountSetGlobalPrivacySettings extends TlMethod {
     final settings = reader.readObject() as GlobalPrivacySettingsBase;
 
     // Construct [AccountSetGlobalPrivacySettings] object.
-    final returnValue = AccountSetGlobalPrivacySettings(
-      settings: settings,
-    );
+    final returnValue = AccountSetGlobalPrivacySettings(settings: settings);
 
     // Now return the deserialized [AccountSetGlobalPrivacySettings].
     return returnValue;
@@ -114148,9 +112691,7 @@ class AccountDeclinePasswordReset extends TlMethod {
 /// ID: `d638de89`.
 class AccountGetChatThemes extends TlMethod {
   /// Account Get Chat Themes constructor.
-  const AccountGetChatThemes({
-    required this.hash,
-  }) : super._();
+  const AccountGetChatThemes({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetChatThemes.deserialize(BinaryReader reader) {
@@ -114158,9 +112699,7 @@ class AccountGetChatThemes extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetChatThemes] object.
-    final returnValue = AccountGetChatThemes(
-      hash: hash,
-    );
+    final returnValue = AccountGetChatThemes(hash: hash);
 
     // Now return the deserialized [AccountGetChatThemes].
     return returnValue;
@@ -114202,9 +112741,8 @@ class AccountGetChatThemes extends TlMethod {
 /// ID: `bf899aa0`.
 class AccountSetAuthorizationTTL extends TlMethod {
   /// Account Set Authorization T T L constructor.
-  const AccountSetAuthorizationTTL({
-    required this.authorizationTtlDays,
-  }) : super._();
+  const AccountSetAuthorizationTTL({required this.authorizationTtlDays})
+      : super._();
 
   /// Deserialize.
   factory AccountSetAuthorizationTTL.deserialize(BinaryReader reader) {
@@ -114354,9 +112892,7 @@ class AccountChangeAuthorizationSettings extends TlMethod {
 /// ID: `e1902288`.
 class AccountGetSavedRingtones extends TlMethod {
   /// Account Get Saved Ringtones constructor.
-  const AccountGetSavedRingtones({
-    required this.hash,
-  }) : super._();
+  const AccountGetSavedRingtones({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetSavedRingtones.deserialize(BinaryReader reader) {
@@ -114364,9 +112900,7 @@ class AccountGetSavedRingtones extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetSavedRingtones] object.
-    final returnValue = AccountGetSavedRingtones(
-      hash: hash,
-    );
+    final returnValue = AccountGetSavedRingtones(hash: hash);
 
     // Now return the deserialized [AccountGetSavedRingtones].
     return returnValue;
@@ -114408,10 +112942,8 @@ class AccountGetSavedRingtones extends TlMethod {
 /// ID: `3dea5b03`.
 class AccountSaveRingtone extends TlMethod {
   /// Account Save Ringtone constructor.
-  const AccountSaveRingtone({
-    required this.id,
-    required this.unsave,
-  }) : super._();
+  const AccountSaveRingtone({required this.id, required this.unsave})
+      : super._();
 
   /// Deserialize.
   factory AccountSaveRingtone.deserialize(BinaryReader reader) {
@@ -114420,10 +112952,7 @@ class AccountSaveRingtone extends TlMethod {
     final unsave = reader.readBool();
 
     // Construct [AccountSaveRingtone] object.
-    final returnValue = AccountSaveRingtone(
-      id: id,
-      unsave: unsave,
-    );
+    final returnValue = AccountSaveRingtone(id: id, unsave: unsave);
 
     // Now return the deserialized [AccountSaveRingtone].
     return returnValue;
@@ -114536,9 +113065,7 @@ class AccountUploadRingtone extends TlMethod {
 /// ID: `fbd3de6b`.
 class AccountUpdateEmojiStatus extends TlMethod {
   /// Account Update Emoji Status constructor.
-  const AccountUpdateEmojiStatus({
-    required this.emojiStatus,
-  }) : super._();
+  const AccountUpdateEmojiStatus({required this.emojiStatus}) : super._();
 
   /// Deserialize.
   factory AccountUpdateEmojiStatus.deserialize(BinaryReader reader) {
@@ -114546,9 +113073,7 @@ class AccountUpdateEmojiStatus extends TlMethod {
     final emojiStatus = reader.readObject() as EmojiStatusBase;
 
     // Construct [AccountUpdateEmojiStatus] object.
-    final returnValue = AccountUpdateEmojiStatus(
-      emojiStatus: emojiStatus,
-    );
+    final returnValue = AccountUpdateEmojiStatus(emojiStatus: emojiStatus);
 
     // Now return the deserialized [AccountUpdateEmojiStatus].
     return returnValue;
@@ -114588,9 +113113,7 @@ class AccountUpdateEmojiStatus extends TlMethod {
 /// ID: `d6753386`.
 class AccountGetDefaultEmojiStatuses extends TlMethod {
   /// Account Get Default Emoji Statuses constructor.
-  const AccountGetDefaultEmojiStatuses({
-    required this.hash,
-  }) : super._();
+  const AccountGetDefaultEmojiStatuses({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetDefaultEmojiStatuses.deserialize(BinaryReader reader) {
@@ -114598,9 +113121,7 @@ class AccountGetDefaultEmojiStatuses extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetDefaultEmojiStatuses] object.
-    final returnValue = AccountGetDefaultEmojiStatuses(
-      hash: hash,
-    );
+    final returnValue = AccountGetDefaultEmojiStatuses(hash: hash);
 
     // Now return the deserialized [AccountGetDefaultEmojiStatuses].
     return returnValue;
@@ -114642,9 +113163,7 @@ class AccountGetDefaultEmojiStatuses extends TlMethod {
 /// ID: `0f578105`.
 class AccountGetRecentEmojiStatuses extends TlMethod {
   /// Account Get Recent Emoji Statuses constructor.
-  const AccountGetRecentEmojiStatuses({
-    required this.hash,
-  }) : super._();
+  const AccountGetRecentEmojiStatuses({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetRecentEmojiStatuses.deserialize(BinaryReader reader) {
@@ -114652,9 +113171,7 @@ class AccountGetRecentEmojiStatuses extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetRecentEmojiStatuses] object.
-    final returnValue = AccountGetRecentEmojiStatuses(
-      hash: hash,
-    );
+    final returnValue = AccountGetRecentEmojiStatuses(hash: hash);
 
     // Now return the deserialized [AccountGetRecentEmojiStatuses].
     return returnValue;
@@ -114734,9 +113251,7 @@ class AccountClearRecentEmojiStatuses extends TlMethod {
 /// ID: `ef500eab`.
 class AccountReorderUsernames extends TlMethod {
   /// Account Reorder Usernames constructor.
-  const AccountReorderUsernames({
-    required this.order,
-  }) : super._();
+  const AccountReorderUsernames({required this.order}) : super._();
 
   /// Deserialize.
   factory AccountReorderUsernames.deserialize(BinaryReader reader) {
@@ -114744,9 +113259,7 @@ class AccountReorderUsernames extends TlMethod {
     final order = reader.readVectorString();
 
     // Construct [AccountReorderUsernames] object.
-    final returnValue = AccountReorderUsernames(
-      order: order.items,
-    );
+    final returnValue = AccountReorderUsernames(order: order.items);
 
     // Now return the deserialized [AccountReorderUsernames].
     return returnValue;
@@ -114786,10 +113299,8 @@ class AccountReorderUsernames extends TlMethod {
 /// ID: `58d6b376`.
 class AccountToggleUsername extends TlMethod {
   /// Account Toggle Username constructor.
-  const AccountToggleUsername({
-    required this.username,
-    required this.active,
-  }) : super._();
+  const AccountToggleUsername({required this.username, required this.active})
+      : super._();
 
   /// Deserialize.
   factory AccountToggleUsername.deserialize(BinaryReader reader) {
@@ -114846,9 +113357,7 @@ class AccountToggleUsername extends TlMethod {
 /// ID: `e2750328`.
 class AccountGetDefaultProfilePhotoEmojis extends TlMethod {
   /// Account Get Default Profile Photo Emojis constructor.
-  const AccountGetDefaultProfilePhotoEmojis({
-    required this.hash,
-  }) : super._();
+  const AccountGetDefaultProfilePhotoEmojis({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetDefaultProfilePhotoEmojis.deserialize(BinaryReader reader) {
@@ -114856,9 +113365,7 @@ class AccountGetDefaultProfilePhotoEmojis extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetDefaultProfilePhotoEmojis] object.
-    final returnValue = AccountGetDefaultProfilePhotoEmojis(
-      hash: hash,
-    );
+    final returnValue = AccountGetDefaultProfilePhotoEmojis(hash: hash);
 
     // Now return the deserialized [AccountGetDefaultProfilePhotoEmojis].
     return returnValue;
@@ -114900,9 +113407,7 @@ class AccountGetDefaultProfilePhotoEmojis extends TlMethod {
 /// ID: `915860ae`.
 class AccountGetDefaultGroupPhotoEmojis extends TlMethod {
   /// Account Get Default Group Photo Emojis constructor.
-  const AccountGetDefaultGroupPhotoEmojis({
-    required this.hash,
-  }) : super._();
+  const AccountGetDefaultGroupPhotoEmojis({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetDefaultGroupPhotoEmojis.deserialize(BinaryReader reader) {
@@ -114910,9 +113415,7 @@ class AccountGetDefaultGroupPhotoEmojis extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetDefaultGroupPhotoEmojis] object.
-    final returnValue = AccountGetDefaultGroupPhotoEmojis(
-      hash: hash,
-    );
+    final returnValue = AccountGetDefaultGroupPhotoEmojis(hash: hash);
 
     // Now return the deserialized [AccountGetDefaultGroupPhotoEmojis].
     return returnValue;
@@ -115026,12 +113529,7 @@ class AccountSaveAutoSaveSettings extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: users,
-      b01: chats,
-      b02: broadcasts,
-      b03: peer != null,
-    );
+    final v = _flag(b00: users, b01: chats, b02: broadcasts, b03: peer != null);
 
     return v;
   }
@@ -115130,9 +113628,7 @@ class AccountDeleteAutoSaveExceptions extends TlMethod {
 /// ID: `ca8ae8ba`.
 class AccountInvalidateSignInCodes extends TlMethod {
   /// Account Invalidate Sign In Codes constructor.
-  const AccountInvalidateSignInCodes({
-    required this.codes,
-  }) : super._();
+  const AccountInvalidateSignInCodes({required this.codes}) : super._();
 
   /// Deserialize.
   factory AccountInvalidateSignInCodes.deserialize(BinaryReader reader) {
@@ -115140,9 +113636,7 @@ class AccountInvalidateSignInCodes extends TlMethod {
     final codes = reader.readVectorString();
 
     // Construct [AccountInvalidateSignInCodes] object.
-    final returnValue = AccountInvalidateSignInCodes(
-      codes: codes.items,
-    );
+    final returnValue = AccountInvalidateSignInCodes(codes: codes.items);
 
     // Now return the deserialized [AccountInvalidateSignInCodes].
     return returnValue;
@@ -115272,9 +113766,7 @@ class AccountUpdateColor extends TlMethod {
 /// ID: `a60ab9ce`.
 class AccountGetDefaultBackgroundEmojis extends TlMethod {
   /// Account Get Default Background Emojis constructor.
-  const AccountGetDefaultBackgroundEmojis({
-    required this.hash,
-  }) : super._();
+  const AccountGetDefaultBackgroundEmojis({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetDefaultBackgroundEmojis.deserialize(BinaryReader reader) {
@@ -115282,9 +113774,7 @@ class AccountGetDefaultBackgroundEmojis extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetDefaultBackgroundEmojis] object.
-    final returnValue = AccountGetDefaultBackgroundEmojis(
-      hash: hash,
-    );
+    final returnValue = AccountGetDefaultBackgroundEmojis(hash: hash);
 
     // Now return the deserialized [AccountGetDefaultBackgroundEmojis].
     return returnValue;
@@ -115326,20 +113816,17 @@ class AccountGetDefaultBackgroundEmojis extends TlMethod {
 /// ID: `7727a7d5`.
 class AccountGetChannelDefaultEmojiStatuses extends TlMethod {
   /// Account Get Channel Default Emoji Statuses constructor.
-  const AccountGetChannelDefaultEmojiStatuses({
-    required this.hash,
-  }) : super._();
+  const AccountGetChannelDefaultEmojiStatuses({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetChannelDefaultEmojiStatuses.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [AccountGetChannelDefaultEmojiStatuses] fields.
     final hash = reader.readInt64();
 
     // Construct [AccountGetChannelDefaultEmojiStatuses] object.
-    final returnValue = AccountGetChannelDefaultEmojiStatuses(
-      hash: hash,
-    );
+    final returnValue = AccountGetChannelDefaultEmojiStatuses(hash: hash);
 
     // Now return the deserialized [AccountGetChannelDefaultEmojiStatuses].
     return returnValue;
@@ -115381,20 +113868,18 @@ class AccountGetChannelDefaultEmojiStatuses extends TlMethod {
 /// ID: `35a9e0d5`.
 class AccountGetChannelRestrictedStatusEmojis extends TlMethod {
   /// Account Get Channel Restricted Status Emojis constructor.
-  const AccountGetChannelRestrictedStatusEmojis({
-    required this.hash,
-  }) : super._();
+  const AccountGetChannelRestrictedStatusEmojis({required this.hash})
+      : super._();
 
   /// Deserialize.
   factory AccountGetChannelRestrictedStatusEmojis.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [AccountGetChannelRestrictedStatusEmojis] fields.
     final hash = reader.readInt64();
 
     // Construct [AccountGetChannelRestrictedStatusEmojis] object.
-    final returnValue = AccountGetChannelRestrictedStatusEmojis(
-      hash: hash,
-    );
+    final returnValue = AccountGetChannelRestrictedStatusEmojis(hash: hash);
 
     // Now return the deserialized [AccountGetChannelRestrictedStatusEmojis].
     return returnValue;
@@ -115436,9 +113921,7 @@ class AccountGetChannelRestrictedStatusEmojis extends TlMethod {
 /// ID: `4b00e066`.
 class AccountUpdateBusinessWorkHours extends TlMethod {
   /// Account Update Business Work Hours constructor.
-  const AccountUpdateBusinessWorkHours({
-    this.businessWorkHours,
-  }) : super._();
+  const AccountUpdateBusinessWorkHours({this.businessWorkHours}) : super._();
 
   /// Deserialize.
   factory AccountUpdateBusinessWorkHours.deserialize(BinaryReader reader) {
@@ -115460,9 +113943,7 @@ class AccountUpdateBusinessWorkHours extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: businessWorkHours != null,
-    );
+    final v = _flag(b00: businessWorkHours != null);
 
     return v;
   }
@@ -115506,10 +113987,8 @@ class AccountUpdateBusinessWorkHours extends TlMethod {
 /// ID: `9e6b131a`.
 class AccountUpdateBusinessLocation extends TlMethod {
   /// Account Update Business Location constructor.
-  const AccountUpdateBusinessLocation({
-    this.geoPoint,
-    this.address,
-  }) : super._();
+  const AccountUpdateBusinessLocation({this.geoPoint, this.address})
+      : super._();
 
   /// Deserialize.
   factory AccountUpdateBusinessLocation.deserialize(BinaryReader reader) {
@@ -115533,10 +114012,7 @@ class AccountUpdateBusinessLocation extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: geoPoint != null,
-      b00: address != null,
-    );
+    final v = _flag(b01: geoPoint != null, b00: address != null);
 
     return v;
   }
@@ -115588,13 +114064,12 @@ class AccountUpdateBusinessLocation extends TlMethod {
 /// ID: `66cdafc4`.
 class AccountUpdateBusinessGreetingMessage extends TlMethod {
   /// Account Update Business Greeting Message constructor.
-  const AccountUpdateBusinessGreetingMessage({
-    this.message,
-  }) : super._();
+  const AccountUpdateBusinessGreetingMessage({this.message}) : super._();
 
   /// Deserialize.
   factory AccountUpdateBusinessGreetingMessage.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [AccountUpdateBusinessGreetingMessage] fields.
     final flags = reader.readInt32();
     final hasMessageField = (flags & 1) != 0;
@@ -115603,9 +114078,7 @@ class AccountUpdateBusinessGreetingMessage extends TlMethod {
         : null;
 
     // Construct [AccountUpdateBusinessGreetingMessage] object.
-    final returnValue = AccountUpdateBusinessGreetingMessage(
-      message: message,
-    );
+    final returnValue = AccountUpdateBusinessGreetingMessage(message: message);
 
     // Now return the deserialized [AccountUpdateBusinessGreetingMessage].
     return returnValue;
@@ -115613,9 +114086,7 @@ class AccountUpdateBusinessGreetingMessage extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: message != null,
-    );
+    final v = _flag(b00: message != null);
 
     return v;
   }
@@ -115659,9 +114130,7 @@ class AccountUpdateBusinessGreetingMessage extends TlMethod {
 /// ID: `a26a7fa5`.
 class AccountUpdateBusinessAwayMessage extends TlMethod {
   /// Account Update Business Away Message constructor.
-  const AccountUpdateBusinessAwayMessage({
-    this.message,
-  }) : super._();
+  const AccountUpdateBusinessAwayMessage({this.message}) : super._();
 
   /// Deserialize.
   factory AccountUpdateBusinessAwayMessage.deserialize(BinaryReader reader) {
@@ -115673,9 +114142,7 @@ class AccountUpdateBusinessAwayMessage extends TlMethod {
         : null;
 
     // Construct [AccountUpdateBusinessAwayMessage] object.
-    final returnValue = AccountUpdateBusinessAwayMessage(
-      message: message,
-    );
+    final returnValue = AccountUpdateBusinessAwayMessage(message: message);
 
     // Now return the deserialized [AccountUpdateBusinessAwayMessage].
     return returnValue;
@@ -115683,9 +114150,7 @@ class AccountUpdateBusinessAwayMessage extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: message != null,
-    );
+    final v = _flag(b00: message != null);
 
     return v;
   }
@@ -115761,10 +114226,7 @@ class AccountUpdateConnectedBot extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: deleted,
-      b00: rights != null,
-    );
+    final v = _flag(b01: deleted, b00: rights != null);
 
     return v;
   }
@@ -115860,9 +114322,8 @@ class AccountGetConnectedBots extends TlMethod {
 /// ID: `76a86270`.
 class AccountGetBotBusinessConnection extends TlMethod {
   /// Account Get Bot Business Connection constructor.
-  const AccountGetBotBusinessConnection({
-    required this.connectionId,
-  }) : super._();
+  const AccountGetBotBusinessConnection({required this.connectionId})
+      : super._();
 
   /// Deserialize.
   factory AccountGetBotBusinessConnection.deserialize(BinaryReader reader) {
@@ -115912,9 +114373,7 @@ class AccountGetBotBusinessConnection extends TlMethod {
 /// ID: `a614d034`.
 class AccountUpdateBusinessIntro extends TlMethod {
   /// Account Update Business Intro constructor.
-  const AccountUpdateBusinessIntro({
-    this.intro,
-  }) : super._();
+  const AccountUpdateBusinessIntro({this.intro}) : super._();
 
   /// Deserialize.
   factory AccountUpdateBusinessIntro.deserialize(BinaryReader reader) {
@@ -115925,9 +114384,7 @@ class AccountUpdateBusinessIntro extends TlMethod {
         hasIntroField ? reader.readObject() as InputBusinessIntroBase : null;
 
     // Construct [AccountUpdateBusinessIntro] object.
-    final returnValue = AccountUpdateBusinessIntro(
-      intro: intro,
-    );
+    final returnValue = AccountUpdateBusinessIntro(intro: intro);
 
     // Now return the deserialized [AccountUpdateBusinessIntro].
     return returnValue;
@@ -115935,9 +114392,7 @@ class AccountUpdateBusinessIntro extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: intro != null,
-    );
+    final v = _flag(b00: intro != null);
 
     return v;
   }
@@ -116041,9 +114496,7 @@ class AccountToggleConnectedBotPaused extends TlMethod {
 /// ID: `5e437ed9`.
 class AccountDisablePeerConnectedBot extends TlMethod {
   /// Account Disable Peer Connected Bot constructor.
-  const AccountDisablePeerConnectedBot({
-    required this.peer,
-  }) : super._();
+  const AccountDisablePeerConnectedBot({required this.peer}) : super._();
 
   /// Deserialize.
   factory AccountDisablePeerConnectedBot.deserialize(BinaryReader reader) {
@@ -116051,9 +114504,7 @@ class AccountDisablePeerConnectedBot extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [AccountDisablePeerConnectedBot] object.
-    final returnValue = AccountDisablePeerConnectedBot(
-      peer: peer,
-    );
+    final returnValue = AccountDisablePeerConnectedBot(peer: peer);
 
     // Now return the deserialized [AccountDisablePeerConnectedBot].
     return returnValue;
@@ -116093,9 +114544,7 @@ class AccountDisablePeerConnectedBot extends TlMethod {
 /// ID: `cc6e0c11`.
 class AccountUpdateBirthday extends TlMethod {
   /// Account Update Birthday constructor.
-  const AccountUpdateBirthday({
-    this.birthday,
-  }) : super._();
+  const AccountUpdateBirthday({this.birthday}) : super._();
 
   /// Deserialize.
   factory AccountUpdateBirthday.deserialize(BinaryReader reader) {
@@ -116106,9 +114555,7 @@ class AccountUpdateBirthday extends TlMethod {
         hasBirthdayField ? reader.readObject() as BirthdayBase : null;
 
     // Construct [AccountUpdateBirthday] object.
-    final returnValue = AccountUpdateBirthday(
-      birthday: birthday,
-    );
+    final returnValue = AccountUpdateBirthday(birthday: birthday);
 
     // Now return the deserialized [AccountUpdateBirthday].
     return returnValue;
@@ -116116,9 +114563,7 @@ class AccountUpdateBirthday extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: birthday != null,
-    );
+    final v = _flag(b00: birthday != null);
 
     return v;
   }
@@ -116162,9 +114607,7 @@ class AccountUpdateBirthday extends TlMethod {
 /// ID: `8851e68e`.
 class AccountCreateBusinessChatLink extends TlMethod {
   /// Account Create Business Chat Link constructor.
-  const AccountCreateBusinessChatLink({
-    required this.link,
-  }) : super._();
+  const AccountCreateBusinessChatLink({required this.link}) : super._();
 
   /// Deserialize.
   factory AccountCreateBusinessChatLink.deserialize(BinaryReader reader) {
@@ -116172,9 +114615,7 @@ class AccountCreateBusinessChatLink extends TlMethod {
     final link = reader.readObject() as InputBusinessChatLinkBase;
 
     // Construct [AccountCreateBusinessChatLink] object.
-    final returnValue = AccountCreateBusinessChatLink(
-      link: link,
-    );
+    final returnValue = AccountCreateBusinessChatLink(link: link);
 
     // Now return the deserialized [AccountCreateBusinessChatLink].
     return returnValue;
@@ -116214,10 +114655,8 @@ class AccountCreateBusinessChatLink extends TlMethod {
 /// ID: `8c3410af`.
 class AccountEditBusinessChatLink extends TlMethod {
   /// Account Edit Business Chat Link constructor.
-  const AccountEditBusinessChatLink({
-    required this.slug,
-    required this.link,
-  }) : super._();
+  const AccountEditBusinessChatLink({required this.slug, required this.link})
+      : super._();
 
   /// Deserialize.
   factory AccountEditBusinessChatLink.deserialize(BinaryReader reader) {
@@ -116226,10 +114665,7 @@ class AccountEditBusinessChatLink extends TlMethod {
     final link = reader.readObject() as InputBusinessChatLinkBase;
 
     // Construct [AccountEditBusinessChatLink] object.
-    final returnValue = AccountEditBusinessChatLink(
-      slug: slug,
-      link: link,
-    );
+    final returnValue = AccountEditBusinessChatLink(slug: slug, link: link);
 
     // Now return the deserialized [AccountEditBusinessChatLink].
     return returnValue;
@@ -116274,9 +114710,7 @@ class AccountEditBusinessChatLink extends TlMethod {
 /// ID: `60073674`.
 class AccountDeleteBusinessChatLink extends TlMethod {
   /// Account Delete Business Chat Link constructor.
-  const AccountDeleteBusinessChatLink({
-    required this.slug,
-  }) : super._();
+  const AccountDeleteBusinessChatLink({required this.slug}) : super._();
 
   /// Deserialize.
   factory AccountDeleteBusinessChatLink.deserialize(BinaryReader reader) {
@@ -116284,9 +114718,7 @@ class AccountDeleteBusinessChatLink extends TlMethod {
     final slug = reader.readString();
 
     // Construct [AccountDeleteBusinessChatLink] object.
-    final returnValue = AccountDeleteBusinessChatLink(
-      slug: slug,
-    );
+    final returnValue = AccountDeleteBusinessChatLink(slug: slug);
 
     // Now return the deserialized [AccountDeleteBusinessChatLink].
     return returnValue;
@@ -116364,9 +114796,7 @@ class AccountGetBusinessChatLinks extends TlMethod {
 /// ID: `5492e5ee`.
 class AccountResolveBusinessChatLink extends TlMethod {
   /// Account Resolve Business Chat Link constructor.
-  const AccountResolveBusinessChatLink({
-    required this.slug,
-  }) : super._();
+  const AccountResolveBusinessChatLink({required this.slug}) : super._();
 
   /// Deserialize.
   factory AccountResolveBusinessChatLink.deserialize(BinaryReader reader) {
@@ -116374,9 +114804,7 @@ class AccountResolveBusinessChatLink extends TlMethod {
     final slug = reader.readString();
 
     // Construct [AccountResolveBusinessChatLink] object.
-    final returnValue = AccountResolveBusinessChatLink(
-      slug: slug,
-    );
+    final returnValue = AccountResolveBusinessChatLink(slug: slug);
 
     // Now return the deserialized [AccountResolveBusinessChatLink].
     return returnValue;
@@ -116416,9 +114844,7 @@ class AccountResolveBusinessChatLink extends TlMethod {
 /// ID: `d94305e0`.
 class AccountUpdatePersonalChannel extends TlMethod {
   /// Account Update Personal Channel constructor.
-  const AccountUpdatePersonalChannel({
-    required this.channel,
-  }) : super._();
+  const AccountUpdatePersonalChannel({required this.channel}) : super._();
 
   /// Deserialize.
   factory AccountUpdatePersonalChannel.deserialize(BinaryReader reader) {
@@ -116426,9 +114852,7 @@ class AccountUpdatePersonalChannel extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [AccountUpdatePersonalChannel] object.
-    final returnValue = AccountUpdatePersonalChannel(
-      channel: channel,
-    );
+    final returnValue = AccountUpdatePersonalChannel(channel: channel);
 
     // Now return the deserialized [AccountUpdatePersonalChannel].
     return returnValue;
@@ -116468,9 +114892,7 @@ class AccountUpdatePersonalChannel extends TlMethod {
 /// ID: `b9d9a38d`.
 class AccountToggleSponsoredMessages extends TlMethod {
   /// Account Toggle Sponsored Messages constructor.
-  const AccountToggleSponsoredMessages({
-    required this.enabled,
-  }) : super._();
+  const AccountToggleSponsoredMessages({required this.enabled}) : super._();
 
   /// Deserialize.
   factory AccountToggleSponsoredMessages.deserialize(BinaryReader reader) {
@@ -116478,9 +114900,7 @@ class AccountToggleSponsoredMessages extends TlMethod {
     final enabled = reader.readBool();
 
     // Construct [AccountToggleSponsoredMessages] object.
-    final returnValue = AccountToggleSponsoredMessages(
-      enabled: enabled,
-    );
+    final returnValue = AccountToggleSponsoredMessages(enabled: enabled);
 
     // Now return the deserialized [AccountToggleSponsoredMessages].
     return returnValue;
@@ -116558,9 +114978,7 @@ class AccountGetReactionsNotifySettings extends TlMethod {
 /// ID: `316ce548`.
 class AccountSetReactionsNotifySettings extends TlMethod {
   /// Account Set Reactions Notify Settings constructor.
-  const AccountSetReactionsNotifySettings({
-    required this.settings,
-  }) : super._();
+  const AccountSetReactionsNotifySettings({required this.settings}) : super._();
 
   /// Deserialize.
   factory AccountSetReactionsNotifySettings.deserialize(BinaryReader reader) {
@@ -116568,9 +114986,7 @@ class AccountSetReactionsNotifySettings extends TlMethod {
     final settings = reader.readObject() as ReactionsNotifySettingsBase;
 
     // Construct [AccountSetReactionsNotifySettings] object.
-    final returnValue = AccountSetReactionsNotifySettings(
-      settings: settings,
-    );
+    final returnValue = AccountSetReactionsNotifySettings(settings: settings);
 
     // Now return the deserialized [AccountSetReactionsNotifySettings].
     return returnValue;
@@ -116610,9 +115026,7 @@ class AccountSetReactionsNotifySettings extends TlMethod {
 /// ID: `2e7b4543`.
 class AccountGetCollectibleEmojiStatuses extends TlMethod {
   /// Account Get Collectible Emoji Statuses constructor.
-  const AccountGetCollectibleEmojiStatuses({
-    required this.hash,
-  }) : super._();
+  const AccountGetCollectibleEmojiStatuses({required this.hash}) : super._();
 
   /// Deserialize.
   factory AccountGetCollectibleEmojiStatuses.deserialize(BinaryReader reader) {
@@ -116620,9 +115034,7 @@ class AccountGetCollectibleEmojiStatuses extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [AccountGetCollectibleEmojiStatuses] object.
-    final returnValue = AccountGetCollectibleEmojiStatuses(
-      hash: hash,
-    );
+    final returnValue = AccountGetCollectibleEmojiStatuses(hash: hash);
 
     // Now return the deserialized [AccountGetCollectibleEmojiStatuses].
     return returnValue;
@@ -116664,10 +115076,8 @@ class AccountGetCollectibleEmojiStatuses extends TlMethod {
 /// ID: `19ba4a67`.
 class AccountGetPaidMessagesRevenue extends TlMethod {
   /// Account Get Paid Messages Revenue constructor.
-  const AccountGetPaidMessagesRevenue({
-    this.parentPeer,
-    required this.userId,
-  }) : super._();
+  const AccountGetPaidMessagesRevenue({this.parentPeer, required this.userId})
+      : super._();
 
   /// Deserialize.
   factory AccountGetPaidMessagesRevenue.deserialize(BinaryReader reader) {
@@ -116690,9 +115100,7 @@ class AccountGetPaidMessagesRevenue extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: parentPeer != null,
-    );
+    final v = _flag(b00: parentPeer != null);
 
     return v;
   }
@@ -116750,7 +115158,8 @@ class AccountToggleNoPaidMessagesException extends TlMethod {
 
   /// Deserialize.
   factory AccountToggleNoPaidMessagesException.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [AccountToggleNoPaidMessagesException] fields.
     final flags = reader.readInt32();
     final refundCharged = (flags & 1) != 0;
@@ -116829,15 +115238,264 @@ class AccountToggleNoPaidMessagesException extends TlMethod {
   }
 }
 
+/// Account Set Main Profile Tab.
+///
+/// Return Type: `bool`.
+/// ID: `5dee78b0`.
+class AccountSetMainProfileTab extends TlMethod {
+  /// Account Set Main Profile Tab constructor.
+  const AccountSetMainProfileTab({required this.tab}) : super._();
+
+  /// Deserialize.
+  factory AccountSetMainProfileTab.deserialize(BinaryReader reader) {
+    // Read [AccountSetMainProfileTab] fields.
+    final tab = reader.readObject() as ProfileTabBase;
+
+    // Construct [AccountSetMainProfileTab] object.
+    final returnValue = AccountSetMainProfileTab(tab: tab);
+
+    // Now return the deserialized [AccountSetMainProfileTab].
+    return returnValue;
+  }
+
+  /// Tab.
+  final ProfileTabBase tab;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5dee78b0.
+    buffer.writeInt32(0x5dee78b0);
+
+    // Write fields.
+    buffer.writeObject(tab);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "5dee78b0",
+      "\$name": "AccountSetMainProfileTab",
+      "tab": tab,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Save Music.
+///
+/// Return Type: `bool`.
+/// ID: `b26732a9`.
+class AccountSaveMusic extends TlMethod {
+  /// Account Save Music constructor.
+  const AccountSaveMusic({required this.unsave, required this.id, this.afterId})
+      : super._();
+
+  /// Deserialize.
+  factory AccountSaveMusic.deserialize(BinaryReader reader) {
+    // Read [AccountSaveMusic] fields.
+    final flags = reader.readInt32();
+    final unsave = (flags & 1) != 0;
+    final id = reader.readObject() as InputDocumentBase;
+    final hasAfterIdField = (flags & 2) != 0;
+    final afterId =
+        hasAfterIdField ? reader.readObject() as InputDocumentBase : null;
+
+    // Construct [AccountSaveMusic] object.
+    final returnValue = AccountSaveMusic(
+      unsave: unsave,
+      id: id,
+      afterId: afterId,
+    );
+
+    // Now return the deserialized [AccountSaveMusic].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: unsave, b01: afterId != null);
+
+    return v;
+  }
+
+  /// unsave: bit 0 of flags.0?true
+  final bool unsave;
+
+  /// Id.
+  final InputDocumentBase id;
+
+  /// After Id.
+  final InputDocumentBase? afterId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb26732a9.
+    buffer.writeInt32(0xb26732a9);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(id);
+    final localAfterIdCopy = afterId;
+    if (localAfterIdCopy != null) {
+      buffer.writeObject(localAfterIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "b26732a9",
+      "\$name": "AccountSaveMusic",
+      "flags": flags,
+      "unsave": unsave,
+      "id": id,
+      "afterId": afterId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Get Saved Music Ids.
+///
+/// Return Type: `AccountSavedMusicIdsBase`.
+/// ID: `e09d5faf`.
+class AccountGetSavedMusicIds extends TlMethod {
+  /// Account Get Saved Music Ids constructor.
+  const AccountGetSavedMusicIds({required this.hash}) : super._();
+
+  /// Deserialize.
+  factory AccountGetSavedMusicIds.deserialize(BinaryReader reader) {
+    // Read [AccountGetSavedMusicIds] fields.
+    final hash = reader.readInt64();
+
+    // Construct [AccountGetSavedMusicIds] object.
+    final returnValue = AccountGetSavedMusicIds(hash: hash);
+
+    // Now return the deserialized [AccountGetSavedMusicIds].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe09d5faf.
+    buffer.writeInt32(0xe09d5faf);
+
+    // Write fields.
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e09d5faf",
+      "\$name": "AccountGetSavedMusicIds",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Account Get Unique Gift Chat Themes.
+///
+/// Return Type: `AccountChatThemesBase`.
+/// ID: `fe74ef9f`.
+class AccountGetUniqueGiftChatThemes extends TlMethod {
+  /// Account Get Unique Gift Chat Themes constructor.
+  const AccountGetUniqueGiftChatThemes({
+    required this.offset,
+    required this.limit,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory AccountGetUniqueGiftChatThemes.deserialize(BinaryReader reader) {
+    // Read [AccountGetUniqueGiftChatThemes] fields.
+    final offset = reader.readInt32();
+    final limit = reader.readInt32();
+    final hash = reader.readInt64();
+
+    // Construct [AccountGetUniqueGiftChatThemes] object.
+    final returnValue = AccountGetUniqueGiftChatThemes(
+      offset: offset,
+      limit: limit,
+      hash: hash,
+    );
+
+    // Now return the deserialized [AccountGetUniqueGiftChatThemes].
+    return returnValue;
+  }
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfe74ef9f.
+    buffer.writeInt32(0xfe74ef9f);
+
+    // Write fields.
+    buffer.writeInt32(offset);
+    buffer.writeInt32(limit);
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fe74ef9f",
+      "\$name": "AccountGetUniqueGiftChatThemes",
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Users Get Users.
 ///
 /// Return Type: `List<UserBase>`.
 /// ID: `0d91a548`.
 class UsersGetUsers extends TlMethod {
   /// Users Get Users constructor.
-  const UsersGetUsers({
-    required this.id,
-  }) : super._();
+  const UsersGetUsers({required this.id}) : super._();
 
   /// Deserialize.
   factory UsersGetUsers.deserialize(BinaryReader reader) {
@@ -116845,9 +115503,7 @@ class UsersGetUsers extends TlMethod {
     final id = reader.readVectorObject<InputUserBase>();
 
     // Construct [UsersGetUsers] object.
-    final returnValue = UsersGetUsers(
-      id: id.items,
-    );
+    final returnValue = UsersGetUsers(id: id.items);
 
     // Now return the deserialized [UsersGetUsers].
     return returnValue;
@@ -116887,9 +115543,7 @@ class UsersGetUsers extends TlMethod {
 /// ID: `b60f5918`.
 class UsersGetFullUser extends TlMethod {
   /// Users Get Full User constructor.
-  const UsersGetFullUser({
-    required this.id,
-  }) : super._();
+  const UsersGetFullUser({required this.id}) : super._();
 
   /// Deserialize.
   factory UsersGetFullUser.deserialize(BinaryReader reader) {
@@ -116897,9 +115551,7 @@ class UsersGetFullUser extends TlMethod {
     final id = reader.readObject() as InputUserBase;
 
     // Construct [UsersGetFullUser] object.
-    final returnValue = UsersGetFullUser(
-      id: id,
-    );
+    final returnValue = UsersGetFullUser(id: id);
 
     // Now return the deserialized [UsersGetFullUser].
     return returnValue;
@@ -116939,10 +115591,8 @@ class UsersGetFullUser extends TlMethod {
 /// ID: `90c894b5`.
 class UsersSetSecureValueErrors extends TlMethod {
   /// Users Set Secure Value Errors constructor.
-  const UsersSetSecureValueErrors({
-    required this.id,
-    required this.errors,
-  }) : super._();
+  const UsersSetSecureValueErrors({required this.id, required this.errors})
+      : super._();
 
   /// Deserialize.
   factory UsersSetSecureValueErrors.deserialize(BinaryReader reader) {
@@ -116951,10 +115601,7 @@ class UsersSetSecureValueErrors extends TlMethod {
     final errors = reader.readVectorObject<SecureValueErrorBase>();
 
     // Construct [UsersSetSecureValueErrors] object.
-    final returnValue = UsersSetSecureValueErrors(
-      id: id,
-      errors: errors.items,
-    );
+    final returnValue = UsersSetSecureValueErrors(id: id, errors: errors.items);
 
     // Now return the deserialized [UsersSetSecureValueErrors].
     return returnValue;
@@ -116999,9 +115646,7 @@ class UsersSetSecureValueErrors extends TlMethod {
 /// ID: `d89a83a3`.
 class UsersGetRequirementsToContact extends TlMethod {
   /// Users Get Requirements To Contact constructor.
-  const UsersGetRequirementsToContact({
-    required this.id,
-  }) : super._();
+  const UsersGetRequirementsToContact({required this.id}) : super._();
 
   /// Deserialize.
   factory UsersGetRequirementsToContact.deserialize(BinaryReader reader) {
@@ -117009,9 +115654,7 @@ class UsersGetRequirementsToContact extends TlMethod {
     final id = reader.readVectorObject<InputUserBase>();
 
     // Construct [UsersGetRequirementsToContact] object.
-    final returnValue = UsersGetRequirementsToContact(
-      id: id.items,
-    );
+    final returnValue = UsersGetRequirementsToContact(id: id.items);
 
     // Now return the deserialized [UsersGetRequirementsToContact].
     return returnValue;
@@ -117045,15 +115688,153 @@ class UsersGetRequirementsToContact extends TlMethod {
   }
 }
 
+/// Users Get Saved Music.
+///
+/// Return Type: `UsersSavedMusicBase`.
+/// ID: `788d7fe3`.
+class UsersGetSavedMusic extends TlMethod {
+  /// Users Get Saved Music constructor.
+  const UsersGetSavedMusic({
+    required this.id,
+    required this.offset,
+    required this.limit,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory UsersGetSavedMusic.deserialize(BinaryReader reader) {
+    // Read [UsersGetSavedMusic] fields.
+    final id = reader.readObject() as InputUserBase;
+    final offset = reader.readInt32();
+    final limit = reader.readInt32();
+    final hash = reader.readInt64();
+
+    // Construct [UsersGetSavedMusic] object.
+    final returnValue = UsersGetSavedMusic(
+      id: id,
+      offset: offset,
+      limit: limit,
+      hash: hash,
+    );
+
+    // Now return the deserialized [UsersGetSavedMusic].
+    return returnValue;
+  }
+
+  /// Id.
+  final InputUserBase id;
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x788d7fe3.
+    buffer.writeInt32(0x788d7fe3);
+
+    // Write fields.
+    buffer.writeObject(id);
+    buffer.writeInt32(offset);
+    buffer.writeInt32(limit);
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "788d7fe3",
+      "\$name": "UsersGetSavedMusic",
+      "id": id,
+      "offset": offset,
+      "limit": limit,
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Users Get Saved Music By I D.
+///
+/// Return Type: `UsersSavedMusicBase`.
+/// ID: `7573a4e9`.
+class UsersGetSavedMusicByID extends TlMethod {
+  /// Users Get Saved Music By I D constructor.
+  const UsersGetSavedMusicByID({required this.id, required this.documents})
+      : super._();
+
+  /// Deserialize.
+  factory UsersGetSavedMusicByID.deserialize(BinaryReader reader) {
+    // Read [UsersGetSavedMusicByID] fields.
+    final id = reader.readObject() as InputUserBase;
+    final documents = reader.readVectorObject<InputDocumentBase>();
+
+    // Construct [UsersGetSavedMusicByID] object.
+    final returnValue = UsersGetSavedMusicByID(
+      id: id,
+      documents: documents.items,
+    );
+
+    // Now return the deserialized [UsersGetSavedMusicByID].
+    return returnValue;
+  }
+
+  /// Id.
+  final InputUserBase id;
+
+  /// Documents.
+  final List<InputDocumentBase> documents;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7573a4e9.
+    buffer.writeInt32(0x7573a4e9);
+
+    // Write fields.
+    buffer.writeObject(id);
+    buffer.writeVectorObject(documents);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "7573a4e9",
+      "\$name": "UsersGetSavedMusicByID",
+      "id": id,
+      "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Contacts Get Contact I Ds.
 ///
 /// Return Type: `List<int>`.
 /// ID: `7adc669d`.
 class ContactsGetContactIDs extends TlMethod {
   /// Contacts Get Contact I Ds constructor.
-  const ContactsGetContactIDs({
-    required this.hash,
-  }) : super._();
+  const ContactsGetContactIDs({required this.hash}) : super._();
 
   /// Deserialize.
   factory ContactsGetContactIDs.deserialize(BinaryReader reader) {
@@ -117061,9 +115842,7 @@ class ContactsGetContactIDs extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [ContactsGetContactIDs] object.
-    final returnValue = ContactsGetContactIDs(
-      hash: hash,
-    );
+    final returnValue = ContactsGetContactIDs(hash: hash);
 
     // Now return the deserialized [ContactsGetContactIDs].
     return returnValue;
@@ -117143,9 +115922,7 @@ class ContactsGetStatuses extends TlMethod {
 /// ID: `5dd69e12`.
 class ContactsGetContacts extends TlMethod {
   /// Contacts Get Contacts constructor.
-  const ContactsGetContacts({
-    required this.hash,
-  }) : super._();
+  const ContactsGetContacts({required this.hash}) : super._();
 
   /// Deserialize.
   factory ContactsGetContacts.deserialize(BinaryReader reader) {
@@ -117153,9 +115930,7 @@ class ContactsGetContacts extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [ContactsGetContacts] object.
-    final returnValue = ContactsGetContacts(
-      hash: hash,
-    );
+    final returnValue = ContactsGetContacts(hash: hash);
 
     // Now return the deserialized [ContactsGetContacts].
     return returnValue;
@@ -117197,9 +115972,7 @@ class ContactsGetContacts extends TlMethod {
 /// ID: `2c800be5`.
 class ContactsImportContacts extends TlMethod {
   /// Contacts Import Contacts constructor.
-  const ContactsImportContacts({
-    required this.contacts,
-  }) : super._();
+  const ContactsImportContacts({required this.contacts}) : super._();
 
   /// Deserialize.
   factory ContactsImportContacts.deserialize(BinaryReader reader) {
@@ -117207,9 +115980,7 @@ class ContactsImportContacts extends TlMethod {
     final contacts = reader.readVectorObject<InputContactBase>();
 
     // Construct [ContactsImportContacts] object.
-    final returnValue = ContactsImportContacts(
-      contacts: contacts.items,
-    );
+    final returnValue = ContactsImportContacts(contacts: contacts.items);
 
     // Now return the deserialized [ContactsImportContacts].
     return returnValue;
@@ -117249,9 +116020,7 @@ class ContactsImportContacts extends TlMethod {
 /// ID: `096a0e00`.
 class ContactsDeleteContacts extends TlMethod {
   /// Contacts Delete Contacts constructor.
-  const ContactsDeleteContacts({
-    required this.id,
-  }) : super._();
+  const ContactsDeleteContacts({required this.id}) : super._();
 
   /// Deserialize.
   factory ContactsDeleteContacts.deserialize(BinaryReader reader) {
@@ -117259,9 +116028,7 @@ class ContactsDeleteContacts extends TlMethod {
     final id = reader.readVectorObject<InputUserBase>();
 
     // Construct [ContactsDeleteContacts] object.
-    final returnValue = ContactsDeleteContacts(
-      id: id.items,
-    );
+    final returnValue = ContactsDeleteContacts(id: id.items);
 
     // Now return the deserialized [ContactsDeleteContacts].
     return returnValue;
@@ -117301,9 +116068,7 @@ class ContactsDeleteContacts extends TlMethod {
 /// ID: `1013fd9e`.
 class ContactsDeleteByPhones extends TlMethod {
   /// Contacts Delete By Phones constructor.
-  const ContactsDeleteByPhones({
-    required this.phones,
-  }) : super._();
+  const ContactsDeleteByPhones({required this.phones}) : super._();
 
   /// Deserialize.
   factory ContactsDeleteByPhones.deserialize(BinaryReader reader) {
@@ -117311,9 +116076,7 @@ class ContactsDeleteByPhones extends TlMethod {
     final phones = reader.readVectorString();
 
     // Construct [ContactsDeleteByPhones] object.
-    final returnValue = ContactsDeleteByPhones(
-      phones: phones.items,
-    );
+    final returnValue = ContactsDeleteByPhones(phones: phones.items);
 
     // Now return the deserialized [ContactsDeleteByPhones].
     return returnValue;
@@ -117353,10 +116116,8 @@ class ContactsDeleteByPhones extends TlMethod {
 /// ID: `2e2e8734`.
 class ContactsBlock extends TlMethod {
   /// Contacts Block constructor.
-  const ContactsBlock({
-    required this.myStoriesFrom,
-    required this.id,
-  }) : super._();
+  const ContactsBlock({required this.myStoriesFrom, required this.id})
+      : super._();
 
   /// Deserialize.
   factory ContactsBlock.deserialize(BinaryReader reader) {
@@ -117366,10 +116127,7 @@ class ContactsBlock extends TlMethod {
     final id = reader.readObject() as InputPeerBase;
 
     // Construct [ContactsBlock] object.
-    final returnValue = ContactsBlock(
-      myStoriesFrom: myStoriesFrom,
-      id: id,
-    );
+    final returnValue = ContactsBlock(myStoriesFrom: myStoriesFrom, id: id);
 
     // Now return the deserialized [ContactsBlock].
     return returnValue;
@@ -117377,9 +116135,7 @@ class ContactsBlock extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: myStoriesFrom,
-    );
+    final v = _flag(b00: myStoriesFrom);
 
     return v;
   }
@@ -117424,10 +116180,8 @@ class ContactsBlock extends TlMethod {
 /// ID: `b550d328`.
 class ContactsUnblock extends TlMethod {
   /// Contacts Unblock constructor.
-  const ContactsUnblock({
-    required this.myStoriesFrom,
-    required this.id,
-  }) : super._();
+  const ContactsUnblock({required this.myStoriesFrom, required this.id})
+      : super._();
 
   /// Deserialize.
   factory ContactsUnblock.deserialize(BinaryReader reader) {
@@ -117437,10 +116191,7 @@ class ContactsUnblock extends TlMethod {
     final id = reader.readObject() as InputPeerBase;
 
     // Construct [ContactsUnblock] object.
-    final returnValue = ContactsUnblock(
-      myStoriesFrom: myStoriesFrom,
-      id: id,
-    );
+    final returnValue = ContactsUnblock(myStoriesFrom: myStoriesFrom, id: id);
 
     // Now return the deserialized [ContactsUnblock].
     return returnValue;
@@ -117448,9 +116199,7 @@ class ContactsUnblock extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: myStoriesFrom,
-    );
+    final v = _flag(b00: myStoriesFrom);
 
     return v;
   }
@@ -117522,9 +116271,7 @@ class ContactsGetBlocked extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: myStoriesFrom,
-    );
+    final v = _flag(b00: myStoriesFrom);
 
     return v;
   }
@@ -117578,10 +116325,7 @@ class ContactsGetBlocked extends TlMethod {
 /// ID: `11f812d8`.
 class ContactsSearch extends TlMethod {
   /// Contacts Search constructor.
-  const ContactsSearch({
-    required this.q,
-    required this.limit,
-  }) : super._();
+  const ContactsSearch({required this.q, required this.limit}) : super._();
 
   /// Deserialize.
   factory ContactsSearch.deserialize(BinaryReader reader) {
@@ -117590,10 +116334,7 @@ class ContactsSearch extends TlMethod {
     final limit = reader.readInt32();
 
     // Construct [ContactsSearch] object.
-    final returnValue = ContactsSearch(
-      q: q,
-      limit: limit,
-    );
+    final returnValue = ContactsSearch(q: q, limit: limit);
 
     // Now return the deserialized [ContactsSearch].
     return returnValue;
@@ -117640,10 +116381,8 @@ class ContactsSearch extends TlMethod {
 /// ID: `725afbbc`.
 class ContactsResolveUsername extends TlMethod {
   /// Contacts Resolve Username constructor.
-  const ContactsResolveUsername({
-    required this.username,
-    this.referer,
-  }) : super._();
+  const ContactsResolveUsername({required this.username, this.referer})
+      : super._();
 
   /// Deserialize.
   factory ContactsResolveUsername.deserialize(BinaryReader reader) {
@@ -117665,9 +116404,7 @@ class ContactsResolveUsername extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: referer != null,
-    );
+    final v = _flag(b00: referer != null);
 
     return v;
   }
@@ -117873,10 +116610,8 @@ class ContactsGetTopPeers extends TlMethod {
 /// ID: `1ae373ac`.
 class ContactsResetTopPeerRating extends TlMethod {
   /// Contacts Reset Top Peer Rating constructor.
-  const ContactsResetTopPeerRating({
-    required this.category,
-    required this.peer,
-  }) : super._();
+  const ContactsResetTopPeerRating({required this.category, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory ContactsResetTopPeerRating.deserialize(BinaryReader reader) {
@@ -118009,9 +116744,7 @@ class ContactsGetSaved extends TlMethod {
 /// ID: `8514bdda`.
 class ContactsToggleTopPeers extends TlMethod {
   /// Contacts Toggle Top Peers constructor.
-  const ContactsToggleTopPeers({
-    required this.enabled,
-  }) : super._();
+  const ContactsToggleTopPeers({required this.enabled}) : super._();
 
   /// Deserialize.
   factory ContactsToggleTopPeers.deserialize(BinaryReader reader) {
@@ -118019,9 +116752,7 @@ class ContactsToggleTopPeers extends TlMethod {
     final enabled = reader.readBool();
 
     // Construct [ContactsToggleTopPeers] object.
-    final returnValue = ContactsToggleTopPeers(
-      enabled: enabled,
-    );
+    final returnValue = ContactsToggleTopPeers(enabled: enabled);
 
     // Now return the deserialized [ContactsToggleTopPeers].
     return returnValue;
@@ -118094,9 +116825,7 @@ class ContactsAddContact extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: addPhonePrivacyException,
-    );
+    final v = _flag(b00: addPhonePrivacyException);
 
     return v;
   }
@@ -118156,9 +116885,7 @@ class ContactsAddContact extends TlMethod {
 /// ID: `f831a20f`.
 class ContactsAcceptContact extends TlMethod {
   /// Contacts Accept Contact constructor.
-  const ContactsAcceptContact({
-    required this.id,
-  }) : super._();
+  const ContactsAcceptContact({required this.id}) : super._();
 
   /// Deserialize.
   factory ContactsAcceptContact.deserialize(BinaryReader reader) {
@@ -118166,9 +116893,7 @@ class ContactsAcceptContact extends TlMethod {
     final id = reader.readObject() as InputUserBase;
 
     // Construct [ContactsAcceptContact] object.
-    final returnValue = ContactsAcceptContact(
-      id: id,
-    );
+    final returnValue = ContactsAcceptContact(id: id);
 
     // Now return the deserialized [ContactsAcceptContact].
     return returnValue;
@@ -118236,10 +116961,7 @@ class ContactsGetLocated extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: background,
-      b00: selfExpires != null,
-    );
+    final v = _flag(b01: background, b00: selfExpires != null);
 
     return v;
   }
@@ -118322,11 +117044,7 @@ class ContactsBlockFromReplies extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: deleteMessage,
-      b01: deleteHistory,
-      b02: reportSpam,
-    );
+    final v = _flag(b00: deleteMessage, b01: deleteHistory, b02: reportSpam);
 
     return v;
   }
@@ -118381,9 +117099,7 @@ class ContactsBlockFromReplies extends TlMethod {
 /// ID: `8af94344`.
 class ContactsResolvePhone extends TlMethod {
   /// Contacts Resolve Phone constructor.
-  const ContactsResolvePhone({
-    required this.phone,
-  }) : super._();
+  const ContactsResolvePhone({required this.phone}) : super._();
 
   /// Deserialize.
   factory ContactsResolvePhone.deserialize(BinaryReader reader) {
@@ -118391,9 +117107,7 @@ class ContactsResolvePhone extends TlMethod {
     final phone = reader.readString();
 
     // Construct [ContactsResolvePhone] object.
-    final returnValue = ContactsResolvePhone(
-      phone: phone,
-    );
+    final returnValue = ContactsResolvePhone(phone: phone);
 
     // Now return the deserialized [ContactsResolvePhone].
     return returnValue;
@@ -118471,9 +117185,7 @@ class ContactsExportContactToken extends TlMethod {
 /// ID: `13005788`.
 class ContactsImportContactToken extends TlMethod {
   /// Contacts Import Contact Token constructor.
-  const ContactsImportContactToken({
-    required this.token,
-  }) : super._();
+  const ContactsImportContactToken({required this.token}) : super._();
 
   /// Deserialize.
   factory ContactsImportContactToken.deserialize(BinaryReader reader) {
@@ -118481,9 +117193,7 @@ class ContactsImportContactToken extends TlMethod {
     final token = reader.readString();
 
     // Construct [ContactsImportContactToken] object.
-    final returnValue = ContactsImportContactToken(
-      token: token,
-    );
+    final returnValue = ContactsImportContactToken(token: token);
 
     // Now return the deserialized [ContactsImportContactToken].
     return returnValue;
@@ -118523,9 +117233,7 @@ class ContactsImportContactToken extends TlMethod {
 /// ID: `ba6705f0`.
 class ContactsEditCloseFriends extends TlMethod {
   /// Contacts Edit Close Friends constructor.
-  const ContactsEditCloseFriends({
-    required this.id,
-  }) : super._();
+  const ContactsEditCloseFriends({required this.id}) : super._();
 
   /// Deserialize.
   factory ContactsEditCloseFriends.deserialize(BinaryReader reader) {
@@ -118533,9 +117241,7 @@ class ContactsEditCloseFriends extends TlMethod {
     final id = reader.readVectorInt64();
 
     // Construct [ContactsEditCloseFriends] object.
-    final returnValue = ContactsEditCloseFriends(
-      id: id.items,
-    );
+    final returnValue = ContactsEditCloseFriends(id: id.items);
 
     // Now return the deserialized [ContactsEditCloseFriends].
     return returnValue;
@@ -118602,9 +117308,7 @@ class ContactsSetBlocked extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: myStoriesFrom,
-    );
+    final v = _flag(b00: myStoriesFrom);
 
     return v;
   }
@@ -118694,9 +117398,7 @@ class ContactsGetBirthdays extends TlMethod {
 /// ID: `b6c8c393`.
 class ContactsGetSponsoredPeers extends TlMethod {
   /// Contacts Get Sponsored Peers constructor.
-  const ContactsGetSponsoredPeers({
-    required this.q,
-  }) : super._();
+  const ContactsGetSponsoredPeers({required this.q}) : super._();
 
   /// Deserialize.
   factory ContactsGetSponsoredPeers.deserialize(BinaryReader reader) {
@@ -118704,9 +117406,7 @@ class ContactsGetSponsoredPeers extends TlMethod {
     final q = reader.readString();
 
     // Construct [ContactsGetSponsoredPeers] object.
-    final returnValue = ContactsGetSponsoredPeers(
-      q: q,
-    );
+    final returnValue = ContactsGetSponsoredPeers(q: q);
 
     // Now return the deserialized [ContactsGetSponsoredPeers].
     return returnValue;
@@ -118746,9 +117446,7 @@ class ContactsGetSponsoredPeers extends TlMethod {
 /// ID: `63c66506`.
 class MessagesGetMessages extends TlMethod {
   /// Messages Get Messages constructor.
-  const MessagesGetMessages({
-    required this.id,
-  }) : super._();
+  const MessagesGetMessages({required this.id}) : super._();
 
   /// Deserialize.
   factory MessagesGetMessages.deserialize(BinaryReader reader) {
@@ -118756,9 +117454,7 @@ class MessagesGetMessages extends TlMethod {
     final id = reader.readVectorObject<InputMessageBase>();
 
     // Construct [MessagesGetMessages] object.
-    final returnValue = MessagesGetMessages(
-      id: id.items,
-    );
+    final returnValue = MessagesGetMessages(id: id.items);
 
     // Now return the deserialized [MessagesGetMessages].
     return returnValue;
@@ -118838,10 +117534,7 @@ class MessagesGetDialogs extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: excludePinned,
-      b01: folderId != null,
-    );
+    final v = _flag(b00: excludePinned, b01: folderId != null);
 
     return v;
   }
@@ -119249,10 +117942,8 @@ class MessagesSearch extends TlMethod {
 /// ID: `0e306d3a`.
 class MessagesReadHistory extends TlMethod {
   /// Messages Read History constructor.
-  const MessagesReadHistory({
-    required this.peer,
-    required this.maxId,
-  }) : super._();
+  const MessagesReadHistory({required this.peer, required this.maxId})
+      : super._();
 
   /// Deserialize.
   factory MessagesReadHistory.deserialize(BinaryReader reader) {
@@ -119261,10 +117952,7 @@ class MessagesReadHistory extends TlMethod {
     final maxId = reader.readInt32();
 
     // Construct [MessagesReadHistory] object.
-    final returnValue = MessagesReadHistory(
-      peer: peer,
-      maxId: maxId,
-    );
+    final returnValue = MessagesReadHistory(peer: peer, maxId: maxId);
 
     // Now return the deserialized [MessagesReadHistory].
     return returnValue;
@@ -119426,10 +118114,8 @@ class MessagesDeleteHistory extends TlMethod {
 /// ID: `e58e95d2`.
 class MessagesDeleteMessages extends TlMethod {
   /// Messages Delete Messages constructor.
-  const MessagesDeleteMessages({
-    required this.revoke,
-    required this.id,
-  }) : super._();
+  const MessagesDeleteMessages({required this.revoke, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesDeleteMessages.deserialize(BinaryReader reader) {
@@ -119439,10 +118125,7 @@ class MessagesDeleteMessages extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [MessagesDeleteMessages] object.
-    final returnValue = MessagesDeleteMessages(
-      revoke: revoke,
-      id: id.items,
-    );
+    final returnValue = MessagesDeleteMessages(revoke: revoke, id: id.items);
 
     // Now return the deserialized [MessagesDeleteMessages].
     return returnValue;
@@ -119450,9 +118133,7 @@ class MessagesDeleteMessages extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: revoke,
-    );
+    final v = _flag(b00: revoke);
 
     return v;
   }
@@ -119497,9 +118178,7 @@ class MessagesDeleteMessages extends TlMethod {
 /// ID: `05a954c0`.
 class MessagesReceivedMessages extends TlMethod {
   /// Messages Received Messages constructor.
-  const MessagesReceivedMessages({
-    required this.maxId,
-  }) : super._();
+  const MessagesReceivedMessages({required this.maxId}) : super._();
 
   /// Deserialize.
   factory MessagesReceivedMessages.deserialize(BinaryReader reader) {
@@ -119507,9 +118186,7 @@ class MessagesReceivedMessages extends TlMethod {
     final maxId = reader.readInt32();
 
     // Construct [MessagesReceivedMessages] object.
-    final returnValue = MessagesReceivedMessages(
-      maxId: maxId,
-    );
+    final returnValue = MessagesReceivedMessages(maxId: maxId);
 
     // Now return the deserialized [MessagesReceivedMessages].
     return returnValue;
@@ -119579,9 +118256,7 @@ class MessagesSetTyping extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-    );
+    final v = _flag(b00: topMsgId != null);
 
     return v;
   }
@@ -120422,9 +119097,7 @@ class MessagesForwardMessages extends TlMethod {
 /// ID: `cf1592db`.
 class MessagesReportSpam extends TlMethod {
   /// Messages Report Spam constructor.
-  const MessagesReportSpam({
-    required this.peer,
-  }) : super._();
+  const MessagesReportSpam({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesReportSpam.deserialize(BinaryReader reader) {
@@ -120432,9 +119105,7 @@ class MessagesReportSpam extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesReportSpam] object.
-    final returnValue = MessagesReportSpam(
-      peer: peer,
-    );
+    final returnValue = MessagesReportSpam(peer: peer);
 
     // Now return the deserialized [MessagesReportSpam].
     return returnValue;
@@ -120474,9 +119145,7 @@ class MessagesReportSpam extends TlMethod {
 /// ID: `efd9a6a2`.
 class MessagesGetPeerSettings extends TlMethod {
   /// Messages Get Peer Settings constructor.
-  const MessagesGetPeerSettings({
-    required this.peer,
-  }) : super._();
+  const MessagesGetPeerSettings({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesGetPeerSettings.deserialize(BinaryReader reader) {
@@ -120484,9 +119153,7 @@ class MessagesGetPeerSettings extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesGetPeerSettings] object.
-    final returnValue = MessagesGetPeerSettings(
-      peer: peer,
-    );
+    final returnValue = MessagesGetPeerSettings(peer: peer);
 
     // Now return the deserialized [MessagesGetPeerSettings].
     return returnValue;
@@ -120602,9 +119269,7 @@ class MessagesReport extends TlMethod {
 /// ID: `49e9528f`.
 class MessagesGetChats extends TlMethod {
   /// Messages Get Chats constructor.
-  const MessagesGetChats({
-    required this.id,
-  }) : super._();
+  const MessagesGetChats({required this.id}) : super._();
 
   /// Deserialize.
   factory MessagesGetChats.deserialize(BinaryReader reader) {
@@ -120612,9 +119277,7 @@ class MessagesGetChats extends TlMethod {
     final id = reader.readVectorInt64();
 
     // Construct [MessagesGetChats] object.
-    final returnValue = MessagesGetChats(
-      id: id.items,
-    );
+    final returnValue = MessagesGetChats(id: id.items);
 
     // Now return the deserialized [MessagesGetChats].
     return returnValue;
@@ -120654,9 +119317,7 @@ class MessagesGetChats extends TlMethod {
 /// ID: `aeb00b34`.
 class MessagesGetFullChat extends TlMethod {
   /// Messages Get Full Chat constructor.
-  const MessagesGetFullChat({
-    required this.chatId,
-  }) : super._();
+  const MessagesGetFullChat({required this.chatId}) : super._();
 
   /// Deserialize.
   factory MessagesGetFullChat.deserialize(BinaryReader reader) {
@@ -120664,9 +119325,7 @@ class MessagesGetFullChat extends TlMethod {
     final chatId = reader.readInt64();
 
     // Construct [MessagesGetFullChat] object.
-    final returnValue = MessagesGetFullChat(
-      chatId: chatId,
-    );
+    final returnValue = MessagesGetFullChat(chatId: chatId);
 
     // Now return the deserialized [MessagesGetFullChat].
     return returnValue;
@@ -120708,10 +119367,8 @@ class MessagesGetFullChat extends TlMethod {
 /// ID: `73783ffd`.
 class MessagesEditChatTitle extends TlMethod {
   /// Messages Edit Chat Title constructor.
-  const MessagesEditChatTitle({
-    required this.chatId,
-    required this.title,
-  }) : super._();
+  const MessagesEditChatTitle({required this.chatId, required this.title})
+      : super._();
 
   /// Deserialize.
   factory MessagesEditChatTitle.deserialize(BinaryReader reader) {
@@ -120720,10 +119377,7 @@ class MessagesEditChatTitle extends TlMethod {
     final title = reader.readString();
 
     // Construct [MessagesEditChatTitle] object.
-    final returnValue = MessagesEditChatTitle(
-      chatId: chatId,
-      title: title,
-    );
+    final returnValue = MessagesEditChatTitle(chatId: chatId, title: title);
 
     // Now return the deserialized [MessagesEditChatTitle].
     return returnValue;
@@ -120770,10 +119424,8 @@ class MessagesEditChatTitle extends TlMethod {
 /// ID: `35ddd674`.
 class MessagesEditChatPhoto extends TlMethod {
   /// Messages Edit Chat Photo constructor.
-  const MessagesEditChatPhoto({
-    required this.chatId,
-    required this.photo,
-  }) : super._();
+  const MessagesEditChatPhoto({required this.chatId, required this.photo})
+      : super._();
 
   /// Deserialize.
   factory MessagesEditChatPhoto.deserialize(BinaryReader reader) {
@@ -120782,10 +119434,7 @@ class MessagesEditChatPhoto extends TlMethod {
     final photo = reader.readObject() as InputChatPhotoBase;
 
     // Construct [MessagesEditChatPhoto] object.
-    final returnValue = MessagesEditChatPhoto(
-      chatId: chatId,
-      photo: photo,
-    );
+    final returnValue = MessagesEditChatPhoto(chatId: chatId, photo: photo);
 
     // Now return the deserialized [MessagesEditChatPhoto].
     return returnValue;
@@ -120931,9 +119580,7 @@ class MessagesDeleteChatUser extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: revokeHistory,
-    );
+    final v = _flag(b00: revokeHistory);
 
     return v;
   }
@@ -121013,9 +119660,7 @@ class MessagesCreateChat extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ttlPeriod != null,
-    );
+    final v = _flag(b00: ttlPeriod != null);
 
     return v;
   }
@@ -121069,10 +119714,8 @@ class MessagesCreateChat extends TlMethod {
 /// ID: `26cf8950`.
 class MessagesGetDhConfig extends TlMethod {
   /// Messages Get Dh Config constructor.
-  const MessagesGetDhConfig({
-    required this.version,
-    required this.randomLength,
-  }) : super._();
+  const MessagesGetDhConfig({required this.version, required this.randomLength})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetDhConfig.deserialize(BinaryReader reader) {
@@ -121297,9 +119940,7 @@ class MessagesDiscardEncryption extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: deleteHistory,
-    );
+    final v = _flag(b00: deleteHistory);
 
     return v;
   }
@@ -121346,10 +119987,8 @@ class MessagesDiscardEncryption extends TlMethod {
 /// ID: `791451ed`.
 class MessagesSetEncryptedTyping extends TlMethod {
   /// Messages Set Encrypted Typing constructor.
-  const MessagesSetEncryptedTyping({
-    required this.peer,
-    required this.typing,
-  }) : super._();
+  const MessagesSetEncryptedTyping({required this.peer, required this.typing})
+      : super._();
 
   /// Deserialize.
   factory MessagesSetEncryptedTyping.deserialize(BinaryReader reader) {
@@ -121358,10 +119997,7 @@ class MessagesSetEncryptedTyping extends TlMethod {
     final typing = reader.readBool();
 
     // Construct [MessagesSetEncryptedTyping] object.
-    final returnValue = MessagesSetEncryptedTyping(
-      peer: peer,
-      typing: typing,
-    );
+    final returnValue = MessagesSetEncryptedTyping(peer: peer, typing: typing);
 
     // Now return the deserialized [MessagesSetEncryptedTyping].
     return returnValue;
@@ -121496,9 +120132,7 @@ class MessagesSendEncrypted extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: silent,
-    );
+    final v = _flag(b00: silent);
 
     return v;
   }
@@ -121588,9 +120222,7 @@ class MessagesSendEncryptedFile extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: silent,
-    );
+    final v = _flag(b00: silent);
 
     return v;
   }
@@ -121722,9 +120354,7 @@ class MessagesSendEncryptedService extends TlMethod {
 /// ID: `55a5bb66`.
 class MessagesReceivedQueue extends TlMethod {
   /// Messages Received Queue constructor.
-  const MessagesReceivedQueue({
-    required this.maxQts,
-  }) : super._();
+  const MessagesReceivedQueue({required this.maxQts}) : super._();
 
   /// Deserialize.
   factory MessagesReceivedQueue.deserialize(BinaryReader reader) {
@@ -121732,9 +120362,7 @@ class MessagesReceivedQueue extends TlMethod {
     final maxQts = reader.readInt32();
 
     // Construct [MessagesReceivedQueue] object.
-    final returnValue = MessagesReceivedQueue(
-      maxQts: maxQts,
-    );
+    final returnValue = MessagesReceivedQueue(maxQts: maxQts);
 
     // Now return the deserialized [MessagesReceivedQueue].
     return returnValue;
@@ -121776,9 +120404,7 @@ class MessagesReceivedQueue extends TlMethod {
 /// ID: `4b0c8c0f`.
 class MessagesReportEncryptedSpam extends TlMethod {
   /// Messages Report Encrypted Spam constructor.
-  const MessagesReportEncryptedSpam({
-    required this.peer,
-  }) : super._();
+  const MessagesReportEncryptedSpam({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesReportEncryptedSpam.deserialize(BinaryReader reader) {
@@ -121786,9 +120412,7 @@ class MessagesReportEncryptedSpam extends TlMethod {
     final peer = reader.readObject() as InputEncryptedChatBase;
 
     // Construct [MessagesReportEncryptedSpam] object.
-    final returnValue = MessagesReportEncryptedSpam(
-      peer: peer,
-    );
+    final returnValue = MessagesReportEncryptedSpam(peer: peer);
 
     // Now return the deserialized [MessagesReportEncryptedSpam].
     return returnValue;
@@ -121828,9 +120452,7 @@ class MessagesReportEncryptedSpam extends TlMethod {
 /// ID: `36a73f77`.
 class MessagesReadMessageContents extends TlMethod {
   /// Messages Read Message Contents constructor.
-  const MessagesReadMessageContents({
-    required this.id,
-  }) : super._();
+  const MessagesReadMessageContents({required this.id}) : super._();
 
   /// Deserialize.
   factory MessagesReadMessageContents.deserialize(BinaryReader reader) {
@@ -121838,9 +120460,7 @@ class MessagesReadMessageContents extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [MessagesReadMessageContents] object.
-    final returnValue = MessagesReadMessageContents(
-      id: id.items,
-    );
+    final returnValue = MessagesReadMessageContents(id: id.items);
 
     // Now return the deserialized [MessagesReadMessageContents].
     return returnValue;
@@ -121880,10 +120500,8 @@ class MessagesReadMessageContents extends TlMethod {
 /// ID: `d5a5d3a1`.
 class MessagesGetStickers extends TlMethod {
   /// Messages Get Stickers constructor.
-  const MessagesGetStickers({
-    required this.emoticon,
-    required this.hash,
-  }) : super._();
+  const MessagesGetStickers({required this.emoticon, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetStickers.deserialize(BinaryReader reader) {
@@ -121892,10 +120510,7 @@ class MessagesGetStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetStickers] object.
-    final returnValue = MessagesGetStickers(
-      emoticon: emoticon,
-      hash: hash,
-    );
+    final returnValue = MessagesGetStickers(emoticon: emoticon, hash: hash);
 
     // Now return the deserialized [MessagesGetStickers].
     return returnValue;
@@ -121942,9 +120557,7 @@ class MessagesGetStickers extends TlMethod {
 /// ID: `b8a0a1a8`.
 class MessagesGetAllStickers extends TlMethod {
   /// Messages Get All Stickers constructor.
-  const MessagesGetAllStickers({
-    required this.hash,
-  }) : super._();
+  const MessagesGetAllStickers({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetAllStickers.deserialize(BinaryReader reader) {
@@ -121952,9 +120565,7 @@ class MessagesGetAllStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetAllStickers] object.
-    final returnValue = MessagesGetAllStickers(
-      hash: hash,
-    );
+    final returnValue = MessagesGetAllStickers(hash: hash);
 
     // Now return the deserialized [MessagesGetAllStickers].
     return returnValue;
@@ -121996,10 +120607,8 @@ class MessagesGetAllStickers extends TlMethod {
 /// ID: `570d6f6f`.
 class MessagesGetWebPagePreview extends TlMethod {
   /// Messages Get Web Page Preview constructor.
-  const MessagesGetWebPagePreview({
-    required this.message,
-    this.entities,
-  }) : super._();
+  const MessagesGetWebPagePreview({required this.message, this.entities})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetWebPagePreview.deserialize(BinaryReader reader) {
@@ -122022,9 +120631,7 @@ class MessagesGetWebPagePreview extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b03: entities != null,
-    );
+    final v = _flag(b03: entities != null);
 
     return v;
   }
@@ -122206,9 +120813,7 @@ class MessagesExportChatInvite extends TlMethod {
 /// ID: `3eadb1bb`.
 class MessagesCheckChatInvite extends TlMethod {
   /// Messages Check Chat Invite constructor.
-  const MessagesCheckChatInvite({
-    required this.hash,
-  }) : super._();
+  const MessagesCheckChatInvite({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesCheckChatInvite.deserialize(BinaryReader reader) {
@@ -122216,9 +120821,7 @@ class MessagesCheckChatInvite extends TlMethod {
     final hash = reader.readString();
 
     // Construct [MessagesCheckChatInvite] object.
-    final returnValue = MessagesCheckChatInvite(
-      hash: hash,
-    );
+    final returnValue = MessagesCheckChatInvite(hash: hash);
 
     // Now return the deserialized [MessagesCheckChatInvite].
     return returnValue;
@@ -122258,9 +120861,7 @@ class MessagesCheckChatInvite extends TlMethod {
 /// ID: `6c50051c`.
 class MessagesImportChatInvite extends TlMethod {
   /// Messages Import Chat Invite constructor.
-  const MessagesImportChatInvite({
-    required this.hash,
-  }) : super._();
+  const MessagesImportChatInvite({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesImportChatInvite.deserialize(BinaryReader reader) {
@@ -122268,9 +120869,7 @@ class MessagesImportChatInvite extends TlMethod {
     final hash = reader.readString();
 
     // Construct [MessagesImportChatInvite] object.
-    final returnValue = MessagesImportChatInvite(
-      hash: hash,
-    );
+    final returnValue = MessagesImportChatInvite(hash: hash);
 
     // Now return the deserialized [MessagesImportChatInvite].
     return returnValue;
@@ -122310,10 +120909,8 @@ class MessagesImportChatInvite extends TlMethod {
 /// ID: `c8a0ec74`.
 class MessagesGetStickerSet extends TlMethod {
   /// Messages Get Sticker Set constructor.
-  const MessagesGetStickerSet({
-    required this.stickerset,
-    required this.hash,
-  }) : super._();
+  const MessagesGetStickerSet({required this.stickerset, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetStickerSet.deserialize(BinaryReader reader) {
@@ -122432,9 +121029,7 @@ class MessagesInstallStickerSet extends TlMethod {
 /// ID: `f96e55de`.
 class MessagesUninstallStickerSet extends TlMethod {
   /// Messages Uninstall Sticker Set constructor.
-  const MessagesUninstallStickerSet({
-    required this.stickerset,
-  }) : super._();
+  const MessagesUninstallStickerSet({required this.stickerset}) : super._();
 
   /// Deserialize.
   factory MessagesUninstallStickerSet.deserialize(BinaryReader reader) {
@@ -122442,9 +121037,7 @@ class MessagesUninstallStickerSet extends TlMethod {
     final stickerset = reader.readObject() as InputStickerSetBase;
 
     // Construct [MessagesUninstallStickerSet] object.
-    final returnValue = MessagesUninstallStickerSet(
-      stickerset: stickerset,
-    );
+    final returnValue = MessagesUninstallStickerSet(stickerset: stickerset);
 
     // Now return the deserialized [MessagesUninstallStickerSet].
     return returnValue;
@@ -122700,9 +121293,7 @@ class MessagesEditChatAdmin extends TlMethod {
 /// ID: `a2875319`.
 class MessagesMigrateChat extends TlMethod {
   /// Messages Migrate Chat constructor.
-  const MessagesMigrateChat({
-    required this.chatId,
-  }) : super._();
+  const MessagesMigrateChat({required this.chatId}) : super._();
 
   /// Deserialize.
   factory MessagesMigrateChat.deserialize(BinaryReader reader) {
@@ -122710,9 +121301,7 @@ class MessagesMigrateChat extends TlMethod {
     final chatId = reader.readInt64();
 
     // Construct [MessagesMigrateChat] object.
-    final returnValue = MessagesMigrateChat(
-      chatId: chatId,
-    );
+    final returnValue = MessagesMigrateChat(chatId: chatId);
 
     // Now return the deserialized [MessagesMigrateChat].
     return returnValue;
@@ -122943,10 +121532,7 @@ class MessagesReorderStickerSets extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: masks,
-      b01: emojis,
-    );
+    final v = _flag(b00: masks, b01: emojis);
 
     return v;
   }
@@ -123065,9 +121651,7 @@ class MessagesGetDocumentByHash extends TlMethod {
 /// ID: `5cf09635`.
 class MessagesGetSavedGifs extends TlMethod {
   /// Messages Get Saved Gifs constructor.
-  const MessagesGetSavedGifs({
-    required this.hash,
-  }) : super._();
+  const MessagesGetSavedGifs({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetSavedGifs.deserialize(BinaryReader reader) {
@@ -123075,9 +121659,7 @@ class MessagesGetSavedGifs extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetSavedGifs] object.
-    final returnValue = MessagesGetSavedGifs(
-      hash: hash,
-    );
+    final returnValue = MessagesGetSavedGifs(hash: hash);
 
     // Now return the deserialized [MessagesGetSavedGifs].
     return returnValue;
@@ -123119,10 +121701,7 @@ class MessagesGetSavedGifs extends TlMethod {
 /// ID: `327a30cb`.
 class MessagesSaveGif extends TlMethod {
   /// Messages Save Gif constructor.
-  const MessagesSaveGif({
-    required this.id,
-    required this.unsave,
-  }) : super._();
+  const MessagesSaveGif({required this.id, required this.unsave}) : super._();
 
   /// Deserialize.
   factory MessagesSaveGif.deserialize(BinaryReader reader) {
@@ -123131,10 +121710,7 @@ class MessagesSaveGif extends TlMethod {
     final unsave = reader.readBool();
 
     // Construct [MessagesSaveGif] object.
-    final returnValue = MessagesSaveGif(
-      id: id,
-      unsave: unsave,
-    );
+    final returnValue = MessagesSaveGif(id: id, unsave: unsave);
 
     // Now return the deserialized [MessagesSaveGif].
     return returnValue;
@@ -123214,9 +121790,7 @@ class MessagesGetInlineBotResults extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: geoPoint != null,
-    );
+    final v = _flag(b00: geoPoint != null);
 
     return v;
   }
@@ -123612,10 +122186,8 @@ class MessagesSendInlineBotResult extends TlMethod {
 /// ID: `fda68d36`.
 class MessagesGetMessageEditData extends TlMethod {
   /// Messages Get Message Edit Data constructor.
-  const MessagesGetMessageEditData({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const MessagesGetMessageEditData({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetMessageEditData.deserialize(BinaryReader reader) {
@@ -123624,10 +122196,7 @@ class MessagesGetMessageEditData extends TlMethod {
     final id = reader.readInt32();
 
     // Construct [MessagesGetMessageEditData] object.
-    final returnValue = MessagesGetMessageEditData(
-      peer: peer,
-      id: id,
-    );
+    final returnValue = MessagesGetMessageEditData(peer: peer, id: id);
 
     // Now return the deserialized [MessagesGetMessageEditData].
     return returnValue;
@@ -124014,11 +122583,7 @@ class MessagesGetBotCallbackAnswer extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: game,
-      b00: data != null,
-      b02: password != null,
-    );
+    final v = _flag(b01: game, b00: data != null, b02: password != null);
 
     return v;
   }
@@ -124121,11 +122686,7 @@ class MessagesSetBotCallbackAnswer extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: alert,
-      b00: message != null,
-      b02: url != null,
-    );
+    final v = _flag(b01: alert, b00: message != null, b02: url != null);
 
     return v;
   }
@@ -124195,9 +122756,7 @@ class MessagesSetBotCallbackAnswer extends TlMethod {
 /// ID: `e470bcfd`.
 class MessagesGetPeerDialogs extends TlMethod {
   /// Messages Get Peer Dialogs constructor.
-  const MessagesGetPeerDialogs({
-    required this.peers,
-  }) : super._();
+  const MessagesGetPeerDialogs({required this.peers}) : super._();
 
   /// Deserialize.
   factory MessagesGetPeerDialogs.deserialize(BinaryReader reader) {
@@ -124205,9 +122764,7 @@ class MessagesGetPeerDialogs extends TlMethod {
     final peers = reader.readVectorObject<InputDialogPeerBase>();
 
     // Construct [MessagesGetPeerDialogs] object.
-    final returnValue = MessagesGetPeerDialogs(
-      peers: peers.items,
-    );
+    final returnValue = MessagesGetPeerDialogs(peers: peers.items);
 
     // Now return the deserialized [MessagesGetPeerDialogs].
     return returnValue;
@@ -124440,9 +122997,7 @@ class MessagesGetAllDrafts extends TlMethod {
 /// ID: `64780b14`.
 class MessagesGetFeaturedStickers extends TlMethod {
   /// Messages Get Featured Stickers constructor.
-  const MessagesGetFeaturedStickers({
-    required this.hash,
-  }) : super._();
+  const MessagesGetFeaturedStickers({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetFeaturedStickers.deserialize(BinaryReader reader) {
@@ -124450,9 +123005,7 @@ class MessagesGetFeaturedStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetFeaturedStickers] object.
-    final returnValue = MessagesGetFeaturedStickers(
-      hash: hash,
-    );
+    final returnValue = MessagesGetFeaturedStickers(hash: hash);
 
     // Now return the deserialized [MessagesGetFeaturedStickers].
     return returnValue;
@@ -124494,9 +123047,7 @@ class MessagesGetFeaturedStickers extends TlMethod {
 /// ID: `5b118126`.
 class MessagesReadFeaturedStickers extends TlMethod {
   /// Messages Read Featured Stickers constructor.
-  const MessagesReadFeaturedStickers({
-    required this.id,
-  }) : super._();
+  const MessagesReadFeaturedStickers({required this.id}) : super._();
 
   /// Deserialize.
   factory MessagesReadFeaturedStickers.deserialize(BinaryReader reader) {
@@ -124504,9 +123055,7 @@ class MessagesReadFeaturedStickers extends TlMethod {
     final id = reader.readVectorInt64();
 
     // Construct [MessagesReadFeaturedStickers] object.
-    final returnValue = MessagesReadFeaturedStickers(
-      id: id.items,
-    );
+    final returnValue = MessagesReadFeaturedStickers(id: id.items);
 
     // Now return the deserialized [MessagesReadFeaturedStickers].
     return returnValue;
@@ -124546,10 +123095,8 @@ class MessagesReadFeaturedStickers extends TlMethod {
 /// ID: `9da9403b`.
 class MessagesGetRecentStickers extends TlMethod {
   /// Messages Get Recent Stickers constructor.
-  const MessagesGetRecentStickers({
-    required this.attached,
-    required this.hash,
-  }) : super._();
+  const MessagesGetRecentStickers({required this.attached, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetRecentStickers.deserialize(BinaryReader reader) {
@@ -124570,9 +123117,7 @@ class MessagesGetRecentStickers extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: attached,
-    );
+    final v = _flag(b00: attached);
 
     return v;
   }
@@ -124646,9 +123191,7 @@ class MessagesSaveRecentSticker extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: attached,
-    );
+    final v = _flag(b00: attached);
 
     return v;
   }
@@ -124698,9 +123241,7 @@ class MessagesSaveRecentSticker extends TlMethod {
 /// ID: `8999602d`.
 class MessagesClearRecentStickers extends TlMethod {
   /// Messages Clear Recent Stickers constructor.
-  const MessagesClearRecentStickers({
-    required this.attached,
-  }) : super._();
+  const MessagesClearRecentStickers({required this.attached}) : super._();
 
   /// Deserialize.
   factory MessagesClearRecentStickers.deserialize(BinaryReader reader) {
@@ -124709,9 +123250,7 @@ class MessagesClearRecentStickers extends TlMethod {
     final attached = (flags & 1) != 0;
 
     // Construct [MessagesClearRecentStickers] object.
-    final returnValue = MessagesClearRecentStickers(
-      attached: attached,
-    );
+    final returnValue = MessagesClearRecentStickers(attached: attached);
 
     // Now return the deserialized [MessagesClearRecentStickers].
     return returnValue;
@@ -124719,9 +123258,7 @@ class MessagesClearRecentStickers extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: attached,
-    );
+    final v = _flag(b00: attached);
 
     return v;
   }
@@ -124791,10 +123328,7 @@ class MessagesGetArchivedStickers extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: masks,
-      b01: emojis,
-    );
+    final v = _flag(b00: masks, b01: emojis);
 
     return v;
   }
@@ -124852,9 +123386,7 @@ class MessagesGetArchivedStickers extends TlMethod {
 /// ID: `640f82b8`.
 class MessagesGetMaskStickers extends TlMethod {
   /// Messages Get Mask Stickers constructor.
-  const MessagesGetMaskStickers({
-    required this.hash,
-  }) : super._();
+  const MessagesGetMaskStickers({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetMaskStickers.deserialize(BinaryReader reader) {
@@ -124862,9 +123394,7 @@ class MessagesGetMaskStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetMaskStickers] object.
-    final returnValue = MessagesGetMaskStickers(
-      hash: hash,
-    );
+    final returnValue = MessagesGetMaskStickers(hash: hash);
 
     // Now return the deserialized [MessagesGetMaskStickers].
     return returnValue;
@@ -124906,9 +123436,7 @@ class MessagesGetMaskStickers extends TlMethod {
 /// ID: `cc5b67cc`.
 class MessagesGetAttachedStickers extends TlMethod {
   /// Messages Get Attached Stickers constructor.
-  const MessagesGetAttachedStickers({
-    required this.media,
-  }) : super._();
+  const MessagesGetAttachedStickers({required this.media}) : super._();
 
   /// Deserialize.
   factory MessagesGetAttachedStickers.deserialize(BinaryReader reader) {
@@ -124916,9 +123444,7 @@ class MessagesGetAttachedStickers extends TlMethod {
     final media = reader.readObject() as InputStickeredMediaBase;
 
     // Construct [MessagesGetAttachedStickers] object.
-    final returnValue = MessagesGetAttachedStickers(
-      media: media,
-    );
+    final returnValue = MessagesGetAttachedStickers(media: media);
 
     // Now return the deserialized [MessagesGetAttachedStickers].
     return returnValue;
@@ -124994,10 +123520,7 @@ class MessagesSetGameScore extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: editMessage,
-      b01: force,
-    );
+    final v = _flag(b00: editMessage, b01: force);
 
     return v;
   }
@@ -125098,10 +123621,7 @@ class MessagesSetInlineGameScore extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: editMessage,
-      b01: force,
-    );
+    final v = _flag(b00: editMessage, b01: force);
 
     return v;
   }
@@ -125244,10 +123764,7 @@ class MessagesGetInlineGameHighScores extends TlMethod {
     final userId = reader.readObject() as InputUserBase;
 
     // Construct [MessagesGetInlineGameHighScores] object.
-    final returnValue = MessagesGetInlineGameHighScores(
-      id: id,
-      userId: userId,
-    );
+    final returnValue = MessagesGetInlineGameHighScores(id: id, userId: userId);
 
     // Now return the deserialized [MessagesGetInlineGameHighScores].
     return returnValue;
@@ -125364,10 +123881,7 @@ class MessagesGetCommonChats extends TlMethod {
 /// ID: `8d9692a3`.
 class MessagesGetWebPage extends TlMethod {
   /// Messages Get Web Page constructor.
-  const MessagesGetWebPage({
-    required this.url,
-    required this.hash,
-  }) : super._();
+  const MessagesGetWebPage({required this.url, required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetWebPage.deserialize(BinaryReader reader) {
@@ -125376,10 +123890,7 @@ class MessagesGetWebPage extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetWebPage] object.
-    final returnValue = MessagesGetWebPage(
-      url: url,
-      hash: hash,
-    );
+    final returnValue = MessagesGetWebPage(url: url, hash: hash);
 
     // Now return the deserialized [MessagesGetWebPage].
     return returnValue;
@@ -125426,10 +123937,8 @@ class MessagesGetWebPage extends TlMethod {
 /// ID: `a731e257`.
 class MessagesToggleDialogPin extends TlMethod {
   /// Messages Toggle Dialog Pin constructor.
-  const MessagesToggleDialogPin({
-    required this.pinned,
-    required this.peer,
-  }) : super._();
+  const MessagesToggleDialogPin({required this.pinned, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory MessagesToggleDialogPin.deserialize(BinaryReader reader) {
@@ -125439,10 +123948,7 @@ class MessagesToggleDialogPin extends TlMethod {
     final peer = reader.readObject() as InputDialogPeerBase;
 
     // Construct [MessagesToggleDialogPin] object.
-    final returnValue = MessagesToggleDialogPin(
-      pinned: pinned,
-      peer: peer,
-    );
+    final returnValue = MessagesToggleDialogPin(pinned: pinned, peer: peer);
 
     // Now return the deserialized [MessagesToggleDialogPin].
     return returnValue;
@@ -125450,9 +123956,7 @@ class MessagesToggleDialogPin extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-    );
+    final v = _flag(b00: pinned);
 
     return v;
   }
@@ -125524,9 +124028,7 @@ class MessagesReorderPinnedDialogs extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: force,
-    );
+    final v = _flag(b00: force);
 
     return v;
   }
@@ -125578,9 +124080,7 @@ class MessagesReorderPinnedDialogs extends TlMethod {
 /// ID: `d6b94df2`.
 class MessagesGetPinnedDialogs extends TlMethod {
   /// Messages Get Pinned Dialogs constructor.
-  const MessagesGetPinnedDialogs({
-    required this.folderId,
-  }) : super._();
+  const MessagesGetPinnedDialogs({required this.folderId}) : super._();
 
   /// Deserialize.
   factory MessagesGetPinnedDialogs.deserialize(BinaryReader reader) {
@@ -125588,9 +124088,7 @@ class MessagesGetPinnedDialogs extends TlMethod {
     final folderId = reader.readInt32();
 
     // Construct [MessagesGetPinnedDialogs] object.
-    final returnValue = MessagesGetPinnedDialogs(
-      folderId: folderId,
-    );
+    final returnValue = MessagesGetPinnedDialogs(folderId: folderId);
 
     // Now return the deserialized [MessagesGetPinnedDialogs].
     return returnValue;
@@ -125663,10 +124161,7 @@ class MessagesSetBotShippingResults extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: error != null,
-      b01: shippingOptions != null,
-    );
+    final v = _flag(b00: error != null, b01: shippingOptions != null);
 
     return v;
   }
@@ -125753,10 +124248,7 @@ class MessagesSetBotPrecheckoutResults extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: success,
-      b00: error != null,
-    );
+    final v = _flag(b01: success, b00: error != null);
 
     return v;
   }
@@ -125840,9 +124332,7 @@ class MessagesUploadMedia extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: businessConnectionId != null,
-    );
+    final v = _flag(b00: businessConnectionId != null);
 
     return v;
   }
@@ -125966,9 +124456,7 @@ class MessagesSendScreenshotNotification extends TlMethod {
 /// ID: `04f1aaa9`.
 class MessagesGetFavedStickers extends TlMethod {
   /// Messages Get Faved Stickers constructor.
-  const MessagesGetFavedStickers({
-    required this.hash,
-  }) : super._();
+  const MessagesGetFavedStickers({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetFavedStickers.deserialize(BinaryReader reader) {
@@ -125976,9 +124464,7 @@ class MessagesGetFavedStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetFavedStickers] object.
-    final returnValue = MessagesGetFavedStickers(
-      hash: hash,
-    );
+    final returnValue = MessagesGetFavedStickers(hash: hash);
 
     // Now return the deserialized [MessagesGetFavedStickers].
     return returnValue;
@@ -126020,10 +124506,8 @@ class MessagesGetFavedStickers extends TlMethod {
 /// ID: `b9ffc55b`.
 class MessagesFaveSticker extends TlMethod {
   /// Messages Fave Sticker constructor.
-  const MessagesFaveSticker({
-    required this.id,
-    required this.unfave,
-  }) : super._();
+  const MessagesFaveSticker({required this.id, required this.unfave})
+      : super._();
 
   /// Deserialize.
   factory MessagesFaveSticker.deserialize(BinaryReader reader) {
@@ -126032,10 +124516,7 @@ class MessagesFaveSticker extends TlMethod {
     final unfave = reader.readBool();
 
     // Construct [MessagesFaveSticker] object.
-    final returnValue = MessagesFaveSticker(
-      id: id,
-      unfave: unfave,
-    );
+    final returnValue = MessagesFaveSticker(id: id, unfave: unfave);
 
     // Now return the deserialized [MessagesFaveSticker].
     return returnValue;
@@ -126120,9 +124601,7 @@ class MessagesGetUnreadMentions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-    );
+    final v = _flag(b00: topMsgId != null);
 
     return v;
   }
@@ -126206,10 +124685,7 @@ class MessagesGetUnreadMentions extends TlMethod {
 /// ID: `36e5bf4d`.
 class MessagesReadMentions extends TlMethod {
   /// Messages Read Mentions constructor.
-  const MessagesReadMentions({
-    required this.peer,
-    this.topMsgId,
-  }) : super._();
+  const MessagesReadMentions({required this.peer, this.topMsgId}) : super._();
 
   /// Deserialize.
   factory MessagesReadMentions.deserialize(BinaryReader reader) {
@@ -126220,10 +124696,7 @@ class MessagesReadMentions extends TlMethod {
     final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
 
     // Construct [MessagesReadMentions] object.
-    final returnValue = MessagesReadMentions(
-      peer: peer,
-      topMsgId: topMsgId,
-    );
+    final returnValue = MessagesReadMentions(peer: peer, topMsgId: topMsgId);
 
     // Now return the deserialized [MessagesReadMentions].
     return returnValue;
@@ -126231,9 +124704,7 @@ class MessagesReadMentions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-    );
+    final v = _flag(b00: topMsgId != null);
 
     return v;
   }
@@ -126562,10 +125033,8 @@ class MessagesSendMultiMedia extends TlMethod {
 /// ID: `5057c497`.
 class MessagesUploadEncryptedFile extends TlMethod {
   /// Messages Upload Encrypted File constructor.
-  const MessagesUploadEncryptedFile({
-    required this.peer,
-    required this.file,
-  }) : super._();
+  const MessagesUploadEncryptedFile({required this.peer, required this.file})
+      : super._();
 
   /// Deserialize.
   factory MessagesUploadEncryptedFile.deserialize(BinaryReader reader) {
@@ -126574,10 +125043,7 @@ class MessagesUploadEncryptedFile extends TlMethod {
     final file = reader.readObject() as InputEncryptedFileBase;
 
     // Construct [MessagesUploadEncryptedFile] object.
-    final returnValue = MessagesUploadEncryptedFile(
-      peer: peer,
-      file: file,
-    );
+    final returnValue = MessagesUploadEncryptedFile(peer: peer, file: file);
 
     // Now return the deserialized [MessagesUploadEncryptedFile].
     return returnValue;
@@ -126649,9 +125115,7 @@ class MessagesSearchStickerSets extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: excludeFeatured,
-    );
+    final v = _flag(b00: excludeFeatured);
 
     return v;
   }
@@ -126770,10 +125234,7 @@ class MessagesMarkDialogUnread extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: unread,
-      b01: parentPeer != null,
-    );
+    final v = _flag(b00: unread, b01: parentPeer != null);
 
     return v;
   }
@@ -126826,9 +125287,7 @@ class MessagesMarkDialogUnread extends TlMethod {
 /// ID: `21202222`.
 class MessagesGetDialogUnreadMarks extends TlMethod {
   /// Messages Get Dialog Unread Marks constructor.
-  const MessagesGetDialogUnreadMarks({
-    this.parentPeer,
-  }) : super._();
+  const MessagesGetDialogUnreadMarks({this.parentPeer}) : super._();
 
   /// Deserialize.
   factory MessagesGetDialogUnreadMarks.deserialize(BinaryReader reader) {
@@ -126839,9 +125298,7 @@ class MessagesGetDialogUnreadMarks extends TlMethod {
         hasParentPeerField ? reader.readObject() as InputPeerBase : null;
 
     // Construct [MessagesGetDialogUnreadMarks] object.
-    final returnValue = MessagesGetDialogUnreadMarks(
-      parentPeer: parentPeer,
-    );
+    final returnValue = MessagesGetDialogUnreadMarks(parentPeer: parentPeer);
 
     // Now return the deserialized [MessagesGetDialogUnreadMarks].
     return returnValue;
@@ -126849,9 +125306,7 @@ class MessagesGetDialogUnreadMarks extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: parentPeer != null,
-    );
+    final v = _flag(b00: parentPeer != null);
 
     return v;
   }
@@ -126966,11 +125421,7 @@ class MessagesUpdatePinnedMessage extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: silent,
-      b01: unpin,
-      b02: pmOneside,
-    );
+    final v = _flag(b00: silent, b01: unpin, b02: pmOneside);
 
     return v;
   }
@@ -127100,10 +125551,8 @@ class MessagesSendVote extends TlMethod {
 /// ID: `73bb643b`.
 class MessagesGetPollResults extends TlMethod {
   /// Messages Get Poll Results constructor.
-  const MessagesGetPollResults({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const MessagesGetPollResults({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetPollResults.deserialize(BinaryReader reader) {
@@ -127112,10 +125561,7 @@ class MessagesGetPollResults extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [MessagesGetPollResults] object.
-    final returnValue = MessagesGetPollResults(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = MessagesGetPollResults(peer: peer, msgId: msgId);
 
     // Now return the deserialized [MessagesGetPollResults].
     return returnValue;
@@ -127162,9 +125608,7 @@ class MessagesGetPollResults extends TlMethod {
 /// ID: `6e2be050`.
 class MessagesGetOnlines extends TlMethod {
   /// Messages Get Onlines constructor.
-  const MessagesGetOnlines({
-    required this.peer,
-  }) : super._();
+  const MessagesGetOnlines({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesGetOnlines.deserialize(BinaryReader reader) {
@@ -127172,9 +125616,7 @@ class MessagesGetOnlines extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesGetOnlines] object.
-    final returnValue = MessagesGetOnlines(
-      peer: peer,
-    );
+    final returnValue = MessagesGetOnlines(peer: peer);
 
     // Now return the deserialized [MessagesGetOnlines].
     return returnValue;
@@ -127214,10 +125656,8 @@ class MessagesGetOnlines extends TlMethod {
 /// ID: `def60797`.
 class MessagesEditChatAbout extends TlMethod {
   /// Messages Edit Chat About constructor.
-  const MessagesEditChatAbout({
-    required this.peer,
-    required this.about,
-  }) : super._();
+  const MessagesEditChatAbout({required this.peer, required this.about})
+      : super._();
 
   /// Deserialize.
   factory MessagesEditChatAbout.deserialize(BinaryReader reader) {
@@ -127226,10 +125666,7 @@ class MessagesEditChatAbout extends TlMethod {
     final about = reader.readString();
 
     // Construct [MessagesEditChatAbout] object.
-    final returnValue = MessagesEditChatAbout(
-      peer: peer,
-      about: about,
-    );
+    final returnValue = MessagesEditChatAbout(peer: peer, about: about);
 
     // Now return the deserialized [MessagesEditChatAbout].
     return returnValue;
@@ -127334,9 +125771,7 @@ class MessagesEditChatDefaultBannedRights extends TlMethod {
 /// ID: `35a0e062`.
 class MessagesGetEmojiKeywords extends TlMethod {
   /// Messages Get Emoji Keywords constructor.
-  const MessagesGetEmojiKeywords({
-    required this.langCode,
-  }) : super._();
+  const MessagesGetEmojiKeywords({required this.langCode}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiKeywords.deserialize(BinaryReader reader) {
@@ -127344,9 +125779,7 @@ class MessagesGetEmojiKeywords extends TlMethod {
     final langCode = reader.readString();
 
     // Construct [MessagesGetEmojiKeywords] object.
-    final returnValue = MessagesGetEmojiKeywords(
-      langCode: langCode,
-    );
+    final returnValue = MessagesGetEmojiKeywords(langCode: langCode);
 
     // Now return the deserialized [MessagesGetEmojiKeywords].
     return returnValue;
@@ -127448,9 +125881,8 @@ class MessagesGetEmojiKeywordsDifference extends TlMethod {
 /// ID: `4e9963b2`.
 class MessagesGetEmojiKeywordsLanguages extends TlMethod {
   /// Messages Get Emoji Keywords Languages constructor.
-  const MessagesGetEmojiKeywordsLanguages({
-    required this.langCodes,
-  }) : super._();
+  const MessagesGetEmojiKeywordsLanguages({required this.langCodes})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiKeywordsLanguages.deserialize(BinaryReader reader) {
@@ -127500,9 +125932,7 @@ class MessagesGetEmojiKeywordsLanguages extends TlMethod {
 /// ID: `d5b10c26`.
 class MessagesGetEmojiURL extends TlMethod {
   /// Messages Get Emoji U R L constructor.
-  const MessagesGetEmojiURL({
-    required this.langCode,
-  }) : super._();
+  const MessagesGetEmojiURL({required this.langCode}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiURL.deserialize(BinaryReader reader) {
@@ -127510,9 +125940,7 @@ class MessagesGetEmojiURL extends TlMethod {
     final langCode = reader.readString();
 
     // Construct [MessagesGetEmojiURL] object.
-    final returnValue = MessagesGetEmojiURL(
-      langCode: langCode,
-    );
+    final returnValue = MessagesGetEmojiURL(langCode: langCode);
 
     // Now return the deserialized [MessagesGetEmojiURL].
     return returnValue;
@@ -127585,10 +126013,7 @@ class MessagesGetSearchCounters extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: savedPeerId != null,
-      b00: topMsgId != null,
-    );
+    final v = _flag(b02: savedPeerId != null, b00: topMsgId != null);
 
     return v;
   }
@@ -127650,12 +126075,8 @@ class MessagesGetSearchCounters extends TlMethod {
 /// ID: `198fb446`.
 class MessagesRequestUrlAuth extends TlMethod {
   /// Messages Request Url Auth constructor.
-  const MessagesRequestUrlAuth({
-    this.peer,
-    this.msgId,
-    this.buttonId,
-    this.url,
-  }) : super._();
+  const MessagesRequestUrlAuth({this.peer, this.msgId, this.buttonId, this.url})
+      : super._();
 
   /// Deserialize.
   factory MessagesRequestUrlAuth.deserialize(BinaryReader reader) {
@@ -127868,9 +126289,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
 /// ID: `4facb138`.
 class MessagesHidePeerSettingsBar extends TlMethod {
   /// Messages Hide Peer Settings Bar constructor.
-  const MessagesHidePeerSettingsBar({
-    required this.peer,
-  }) : super._();
+  const MessagesHidePeerSettingsBar({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesHidePeerSettingsBar.deserialize(BinaryReader reader) {
@@ -127878,9 +126297,7 @@ class MessagesHidePeerSettingsBar extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesHidePeerSettingsBar] object.
-    final returnValue = MessagesHidePeerSettingsBar(
-      peer: peer,
-    );
+    final returnValue = MessagesHidePeerSettingsBar(peer: peer);
 
     // Now return the deserialized [MessagesHidePeerSettingsBar].
     return returnValue;
@@ -127920,10 +126337,8 @@ class MessagesHidePeerSettingsBar extends TlMethod {
 /// ID: `f516760b`.
 class MessagesGetScheduledHistory extends TlMethod {
   /// Messages Get Scheduled History constructor.
-  const MessagesGetScheduledHistory({
-    required this.peer,
-    required this.hash,
-  }) : super._();
+  const MessagesGetScheduledHistory({required this.peer, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetScheduledHistory.deserialize(BinaryReader reader) {
@@ -127932,10 +126347,7 @@ class MessagesGetScheduledHistory extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetScheduledHistory] object.
-    final returnValue = MessagesGetScheduledHistory(
-      peer: peer,
-      hash: hash,
-    );
+    final returnValue = MessagesGetScheduledHistory(peer: peer, hash: hash);
 
     // Now return the deserialized [MessagesGetScheduledHistory].
     return returnValue;
@@ -127982,10 +126394,8 @@ class MessagesGetScheduledHistory extends TlMethod {
 /// ID: `bdbb0464`.
 class MessagesGetScheduledMessages extends TlMethod {
   /// Messages Get Scheduled Messages constructor.
-  const MessagesGetScheduledMessages({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const MessagesGetScheduledMessages({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetScheduledMessages.deserialize(BinaryReader reader) {
@@ -127994,10 +126404,7 @@ class MessagesGetScheduledMessages extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [MessagesGetScheduledMessages] object.
-    final returnValue = MessagesGetScheduledMessages(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = MessagesGetScheduledMessages(peer: peer, id: id.items);
 
     // Now return the deserialized [MessagesGetScheduledMessages].
     return returnValue;
@@ -128042,10 +126449,8 @@ class MessagesGetScheduledMessages extends TlMethod {
 /// ID: `bd38850a`.
 class MessagesSendScheduledMessages extends TlMethod {
   /// Messages Send Scheduled Messages constructor.
-  const MessagesSendScheduledMessages({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const MessagesSendScheduledMessages({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesSendScheduledMessages.deserialize(BinaryReader reader) {
@@ -128054,10 +126459,7 @@ class MessagesSendScheduledMessages extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [MessagesSendScheduledMessages] object.
-    final returnValue = MessagesSendScheduledMessages(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = MessagesSendScheduledMessages(peer: peer, id: id.items);
 
     // Now return the deserialized [MessagesSendScheduledMessages].
     return returnValue;
@@ -128102,10 +126504,8 @@ class MessagesSendScheduledMessages extends TlMethod {
 /// ID: `59ae2b16`.
 class MessagesDeleteScheduledMessages extends TlMethod {
   /// Messages Delete Scheduled Messages constructor.
-  const MessagesDeleteScheduledMessages({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const MessagesDeleteScheduledMessages({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesDeleteScheduledMessages.deserialize(BinaryReader reader) {
@@ -128197,10 +126597,7 @@ class MessagesGetPollVotes extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: option != null,
-      b01: offset != null,
-    );
+    final v = _flag(b00: option != null, b01: offset != null);
 
     return v;
   }
@@ -128301,11 +126698,7 @@ class MessagesToggleStickerSets extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: uninstall,
-      b01: archive,
-      b02: unarchive,
-    );
+    final v = _flag(b00: uninstall, b01: archive, b02: unarchive);
 
     return v;
   }
@@ -128434,10 +126827,7 @@ class MessagesGetSuggestedDialogFilters extends TlMethod {
 /// ID: `1ad4a04a`.
 class MessagesUpdateDialogFilter extends TlMethod {
   /// Messages Update Dialog Filter constructor.
-  const MessagesUpdateDialogFilter({
-    required this.id,
-    this.filter,
-  }) : super._();
+  const MessagesUpdateDialogFilter({required this.id, this.filter}) : super._();
 
   /// Deserialize.
   factory MessagesUpdateDialogFilter.deserialize(BinaryReader reader) {
@@ -128449,10 +126839,7 @@ class MessagesUpdateDialogFilter extends TlMethod {
         hasFilterField ? reader.readObject() as DialogFilterBase : null;
 
     // Construct [MessagesUpdateDialogFilter] object.
-    final returnValue = MessagesUpdateDialogFilter(
-      id: id,
-      filter: filter,
-    );
+    final returnValue = MessagesUpdateDialogFilter(id: id, filter: filter);
 
     // Now return the deserialized [MessagesUpdateDialogFilter].
     return returnValue;
@@ -128460,9 +126847,7 @@ class MessagesUpdateDialogFilter extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: filter != null,
-    );
+    final v = _flag(b00: filter != null);
 
     return v;
   }
@@ -128513,9 +126898,7 @@ class MessagesUpdateDialogFilter extends TlMethod {
 /// ID: `c563c1e4`.
 class MessagesUpdateDialogFiltersOrder extends TlMethod {
   /// Messages Update Dialog Filters Order constructor.
-  const MessagesUpdateDialogFiltersOrder({
-    required this.order,
-  }) : super._();
+  const MessagesUpdateDialogFiltersOrder({required this.order}) : super._();
 
   /// Deserialize.
   factory MessagesUpdateDialogFiltersOrder.deserialize(BinaryReader reader) {
@@ -128523,9 +126906,7 @@ class MessagesUpdateDialogFiltersOrder extends TlMethod {
     final order = reader.readVectorInt32();
 
     // Construct [MessagesUpdateDialogFiltersOrder] object.
-    final returnValue = MessagesUpdateDialogFiltersOrder(
-      order: order.items,
-    );
+    final returnValue = MessagesUpdateDialogFiltersOrder(order: order.items);
 
     // Now return the deserialized [MessagesUpdateDialogFiltersOrder].
     return returnValue;
@@ -128769,10 +127150,8 @@ class MessagesGetReplies extends TlMethod {
 /// ID: `446972fd`.
 class MessagesGetDiscussionMessage extends TlMethod {
   /// Messages Get Discussion Message constructor.
-  const MessagesGetDiscussionMessage({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const MessagesGetDiscussionMessage({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetDiscussionMessage.deserialize(BinaryReader reader) {
@@ -128781,10 +127160,7 @@ class MessagesGetDiscussionMessage extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [MessagesGetDiscussionMessage] object.
-    final returnValue = MessagesGetDiscussionMessage(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = MessagesGetDiscussionMessage(peer: peer, msgId: msgId);
 
     // Now return the deserialized [MessagesGetDiscussionMessage].
     return returnValue;
@@ -128933,10 +127309,7 @@ class MessagesUnpinAllMessages extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: topMsgId != null, b01: savedPeerId != null);
 
     return v;
   }
@@ -128993,9 +127366,7 @@ class MessagesUnpinAllMessages extends TlMethod {
 /// ID: `5bd0ee50`.
 class MessagesDeleteChat extends TlMethod {
   /// Messages Delete Chat constructor.
-  const MessagesDeleteChat({
-    required this.chatId,
-  }) : super._();
+  const MessagesDeleteChat({required this.chatId}) : super._();
 
   /// Deserialize.
   factory MessagesDeleteChat.deserialize(BinaryReader reader) {
@@ -129003,9 +127374,7 @@ class MessagesDeleteChat extends TlMethod {
     final chatId = reader.readInt64();
 
     // Construct [MessagesDeleteChat] object.
-    final returnValue = MessagesDeleteChat(
-      chatId: chatId,
-    );
+    final returnValue = MessagesDeleteChat(chatId: chatId);
 
     // Now return the deserialized [MessagesDeleteChat].
     return returnValue;
@@ -129047,9 +127416,7 @@ class MessagesDeleteChat extends TlMethod {
 /// ID: `f9cbe409`.
 class MessagesDeletePhoneCallHistory extends TlMethod {
   /// Messages Delete Phone Call History constructor.
-  const MessagesDeletePhoneCallHistory({
-    required this.revoke,
-  }) : super._();
+  const MessagesDeletePhoneCallHistory({required this.revoke}) : super._();
 
   /// Deserialize.
   factory MessagesDeletePhoneCallHistory.deserialize(BinaryReader reader) {
@@ -129058,9 +127425,7 @@ class MessagesDeletePhoneCallHistory extends TlMethod {
     final revoke = (flags & 1) != 0;
 
     // Construct [MessagesDeletePhoneCallHistory] object.
-    final returnValue = MessagesDeletePhoneCallHistory(
-      revoke: revoke,
-    );
+    final returnValue = MessagesDeletePhoneCallHistory(revoke: revoke);
 
     // Now return the deserialized [MessagesDeletePhoneCallHistory].
     return returnValue;
@@ -129068,9 +127433,7 @@ class MessagesDeletePhoneCallHistory extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: revoke,
-    );
+    final v = _flag(b00: revoke);
 
     return v;
   }
@@ -129110,9 +127473,7 @@ class MessagesDeletePhoneCallHistory extends TlMethod {
 /// ID: `43fe19f3`.
 class MessagesCheckHistoryImport extends TlMethod {
   /// Messages Check History Import constructor.
-  const MessagesCheckHistoryImport({
-    required this.importHead,
-  }) : super._();
+  const MessagesCheckHistoryImport({required this.importHead}) : super._();
 
   /// Deserialize.
   factory MessagesCheckHistoryImport.deserialize(BinaryReader reader) {
@@ -129120,9 +127481,7 @@ class MessagesCheckHistoryImport extends TlMethod {
     final importHead = reader.readString();
 
     // Construct [MessagesCheckHistoryImport] object.
-    final returnValue = MessagesCheckHistoryImport(
-      importHead: importHead,
-    );
+    final returnValue = MessagesCheckHistoryImport(importHead: importHead);
 
     // Now return the deserialized [MessagesCheckHistoryImport].
     return returnValue;
@@ -129310,10 +127669,8 @@ class MessagesUploadImportedMedia extends TlMethod {
 /// ID: `b43df344`.
 class MessagesStartHistoryImport extends TlMethod {
   /// Messages Start History Import constructor.
-  const MessagesStartHistoryImport({
-    required this.peer,
-    required this.importId,
-  }) : super._();
+  const MessagesStartHistoryImport({required this.peer, required this.importId})
+      : super._();
 
   /// Deserialize.
   factory MessagesStartHistoryImport.deserialize(BinaryReader reader) {
@@ -129486,10 +127843,8 @@ class MessagesGetExportedChatInvites extends TlMethod {
 /// ID: `73746f5c`.
 class MessagesGetExportedChatInvite extends TlMethod {
   /// Messages Get Exported Chat Invite constructor.
-  const MessagesGetExportedChatInvite({
-    required this.peer,
-    required this.link,
-  }) : super._();
+  const MessagesGetExportedChatInvite({required this.peer, required this.link})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetExportedChatInvite.deserialize(BinaryReader reader) {
@@ -129498,10 +127853,7 @@ class MessagesGetExportedChatInvite extends TlMethod {
     final link = reader.readString();
 
     // Construct [MessagesGetExportedChatInvite] object.
-    final returnValue = MessagesGetExportedChatInvite(
-      peer: peer,
-      link: link,
-    );
+    final returnValue = MessagesGetExportedChatInvite(peer: peer, link: link);
 
     // Now return the deserialized [MessagesGetExportedChatInvite].
     return returnValue;
@@ -129683,7 +128035,8 @@ class MessagesDeleteRevokedExportedChatInvites extends TlMethod {
 
   /// Deserialize.
   factory MessagesDeleteRevokedExportedChatInvites.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [MessagesDeleteRevokedExportedChatInvites] fields.
     final peer = reader.readObject() as InputPeerBase;
     final adminId = reader.readObject() as InputUserBase;
@@ -129797,9 +128150,7 @@ class MessagesDeleteExportedChatInvite extends TlMethod {
 /// ID: `3920e6ef`.
 class MessagesGetAdminsWithInvites extends TlMethod {
   /// Messages Get Admins With Invites constructor.
-  const MessagesGetAdminsWithInvites({
-    required this.peer,
-  }) : super._();
+  const MessagesGetAdminsWithInvites({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesGetAdminsWithInvites.deserialize(BinaryReader reader) {
@@ -129807,9 +128158,7 @@ class MessagesGetAdminsWithInvites extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesGetAdminsWithInvites] object.
-    final returnValue = MessagesGetAdminsWithInvites(
-      peer: peer,
-    );
+    final returnValue = MessagesGetAdminsWithInvites(peer: peer);
 
     // Now return the deserialized [MessagesGetAdminsWithInvites].
     return returnValue;
@@ -129980,10 +128329,8 @@ class MessagesGetChatInviteImporters extends TlMethod {
 /// ID: `b80e5fe4`.
 class MessagesSetHistoryTTL extends TlMethod {
   /// Messages Set History T T L constructor.
-  const MessagesSetHistoryTTL({
-    required this.peer,
-    required this.period,
-  }) : super._();
+  const MessagesSetHistoryTTL({required this.peer, required this.period})
+      : super._();
 
   /// Deserialize.
   factory MessagesSetHistoryTTL.deserialize(BinaryReader reader) {
@@ -129992,10 +128339,7 @@ class MessagesSetHistoryTTL extends TlMethod {
     final period = reader.readInt32();
 
     // Construct [MessagesSetHistoryTTL] object.
-    final returnValue = MessagesSetHistoryTTL(
-      peer: peer,
-      period: period,
-    );
+    final returnValue = MessagesSetHistoryTTL(peer: peer, period: period);
 
     // Now return the deserialized [MessagesSetHistoryTTL].
     return returnValue;
@@ -130042,9 +128386,7 @@ class MessagesSetHistoryTTL extends TlMethod {
 /// ID: `5dc60f03`.
 class MessagesCheckHistoryImportPeer extends TlMethod {
   /// Messages Check History Import Peer constructor.
-  const MessagesCheckHistoryImportPeer({
-    required this.peer,
-  }) : super._();
+  const MessagesCheckHistoryImportPeer({required this.peer}) : super._();
 
   /// Deserialize.
   factory MessagesCheckHistoryImportPeer.deserialize(BinaryReader reader) {
@@ -130052,9 +128394,7 @@ class MessagesCheckHistoryImportPeer extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesCheckHistoryImportPeer] object.
-    final returnValue = MessagesCheckHistoryImportPeer(
-      peer: peer,
-    );
+    final returnValue = MessagesCheckHistoryImportPeer(peer: peer);
 
     // Now return the deserialized [MessagesCheckHistoryImportPeer].
     return returnValue;
@@ -130091,25 +128431,20 @@ class MessagesCheckHistoryImportPeer extends TlMethod {
 /// Messages Set Chat Theme.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `e63be13f`.
+/// ID: `081202c9`.
 class MessagesSetChatTheme extends TlMethod {
   /// Messages Set Chat Theme constructor.
-  const MessagesSetChatTheme({
-    required this.peer,
-    required this.emoticon,
-  }) : super._();
+  const MessagesSetChatTheme({required this.peer, required this.theme})
+      : super._();
 
   /// Deserialize.
   factory MessagesSetChatTheme.deserialize(BinaryReader reader) {
     // Read [MessagesSetChatTheme] fields.
     final peer = reader.readObject() as InputPeerBase;
-    final emoticon = reader.readString();
+    final theme = reader.readObject() as InputChatThemeBase;
 
     // Construct [MessagesSetChatTheme] object.
-    final returnValue = MessagesSetChatTheme(
-      peer: peer,
-      emoticon: emoticon,
-    );
+    final returnValue = MessagesSetChatTheme(peer: peer, theme: theme);
 
     // Now return the deserialized [MessagesSetChatTheme].
     return returnValue;
@@ -130118,18 +128453,18 @@ class MessagesSetChatTheme extends TlMethod {
   /// Peer.
   final InputPeerBase peer;
 
-  /// Emoticon.
-  final String emoticon;
+  /// Theme.
+  final InputChatThemeBase theme;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe63be13f.
-    buffer.writeInt32(0xe63be13f);
+    // Write type-id 0x081202c9.
+    buffer.writeInt32(0x081202c9);
 
     // Write fields.
     buffer.writeObject(peer);
-    buffer.writeString(emoticon);
+    buffer.writeObject(theme);
 
     // Finished serialization.
   }
@@ -130137,10 +128472,10 @@ class MessagesSetChatTheme extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "e63be13f",
+      "\$hash": "081202c9",
       "\$name": "MessagesSetChatTheme",
       "peer": peer,
-      "emoticon": emoticon,
+      "theme": theme,
     };
 
     // Finished toJson.
@@ -130251,9 +128586,7 @@ class MessagesGetSearchResultsCalendar extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: savedPeerId != null,
-    );
+    final v = _flag(b02: savedPeerId != null);
 
     return v;
   }
@@ -130354,9 +128687,7 @@ class MessagesGetSearchResultsPositions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: savedPeerId != null,
-    );
+    final v = _flag(b02: savedPeerId != null);
 
     return v;
   }
@@ -130451,9 +128782,7 @@ class MessagesHideChatJoinRequest extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: approved,
-    );
+    final v = _flag(b00: approved);
 
     return v;
   }
@@ -130531,10 +128860,7 @@ class MessagesHideAllChatJoinRequests extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: approved,
-      b01: link != null,
-    );
+    final v = _flag(b00: approved, b01: link != null);
 
     return v;
   }
@@ -130587,10 +128913,8 @@ class MessagesHideAllChatJoinRequests extends TlMethod {
 /// ID: `b11eafa2`.
 class MessagesToggleNoForwards extends TlMethod {
   /// Messages Toggle No Forwards constructor.
-  const MessagesToggleNoForwards({
-    required this.peer,
-    required this.enabled,
-  }) : super._();
+  const MessagesToggleNoForwards({required this.peer, required this.enabled})
+      : super._();
 
   /// Deserialize.
   factory MessagesToggleNoForwards.deserialize(BinaryReader reader) {
@@ -130599,10 +128923,7 @@ class MessagesToggleNoForwards extends TlMethod {
     final enabled = reader.readBool();
 
     // Construct [MessagesToggleNoForwards] object.
-    final returnValue = MessagesToggleNoForwards(
-      peer: peer,
-      enabled: enabled,
-    );
+    final returnValue = MessagesToggleNoForwards(peer: peer, enabled: enabled);
 
     // Now return the deserialized [MessagesToggleNoForwards].
     return returnValue;
@@ -130647,10 +128968,8 @@ class MessagesToggleNoForwards extends TlMethod {
 /// ID: `ccfddf96`.
 class MessagesSaveDefaultSendAs extends TlMethod {
   /// Messages Save Default Send As constructor.
-  const MessagesSaveDefaultSendAs({
-    required this.peer,
-    required this.sendAs,
-  }) : super._();
+  const MessagesSaveDefaultSendAs({required this.peer, required this.sendAs})
+      : super._();
 
   /// Deserialize.
   factory MessagesSaveDefaultSendAs.deserialize(BinaryReader reader) {
@@ -130659,10 +128978,7 @@ class MessagesSaveDefaultSendAs extends TlMethod {
     final sendAs = reader.readObject() as InputPeerBase;
 
     // Construct [MessagesSaveDefaultSendAs] object.
-    final returnValue = MessagesSaveDefaultSendAs(
-      peer: peer,
-      sendAs: sendAs,
-    );
+    final returnValue = MessagesSaveDefaultSendAs(peer: peer, sendAs: sendAs);
 
     // Now return the deserialized [MessagesSaveDefaultSendAs].
     return returnValue;
@@ -130742,11 +129058,7 @@ class MessagesSendReaction extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: big,
-      b02: addToRecent,
-      b00: reaction != null,
-    );
+    final v = _flag(b01: big, b02: addToRecent, b00: reaction != null);
 
     return v;
   }
@@ -130810,10 +129122,8 @@ class MessagesSendReaction extends TlMethod {
 /// ID: `8bba90e6`.
 class MessagesGetMessagesReactions extends TlMethod {
   /// Messages Get Messages Reactions constructor.
-  const MessagesGetMessagesReactions({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const MessagesGetMessagesReactions({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetMessagesReactions.deserialize(BinaryReader reader) {
@@ -130822,10 +129132,7 @@ class MessagesGetMessagesReactions extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [MessagesGetMessagesReactions] object.
-    final returnValue = MessagesGetMessagesReactions(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = MessagesGetMessagesReactions(peer: peer, id: id.items);
 
     // Now return the deserialized [MessagesGetMessagesReactions].
     return returnValue;
@@ -130906,10 +129213,7 @@ class MessagesGetMessageReactionsList extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: reaction != null,
-      b01: offset != null,
-    );
+    final v = _flag(b00: reaction != null, b01: offset != null);
 
     return v;
   }
@@ -131011,10 +129315,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: reactionsLimit != null,
-      b01: (paidEnabled != null),
-    );
+    final v = _flag(b00: reactionsLimit != null, b01: (paidEnabled != null));
 
     return v;
   }
@@ -131076,9 +129377,7 @@ class MessagesSetChatAvailableReactions extends TlMethod {
 /// ID: `18dea0ac`.
 class MessagesGetAvailableReactions extends TlMethod {
   /// Messages Get Available Reactions constructor.
-  const MessagesGetAvailableReactions({
-    required this.hash,
-  }) : super._();
+  const MessagesGetAvailableReactions({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetAvailableReactions.deserialize(BinaryReader reader) {
@@ -131086,9 +129385,7 @@ class MessagesGetAvailableReactions extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetAvailableReactions] object.
-    final returnValue = MessagesGetAvailableReactions(
-      hash: hash,
-    );
+    final returnValue = MessagesGetAvailableReactions(hash: hash);
 
     // Now return the deserialized [MessagesGetAvailableReactions].
     return returnValue;
@@ -131130,9 +129427,7 @@ class MessagesGetAvailableReactions extends TlMethod {
 /// ID: `4f47a016`.
 class MessagesSetDefaultReaction extends TlMethod {
   /// Messages Set Default Reaction constructor.
-  const MessagesSetDefaultReaction({
-    required this.reaction,
-  }) : super._();
+  const MessagesSetDefaultReaction({required this.reaction}) : super._();
 
   /// Deserialize.
   factory MessagesSetDefaultReaction.deserialize(BinaryReader reader) {
@@ -131140,9 +129435,7 @@ class MessagesSetDefaultReaction extends TlMethod {
     final reaction = reader.readObject() as ReactionBase;
 
     // Construct [MessagesSetDefaultReaction] object.
-    final returnValue = MessagesSetDefaultReaction(
-      reaction: reaction,
-    );
+    final returnValue = MessagesSetDefaultReaction(reaction: reaction);
 
     // Now return the deserialized [MessagesSetDefaultReaction].
     return returnValue;
@@ -131216,10 +129509,7 @@ class MessagesTranslateText extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: peer != null || id != null,
-      b01: text != null,
-    );
+    final v = _flag(b00: peer != null || id != null, b01: text != null);
 
     return v;
   }
@@ -131329,10 +129619,7 @@ class MessagesGetUnreadReactions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: topMsgId != null, b01: savedPeerId != null);
 
     return v;
   }
@@ -131454,10 +129741,7 @@ class MessagesReadReactions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: topMsgId != null,
-      b01: savedPeerId != null,
-    );
+    final v = _flag(b00: topMsgId != null, b01: savedPeerId != null);
 
     return v;
   }
@@ -131584,9 +129868,7 @@ class MessagesSearchSentMedia extends TlMethod {
 /// ID: `16fcc2cb`.
 class MessagesGetAttachMenuBots extends TlMethod {
   /// Messages Get Attach Menu Bots constructor.
-  const MessagesGetAttachMenuBots({
-    required this.hash,
-  }) : super._();
+  const MessagesGetAttachMenuBots({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetAttachMenuBots.deserialize(BinaryReader reader) {
@@ -131594,9 +129876,7 @@ class MessagesGetAttachMenuBots extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetAttachMenuBots] object.
-    final returnValue = MessagesGetAttachMenuBots(
-      hash: hash,
-    );
+    final returnValue = MessagesGetAttachMenuBots(hash: hash);
 
     // Now return the deserialized [MessagesGetAttachMenuBots].
     return returnValue;
@@ -131638,9 +129918,7 @@ class MessagesGetAttachMenuBots extends TlMethod {
 /// ID: `77216192`.
 class MessagesGetAttachMenuBot extends TlMethod {
   /// Messages Get Attach Menu Bot constructor.
-  const MessagesGetAttachMenuBot({
-    required this.bot,
-  }) : super._();
+  const MessagesGetAttachMenuBot({required this.bot}) : super._();
 
   /// Deserialize.
   factory MessagesGetAttachMenuBot.deserialize(BinaryReader reader) {
@@ -131648,9 +129926,7 @@ class MessagesGetAttachMenuBot extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [MessagesGetAttachMenuBot] object.
-    final returnValue = MessagesGetAttachMenuBot(
-      bot: bot,
-    );
+    final returnValue = MessagesGetAttachMenuBot(bot: bot);
 
     // Now return the deserialized [MessagesGetAttachMenuBot].
     return returnValue;
@@ -131717,9 +129993,7 @@ class MessagesToggleBotInAttachMenu extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: writeAllowed,
-    );
+    final v = _flag(b00: writeAllowed);
 
     return v;
   }
@@ -131986,11 +130260,7 @@ class MessagesProlongWebView extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b05: silent,
-      b00: replyTo != null,
-      b13: sendAs != null,
-    );
+    final v = _flag(b05: silent, b00: replyTo != null, b13: sendAs != null);
 
     return v;
   }
@@ -132344,10 +130614,8 @@ class MessagesSendWebViewData extends TlMethod {
 /// ID: `269e9a49`.
 class MessagesTranscribeAudio extends TlMethod {
   /// Messages Transcribe Audio constructor.
-  const MessagesTranscribeAudio({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const MessagesTranscribeAudio({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesTranscribeAudio.deserialize(BinaryReader reader) {
@@ -132356,10 +130624,7 @@ class MessagesTranscribeAudio extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [MessagesTranscribeAudio] object.
-    final returnValue = MessagesTranscribeAudio(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = MessagesTranscribeAudio(peer: peer, msgId: msgId);
 
     // Now return the deserialized [MessagesTranscribeAudio].
     return returnValue;
@@ -132486,9 +130751,7 @@ class MessagesRateTranscribedAudio extends TlMethod {
 /// ID: `d9ab0f54`.
 class MessagesGetCustomEmojiDocuments extends TlMethod {
   /// Messages Get Custom Emoji Documents constructor.
-  const MessagesGetCustomEmojiDocuments({
-    required this.documentId,
-  }) : super._();
+  const MessagesGetCustomEmojiDocuments({required this.documentId}) : super._();
 
   /// Deserialize.
   factory MessagesGetCustomEmojiDocuments.deserialize(BinaryReader reader) {
@@ -132538,9 +130801,7 @@ class MessagesGetCustomEmojiDocuments extends TlMethod {
 /// ID: `fbfca18f`.
 class MessagesGetEmojiStickers extends TlMethod {
   /// Messages Get Emoji Stickers constructor.
-  const MessagesGetEmojiStickers({
-    required this.hash,
-  }) : super._();
+  const MessagesGetEmojiStickers({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiStickers.deserialize(BinaryReader reader) {
@@ -132548,9 +130809,7 @@ class MessagesGetEmojiStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetEmojiStickers] object.
-    final returnValue = MessagesGetEmojiStickers(
-      hash: hash,
-    );
+    final returnValue = MessagesGetEmojiStickers(hash: hash);
 
     // Now return the deserialized [MessagesGetEmojiStickers].
     return returnValue;
@@ -132592,9 +130851,7 @@ class MessagesGetEmojiStickers extends TlMethod {
 /// ID: `0ecf6736`.
 class MessagesGetFeaturedEmojiStickers extends TlMethod {
   /// Messages Get Featured Emoji Stickers constructor.
-  const MessagesGetFeaturedEmojiStickers({
-    required this.hash,
-  }) : super._();
+  const MessagesGetFeaturedEmojiStickers({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetFeaturedEmojiStickers.deserialize(BinaryReader reader) {
@@ -132602,9 +130859,7 @@ class MessagesGetFeaturedEmojiStickers extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetFeaturedEmojiStickers] object.
-    final returnValue = MessagesGetFeaturedEmojiStickers(
-      hash: hash,
-    );
+    final returnValue = MessagesGetFeaturedEmojiStickers(hash: hash);
 
     // Now return the deserialized [MessagesGetFeaturedEmojiStickers].
     return returnValue;
@@ -132716,10 +130971,8 @@ class MessagesReportReaction extends TlMethod {
 /// ID: `bb8125ba`.
 class MessagesGetTopReactions extends TlMethod {
   /// Messages Get Top Reactions constructor.
-  const MessagesGetTopReactions({
-    required this.limit,
-    required this.hash,
-  }) : super._();
+  const MessagesGetTopReactions({required this.limit, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetTopReactions.deserialize(BinaryReader reader) {
@@ -132728,10 +130981,7 @@ class MessagesGetTopReactions extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetTopReactions] object.
-    final returnValue = MessagesGetTopReactions(
-      limit: limit,
-      hash: hash,
-    );
+    final returnValue = MessagesGetTopReactions(limit: limit, hash: hash);
 
     // Now return the deserialized [MessagesGetTopReactions].
     return returnValue;
@@ -132780,10 +131030,8 @@ class MessagesGetTopReactions extends TlMethod {
 /// ID: `39461db2`.
 class MessagesGetRecentReactions extends TlMethod {
   /// Messages Get Recent Reactions constructor.
-  const MessagesGetRecentReactions({
-    required this.limit,
-    required this.hash,
-  }) : super._();
+  const MessagesGetRecentReactions({required this.limit, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetRecentReactions.deserialize(BinaryReader reader) {
@@ -132792,10 +131040,7 @@ class MessagesGetRecentReactions extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetRecentReactions] object.
-    final returnValue = MessagesGetRecentReactions(
-      limit: limit,
-      hash: hash,
-    );
+    final returnValue = MessagesGetRecentReactions(limit: limit, hash: hash);
 
     // Now return the deserialized [MessagesGetRecentReactions].
     return returnValue;
@@ -132882,10 +131127,8 @@ class MessagesClearRecentReactions extends TlMethod {
 /// ID: `84f80814`.
 class MessagesGetExtendedMedia extends TlMethod {
   /// Messages Get Extended Media constructor.
-  const MessagesGetExtendedMedia({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const MessagesGetExtendedMedia({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetExtendedMedia.deserialize(BinaryReader reader) {
@@ -132894,10 +131137,7 @@ class MessagesGetExtendedMedia extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [MessagesGetExtendedMedia] object.
-    final returnValue = MessagesGetExtendedMedia(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = MessagesGetExtendedMedia(peer: peer, id: id.items);
 
     // Now return the deserialized [MessagesGetExtendedMedia].
     return returnValue;
@@ -132942,9 +131182,7 @@ class MessagesGetExtendedMedia extends TlMethod {
 /// ID: `9eb51445`.
 class MessagesSetDefaultHistoryTTL extends TlMethod {
   /// Messages Set Default History T T L constructor.
-  const MessagesSetDefaultHistoryTTL({
-    required this.period,
-  }) : super._();
+  const MessagesSetDefaultHistoryTTL({required this.period}) : super._();
 
   /// Deserialize.
   factory MessagesSetDefaultHistoryTTL.deserialize(BinaryReader reader) {
@@ -132952,9 +131190,7 @@ class MessagesSetDefaultHistoryTTL extends TlMethod {
     final period = reader.readInt32();
 
     // Construct [MessagesSetDefaultHistoryTTL] object.
-    final returnValue = MessagesSetDefaultHistoryTTL(
-      period: period,
-    );
+    final returnValue = MessagesSetDefaultHistoryTTL(period: period);
 
     // Now return the deserialized [MessagesSetDefaultHistoryTTL].
     return returnValue;
@@ -133114,9 +131350,7 @@ class MessagesSendBotRequestedPeer extends TlMethod {
 /// ID: `7488ce5b`.
 class MessagesGetEmojiGroups extends TlMethod {
   /// Messages Get Emoji Groups constructor.
-  const MessagesGetEmojiGroups({
-    required this.hash,
-  }) : super._();
+  const MessagesGetEmojiGroups({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiGroups.deserialize(BinaryReader reader) {
@@ -133124,9 +131358,7 @@ class MessagesGetEmojiGroups extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetEmojiGroups] object.
-    final returnValue = MessagesGetEmojiGroups(
-      hash: hash,
-    );
+    final returnValue = MessagesGetEmojiGroups(hash: hash);
 
     // Now return the deserialized [MessagesGetEmojiGroups].
     return returnValue;
@@ -133168,9 +131400,7 @@ class MessagesGetEmojiGroups extends TlMethod {
 /// ID: `2ecd56cd`.
 class MessagesGetEmojiStatusGroups extends TlMethod {
   /// Messages Get Emoji Status Groups constructor.
-  const MessagesGetEmojiStatusGroups({
-    required this.hash,
-  }) : super._();
+  const MessagesGetEmojiStatusGroups({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiStatusGroups.deserialize(BinaryReader reader) {
@@ -133178,9 +131408,7 @@ class MessagesGetEmojiStatusGroups extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetEmojiStatusGroups] object.
-    final returnValue = MessagesGetEmojiStatusGroups(
-      hash: hash,
-    );
+    final returnValue = MessagesGetEmojiStatusGroups(hash: hash);
 
     // Now return the deserialized [MessagesGetEmojiStatusGroups].
     return returnValue;
@@ -133222,9 +131450,7 @@ class MessagesGetEmojiStatusGroups extends TlMethod {
 /// ID: `21a548f3`.
 class MessagesGetEmojiProfilePhotoGroups extends TlMethod {
   /// Messages Get Emoji Profile Photo Groups constructor.
-  const MessagesGetEmojiProfilePhotoGroups({
-    required this.hash,
-  }) : super._();
+  const MessagesGetEmojiProfilePhotoGroups({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiProfilePhotoGroups.deserialize(BinaryReader reader) {
@@ -133232,9 +131458,7 @@ class MessagesGetEmojiProfilePhotoGroups extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetEmojiProfilePhotoGroups] object.
-    final returnValue = MessagesGetEmojiProfilePhotoGroups(
-      hash: hash,
-    );
+    final returnValue = MessagesGetEmojiProfilePhotoGroups(hash: hash);
 
     // Now return the deserialized [MessagesGetEmojiProfilePhotoGroups].
     return returnValue;
@@ -133276,10 +131500,8 @@ class MessagesGetEmojiProfilePhotoGroups extends TlMethod {
 /// ID: `2c11c0d7`.
 class MessagesSearchCustomEmoji extends TlMethod {
   /// Messages Search Custom Emoji constructor.
-  const MessagesSearchCustomEmoji({
-    required this.emoticon,
-    required this.hash,
-  }) : super._();
+  const MessagesSearchCustomEmoji({required this.emoticon, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesSearchCustomEmoji.deserialize(BinaryReader reader) {
@@ -133362,9 +131584,7 @@ class MessagesTogglePeerTranslations extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: disabled,
-    );
+    final v = _flag(b00: disabled);
 
     return v;
   }
@@ -133409,10 +131629,7 @@ class MessagesTogglePeerTranslations extends TlMethod {
 /// ID: `34fdc5c3`.
 class MessagesGetBotApp extends TlMethod {
   /// Messages Get Bot App constructor.
-  const MessagesGetBotApp({
-    required this.app,
-    required this.hash,
-  }) : super._();
+  const MessagesGetBotApp({required this.app, required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetBotApp.deserialize(BinaryReader reader) {
@@ -133421,10 +131638,7 @@ class MessagesGetBotApp extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetBotApp] object.
-    final returnValue = MessagesGetBotApp(
-      app: app,
-      hash: hash,
-    );
+    final returnValue = MessagesGetBotApp(app: app, hash: hash);
 
     // Now return the deserialized [MessagesGetBotApp].
     return returnValue;
@@ -133748,9 +131962,7 @@ class MessagesSearchEmojiStickerSets extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: excludeFeatured,
-    );
+    final v = _flag(b00: excludeFeatured);
 
     return v;
   }
@@ -133843,10 +132055,7 @@ class MessagesGetSavedDialogs extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: excludePinned,
-      b01: parentPeer != null,
-    );
+    final v = _flag(b00: excludePinned, b01: parentPeer != null);
 
     return v;
   }
@@ -133972,9 +132181,7 @@ class MessagesGetSavedHistory extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: parentPeer != null,
-    );
+    final v = _flag(b00: parentPeer != null);
 
     return v;
   }
@@ -134221,10 +132428,8 @@ class MessagesGetPinnedSavedDialogs extends TlMethod {
 /// ID: `ac81bbde`.
 class MessagesToggleSavedDialogPin extends TlMethod {
   /// Messages Toggle Saved Dialog Pin constructor.
-  const MessagesToggleSavedDialogPin({
-    required this.pinned,
-    required this.peer,
-  }) : super._();
+  const MessagesToggleSavedDialogPin({required this.pinned, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory MessagesToggleSavedDialogPin.deserialize(BinaryReader reader) {
@@ -134245,9 +132450,7 @@ class MessagesToggleSavedDialogPin extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: pinned,
-    );
+    final v = _flag(b00: pinned);
 
     return v;
   }
@@ -134316,9 +132519,7 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: force,
-    );
+    final v = _flag(b00: force);
 
     return v;
   }
@@ -134363,10 +132564,8 @@ class MessagesReorderPinnedSavedDialogs extends TlMethod {
 /// ID: `3637e05b`.
 class MessagesGetSavedReactionTags extends TlMethod {
   /// Messages Get Saved Reaction Tags constructor.
-  const MessagesGetSavedReactionTags({
-    this.peer,
-    required this.hash,
-  }) : super._();
+  const MessagesGetSavedReactionTags({this.peer, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetSavedReactionTags.deserialize(BinaryReader reader) {
@@ -134377,10 +132576,7 @@ class MessagesGetSavedReactionTags extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetSavedReactionTags] object.
-    final returnValue = MessagesGetSavedReactionTags(
-      peer: peer,
-      hash: hash,
-    );
+    final returnValue = MessagesGetSavedReactionTags(peer: peer, hash: hash);
 
     // Now return the deserialized [MessagesGetSavedReactionTags].
     return returnValue;
@@ -134388,9 +132584,7 @@ class MessagesGetSavedReactionTags extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: peer != null,
-    );
+    final v = _flag(b00: peer != null);
 
     return v;
   }
@@ -134441,10 +132635,8 @@ class MessagesGetSavedReactionTags extends TlMethod {
 /// ID: `60297dec`.
 class MessagesUpdateSavedReactionTag extends TlMethod {
   /// Messages Update Saved Reaction Tag constructor.
-  const MessagesUpdateSavedReactionTag({
-    required this.reaction,
-    this.title,
-  }) : super._();
+  const MessagesUpdateSavedReactionTag({required this.reaction, this.title})
+      : super._();
 
   /// Deserialize.
   factory MessagesUpdateSavedReactionTag.deserialize(BinaryReader reader) {
@@ -134466,9 +132658,7 @@ class MessagesUpdateSavedReactionTag extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: title != null,
-    );
+    final v = _flag(b00: title != null);
 
     return v;
   }
@@ -134517,9 +132707,7 @@ class MessagesUpdateSavedReactionTag extends TlMethod {
 /// ID: `bdf93428`.
 class MessagesGetDefaultTagReactions extends TlMethod {
   /// Messages Get Default Tag Reactions constructor.
-  const MessagesGetDefaultTagReactions({
-    required this.hash,
-  }) : super._();
+  const MessagesGetDefaultTagReactions({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetDefaultTagReactions.deserialize(BinaryReader reader) {
@@ -134527,9 +132715,7 @@ class MessagesGetDefaultTagReactions extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetDefaultTagReactions] object.
-    final returnValue = MessagesGetDefaultTagReactions(
-      hash: hash,
-    );
+    final returnValue = MessagesGetDefaultTagReactions(hash: hash);
 
     // Now return the deserialized [MessagesGetDefaultTagReactions].
     return returnValue;
@@ -134571,10 +132757,8 @@ class MessagesGetDefaultTagReactions extends TlMethod {
 /// ID: `8c4bfe5d`.
 class MessagesGetOutboxReadDate extends TlMethod {
   /// Messages Get Outbox Read Date constructor.
-  const MessagesGetOutboxReadDate({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const MessagesGetOutboxReadDate({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetOutboxReadDate.deserialize(BinaryReader reader) {
@@ -134583,10 +132767,7 @@ class MessagesGetOutboxReadDate extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [MessagesGetOutboxReadDate] object.
-    final returnValue = MessagesGetOutboxReadDate(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = MessagesGetOutboxReadDate(peer: peer, msgId: msgId);
 
     // Now return the deserialized [MessagesGetOutboxReadDate].
     return returnValue;
@@ -134633,9 +132814,7 @@ class MessagesGetOutboxReadDate extends TlMethod {
 /// ID: `d483f2a8`.
 class MessagesGetQuickReplies extends TlMethod {
   /// Messages Get Quick Replies constructor.
-  const MessagesGetQuickReplies({
-    required this.hash,
-  }) : super._();
+  const MessagesGetQuickReplies({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetQuickReplies.deserialize(BinaryReader reader) {
@@ -134643,9 +132822,7 @@ class MessagesGetQuickReplies extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [MessagesGetQuickReplies] object.
-    final returnValue = MessagesGetQuickReplies(
-      hash: hash,
-    );
+    final returnValue = MessagesGetQuickReplies(hash: hash);
 
     // Now return the deserialized [MessagesGetQuickReplies].
     return returnValue;
@@ -134687,9 +132864,7 @@ class MessagesGetQuickReplies extends TlMethod {
 /// ID: `60331907`.
 class MessagesReorderQuickReplies extends TlMethod {
   /// Messages Reorder Quick Replies constructor.
-  const MessagesReorderQuickReplies({
-    required this.order,
-  }) : super._();
+  const MessagesReorderQuickReplies({required this.order}) : super._();
 
   /// Deserialize.
   factory MessagesReorderQuickReplies.deserialize(BinaryReader reader) {
@@ -134697,9 +132872,7 @@ class MessagesReorderQuickReplies extends TlMethod {
     final order = reader.readVectorInt32();
 
     // Construct [MessagesReorderQuickReplies] object.
-    final returnValue = MessagesReorderQuickReplies(
-      order: order.items,
-    );
+    final returnValue = MessagesReorderQuickReplies(order: order.items);
 
     // Now return the deserialized [MessagesReorderQuickReplies].
     return returnValue;
@@ -134739,9 +132912,7 @@ class MessagesReorderQuickReplies extends TlMethod {
 /// ID: `f1d0fbd3`.
 class MessagesCheckQuickReplyShortcut extends TlMethod {
   /// Messages Check Quick Reply Shortcut constructor.
-  const MessagesCheckQuickReplyShortcut({
-    required this.shortcut,
-  }) : super._();
+  const MessagesCheckQuickReplyShortcut({required this.shortcut}) : super._();
 
   /// Deserialize.
   factory MessagesCheckQuickReplyShortcut.deserialize(BinaryReader reader) {
@@ -134749,9 +132920,7 @@ class MessagesCheckQuickReplyShortcut extends TlMethod {
     final shortcut = reader.readString();
 
     // Construct [MessagesCheckQuickReplyShortcut] object.
-    final returnValue = MessagesCheckQuickReplyShortcut(
-      shortcut: shortcut,
-    );
+    final returnValue = MessagesCheckQuickReplyShortcut(shortcut: shortcut);
 
     // Now return the deserialized [MessagesCheckQuickReplyShortcut].
     return returnValue;
@@ -134853,9 +133022,8 @@ class MessagesEditQuickReplyShortcut extends TlMethod {
 /// ID: `3cc04740`.
 class MessagesDeleteQuickReplyShortcut extends TlMethod {
   /// Messages Delete Quick Reply Shortcut constructor.
-  const MessagesDeleteQuickReplyShortcut({
-    required this.shortcutId,
-  }) : super._();
+  const MessagesDeleteQuickReplyShortcut({required this.shortcutId})
+      : super._();
 
   /// Deserialize.
   factory MessagesDeleteQuickReplyShortcut.deserialize(BinaryReader reader) {
@@ -134935,9 +133103,7 @@ class MessagesGetQuickReplyMessages extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: id != null,
-    );
+    final v = _flag(b00: id != null);
 
     return v;
   }
@@ -135135,9 +133301,7 @@ class MessagesDeleteQuickReplyMessages extends TlMethod {
 /// ID: `fd2dda49`.
 class MessagesToggleDialogFilterTags extends TlMethod {
   /// Messages Toggle Dialog Filter Tags constructor.
-  const MessagesToggleDialogFilterTags({
-    required this.enabled,
-  }) : super._();
+  const MessagesToggleDialogFilterTags({required this.enabled}) : super._();
 
   /// Deserialize.
   factory MessagesToggleDialogFilterTags.deserialize(BinaryReader reader) {
@@ -135145,9 +133309,7 @@ class MessagesToggleDialogFilterTags extends TlMethod {
     final enabled = reader.readBool();
 
     // Construct [MessagesToggleDialogFilterTags] object.
-    final returnValue = MessagesToggleDialogFilterTags(
-      enabled: enabled,
-    );
+    final returnValue = MessagesToggleDialogFilterTags(enabled: enabled);
 
     // Now return the deserialized [MessagesToggleDialogFilterTags].
     return returnValue;
@@ -135187,10 +133349,8 @@ class MessagesToggleDialogFilterTags extends TlMethod {
 /// ID: `d0b5e1fc`.
 class MessagesGetMyStickers extends TlMethod {
   /// Messages Get My Stickers constructor.
-  const MessagesGetMyStickers({
-    required this.offsetId,
-    required this.limit,
-  }) : super._();
+  const MessagesGetMyStickers({required this.offsetId, required this.limit})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetMyStickers.deserialize(BinaryReader reader) {
@@ -135199,10 +133359,7 @@ class MessagesGetMyStickers extends TlMethod {
     final limit = reader.readInt32();
 
     // Construct [MessagesGetMyStickers] object.
-    final returnValue = MessagesGetMyStickers(
-      offsetId: offsetId,
-      limit: limit,
-    );
+    final returnValue = MessagesGetMyStickers(offsetId: offsetId, limit: limit);
 
     // Now return the deserialized [MessagesGetMyStickers].
     return returnValue;
@@ -135251,9 +133408,7 @@ class MessagesGetMyStickers extends TlMethod {
 /// ID: `1dd840f5`.
 class MessagesGetEmojiStickerGroups extends TlMethod {
   /// Messages Get Emoji Sticker Groups constructor.
-  const MessagesGetEmojiStickerGroups({
-    required this.hash,
-  }) : super._();
+  const MessagesGetEmojiStickerGroups({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetEmojiStickerGroups.deserialize(BinaryReader reader) {
@@ -135261,9 +133416,7 @@ class MessagesGetEmojiStickerGroups extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetEmojiStickerGroups] object.
-    final returnValue = MessagesGetEmojiStickerGroups(
-      hash: hash,
-    );
+    final returnValue = MessagesGetEmojiStickerGroups(hash: hash);
 
     // Now return the deserialized [MessagesGetEmojiStickerGroups].
     return returnValue;
@@ -135305,9 +133458,7 @@ class MessagesGetEmojiStickerGroups extends TlMethod {
 /// ID: `dea20a39`.
 class MessagesGetAvailableEffects extends TlMethod {
   /// Messages Get Available Effects constructor.
-  const MessagesGetAvailableEffects({
-    required this.hash,
-  }) : super._();
+  const MessagesGetAvailableEffects({required this.hash}) : super._();
 
   /// Deserialize.
   factory MessagesGetAvailableEffects.deserialize(BinaryReader reader) {
@@ -135315,9 +133466,7 @@ class MessagesGetAvailableEffects extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [MessagesGetAvailableEffects] object.
-    final returnValue = MessagesGetAvailableEffects(
-      hash: hash,
-    );
+    final returnValue = MessagesGetAvailableEffects(hash: hash);
 
     // Now return the deserialized [MessagesGetAvailableEffects].
     return returnValue;
@@ -135429,10 +133578,8 @@ class MessagesEditFactCheck extends TlMethod {
 /// ID: `d1da940c`.
 class MessagesDeleteFactCheck extends TlMethod {
   /// Messages Delete Fact Check constructor.
-  const MessagesDeleteFactCheck({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const MessagesDeleteFactCheck({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesDeleteFactCheck.deserialize(BinaryReader reader) {
@@ -135441,10 +133588,7 @@ class MessagesDeleteFactCheck extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [MessagesDeleteFactCheck] object.
-    final returnValue = MessagesDeleteFactCheck(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = MessagesDeleteFactCheck(peer: peer, msgId: msgId);
 
     // Now return the deserialized [MessagesDeleteFactCheck].
     return returnValue;
@@ -135491,10 +133635,8 @@ class MessagesDeleteFactCheck extends TlMethod {
 /// ID: `b9cdc5ee`.
 class MessagesGetFactCheck extends TlMethod {
   /// Messages Get Fact Check constructor.
-  const MessagesGetFactCheck({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const MessagesGetFactCheck({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetFactCheck.deserialize(BinaryReader reader) {
@@ -135503,10 +133645,7 @@ class MessagesGetFactCheck extends TlMethod {
     final msgId = reader.readVectorInt32();
 
     // Construct [MessagesGetFactCheck] object.
-    final returnValue = MessagesGetFactCheck(
-      peer: peer,
-      msgId: msgId.items,
-    );
+    final returnValue = MessagesGetFactCheck(peer: peer, msgId: msgId.items);
 
     // Now return the deserialized [MessagesGetFactCheck].
     return returnValue;
@@ -135708,9 +133847,7 @@ class MessagesSendPaidReaction extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: private != null,
-    );
+    final v = _flag(b00: private != null);
 
     return v;
   }
@@ -135888,9 +134025,7 @@ class MessagesGetPaidReactionPrivacy extends TlMethod {
 /// ID: `269e3643`.
 class MessagesViewSponsoredMessage extends TlMethod {
   /// Messages View Sponsored Message constructor.
-  const MessagesViewSponsoredMessage({
-    required this.randomId,
-  }) : super._();
+  const MessagesViewSponsoredMessage({required this.randomId}) : super._();
 
   /// Deserialize.
   factory MessagesViewSponsoredMessage.deserialize(BinaryReader reader) {
@@ -135898,9 +134033,7 @@ class MessagesViewSponsoredMessage extends TlMethod {
     final randomId = reader.readBytes();
 
     // Construct [MessagesViewSponsoredMessage] object.
-    final returnValue = MessagesViewSponsoredMessage(
-      randomId: randomId,
-    );
+    final returnValue = MessagesViewSponsoredMessage(randomId: randomId);
 
     // Now return the deserialized [MessagesViewSponsoredMessage].
     return returnValue;
@@ -135967,10 +134100,7 @@ class MessagesClickSponsoredMessage extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: media,
-      b01: fullscreen,
-    );
+    final v = _flag(b00: media, b01: fullscreen);
 
     return v;
   }
@@ -136079,10 +134209,8 @@ class MessagesReportSponsoredMessage extends TlMethod {
 /// ID: `3d6ce850`.
 class MessagesGetSponsoredMessages extends TlMethod {
   /// Messages Get Sponsored Messages constructor.
-  const MessagesGetSponsoredMessages({
-    required this.peer,
-    this.msgId,
-  }) : super._();
+  const MessagesGetSponsoredMessages({required this.peer, this.msgId})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetSponsoredMessages.deserialize(BinaryReader reader) {
@@ -136093,10 +134221,7 @@ class MessagesGetSponsoredMessages extends TlMethod {
     final msgId = hasMsgIdField ? reader.readInt32() : null;
 
     // Construct [MessagesGetSponsoredMessages] object.
-    final returnValue = MessagesGetSponsoredMessages(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = MessagesGetSponsoredMessages(peer: peer, msgId: msgId);
 
     // Now return the deserialized [MessagesGetSponsoredMessages].
     return returnValue;
@@ -136104,9 +134229,7 @@ class MessagesGetSponsoredMessages extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: msgId != null,
-    );
+    final v = _flag(b00: msgId != null);
 
     return v;
   }
@@ -136185,9 +134308,7 @@ class MessagesSavePreparedInlineMessage extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: peerTypes != null,
-    );
+    final v = _flag(b00: peerTypes != null);
 
     return v;
   }
@@ -136241,10 +134362,8 @@ class MessagesSavePreparedInlineMessage extends TlMethod {
 /// ID: `857ebdb8`.
 class MessagesGetPreparedInlineMessage extends TlMethod {
   /// Messages Get Prepared Inline Message constructor.
-  const MessagesGetPreparedInlineMessage({
-    required this.bot,
-    required this.id,
-  }) : super._();
+  const MessagesGetPreparedInlineMessage({required this.bot, required this.id})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetPreparedInlineMessage.deserialize(BinaryReader reader) {
@@ -136253,10 +134372,7 @@ class MessagesGetPreparedInlineMessage extends TlMethod {
     final id = reader.readString();
 
     // Construct [MessagesGetPreparedInlineMessage] object.
-    final returnValue = MessagesGetPreparedInlineMessage(
-      bot: bot,
-      id: id,
-    );
+    final returnValue = MessagesGetPreparedInlineMessage(bot: bot, id: id);
 
     // Now return the deserialized [MessagesGetPreparedInlineMessage].
     return returnValue;
@@ -136340,9 +134456,7 @@ class MessagesSearchStickers extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: emojis,
-    );
+    final v = _flag(b00: emojis);
 
     return v;
   }
@@ -136445,9 +134559,7 @@ class MessagesReportMessagesDelivery extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: push,
-    );
+    final v = _flag(b00: push);
 
     return v;
   }
@@ -136497,10 +134609,8 @@ class MessagesReportMessagesDelivery extends TlMethod {
 /// ID: `6f6f9c96`.
 class MessagesGetSavedDialogsByID extends TlMethod {
   /// Messages Get Saved Dialogs By I D constructor.
-  const MessagesGetSavedDialogsByID({
-    this.parentPeer,
-    required this.ids,
-  }) : super._();
+  const MessagesGetSavedDialogsByID({this.parentPeer, required this.ids})
+      : super._();
 
   /// Deserialize.
   factory MessagesGetSavedDialogsByID.deserialize(BinaryReader reader) {
@@ -136523,9 +134633,7 @@ class MessagesGetSavedDialogsByID extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: parentPeer != null,
-    );
+    final v = _flag(b01: parentPeer != null);
 
     return v;
   }
@@ -137092,9 +135200,7 @@ class UpdatesGetChannelDifference extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: force,
-    );
+    final v = _flag(b00: force);
 
     return v;
   }
@@ -137186,10 +135292,7 @@ class PhotosUpdateProfilePhoto extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: fallback,
-      b01: bot != null,
-    );
+    final v = _flag(b00: fallback, b01: bot != null);
 
     return v;
   }
@@ -137371,9 +135474,7 @@ class PhotosUploadProfilePhoto extends TlMethod {
 /// ID: `87cf7f2f`.
 class PhotosDeletePhotos extends TlMethod {
   /// Photos Delete Photos constructor.
-  const PhotosDeletePhotos({
-    required this.id,
-  }) : super._();
+  const PhotosDeletePhotos({required this.id}) : super._();
 
   /// Deserialize.
   factory PhotosDeletePhotos.deserialize(BinaryReader reader) {
@@ -137381,9 +135482,7 @@ class PhotosDeletePhotos extends TlMethod {
     final id = reader.readVectorObject<InputPhotoBase>();
 
     // Construct [PhotosDeletePhotos] object.
-    final returnValue = PhotosDeletePhotos(
-      id: id.items,
-    );
+    final returnValue = PhotosDeletePhotos(id: id.items);
 
     // Now return the deserialized [PhotosDeletePhotos].
     return returnValue;
@@ -137742,10 +135841,7 @@ class UploadGetFile extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: precise,
-      b01: cdnSupported,
-    );
+    final v = _flag(b00: precise, b01: cdnSupported);
 
     return v;
   }
@@ -138094,10 +136190,8 @@ class UploadReuploadCdnFile extends TlMethod {
 /// ID: `91dc3f31`.
 class UploadGetCdnFileHashes extends TlMethod {
   /// Upload Get Cdn File Hashes constructor.
-  const UploadGetCdnFileHashes({
-    required this.fileToken,
-    required this.offset,
-  }) : super._();
+  const UploadGetCdnFileHashes({required this.fileToken, required this.offset})
+      : super._();
 
   /// Deserialize.
   factory UploadGetCdnFileHashes.deserialize(BinaryReader reader) {
@@ -138156,10 +136250,8 @@ class UploadGetCdnFileHashes extends TlMethod {
 /// ID: `9156982a`.
 class UploadGetFileHashes extends TlMethod {
   /// Upload Get File Hashes constructor.
-  const UploadGetFileHashes({
-    required this.location,
-    required this.offset,
-  }) : super._();
+  const UploadGetFileHashes({required this.location, required this.offset})
+      : super._();
 
   /// Deserialize.
   factory UploadGetFileHashes.deserialize(BinaryReader reader) {
@@ -138168,10 +136260,7 @@ class UploadGetFileHashes extends TlMethod {
     final offset = reader.readInt64();
 
     // Construct [UploadGetFileHashes] object.
-    final returnValue = UploadGetFileHashes(
-      location: location,
-      offset: offset,
-    );
+    final returnValue = UploadGetFileHashes(location: location, offset: offset);
 
     // Now return the deserialized [UploadGetFileHashes].
     return returnValue;
@@ -138294,9 +136383,7 @@ class HelpGetNearestDc extends TlMethod {
 /// ID: `522d5a7d`.
 class HelpGetAppUpdate extends TlMethod {
   /// Help Get App Update constructor.
-  const HelpGetAppUpdate({
-    required this.source,
-  }) : super._();
+  const HelpGetAppUpdate({required this.source}) : super._();
 
   /// Deserialize.
   factory HelpGetAppUpdate.deserialize(BinaryReader reader) {
@@ -138304,9 +136391,7 @@ class HelpGetAppUpdate extends TlMethod {
     final source = reader.readString();
 
     // Construct [HelpGetAppUpdate] object.
-    final returnValue = HelpGetAppUpdate(
-      source: source,
-    );
+    final returnValue = HelpGetAppUpdate(source: source);
 
     // Now return the deserialized [HelpGetAppUpdate].
     return returnValue;
@@ -138522,9 +136607,7 @@ class HelpGetCdnConfig extends TlMethod {
 /// ID: `3dc0f114`.
 class HelpGetRecentMeUrls extends TlMethod {
   /// Help Get Recent Me Urls constructor.
-  const HelpGetRecentMeUrls({
-    required this.referer,
-  }) : super._();
+  const HelpGetRecentMeUrls({required this.referer}) : super._();
 
   /// Deserialize.
   factory HelpGetRecentMeUrls.deserialize(BinaryReader reader) {
@@ -138532,9 +136615,7 @@ class HelpGetRecentMeUrls extends TlMethod {
     final referer = reader.readString();
 
     // Construct [HelpGetRecentMeUrls] object.
-    final returnValue = HelpGetRecentMeUrls(
-      referer: referer,
-    );
+    final returnValue = HelpGetRecentMeUrls(referer: referer);
 
     // Now return the deserialized [HelpGetRecentMeUrls].
     return returnValue;
@@ -138612,9 +136693,7 @@ class HelpGetTermsOfServiceUpdate extends TlMethod {
 /// ID: `ee72f79a`.
 class HelpAcceptTermsOfService extends TlMethod {
   /// Help Accept Terms Of Service constructor.
-  const HelpAcceptTermsOfService({
-    required this.id,
-  }) : super._();
+  const HelpAcceptTermsOfService({required this.id}) : super._();
 
   /// Deserialize.
   factory HelpAcceptTermsOfService.deserialize(BinaryReader reader) {
@@ -138622,9 +136701,7 @@ class HelpAcceptTermsOfService extends TlMethod {
     final id = reader.readObject() as DataJSONBase;
 
     // Construct [HelpAcceptTermsOfService] object.
-    final returnValue = HelpAcceptTermsOfService(
-      id: id,
-    );
+    final returnValue = HelpAcceptTermsOfService(id: id);
 
     // Now return the deserialized [HelpAcceptTermsOfService].
     return returnValue;
@@ -138664,9 +136741,7 @@ class HelpAcceptTermsOfService extends TlMethod {
 /// ID: `3fedc75f`.
 class HelpGetDeepLinkInfo extends TlMethod {
   /// Help Get Deep Link Info constructor.
-  const HelpGetDeepLinkInfo({
-    required this.path,
-  }) : super._();
+  const HelpGetDeepLinkInfo({required this.path}) : super._();
 
   /// Deserialize.
   factory HelpGetDeepLinkInfo.deserialize(BinaryReader reader) {
@@ -138674,9 +136749,7 @@ class HelpGetDeepLinkInfo extends TlMethod {
     final path = reader.readString();
 
     // Construct [HelpGetDeepLinkInfo] object.
-    final returnValue = HelpGetDeepLinkInfo(
-      path: path,
-    );
+    final returnValue = HelpGetDeepLinkInfo(path: path);
 
     // Now return the deserialized [HelpGetDeepLinkInfo].
     return returnValue;
@@ -138716,9 +136789,7 @@ class HelpGetDeepLinkInfo extends TlMethod {
 /// ID: `61e3f854`.
 class HelpGetAppConfig extends TlMethod {
   /// Help Get App Config constructor.
-  const HelpGetAppConfig({
-    required this.hash,
-  }) : super._();
+  const HelpGetAppConfig({required this.hash}) : super._();
 
   /// Deserialize.
   factory HelpGetAppConfig.deserialize(BinaryReader reader) {
@@ -138726,9 +136797,7 @@ class HelpGetAppConfig extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [HelpGetAppConfig] object.
-    final returnValue = HelpGetAppConfig(
-      hash: hash,
-    );
+    final returnValue = HelpGetAppConfig(hash: hash);
 
     // Now return the deserialized [HelpGetAppConfig].
     return returnValue;
@@ -138770,9 +136839,7 @@ class HelpGetAppConfig extends TlMethod {
 /// ID: `6f02f748`.
 class HelpSaveAppLog extends TlMethod {
   /// Help Save App Log constructor.
-  const HelpSaveAppLog({
-    required this.events,
-  }) : super._();
+  const HelpSaveAppLog({required this.events}) : super._();
 
   /// Deserialize.
   factory HelpSaveAppLog.deserialize(BinaryReader reader) {
@@ -138780,9 +136847,7 @@ class HelpSaveAppLog extends TlMethod {
     final events = reader.readVectorObject<InputAppEventBase>();
 
     // Construct [HelpSaveAppLog] object.
-    final returnValue = HelpSaveAppLog(
-      events: events.items,
-    );
+    final returnValue = HelpSaveAppLog(events: events.items);
 
     // Now return the deserialized [HelpSaveAppLog].
     return returnValue;
@@ -138822,9 +136887,7 @@ class HelpSaveAppLog extends TlMethod {
 /// ID: `c661ad08`.
 class HelpGetPassportConfig extends TlMethod {
   /// Help Get Passport Config constructor.
-  const HelpGetPassportConfig({
-    required this.hash,
-  }) : super._();
+  const HelpGetPassportConfig({required this.hash}) : super._();
 
   /// Deserialize.
   factory HelpGetPassportConfig.deserialize(BinaryReader reader) {
@@ -138832,9 +136895,7 @@ class HelpGetPassportConfig extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [HelpGetPassportConfig] object.
-    final returnValue = HelpGetPassportConfig(
-      hash: hash,
-    );
+    final returnValue = HelpGetPassportConfig(hash: hash);
 
     // Now return the deserialized [HelpGetPassportConfig].
     return returnValue;
@@ -138914,9 +136975,7 @@ class HelpGetSupportName extends TlMethod {
 /// ID: `038a08d3`.
 class HelpGetUserInfo extends TlMethod {
   /// Help Get User Info constructor.
-  const HelpGetUserInfo({
-    required this.userId,
-  }) : super._();
+  const HelpGetUserInfo({required this.userId}) : super._();
 
   /// Deserialize.
   factory HelpGetUserInfo.deserialize(BinaryReader reader) {
@@ -138924,9 +136983,7 @@ class HelpGetUserInfo extends TlMethod {
     final userId = reader.readObject() as InputUserBase;
 
     // Construct [HelpGetUserInfo] object.
-    final returnValue = HelpGetUserInfo(
-      userId: userId,
-    );
+    final returnValue = HelpGetUserInfo(userId: userId);
 
     // Now return the deserialized [HelpGetUserInfo].
     return returnValue;
@@ -139072,9 +137129,7 @@ class HelpGetPromoData extends TlMethod {
 /// ID: `1e251c95`.
 class HelpHidePromoData extends TlMethod {
   /// Help Hide Promo Data constructor.
-  const HelpHidePromoData({
-    required this.peer,
-  }) : super._();
+  const HelpHidePromoData({required this.peer}) : super._();
 
   /// Deserialize.
   factory HelpHidePromoData.deserialize(BinaryReader reader) {
@@ -139082,9 +137137,7 @@ class HelpHidePromoData extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [HelpHidePromoData] object.
-    final returnValue = HelpHidePromoData(
-      peer: peer,
-    );
+    final returnValue = HelpHidePromoData(peer: peer);
 
     // Now return the deserialized [HelpHidePromoData].
     return returnValue;
@@ -139124,10 +137177,8 @@ class HelpHidePromoData extends TlMethod {
 /// ID: `f50dbaa1`.
 class HelpDismissSuggestion extends TlMethod {
   /// Help Dismiss Suggestion constructor.
-  const HelpDismissSuggestion({
-    required this.peer,
-    required this.suggestion,
-  }) : super._();
+  const HelpDismissSuggestion({required this.peer, required this.suggestion})
+      : super._();
 
   /// Deserialize.
   factory HelpDismissSuggestion.deserialize(BinaryReader reader) {
@@ -139184,10 +137235,8 @@ class HelpDismissSuggestion extends TlMethod {
 /// ID: `735787a8`.
 class HelpGetCountriesList extends TlMethod {
   /// Help Get Countries List constructor.
-  const HelpGetCountriesList({
-    required this.langCode,
-    required this.hash,
-  }) : super._();
+  const HelpGetCountriesList({required this.langCode, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory HelpGetCountriesList.deserialize(BinaryReader reader) {
@@ -139196,10 +137245,7 @@ class HelpGetCountriesList extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [HelpGetCountriesList] object.
-    final returnValue = HelpGetCountriesList(
-      langCode: langCode,
-      hash: hash,
-    );
+    final returnValue = HelpGetCountriesList(langCode: langCode, hash: hash);
 
     // Now return the deserialized [HelpGetCountriesList].
     return returnValue;
@@ -139284,9 +137330,7 @@ class HelpGetPremiumPromo extends TlMethod {
 /// ID: `da80f42f`.
 class HelpGetPeerColors extends TlMethod {
   /// Help Get Peer Colors constructor.
-  const HelpGetPeerColors({
-    required this.hash,
-  }) : super._();
+  const HelpGetPeerColors({required this.hash}) : super._();
 
   /// Deserialize.
   factory HelpGetPeerColors.deserialize(BinaryReader reader) {
@@ -139294,9 +137338,7 @@ class HelpGetPeerColors extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [HelpGetPeerColors] object.
-    final returnValue = HelpGetPeerColors(
-      hash: hash,
-    );
+    final returnValue = HelpGetPeerColors(hash: hash);
 
     // Now return the deserialized [HelpGetPeerColors].
     return returnValue;
@@ -139338,9 +137380,7 @@ class HelpGetPeerColors extends TlMethod {
 /// ID: `abcfa9fd`.
 class HelpGetPeerProfileColors extends TlMethod {
   /// Help Get Peer Profile Colors constructor.
-  const HelpGetPeerProfileColors({
-    required this.hash,
-  }) : super._();
+  const HelpGetPeerProfileColors({required this.hash}) : super._();
 
   /// Deserialize.
   factory HelpGetPeerProfileColors.deserialize(BinaryReader reader) {
@@ -139348,9 +137388,7 @@ class HelpGetPeerProfileColors extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [HelpGetPeerProfileColors] object.
-    final returnValue = HelpGetPeerProfileColors(
-      hash: hash,
-    );
+    final returnValue = HelpGetPeerProfileColors(hash: hash);
 
     // Now return the deserialized [HelpGetPeerProfileColors].
     return returnValue;
@@ -139392,9 +137430,7 @@ class HelpGetPeerProfileColors extends TlMethod {
 /// ID: `49b30240`.
 class HelpGetTimezonesList extends TlMethod {
   /// Help Get Timezones List constructor.
-  const HelpGetTimezonesList({
-    required this.hash,
-  }) : super._();
+  const HelpGetTimezonesList({required this.hash}) : super._();
 
   /// Deserialize.
   factory HelpGetTimezonesList.deserialize(BinaryReader reader) {
@@ -139402,9 +137438,7 @@ class HelpGetTimezonesList extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [HelpGetTimezonesList] object.
-    final returnValue = HelpGetTimezonesList(
-      hash: hash,
-    );
+    final returnValue = HelpGetTimezonesList(hash: hash);
 
     // Now return the deserialized [HelpGetTimezonesList].
     return returnValue;
@@ -139446,10 +137480,8 @@ class HelpGetTimezonesList extends TlMethod {
 /// ID: `cc104937`.
 class ChannelsReadHistory extends TlMethod {
   /// Channels Read History constructor.
-  const ChannelsReadHistory({
-    required this.channel,
-    required this.maxId,
-  }) : super._();
+  const ChannelsReadHistory({required this.channel, required this.maxId})
+      : super._();
 
   /// Deserialize.
   factory ChannelsReadHistory.deserialize(BinaryReader reader) {
@@ -139458,10 +137490,7 @@ class ChannelsReadHistory extends TlMethod {
     final maxId = reader.readInt32();
 
     // Construct [ChannelsReadHistory] object.
-    final returnValue = ChannelsReadHistory(
-      channel: channel,
-      maxId: maxId,
-    );
+    final returnValue = ChannelsReadHistory(channel: channel, maxId: maxId);
 
     // Now return the deserialized [ChannelsReadHistory].
     return returnValue;
@@ -139508,10 +137537,8 @@ class ChannelsReadHistory extends TlMethod {
 /// ID: `84c1fd4e`.
 class ChannelsDeleteMessages extends TlMethod {
   /// Channels Delete Messages constructor.
-  const ChannelsDeleteMessages({
-    required this.channel,
-    required this.id,
-  }) : super._();
+  const ChannelsDeleteMessages({required this.channel, required this.id})
+      : super._();
 
   /// Deserialize.
   factory ChannelsDeleteMessages.deserialize(BinaryReader reader) {
@@ -139520,10 +137547,7 @@ class ChannelsDeleteMessages extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [ChannelsDeleteMessages] object.
-    final returnValue = ChannelsDeleteMessages(
-      channel: channel,
-      id: id.items,
-    );
+    final returnValue = ChannelsDeleteMessages(channel: channel, id: id.items);
 
     // Now return the deserialized [ChannelsDeleteMessages].
     return returnValue;
@@ -139636,10 +137660,8 @@ class ChannelsReportSpam extends TlMethod {
 /// ID: `ad8c9a23`.
 class ChannelsGetMessages extends TlMethod {
   /// Channels Get Messages constructor.
-  const ChannelsGetMessages({
-    required this.channel,
-    required this.id,
-  }) : super._();
+  const ChannelsGetMessages({required this.channel, required this.id})
+      : super._();
 
   /// Deserialize.
   factory ChannelsGetMessages.deserialize(BinaryReader reader) {
@@ -139648,10 +137670,7 @@ class ChannelsGetMessages extends TlMethod {
     final id = reader.readVectorObject<InputMessageBase>();
 
     // Construct [ChannelsGetMessages] object.
-    final returnValue = ChannelsGetMessages(
-      channel: channel,
-      id: id.items,
-    );
+    final returnValue = ChannelsGetMessages(channel: channel, id: id.items);
 
     // Now return the deserialized [ChannelsGetMessages].
     return returnValue;
@@ -139846,9 +137865,7 @@ class ChannelsGetParticipant extends TlMethod {
 /// ID: `0a7f6bbb`.
 class ChannelsGetChannels extends TlMethod {
   /// Channels Get Channels constructor.
-  const ChannelsGetChannels({
-    required this.id,
-  }) : super._();
+  const ChannelsGetChannels({required this.id}) : super._();
 
   /// Deserialize.
   factory ChannelsGetChannels.deserialize(BinaryReader reader) {
@@ -139856,9 +137873,7 @@ class ChannelsGetChannels extends TlMethod {
     final id = reader.readVectorObject<InputChannelBase>();
 
     // Construct [ChannelsGetChannels] object.
-    final returnValue = ChannelsGetChannels(
-      id: id.items,
-    );
+    final returnValue = ChannelsGetChannels(id: id.items);
 
     // Now return the deserialized [ChannelsGetChannels].
     return returnValue;
@@ -139898,9 +137913,7 @@ class ChannelsGetChannels extends TlMethod {
 /// ID: `08736a09`.
 class ChannelsGetFullChannel extends TlMethod {
   /// Channels Get Full Channel constructor.
-  const ChannelsGetFullChannel({
-    required this.channel,
-  }) : super._();
+  const ChannelsGetFullChannel({required this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsGetFullChannel.deserialize(BinaryReader reader) {
@@ -139908,9 +137921,7 @@ class ChannelsGetFullChannel extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [ChannelsGetFullChannel] object.
-    final returnValue = ChannelsGetFullChannel(
-      channel: channel,
-    );
+    final returnValue = ChannelsGetFullChannel(channel: channel);
 
     // Now return the deserialized [ChannelsGetFullChannel].
     return returnValue;
@@ -140168,10 +138179,8 @@ class ChannelsEditAdmin extends TlMethod {
 /// ID: `566decd0`.
 class ChannelsEditTitle extends TlMethod {
   /// Channels Edit Title constructor.
-  const ChannelsEditTitle({
-    required this.channel,
-    required this.title,
-  }) : super._();
+  const ChannelsEditTitle({required this.channel, required this.title})
+      : super._();
 
   /// Deserialize.
   factory ChannelsEditTitle.deserialize(BinaryReader reader) {
@@ -140180,10 +138189,7 @@ class ChannelsEditTitle extends TlMethod {
     final title = reader.readString();
 
     // Construct [ChannelsEditTitle] object.
-    final returnValue = ChannelsEditTitle(
-      channel: channel,
-      title: title,
-    );
+    final returnValue = ChannelsEditTitle(channel: channel, title: title);
 
     // Now return the deserialized [ChannelsEditTitle].
     return returnValue;
@@ -140228,10 +138234,8 @@ class ChannelsEditTitle extends TlMethod {
 /// ID: `f12e57c9`.
 class ChannelsEditPhoto extends TlMethod {
   /// Channels Edit Photo constructor.
-  const ChannelsEditPhoto({
-    required this.channel,
-    required this.photo,
-  }) : super._();
+  const ChannelsEditPhoto({required this.channel, required this.photo})
+      : super._();
 
   /// Deserialize.
   factory ChannelsEditPhoto.deserialize(BinaryReader reader) {
@@ -140240,10 +138244,7 @@ class ChannelsEditPhoto extends TlMethod {
     final photo = reader.readObject() as InputChatPhotoBase;
 
     // Construct [ChannelsEditPhoto] object.
-    final returnValue = ChannelsEditPhoto(
-      channel: channel,
-      photo: photo,
-    );
+    final returnValue = ChannelsEditPhoto(channel: channel, photo: photo);
 
     // Now return the deserialized [ChannelsEditPhoto].
     return returnValue;
@@ -140288,10 +138289,8 @@ class ChannelsEditPhoto extends TlMethod {
 /// ID: `10e6bd2c`.
 class ChannelsCheckUsername extends TlMethod {
   /// Channels Check Username constructor.
-  const ChannelsCheckUsername({
-    required this.channel,
-    required this.username,
-  }) : super._();
+  const ChannelsCheckUsername({required this.channel, required this.username})
+      : super._();
 
   /// Deserialize.
   factory ChannelsCheckUsername.deserialize(BinaryReader reader) {
@@ -140348,10 +138347,8 @@ class ChannelsCheckUsername extends TlMethod {
 /// ID: `3514b3de`.
 class ChannelsUpdateUsername extends TlMethod {
   /// Channels Update Username constructor.
-  const ChannelsUpdateUsername({
-    required this.channel,
-    required this.username,
-  }) : super._();
+  const ChannelsUpdateUsername({required this.channel, required this.username})
+      : super._();
 
   /// Deserialize.
   factory ChannelsUpdateUsername.deserialize(BinaryReader reader) {
@@ -140408,9 +138405,7 @@ class ChannelsUpdateUsername extends TlMethod {
 /// ID: `24b524c5`.
 class ChannelsJoinChannel extends TlMethod {
   /// Channels Join Channel constructor.
-  const ChannelsJoinChannel({
-    required this.channel,
-  }) : super._();
+  const ChannelsJoinChannel({required this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsJoinChannel.deserialize(BinaryReader reader) {
@@ -140418,9 +138413,7 @@ class ChannelsJoinChannel extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [ChannelsJoinChannel] object.
-    final returnValue = ChannelsJoinChannel(
-      channel: channel,
-    );
+    final returnValue = ChannelsJoinChannel(channel: channel);
 
     // Now return the deserialized [ChannelsJoinChannel].
     return returnValue;
@@ -140460,9 +138453,7 @@ class ChannelsJoinChannel extends TlMethod {
 /// ID: `f836aa95`.
 class ChannelsLeaveChannel extends TlMethod {
   /// Channels Leave Channel constructor.
-  const ChannelsLeaveChannel({
-    required this.channel,
-  }) : super._();
+  const ChannelsLeaveChannel({required this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsLeaveChannel.deserialize(BinaryReader reader) {
@@ -140470,9 +138461,7 @@ class ChannelsLeaveChannel extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [ChannelsLeaveChannel] object.
-    final returnValue = ChannelsLeaveChannel(
-      channel: channel,
-    );
+    final returnValue = ChannelsLeaveChannel(channel: channel);
 
     // Now return the deserialized [ChannelsLeaveChannel].
     return returnValue;
@@ -140512,10 +138501,8 @@ class ChannelsLeaveChannel extends TlMethod {
 /// ID: `c9e33d54`.
 class ChannelsInviteToChannel extends TlMethod {
   /// Channels Invite To Channel constructor.
-  const ChannelsInviteToChannel({
-    required this.channel,
-    required this.users,
-  }) : super._();
+  const ChannelsInviteToChannel({required this.channel, required this.users})
+      : super._();
 
   /// Deserialize.
   factory ChannelsInviteToChannel.deserialize(BinaryReader reader) {
@@ -140572,9 +138559,7 @@ class ChannelsInviteToChannel extends TlMethod {
 /// ID: `c0111fe3`.
 class ChannelsDeleteChannel extends TlMethod {
   /// Channels Delete Channel constructor.
-  const ChannelsDeleteChannel({
-    required this.channel,
-  }) : super._();
+  const ChannelsDeleteChannel({required this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsDeleteChannel.deserialize(BinaryReader reader) {
@@ -140582,9 +138567,7 @@ class ChannelsDeleteChannel extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [ChannelsDeleteChannel] object.
-    final returnValue = ChannelsDeleteChannel(
-      channel: channel,
-    );
+    final returnValue = ChannelsDeleteChannel(channel: channel);
 
     // Now return the deserialized [ChannelsDeleteChannel].
     return returnValue;
@@ -140654,10 +138637,7 @@ class ChannelsExportMessageLink extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: grouped,
-      b01: thread,
-    );
+    final v = _flag(b00: grouped, b01: thread);
 
     return v;
   }
@@ -140740,10 +138720,7 @@ class ChannelsToggleSignatures extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: signaturesEnabled,
-      b01: profilesEnabled,
-    );
+    final v = _flag(b00: signaturesEnabled, b01: profilesEnabled);
 
     return v;
   }
@@ -140819,11 +138796,7 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: byLocation,
-      b01: checkLimit,
-      b02: forPersonal,
-    );
+    final v = _flag(b00: byLocation, b01: checkLimit, b02: forPersonal);
 
     return v;
   }
@@ -140983,10 +138956,7 @@ class ChannelsGetAdminLog extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: eventsFilter != null,
-      b01: admins != null,
-    );
+    final v = _flag(b00: eventsFilter != null, b01: admins != null);
 
     return v;
   }
@@ -141069,10 +139039,8 @@ class ChannelsGetAdminLog extends TlMethod {
 /// ID: `ea8ca4f9`.
 class ChannelsSetStickers extends TlMethod {
   /// Channels Set Stickers constructor.
-  const ChannelsSetStickers({
-    required this.channel,
-    required this.stickerset,
-  }) : super._();
+  const ChannelsSetStickers({required this.channel, required this.stickerset})
+      : super._();
 
   /// Deserialize.
   factory ChannelsSetStickers.deserialize(BinaryReader reader) {
@@ -141129,10 +139097,8 @@ class ChannelsSetStickers extends TlMethod {
 /// ID: `eab5dc38`.
 class ChannelsReadMessageContents extends TlMethod {
   /// Channels Read Message Contents constructor.
-  const ChannelsReadMessageContents({
-    required this.channel,
-    required this.id,
-  }) : super._();
+  const ChannelsReadMessageContents({required this.channel, required this.id})
+      : super._();
 
   /// Deserialize.
   factory ChannelsReadMessageContents.deserialize(BinaryReader reader) {
@@ -141216,9 +139182,7 @@ class ChannelsDeleteHistory extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: forEveryone,
-    );
+    final v = _flag(b00: forEveryone);
 
     return v;
   }
@@ -141330,9 +139294,7 @@ class ChannelsTogglePreHistoryHidden extends TlMethod {
 /// ID: `8341ecc0`.
 class ChannelsGetLeftChannels extends TlMethod {
   /// Channels Get Left Channels constructor.
-  const ChannelsGetLeftChannels({
-    required this.offset,
-  }) : super._();
+  const ChannelsGetLeftChannels({required this.offset}) : super._();
 
   /// Deserialize.
   factory ChannelsGetLeftChannels.deserialize(BinaryReader reader) {
@@ -141340,9 +139302,7 @@ class ChannelsGetLeftChannels extends TlMethod {
     final offset = reader.readInt32();
 
     // Construct [ChannelsGetLeftChannels] object.
-    final returnValue = ChannelsGetLeftChannels(
-      offset: offset,
-    );
+    final returnValue = ChannelsGetLeftChannels(offset: offset);
 
     // Now return the deserialized [ChannelsGetLeftChannels].
     return returnValue;
@@ -141618,10 +139578,8 @@ class ChannelsEditLocation extends TlMethod {
 /// ID: `edd49ef0`.
 class ChannelsToggleSlowMode extends TlMethod {
   /// Channels Toggle Slow Mode constructor.
-  const ChannelsToggleSlowMode({
-    required this.channel,
-    required this.seconds,
-  }) : super._();
+  const ChannelsToggleSlowMode({required this.channel, required this.seconds})
+      : super._();
 
   /// Deserialize.
   factory ChannelsToggleSlowMode.deserialize(BinaryReader reader) {
@@ -141718,9 +139676,7 @@ class ChannelsGetInactiveChannels extends TlMethod {
 /// ID: `0b290c69`.
 class ChannelsConvertToGigagroup extends TlMethod {
   /// Channels Convert To Gigagroup constructor.
-  const ChannelsConvertToGigagroup({
-    required this.channel,
-  }) : super._();
+  const ChannelsConvertToGigagroup({required this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsConvertToGigagroup.deserialize(BinaryReader reader) {
@@ -141728,9 +139684,7 @@ class ChannelsConvertToGigagroup extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [ChannelsConvertToGigagroup] object.
-    final returnValue = ChannelsConvertToGigagroup(
-      channel: channel,
-    );
+    final returnValue = ChannelsConvertToGigagroup(channel: channel);
 
     // Now return the deserialized [ChannelsConvertToGigagroup].
     return returnValue;
@@ -141770,10 +139724,8 @@ class ChannelsConvertToGigagroup extends TlMethod {
 /// ID: `e785a43f`.
 class ChannelsGetSendAs extends TlMethod {
   /// Channels Get Send As constructor.
-  const ChannelsGetSendAs({
-    required this.forPaidReactions,
-    required this.peer,
-  }) : super._();
+  const ChannelsGetSendAs({required this.forPaidReactions, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory ChannelsGetSendAs.deserialize(BinaryReader reader) {
@@ -141794,9 +139746,7 @@ class ChannelsGetSendAs extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: forPaidReactions,
-    );
+    final v = _flag(b00: forPaidReactions);
 
     return v;
   }
@@ -141901,10 +139851,8 @@ class ChannelsDeleteParticipantHistory extends TlMethod {
 /// ID: `e4cb9580`.
 class ChannelsToggleJoinToSend extends TlMethod {
   /// Channels Toggle Join To Send constructor.
-  const ChannelsToggleJoinToSend({
-    required this.channel,
-    required this.enabled,
-  }) : super._();
+  const ChannelsToggleJoinToSend({required this.channel, required this.enabled})
+      : super._();
 
   /// Deserialize.
   factory ChannelsToggleJoinToSend.deserialize(BinaryReader reader) {
@@ -142021,10 +139969,8 @@ class ChannelsToggleJoinRequest extends TlMethod {
 /// ID: `b45ced1d`.
 class ChannelsReorderUsernames extends TlMethod {
   /// Channels Reorder Usernames constructor.
-  const ChannelsReorderUsernames({
-    required this.channel,
-    required this.order,
-  }) : super._();
+  const ChannelsReorderUsernames({required this.channel, required this.order})
+      : super._();
 
   /// Deserialize.
   factory ChannelsReorderUsernames.deserialize(BinaryReader reader) {
@@ -142149,9 +140095,7 @@ class ChannelsToggleUsername extends TlMethod {
 /// ID: `0a245dd3`.
 class ChannelsDeactivateAllUsernames extends TlMethod {
   /// Channels Deactivate All Usernames constructor.
-  const ChannelsDeactivateAllUsernames({
-    required this.channel,
-  }) : super._();
+  const ChannelsDeactivateAllUsernames({required this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsDeactivateAllUsernames.deserialize(BinaryReader reader) {
@@ -142159,9 +140103,7 @@ class ChannelsDeactivateAllUsernames extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [ChannelsDeactivateAllUsernames] object.
-    final returnValue = ChannelsDeactivateAllUsernames(
-      channel: channel,
-    );
+    final returnValue = ChannelsDeactivateAllUsernames(channel: channel);
 
     // Now return the deserialized [ChannelsDeactivateAllUsernames].
     return returnValue;
@@ -142426,9 +140368,7 @@ class ChannelsGetForumTopics extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: q != null,
-    );
+    final v = _flag(b00: q != null);
 
     return v;
   }
@@ -142845,9 +140785,7 @@ class ChannelsReorderPinnedForumTopics extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: force,
-    );
+    final v = _flag(b00: force);
 
     return v;
   }
@@ -142897,10 +140835,8 @@ class ChannelsReorderPinnedForumTopics extends TlMethod {
 /// ID: `68f3e4eb`.
 class ChannelsToggleAntiSpam extends TlMethod {
   /// Channels Toggle Anti Spam constructor.
-  const ChannelsToggleAntiSpam({
-    required this.channel,
-    required this.enabled,
-  }) : super._();
+  const ChannelsToggleAntiSpam({required this.channel, required this.enabled})
+      : super._();
 
   /// Deserialize.
   factory ChannelsToggleAntiSpam.deserialize(BinaryReader reader) {
@@ -143237,9 +141173,7 @@ class ChannelsToggleViewForumAsMessages extends TlMethod {
 /// ID: `25a71742`.
 class ChannelsGetChannelRecommendations extends TlMethod {
   /// Channels Get Channel Recommendations constructor.
-  const ChannelsGetChannelRecommendations({
-    this.channel,
-  }) : super._();
+  const ChannelsGetChannelRecommendations({this.channel}) : super._();
 
   /// Deserialize.
   factory ChannelsGetChannelRecommendations.deserialize(BinaryReader reader) {
@@ -143250,9 +141184,7 @@ class ChannelsGetChannelRecommendations extends TlMethod {
         hasChannelField ? reader.readObject() as InputChannelBase : null;
 
     // Construct [ChannelsGetChannelRecommendations] object.
-    final returnValue = ChannelsGetChannelRecommendations(
-      channel: channel,
-    );
+    final returnValue = ChannelsGetChannelRecommendations(channel: channel);
 
     // Now return the deserialized [ChannelsGetChannelRecommendations].
     return returnValue;
@@ -143260,9 +141192,7 @@ class ChannelsGetChannelRecommendations extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: channel != null,
-    );
+    final v = _flag(b00: channel != null);
 
     return v;
   }
@@ -143373,7 +141303,8 @@ class ChannelsSetBoostsToUnblockRestrictions extends TlMethod {
 
   /// Deserialize.
   factory ChannelsSetBoostsToUnblockRestrictions.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChannelsSetBoostsToUnblockRestrictions] fields.
     final channel = reader.readObject() as InputChannelBase;
     final boosts = reader.readInt32();
@@ -143708,9 +141639,7 @@ class ChannelsUpdatePaidMessagesPrice extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: broadcastMessagesAllowed,
-    );
+    final v = _flag(b00: broadcastMessagesAllowed);
 
     return v;
   }
@@ -143822,10 +141751,8 @@ class ChannelsToggleAutotranslation extends TlMethod {
 /// ID: `ece2a0e6`.
 class ChannelsGetMessageAuthor extends TlMethod {
   /// Channels Get Message Author constructor.
-  const ChannelsGetMessageAuthor({
-    required this.channel,
-    required this.id,
-  }) : super._();
+  const ChannelsGetMessageAuthor({required this.channel, required this.id})
+      : super._();
 
   /// Deserialize.
   factory ChannelsGetMessageAuthor.deserialize(BinaryReader reader) {
@@ -143834,10 +141761,7 @@ class ChannelsGetMessageAuthor extends TlMethod {
     final id = reader.readInt32();
 
     // Construct [ChannelsGetMessageAuthor] object.
-    final returnValue = ChannelsGetMessageAuthor(
-      channel: channel,
-      id: id,
-    );
+    final returnValue = ChannelsGetMessageAuthor(channel: channel, id: id);
 
     // Now return the deserialized [ChannelsGetMessageAuthor].
     return returnValue;
@@ -143884,9 +141808,7 @@ class ChannelsGetMessageAuthor extends TlMethod {
 /// ID: `22567115`.
 class ChannelsCheckSearchPostsFlood extends TlMethod {
   /// Channels Check Search Posts Flood constructor.
-  const ChannelsCheckSearchPostsFlood({
-    this.query,
-  }) : super._();
+  const ChannelsCheckSearchPostsFlood({this.query}) : super._();
 
   /// Deserialize.
   factory ChannelsCheckSearchPostsFlood.deserialize(BinaryReader reader) {
@@ -143896,9 +141818,7 @@ class ChannelsCheckSearchPostsFlood extends TlMethod {
     final query = hasQueryField ? reader.readString() : null;
 
     // Construct [ChannelsCheckSearchPostsFlood] object.
-    final returnValue = ChannelsCheckSearchPostsFlood(
-      query: query,
-    );
+    final returnValue = ChannelsCheckSearchPostsFlood(query: query);
 
     // Now return the deserialized [ChannelsCheckSearchPostsFlood].
     return returnValue;
@@ -143906,9 +141826,7 @@ class ChannelsCheckSearchPostsFlood extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: query != null,
-    );
+    final v = _flag(b00: query != null);
 
     return v;
   }
@@ -143939,6 +141857,61 @@ class ChannelsCheckSearchPostsFlood extends TlMethod {
       "\$name": "ChannelsCheckSearchPostsFlood",
       "flags": flags,
       "query": query,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Channels Set Main Profile Tab.
+///
+/// Return Type: `bool`.
+/// ID: `3583fcb1`.
+class ChannelsSetMainProfileTab extends TlMethod {
+  /// Channels Set Main Profile Tab constructor.
+  const ChannelsSetMainProfileTab({required this.channel, required this.tab})
+      : super._();
+
+  /// Deserialize.
+  factory ChannelsSetMainProfileTab.deserialize(BinaryReader reader) {
+    // Read [ChannelsSetMainProfileTab] fields.
+    final channel = reader.readObject() as InputChannelBase;
+    final tab = reader.readObject() as ProfileTabBase;
+
+    // Construct [ChannelsSetMainProfileTab] object.
+    final returnValue = ChannelsSetMainProfileTab(channel: channel, tab: tab);
+
+    // Now return the deserialized [ChannelsSetMainProfileTab].
+    return returnValue;
+  }
+
+  /// Channel.
+  final InputChannelBase channel;
+
+  /// Tab.
+  final ProfileTabBase tab;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3583fcb1.
+    buffer.writeInt32(0x3583fcb1);
+
+    // Write fields.
+    buffer.writeObject(channel);
+    buffer.writeObject(tab);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3583fcb1",
+      "\$name": "ChannelsSetMainProfileTab",
+      "channel": channel,
+      "tab": tab,
     };
 
     // Finished toJson.
@@ -144012,10 +141985,8 @@ class BotsSendCustomRequest extends TlMethod {
 /// ID: `e6213f4d`.
 class BotsAnswerWebhookJSONQuery extends TlMethod {
   /// Bots Answer Webhook J S O N Query constructor.
-  const BotsAnswerWebhookJSONQuery({
-    required this.queryId,
-    required this.data,
-  }) : super._();
+  const BotsAnswerWebhookJSONQuery({required this.queryId, required this.data})
+      : super._();
 
   /// Deserialize.
   factory BotsAnswerWebhookJSONQuery.deserialize(BinaryReader reader) {
@@ -144142,10 +142113,8 @@ class BotsSetBotCommands extends TlMethod {
 /// ID: `3d8de0f9`.
 class BotsResetBotCommands extends TlMethod {
   /// Bots Reset Bot Commands constructor.
-  const BotsResetBotCommands({
-    required this.scope,
-    required this.langCode,
-  }) : super._();
+  const BotsResetBotCommands({required this.scope, required this.langCode})
+      : super._();
 
   /// Deserialize.
   factory BotsResetBotCommands.deserialize(BinaryReader reader) {
@@ -144154,10 +142123,7 @@ class BotsResetBotCommands extends TlMethod {
     final langCode = reader.readString();
 
     // Construct [BotsResetBotCommands] object.
-    final returnValue = BotsResetBotCommands(
-      scope: scope,
-      langCode: langCode,
-    );
+    final returnValue = BotsResetBotCommands(scope: scope, langCode: langCode);
 
     // Now return the deserialized [BotsResetBotCommands].
     return returnValue;
@@ -144202,10 +142168,8 @@ class BotsResetBotCommands extends TlMethod {
 /// ID: `e34c0dd6`.
 class BotsGetBotCommands extends TlMethod {
   /// Bots Get Bot Commands constructor.
-  const BotsGetBotCommands({
-    required this.scope,
-    required this.langCode,
-  }) : super._();
+  const BotsGetBotCommands({required this.scope, required this.langCode})
+      : super._();
 
   /// Deserialize.
   factory BotsGetBotCommands.deserialize(BinaryReader reader) {
@@ -144214,10 +142178,7 @@ class BotsGetBotCommands extends TlMethod {
     final langCode = reader.readString();
 
     // Construct [BotsGetBotCommands] object.
-    final returnValue = BotsGetBotCommands(
-      scope: scope,
-      langCode: langCode,
-    );
+    final returnValue = BotsGetBotCommands(scope: scope, langCode: langCode);
 
     // Now return the deserialized [BotsGetBotCommands].
     return returnValue;
@@ -144262,10 +142223,8 @@ class BotsGetBotCommands extends TlMethod {
 /// ID: `4504d54f`.
 class BotsSetBotMenuButton extends TlMethod {
   /// Bots Set Bot Menu Button constructor.
-  const BotsSetBotMenuButton({
-    required this.userId,
-    required this.button,
-  }) : super._();
+  const BotsSetBotMenuButton({required this.userId, required this.button})
+      : super._();
 
   /// Deserialize.
   factory BotsSetBotMenuButton.deserialize(BinaryReader reader) {
@@ -144274,10 +142233,7 @@ class BotsSetBotMenuButton extends TlMethod {
     final button = reader.readObject() as BotMenuButtonBase;
 
     // Construct [BotsSetBotMenuButton] object.
-    final returnValue = BotsSetBotMenuButton(
-      userId: userId,
-      button: button,
-    );
+    final returnValue = BotsSetBotMenuButton(userId: userId, button: button);
 
     // Now return the deserialized [BotsSetBotMenuButton].
     return returnValue;
@@ -144322,9 +142278,7 @@ class BotsSetBotMenuButton extends TlMethod {
 /// ID: `9c60eb28`.
 class BotsGetBotMenuButton extends TlMethod {
   /// Bots Get Bot Menu Button constructor.
-  const BotsGetBotMenuButton({
-    required this.userId,
-  }) : super._();
+  const BotsGetBotMenuButton({required this.userId}) : super._();
 
   /// Deserialize.
   factory BotsGetBotMenuButton.deserialize(BinaryReader reader) {
@@ -144332,9 +142286,7 @@ class BotsGetBotMenuButton extends TlMethod {
     final userId = reader.readObject() as InputUserBase;
 
     // Construct [BotsGetBotMenuButton] object.
-    final returnValue = BotsGetBotMenuButton(
-      userId: userId,
-    );
+    final returnValue = BotsGetBotMenuButton(userId: userId);
 
     // Now return the deserialized [BotsGetBotMenuButton].
     return returnValue;
@@ -144374,13 +142326,13 @@ class BotsGetBotMenuButton extends TlMethod {
 /// ID: `788464e1`.
 class BotsSetBotBroadcastDefaultAdminRights extends TlMethod {
   /// Bots Set Bot Broadcast Default Admin Rights constructor.
-  const BotsSetBotBroadcastDefaultAdminRights({
-    required this.adminRights,
-  }) : super._();
+  const BotsSetBotBroadcastDefaultAdminRights({required this.adminRights})
+      : super._();
 
   /// Deserialize.
   factory BotsSetBotBroadcastDefaultAdminRights.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [BotsSetBotBroadcastDefaultAdminRights] fields.
     final adminRights = reader.readObject() as ChatAdminRightsBase;
 
@@ -144427,9 +142379,8 @@ class BotsSetBotBroadcastDefaultAdminRights extends TlMethod {
 /// ID: `925ec9ea`.
 class BotsSetBotGroupDefaultAdminRights extends TlMethod {
   /// Bots Set Bot Group Default Admin Rights constructor.
-  const BotsSetBotGroupDefaultAdminRights({
-    required this.adminRights,
-  }) : super._();
+  const BotsSetBotGroupDefaultAdminRights({required this.adminRights})
+      : super._();
 
   /// Deserialize.
   factory BotsSetBotGroupDefaultAdminRights.deserialize(BinaryReader reader) {
@@ -144594,10 +142545,7 @@ class BotsSetBotInfo extends TlMethod {
 /// ID: `dcd914fd`.
 class BotsGetBotInfo extends TlMethod {
   /// Bots Get Bot Info constructor.
-  const BotsGetBotInfo({
-    this.bot,
-    required this.langCode,
-  }) : super._();
+  const BotsGetBotInfo({this.bot, required this.langCode}) : super._();
 
   /// Deserialize.
   factory BotsGetBotInfo.deserialize(BinaryReader reader) {
@@ -144608,10 +142556,7 @@ class BotsGetBotInfo extends TlMethod {
     final langCode = reader.readString();
 
     // Construct [BotsGetBotInfo] object.
-    final returnValue = BotsGetBotInfo(
-      bot: bot,
-      langCode: langCode,
-    );
+    final returnValue = BotsGetBotInfo(bot: bot, langCode: langCode);
 
     // Now return the deserialized [BotsGetBotInfo].
     return returnValue;
@@ -144619,9 +142564,7 @@ class BotsGetBotInfo extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: bot != null,
-    );
+    final v = _flag(b00: bot != null);
 
     return v;
   }
@@ -144670,10 +142613,8 @@ class BotsGetBotInfo extends TlMethod {
 /// ID: `9709b1c2`.
 class BotsReorderUsernames extends TlMethod {
   /// Bots Reorder Usernames constructor.
-  const BotsReorderUsernames({
-    required this.bot,
-    required this.order,
-  }) : super._();
+  const BotsReorderUsernames({required this.bot, required this.order})
+      : super._();
 
   /// Deserialize.
   factory BotsReorderUsernames.deserialize(BinaryReader reader) {
@@ -144682,10 +142623,7 @@ class BotsReorderUsernames extends TlMethod {
     final order = reader.readVectorString();
 
     // Construct [BotsReorderUsernames] object.
-    final returnValue = BotsReorderUsernames(
-      bot: bot,
-      order: order.items,
-    );
+    final returnValue = BotsReorderUsernames(bot: bot, order: order.items);
 
     // Now return the deserialized [BotsReorderUsernames].
     return returnValue;
@@ -144798,9 +142736,7 @@ class BotsToggleUsername extends TlMethod {
 /// ID: `1359f4e6`.
 class BotsCanSendMessage extends TlMethod {
   /// Bots Can Send Message constructor.
-  const BotsCanSendMessage({
-    required this.bot,
-  }) : super._();
+  const BotsCanSendMessage({required this.bot}) : super._();
 
   /// Deserialize.
   factory BotsCanSendMessage.deserialize(BinaryReader reader) {
@@ -144808,9 +142744,7 @@ class BotsCanSendMessage extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [BotsCanSendMessage] object.
-    final returnValue = BotsCanSendMessage(
-      bot: bot,
-    );
+    final returnValue = BotsCanSendMessage(bot: bot);
 
     // Now return the deserialized [BotsCanSendMessage].
     return returnValue;
@@ -144850,9 +142784,7 @@ class BotsCanSendMessage extends TlMethod {
 /// ID: `f132e3ef`.
 class BotsAllowSendMessage extends TlMethod {
   /// Bots Allow Send Message constructor.
-  const BotsAllowSendMessage({
-    required this.bot,
-  }) : super._();
+  const BotsAllowSendMessage({required this.bot}) : super._();
 
   /// Deserialize.
   factory BotsAllowSendMessage.deserialize(BinaryReader reader) {
@@ -144860,9 +142792,7 @@ class BotsAllowSendMessage extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [BotsAllowSendMessage] object.
-    final returnValue = BotsAllowSendMessage(
-      bot: bot,
-    );
+    final returnValue = BotsAllowSendMessage(bot: bot);
 
     // Now return the deserialized [BotsAllowSendMessage].
     return returnValue;
@@ -144970,10 +142900,8 @@ class BotsInvokeWebViewCustomMethod extends TlMethod {
 /// ID: `c2510192`.
 class BotsGetPopularAppBots extends TlMethod {
   /// Bots Get Popular App Bots constructor.
-  const BotsGetPopularAppBots({
-    required this.offset,
-    required this.limit,
-  }) : super._();
+  const BotsGetPopularAppBots({required this.offset, required this.limit})
+      : super._();
 
   /// Deserialize.
   factory BotsGetPopularAppBots.deserialize(BinaryReader reader) {
@@ -144982,10 +142910,7 @@ class BotsGetPopularAppBots extends TlMethod {
     final limit = reader.readInt32();
 
     // Construct [BotsGetPopularAppBots] object.
-    final returnValue = BotsGetPopularAppBots(
-      offset: offset,
-      limit: limit,
-    );
+    final returnValue = BotsGetPopularAppBots(offset: offset, limit: limit);
 
     // Now return the deserialized [BotsGetPopularAppBots].
     return returnValue;
@@ -145312,10 +143237,8 @@ class BotsReorderPreviewMedias extends TlMethod {
 /// ID: `423ab3ad`.
 class BotsGetPreviewInfo extends TlMethod {
   /// Bots Get Preview Info constructor.
-  const BotsGetPreviewInfo({
-    required this.bot,
-    required this.langCode,
-  }) : super._();
+  const BotsGetPreviewInfo({required this.bot, required this.langCode})
+      : super._();
 
   /// Deserialize.
   factory BotsGetPreviewInfo.deserialize(BinaryReader reader) {
@@ -145324,10 +143247,7 @@ class BotsGetPreviewInfo extends TlMethod {
     final langCode = reader.readString();
 
     // Construct [BotsGetPreviewInfo] object.
-    final returnValue = BotsGetPreviewInfo(
-      bot: bot,
-      langCode: langCode,
-    );
+    final returnValue = BotsGetPreviewInfo(bot: bot, langCode: langCode);
 
     // Now return the deserialized [BotsGetPreviewInfo].
     return returnValue;
@@ -145372,9 +143292,7 @@ class BotsGetPreviewInfo extends TlMethod {
 /// ID: `a2a5594d`.
 class BotsGetPreviewMedias extends TlMethod {
   /// Bots Get Preview Medias constructor.
-  const BotsGetPreviewMedias({
-    required this.bot,
-  }) : super._();
+  const BotsGetPreviewMedias({required this.bot}) : super._();
 
   /// Deserialize.
   factory BotsGetPreviewMedias.deserialize(BinaryReader reader) {
@@ -145382,9 +143300,7 @@ class BotsGetPreviewMedias extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [BotsGetPreviewMedias] object.
-    final returnValue = BotsGetPreviewMedias(
-      bot: bot,
-    );
+    final returnValue = BotsGetPreviewMedias(bot: bot);
 
     // Now return the deserialized [BotsGetPreviewMedias].
     return returnValue;
@@ -145678,9 +143594,7 @@ class BotsUpdateStarRefProgram extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: durationMonths != null,
-    );
+    final v = _flag(b00: durationMonths != null);
 
     return v;
   }
@@ -145834,9 +143748,7 @@ class BotsSetCustomVerification extends TlMethod {
 /// ID: `a1b70815`.
 class BotsGetBotRecommendations extends TlMethod {
   /// Bots Get Bot Recommendations constructor.
-  const BotsGetBotRecommendations({
-    required this.bot,
-  }) : super._();
+  const BotsGetBotRecommendations({required this.bot}) : super._();
 
   /// Deserialize.
   factory BotsGetBotRecommendations.deserialize(BinaryReader reader) {
@@ -145844,9 +143756,7 @@ class BotsGetBotRecommendations extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [BotsGetBotRecommendations] object.
-    final returnValue = BotsGetBotRecommendations(
-      bot: bot,
-    );
+    final returnValue = BotsGetBotRecommendations(bot: bot);
 
     // Now return the deserialized [BotsGetBotRecommendations].
     return returnValue;
@@ -145886,10 +143796,8 @@ class BotsGetBotRecommendations extends TlMethod {
 /// ID: `37148dbb`.
 class PaymentsGetPaymentForm extends TlMethod {
   /// Payments Get Payment Form constructor.
-  const PaymentsGetPaymentForm({
-    required this.invoice,
-    this.themeParams,
-  }) : super._();
+  const PaymentsGetPaymentForm({required this.invoice, this.themeParams})
+      : super._();
 
   /// Deserialize.
   factory PaymentsGetPaymentForm.deserialize(BinaryReader reader) {
@@ -145912,9 +143820,7 @@ class PaymentsGetPaymentForm extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: themeParams != null,
-    );
+    final v = _flag(b00: themeParams != null);
 
     return v;
   }
@@ -145963,10 +143869,8 @@ class PaymentsGetPaymentForm extends TlMethod {
 /// ID: `2478d1cc`.
 class PaymentsGetPaymentReceipt extends TlMethod {
   /// Payments Get Payment Receipt constructor.
-  const PaymentsGetPaymentReceipt({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const PaymentsGetPaymentReceipt({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory PaymentsGetPaymentReceipt.deserialize(BinaryReader reader) {
@@ -145975,10 +143879,7 @@ class PaymentsGetPaymentReceipt extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [PaymentsGetPaymentReceipt] object.
-    final returnValue = PaymentsGetPaymentReceipt(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = PaymentsGetPaymentReceipt(peer: peer, msgId: msgId);
 
     // Now return the deserialized [PaymentsGetPaymentReceipt].
     return returnValue;
@@ -146052,9 +143953,7 @@ class PaymentsValidateRequestedInfo extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: save,
-    );
+    final v = _flag(b00: save);
 
     return v;
   }
@@ -146264,10 +144163,8 @@ class PaymentsGetSavedInfo extends TlMethod {
 /// ID: `d83d70c1`.
 class PaymentsClearSavedInfo extends TlMethod {
   /// Payments Clear Saved Info constructor.
-  const PaymentsClearSavedInfo({
-    required this.credentials,
-    required this.info,
-  }) : super._();
+  const PaymentsClearSavedInfo({required this.credentials, required this.info})
+      : super._();
 
   /// Deserialize.
   factory PaymentsClearSavedInfo.deserialize(BinaryReader reader) {
@@ -146288,10 +144185,7 @@ class PaymentsClearSavedInfo extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: credentials,
-      b01: info,
-    );
+    final v = _flag(b00: credentials, b01: info);
 
     return v;
   }
@@ -146335,9 +144229,7 @@ class PaymentsClearSavedInfo extends TlMethod {
 /// ID: `2e79d779`.
 class PaymentsGetBankCardData extends TlMethod {
   /// Payments Get Bank Card Data constructor.
-  const PaymentsGetBankCardData({
-    required this.number,
-  }) : super._();
+  const PaymentsGetBankCardData({required this.number}) : super._();
 
   /// Deserialize.
   factory PaymentsGetBankCardData.deserialize(BinaryReader reader) {
@@ -146345,9 +144237,7 @@ class PaymentsGetBankCardData extends TlMethod {
     final number = reader.readString();
 
     // Construct [PaymentsGetBankCardData] object.
-    final returnValue = PaymentsGetBankCardData(
-      number: number,
-    );
+    final returnValue = PaymentsGetBankCardData(number: number);
 
     // Now return the deserialized [PaymentsGetBankCardData].
     return returnValue;
@@ -146387,9 +144277,7 @@ class PaymentsGetBankCardData extends TlMethod {
 /// ID: `0f91b065`.
 class PaymentsExportInvoice extends TlMethod {
   /// Payments Export Invoice constructor.
-  const PaymentsExportInvoice({
-    required this.invoiceMedia,
-  }) : super._();
+  const PaymentsExportInvoice({required this.invoiceMedia}) : super._();
 
   /// Deserialize.
   factory PaymentsExportInvoice.deserialize(BinaryReader reader) {
@@ -146397,9 +144285,7 @@ class PaymentsExportInvoice extends TlMethod {
     final invoiceMedia = reader.readObject() as InputMediaBase;
 
     // Construct [PaymentsExportInvoice] object.
-    final returnValue = PaymentsExportInvoice(
-      invoiceMedia: invoiceMedia,
-    );
+    final returnValue = PaymentsExportInvoice(invoiceMedia: invoiceMedia);
 
     // Now return the deserialized [PaymentsExportInvoice].
     return returnValue;
@@ -146559,9 +144445,7 @@ class PaymentsAssignPlayMarketTransaction extends TlMethod {
 /// ID: `2757ba54`.
 class PaymentsGetPremiumGiftCodeOptions extends TlMethod {
   /// Payments Get Premium Gift Code Options constructor.
-  const PaymentsGetPremiumGiftCodeOptions({
-    this.boostPeer,
-  }) : super._();
+  const PaymentsGetPremiumGiftCodeOptions({this.boostPeer}) : super._();
 
   /// Deserialize.
   factory PaymentsGetPremiumGiftCodeOptions.deserialize(BinaryReader reader) {
@@ -146572,9 +144456,7 @@ class PaymentsGetPremiumGiftCodeOptions extends TlMethod {
         hasBoostPeerField ? reader.readObject() as InputPeerBase : null;
 
     // Construct [PaymentsGetPremiumGiftCodeOptions] object.
-    final returnValue = PaymentsGetPremiumGiftCodeOptions(
-      boostPeer: boostPeer,
-    );
+    final returnValue = PaymentsGetPremiumGiftCodeOptions(boostPeer: boostPeer);
 
     // Now return the deserialized [PaymentsGetPremiumGiftCodeOptions].
     return returnValue;
@@ -146582,9 +144464,7 @@ class PaymentsGetPremiumGiftCodeOptions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: boostPeer != null,
-    );
+    final v = _flag(b00: boostPeer != null);
 
     return v;
   }
@@ -146628,9 +144508,7 @@ class PaymentsGetPremiumGiftCodeOptions extends TlMethod {
 /// ID: `8e51b4c1`.
 class PaymentsCheckGiftCode extends TlMethod {
   /// Payments Check Gift Code constructor.
-  const PaymentsCheckGiftCode({
-    required this.slug,
-  }) : super._();
+  const PaymentsCheckGiftCode({required this.slug}) : super._();
 
   /// Deserialize.
   factory PaymentsCheckGiftCode.deserialize(BinaryReader reader) {
@@ -146638,9 +144516,7 @@ class PaymentsCheckGiftCode extends TlMethod {
     final slug = reader.readString();
 
     // Construct [PaymentsCheckGiftCode] object.
-    final returnValue = PaymentsCheckGiftCode(
-      slug: slug,
-    );
+    final returnValue = PaymentsCheckGiftCode(slug: slug);
 
     // Now return the deserialized [PaymentsCheckGiftCode].
     return returnValue;
@@ -146680,9 +144556,7 @@ class PaymentsCheckGiftCode extends TlMethod {
 /// ID: `f6e26854`.
 class PaymentsApplyGiftCode extends TlMethod {
   /// Payments Apply Gift Code constructor.
-  const PaymentsApplyGiftCode({
-    required this.slug,
-  }) : super._();
+  const PaymentsApplyGiftCode({required this.slug}) : super._();
 
   /// Deserialize.
   factory PaymentsApplyGiftCode.deserialize(BinaryReader reader) {
@@ -146690,9 +144564,7 @@ class PaymentsApplyGiftCode extends TlMethod {
     final slug = reader.readString();
 
     // Construct [PaymentsApplyGiftCode] object.
-    final returnValue = PaymentsApplyGiftCode(
-      slug: slug,
-    );
+    final returnValue = PaymentsApplyGiftCode(slug: slug);
 
     // Now return the deserialized [PaymentsApplyGiftCode].
     return returnValue;
@@ -146732,10 +144604,8 @@ class PaymentsApplyGiftCode extends TlMethod {
 /// ID: `f4239425`.
 class PaymentsGetGiveawayInfo extends TlMethod {
   /// Payments Get Giveaway Info constructor.
-  const PaymentsGetGiveawayInfo({
-    required this.peer,
-    required this.msgId,
-  }) : super._();
+  const PaymentsGetGiveawayInfo({required this.peer, required this.msgId})
+      : super._();
 
   /// Deserialize.
   factory PaymentsGetGiveawayInfo.deserialize(BinaryReader reader) {
@@ -146744,10 +144614,7 @@ class PaymentsGetGiveawayInfo extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [PaymentsGetGiveawayInfo] object.
-    final returnValue = PaymentsGetGiveawayInfo(
-      peer: peer,
-      msgId: msgId,
-    );
+    final returnValue = PaymentsGetGiveawayInfo(peer: peer, msgId: msgId);
 
     // Now return the deserialized [PaymentsGetGiveawayInfo].
     return returnValue;
@@ -146902,10 +144769,8 @@ class PaymentsGetStarsTopupOptions extends TlMethod {
 /// ID: `4ea9b3bf`.
 class PaymentsGetStarsStatus extends TlMethod {
   /// Payments Get Stars Status constructor.
-  const PaymentsGetStarsStatus({
-    required this.ton,
-    required this.peer,
-  }) : super._();
+  const PaymentsGetStarsStatus({required this.ton, required this.peer})
+      : super._();
 
   /// Deserialize.
   factory PaymentsGetStarsStatus.deserialize(BinaryReader reader) {
@@ -146915,10 +144780,7 @@ class PaymentsGetStarsStatus extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [PaymentsGetStarsStatus] object.
-    final returnValue = PaymentsGetStarsStatus(
-      ton: ton,
-      peer: peer,
-    );
+    final returnValue = PaymentsGetStarsStatus(ton: ton, peer: peer);
 
     // Now return the deserialized [PaymentsGetStarsStatus].
     return returnValue;
@@ -146926,9 +144788,7 @@ class PaymentsGetStarsStatus extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ton,
-    );
+    final v = _flag(b00: ton);
 
     return v;
   }
@@ -147099,10 +144959,8 @@ class PaymentsGetStarsTransactions extends TlMethod {
 /// ID: `7998c914`.
 class PaymentsSendStarsForm extends TlMethod {
   /// Payments Send Stars Form constructor.
-  const PaymentsSendStarsForm({
-    required this.formId,
-    required this.invoice,
-  }) : super._();
+  const PaymentsSendStarsForm({required this.formId, required this.invoice})
+      : super._();
 
   /// Deserialize.
   factory PaymentsSendStarsForm.deserialize(BinaryReader reader) {
@@ -147111,10 +144969,7 @@ class PaymentsSendStarsForm extends TlMethod {
     final invoice = reader.readObject() as InputInvoiceBase;
 
     // Construct [PaymentsSendStarsForm] object.
-    final returnValue = PaymentsSendStarsForm(
-      formId: formId,
-      invoice: invoice,
-    );
+    final returnValue = PaymentsSendStarsForm(formId: formId, invoice: invoice);
 
     // Now return the deserialized [PaymentsSendStarsForm].
     return returnValue;
@@ -147248,10 +145103,7 @@ class PaymentsGetStarsRevenueStats extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: dark,
-      b01: ton,
-    );
+    final v = _flag(b00: dark, b01: ton);
 
     return v;
   }
@@ -147309,7 +145161,8 @@ class PaymentsGetStarsRevenueWithdrawalUrl extends TlMethod {
 
   /// Deserialize.
   factory PaymentsGetStarsRevenueWithdrawalUrl.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PaymentsGetStarsRevenueWithdrawalUrl] fields.
     final flags = reader.readInt32();
     final ton = (flags & 1) != 0;
@@ -147332,10 +145185,7 @@ class PaymentsGetStarsRevenueWithdrawalUrl extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ton,
-      b01: amount != null,
-    );
+    final v = _flag(b00: ton, b01: amount != null);
 
     return v;
   }
@@ -147393,20 +145243,17 @@ class PaymentsGetStarsRevenueWithdrawalUrl extends TlMethod {
 /// ID: `d1d7efc5`.
 class PaymentsGetStarsRevenueAdsAccountUrl extends TlMethod {
   /// Payments Get Stars Revenue Ads Account Url constructor.
-  const PaymentsGetStarsRevenueAdsAccountUrl({
-    required this.peer,
-  }) : super._();
+  const PaymentsGetStarsRevenueAdsAccountUrl({required this.peer}) : super._();
 
   /// Deserialize.
   factory PaymentsGetStarsRevenueAdsAccountUrl.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PaymentsGetStarsRevenueAdsAccountUrl] fields.
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [PaymentsGetStarsRevenueAdsAccountUrl] object.
-    final returnValue = PaymentsGetStarsRevenueAdsAccountUrl(
-      peer: peer,
-    );
+    final returnValue = PaymentsGetStarsRevenueAdsAccountUrl(peer: peer);
 
     // Now return the deserialized [PaymentsGetStarsRevenueAdsAccountUrl].
     return returnValue;
@@ -147473,9 +145320,7 @@ class PaymentsGetStarsTransactionsByID extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: ton,
-    );
+    final v = _flag(b00: ton);
 
     return v;
   }
@@ -147525,9 +145370,7 @@ class PaymentsGetStarsTransactionsByID extends TlMethod {
 /// ID: `d3c96bc8`.
 class PaymentsGetStarsGiftOptions extends TlMethod {
   /// Payments Get Stars Gift Options constructor.
-  const PaymentsGetStarsGiftOptions({
-    this.userId,
-  }) : super._();
+  const PaymentsGetStarsGiftOptions({this.userId}) : super._();
 
   /// Deserialize.
   factory PaymentsGetStarsGiftOptions.deserialize(BinaryReader reader) {
@@ -147537,9 +145380,7 @@ class PaymentsGetStarsGiftOptions extends TlMethod {
     final userId = hasUserIdField ? reader.readObject() as InputUserBase : null;
 
     // Construct [PaymentsGetStarsGiftOptions] object.
-    final returnValue = PaymentsGetStarsGiftOptions(
-      userId: userId,
-    );
+    final returnValue = PaymentsGetStarsGiftOptions(userId: userId);
 
     // Now return the deserialized [PaymentsGetStarsGiftOptions].
     return returnValue;
@@ -147547,9 +145388,7 @@ class PaymentsGetStarsGiftOptions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: userId != null,
-    );
+    final v = _flag(b00: userId != null);
 
     return v;
   }
@@ -147620,9 +145459,7 @@ class PaymentsGetStarsSubscriptions extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: missingBalance,
-    );
+    final v = _flag(b00: missingBalance);
 
     return v;
   }
@@ -147699,9 +145536,7 @@ class PaymentsChangeStarsSubscription extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: (canceled != null),
-    );
+    final v = _flag(b00: (canceled != null));
 
     return v;
   }
@@ -147853,9 +145688,7 @@ class PaymentsGetStarsGiveawayOptions extends TlMethod {
 /// ID: `c4563590`.
 class PaymentsGetStarGifts extends TlMethod {
   /// Payments Get Star Gifts constructor.
-  const PaymentsGetStarGifts({
-    required this.hash,
-  }) : super._();
+  const PaymentsGetStarGifts({required this.hash}) : super._();
 
   /// Deserialize.
   factory PaymentsGetStarGifts.deserialize(BinaryReader reader) {
@@ -147863,9 +145696,7 @@ class PaymentsGetStarGifts extends TlMethod {
     final hash = reader.readInt32();
 
     // Construct [PaymentsGetStarGifts] object.
-    final returnValue = PaymentsGetStarGifts(
-      hash: hash,
-    );
+    final returnValue = PaymentsGetStarGifts(hash: hash);
 
     // Now return the deserialized [PaymentsGetStarGifts].
     return returnValue;
@@ -147907,10 +145738,8 @@ class PaymentsGetStarGifts extends TlMethod {
 /// ID: `2a2a697c`.
 class PaymentsSaveStarGift extends TlMethod {
   /// Payments Save Star Gift constructor.
-  const PaymentsSaveStarGift({
-    required this.unsave,
-    required this.stargift,
-  }) : super._();
+  const PaymentsSaveStarGift({required this.unsave, required this.stargift})
+      : super._();
 
   /// Deserialize.
   factory PaymentsSaveStarGift.deserialize(BinaryReader reader) {
@@ -147931,9 +145760,7 @@ class PaymentsSaveStarGift extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: unsave,
-    );
+    final v = _flag(b00: unsave);
 
     return v;
   }
@@ -147978,9 +145805,7 @@ class PaymentsSaveStarGift extends TlMethod {
 /// ID: `74bf076b`.
 class PaymentsConvertStarGift extends TlMethod {
   /// Payments Convert Star Gift constructor.
-  const PaymentsConvertStarGift({
-    required this.stargift,
-  }) : super._();
+  const PaymentsConvertStarGift({required this.stargift}) : super._();
 
   /// Deserialize.
   factory PaymentsConvertStarGift.deserialize(BinaryReader reader) {
@@ -147988,9 +145813,7 @@ class PaymentsConvertStarGift extends TlMethod {
     final stargift = reader.readObject() as InputSavedStarGiftBase;
 
     // Construct [PaymentsConvertStarGift] object.
-    final returnValue = PaymentsConvertStarGift(
-      stargift: stargift,
-    );
+    final returnValue = PaymentsConvertStarGift(stargift: stargift);
 
     // Now return the deserialized [PaymentsConvertStarGift].
     return returnValue;
@@ -148057,9 +145880,7 @@ class PaymentsBotCancelStarsSubscription extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: restore,
-    );
+    final v = _flag(b00: restore);
 
     return v;
   }
@@ -148141,9 +145962,7 @@ class PaymentsGetConnectedStarRefBots extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b02: offsetDate != null || offsetLink != null,
-    );
+    final v = _flag(b02: offsetDate != null || offsetLink != null);
 
     return v;
   }
@@ -148207,10 +146026,8 @@ class PaymentsGetConnectedStarRefBots extends TlMethod {
 /// ID: `b7d998f0`.
 class PaymentsGetConnectedStarRefBot extends TlMethod {
   /// Payments Get Connected Star Ref Bot constructor.
-  const PaymentsGetConnectedStarRefBot({
-    required this.peer,
-    required this.bot,
-  }) : super._();
+  const PaymentsGetConnectedStarRefBot({required this.peer, required this.bot})
+      : super._();
 
   /// Deserialize.
   factory PaymentsGetConnectedStarRefBot.deserialize(BinaryReader reader) {
@@ -148219,10 +146036,7 @@ class PaymentsGetConnectedStarRefBot extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [PaymentsGetConnectedStarRefBot] object.
-    final returnValue = PaymentsGetConnectedStarRefBot(
-      peer: peer,
-      bot: bot,
-    );
+    final returnValue = PaymentsGetConnectedStarRefBot(peer: peer, bot: bot);
 
     // Now return the deserialized [PaymentsGetConnectedStarRefBot].
     return returnValue;
@@ -148300,10 +146114,7 @@ class PaymentsGetSuggestedStarRefBots extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: orderByRevenue,
-      b01: orderByDate,
-    );
+    final v = _flag(b00: orderByRevenue, b01: orderByDate);
 
     return v;
   }
@@ -148364,10 +146175,8 @@ class PaymentsGetSuggestedStarRefBots extends TlMethod {
 /// ID: `7ed5348a`.
 class PaymentsConnectStarRefBot extends TlMethod {
   /// Payments Connect Star Ref Bot constructor.
-  const PaymentsConnectStarRefBot({
-    required this.peer,
-    required this.bot,
-  }) : super._();
+  const PaymentsConnectStarRefBot({required this.peer, required this.bot})
+      : super._();
 
   /// Deserialize.
   factory PaymentsConnectStarRefBot.deserialize(BinaryReader reader) {
@@ -148376,10 +146185,7 @@ class PaymentsConnectStarRefBot extends TlMethod {
     final bot = reader.readObject() as InputUserBase;
 
     // Construct [PaymentsConnectStarRefBot] object.
-    final returnValue = PaymentsConnectStarRefBot(
-      peer: peer,
-      bot: bot,
-    );
+    final returnValue = PaymentsConnectStarRefBot(peer: peer, bot: bot);
 
     // Now return the deserialized [PaymentsConnectStarRefBot].
     return returnValue;
@@ -148451,9 +146257,7 @@ class PaymentsEditConnectedStarRefBot extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: revoked,
-    );
+    final v = _flag(b00: revoked);
 
     return v;
   }
@@ -148503,9 +146307,7 @@ class PaymentsEditConnectedStarRefBot extends TlMethod {
 /// ID: `9c9abcb1`.
 class PaymentsGetStarGiftUpgradePreview extends TlMethod {
   /// Payments Get Star Gift Upgrade Preview constructor.
-  const PaymentsGetStarGiftUpgradePreview({
-    required this.giftId,
-  }) : super._();
+  const PaymentsGetStarGiftUpgradePreview({required this.giftId}) : super._();
 
   /// Deserialize.
   factory PaymentsGetStarGiftUpgradePreview.deserialize(BinaryReader reader) {
@@ -148513,9 +146315,7 @@ class PaymentsGetStarGiftUpgradePreview extends TlMethod {
     final giftId = reader.readInt64();
 
     // Construct [PaymentsGetStarGiftUpgradePreview] object.
-    final returnValue = PaymentsGetStarGiftUpgradePreview(
-      giftId: giftId,
-    );
+    final returnValue = PaymentsGetStarGiftUpgradePreview(giftId: giftId);
 
     // Now return the deserialized [PaymentsGetStarGiftUpgradePreview].
     return returnValue;
@@ -148581,9 +146381,7 @@ class PaymentsUpgradeStarGift extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: keepOriginalDetails,
-    );
+    final v = _flag(b00: keepOriginalDetails);
 
     return v;
   }
@@ -148628,10 +146426,8 @@ class PaymentsUpgradeStarGift extends TlMethod {
 /// ID: `7f18176a`.
 class PaymentsTransferStarGift extends TlMethod {
   /// Payments Transfer Star Gift constructor.
-  const PaymentsTransferStarGift({
-    required this.stargift,
-    required this.toId,
-  }) : super._();
+  const PaymentsTransferStarGift({required this.stargift, required this.toId})
+      : super._();
 
   /// Deserialize.
   factory PaymentsTransferStarGift.deserialize(BinaryReader reader) {
@@ -148688,9 +146484,7 @@ class PaymentsTransferStarGift extends TlMethod {
 /// ID: `a1974d72`.
 class PaymentsGetUniqueStarGift extends TlMethod {
   /// Payments Get Unique Star Gift constructor.
-  const PaymentsGetUniqueStarGift({
-    required this.slug,
-  }) : super._();
+  const PaymentsGetUniqueStarGift({required this.slug}) : super._();
 
   /// Deserialize.
   factory PaymentsGetUniqueStarGift.deserialize(BinaryReader reader) {
@@ -148698,9 +146492,7 @@ class PaymentsGetUniqueStarGift extends TlMethod {
     final slug = reader.readString();
 
     // Construct [PaymentsGetUniqueStarGift] object.
-    final returnValue = PaymentsGetUniqueStarGift(
-      slug: slug,
-    );
+    final returnValue = PaymentsGetUniqueStarGift(slug: slug);
 
     // Now return the deserialized [PaymentsGetUniqueStarGift].
     return returnValue;
@@ -148744,9 +146536,10 @@ class PaymentsGetSavedStarGifts extends TlMethod {
     required this.excludeUnsaved,
     required this.excludeSaved,
     required this.excludeUnlimited,
-    required this.excludeLimited,
     required this.excludeUnique,
     required this.sortByValue,
+    required this.excludeUpgradable,
+    required this.excludeUnupgradable,
     required this.peer,
     this.collectionId,
     required this.offset,
@@ -148760,9 +146553,10 @@ class PaymentsGetSavedStarGifts extends TlMethod {
     final excludeUnsaved = (flags & 1) != 0;
     final excludeSaved = (flags & 2) != 0;
     final excludeUnlimited = (flags & 4) != 0;
-    final excludeLimited = (flags & 8) != 0;
     final excludeUnique = (flags & 16) != 0;
     final sortByValue = (flags & 32) != 0;
+    final excludeUpgradable = (flags & 128) != 0;
+    final excludeUnupgradable = (flags & 256) != 0;
     final peer = reader.readObject() as InputPeerBase;
     final hasCollectionIdField = (flags & 64) != 0;
     final collectionId = hasCollectionIdField ? reader.readInt32() : null;
@@ -148774,9 +146568,10 @@ class PaymentsGetSavedStarGifts extends TlMethod {
       excludeUnsaved: excludeUnsaved,
       excludeSaved: excludeSaved,
       excludeUnlimited: excludeUnlimited,
-      excludeLimited: excludeLimited,
       excludeUnique: excludeUnique,
       sortByValue: sortByValue,
+      excludeUpgradable: excludeUpgradable,
+      excludeUnupgradable: excludeUnupgradable,
       peer: peer,
       collectionId: collectionId,
       offset: offset,
@@ -148793,9 +146588,10 @@ class PaymentsGetSavedStarGifts extends TlMethod {
       b00: excludeUnsaved,
       b01: excludeSaved,
       b02: excludeUnlimited,
-      b03: excludeLimited,
       b04: excludeUnique,
       b05: sortByValue,
+      b07: excludeUpgradable,
+      b08: excludeUnupgradable,
       b06: collectionId != null,
     );
 
@@ -148811,14 +146607,17 @@ class PaymentsGetSavedStarGifts extends TlMethod {
   /// exclude_unlimited: bit 2 of flags.2?true
   final bool excludeUnlimited;
 
-  /// exclude_limited: bit 3 of flags.3?true
-  final bool excludeLimited;
-
   /// exclude_unique: bit 4 of flags.4?true
   final bool excludeUnique;
 
   /// sort_by_value: bit 5 of flags.5?true
   final bool sortByValue;
+
+  /// exclude_upgradable: bit 7 of flags.7?true
+  final bool excludeUpgradable;
+
+  /// exclude_unupgradable: bit 8 of flags.8?true
+  final bool excludeUnupgradable;
 
   /// Peer.
   final InputPeerBase peer;
@@ -148862,9 +146661,10 @@ class PaymentsGetSavedStarGifts extends TlMethod {
       "excludeUnsaved": excludeUnsaved,
       "excludeSaved": excludeSaved,
       "excludeUnlimited": excludeUnlimited,
-      "excludeLimited": excludeLimited,
       "excludeUnique": excludeUnique,
       "sortByValue": sortByValue,
+      "excludeUpgradable": excludeUpgradable,
+      "excludeUnupgradable": excludeUnupgradable,
       "peer": peer,
       "collectionId": collectionId,
       "offset": offset,
@@ -148882,9 +146682,7 @@ class PaymentsGetSavedStarGifts extends TlMethod {
 /// ID: `b455a106`.
 class PaymentsGetSavedStarGift extends TlMethod {
   /// Payments Get Saved Star Gift constructor.
-  const PaymentsGetSavedStarGift({
-    required this.stargift,
-  }) : super._();
+  const PaymentsGetSavedStarGift({required this.stargift}) : super._();
 
   /// Deserialize.
   factory PaymentsGetSavedStarGift.deserialize(BinaryReader reader) {
@@ -148892,9 +146690,7 @@ class PaymentsGetSavedStarGift extends TlMethod {
     final stargift = reader.readVectorObject<InputSavedStarGiftBase>();
 
     // Construct [PaymentsGetSavedStarGift] object.
-    final returnValue = PaymentsGetSavedStarGift(
-      stargift: stargift.items,
-    );
+    final returnValue = PaymentsGetSavedStarGift(stargift: stargift.items);
 
     // Now return the deserialized [PaymentsGetSavedStarGift].
     return returnValue;
@@ -149001,7 +146797,8 @@ class PaymentsToggleChatStarGiftNotifications extends TlMethod {
 
   /// Deserialize.
   factory PaymentsToggleChatStarGiftNotifications.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PaymentsToggleChatStarGiftNotifications] fields.
     final flags = reader.readInt32();
     final enabled = (flags & 1) != 0;
@@ -149019,9 +146816,7 @@ class PaymentsToggleChatStarGiftNotifications extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: enabled,
-    );
+    final v = _flag(b00: enabled);
 
     return v;
   }
@@ -149126,9 +146921,7 @@ class PaymentsToggleStarGiftsPinnedToTop extends TlMethod {
 /// ID: `4fdc5ea7`.
 class PaymentsCanPurchaseStore extends TlMethod {
   /// Payments Can Purchase Store constructor.
-  const PaymentsCanPurchaseStore({
-    required this.purpose,
-  }) : super._();
+  const PaymentsCanPurchaseStore({required this.purpose}) : super._();
 
   /// Deserialize.
   factory PaymentsCanPurchaseStore.deserialize(BinaryReader reader) {
@@ -149136,9 +146929,7 @@ class PaymentsCanPurchaseStore extends TlMethod {
     final purpose = reader.readObject() as InputStorePaymentPurposeBase;
 
     // Construct [PaymentsCanPurchaseStore] object.
-    final returnValue = PaymentsCanPurchaseStore(
-      purpose: purpose,
-    );
+    final returnValue = PaymentsCanPurchaseStore(purpose: purpose);
 
     // Now return the deserialized [PaymentsCanPurchaseStore].
     return returnValue;
@@ -149686,10 +147477,8 @@ class PaymentsDeleteStarGiftCollection extends TlMethod {
 /// ID: `981b91dd`.
 class PaymentsGetStarGiftCollections extends TlMethod {
   /// Payments Get Star Gift Collections constructor.
-  const PaymentsGetStarGiftCollections({
-    required this.peer,
-    required this.hash,
-  }) : super._();
+  const PaymentsGetStarGiftCollections({required this.peer, required this.hash})
+      : super._();
 
   /// Deserialize.
   factory PaymentsGetStarGiftCollections.deserialize(BinaryReader reader) {
@@ -149698,10 +147487,7 @@ class PaymentsGetStarGiftCollections extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [PaymentsGetStarGiftCollections] object.
-    final returnValue = PaymentsGetStarGiftCollections(
-      peer: peer,
-      hash: hash,
-    );
+    final returnValue = PaymentsGetStarGiftCollections(peer: peer, hash: hash);
 
     // Now return the deserialized [PaymentsGetStarGiftCollections].
     return returnValue;
@@ -149735,6 +147521,104 @@ class PaymentsGetStarGiftCollections extends TlMethod {
       "\$name": "PaymentsGetStarGiftCollections",
       "peer": peer,
       "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Unique Star Gift Value Info.
+///
+/// Return Type: `PaymentsUniqueStarGiftValueInfoBase`.
+/// ID: `4365af6b`.
+class PaymentsGetUniqueStarGiftValueInfo extends TlMethod {
+  /// Payments Get Unique Star Gift Value Info constructor.
+  const PaymentsGetUniqueStarGiftValueInfo({required this.slug}) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetUniqueStarGiftValueInfo.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetUniqueStarGiftValueInfo] fields.
+    final slug = reader.readString();
+
+    // Construct [PaymentsGetUniqueStarGiftValueInfo] object.
+    final returnValue = PaymentsGetUniqueStarGiftValueInfo(slug: slug);
+
+    // Now return the deserialized [PaymentsGetUniqueStarGiftValueInfo].
+    return returnValue;
+  }
+
+  /// Slug.
+  final String slug;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4365af6b.
+    buffer.writeInt32(0x4365af6b);
+
+    // Write fields.
+    buffer.writeString(slug);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4365af6b",
+      "\$name": "PaymentsGetUniqueStarGiftValueInfo",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Check Can Send Gift.
+///
+/// Return Type: `PaymentsCheckCanSendGiftResultBase`.
+/// ID: `c0c4edc9`.
+class PaymentsCheckCanSendGift extends TlMethod {
+  /// Payments Check Can Send Gift constructor.
+  const PaymentsCheckCanSendGift({required this.giftId}) : super._();
+
+  /// Deserialize.
+  factory PaymentsCheckCanSendGift.deserialize(BinaryReader reader) {
+    // Read [PaymentsCheckCanSendGift] fields.
+    final giftId = reader.readInt64();
+
+    // Construct [PaymentsCheckCanSendGift] object.
+    final returnValue = PaymentsCheckCanSendGift(giftId: giftId);
+
+    // Now return the deserialized [PaymentsCheckCanSendGift].
+    return returnValue;
+  }
+
+  /// Gift Id.
+  ///
+  /// Field type is Int64.
+  final int giftId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc0c4edc9.
+    buffer.writeInt32(0xc0c4edc9);
+
+    // Write fields.
+    buffer.writeInt64(giftId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c0c4edc9",
+      "\$name": "PaymentsCheckCanSendGift",
+      "giftId": giftId,
     };
 
     // Finished toJson.
@@ -149886,9 +147770,7 @@ class StickersCreateStickerSet extends TlMethod {
 /// ID: `f7760f51`.
 class StickersRemoveStickerFromSet extends TlMethod {
   /// Stickers Remove Sticker From Set constructor.
-  const StickersRemoveStickerFromSet({
-    required this.sticker,
-  }) : super._();
+  const StickersRemoveStickerFromSet({required this.sticker}) : super._();
 
   /// Deserialize.
   factory StickersRemoveStickerFromSet.deserialize(BinaryReader reader) {
@@ -149896,9 +147778,7 @@ class StickersRemoveStickerFromSet extends TlMethod {
     final sticker = reader.readObject() as InputDocumentBase;
 
     // Construct [StickersRemoveStickerFromSet] object.
-    final returnValue = StickersRemoveStickerFromSet(
-      sticker: sticker,
-    );
+    final returnValue = StickersRemoveStickerFromSet(sticker: sticker);
 
     // Now return the deserialized [StickersRemoveStickerFromSet].
     return returnValue;
@@ -150090,10 +147970,7 @@ class StickersSetStickerSetThumb extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: thumb != null,
-      b01: thumbDocumentId != null,
-    );
+    final v = _flag(b00: thumb != null, b01: thumbDocumentId != null);
 
     return v;
   }
@@ -150150,9 +148027,7 @@ class StickersSetStickerSetThumb extends TlMethod {
 /// ID: `284b3639`.
 class StickersCheckShortName extends TlMethod {
   /// Stickers Check Short Name constructor.
-  const StickersCheckShortName({
-    required this.shortName,
-  }) : super._();
+  const StickersCheckShortName({required this.shortName}) : super._();
 
   /// Deserialize.
   factory StickersCheckShortName.deserialize(BinaryReader reader) {
@@ -150160,9 +148035,7 @@ class StickersCheckShortName extends TlMethod {
     final shortName = reader.readString();
 
     // Construct [StickersCheckShortName] object.
-    final returnValue = StickersCheckShortName(
-      shortName: shortName,
-    );
+    final returnValue = StickersCheckShortName(shortName: shortName);
 
     // Now return the deserialized [StickersCheckShortName].
     return returnValue;
@@ -150202,9 +148075,7 @@ class StickersCheckShortName extends TlMethod {
 /// ID: `4dafc503`.
 class StickersSuggestShortName extends TlMethod {
   /// Stickers Suggest Short Name constructor.
-  const StickersSuggestShortName({
-    required this.title,
-  }) : super._();
+  const StickersSuggestShortName({required this.title}) : super._();
 
   /// Deserialize.
   factory StickersSuggestShortName.deserialize(BinaryReader reader) {
@@ -150212,9 +148083,7 @@ class StickersSuggestShortName extends TlMethod {
     final title = reader.readString();
 
     // Construct [StickersSuggestShortName] object.
-    final returnValue = StickersSuggestShortName(
-      title: title,
-    );
+    final returnValue = StickersSuggestShortName(title: title);
 
     // Now return the deserialized [StickersSuggestShortName].
     return returnValue;
@@ -150417,9 +148286,7 @@ class StickersRenameStickerSet extends TlMethod {
 /// ID: `87704394`.
 class StickersDeleteStickerSet extends TlMethod {
   /// Stickers Delete Sticker Set constructor.
-  const StickersDeleteStickerSet({
-    required this.stickerset,
-  }) : super._();
+  const StickersDeleteStickerSet({required this.stickerset}) : super._();
 
   /// Deserialize.
   factory StickersDeleteStickerSet.deserialize(BinaryReader reader) {
@@ -150427,9 +148294,7 @@ class StickersDeleteStickerSet extends TlMethod {
     final stickerset = reader.readObject() as InputStickerSetBase;
 
     // Construct [StickersDeleteStickerSet] object.
-    final returnValue = StickersDeleteStickerSet(
-      stickerset: stickerset,
-    );
+    final returnValue = StickersDeleteStickerSet(stickerset: stickerset);
 
     // Now return the deserialized [StickersDeleteStickerSet].
     return returnValue;
@@ -150600,9 +148465,7 @@ class PhoneRequestCall extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: video,
-    );
+    final v = _flag(b00: video);
 
     return v;
   }
@@ -150678,11 +148541,7 @@ class PhoneAcceptCall extends TlMethod {
     final protocol = reader.readObject() as PhoneCallProtocolBase;
 
     // Construct [PhoneAcceptCall] object.
-    final returnValue = PhoneAcceptCall(
-      peer: peer,
-      gB: gB,
-      protocol: protocol,
-    );
+    final returnValue = PhoneAcceptCall(peer: peer, gB: gB, protocol: protocol);
 
     // Now return the deserialized [PhoneAcceptCall].
     return returnValue;
@@ -150810,9 +148669,7 @@ class PhoneConfirmCall extends TlMethod {
 /// ID: `17d54f61`.
 class PhoneReceivedCall extends TlMethod {
   /// Phone Received Call constructor.
-  const PhoneReceivedCall({
-    required this.peer,
-  }) : super._();
+  const PhoneReceivedCall({required this.peer}) : super._();
 
   /// Deserialize.
   factory PhoneReceivedCall.deserialize(BinaryReader reader) {
@@ -150820,9 +148677,7 @@ class PhoneReceivedCall extends TlMethod {
     final peer = reader.readObject() as InputPhoneCallBase;
 
     // Construct [PhoneReceivedCall] object.
-    final returnValue = PhoneReceivedCall(
-      peer: peer,
-    );
+    final returnValue = PhoneReceivedCall(peer: peer);
 
     // Now return the deserialized [PhoneReceivedCall].
     return returnValue;
@@ -150895,9 +148750,7 @@ class PhoneDiscardCall extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: video,
-    );
+    final v = _flag(b00: video);
 
     return v;
   }
@@ -150991,9 +148844,7 @@ class PhoneSetCallRating extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: userInitiative,
-    );
+    final v = _flag(b00: userInitiative);
 
     return v;
   }
@@ -151050,10 +148901,8 @@ class PhoneSetCallRating extends TlMethod {
 /// ID: `277add7e`.
 class PhoneSaveCallDebug extends TlMethod {
   /// Phone Save Call Debug constructor.
-  const PhoneSaveCallDebug({
-    required this.peer,
-    required this.debug,
-  }) : super._();
+  const PhoneSaveCallDebug({required this.peer, required this.debug})
+      : super._();
 
   /// Deserialize.
   factory PhoneSaveCallDebug.deserialize(BinaryReader reader) {
@@ -151062,10 +148911,7 @@ class PhoneSaveCallDebug extends TlMethod {
     final debug = reader.readObject() as DataJSONBase;
 
     // Construct [PhoneSaveCallDebug] object.
-    final returnValue = PhoneSaveCallDebug(
-      peer: peer,
-      debug: debug,
-    );
+    final returnValue = PhoneSaveCallDebug(peer: peer, debug: debug);
 
     // Now return the deserialized [PhoneSaveCallDebug].
     return returnValue;
@@ -151110,10 +148956,8 @@ class PhoneSaveCallDebug extends TlMethod {
 /// ID: `ff7a9383`.
 class PhoneSendSignalingData extends TlMethod {
   /// Phone Send Signaling Data constructor.
-  const PhoneSendSignalingData({
-    required this.peer,
-    required this.data,
-  }) : super._();
+  const PhoneSendSignalingData({required this.peer, required this.data})
+      : super._();
 
   /// Deserialize.
   factory PhoneSendSignalingData.deserialize(BinaryReader reader) {
@@ -151122,10 +148966,7 @@ class PhoneSendSignalingData extends TlMethod {
     final data = reader.readBytes();
 
     // Construct [PhoneSendSignalingData] object.
-    final returnValue = PhoneSendSignalingData(
-      peer: peer,
-      data: data,
-    );
+    final returnValue = PhoneSendSignalingData(peer: peer, data: data);
 
     // Now return the deserialized [PhoneSendSignalingData].
     return returnValue;
@@ -151410,10 +149251,8 @@ class PhoneJoinGroupCall extends TlMethod {
 /// ID: `500377f9`.
 class PhoneLeaveGroupCall extends TlMethod {
   /// Phone Leave Group Call constructor.
-  const PhoneLeaveGroupCall({
-    required this.call,
-    required this.source,
-  }) : super._();
+  const PhoneLeaveGroupCall({required this.call, required this.source})
+      : super._();
 
   /// Deserialize.
   factory PhoneLeaveGroupCall.deserialize(BinaryReader reader) {
@@ -151422,10 +149261,7 @@ class PhoneLeaveGroupCall extends TlMethod {
     final source = reader.readInt32();
 
     // Construct [PhoneLeaveGroupCall] object.
-    final returnValue = PhoneLeaveGroupCall(
-      call: call,
-      source: source,
-    );
+    final returnValue = PhoneLeaveGroupCall(call: call, source: source);
 
     // Now return the deserialized [PhoneLeaveGroupCall].
     return returnValue;
@@ -151472,10 +149308,8 @@ class PhoneLeaveGroupCall extends TlMethod {
 /// ID: `7b393160`.
 class PhoneInviteToGroupCall extends TlMethod {
   /// Phone Invite To Group Call constructor.
-  const PhoneInviteToGroupCall({
-    required this.call,
-    required this.users,
-  }) : super._();
+  const PhoneInviteToGroupCall({required this.call, required this.users})
+      : super._();
 
   /// Deserialize.
   factory PhoneInviteToGroupCall.deserialize(BinaryReader reader) {
@@ -151484,10 +149318,7 @@ class PhoneInviteToGroupCall extends TlMethod {
     final users = reader.readVectorObject<InputUserBase>();
 
     // Construct [PhoneInviteToGroupCall] object.
-    final returnValue = PhoneInviteToGroupCall(
-      call: call,
-      users: users.items,
-    );
+    final returnValue = PhoneInviteToGroupCall(call: call, users: users.items);
 
     // Now return the deserialized [PhoneInviteToGroupCall].
     return returnValue;
@@ -151532,9 +149363,7 @@ class PhoneInviteToGroupCall extends TlMethod {
 /// ID: `7a777135`.
 class PhoneDiscardGroupCall extends TlMethod {
   /// Phone Discard Group Call constructor.
-  const PhoneDiscardGroupCall({
-    required this.call,
-  }) : super._();
+  const PhoneDiscardGroupCall({required this.call}) : super._();
 
   /// Deserialize.
   factory PhoneDiscardGroupCall.deserialize(BinaryReader reader) {
@@ -151542,9 +149371,7 @@ class PhoneDiscardGroupCall extends TlMethod {
     final call = reader.readObject() as InputGroupCallBase;
 
     // Construct [PhoneDiscardGroupCall] object.
-    final returnValue = PhoneDiscardGroupCall(
-      call: call,
-    );
+    final returnValue = PhoneDiscardGroupCall(call: call);
 
     // Now return the deserialized [PhoneDiscardGroupCall].
     return returnValue;
@@ -151611,10 +149438,7 @@ class PhoneToggleGroupCallSettings extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: resetInviteHash,
-      b00: (joinMuted != null),
-    );
+    final v = _flag(b01: resetInviteHash, b00: (joinMuted != null));
 
     return v;
   }
@@ -151667,10 +149491,8 @@ class PhoneToggleGroupCallSettings extends TlMethod {
 /// ID: `041845db`.
 class PhoneGetGroupCall extends TlMethod {
   /// Phone Get Group Call constructor.
-  const PhoneGetGroupCall({
-    required this.call,
-    required this.limit,
-  }) : super._();
+  const PhoneGetGroupCall({required this.call, required this.limit})
+      : super._();
 
   /// Deserialize.
   factory PhoneGetGroupCall.deserialize(BinaryReader reader) {
@@ -151679,10 +149501,7 @@ class PhoneGetGroupCall extends TlMethod {
     final limit = reader.readInt32();
 
     // Construct [PhoneGetGroupCall] object.
-    final returnValue = PhoneGetGroupCall(
-      call: call,
-      limit: limit,
-    );
+    final returnValue = PhoneGetGroupCall(call: call, limit: limit);
 
     // Now return the deserialized [PhoneGetGroupCall].
     return returnValue;
@@ -151815,10 +149634,8 @@ class PhoneGetGroupParticipants extends TlMethod {
 /// ID: `b59cf977`.
 class PhoneCheckGroupCall extends TlMethod {
   /// Phone Check Group Call constructor.
-  const PhoneCheckGroupCall({
-    required this.call,
-    required this.sources,
-  }) : super._();
+  const PhoneCheckGroupCall({required this.call, required this.sources})
+      : super._();
 
   /// Deserialize.
   factory PhoneCheckGroupCall.deserialize(BinaryReader reader) {
@@ -151827,10 +149644,7 @@ class PhoneCheckGroupCall extends TlMethod {
     final sources = reader.readVectorInt32();
 
     // Construct [PhoneCheckGroupCall] object.
-    final returnValue = PhoneCheckGroupCall(
-      call: call,
-      sources: sources.items,
-    );
+    final returnValue = PhoneCheckGroupCall(call: call, sources: sources.items);
 
     // Now return the deserialized [PhoneCheckGroupCall].
     return returnValue;
@@ -152122,10 +149936,8 @@ class PhoneEditGroupCallParticipant extends TlMethod {
 /// ID: `1ca6ac0a`.
 class PhoneEditGroupCallTitle extends TlMethod {
   /// Phone Edit Group Call Title constructor.
-  const PhoneEditGroupCallTitle({
-    required this.call,
-    required this.title,
-  }) : super._();
+  const PhoneEditGroupCallTitle({required this.call, required this.title})
+      : super._();
 
   /// Deserialize.
   factory PhoneEditGroupCallTitle.deserialize(BinaryReader reader) {
@@ -152134,10 +149946,7 @@ class PhoneEditGroupCallTitle extends TlMethod {
     final title = reader.readString();
 
     // Construct [PhoneEditGroupCallTitle] object.
-    final returnValue = PhoneEditGroupCallTitle(
-      call: call,
-      title: title,
-    );
+    final returnValue = PhoneEditGroupCallTitle(call: call, title: title);
 
     // Now return the deserialized [PhoneEditGroupCallTitle].
     return returnValue;
@@ -152182,9 +149991,7 @@ class PhoneEditGroupCallTitle extends TlMethod {
 /// ID: `ef7c213a`.
 class PhoneGetGroupCallJoinAs extends TlMethod {
   /// Phone Get Group Call Join As constructor.
-  const PhoneGetGroupCallJoinAs({
-    required this.peer,
-  }) : super._();
+  const PhoneGetGroupCallJoinAs({required this.peer}) : super._();
 
   /// Deserialize.
   factory PhoneGetGroupCallJoinAs.deserialize(BinaryReader reader) {
@@ -152192,9 +149999,7 @@ class PhoneGetGroupCallJoinAs extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [PhoneGetGroupCallJoinAs] object.
-    final returnValue = PhoneGetGroupCallJoinAs(
-      peer: peer,
-    );
+    final returnValue = PhoneGetGroupCallJoinAs(peer: peer);
 
     // Now return the deserialized [PhoneGetGroupCallJoinAs].
     return returnValue;
@@ -152258,9 +150063,7 @@ class PhoneExportGroupCallInvite extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: canSelfUnmute,
-    );
+    final v = _flag(b00: canSelfUnmute);
 
     return v;
   }
@@ -152312,7 +150115,8 @@ class PhoneToggleGroupCallStartSubscription extends TlMethod {
 
   /// Deserialize.
   factory PhoneToggleGroupCallStartSubscription.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PhoneToggleGroupCallStartSubscription] fields.
     final call = reader.readObject() as InputGroupCallBase;
     final subscribed = reader.readBool();
@@ -152366,9 +150170,7 @@ class PhoneToggleGroupCallStartSubscription extends TlMethod {
 /// ID: `5680e342`.
 class PhoneStartScheduledGroupCall extends TlMethod {
   /// Phone Start Scheduled Group Call constructor.
-  const PhoneStartScheduledGroupCall({
-    required this.call,
-  }) : super._();
+  const PhoneStartScheduledGroupCall({required this.call}) : super._();
 
   /// Deserialize.
   factory PhoneStartScheduledGroupCall.deserialize(BinaryReader reader) {
@@ -152376,9 +150178,7 @@ class PhoneStartScheduledGroupCall extends TlMethod {
     final call = reader.readObject() as InputGroupCallBase;
 
     // Construct [PhoneStartScheduledGroupCall] object.
-    final returnValue = PhoneStartScheduledGroupCall(
-      call: call,
-    );
+    final returnValue = PhoneStartScheduledGroupCall(call: call);
 
     // Now return the deserialized [PhoneStartScheduledGroupCall].
     return returnValue;
@@ -152538,9 +150338,7 @@ class PhoneJoinGroupCallPresentation extends TlMethod {
 /// ID: `1c50d144`.
 class PhoneLeaveGroupCallPresentation extends TlMethod {
   /// Phone Leave Group Call Presentation constructor.
-  const PhoneLeaveGroupCallPresentation({
-    required this.call,
-  }) : super._();
+  const PhoneLeaveGroupCallPresentation({required this.call}) : super._();
 
   /// Deserialize.
   factory PhoneLeaveGroupCallPresentation.deserialize(BinaryReader reader) {
@@ -152548,9 +150346,7 @@ class PhoneLeaveGroupCallPresentation extends TlMethod {
     final call = reader.readObject() as InputGroupCallBase;
 
     // Construct [PhoneLeaveGroupCallPresentation] object.
-    final returnValue = PhoneLeaveGroupCallPresentation(
-      call: call,
-    );
+    final returnValue = PhoneLeaveGroupCallPresentation(call: call);
 
     // Now return the deserialized [PhoneLeaveGroupCallPresentation].
     return returnValue;
@@ -152590,9 +150386,7 @@ class PhoneLeaveGroupCallPresentation extends TlMethod {
 /// ID: `1ab21940`.
 class PhoneGetGroupCallStreamChannels extends TlMethod {
   /// Phone Get Group Call Stream Channels constructor.
-  const PhoneGetGroupCallStreamChannels({
-    required this.call,
-  }) : super._();
+  const PhoneGetGroupCallStreamChannels({required this.call}) : super._();
 
   /// Deserialize.
   factory PhoneGetGroupCallStreamChannels.deserialize(BinaryReader reader) {
@@ -152600,9 +150394,7 @@ class PhoneGetGroupCallStreamChannels extends TlMethod {
     final call = reader.readObject() as InputGroupCallBase;
 
     // Construct [PhoneGetGroupCallStreamChannels] object.
-    final returnValue = PhoneGetGroupCallStreamChannels(
-      call: call,
-    );
+    final returnValue = PhoneGetGroupCallStreamChannels(call: call);
 
     // Now return the deserialized [PhoneGetGroupCallStreamChannels].
     return returnValue;
@@ -152702,10 +150494,7 @@ class PhoneGetGroupCallStreamRtmpUrl extends TlMethod {
 /// ID: `41248786`.
 class PhoneSaveCallLog extends TlMethod {
   /// Phone Save Call Log constructor.
-  const PhoneSaveCallLog({
-    required this.peer,
-    required this.file,
-  }) : super._();
+  const PhoneSaveCallLog({required this.peer, required this.file}) : super._();
 
   /// Deserialize.
   factory PhoneSaveCallLog.deserialize(BinaryReader reader) {
@@ -152714,10 +150503,7 @@ class PhoneSaveCallLog extends TlMethod {
     final file = reader.readObject() as InputFileBase;
 
     // Construct [PhoneSaveCallLog] object.
-    final returnValue = PhoneSaveCallLog(
-      peer: peer,
-      file: file,
-    );
+    final returnValue = PhoneSaveCallLog(peer: peer, file: file);
 
     // Now return the deserialized [PhoneSaveCallLog].
     return returnValue;
@@ -152897,7 +150683,8 @@ class PhoneDeleteConferenceCallParticipants extends TlMethod {
 
   /// Deserialize.
   factory PhoneDeleteConferenceCallParticipants.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PhoneDeleteConferenceCallParticipants] fields.
     final flags = reader.readInt32();
     final onlyLeft = (flags & 1) != 0;
@@ -152921,10 +150708,7 @@ class PhoneDeleteConferenceCallParticipants extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: onlyLeft,
-      b01: kick,
-    );
+    final v = _flag(b00: onlyLeft, b01: kick);
 
     return v;
   }
@@ -153051,7 +150835,8 @@ class PhoneInviteConferenceCallParticipant extends TlMethod {
 
   /// Deserialize.
   factory PhoneInviteConferenceCallParticipant.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [PhoneInviteConferenceCallParticipant] fields.
     final flags = reader.readInt32();
     final video = (flags & 1) != 0;
@@ -153071,9 +150856,7 @@ class PhoneInviteConferenceCallParticipant extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: video,
-    );
+    final v = _flag(b00: video);
 
     return v;
   }
@@ -153123,9 +150906,7 @@ class PhoneInviteConferenceCallParticipant extends TlMethod {
 /// ID: `3c479971`.
 class PhoneDeclineConferenceCallInvite extends TlMethod {
   /// Phone Decline Conference Call Invite constructor.
-  const PhoneDeclineConferenceCallInvite({
-    required this.msgId,
-  }) : super._();
+  const PhoneDeclineConferenceCallInvite({required this.msgId}) : super._();
 
   /// Deserialize.
   factory PhoneDeclineConferenceCallInvite.deserialize(BinaryReader reader) {
@@ -153133,9 +150914,7 @@ class PhoneDeclineConferenceCallInvite extends TlMethod {
     final msgId = reader.readInt32();
 
     // Construct [PhoneDeclineConferenceCallInvite] object.
-    final returnValue = PhoneDeclineConferenceCallInvite(
-      msgId: msgId,
-    );
+    final returnValue = PhoneDeclineConferenceCallInvite(msgId: msgId);
 
     // Now return the deserialized [PhoneDeclineConferenceCallInvite].
     return returnValue;
@@ -153259,10 +151038,8 @@ class PhoneGetGroupCallChainBlocks extends TlMethod {
 /// ID: `f2f2330a`.
 class LangpackGetLangPack extends TlMethod {
   /// Langpack Get Lang Pack constructor.
-  const LangpackGetLangPack({
-    required this.langPack,
-    required this.langCode,
-  }) : super._();
+  const LangpackGetLangPack({required this.langPack, required this.langCode})
+      : super._();
 
   /// Deserialize.
   factory LangpackGetLangPack.deserialize(BinaryReader reader) {
@@ -153457,9 +151234,7 @@ class LangpackGetDifference extends TlMethod {
 /// ID: `42c6978f`.
 class LangpackGetLanguages extends TlMethod {
   /// Langpack Get Languages constructor.
-  const LangpackGetLanguages({
-    required this.langPack,
-  }) : super._();
+  const LangpackGetLanguages({required this.langPack}) : super._();
 
   /// Deserialize.
   factory LangpackGetLanguages.deserialize(BinaryReader reader) {
@@ -153467,9 +151242,7 @@ class LangpackGetLanguages extends TlMethod {
     final langPack = reader.readString();
 
     // Construct [LangpackGetLanguages] object.
-    final returnValue = LangpackGetLanguages(
-      langPack: langPack,
-    );
+    final returnValue = LangpackGetLanguages(langPack: langPack);
 
     // Now return the deserialized [LangpackGetLanguages].
     return returnValue;
@@ -153509,10 +151282,8 @@ class LangpackGetLanguages extends TlMethod {
 /// ID: `6a596502`.
 class LangpackGetLanguage extends TlMethod {
   /// Langpack Get Language constructor.
-  const LangpackGetLanguage({
-    required this.langPack,
-    required this.langCode,
-  }) : super._();
+  const LangpackGetLanguage({required this.langPack, required this.langCode})
+      : super._();
 
   /// Deserialize.
   factory LangpackGetLanguage.deserialize(BinaryReader reader) {
@@ -153569,9 +151340,7 @@ class LangpackGetLanguage extends TlMethod {
 /// ID: `6847d0ab`.
 class FoldersEditPeerFolders extends TlMethod {
   /// Folders Edit Peer Folders constructor.
-  const FoldersEditPeerFolders({
-    required this.folderPeers,
-  }) : super._();
+  const FoldersEditPeerFolders({required this.folderPeers}) : super._();
 
   /// Deserialize.
   factory FoldersEditPeerFolders.deserialize(BinaryReader reader) {
@@ -153579,9 +151348,7 @@ class FoldersEditPeerFolders extends TlMethod {
     final folderPeers = reader.readVectorObject<InputFolderPeerBase>();
 
     // Construct [FoldersEditPeerFolders] object.
-    final returnValue = FoldersEditPeerFolders(
-      folderPeers: folderPeers.items,
-    );
+    final returnValue = FoldersEditPeerFolders(folderPeers: folderPeers.items);
 
     // Now return the deserialized [FoldersEditPeerFolders].
     return returnValue;
@@ -153621,10 +151388,8 @@ class FoldersEditPeerFolders extends TlMethod {
 /// ID: `ab42441a`.
 class StatsGetBroadcastStats extends TlMethod {
   /// Stats Get Broadcast Stats constructor.
-  const StatsGetBroadcastStats({
-    required this.dark,
-    required this.channel,
-  }) : super._();
+  const StatsGetBroadcastStats({required this.dark, required this.channel})
+      : super._();
 
   /// Deserialize.
   factory StatsGetBroadcastStats.deserialize(BinaryReader reader) {
@@ -153634,10 +151399,7 @@ class StatsGetBroadcastStats extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [StatsGetBroadcastStats] object.
-    final returnValue = StatsGetBroadcastStats(
-      dark: dark,
-      channel: channel,
-    );
+    final returnValue = StatsGetBroadcastStats(dark: dark, channel: channel);
 
     // Now return the deserialized [StatsGetBroadcastStats].
     return returnValue;
@@ -153645,9 +151407,7 @@ class StatsGetBroadcastStats extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: dark,
-    );
+    final v = _flag(b00: dark);
 
     return v;
   }
@@ -153692,10 +151452,7 @@ class StatsGetBroadcastStats extends TlMethod {
 /// ID: `621d5fa0`.
 class StatsLoadAsyncGraph extends TlMethod {
   /// Stats Load Async Graph constructor.
-  const StatsLoadAsyncGraph({
-    required this.token,
-    this.x,
-  }) : super._();
+  const StatsLoadAsyncGraph({required this.token, this.x}) : super._();
 
   /// Deserialize.
   factory StatsLoadAsyncGraph.deserialize(BinaryReader reader) {
@@ -153706,10 +151463,7 @@ class StatsLoadAsyncGraph extends TlMethod {
     final x = hasXField ? reader.readInt64() : null;
 
     // Construct [StatsLoadAsyncGraph] object.
-    final returnValue = StatsLoadAsyncGraph(
-      token: token,
-      x: x,
-    );
+    final returnValue = StatsLoadAsyncGraph(token: token, x: x);
 
     // Now return the deserialized [StatsLoadAsyncGraph].
     return returnValue;
@@ -153717,9 +151471,7 @@ class StatsLoadAsyncGraph extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: x != null,
-    );
+    final v = _flag(b00: x != null);
 
     return v;
   }
@@ -153768,10 +151520,8 @@ class StatsLoadAsyncGraph extends TlMethod {
 /// ID: `dcdf8607`.
 class StatsGetMegagroupStats extends TlMethod {
   /// Stats Get Megagroup Stats constructor.
-  const StatsGetMegagroupStats({
-    required this.dark,
-    required this.channel,
-  }) : super._();
+  const StatsGetMegagroupStats({required this.dark, required this.channel})
+      : super._();
 
   /// Deserialize.
   factory StatsGetMegagroupStats.deserialize(BinaryReader reader) {
@@ -153781,10 +151531,7 @@ class StatsGetMegagroupStats extends TlMethod {
     final channel = reader.readObject() as InputChannelBase;
 
     // Construct [StatsGetMegagroupStats] object.
-    final returnValue = StatsGetMegagroupStats(
-      dark: dark,
-      channel: channel,
-    );
+    final returnValue = StatsGetMegagroupStats(dark: dark, channel: channel);
 
     // Now return the deserialized [StatsGetMegagroupStats].
     return returnValue;
@@ -153792,9 +151539,7 @@ class StatsGetMegagroupStats extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: dark,
-    );
+    final v = _flag(b00: dark);
 
     return v;
   }
@@ -153946,9 +151691,7 @@ class StatsGetMessageStats extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: dark,
-    );
+    final v = _flag(b00: dark);
 
     return v;
   }
@@ -154015,11 +151758,7 @@ class StatsGetStoryStats extends TlMethod {
     final id = reader.readInt32();
 
     // Construct [StatsGetStoryStats] object.
-    final returnValue = StatsGetStoryStats(
-      dark: dark,
-      peer: peer,
-      id: id,
-    );
+    final returnValue = StatsGetStoryStats(dark: dark, peer: peer, id: id);
 
     // Now return the deserialized [StatsGetStoryStats].
     return returnValue;
@@ -154027,9 +151766,7 @@ class StatsGetStoryStats extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: dark,
-    );
+    final v = _flag(b00: dark);
 
     return v;
   }
@@ -154322,10 +152059,7 @@ class ChatlistsEditExportedInvite extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: title != null,
-      b02: peers != null,
-    );
+    final v = _flag(b01: title != null, b02: peers != null);
 
     return v;
   }
@@ -154387,9 +152121,7 @@ class ChatlistsEditExportedInvite extends TlMethod {
 /// ID: `ce03da83`.
 class ChatlistsGetExportedInvites extends TlMethod {
   /// Chatlists Get Exported Invites constructor.
-  const ChatlistsGetExportedInvites({
-    required this.chatlist,
-  }) : super._();
+  const ChatlistsGetExportedInvites({required this.chatlist}) : super._();
 
   /// Deserialize.
   factory ChatlistsGetExportedInvites.deserialize(BinaryReader reader) {
@@ -154397,9 +152129,7 @@ class ChatlistsGetExportedInvites extends TlMethod {
     final chatlist = reader.readObject() as InputChatlistBase;
 
     // Construct [ChatlistsGetExportedInvites] object.
-    final returnValue = ChatlistsGetExportedInvites(
-      chatlist: chatlist,
-    );
+    final returnValue = ChatlistsGetExportedInvites(chatlist: chatlist);
 
     // Now return the deserialized [ChatlistsGetExportedInvites].
     return returnValue;
@@ -154439,9 +152169,7 @@ class ChatlistsGetExportedInvites extends TlMethod {
 /// ID: `41c10fff`.
 class ChatlistsCheckChatlistInvite extends TlMethod {
   /// Chatlists Check Chatlist Invite constructor.
-  const ChatlistsCheckChatlistInvite({
-    required this.slug,
-  }) : super._();
+  const ChatlistsCheckChatlistInvite({required this.slug}) : super._();
 
   /// Deserialize.
   factory ChatlistsCheckChatlistInvite.deserialize(BinaryReader reader) {
@@ -154449,9 +152177,7 @@ class ChatlistsCheckChatlistInvite extends TlMethod {
     final slug = reader.readString();
 
     // Construct [ChatlistsCheckChatlistInvite] object.
-    final returnValue = ChatlistsCheckChatlistInvite(
-      slug: slug,
-    );
+    final returnValue = ChatlistsCheckChatlistInvite(slug: slug);
 
     // Now return the deserialized [ChatlistsCheckChatlistInvite].
     return returnValue;
@@ -154491,10 +152217,8 @@ class ChatlistsCheckChatlistInvite extends TlMethod {
 /// ID: `a6b1e39a`.
 class ChatlistsJoinChatlistInvite extends TlMethod {
   /// Chatlists Join Chatlist Invite constructor.
-  const ChatlistsJoinChatlistInvite({
-    required this.slug,
-    required this.peers,
-  }) : super._();
+  const ChatlistsJoinChatlistInvite({required this.slug, required this.peers})
+      : super._();
 
   /// Deserialize.
   factory ChatlistsJoinChatlistInvite.deserialize(BinaryReader reader) {
@@ -154551,9 +152275,7 @@ class ChatlistsJoinChatlistInvite extends TlMethod {
 /// ID: `89419521`.
 class ChatlistsGetChatlistUpdates extends TlMethod {
   /// Chatlists Get Chatlist Updates constructor.
-  const ChatlistsGetChatlistUpdates({
-    required this.chatlist,
-  }) : super._();
+  const ChatlistsGetChatlistUpdates({required this.chatlist}) : super._();
 
   /// Deserialize.
   factory ChatlistsGetChatlistUpdates.deserialize(BinaryReader reader) {
@@ -154561,9 +152283,7 @@ class ChatlistsGetChatlistUpdates extends TlMethod {
     final chatlist = reader.readObject() as InputChatlistBase;
 
     // Construct [ChatlistsGetChatlistUpdates] object.
-    final returnValue = ChatlistsGetChatlistUpdates(
-      chatlist: chatlist,
-    );
+    final returnValue = ChatlistsGetChatlistUpdates(chatlist: chatlist);
 
     // Now return the deserialized [ChatlistsGetChatlistUpdates].
     return returnValue;
@@ -154663,9 +152383,7 @@ class ChatlistsJoinChatlistUpdates extends TlMethod {
 /// ID: `66e486fb`.
 class ChatlistsHideChatlistUpdates extends TlMethod {
   /// Chatlists Hide Chatlist Updates constructor.
-  const ChatlistsHideChatlistUpdates({
-    required this.chatlist,
-  }) : super._();
+  const ChatlistsHideChatlistUpdates({required this.chatlist}) : super._();
 
   /// Deserialize.
   factory ChatlistsHideChatlistUpdates.deserialize(BinaryReader reader) {
@@ -154673,9 +152391,7 @@ class ChatlistsHideChatlistUpdates extends TlMethod {
     final chatlist = reader.readObject() as InputChatlistBase;
 
     // Construct [ChatlistsHideChatlistUpdates] object.
-    final returnValue = ChatlistsHideChatlistUpdates(
-      chatlist: chatlist,
-    );
+    final returnValue = ChatlistsHideChatlistUpdates(chatlist: chatlist);
 
     // Now return the deserialized [ChatlistsHideChatlistUpdates].
     return returnValue;
@@ -154715,13 +152431,13 @@ class ChatlistsHideChatlistUpdates extends TlMethod {
 /// ID: `fdbcd714`.
 class ChatlistsGetLeaveChatlistSuggestions extends TlMethod {
   /// Chatlists Get Leave Chatlist Suggestions constructor.
-  const ChatlistsGetLeaveChatlistSuggestions({
-    required this.chatlist,
-  }) : super._();
+  const ChatlistsGetLeaveChatlistSuggestions({required this.chatlist})
+      : super._();
 
   /// Deserialize.
   factory ChatlistsGetLeaveChatlistSuggestions.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [ChatlistsGetLeaveChatlistSuggestions] fields.
     final chatlist = reader.readObject() as InputChatlistBase;
 
@@ -154768,10 +152484,8 @@ class ChatlistsGetLeaveChatlistSuggestions extends TlMethod {
 /// ID: `74fae13a`.
 class ChatlistsLeaveChatlist extends TlMethod {
   /// Chatlists Leave Chatlist constructor.
-  const ChatlistsLeaveChatlist({
-    required this.chatlist,
-    required this.peers,
-  }) : super._();
+  const ChatlistsLeaveChatlist({required this.chatlist, required this.peers})
+      : super._();
 
   /// Deserialize.
   factory ChatlistsLeaveChatlist.deserialize(BinaryReader reader) {
@@ -154828,9 +152542,7 @@ class ChatlistsLeaveChatlist extends TlMethod {
 /// ID: `30eb63f0`.
 class StoriesCanSendStory extends TlMethod {
   /// Stories Can Send Story constructor.
-  const StoriesCanSendStory({
-    required this.peer,
-  }) : super._();
+  const StoriesCanSendStory({required this.peer}) : super._();
 
   /// Deserialize.
   factory StoriesCanSendStory.deserialize(BinaryReader reader) {
@@ -154838,9 +152550,7 @@ class StoriesCanSendStory extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [StoriesCanSendStory] object.
-    final returnValue = StoriesCanSendStory(
-      peer: peer,
-    );
+    final returnValue = StoriesCanSendStory(peer: peer);
 
     // Now return the deserialized [StoriesCanSendStory].
     return returnValue;
@@ -155227,10 +152937,8 @@ class StoriesEditStory extends TlMethod {
 /// ID: `ae59db5f`.
 class StoriesDeleteStories extends TlMethod {
   /// Stories Delete Stories constructor.
-  const StoriesDeleteStories({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const StoriesDeleteStories({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory StoriesDeleteStories.deserialize(BinaryReader reader) {
@@ -155239,10 +152947,7 @@ class StoriesDeleteStories extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [StoriesDeleteStories] object.
-    final returnValue = StoriesDeleteStories(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = StoriesDeleteStories(peer: peer, id: id.items);
 
     // Now return the deserialized [StoriesDeleteStories].
     return returnValue;
@@ -155383,11 +153088,7 @@ class StoriesGetAllStories extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b01: next,
-      b02: hidden,
-      b00: state != null,
-    );
+    final v = _flag(b01: next, b02: hidden, b00: state != null);
 
     return v;
   }
@@ -155583,10 +153284,8 @@ class StoriesGetStoriesArchive extends TlMethod {
 /// ID: `5774ca74`.
 class StoriesGetStoriesByID extends TlMethod {
   /// Stories Get Stories By I D constructor.
-  const StoriesGetStoriesByID({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const StoriesGetStoriesByID({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory StoriesGetStoriesByID.deserialize(BinaryReader reader) {
@@ -155595,10 +153294,7 @@ class StoriesGetStoriesByID extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [StoriesGetStoriesByID] object.
-    final returnValue = StoriesGetStoriesByID(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = StoriesGetStoriesByID(peer: peer, id: id.items);
 
     // Now return the deserialized [StoriesGetStoriesByID].
     return returnValue;
@@ -155643,9 +153339,7 @@ class StoriesGetStoriesByID extends TlMethod {
 /// ID: `7c2557c4`.
 class StoriesToggleAllStoriesHidden extends TlMethod {
   /// Stories Toggle All Stories Hidden constructor.
-  const StoriesToggleAllStoriesHidden({
-    required this.hidden,
-  }) : super._();
+  const StoriesToggleAllStoriesHidden({required this.hidden}) : super._();
 
   /// Deserialize.
   factory StoriesToggleAllStoriesHidden.deserialize(BinaryReader reader) {
@@ -155653,9 +153347,7 @@ class StoriesToggleAllStoriesHidden extends TlMethod {
     final hidden = reader.readBool();
 
     // Construct [StoriesToggleAllStoriesHidden] object.
-    final returnValue = StoriesToggleAllStoriesHidden(
-      hidden: hidden,
-    );
+    final returnValue = StoriesToggleAllStoriesHidden(hidden: hidden);
 
     // Now return the deserialized [StoriesToggleAllStoriesHidden].
     return returnValue;
@@ -155695,10 +153387,8 @@ class StoriesToggleAllStoriesHidden extends TlMethod {
 /// ID: `a556dac8`.
 class StoriesReadStories extends TlMethod {
   /// Stories Read Stories constructor.
-  const StoriesReadStories({
-    required this.peer,
-    required this.maxId,
-  }) : super._();
+  const StoriesReadStories({required this.peer, required this.maxId})
+      : super._();
 
   /// Deserialize.
   factory StoriesReadStories.deserialize(BinaryReader reader) {
@@ -155707,10 +153397,7 @@ class StoriesReadStories extends TlMethod {
     final maxId = reader.readInt32();
 
     // Construct [StoriesReadStories] object.
-    final returnValue = StoriesReadStories(
-      peer: peer,
-      maxId: maxId,
-    );
+    final returnValue = StoriesReadStories(peer: peer, maxId: maxId);
 
     // Now return the deserialized [StoriesReadStories].
     return returnValue;
@@ -155757,10 +153444,8 @@ class StoriesReadStories extends TlMethod {
 /// ID: `b2028afb`.
 class StoriesIncrementStoryViews extends TlMethod {
   /// Stories Increment Story Views constructor.
-  const StoriesIncrementStoryViews({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const StoriesIncrementStoryViews({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory StoriesIncrementStoryViews.deserialize(BinaryReader reader) {
@@ -155769,10 +153454,7 @@ class StoriesIncrementStoryViews extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [StoriesIncrementStoryViews] object.
-    final returnValue = StoriesIncrementStoryViews(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = StoriesIncrementStoryViews(peer: peer, id: id.items);
 
     // Now return the deserialized [StoriesIncrementStoryViews].
     return returnValue;
@@ -155945,10 +153627,8 @@ class StoriesGetStoryViewsList extends TlMethod {
 /// ID: `28e16cc8`.
 class StoriesGetStoriesViews extends TlMethod {
   /// Stories Get Stories Views constructor.
-  const StoriesGetStoriesViews({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const StoriesGetStoriesViews({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory StoriesGetStoriesViews.deserialize(BinaryReader reader) {
@@ -155957,10 +153637,7 @@ class StoriesGetStoriesViews extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [StoriesGetStoriesViews] object.
-    final returnValue = StoriesGetStoriesViews(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = StoriesGetStoriesViews(peer: peer, id: id.items);
 
     // Now return the deserialized [StoriesGetStoriesViews].
     return returnValue;
@@ -156005,10 +153682,8 @@ class StoriesGetStoriesViews extends TlMethod {
 /// ID: `7b8def20`.
 class StoriesExportStoryLink extends TlMethod {
   /// Stories Export Story Link constructor.
-  const StoriesExportStoryLink({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const StoriesExportStoryLink({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory StoriesExportStoryLink.deserialize(BinaryReader reader) {
@@ -156017,10 +153692,7 @@ class StoriesExportStoryLink extends TlMethod {
     final id = reader.readInt32();
 
     // Construct [StoriesExportStoryLink] object.
-    final returnValue = StoriesExportStoryLink(
-      peer: peer,
-      id: id,
-    );
+    final returnValue = StoriesExportStoryLink(peer: peer, id: id);
 
     // Now return the deserialized [StoriesExportStoryLink].
     return returnValue;
@@ -156143,10 +153815,8 @@ class StoriesReport extends TlMethod {
 /// ID: `57bbd166`.
 class StoriesActivateStealthMode extends TlMethod {
   /// Stories Activate Stealth Mode constructor.
-  const StoriesActivateStealthMode({
-    required this.past,
-    required this.future,
-  }) : super._();
+  const StoriesActivateStealthMode({required this.past, required this.future})
+      : super._();
 
   /// Deserialize.
   factory StoriesActivateStealthMode.deserialize(BinaryReader reader) {
@@ -156156,10 +153826,7 @@ class StoriesActivateStealthMode extends TlMethod {
     final future = (flags & 2) != 0;
 
     // Construct [StoriesActivateStealthMode] object.
-    final returnValue = StoriesActivateStealthMode(
-      past: past,
-      future: future,
-    );
+    final returnValue = StoriesActivateStealthMode(past: past, future: future);
 
     // Now return the deserialized [StoriesActivateStealthMode].
     return returnValue;
@@ -156167,10 +153834,7 @@ class StoriesActivateStealthMode extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: past,
-      b01: future,
-    );
+    final v = _flag(b00: past, b01: future);
 
     return v;
   }
@@ -156244,9 +153908,7 @@ class StoriesSendReaction extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: addToRecent,
-    );
+    final v = _flag(b00: addToRecent);
 
     return v;
   }
@@ -156303,9 +153965,7 @@ class StoriesSendReaction extends TlMethod {
 /// ID: `2c4ada50`.
 class StoriesGetPeerStories extends TlMethod {
   /// Stories Get Peer Stories constructor.
-  const StoriesGetPeerStories({
-    required this.peer,
-  }) : super._();
+  const StoriesGetPeerStories({required this.peer}) : super._();
 
   /// Deserialize.
   factory StoriesGetPeerStories.deserialize(BinaryReader reader) {
@@ -156313,9 +153973,7 @@ class StoriesGetPeerStories extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [StoriesGetPeerStories] object.
-    final returnValue = StoriesGetPeerStories(
-      peer: peer,
-    );
+    final returnValue = StoriesGetPeerStories(peer: peer);
 
     // Now return the deserialized [StoriesGetPeerStories].
     return returnValue;
@@ -156393,9 +154051,7 @@ class StoriesGetAllReadPeerStories extends TlMethod {
 /// ID: `535983c3`.
 class StoriesGetPeerMaxIDs extends TlMethod {
   /// Stories Get Peer Max I Ds constructor.
-  const StoriesGetPeerMaxIDs({
-    required this.id,
-  }) : super._();
+  const StoriesGetPeerMaxIDs({required this.id}) : super._();
 
   /// Deserialize.
   factory StoriesGetPeerMaxIDs.deserialize(BinaryReader reader) {
@@ -156403,9 +154059,7 @@ class StoriesGetPeerMaxIDs extends TlMethod {
     final id = reader.readVectorObject<InputPeerBase>();
 
     // Construct [StoriesGetPeerMaxIDs] object.
-    final returnValue = StoriesGetPeerMaxIDs(
-      id: id.items,
-    );
+    final returnValue = StoriesGetPeerMaxIDs(id: id.items);
 
     // Now return the deserialized [StoriesGetPeerMaxIDs].
     return returnValue;
@@ -156661,10 +154315,8 @@ class StoriesGetStoryReactionsList extends TlMethod {
 /// ID: `0b297e9b`.
 class StoriesTogglePinnedToTop extends TlMethod {
   /// Stories Toggle Pinned To Top constructor.
-  const StoriesTogglePinnedToTop({
-    required this.peer,
-    required this.id,
-  }) : super._();
+  const StoriesTogglePinnedToTop({required this.peer, required this.id})
+      : super._();
 
   /// Deserialize.
   factory StoriesTogglePinnedToTop.deserialize(BinaryReader reader) {
@@ -156673,10 +154325,7 @@ class StoriesTogglePinnedToTop extends TlMethod {
     final id = reader.readVectorInt32();
 
     // Construct [StoriesTogglePinnedToTop] object.
-    final returnValue = StoriesTogglePinnedToTop(
-      peer: peer,
-      id: id.items,
-    );
+    final returnValue = StoriesTogglePinnedToTop(peer: peer, id: id.items);
 
     // Now return the deserialized [StoriesTogglePinnedToTop].
     return returnValue;
@@ -156757,11 +154406,7 @@ class StoriesSearchPosts extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: hashtag != null,
-      b01: area != null,
-      b02: peer != null,
-    );
+    final v = _flag(b00: hashtag != null, b01: area != null, b02: peer != null);
 
     return v;
   }
@@ -157027,10 +154672,8 @@ class StoriesUpdateAlbum extends TlMethod {
 /// ID: `8535fbd9`.
 class StoriesReorderAlbums extends TlMethod {
   /// Stories Reorder Albums constructor.
-  const StoriesReorderAlbums({
-    required this.peer,
-    required this.order,
-  }) : super._();
+  const StoriesReorderAlbums({required this.peer, required this.order})
+      : super._();
 
   /// Deserialize.
   factory StoriesReorderAlbums.deserialize(BinaryReader reader) {
@@ -157039,10 +154682,7 @@ class StoriesReorderAlbums extends TlMethod {
     final order = reader.readVectorInt32();
 
     // Construct [StoriesReorderAlbums] object.
-    final returnValue = StoriesReorderAlbums(
-      peer: peer,
-      order: order.items,
-    );
+    final returnValue = StoriesReorderAlbums(peer: peer, order: order.items);
 
     // Now return the deserialized [StoriesReorderAlbums].
     return returnValue;
@@ -157087,10 +154727,8 @@ class StoriesReorderAlbums extends TlMethod {
 /// ID: `8d3456d0`.
 class StoriesDeleteAlbum extends TlMethod {
   /// Stories Delete Album constructor.
-  const StoriesDeleteAlbum({
-    required this.peer,
-    required this.albumId,
-  }) : super._();
+  const StoriesDeleteAlbum({required this.peer, required this.albumId})
+      : super._();
 
   /// Deserialize.
   factory StoriesDeleteAlbum.deserialize(BinaryReader reader) {
@@ -157099,10 +154737,7 @@ class StoriesDeleteAlbum extends TlMethod {
     final albumId = reader.readInt32();
 
     // Construct [StoriesDeleteAlbum] object.
-    final returnValue = StoriesDeleteAlbum(
-      peer: peer,
-      albumId: albumId,
-    );
+    final returnValue = StoriesDeleteAlbum(peer: peer, albumId: albumId);
 
     // Now return the deserialized [StoriesDeleteAlbum].
     return returnValue;
@@ -157149,10 +154784,7 @@ class StoriesDeleteAlbum extends TlMethod {
 /// ID: `25b3eac7`.
 class StoriesGetAlbums extends TlMethod {
   /// Stories Get Albums constructor.
-  const StoriesGetAlbums({
-    required this.peer,
-    required this.hash,
-  }) : super._();
+  const StoriesGetAlbums({required this.peer, required this.hash}) : super._();
 
   /// Deserialize.
   factory StoriesGetAlbums.deserialize(BinaryReader reader) {
@@ -157161,10 +154793,7 @@ class StoriesGetAlbums extends TlMethod {
     final hash = reader.readInt64();
 
     // Construct [StoriesGetAlbums] object.
-    final returnValue = StoriesGetAlbums(
-      peer: peer,
-      hash: hash,
-    );
+    final returnValue = StoriesGetAlbums(peer: peer, hash: hash);
 
     // Now return the deserialized [StoriesGetAlbums].
     return returnValue;
@@ -157323,9 +154952,7 @@ class PremiumGetBoostsList extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: gifts,
-    );
+    final v = _flag(b00: gifts);
 
     return v;
   }
@@ -157420,10 +155047,7 @@ class PremiumGetMyBoosts extends TlMethod {
 /// ID: `6b7da746`.
 class PremiumApplyBoost extends TlMethod {
   /// Premium Apply Boost constructor.
-  const PremiumApplyBoost({
-    this.slots,
-    required this.peer,
-  }) : super._();
+  const PremiumApplyBoost({this.slots, required this.peer}) : super._();
 
   /// Deserialize.
   factory PremiumApplyBoost.deserialize(BinaryReader reader) {
@@ -157434,10 +155058,7 @@ class PremiumApplyBoost extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [PremiumApplyBoost] object.
-    final returnValue = PremiumApplyBoost(
-      slots: slots?.items,
-      peer: peer,
-    );
+    final returnValue = PremiumApplyBoost(slots: slots?.items, peer: peer);
 
     // Now return the deserialized [PremiumApplyBoost].
     return returnValue;
@@ -157445,9 +155066,7 @@ class PremiumApplyBoost extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: slots != null,
-    );
+    final v = _flag(b00: slots != null);
 
     return v;
   }
@@ -157496,9 +155115,7 @@ class PremiumApplyBoost extends TlMethod {
 /// ID: `042f1f61`.
 class PremiumGetBoostsStatus extends TlMethod {
   /// Premium Get Boosts Status constructor.
-  const PremiumGetBoostsStatus({
-    required this.peer,
-  }) : super._();
+  const PremiumGetBoostsStatus({required this.peer}) : super._();
 
   /// Deserialize.
   factory PremiumGetBoostsStatus.deserialize(BinaryReader reader) {
@@ -157506,9 +155123,7 @@ class PremiumGetBoostsStatus extends TlMethod {
     final peer = reader.readObject() as InputPeerBase;
 
     // Construct [PremiumGetBoostsStatus] object.
-    final returnValue = PremiumGetBoostsStatus(
-      peer: peer,
-    );
+    final returnValue = PremiumGetBoostsStatus(peer: peer);
 
     // Now return the deserialized [PremiumGetBoostsStatus].
     return returnValue;
@@ -157548,10 +155163,8 @@ class PremiumGetBoostsStatus extends TlMethod {
 /// ID: `39854d1f`.
 class PremiumGetUserBoosts extends TlMethod {
   /// Premium Get User Boosts constructor.
-  const PremiumGetUserBoosts({
-    required this.peer,
-    required this.userId,
-  }) : super._();
+  const PremiumGetUserBoosts({required this.peer, required this.userId})
+      : super._();
 
   /// Deserialize.
   factory PremiumGetUserBoosts.deserialize(BinaryReader reader) {
@@ -157560,10 +155173,7 @@ class PremiumGetUserBoosts extends TlMethod {
     final userId = reader.readObject() as InputUserBase;
 
     // Construct [PremiumGetUserBoosts] object.
-    final returnValue = PremiumGetUserBoosts(
-      peer: peer,
-      userId: userId,
-    );
+    final returnValue = PremiumGetUserBoosts(peer: peer, userId: userId);
 
     // Now return the deserialized [PremiumGetUserBoosts].
     return returnValue;
@@ -157722,9 +155332,7 @@ class SmsjobsLeave extends TlMethod {
 /// ID: `093fa0bf`.
 class SmsjobsUpdateSettings extends TlMethod {
   /// Smsjobs Update Settings constructor.
-  const SmsjobsUpdateSettings({
-    required this.allowInternational,
-  }) : super._();
+  const SmsjobsUpdateSettings({required this.allowInternational}) : super._();
 
   /// Deserialize.
   factory SmsjobsUpdateSettings.deserialize(BinaryReader reader) {
@@ -157743,9 +155351,7 @@ class SmsjobsUpdateSettings extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: allowInternational,
-    );
+    final v = _flag(b00: allowInternational);
 
     return v;
   }
@@ -157823,9 +155429,7 @@ class SmsjobsGetStatus extends TlMethod {
 /// ID: `778d902f`.
 class SmsjobsGetSmsJob extends TlMethod {
   /// Smsjobs Get Sms Job constructor.
-  const SmsjobsGetSmsJob({
-    required this.jobId,
-  }) : super._();
+  const SmsjobsGetSmsJob({required this.jobId}) : super._();
 
   /// Deserialize.
   factory SmsjobsGetSmsJob.deserialize(BinaryReader reader) {
@@ -157833,9 +155437,7 @@ class SmsjobsGetSmsJob extends TlMethod {
     final jobId = reader.readString();
 
     // Construct [SmsjobsGetSmsJob] object.
-    final returnValue = SmsjobsGetSmsJob(
-      jobId: jobId,
-    );
+    final returnValue = SmsjobsGetSmsJob(jobId: jobId);
 
     // Now return the deserialized [SmsjobsGetSmsJob].
     return returnValue;
@@ -157875,10 +155477,7 @@ class SmsjobsGetSmsJob extends TlMethod {
 /// ID: `4f1ebf24`.
 class SmsjobsFinishJob extends TlMethod {
   /// Smsjobs Finish Job constructor.
-  const SmsjobsFinishJob({
-    required this.jobId,
-    this.error,
-  }) : super._();
+  const SmsjobsFinishJob({required this.jobId, this.error}) : super._();
 
   /// Deserialize.
   factory SmsjobsFinishJob.deserialize(BinaryReader reader) {
@@ -157889,10 +155488,7 @@ class SmsjobsFinishJob extends TlMethod {
     final error = hasErrorField ? reader.readString() : null;
 
     // Construct [SmsjobsFinishJob] object.
-    final returnValue = SmsjobsFinishJob(
-      jobId: jobId,
-      error: error,
-    );
+    final returnValue = SmsjobsFinishJob(jobId: jobId, error: error);
 
     // Now return the deserialized [SmsjobsFinishJob].
     return returnValue;
@@ -157900,9 +155496,7 @@ class SmsjobsFinishJob extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: error != null,
-    );
+    final v = _flag(b00: error != null);
 
     return v;
   }
@@ -157951,9 +155545,7 @@ class SmsjobsFinishJob extends TlMethod {
 /// ID: `be1e85ba`.
 class FragmentGetCollectibleInfo extends TlMethod {
   /// Fragment Get Collectible Info constructor.
-  const FragmentGetCollectibleInfo({
-    required this.collectible,
-  }) : super._();
+  const FragmentGetCollectibleInfo({required this.collectible}) : super._();
 
   /// Deserialize.
   factory FragmentGetCollectibleInfo.deserialize(BinaryReader reader) {
@@ -157961,9 +155553,7 @@ class FragmentGetCollectibleInfo extends TlMethod {
     final collectible = reader.readObject() as InputCollectibleBase;
 
     // Construct [FragmentGetCollectibleInfo] object.
-    final returnValue = FragmentGetCollectibleInfo(
-      collectible: collectible,
-    );
+    final returnValue = FragmentGetCollectibleInfo(collectible: collectible);
 
     // Now return the deserialized [FragmentGetCollectibleInfo].
     return returnValue;

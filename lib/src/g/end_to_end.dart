@@ -1285,10 +1285,7 @@ class DecryptedMessageMediaGeoPoint008 extends DecryptedMessageMediaBase {
     final long = reader.readFloat64();
 
     // Construct [DecryptedMessageMediaGeoPoint008] object.
-    final returnValue = DecryptedMessageMediaGeoPoint008(
-      lat: lat,
-      long: long,
-    );
+    final returnValue = DecryptedMessageMediaGeoPoint008(lat: lat, long: long);
 
     // Now return the deserialized [DecryptedMessageMediaGeoPoint008].
     return returnValue;
@@ -1951,7 +1948,8 @@ class DecryptedMessageMediaExternalDocument023
 
   /// Deserialize.
   factory DecryptedMessageMediaExternalDocument023.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [DecryptedMessageMediaExternalDocument023] fields.
     final id = reader.readInt64();
     final accessHash = reader.readInt64();
@@ -2147,9 +2145,7 @@ class DecryptedMessageMediaVenue045 extends DecryptedMessageMediaBase {
 /// ID: `e50511d8`.
 class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
   /// Decrypted Message Media Web Page constructor.
-  const DecryptedMessageMediaWebPage045({
-    required this.url,
-  }) : super._();
+  const DecryptedMessageMediaWebPage045({required this.url}) : super._();
 
   /// Deserialize.
   factory DecryptedMessageMediaWebPage045.deserialize(BinaryReader reader) {
@@ -2157,9 +2153,7 @@ class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
     final url = reader.readString();
 
     // Construct [DecryptedMessageMediaWebPage045] object.
-    final returnValue = DecryptedMessageMediaWebPage045(
-      url: url,
-    );
+    final returnValue = DecryptedMessageMediaWebPage045(url: url);
 
     // Now return the deserialized [DecryptedMessageMediaWebPage045].
     return returnValue;
@@ -2200,13 +2194,13 @@ class DecryptedMessageMediaWebPage045 extends DecryptedMessageMediaBase {
 class DecryptedMessageActionSetMessageTTL008
     extends DecryptedMessageActionBase {
   /// Decrypted Message Action Set Message T T L constructor.
-  const DecryptedMessageActionSetMessageTTL008({
-    required this.ttlSeconds,
-  }) : super._();
+  const DecryptedMessageActionSetMessageTTL008({required this.ttlSeconds})
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionSetMessageTTL008.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [DecryptedMessageActionSetMessageTTL008] fields.
     final ttlSeconds = reader.readInt32();
 
@@ -2255,13 +2249,13 @@ class DecryptedMessageActionSetMessageTTL008
 /// ID: `0c4f40be`.
 class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
   /// Decrypted Message Action Read Messages constructor.
-  const DecryptedMessageActionReadMessages008({
-    required this.randomIds,
-  }) : super._();
+  const DecryptedMessageActionReadMessages008({required this.randomIds})
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionReadMessages008.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [DecryptedMessageActionReadMessages008] fields.
     final randomIds = reader.readVectorInt64();
 
@@ -2309,13 +2303,13 @@ class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
 class DecryptedMessageActionDeleteMessages008
     extends DecryptedMessageActionBase {
   /// Decrypted Message Action Delete Messages constructor.
-  const DecryptedMessageActionDeleteMessages008({
-    required this.randomIds,
-  }) : super._();
+  const DecryptedMessageActionDeleteMessages008({required this.randomIds})
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionDeleteMessages008.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [DecryptedMessageActionDeleteMessages008] fields.
     final randomIds = reader.readVectorInt64();
 
@@ -2363,13 +2357,13 @@ class DecryptedMessageActionDeleteMessages008
 class DecryptedMessageActionScreenshotMessages008
     extends DecryptedMessageActionBase {
   /// Decrypted Message Action Screenshot Messages constructor.
-  const DecryptedMessageActionScreenshotMessages008({
-    required this.randomIds,
-  }) : super._();
+  const DecryptedMessageActionScreenshotMessages008({required this.randomIds})
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionScreenshotMessages008.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [DecryptedMessageActionScreenshotMessages008] fields.
     final randomIds = reader.readVectorInt64();
 
@@ -2420,7 +2414,8 @@ class DecryptedMessageActionFlushHistory008 extends DecryptedMessageActionBase {
 
   /// Deserialize.
   factory DecryptedMessageActionFlushHistory008.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Construct [DecryptedMessageActionFlushHistory008] object.
     final returnValue = DecryptedMessageActionFlushHistory008();
 
@@ -2519,20 +2514,17 @@ class DecryptedMessageActionResend017 extends DecryptedMessageActionBase {
 /// ID: `f3048883`.
 class DecryptedMessageActionNotifyLayer017 extends DecryptedMessageActionBase {
   /// Decrypted Message Action Notify Layer constructor.
-  const DecryptedMessageActionNotifyLayer017({
-    required this.layer,
-  }) : super._();
+  const DecryptedMessageActionNotifyLayer017({required this.layer}) : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionNotifyLayer017.deserialize(
-      BinaryReader reader) {
+    BinaryReader reader,
+  ) {
     // Read [DecryptedMessageActionNotifyLayer017] fields.
     final layer = reader.readInt32();
 
     // Construct [DecryptedMessageActionNotifyLayer017] object.
-    final returnValue = DecryptedMessageActionNotifyLayer017(
-      layer: layer,
-    );
+    final returnValue = DecryptedMessageActionNotifyLayer017(layer: layer);
 
     // Now return the deserialized [DecryptedMessageActionNotifyLayer017].
     return returnValue;
@@ -2574,9 +2566,7 @@ class DecryptedMessageActionNotifyLayer017 extends DecryptedMessageActionBase {
 /// ID: `ccb27641`.
 class DecryptedMessageActionTyping017 extends DecryptedMessageActionBase {
   /// Decrypted Message Action Typing constructor.
-  const DecryptedMessageActionTyping017({
-    required this.action,
-  }) : super._();
+  const DecryptedMessageActionTyping017({required this.action}) : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionTyping017.deserialize(BinaryReader reader) {
@@ -2584,9 +2574,7 @@ class DecryptedMessageActionTyping017 extends DecryptedMessageActionBase {
     final action = reader.readObject() as SendMessageActionBase;
 
     // Construct [DecryptedMessageActionTyping017] object.
-    final returnValue = DecryptedMessageActionTyping017(
-      action: action,
-    );
+    final returnValue = DecryptedMessageActionTyping017(action: action);
 
     // Now return the deserialized [DecryptedMessageActionTyping017].
     return returnValue;
@@ -2760,9 +2748,8 @@ class DecryptedMessageActionAcceptKey020 extends DecryptedMessageActionBase {
 /// ID: `dd05ec6b`.
 class DecryptedMessageActionAbortKey020 extends DecryptedMessageActionBase {
   /// Decrypted Message Action Abort Key constructor.
-  const DecryptedMessageActionAbortKey020({
-    required this.exchangeId,
-  }) : super._();
+  const DecryptedMessageActionAbortKey020({required this.exchangeId})
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionAbortKey020.deserialize(BinaryReader reader) {
@@ -3462,10 +3449,8 @@ class SendMessageUploadRoundAction066 extends SendMessageActionBase {
 /// ID: `6c37c15c`.
 class DocumentAttributeImageSize023 extends DocumentAttributeBase {
   /// Document Attribute Image Size constructor.
-  const DocumentAttributeImageSize023({
-    required this.w,
-    required this.h,
-  }) : super._();
+  const DocumentAttributeImageSize023({required this.w, required this.h})
+      : super._();
 
   /// Deserialize.
   factory DocumentAttributeImageSize023.deserialize(BinaryReader reader) {
@@ -3474,10 +3459,7 @@ class DocumentAttributeImageSize023 extends DocumentAttributeBase {
     final h = reader.readInt32();
 
     // Construct [DocumentAttributeImageSize023] object.
-    final returnValue = DocumentAttributeImageSize023(
-      w: w,
-      h: h,
-    );
+    final returnValue = DocumentAttributeImageSize023(w: w, h: h);
 
     // Now return the deserialized [DocumentAttributeImageSize023].
     return returnValue;
@@ -3820,9 +3802,7 @@ class DocumentAttributeVideo066 extends DocumentAttributeBase {
 /// ID: `051448e5`.
 class DocumentAttributeAudio023 extends DocumentAttributeBase {
   /// Document Attribute Audio constructor.
-  const DocumentAttributeAudio023({
-    required this.duration,
-  }) : super._();
+  const DocumentAttributeAudio023({required this.duration}) : super._();
 
   /// Deserialize.
   factory DocumentAttributeAudio023.deserialize(BinaryReader reader) {
@@ -3830,9 +3810,7 @@ class DocumentAttributeAudio023 extends DocumentAttributeBase {
     final duration = reader.readInt32();
 
     // Construct [DocumentAttributeAudio023] object.
-    final returnValue = DocumentAttributeAudio023(
-      duration: duration,
-    );
+    final returnValue = DocumentAttributeAudio023(duration: duration);
 
     // Now return the deserialized [DocumentAttributeAudio023].
     return returnValue;
@@ -4048,9 +4026,7 @@ class DocumentAttributeAudio046 extends DocumentAttributeBase {
 /// ID: `15590068`.
 class DocumentAttributeFilename023 extends DocumentAttributeBase {
   /// Document Attribute Filename constructor.
-  const DocumentAttributeFilename023({
-    required this.fileName,
-  }) : super._();
+  const DocumentAttributeFilename023({required this.fileName}) : super._();
 
   /// Deserialize.
   factory DocumentAttributeFilename023.deserialize(BinaryReader reader) {
@@ -4058,9 +4034,7 @@ class DocumentAttributeFilename023 extends DocumentAttributeBase {
     final fileName = reader.readString();
 
     // Construct [DocumentAttributeFilename023] object.
-    final returnValue = DocumentAttributeFilename023(
-      fileName: fileName,
-    );
+    final returnValue = DocumentAttributeFilename023(fileName: fileName);
 
     // Now return the deserialized [DocumentAttributeFilename023].
     return returnValue;
@@ -4100,9 +4074,7 @@ class DocumentAttributeFilename023 extends DocumentAttributeBase {
 /// ID: `0e17e23c`.
 class PhotoSizeEmpty023 extends PhotoSizeBase {
   /// Photo Size Empty constructor.
-  const PhotoSizeEmpty023({
-    required this.type,
-  }) : super._();
+  const PhotoSizeEmpty023({required this.type}) : super._();
 
   /// Deserialize.
   factory PhotoSizeEmpty023.deserialize(BinaryReader reader) {
@@ -4110,9 +4082,7 @@ class PhotoSizeEmpty023 extends PhotoSizeBase {
     final type = reader.readString();
 
     // Construct [PhotoSizeEmpty023] object.
-    final returnValue = PhotoSizeEmpty023(
-      type: type,
-    );
+    final returnValue = PhotoSizeEmpty023(type: type);
 
     // Now return the deserialized [PhotoSizeEmpty023].
     return returnValue;
@@ -4488,10 +4458,8 @@ class FileLocation023 extends FileLocationBase {
 /// ID: `bb92ba95`.
 class MessageEntityUnknown045 extends MessageEntityBase {
   /// Message Entity Unknown constructor.
-  const MessageEntityUnknown045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityUnknown045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUnknown045.deserialize(BinaryReader reader) {
@@ -4500,10 +4468,7 @@ class MessageEntityUnknown045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityUnknown045] object.
-    final returnValue = MessageEntityUnknown045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityUnknown045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityUnknown045].
     return returnValue;
@@ -4552,10 +4517,8 @@ class MessageEntityUnknown045 extends MessageEntityBase {
 /// ID: `fa04579d`.
 class MessageEntityMention045 extends MessageEntityBase {
   /// Message Entity Mention constructor.
-  const MessageEntityMention045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityMention045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityMention045.deserialize(BinaryReader reader) {
@@ -4564,10 +4527,7 @@ class MessageEntityMention045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityMention045] object.
-    final returnValue = MessageEntityMention045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityMention045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityMention045].
     return returnValue;
@@ -4616,10 +4576,8 @@ class MessageEntityMention045 extends MessageEntityBase {
 /// ID: `6f635b0d`.
 class MessageEntityHashtag045 extends MessageEntityBase {
   /// Message Entity Hashtag constructor.
-  const MessageEntityHashtag045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityHashtag045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityHashtag045.deserialize(BinaryReader reader) {
@@ -4628,10 +4586,7 @@ class MessageEntityHashtag045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityHashtag045] object.
-    final returnValue = MessageEntityHashtag045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityHashtag045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityHashtag045].
     return returnValue;
@@ -4680,10 +4635,8 @@ class MessageEntityHashtag045 extends MessageEntityBase {
 /// ID: `6cef8ac7`.
 class MessageEntityBotCommand045 extends MessageEntityBase {
   /// Message Entity Bot Command constructor.
-  const MessageEntityBotCommand045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityBotCommand045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBotCommand045.deserialize(BinaryReader reader) {
@@ -4744,10 +4697,8 @@ class MessageEntityBotCommand045 extends MessageEntityBase {
 /// ID: `6ed02538`.
 class MessageEntityUrl045 extends MessageEntityBase {
   /// Message Entity Url constructor.
-  const MessageEntityUrl045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityUrl045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUrl045.deserialize(BinaryReader reader) {
@@ -4756,10 +4707,7 @@ class MessageEntityUrl045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityUrl045] object.
-    final returnValue = MessageEntityUrl045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityUrl045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityUrl045].
     return returnValue;
@@ -4808,10 +4756,8 @@ class MessageEntityUrl045 extends MessageEntityBase {
 /// ID: `64e475c2`.
 class MessageEntityEmail045 extends MessageEntityBase {
   /// Message Entity Email constructor.
-  const MessageEntityEmail045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityEmail045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityEmail045.deserialize(BinaryReader reader) {
@@ -4820,10 +4766,7 @@ class MessageEntityEmail045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityEmail045] object.
-    final returnValue = MessageEntityEmail045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityEmail045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityEmail045].
     return returnValue;
@@ -4872,10 +4815,8 @@ class MessageEntityEmail045 extends MessageEntityBase {
 /// ID: `bd610bc9`.
 class MessageEntityBold045 extends MessageEntityBase {
   /// Message Entity Bold constructor.
-  const MessageEntityBold045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityBold045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBold045.deserialize(BinaryReader reader) {
@@ -4884,10 +4825,7 @@ class MessageEntityBold045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityBold045] object.
-    final returnValue = MessageEntityBold045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityBold045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityBold045].
     return returnValue;
@@ -4936,10 +4874,8 @@ class MessageEntityBold045 extends MessageEntityBase {
 /// ID: `826f8b60`.
 class MessageEntityItalic045 extends MessageEntityBase {
   /// Message Entity Italic constructor.
-  const MessageEntityItalic045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityItalic045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityItalic045.deserialize(BinaryReader reader) {
@@ -4948,10 +4884,7 @@ class MessageEntityItalic045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityItalic045] object.
-    final returnValue = MessageEntityItalic045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityItalic045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityItalic045].
     return returnValue;
@@ -5000,10 +4933,8 @@ class MessageEntityItalic045 extends MessageEntityBase {
 /// ID: `28a20571`.
 class MessageEntityCode045 extends MessageEntityBase {
   /// Message Entity Code constructor.
-  const MessageEntityCode045({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityCode045({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityCode045.deserialize(BinaryReader reader) {
@@ -5012,10 +4943,7 @@ class MessageEntityCode045 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityCode045] object.
-    final returnValue = MessageEntityCode045(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityCode045(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityCode045].
     return returnValue;
@@ -5208,10 +5136,8 @@ class MessageEntityTextUrl045 extends MessageEntityBase {
 /// ID: `9c4e7e8b`.
 class MessageEntityUnderline101 extends MessageEntityBase {
   /// Message Entity Underline constructor.
-  const MessageEntityUnderline101({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityUnderline101({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUnderline101.deserialize(BinaryReader reader) {
@@ -5272,10 +5198,8 @@ class MessageEntityUnderline101 extends MessageEntityBase {
 /// ID: `bf0693d4`.
 class MessageEntityStrike101 extends MessageEntityBase {
   /// Message Entity Strike constructor.
-  const MessageEntityStrike101({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityStrike101({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityStrike101.deserialize(BinaryReader reader) {
@@ -5284,10 +5208,7 @@ class MessageEntityStrike101 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntityStrike101] object.
-    final returnValue = MessageEntityStrike101(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntityStrike101(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntityStrike101].
     return returnValue;
@@ -5336,10 +5257,8 @@ class MessageEntityStrike101 extends MessageEntityBase {
 /// ID: `020df5d0`.
 class MessageEntityBlockquote101 extends MessageEntityBase {
   /// Message Entity Blockquote constructor.
-  const MessageEntityBlockquote101({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntityBlockquote101({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBlockquote101.deserialize(BinaryReader reader) {
@@ -5400,10 +5319,8 @@ class MessageEntityBlockquote101 extends MessageEntityBase {
 /// ID: `32ca960f`.
 class MessageEntitySpoiler144 extends MessageEntityBase {
   /// Message Entity Spoiler constructor.
-  const MessageEntitySpoiler144({
-    required this.offset,
-    required this.length,
-  }) : super._();
+  const MessageEntitySpoiler144({required this.offset, required this.length})
+      : super._();
 
   /// Deserialize.
   factory MessageEntitySpoiler144.deserialize(BinaryReader reader) {
@@ -5412,10 +5329,7 @@ class MessageEntitySpoiler144 extends MessageEntityBase {
     final length = reader.readInt32();
 
     // Construct [MessageEntitySpoiler144] object.
-    final returnValue = MessageEntitySpoiler144(
-      offset: offset,
-      length: length,
-    );
+    final returnValue = MessageEntitySpoiler144(offset: offset, length: length);
 
     // Now return the deserialized [MessageEntitySpoiler144].
     return returnValue;
@@ -5538,9 +5452,7 @@ class MessageEntityCustomEmoji144 extends MessageEntityBase {
 /// ID: `861cc8a0`.
 class InputStickerSetShortName045 extends InputStickerSetBase {
   /// Input Sticker Set Short Name constructor.
-  const InputStickerSetShortName045({
-    required this.shortName,
-  }) : super._();
+  const InputStickerSetShortName045({required this.shortName}) : super._();
 
   /// Deserialize.
   factory InputStickerSetShortName045.deserialize(BinaryReader reader) {
@@ -5548,9 +5460,7 @@ class InputStickerSetShortName045 extends InputStickerSetBase {
     final shortName = reader.readString();
 
     // Construct [InputStickerSetShortName045] object.
-    final returnValue = InputStickerSetShortName045(
-      shortName: shortName,
-    );
+    final returnValue = InputStickerSetShortName045(shortName: shortName);
 
     // Now return the deserialized [InputStickerSetShortName045].
     return returnValue;

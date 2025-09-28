@@ -2046,6 +2046,18 @@ abstract class AccountResetPasswordResultBase extends TlConstructor {
   const AccountResetPasswordResultBase._() : super._();
 }
 
+/// Predicate Chat Theme.
+abstract class ChatThemeBase extends TlConstructor {
+  /// Predicate Chat Theme constructor.
+  const ChatThemeBase._() : super._();
+}
+
+/// Predicate Account Chat Themes.
+abstract class AccountChatThemesBase extends TlConstructor {
+  /// Predicate Account Chat Themes constructor.
+  const AccountChatThemesBase._() : super._();
+}
+
 /// Predicate Sponsored Message.
 abstract class SponsoredMessageBase extends TlConstructor {
   /// Predicate Sponsored Message constructor.
@@ -3424,6 +3436,42 @@ abstract class StoriesAlbumsBase extends TlConstructor {
 abstract class SearchPostsFloodBase extends TlConstructor {
   /// Predicate Search Posts Flood constructor.
   const SearchPostsFloodBase._() : super._();
+}
+
+/// Predicate Payments Unique Star Gift Value Info.
+abstract class PaymentsUniqueStarGiftValueInfoBase extends TlConstructor {
+  /// Predicate Payments Unique Star Gift Value Info constructor.
+  const PaymentsUniqueStarGiftValueInfoBase._() : super._();
+}
+
+/// Predicate Profile Tab.
+abstract class ProfileTabBase extends TlConstructor {
+  /// Predicate Profile Tab constructor.
+  const ProfileTabBase._() : super._();
+}
+
+/// Predicate Users Saved Music.
+abstract class UsersSavedMusicBase extends TlConstructor {
+  /// Predicate Users Saved Music constructor.
+  const UsersSavedMusicBase._() : super._();
+}
+
+/// Predicate Account Saved Music Ids.
+abstract class AccountSavedMusicIdsBase extends TlConstructor {
+  /// Predicate Account Saved Music Ids constructor.
+  const AccountSavedMusicIdsBase._() : super._();
+}
+
+/// Predicate Payments Check Can Send Gift Result.
+abstract class PaymentsCheckCanSendGiftResultBase extends TlConstructor {
+  /// Predicate Payments Check Can Send Gift Result constructor.
+  const PaymentsCheckCanSendGiftResultBase._() : super._();
+}
+
+/// Predicate Input Chat Theme.
+abstract class InputChatThemeBase extends TlConstructor {
+  /// Predicate Input Chat Theme constructor.
+  const InputChatThemeBase._() : super._();
 }
 
 /// Predicate Decrypted Message.

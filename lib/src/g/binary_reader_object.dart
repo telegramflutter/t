@@ -542,7 +542,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChatFull.deserialize(reader);
   }
 
-  if (id == 0xe07429de) {
+  if (id == 0xe4e0b29d) {
     return ChannelFull.deserialize(reader);
   }
 
@@ -770,7 +770,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionGroupCallScheduled.deserialize(reader);
   }
 
-  if (id == 0xaa786345) {
+  if (id == 0xb91bbd3a) {
     return MessageActionSetChatTheme.deserialize(reader);
   }
 
@@ -842,7 +842,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionPrizeStars.deserialize(reader);
   }
 
-  if (id == 0x4717e8a4) {
+  if (id == 0xf24de7fa) {
     return MessageActionStarGift.deserialize(reader);
   }
 
@@ -942,7 +942,7 @@ TlObject _readObject(BinaryReader reader) {
     return AuthSentCodeSuccess.deserialize(reader);
   }
 
-  if (id == 0xd7cef980) {
+  if (id == 0xd7a2fcf9) {
     return AuthSentCodePaymentRequired.deserialize(reader);
   }
 
@@ -1038,7 +1038,7 @@ TlObject _readObject(BinaryReader reader) {
     return InputReportReasonPersonalDetails.deserialize(reader);
   }
 
-  if (id == 0x7e63ce1f) {
+  if (id == 0xc577b5ad) {
     return UserFull.deserialize(reader);
   }
 
@@ -3568,7 +3568,8 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xfe9fc158) {
     return ChannelAdminLogEventActionParticipantJoinByInvite.deserialize(
-        reader);
+      reader,
+    );
   }
 
   if (id == 0x5a50fca4) {
@@ -3593,7 +3594,8 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xafb6144a) {
     return ChannelAdminLogEventActionParticipantJoinByRequest.deserialize(
-        reader);
+      reader,
+    );
   }
 
   if (id == 0xcb2ac766) {
@@ -3606,7 +3608,8 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xbe4e0ef8) {
     return ChannelAdminLogEventActionChangeAvailableReactions.deserialize(
-        reader);
+      reader,
+    );
   }
 
   if (id == 0xf04fb3a9) {
@@ -3659,7 +3662,8 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x60a79c79) {
     return ChannelAdminLogEventActionToggleSignatureProfiles.deserialize(
-        reader);
+      reader,
+    );
   }
 
   if (id == 0x64642db3) {
@@ -3948,7 +3952,9 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x3a912d4a) {
     return PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
-        .deserialize(reader);
+        .deserialize(
+      reader,
+    );
   }
 
   if (id == 0x004a8537) {
@@ -4599,6 +4605,22 @@ TlObject _readObject(BinaryReader reader) {
     return AccountResetPasswordOk.deserialize(reader);
   }
 
+  if (id == 0xc3dffc04) {
+    return ChatTheme.deserialize(reader);
+  }
+
+  if (id == 0x3458f9c8) {
+    return ChatThemeUniqueGift.deserialize(reader);
+  }
+
+  if (id == 0xe011e1c4) {
+    return AccountChatThemesNotModified.deserialize(reader);
+  }
+
+  if (id == 0x16484857) {
+    return AccountChatThemes.deserialize(reader);
+  }
+
   if (id == 0x7dbf8673) {
     return SponsoredMessage.deserialize(reader);
   }
@@ -4823,6 +4845,10 @@ TlObject _readObject(BinaryReader reader) {
     return InputInvoiceStarGiftResale.deserialize(reader);
   }
 
+  if (id == 0x9a0b48b8) {
+    return InputInvoiceStarGiftPrepaidUpgrade.deserialize(reader);
+  }
+
   if (id == 0xaed0cbd9) {
     return PaymentsExportedInvoice.deserialize(reader);
   }
@@ -4851,7 +4877,7 @@ TlObject _readObject(BinaryReader reader) {
     return InputStorePaymentPremiumGiveaway.deserialize(reader);
   }
 
-  if (id == 0xdddd0f56) {
+  if (id == 0xf9a2a6cb) {
     return InputStorePaymentStarsTopup.deserialize(reader);
   }
 
@@ -5759,11 +5785,11 @@ TlObject _readObject(BinaryReader reader) {
     return StarsGiveawayWinnersOption.deserialize(reader);
   }
 
-  if (id == 0x00bcff5b) {
+  if (id == 0x80ac53c3) {
     return StarGift.deserialize(reader);
   }
 
-  if (id == 0x3a274d50) {
+  if (id == 0x1befe865) {
     return StarGiftUnique.deserialize(reader);
   }
 
@@ -5871,15 +5897,15 @@ TlObject _readObject(BinaryReader reader) {
     return UsersUsersSlice.deserialize(reader);
   }
 
-  if (id == 0xcaa2f60b) {
+  if (id == 0x416c56e8) {
     return PaymentsUniqueStarGift.deserialize(reader);
   }
 
-  if (id == 0xb53e8b21) {
+  if (id == 0x8c9a88ac) {
     return MessagesWebPagePreview.deserialize(reader);
   }
 
-  if (id == 0x1ea646df) {
+  if (id == 0x19a9b572) {
     return SavedStarGift.deserialize(reader);
   }
 
@@ -6025,6 +6051,78 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x3e0b5b6a) {
     return SearchPostsFlood.deserialize(reader);
+  }
+
+  if (id == 0x512fe446) {
+    return PaymentsUniqueStarGiftValueInfo.deserialize(reader);
+  }
+
+  if (id == 0xb98cd696) {
+    return ProfileTabPosts.deserialize(reader);
+  }
+
+  if (id == 0x4d4bd46a) {
+    return ProfileTabGifts.deserialize(reader);
+  }
+
+  if (id == 0x72c64955) {
+    return ProfileTabMedia.deserialize(reader);
+  }
+
+  if (id == 0xab339c00) {
+    return ProfileTabFiles.deserialize(reader);
+  }
+
+  if (id == 0x9f27d26e) {
+    return ProfileTabMusic.deserialize(reader);
+  }
+
+  if (id == 0xe477092e) {
+    return ProfileTabVoice.deserialize(reader);
+  }
+
+  if (id == 0xd3656499) {
+    return ProfileTabLinks.deserialize(reader);
+  }
+
+  if (id == 0xa2c0f695) {
+    return ProfileTabGifs.deserialize(reader);
+  }
+
+  if (id == 0xe3878aa4) {
+    return UsersSavedMusicNotModified.deserialize(reader);
+  }
+
+  if (id == 0x34a2f297) {
+    return UsersSavedMusic.deserialize(reader);
+  }
+
+  if (id == 0x4fc81d6e) {
+    return AccountSavedMusicIdsNotModified.deserialize(reader);
+  }
+
+  if (id == 0x998d6636) {
+    return AccountSavedMusicIds.deserialize(reader);
+  }
+
+  if (id == 0x374fa7ad) {
+    return PaymentsCheckCanSendGiftResultOk.deserialize(reader);
+  }
+
+  if (id == 0xd5e58274) {
+    return PaymentsCheckCanSendGiftResultFail.deserialize(reader);
+  }
+
+  if (id == 0x83268483) {
+    return InputChatThemeEmpty.deserialize(reader);
+  }
+
+  if (id == 0xc93de95c) {
+    return InputChatTheme.deserialize(reader);
+  }
+
+  if (id == 0x87e5dfe4) {
+    return InputChatThemeUniqueGift.deserialize(reader);
   }
 
   if (id == 0xcb9f372d) {
@@ -6623,6 +6721,22 @@ TlObject _readObject(BinaryReader reader) {
     return AccountToggleNoPaidMessagesException.deserialize(reader);
   }
 
+  if (id == 0x5dee78b0) {
+    return AccountSetMainProfileTab.deserialize(reader);
+  }
+
+  if (id == 0xb26732a9) {
+    return AccountSaveMusic.deserialize(reader);
+  }
+
+  if (id == 0xe09d5faf) {
+    return AccountGetSavedMusicIds.deserialize(reader);
+  }
+
+  if (id == 0xfe74ef9f) {
+    return AccountGetUniqueGiftChatThemes.deserialize(reader);
+  }
+
   if (id == 0x0d91a548) {
     return UsersGetUsers.deserialize(reader);
   }
@@ -6637,6 +6751,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xd89a83a3) {
     return UsersGetRequirementsToContact.deserialize(reader);
+  }
+
+  if (id == 0x788d7fe3) {
+    return UsersGetSavedMusic.deserialize(reader);
+  }
+
+  if (id == 0x7573a4e9) {
+    return UsersGetSavedMusicByID.deserialize(reader);
   }
 
   if (id == 0x7adc669d) {
@@ -7307,7 +7429,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesCheckHistoryImportPeer.deserialize(reader);
   }
 
-  if (id == 0xe63be13f) {
+  if (id == 0x081202c9) {
     return MessagesSetChatTheme.deserialize(reader);
   }
 
@@ -8091,6 +8213,10 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsCheckSearchPostsFlood.deserialize(reader);
   }
 
+  if (id == 0x3583fcb1) {
+    return ChannelsSetMainProfileTab.deserialize(reader);
+  }
+
   if (id == 0xaa2769ed) {
     return BotsSendCustomRequest.deserialize(reader);
   }
@@ -8429,6 +8555,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x981b91dd) {
     return PaymentsGetStarGiftCollections.deserialize(reader);
+  }
+
+  if (id == 0x4365af6b) {
+    return PaymentsGetUniqueStarGiftValueInfo.deserialize(reader);
+  }
+
+  if (id == 0xc0c4edc9) {
+    return PaymentsCheckCanSendGift.deserialize(reader);
   }
 
   if (id == 0x9021ab67) {
@@ -9226,5 +9360,6 @@ TlObject _readObject(BinaryReader reader) {
   }
 
   throw Exception(
-      'This is a bug. Please report at https://github.com/telegramflutter/tg/issues.');
+    'This is a bug. Please report at https://github.com/telegramflutter/tg/issues.',
+  );
 }

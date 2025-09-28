@@ -105,10 +105,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeAfterMsg(
-      msgId: msgId,
-      query: query,
-    );
+    final request = InvokeAfterMsg(msgId: msgId, query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -125,10 +122,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeAfterMsgs(
-      msgIds: msgIds,
-      query: query,
-    );
+    final request = InvokeAfterMsgs(msgIds: msgIds, query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -167,10 +161,7 @@ abstract class Client {
     );
 
     // Invoke and wait for response.
-    final response = await invokeWithLayer(
-      query: request,
-      layer: layer,
-    );
+    final response = await invokeWithLayer(query: request, layer: layer);
 
     // Return the result.
     return response._to<T>();
@@ -184,10 +175,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeWithLayer(
-      layer: layer,
-      query: query,
-    );
+    final request = InvokeWithLayer(layer: layer, query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -203,9 +191,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeWithoutUpdates(
-      query: query,
-    );
+    final request = InvokeWithoutUpdates(query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -222,10 +208,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeWithMessagesRange(
-      range: range,
-      query: query,
-    );
+    final request = InvokeWithMessagesRange(range: range, query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -242,10 +225,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeWithTakeout(
-      takeoutId: takeoutId,
-      query: query,
-    );
+    final request = InvokeWithTakeout(takeoutId: takeoutId, query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -326,10 +306,7 @@ abstract class Client {
     required TlMethod query,
   }) async {
     // Preparing the request.
-    final request = InvokeWithReCaptcha(
-      token: token,
-      query: query,
-    );
+    final request = InvokeWithReCaptcha(token: token, query: query);
 
     // Invoke and wait for response.
     final response = await invoke(request);
@@ -454,9 +431,7 @@ class ClientAuth {
     required int dcId,
   }) async {
     // Preparing the request.
-    final request = AuthExportAuthorization(
-      dcId: dcId,
-    );
+    final request = AuthExportAuthorization(dcId: dcId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -473,10 +448,7 @@ class ClientAuth {
     required Uint8List bytes,
   }) async {
     // Preparing the request.
-    final request = AuthImportAuthorization(
-      id: id,
-      bytes: bytes,
-    );
+    final request = AuthImportAuthorization(id: id, bytes: bytes);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -540,9 +512,7 @@ class ClientAuth {
     required InputCheckPasswordSRPBase password,
   }) async {
     // Preparing the request.
-    final request = AuthCheckPassword(
-      password: password,
-    );
+    final request = AuthCheckPassword(password: password);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -573,10 +543,7 @@ class ClientAuth {
     AccountPasswordInputSettingsBase? newSettings,
   }) async {
     // Preparing the request.
-    final request = AuthRecoverPassword(
-      code: code,
-      newSettings: newSettings,
-    );
+    final request = AuthRecoverPassword(code: code, newSettings: newSettings);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -634,9 +601,7 @@ class ClientAuth {
     required List<int> exceptAuthKeys,
   }) async {
     // Preparing the request.
-    final request = AuthDropTempAuthKeys(
-      exceptAuthKeys: exceptAuthKeys,
-    );
+    final request = AuthDropTempAuthKeys(exceptAuthKeys: exceptAuthKeys);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -674,9 +639,7 @@ class ClientAuth {
     required Uint8List token,
   }) async {
     // Preparing the request.
-    final request = AuthImportLoginToken(
-      token: token,
-    );
+    final request = AuthImportLoginToken(token: token);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -692,9 +655,7 @@ class ClientAuth {
     required Uint8List token,
   }) async {
     // Preparing the request.
-    final request = AuthAcceptLoginToken(
-      token: token,
-    );
+    final request = AuthAcceptLoginToken(token: token);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -706,13 +667,9 @@ class ClientAuth {
   /// Check Recovery Password.
   ///
   /// ID: `0d36bf79`.
-  Future<Result<Boolean>> checkRecoveryPassword({
-    required String code,
-  }) async {
+  Future<Result<Boolean>> checkRecoveryPassword({required String code}) async {
     // Preparing the request.
-    final request = AuthCheckRecoveryPassword(
-      code: code,
-    );
+    final request = AuthCheckRecoveryPassword(code: code);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -876,10 +833,7 @@ class ClientAccount {
     required InputPeerNotifySettingsBase settings,
   }) async {
     // Preparing the request.
-    final request = AccountUpdateNotifySettings(
-      peer: peer,
-      settings: settings,
-    );
+    final request = AccountUpdateNotifySettings(peer: peer, settings: settings);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -895,9 +849,7 @@ class ClientAccount {
     required InputNotifyPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = AccountGetNotifySettings(
-      peer: peer,
-    );
+    final request = AccountGetNotifySettings(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -945,13 +897,9 @@ class ClientAccount {
   /// Update Status.
   ///
   /// ID: `6628562c`.
-  Future<Result<Boolean>> updateStatus({
-    required bool offline,
-  }) async {
+  Future<Result<Boolean>> updateStatus({required bool offline}) async {
     // Preparing the request.
-    final request = AccountUpdateStatus(
-      offline: offline,
-    );
+    final request = AccountUpdateStatus(offline: offline);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -967,9 +915,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetWallPapers(
-      hash: hash,
-    );
+    final request = AccountGetWallPapers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1003,13 +949,9 @@ class ClientAccount {
   /// Check Username.
   ///
   /// ID: `2714d86c`.
-  Future<Result<Boolean>> checkUsername({
-    required String username,
-  }) async {
+  Future<Result<Boolean>> checkUsername({required String username}) async {
     // Preparing the request.
-    final request = AccountCheckUsername(
-      username: username,
-    );
+    final request = AccountCheckUsername(username: username);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1021,13 +963,9 @@ class ClientAccount {
   /// Update Username.
   ///
   /// ID: `3e0bdd7c`.
-  Future<Result<UserBase>> updateUsername({
-    required String username,
-  }) async {
+  Future<Result<UserBase>> updateUsername({required String username}) async {
     // Preparing the request.
-    final request = AccountUpdateUsername(
-      username: username,
-    );
+    final request = AccountUpdateUsername(username: username);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1043,9 +981,7 @@ class ClientAccount {
     required InputPrivacyKeyBase key,
   }) async {
     // Preparing the request.
-    final request = AccountGetPrivacy(
-      key: key,
-    );
+    final request = AccountGetPrivacy(key: key);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1062,10 +998,7 @@ class ClientAccount {
     required List<InputPrivacyRuleBase> rules,
   }) async {
     // Preparing the request.
-    final request = AccountSetPrivacy(
-      key: key,
-      rules: rules,
-    );
+    final request = AccountSetPrivacy(key: key, rules: rules);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1082,10 +1015,7 @@ class ClientAccount {
     InputCheckPasswordSRPBase? password,
   }) async {
     // Preparing the request.
-    final request = AccountDeleteAccount(
-      reason: reason,
-      password: password,
-    );
+    final request = AccountDeleteAccount(reason: reason, password: password);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1115,9 +1045,7 @@ class ClientAccount {
     required AccountDaysTTLBase ttl,
   }) async {
     // Preparing the request.
-    final request = AccountSetAccountTTL(
-      ttl: ttl,
-    );
+    final request = AccountSetAccountTTL(ttl: ttl);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1171,13 +1099,9 @@ class ClientAccount {
   /// Update Device Locked.
   ///
   /// ID: `38df3532`.
-  Future<Result<Boolean>> updateDeviceLocked({
-    required int period,
-  }) async {
+  Future<Result<Boolean>> updateDeviceLocked({required int period}) async {
     // Preparing the request.
-    final request = AccountUpdateDeviceLocked(
-      period: period,
-    );
+    final request = AccountUpdateDeviceLocked(period: period);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1203,13 +1127,9 @@ class ClientAccount {
   /// Reset Authorization.
   ///
   /// ID: `df77f3bc`.
-  Future<Result<Boolean>> resetAuthorization({
-    required int hash,
-  }) async {
+  Future<Result<Boolean>> resetAuthorization({required int hash}) async {
     // Preparing the request.
-    final request = AccountResetAuthorization(
-      hash: hash,
-    );
+    final request = AccountResetAuthorization(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1239,9 +1159,7 @@ class ClientAccount {
     required InputCheckPasswordSRPBase password,
   }) async {
     // Preparing the request.
-    final request = AccountGetPasswordSettings(
-      password: password,
-    );
+    final request = AccountGetPasswordSettings(password: password);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1278,10 +1196,7 @@ class ClientAccount {
     required CodeSettingsBase settings,
   }) async {
     // Preparing the request.
-    final request = AccountSendConfirmPhoneCode(
-      hash: hash,
-      settings: settings,
-    );
+    final request = AccountSendConfirmPhoneCode(hash: hash, settings: settings);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1318,10 +1233,7 @@ class ClientAccount {
     required int period,
   }) async {
     // Preparing the request.
-    final request = AccountGetTmpPassword(
-      password: password,
-      period: period,
-    );
+    final request = AccountGetTmpPassword(password: password, period: period);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1347,13 +1259,9 @@ class ClientAccount {
   /// Reset Web Authorization.
   ///
   /// ID: `2d01b9ef`.
-  Future<Result<Boolean>> resetWebAuthorization({
-    required int hash,
-  }) async {
+  Future<Result<Boolean>> resetWebAuthorization({required int hash}) async {
     // Preparing the request.
-    final request = AccountResetWebAuthorization(
-      hash: hash,
-    );
+    final request = AccountResetWebAuthorization(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1397,9 +1305,7 @@ class ClientAccount {
     required List<SecureValueTypeBase> types,
   }) async {
     // Preparing the request.
-    final request = AccountGetSecureValue(
-      types: types,
-    );
+    final request = AccountGetSecureValue(types: types);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1435,9 +1341,7 @@ class ClientAccount {
     required List<SecureValueTypeBase> types,
   }) async {
     // Preparing the request.
-    final request = AccountDeleteSecureValue(
-      types: types,
-    );
+    final request = AccountDeleteSecureValue(types: types);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1544,10 +1448,7 @@ class ClientAccount {
     required String email,
   }) async {
     // Preparing the request.
-    final request = AccountSendVerifyEmailCode(
-      purpose: purpose,
-      email: email,
-    );
+    final request = AccountSendVerifyEmailCode(purpose: purpose, email: email);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1609,13 +1510,9 @@ class ClientAccount {
   /// Finish Takeout Session.
   ///
   /// ID: `1d2652ee`.
-  Future<Result<Boolean>> finishTakeoutSession({
-    required bool success,
-  }) async {
+  Future<Result<Boolean>> finishTakeoutSession({required bool success}) async {
     // Preparing the request.
-    final request = AccountFinishTakeoutSession(
-      success: success,
-    );
+    final request = AccountFinishTakeoutSession(success: success);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1627,13 +1524,9 @@ class ClientAccount {
   /// Confirm Password Email.
   ///
   /// ID: `8fdf1920`.
-  Future<Result<Boolean>> confirmPasswordEmail({
-    required String code,
-  }) async {
+  Future<Result<Boolean>> confirmPasswordEmail({required String code}) async {
     // Preparing the request.
-    final request = AccountConfirmPasswordEmail(
-      code: code,
-    );
+    final request = AccountConfirmPasswordEmail(code: code);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1691,9 +1584,7 @@ class ClientAccount {
     required bool silent,
   }) async {
     // Preparing the request.
-    final request = AccountSetContactSignUpNotification(
-      silent: silent,
-    );
+    final request = AccountSetContactSignUpNotification(silent: silent);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1731,9 +1622,7 @@ class ClientAccount {
     required InputWallPaperBase wallpaper,
   }) async {
     // Preparing the request.
-    final request = AccountGetWallPaper(
-      wallpaper: wallpaper,
-    );
+    final request = AccountGetWallPaper(wallpaper: wallpaper);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1826,7 +1715,7 @@ class ClientAccount {
   ///
   /// ID: `56da0b3f`.
   Future<Result<AccountAutoDownloadSettingsBase>>
-      getAutoDownloadSettings() async {
+  getAutoDownloadSettings() async {
     // Preparing the request.
     final request = AccountGetAutoDownloadSettings();
 
@@ -1943,10 +1832,7 @@ class ClientAccount {
     required bool unsave,
   }) async {
     // Preparing the request.
-    final request = AccountSaveTheme(
-      theme: theme,
-      unsave: unsave,
-    );
+    final request = AccountSaveTheme(theme: theme, unsave: unsave);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -1987,10 +1873,7 @@ class ClientAccount {
     required InputThemeBase theme,
   }) async {
     // Preparing the request.
-    final request = AccountGetTheme(
-      format: format,
-      theme: theme,
-    );
+    final request = AccountGetTheme(format: format, theme: theme);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2007,10 +1890,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetThemes(
-      format: format,
-      hash: hash,
-    );
+    final request = AccountGetThemes(format: format, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2058,9 +1938,7 @@ class ClientAccount {
     required List<InputWallPaperBase> wallpapers,
   }) async {
     // Preparing the request.
-    final request = AccountGetMultiWallPapers(
-      wallpapers: wallpapers,
-    );
+    final request = AccountGetMultiWallPapers(wallpapers: wallpapers);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2090,9 +1968,7 @@ class ClientAccount {
     required GlobalPrivacySettingsBase settings,
   }) async {
     // Preparing the request.
-    final request = AccountSetGlobalPrivacySettings(
-      settings: settings,
-    );
+    final request = AccountSetGlobalPrivacySettings(settings: settings);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2156,13 +2032,9 @@ class ClientAccount {
   /// Get Chat Themes.
   ///
   /// ID: `d638de89`.
-  Future<Result<AccountThemesBase>> getChatThemes({
-    required int hash,
-  }) async {
+  Future<Result<AccountThemesBase>> getChatThemes({required int hash}) async {
     // Preparing the request.
-    final request = AccountGetChatThemes(
-      hash: hash,
-    );
+    final request = AccountGetChatThemes(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2220,9 +2092,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetSavedRingtones(
-      hash: hash,
-    );
+    final request = AccountGetSavedRingtones(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2239,10 +2109,7 @@ class ClientAccount {
     required bool unsave,
   }) async {
     // Preparing the request.
-    final request = AccountSaveRingtone(
-      id: id,
-      unsave: unsave,
-    );
+    final request = AccountSaveRingtone(id: id, unsave: unsave);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2280,9 +2147,7 @@ class ClientAccount {
     required EmojiStatusBase emojiStatus,
   }) async {
     // Preparing the request.
-    final request = AccountUpdateEmojiStatus(
-      emojiStatus: emojiStatus,
-    );
+    final request = AccountUpdateEmojiStatus(emojiStatus: emojiStatus);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2298,9 +2163,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetDefaultEmojiStatuses(
-      hash: hash,
-    );
+    final request = AccountGetDefaultEmojiStatuses(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2316,9 +2179,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetRecentEmojiStatuses(
-      hash: hash,
-    );
+    final request = AccountGetRecentEmojiStatuses(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2348,9 +2209,7 @@ class ClientAccount {
     required List<String> order,
   }) async {
     // Preparing the request.
-    final request = AccountReorderUsernames(
-      order: order,
-    );
+    final request = AccountReorderUsernames(order: order);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2367,10 +2226,7 @@ class ClientAccount {
     required bool active,
   }) async {
     // Preparing the request.
-    final request = AccountToggleUsername(
-      username: username,
-      active: active,
-    );
+    final request = AccountToggleUsername(username: username, active: active);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2386,9 +2242,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetDefaultProfilePhotoEmojis(
-      hash: hash,
-    );
+    final request = AccountGetDefaultProfilePhotoEmojis(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2404,9 +2258,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetDefaultGroupPhotoEmojis(
-      hash: hash,
-    );
+    final request = AccountGetDefaultGroupPhotoEmojis(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2476,9 +2328,7 @@ class ClientAccount {
     required List<String> codes,
   }) async {
     // Preparing the request.
-    final request = AccountInvalidateSignInCodes(
-      codes: codes,
-    );
+    final request = AccountInvalidateSignInCodes(codes: codes);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2516,9 +2366,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetDefaultBackgroundEmojis(
-      hash: hash,
-    );
+    final request = AccountGetDefaultBackgroundEmojis(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2534,9 +2382,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetChannelDefaultEmojiStatuses(
-      hash: hash,
-    );
+    final request = AccountGetChannelDefaultEmojiStatuses(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2552,9 +2398,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetChannelRestrictedStatusEmojis(
-      hash: hash,
-    );
+    final request = AccountGetChannelRestrictedStatusEmojis(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2608,9 +2452,7 @@ class ClientAccount {
     InputBusinessGreetingMessageBase? message,
   }) async {
     // Preparing the request.
-    final request = AccountUpdateBusinessGreetingMessage(
-      message: message,
-    );
+    final request = AccountUpdateBusinessGreetingMessage(message: message);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2626,9 +2468,7 @@ class ClientAccount {
     InputBusinessAwayMessageBase? message,
   }) async {
     // Preparing the request.
-    final request = AccountUpdateBusinessAwayMessage(
-      message: message,
-    );
+    final request = AccountUpdateBusinessAwayMessage(message: message);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2682,9 +2522,7 @@ class ClientAccount {
     required String connectionId,
   }) async {
     // Preparing the request.
-    final request = AccountGetBotBusinessConnection(
-      connectionId: connectionId,
-    );
+    final request = AccountGetBotBusinessConnection(connectionId: connectionId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2700,9 +2538,7 @@ class ClientAccount {
     InputBusinessIntroBase? intro,
   }) async {
     // Preparing the request.
-    final request = AccountUpdateBusinessIntro(
-      intro: intro,
-    );
+    final request = AccountUpdateBusinessIntro(intro: intro);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2719,10 +2555,7 @@ class ClientAccount {
     required bool paused,
   }) async {
     // Preparing the request.
-    final request = AccountToggleConnectedBotPaused(
-      peer: peer,
-      paused: paused,
-    );
+    final request = AccountToggleConnectedBotPaused(peer: peer, paused: paused);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2738,9 +2571,7 @@ class ClientAccount {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = AccountDisablePeerConnectedBot(
-      peer: peer,
-    );
+    final request = AccountDisablePeerConnectedBot(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2752,13 +2583,9 @@ class ClientAccount {
   /// Update Birthday.
   ///
   /// ID: `cc6e0c11`.
-  Future<Result<Boolean>> updateBirthday({
-    BirthdayBase? birthday,
-  }) async {
+  Future<Result<Boolean>> updateBirthday({BirthdayBase? birthday}) async {
     // Preparing the request.
-    final request = AccountUpdateBirthday(
-      birthday: birthday,
-    );
+    final request = AccountUpdateBirthday(birthday: birthday);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2774,9 +2601,7 @@ class ClientAccount {
     required InputBusinessChatLinkBase link,
   }) async {
     // Preparing the request.
-    final request = AccountCreateBusinessChatLink(
-      link: link,
-    );
+    final request = AccountCreateBusinessChatLink(link: link);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2793,10 +2618,7 @@ class ClientAccount {
     required InputBusinessChatLinkBase link,
   }) async {
     // Preparing the request.
-    final request = AccountEditBusinessChatLink(
-      slug: slug,
-      link: link,
-    );
+    final request = AccountEditBusinessChatLink(slug: slug, link: link);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2808,13 +2630,9 @@ class ClientAccount {
   /// Delete Business Chat Link.
   ///
   /// ID: `60073674`.
-  Future<Result<Boolean>> deleteBusinessChatLink({
-    required String slug,
-  }) async {
+  Future<Result<Boolean>> deleteBusinessChatLink({required String slug}) async {
     // Preparing the request.
-    final request = AccountDeleteBusinessChatLink(
-      slug: slug,
-    );
+    final request = AccountDeleteBusinessChatLink(slug: slug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2844,9 +2662,7 @@ class ClientAccount {
     required String slug,
   }) async {
     // Preparing the request.
-    final request = AccountResolveBusinessChatLink(
-      slug: slug,
-    );
+    final request = AccountResolveBusinessChatLink(slug: slug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2862,9 +2678,7 @@ class ClientAccount {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = AccountUpdatePersonalChannel(
-      channel: channel,
-    );
+    final request = AccountUpdatePersonalChannel(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2880,9 +2694,7 @@ class ClientAccount {
     required bool enabled,
   }) async {
     // Preparing the request.
-    final request = AccountToggleSponsoredMessages(
-      enabled: enabled,
-    );
+    final request = AccountToggleSponsoredMessages(enabled: enabled);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2895,7 +2707,7 @@ class ClientAccount {
   ///
   /// ID: `06dd654c`.
   Future<Result<ReactionsNotifySettingsBase>>
-      getReactionsNotifySettings() async {
+  getReactionsNotifySettings() async {
     // Preparing the request.
     final request = AccountGetReactionsNotifySettings();
 
@@ -2913,9 +2725,7 @@ class ClientAccount {
     required ReactionsNotifySettingsBase settings,
   }) async {
     // Preparing the request.
-    final request = AccountSetReactionsNotifySettings(
-      settings: settings,
-    );
+    final request = AccountSetReactionsNotifySettings(settings: settings);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2931,9 +2741,7 @@ class ClientAccount {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = AccountGetCollectibleEmojiStatuses(
-      hash: hash,
-    );
+    final request = AccountGetCollectibleEmojiStatuses(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2985,6 +2793,78 @@ class ClientAccount {
     // Return the result.
     return response._to<Boolean>();
   }
+
+  /// Set Main Profile Tab.
+  ///
+  /// ID: `5dee78b0`.
+  Future<Result<Boolean>> setMainProfileTab({
+    required ProfileTabBase tab,
+  }) async {
+    // Preparing the request.
+    final request = AccountSetMainProfileTab(tab: tab);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Save Music.
+  ///
+  /// ID: `b26732a9`.
+  Future<Result<Boolean>> saveMusic({
+    required bool unsave,
+    required InputDocumentBase id,
+    InputDocumentBase? afterId,
+  }) async {
+    // Preparing the request.
+    final request = AccountSaveMusic(unsave: unsave, id: id, afterId: afterId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Saved Music Ids.
+  ///
+  /// ID: `e09d5faf`.
+  Future<Result<AccountSavedMusicIdsBase>> getSavedMusicIds({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = AccountGetSavedMusicIds(hash: hash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountSavedMusicIdsBase>();
+  }
+
+  /// Get Unique Gift Chat Themes.
+  ///
+  /// ID: `fe74ef9f`.
+  Future<Result<AccountChatThemesBase>> getUniqueGiftChatThemes({
+    required int offset,
+    required int limit,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = AccountGetUniqueGiftChatThemes(
+      offset: offset,
+      limit: limit,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountChatThemesBase>();
+  }
 }
 
 /// Users.
@@ -3000,9 +2880,7 @@ class ClientUsers {
     required List<InputUserBase> id,
   }) async {
     // Preparing the request.
-    final request = UsersGetUsers(
-      id: id,
-    );
+    final request = UsersGetUsers(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3018,9 +2896,7 @@ class ClientUsers {
     required InputUserBase id,
   }) async {
     // Preparing the request.
-    final request = UsersGetFullUser(
-      id: id,
-    );
+    final request = UsersGetFullUser(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3037,10 +2913,7 @@ class ClientUsers {
     required List<SecureValueErrorBase> errors,
   }) async {
     // Preparing the request.
-    final request = UsersSetSecureValueErrors(
-      id: id,
-      errors: errors,
-    );
+    final request = UsersSetSecureValueErrors(id: id, errors: errors);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3056,15 +2929,54 @@ class ClientUsers {
     required List<InputUserBase> id,
   }) async {
     // Preparing the request.
-    final request = UsersGetRequirementsToContact(
-      id: id,
-    );
+    final request = UsersGetRequirementsToContact(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
 
     // Return the result.
     return response._toVector<RequirementToContactBase>();
+  }
+
+  /// Get Saved Music.
+  ///
+  /// ID: `788d7fe3`.
+  Future<Result<UsersSavedMusicBase>> getSavedMusic({
+    required InputUserBase id,
+    required int offset,
+    required int limit,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = UsersGetSavedMusic(
+      id: id,
+      offset: offset,
+      limit: limit,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UsersSavedMusicBase>();
+  }
+
+  /// Get Saved Music By I D.
+  ///
+  /// ID: `7573a4e9`.
+  Future<Result<UsersSavedMusicBase>> getSavedMusicByID({
+    required InputUserBase id,
+    required List<InputDocumentBase> documents,
+  }) async {
+    // Preparing the request.
+    final request = UsersGetSavedMusicByID(id: id, documents: documents);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UsersSavedMusicBase>();
   }
 }
 
@@ -3077,13 +2989,9 @@ class ClientContacts {
   /// Get Contact I Ds.
   ///
   /// ID: `7adc669d`.
-  Future<Result<Vector<int>>> getContactIDs({
-    required int hash,
-  }) async {
+  Future<Result<Vector<int>>> getContactIDs({required int hash}) async {
     // Preparing the request.
-    final request = ContactsGetContactIDs(
-      hash: hash,
-    );
+    final request = ContactsGetContactIDs(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3109,13 +3017,9 @@ class ClientContacts {
   /// Get Contacts.
   ///
   /// ID: `5dd69e12`.
-  Future<Result<ContactsContactsBase>> getContacts({
-    required int hash,
-  }) async {
+  Future<Result<ContactsContactsBase>> getContacts({required int hash}) async {
     // Preparing the request.
-    final request = ContactsGetContacts(
-      hash: hash,
-    );
+    final request = ContactsGetContacts(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3131,9 +3035,7 @@ class ClientContacts {
     required List<InputContactBase> contacts,
   }) async {
     // Preparing the request.
-    final request = ContactsImportContacts(
-      contacts: contacts,
-    );
+    final request = ContactsImportContacts(contacts: contacts);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3149,9 +3051,7 @@ class ClientContacts {
     required List<InputUserBase> id,
   }) async {
     // Preparing the request.
-    final request = ContactsDeleteContacts(
-      id: id,
-    );
+    final request = ContactsDeleteContacts(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3163,13 +3063,9 @@ class ClientContacts {
   /// Delete By Phones.
   ///
   /// ID: `1013fd9e`.
-  Future<Result<Boolean>> deleteByPhones({
-    required List<String> phones,
-  }) async {
+  Future<Result<Boolean>> deleteByPhones({required List<String> phones}) async {
     // Preparing the request.
-    final request = ContactsDeleteByPhones(
-      phones: phones,
-    );
+    final request = ContactsDeleteByPhones(phones: phones);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3186,10 +3082,7 @@ class ClientContacts {
     required InputPeerBase id,
   }) async {
     // Preparing the request.
-    final request = ContactsBlock(
-      myStoriesFrom: myStoriesFrom,
-      id: id,
-    );
+    final request = ContactsBlock(myStoriesFrom: myStoriesFrom, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3206,10 +3099,7 @@ class ClientContacts {
     required InputPeerBase id,
   }) async {
     // Preparing the request.
-    final request = ContactsUnblock(
-      myStoriesFrom: myStoriesFrom,
-      id: id,
-    );
+    final request = ContactsUnblock(myStoriesFrom: myStoriesFrom, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3248,10 +3138,7 @@ class ClientContacts {
     required int limit,
   }) async {
     // Preparing the request.
-    final request = ContactsSearch(
-      q: q,
-      limit: limit,
-    );
+    final request = ContactsSearch(q: q, limit: limit);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3328,10 +3215,7 @@ class ClientContacts {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = ContactsResetTopPeerRating(
-      category: category,
-      peer: peer,
-    );
+    final request = ContactsResetTopPeerRating(category: category, peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3371,13 +3255,9 @@ class ClientContacts {
   /// Toggle Top Peers.
   ///
   /// ID: `8514bdda`.
-  Future<Result<Boolean>> toggleTopPeers({
-    required bool enabled,
-  }) async {
+  Future<Result<Boolean>> toggleTopPeers({required bool enabled}) async {
     // Preparing the request.
-    final request = ContactsToggleTopPeers(
-      enabled: enabled,
-    );
+    final request = ContactsToggleTopPeers(enabled: enabled);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3415,13 +3295,9 @@ class ClientContacts {
   /// Accept Contact.
   ///
   /// ID: `f831a20f`.
-  Future<Result<UpdatesBase>> acceptContact({
-    required InputUserBase id,
-  }) async {
+  Future<Result<UpdatesBase>> acceptContact({required InputUserBase id}) async {
     // Preparing the request.
-    final request = ContactsAcceptContact(
-      id: id,
-    );
+    final request = ContactsAcceptContact(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3483,9 +3359,7 @@ class ClientContacts {
     required String phone,
   }) async {
     // Preparing the request.
-    final request = ContactsResolvePhone(
-      phone: phone,
-    );
+    final request = ContactsResolvePhone(phone: phone);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3511,13 +3385,9 @@ class ClientContacts {
   /// Import Contact Token.
   ///
   /// ID: `13005788`.
-  Future<Result<UserBase>> importContactToken({
-    required String token,
-  }) async {
+  Future<Result<UserBase>> importContactToken({required String token}) async {
     // Preparing the request.
-    final request = ContactsImportContactToken(
-      token: token,
-    );
+    final request = ContactsImportContactToken(token: token);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3529,13 +3399,9 @@ class ClientContacts {
   /// Edit Close Friends.
   ///
   /// ID: `ba6705f0`.
-  Future<Result<Boolean>> editCloseFriends({
-    required List<int> id,
-  }) async {
+  Future<Result<Boolean>> editCloseFriends({required List<int> id}) async {
     // Preparing the request.
-    final request = ContactsEditCloseFriends(
-      id: id,
-    );
+    final request = ContactsEditCloseFriends(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3587,9 +3453,7 @@ class ClientContacts {
     required String q,
   }) async {
     // Preparing the request.
-    final request = ContactsGetSponsoredPeers(
-      q: q,
-    );
+    final request = ContactsGetSponsoredPeers(q: q);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3612,9 +3476,7 @@ class ClientMessages {
     required List<InputMessageBase> id,
   }) async {
     // Preparing the request.
-    final request = MessagesGetMessages(
-      id: id,
-    );
+    final request = MessagesGetMessages(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3739,10 +3601,7 @@ class ClientMessages {
     required int maxId,
   }) async {
     // Preparing the request.
-    final request = MessagesReadHistory(
-      peer: peer,
-      maxId: maxId,
-    );
+    final request = MessagesReadHistory(peer: peer, maxId: maxId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3787,10 +3646,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesDeleteMessages(
-      revoke: revoke,
-      id: id,
-    );
+    final request = MessagesDeleteMessages(revoke: revoke, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3806,9 +3662,7 @@ class ClientMessages {
     required int maxId,
   }) async {
     // Preparing the request.
-    final request = MessagesReceivedMessages(
-      maxId: maxId,
-    );
+    final request = MessagesReceivedMessages(maxId: maxId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4008,13 +3862,9 @@ class ClientMessages {
   /// Report Spam.
   ///
   /// ID: `cf1592db`.
-  Future<Result<Boolean>> reportSpam({
-    required InputPeerBase peer,
-  }) async {
+  Future<Result<Boolean>> reportSpam({required InputPeerBase peer}) async {
     // Preparing the request.
-    final request = MessagesReportSpam(
-      peer: peer,
-    );
+    final request = MessagesReportSpam(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4030,9 +3880,7 @@ class ClientMessages {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesGetPeerSettings(
-      peer: peer,
-    );
+    final request = MessagesGetPeerSettings(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4068,13 +3916,9 @@ class ClientMessages {
   /// Get Chats.
   ///
   /// ID: `49e9528f`.
-  Future<Result<MessagesChatsBase>> getChats({
-    required List<int> id,
-  }) async {
+  Future<Result<MessagesChatsBase>> getChats({required List<int> id}) async {
     // Preparing the request.
-    final request = MessagesGetChats(
-      id: id,
-    );
+    final request = MessagesGetChats(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4090,9 +3934,7 @@ class ClientMessages {
     required int chatId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetFullChat(
-      chatId: chatId,
-    );
+    final request = MessagesGetFullChat(chatId: chatId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4109,10 +3951,7 @@ class ClientMessages {
     required String title,
   }) async {
     // Preparing the request.
-    final request = MessagesEditChatTitle(
-      chatId: chatId,
-      title: title,
-    );
+    final request = MessagesEditChatTitle(chatId: chatId, title: title);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4129,10 +3968,7 @@ class ClientMessages {
     required InputChatPhotoBase photo,
   }) async {
     // Preparing the request.
-    final request = MessagesEditChatPhoto(
-      chatId: chatId,
-      photo: photo,
-    );
+    final request = MessagesEditChatPhoto(chatId: chatId, photo: photo);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4299,10 +4135,7 @@ class ClientMessages {
     required bool typing,
   }) async {
     // Preparing the request.
-    final request = MessagesSetEncryptedTyping(
-      peer: peer,
-      typing: typing,
-    );
+    final request = MessagesSetEncryptedTyping(peer: peer, typing: typing);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4319,10 +4152,7 @@ class ClientMessages {
     required DateTime maxDate,
   }) async {
     // Preparing the request.
-    final request = MessagesReadEncryptedHistory(
-      peer: peer,
-      maxDate: maxDate,
-    );
+    final request = MessagesReadEncryptedHistory(peer: peer, maxDate: maxDate);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4406,13 +4236,9 @@ class ClientMessages {
   /// Received Queue.
   ///
   /// ID: `55a5bb66`.
-  Future<Result<Vector<int>>> receivedQueue({
-    required int maxQts,
-  }) async {
+  Future<Result<Vector<int>>> receivedQueue({required int maxQts}) async {
     // Preparing the request.
-    final request = MessagesReceivedQueue(
-      maxQts: maxQts,
-    );
+    final request = MessagesReceivedQueue(maxQts: maxQts);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4428,9 +4254,7 @@ class ClientMessages {
     required InputEncryptedChatBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesReportEncryptedSpam(
-      peer: peer,
-    );
+    final request = MessagesReportEncryptedSpam(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4446,9 +4270,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesReadMessageContents(
-      id: id,
-    );
+    final request = MessagesReadMessageContents(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4465,10 +4287,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetStickers(
-      emoticon: emoticon,
-      hash: hash,
-    );
+    final request = MessagesGetStickers(emoticon: emoticon, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4484,9 +4303,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAllStickers(
-      hash: hash,
-    );
+    final request = MessagesGetAllStickers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4548,13 +4365,9 @@ class ClientMessages {
   /// Check Chat Invite.
   ///
   /// ID: `3eadb1bb`.
-  Future<Result<ChatInviteBase>> checkChatInvite({
-    required String hash,
-  }) async {
+  Future<Result<ChatInviteBase>> checkChatInvite({required String hash}) async {
     // Preparing the request.
-    final request = MessagesCheckChatInvite(
-      hash: hash,
-    );
+    final request = MessagesCheckChatInvite(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4566,13 +4379,9 @@ class ClientMessages {
   /// Import Chat Invite.
   ///
   /// ID: `6c50051c`.
-  Future<Result<UpdatesBase>> importChatInvite({
-    required String hash,
-  }) async {
+  Future<Result<UpdatesBase>> importChatInvite({required String hash}) async {
     // Preparing the request.
-    final request = MessagesImportChatInvite(
-      hash: hash,
-    );
+    final request = MessagesImportChatInvite(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4589,10 +4398,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetStickerSet(
-      stickerset: stickerset,
-      hash: hash,
-    );
+    final request = MessagesGetStickerSet(stickerset: stickerset, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4628,9 +4434,7 @@ class ClientMessages {
     required InputStickerSetBase stickerset,
   }) async {
     // Preparing the request.
-    final request = MessagesUninstallStickerSet(
-      stickerset: stickerset,
-    );
+    final request = MessagesUninstallStickerSet(stickerset: stickerset);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4710,13 +4514,9 @@ class ClientMessages {
   /// Migrate Chat.
   ///
   /// ID: `a2875319`.
-  Future<Result<UpdatesBase>> migrateChat({
-    required int chatId,
-  }) async {
+  Future<Result<UpdatesBase>> migrateChat({required int chatId}) async {
     // Preparing the request.
-    final request = MessagesMigrateChat(
-      chatId: chatId,
-    );
+    final request = MessagesMigrateChat(chatId: chatId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4816,9 +4616,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetSavedGifs(
-      hash: hash,
-    );
+    final request = MessagesGetSavedGifs(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4835,10 +4633,7 @@ class ClientMessages {
     required bool unsave,
   }) async {
     // Preparing the request.
-    final request = MessagesSaveGif(
-      id: id,
-      unsave: unsave,
-    );
+    final request = MessagesSaveGif(id: id, unsave: unsave);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -4955,10 +4750,7 @@ class ClientMessages {
     required int id,
   }) async {
     // Preparing the request.
-    final request = MessagesGetMessageEditData(
-      peer: peer,
-      id: id,
-    );
+    final request = MessagesGetMessageEditData(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5092,9 +4884,7 @@ class ClientMessages {
     required List<InputDialogPeerBase> peers,
   }) async {
     // Preparing the request.
-    final request = MessagesGetPeerDialogs(
-      peers: peers,
-    );
+    final request = MessagesGetPeerDialogs(peers: peers);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5158,9 +4948,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetFeaturedStickers(
-      hash: hash,
-    );
+    final request = MessagesGetFeaturedStickers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5172,13 +4960,9 @@ class ClientMessages {
   /// Read Featured Stickers.
   ///
   /// ID: `5b118126`.
-  Future<Result<Boolean>> readFeaturedStickers({
-    required List<int> id,
-  }) async {
+  Future<Result<Boolean>> readFeaturedStickers({required List<int> id}) async {
     // Preparing the request.
-    final request = MessagesReadFeaturedStickers(
-      id: id,
-    );
+    final request = MessagesReadFeaturedStickers(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5195,10 +4979,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetRecentStickers(
-      attached: attached,
-      hash: hash,
-    );
+    final request = MessagesGetRecentStickers(attached: attached, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5232,13 +5013,9 @@ class ClientMessages {
   /// Clear Recent Stickers.
   ///
   /// ID: `8999602d`.
-  Future<Result<Boolean>> clearRecentStickers({
-    required bool attached,
-  }) async {
+  Future<Result<Boolean>> clearRecentStickers({required bool attached}) async {
     // Preparing the request.
-    final request = MessagesClearRecentStickers(
-      attached: attached,
-    );
+    final request = MessagesClearRecentStickers(attached: attached);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5278,9 +5055,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetMaskStickers(
-      hash: hash,
-    );
+    final request = MessagesGetMaskStickers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5296,9 +5071,7 @@ class ClientMessages {
     required InputStickeredMediaBase media,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAttachedStickers(
-      media: media,
-    );
+    final request = MessagesGetAttachedStickers(media: media);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5391,10 +5164,7 @@ class ClientMessages {
     required InputUserBase userId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetInlineGameHighScores(
-      id: id,
-      userId: userId,
-    );
+    final request = MessagesGetInlineGameHighScores(id: id, userId: userId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5433,10 +5203,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetWebPage(
-      url: url,
-      hash: hash,
-    );
+    final request = MessagesGetWebPage(url: url, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5453,10 +5220,7 @@ class ClientMessages {
     required InputDialogPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesToggleDialogPin(
-      pinned: pinned,
-      peer: peer,
-    );
+    final request = MessagesToggleDialogPin(pinned: pinned, peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5494,9 +5258,7 @@ class ClientMessages {
     required int folderId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetPinnedDialogs(
-      folderId: folderId,
-    );
+    final request = MessagesGetPinnedDialogs(folderId: folderId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5600,9 +5362,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetFavedStickers(
-      hash: hash,
-    );
+    final request = MessagesGetFavedStickers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5619,10 +5379,7 @@ class ClientMessages {
     required bool unfave,
   }) async {
     // Preparing the request.
-    final request = MessagesFaveSticker(
-      id: id,
-      unfave: unfave,
-    );
+    final request = MessagesFaveSticker(id: id, unfave: unfave);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5669,10 +5426,7 @@ class ClientMessages {
     int? topMsgId,
   }) async {
     // Preparing the request.
-    final request = MessagesReadMentions(
-      peer: peer,
-      topMsgId: topMsgId,
-    );
+    final request = MessagesReadMentions(peer: peer, topMsgId: topMsgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5757,10 +5511,7 @@ class ClientMessages {
     required InputEncryptedFileBase file,
   }) async {
     // Preparing the request.
-    final request = MessagesUploadEncryptedFile(
-      peer: peer,
-      file: file,
-    );
+    final request = MessagesUploadEncryptedFile(peer: peer, file: file);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5834,9 +5585,7 @@ class ClientMessages {
     InputPeerBase? parentPeer,
   }) async {
     // Preparing the request.
-    final request = MessagesGetDialogUnreadMarks(
-      parentPeer: parentPeer,
-    );
+    final request = MessagesGetDialogUnreadMarks(parentPeer: parentPeer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5915,10 +5664,7 @@ class ClientMessages {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetPollResults(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesGetPollResults(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5934,9 +5680,7 @@ class ClientMessages {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesGetOnlines(
-      peer: peer,
-    );
+    final request = MessagesGetOnlines(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5953,10 +5697,7 @@ class ClientMessages {
     required String about,
   }) async {
     // Preparing the request.
-    final request = MessagesEditChatAbout(
-      peer: peer,
-      about: about,
-    );
+    final request = MessagesEditChatAbout(peer: peer, about: about);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -5992,9 +5733,7 @@ class ClientMessages {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiKeywords(
-      langCode: langCode,
-    );
+    final request = MessagesGetEmojiKeywords(langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6030,9 +5769,7 @@ class ClientMessages {
     required List<String> langCodes,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiKeywordsLanguages(
-      langCodes: langCodes,
-    );
+    final request = MessagesGetEmojiKeywordsLanguages(langCodes: langCodes);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6044,13 +5781,9 @@ class ClientMessages {
   /// Get Emoji U R L.
   ///
   /// ID: `d5b10c26`.
-  Future<Result<EmojiURLBase>> getEmojiURL({
-    required String langCode,
-  }) async {
+  Future<Result<EmojiURLBase>> getEmojiURL({required String langCode}) async {
     // Preparing the request.
-    final request = MessagesGetEmojiURL(
-      langCode: langCode,
-    );
+    final request = MessagesGetEmojiURL(langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6140,9 +5873,7 @@ class ClientMessages {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesHidePeerSettingsBar(
-      peer: peer,
-    );
+    final request = MessagesHidePeerSettingsBar(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6159,10 +5890,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetScheduledHistory(
-      peer: peer,
-      hash: hash,
-    );
+    final request = MessagesGetScheduledHistory(peer: peer, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6179,10 +5907,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesGetScheduledMessages(
-      peer: peer,
-      id: id,
-    );
+    final request = MessagesGetScheduledMessages(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6199,10 +5924,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesSendScheduledMessages(
-      peer: peer,
-      id: id,
-    );
+    final request = MessagesSendScheduledMessages(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6219,10 +5941,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesDeleteScheduledMessages(
-      peer: peer,
-      id: id,
-    );
+    final request = MessagesDeleteScheduledMessages(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6299,7 +6018,7 @@ class ClientMessages {
   ///
   /// ID: `a29cd42c`.
   Future<Result<Vector<DialogFilterSuggestedBase>>>
-      getSuggestedDialogFilters() async {
+  getSuggestedDialogFilters() async {
     // Preparing the request.
     final request = MessagesGetSuggestedDialogFilters();
 
@@ -6318,10 +6037,7 @@ class ClientMessages {
     DialogFilterBase? filter,
   }) async {
     // Preparing the request.
-    final request = MessagesUpdateDialogFilter(
-      id: id,
-      filter: filter,
-    );
+    final request = MessagesUpdateDialogFilter(id: id, filter: filter);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6337,9 +6053,7 @@ class ClientMessages {
     required List<int> order,
   }) async {
     // Preparing the request.
-    final request = MessagesUpdateDialogFiltersOrder(
-      order: order,
-    );
+    final request = MessagesUpdateDialogFiltersOrder(order: order);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6412,10 +6126,7 @@ class ClientMessages {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetDiscussionMessage(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesGetDiscussionMessage(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6471,13 +6182,9 @@ class ClientMessages {
   /// Delete Chat.
   ///
   /// ID: `5bd0ee50`.
-  Future<Result<Boolean>> deleteChat({
-    required int chatId,
-  }) async {
+  Future<Result<Boolean>> deleteChat({required int chatId}) async {
     // Preparing the request.
-    final request = MessagesDeleteChat(
-      chatId: chatId,
-    );
+    final request = MessagesDeleteChat(chatId: chatId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6493,9 +6200,7 @@ class ClientMessages {
     required bool revoke,
   }) async {
     // Preparing the request.
-    final request = MessagesDeletePhoneCallHistory(
-      revoke: revoke,
-    );
+    final request = MessagesDeletePhoneCallHistory(revoke: revoke);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6511,9 +6216,7 @@ class ClientMessages {
     required String importHead,
   }) async {
     // Preparing the request.
-    final request = MessagesCheckHistoryImport(
-      importHead: importHead,
-    );
+    final request = MessagesCheckHistoryImport(importHead: importHead);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6576,10 +6279,7 @@ class ClientMessages {
     required int importId,
   }) async {
     // Preparing the request.
-    final request = MessagesStartHistoryImport(
-      peer: peer,
-      importId: importId,
-    );
+    final request = MessagesStartHistoryImport(peer: peer, importId: importId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6624,10 +6324,7 @@ class ClientMessages {
     required String link,
   }) async {
     // Preparing the request.
-    final request = MessagesGetExportedChatInvite(
-      peer: peer,
-      link: link,
-    );
+    final request = MessagesGetExportedChatInvite(peer: peer, link: link);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6694,10 +6391,7 @@ class ClientMessages {
     required String link,
   }) async {
     // Preparing the request.
-    final request = MessagesDeleteExportedChatInvite(
-      peer: peer,
-      link: link,
-    );
+    final request = MessagesDeleteExportedChatInvite(peer: peer, link: link);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6713,9 +6407,7 @@ class ClientMessages {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAdminsWithInvites(
-      peer: peer,
-    );
+    final request = MessagesGetAdminsWithInvites(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6764,10 +6456,7 @@ class ClientMessages {
     required int period,
   }) async {
     // Preparing the request.
-    final request = MessagesSetHistoryTTL(
-      peer: peer,
-      period: period,
-    );
+    final request = MessagesSetHistoryTTL(peer: peer, period: period);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6783,9 +6472,7 @@ class ClientMessages {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesCheckHistoryImportPeer(
-      peer: peer,
-    );
+    final request = MessagesCheckHistoryImportPeer(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6796,16 +6483,13 @@ class ClientMessages {
 
   /// Set Chat Theme.
   ///
-  /// ID: `e63be13f`.
+  /// ID: `081202c9`.
   Future<Result<UpdatesBase>> setChatTheme({
     required InputPeerBase peer,
-    required String emoticon,
+    required InputChatThemeBase theme,
   }) async {
     // Preparing the request.
-    final request = MessagesSetChatTheme(
-      peer: peer,
-      emoticon: emoticon,
-    );
+    final request = MessagesSetChatTheme(peer: peer, theme: theme);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6938,10 +6622,7 @@ class ClientMessages {
     required bool enabled,
   }) async {
     // Preparing the request.
-    final request = MessagesToggleNoForwards(
-      peer: peer,
-      enabled: enabled,
-    );
+    final request = MessagesToggleNoForwards(peer: peer, enabled: enabled);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6958,10 +6639,7 @@ class ClientMessages {
     required InputPeerBase sendAs,
   }) async {
     // Preparing the request.
-    final request = MessagesSaveDefaultSendAs(
-      peer: peer,
-      sendAs: sendAs,
-    );
+    final request = MessagesSaveDefaultSendAs(peer: peer, sendAs: sendAs);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7004,10 +6682,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesGetMessagesReactions(
-      peer: peer,
-      id: id,
-    );
+    final request = MessagesGetMessagesReactions(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7073,9 +6748,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAvailableReactions(
-      hash: hash,
-    );
+    final request = MessagesGetAvailableReactions(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7091,9 +6764,7 @@ class ClientMessages {
     required ReactionBase reaction,
   }) async {
     // Preparing the request.
-    final request = MessagesSetDefaultReaction(
-      reaction: reaction,
-    );
+    final request = MessagesSetDefaultReaction(reaction: reaction);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7189,11 +6860,7 @@ class ClientMessages {
     required int limit,
   }) async {
     // Preparing the request.
-    final request = MessagesSearchSentMedia(
-      q: q,
-      filter: filter,
-      limit: limit,
-    );
+    final request = MessagesSearchSentMedia(q: q, filter: filter, limit: limit);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7209,9 +6876,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAttachMenuBots(
-      hash: hash,
-    );
+    final request = MessagesGetAttachMenuBots(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7227,9 +6892,7 @@ class ClientMessages {
     required InputUserBase bot,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAttachMenuBot(
-      bot: bot,
-    );
+    final request = MessagesGetAttachMenuBot(bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7414,10 +7077,7 @@ class ClientMessages {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesTranscribeAudio(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesTranscribeAudio(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7457,9 +7117,7 @@ class ClientMessages {
     required List<int> documentId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetCustomEmojiDocuments(
-      documentId: documentId,
-    );
+    final request = MessagesGetCustomEmojiDocuments(documentId: documentId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7475,9 +7133,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiStickers(
-      hash: hash,
-    );
+    final request = MessagesGetEmojiStickers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7493,9 +7149,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetFeaturedEmojiStickers(
-      hash: hash,
-    );
+    final request = MessagesGetFeaturedEmojiStickers(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7534,10 +7188,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetTopReactions(
-      limit: limit,
-      hash: hash,
-    );
+    final request = MessagesGetTopReactions(limit: limit, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7554,10 +7205,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetRecentReactions(
-      limit: limit,
-      hash: hash,
-    );
+    final request = MessagesGetRecentReactions(limit: limit, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7588,10 +7236,7 @@ class ClientMessages {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = MessagesGetExtendedMedia(
-      peer: peer,
-      id: id,
-    );
+    final request = MessagesGetExtendedMedia(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7603,13 +7248,9 @@ class ClientMessages {
   /// Set Default History T T L.
   ///
   /// ID: `9eb51445`.
-  Future<Result<Boolean>> setDefaultHistoryTTL({
-    required int period,
-  }) async {
+  Future<Result<Boolean>> setDefaultHistoryTTL({required int period}) async {
     // Preparing the request.
-    final request = MessagesSetDefaultHistoryTTL(
-      period: period,
-    );
+    final request = MessagesSetDefaultHistoryTTL(period: period);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7663,9 +7304,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiGroups(
-      hash: hash,
-    );
+    final request = MessagesGetEmojiGroups(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7681,9 +7320,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiStatusGroups(
-      hash: hash,
-    );
+    final request = MessagesGetEmojiStatusGroups(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7699,9 +7336,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiProfilePhotoGroups(
-      hash: hash,
-    );
+    final request = MessagesGetEmojiProfilePhotoGroups(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7718,10 +7353,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesSearchCustomEmoji(
-      emoticon: emoticon,
-      hash: hash,
-    );
+    final request = MessagesSearchCustomEmoji(emoticon: emoticon, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7758,10 +7390,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetBotApp(
-      app: app,
-      hash: hash,
-    );
+    final request = MessagesGetBotApp(app: app, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -7964,10 +7593,7 @@ class ClientMessages {
     required InputDialogPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = MessagesToggleSavedDialogPin(
-      pinned: pinned,
-      peer: peer,
-    );
+    final request = MessagesToggleSavedDialogPin(pinned: pinned, peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8004,10 +7630,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetSavedReactionTags(
-      peer: peer,
-      hash: hash,
-    );
+    final request = MessagesGetSavedReactionTags(peer: peer, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8043,9 +7666,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetDefaultTagReactions(
-      hash: hash,
-    );
+    final request = MessagesGetDefaultTagReactions(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8062,10 +7683,7 @@ class ClientMessages {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetOutboxReadDate(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesGetOutboxReadDate(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8081,9 +7699,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetQuickReplies(
-      hash: hash,
-    );
+    final request = MessagesGetQuickReplies(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8099,9 +7715,7 @@ class ClientMessages {
     required List<int> order,
   }) async {
     // Preparing the request.
-    final request = MessagesReorderQuickReplies(
-      order: order,
-    );
+    final request = MessagesReorderQuickReplies(order: order);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8117,9 +7731,7 @@ class ClientMessages {
     required String shortcut,
   }) async {
     // Preparing the request.
-    final request = MessagesCheckQuickReplyShortcut(
-      shortcut: shortcut,
-    );
+    final request = MessagesCheckQuickReplyShortcut(shortcut: shortcut);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8155,9 +7767,7 @@ class ClientMessages {
     required int shortcutId,
   }) async {
     // Preparing the request.
-    final request = MessagesDeleteQuickReplyShortcut(
-      shortcutId: shortcutId,
-    );
+    final request = MessagesDeleteQuickReplyShortcut(shortcutId: shortcutId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8239,9 +7849,7 @@ class ClientMessages {
     required bool enabled,
   }) async {
     // Preparing the request.
-    final request = MessagesToggleDialogFilterTags(
-      enabled: enabled,
-    );
+    final request = MessagesToggleDialogFilterTags(enabled: enabled);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8258,10 +7866,7 @@ class ClientMessages {
     required int limit,
   }) async {
     // Preparing the request.
-    final request = MessagesGetMyStickers(
-      offsetId: offsetId,
-      limit: limit,
-    );
+    final request = MessagesGetMyStickers(offsetId: offsetId, limit: limit);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8277,9 +7882,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetEmojiStickerGroups(
-      hash: hash,
-    );
+    final request = MessagesGetEmojiStickerGroups(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8295,9 +7898,7 @@ class ClientMessages {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetAvailableEffects(
-      hash: hash,
-    );
+    final request = MessagesGetAvailableEffects(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8315,11 +7916,7 @@ class ClientMessages {
     required TextWithEntitiesBase text,
   }) async {
     // Preparing the request.
-    final request = MessagesEditFactCheck(
-      peer: peer,
-      msgId: msgId,
-      text: text,
-    );
+    final request = MessagesEditFactCheck(peer: peer, msgId: msgId, text: text);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8336,10 +7933,7 @@ class ClientMessages {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesDeleteFactCheck(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesDeleteFactCheck(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8356,10 +7950,7 @@ class ClientMessages {
     required List<int> msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetFactCheck(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesGetFactCheck(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8467,9 +8058,7 @@ class ClientMessages {
     required Uint8List randomId,
   }) async {
     // Preparing the request.
-    final request = MessagesViewSponsoredMessage(
-      randomId: randomId,
-    );
+    final request = MessagesViewSponsoredMessage(randomId: randomId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8504,7 +8093,7 @@ class ClientMessages {
   ///
   /// ID: `12cbf0c4`.
   Future<Result<ChannelsSponsoredMessageReportResultBase>>
-      reportSponsoredMessage({
+  reportSponsoredMessage({
     required Uint8List randomId,
     required Uint8List option,
   }) async {
@@ -8529,10 +8118,7 @@ class ClientMessages {
     int? msgId,
   }) async {
     // Preparing the request.
-    final request = MessagesGetSponsoredMessages(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = MessagesGetSponsoredMessages(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8545,7 +8131,7 @@ class ClientMessages {
   ///
   /// ID: `f21f7f2f`.
   Future<Result<MessagesBotPreparedInlineMessageBase>>
-      savePreparedInlineMessage({
+  savePreparedInlineMessage({
     required InputBotInlineResultBase result,
     required InputUserBase userId,
     List<InlineQueryPeerTypeBase>? peerTypes,
@@ -8572,10 +8158,7 @@ class ClientMessages {
     required String id,
   }) async {
     // Preparing the request.
-    final request = MessagesGetPreparedInlineMessage(
-      bot: bot,
-      id: id,
-    );
+    final request = MessagesGetPreparedInlineMessage(bot: bot, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8889,9 +8472,7 @@ class ClientPhotos {
     required List<InputPhotoBase> id,
   }) async {
     // Preparing the request.
-    final request = PhotosDeletePhotos(
-      id: id,
-    );
+    final request = PhotosDeletePhotos(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9125,10 +8706,7 @@ class ClientUpload {
     required int offset,
   }) async {
     // Preparing the request.
-    final request = UploadGetFileHashes(
-      location: location,
-      offset: offset,
-    );
+    final request = UploadGetFileHashes(location: location, offset: offset);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9179,9 +8757,7 @@ class ClientHelp {
     required String source,
   }) async {
     // Preparing the request.
-    final request = HelpGetAppUpdate(
-      source: source,
-    );
+    final request = HelpGetAppUpdate(source: source);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9259,9 +8835,7 @@ class ClientHelp {
     required String referer,
   }) async {
     // Preparing the request.
-    final request = HelpGetRecentMeUrls(
-      referer: referer,
-    );
+    final request = HelpGetRecentMeUrls(referer: referer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9291,9 +8865,7 @@ class ClientHelp {
     required DataJSONBase id,
   }) async {
     // Preparing the request.
-    final request = HelpAcceptTermsOfService(
-      id: id,
-    );
+    final request = HelpAcceptTermsOfService(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9309,9 +8881,7 @@ class ClientHelp {
     required String path,
   }) async {
     // Preparing the request.
-    final request = HelpGetDeepLinkInfo(
-      path: path,
-    );
+    final request = HelpGetDeepLinkInfo(path: path);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9323,13 +8893,9 @@ class ClientHelp {
   /// Get App Config.
   ///
   /// ID: `61e3f854`.
-  Future<Result<HelpAppConfigBase>> getAppConfig({
-    required int hash,
-  }) async {
+  Future<Result<HelpAppConfigBase>> getAppConfig({required int hash}) async {
     // Preparing the request.
-    final request = HelpGetAppConfig(
-      hash: hash,
-    );
+    final request = HelpGetAppConfig(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9345,9 +8911,7 @@ class ClientHelp {
     required List<InputAppEventBase> events,
   }) async {
     // Preparing the request.
-    final request = HelpSaveAppLog(
-      events: events,
-    );
+    final request = HelpSaveAppLog(events: events);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9363,9 +8927,7 @@ class ClientHelp {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = HelpGetPassportConfig(
-      hash: hash,
-    );
+    final request = HelpGetPassportConfig(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9395,9 +8957,7 @@ class ClientHelp {
     required InputUserBase userId,
   }) async {
     // Preparing the request.
-    final request = HelpGetUserInfo(
-      userId: userId,
-    );
+    final request = HelpGetUserInfo(userId: userId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9445,13 +9005,9 @@ class ClientHelp {
   /// Hide Promo Data.
   ///
   /// ID: `1e251c95`.
-  Future<Result<Boolean>> hidePromoData({
-    required InputPeerBase peer,
-  }) async {
+  Future<Result<Boolean>> hidePromoData({required InputPeerBase peer}) async {
     // Preparing the request.
-    final request = HelpHidePromoData(
-      peer: peer,
-    );
+    final request = HelpHidePromoData(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9468,10 +9024,7 @@ class ClientHelp {
     required String suggestion,
   }) async {
     // Preparing the request.
-    final request = HelpDismissSuggestion(
-      peer: peer,
-      suggestion: suggestion,
-    );
+    final request = HelpDismissSuggestion(peer: peer, suggestion: suggestion);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9488,10 +9041,7 @@ class ClientHelp {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = HelpGetCountriesList(
-      langCode: langCode,
-      hash: hash,
-    );
+    final request = HelpGetCountriesList(langCode: langCode, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9517,13 +9067,9 @@ class ClientHelp {
   /// Get Peer Colors.
   ///
   /// ID: `da80f42f`.
-  Future<Result<HelpPeerColorsBase>> getPeerColors({
-    required int hash,
-  }) async {
+  Future<Result<HelpPeerColorsBase>> getPeerColors({required int hash}) async {
     // Preparing the request.
-    final request = HelpGetPeerColors(
-      hash: hash,
-    );
+    final request = HelpGetPeerColors(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9539,9 +9085,7 @@ class ClientHelp {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = HelpGetPeerProfileColors(
-      hash: hash,
-    );
+    final request = HelpGetPeerProfileColors(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9557,9 +9101,7 @@ class ClientHelp {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = HelpGetTimezonesList(
-      hash: hash,
-    );
+    final request = HelpGetTimezonesList(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9583,10 +9125,7 @@ class ClientChannels {
     required int maxId,
   }) async {
     // Preparing the request.
-    final request = ChannelsReadHistory(
-      channel: channel,
-      maxId: maxId,
-    );
+    final request = ChannelsReadHistory(channel: channel, maxId: maxId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9603,10 +9142,7 @@ class ClientChannels {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = ChannelsDeleteMessages(
-      channel: channel,
-      id: id,
-    );
+    final request = ChannelsDeleteMessages(channel: channel, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9645,10 +9181,7 @@ class ClientChannels {
     required List<InputMessageBase> id,
   }) async {
     // Preparing the request.
-    final request = ChannelsGetMessages(
-      channel: channel,
-      id: id,
-    );
+    final request = ChannelsGetMessages(channel: channel, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9710,9 +9243,7 @@ class ClientChannels {
     required List<InputChannelBase> id,
   }) async {
     // Preparing the request.
-    final request = ChannelsGetChannels(
-      id: id,
-    );
+    final request = ChannelsGetChannels(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9728,9 +9259,7 @@ class ClientChannels {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsGetFullChannel(
-      channel: channel,
-    );
+    final request = ChannelsGetFullChannel(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9805,10 +9334,7 @@ class ClientChannels {
     required String title,
   }) async {
     // Preparing the request.
-    final request = ChannelsEditTitle(
-      channel: channel,
-      title: title,
-    );
+    final request = ChannelsEditTitle(channel: channel, title: title);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9825,10 +9351,7 @@ class ClientChannels {
     required InputChatPhotoBase photo,
   }) async {
     // Preparing the request.
-    final request = ChannelsEditPhoto(
-      channel: channel,
-      photo: photo,
-    );
+    final request = ChannelsEditPhoto(channel: channel, photo: photo);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9845,10 +9368,7 @@ class ClientChannels {
     required String username,
   }) async {
     // Preparing the request.
-    final request = ChannelsCheckUsername(
-      channel: channel,
-      username: username,
-    );
+    final request = ChannelsCheckUsername(channel: channel, username: username);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9884,9 +9404,7 @@ class ClientChannels {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsJoinChannel(
-      channel: channel,
-    );
+    final request = ChannelsJoinChannel(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9902,9 +9420,7 @@ class ClientChannels {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsLeaveChannel(
-      channel: channel,
-    );
+    final request = ChannelsLeaveChannel(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9921,10 +9437,7 @@ class ClientChannels {
     required List<InputUserBase> users,
   }) async {
     // Preparing the request.
-    final request = ChannelsInviteToChannel(
-      channel: channel,
-      users: users,
-    );
+    final request = ChannelsInviteToChannel(channel: channel, users: users);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -9940,9 +9453,7 @@ class ClientChannels {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsDeleteChannel(
-      channel: channel,
-    );
+    final request = ChannelsDeleteChannel(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10099,10 +9610,7 @@ class ClientChannels {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = ChannelsReadMessageContents(
-      channel: channel,
-      id: id,
-    );
+    final request = ChannelsReadMessageContents(channel: channel, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10160,9 +9668,7 @@ class ClientChannels {
     required int offset,
   }) async {
     // Preparing the request.
-    final request = ChannelsGetLeftChannels(
-      offset: offset,
-    );
+    final request = ChannelsGetLeftChannels(offset: offset);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10257,10 +9763,7 @@ class ClientChannels {
     required int seconds,
   }) async {
     // Preparing the request.
-    final request = ChannelsToggleSlowMode(
-      channel: channel,
-      seconds: seconds,
-    );
+    final request = ChannelsToggleSlowMode(channel: channel, seconds: seconds);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10290,9 +9793,7 @@ class ClientChannels {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsConvertToGigagroup(
-      channel: channel,
-    );
+    final request = ChannelsConvertToGigagroup(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10389,10 +9890,7 @@ class ClientChannels {
     required List<String> order,
   }) async {
     // Preparing the request.
-    final request = ChannelsReorderUsernames(
-      channel: channel,
-      order: order,
-    );
+    final request = ChannelsReorderUsernames(channel: channel, order: order);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10430,9 +9928,7 @@ class ClientChannels {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsDeactivateAllUsernames(
-      channel: channel,
-    );
+    final request = ChannelsDeactivateAllUsernames(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10639,10 +10135,7 @@ class ClientChannels {
     required bool enabled,
   }) async {
     // Preparing the request.
-    final request = ChannelsToggleAntiSpam(
-      channel: channel,
-      enabled: enabled,
-    );
+    final request = ChannelsToggleAntiSpam(channel: channel, enabled: enabled);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10742,9 +10235,7 @@ class ClientChannels {
     InputChannelBase? channel,
   }) async {
     // Preparing the request.
-    final request = ChannelsGetChannelRecommendations(
-      channel: channel,
-    );
+    final request = ChannelsGetChannelRecommendations(channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10913,10 +10404,7 @@ class ClientChannels {
     required int id,
   }) async {
     // Preparing the request.
-    final request = ChannelsGetMessageAuthor(
-      channel: channel,
-      id: id,
-    );
+    final request = ChannelsGetMessageAuthor(channel: channel, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10932,15 +10420,30 @@ class ClientChannels {
     String? query,
   }) async {
     // Preparing the request.
-    final request = ChannelsCheckSearchPostsFlood(
-      query: query,
-    );
+    final request = ChannelsCheckSearchPostsFlood(query: query);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<SearchPostsFloodBase>();
+  }
+
+  /// Set Main Profile Tab.
+  ///
+  /// ID: `3583fcb1`.
+  Future<Result<Boolean>> setMainProfileTab({
+    required InputChannelBase channel,
+    required ProfileTabBase tab,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsSetMainProfileTab(channel: channel, tab: tab);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
   }
 }
 
@@ -10978,10 +10481,7 @@ class ClientBots {
     required DataJSONBase data,
   }) async {
     // Preparing the request.
-    final request = BotsAnswerWebhookJSONQuery(
-      queryId: queryId,
-      data: data,
-    );
+    final request = BotsAnswerWebhookJSONQuery(queryId: queryId, data: data);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11020,10 +10520,7 @@ class ClientBots {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = BotsResetBotCommands(
-      scope: scope,
-      langCode: langCode,
-    );
+    final request = BotsResetBotCommands(scope: scope, langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11040,10 +10537,7 @@ class ClientBots {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = BotsGetBotCommands(
-      scope: scope,
-      langCode: langCode,
-    );
+    final request = BotsGetBotCommands(scope: scope, langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11060,10 +10554,7 @@ class ClientBots {
     required BotMenuButtonBase button,
   }) async {
     // Preparing the request.
-    final request = BotsSetBotMenuButton(
-      userId: userId,
-      button: button,
-    );
+    final request = BotsSetBotMenuButton(userId: userId, button: button);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11079,9 +10570,7 @@ class ClientBots {
     required InputUserBase userId,
   }) async {
     // Preparing the request.
-    final request = BotsGetBotMenuButton(
-      userId: userId,
-    );
+    final request = BotsGetBotMenuButton(userId: userId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11115,9 +10604,7 @@ class ClientBots {
     required ChatAdminRightsBase adminRights,
   }) async {
     // Preparing the request.
-    final request = BotsSetBotGroupDefaultAdminRights(
-      adminRights: adminRights,
-    );
+    final request = BotsSetBotGroupDefaultAdminRights(adminRights: adminRights);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11160,10 +10647,7 @@ class ClientBots {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = BotsGetBotInfo(
-      bot: bot,
-      langCode: langCode,
-    );
+    final request = BotsGetBotInfo(bot: bot, langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11180,10 +10664,7 @@ class ClientBots {
     required List<String> order,
   }) async {
     // Preparing the request.
-    final request = BotsReorderUsernames(
-      bot: bot,
-      order: order,
-    );
+    final request = BotsReorderUsernames(bot: bot, order: order);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11217,13 +10698,9 @@ class ClientBots {
   /// Can Send Message.
   ///
   /// ID: `1359f4e6`.
-  Future<Result<Boolean>> canSendMessage({
-    required InputUserBase bot,
-  }) async {
+  Future<Result<Boolean>> canSendMessage({required InputUserBase bot}) async {
     // Preparing the request.
-    final request = BotsCanSendMessage(
-      bot: bot,
-    );
+    final request = BotsCanSendMessage(bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11239,9 +10716,7 @@ class ClientBots {
     required InputUserBase bot,
   }) async {
     // Preparing the request.
-    final request = BotsAllowSendMessage(
-      bot: bot,
-    );
+    final request = BotsAllowSendMessage(bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11280,10 +10755,7 @@ class ClientBots {
     required int limit,
   }) async {
     // Preparing the request.
-    final request = BotsGetPopularAppBots(
-      offset: offset,
-      limit: limit,
-    );
+    final request = BotsGetPopularAppBots(offset: offset, limit: limit);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11390,10 +10862,7 @@ class ClientBots {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = BotsGetPreviewInfo(
-      bot: bot,
-      langCode: langCode,
-    );
+    final request = BotsGetPreviewInfo(bot: bot, langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11409,9 +10878,7 @@ class ClientBots {
     required InputUserBase bot,
   }) async {
     // Preparing the request.
-    final request = BotsGetPreviewMedias(
-      bot: bot,
-    );
+    final request = BotsGetPreviewMedias(bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11549,9 +11016,7 @@ class ClientBots {
     required InputUserBase bot,
   }) async {
     // Preparing the request.
-    final request = BotsGetBotRecommendations(
-      bot: bot,
-    );
+    final request = BotsGetBotRecommendations(bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11595,10 +11060,7 @@ class ClientPayments {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetPaymentReceipt(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = PaymentsGetPaymentReceipt(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11698,9 +11160,7 @@ class ClientPayments {
     required String number,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetBankCardData(
-      number: number,
-    );
+    final request = PaymentsGetBankCardData(number: number);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11716,9 +11176,7 @@ class ClientPayments {
     required InputMediaBase invoiceMedia,
   }) async {
     // Preparing the request.
-    final request = PaymentsExportInvoice(
-      invoiceMedia: invoiceMedia,
-    );
+    final request = PaymentsExportInvoice(invoiceMedia: invoiceMedia);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11774,9 +11232,7 @@ class ClientPayments {
     InputPeerBase? boostPeer,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetPremiumGiftCodeOptions(
-      boostPeer: boostPeer,
-    );
+    final request = PaymentsGetPremiumGiftCodeOptions(boostPeer: boostPeer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11792,9 +11248,7 @@ class ClientPayments {
     required String slug,
   }) async {
     // Preparing the request.
-    final request = PaymentsCheckGiftCode(
-      slug: slug,
-    );
+    final request = PaymentsCheckGiftCode(slug: slug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11806,13 +11260,9 @@ class ClientPayments {
   /// Apply Gift Code.
   ///
   /// ID: `f6e26854`.
-  Future<Result<UpdatesBase>> applyGiftCode({
-    required String slug,
-  }) async {
+  Future<Result<UpdatesBase>> applyGiftCode({required String slug}) async {
     // Preparing the request.
-    final request = PaymentsApplyGiftCode(
-      slug: slug,
-    );
+    final request = PaymentsApplyGiftCode(slug: slug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11829,10 +11279,7 @@ class ClientPayments {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetGiveawayInfo(
-      peer: peer,
-      msgId: msgId,
-    );
+    final request = PaymentsGetGiveawayInfo(peer: peer, msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11885,10 +11332,7 @@ class ClientPayments {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetStarsStatus(
-      ton: ton,
-      peer: peer,
-    );
+    final request = PaymentsGetStarsStatus(ton: ton, peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11937,10 +11381,7 @@ class ClientPayments {
     required InputInvoiceBase invoice,
   }) async {
     // Preparing the request.
-    final request = PaymentsSendStarsForm(
-      formId: formId,
-      invoice: invoice,
-    );
+    final request = PaymentsSendStarsForm(formId: formId, invoice: invoice);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11995,7 +11436,7 @@ class ClientPayments {
   ///
   /// ID: `2433dc92`.
   Future<Result<PaymentsStarsRevenueWithdrawalUrlBase>>
-      getStarsRevenueWithdrawalUrl({
+  getStarsRevenueWithdrawalUrl({
     required bool ton,
     required InputPeerBase peer,
     int? amount,
@@ -12020,13 +11461,9 @@ class ClientPayments {
   ///
   /// ID: `d1d7efc5`.
   Future<Result<PaymentsStarsRevenueAdsAccountUrlBase>>
-      getStarsRevenueAdsAccountUrl({
-    required InputPeerBase peer,
-  }) async {
+  getStarsRevenueAdsAccountUrl({required InputPeerBase peer}) async {
     // Preparing the request.
-    final request = PaymentsGetStarsRevenueAdsAccountUrl(
-      peer: peer,
-    );
+    final request = PaymentsGetStarsRevenueAdsAccountUrl(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12064,9 +11501,7 @@ class ClientPayments {
     InputUserBase? userId,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetStarsGiftOptions(
-      userId: userId,
-    );
+    final request = PaymentsGetStarsGiftOptions(userId: userId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12143,7 +11578,7 @@ class ClientPayments {
   ///
   /// ID: `bd1efd3e`.
   Future<Result<Vector<StarsGiveawayOptionBase>>>
-      getStarsGiveawayOptions() async {
+  getStarsGiveawayOptions() async {
     // Preparing the request.
     final request = PaymentsGetStarsGiveawayOptions();
 
@@ -12161,9 +11596,7 @@ class ClientPayments {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetStarGifts(
-      hash: hash,
-    );
+    final request = PaymentsGetStarGifts(hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12180,10 +11613,7 @@ class ClientPayments {
     required InputSavedStarGiftBase stargift,
   }) async {
     // Preparing the request.
-    final request = PaymentsSaveStarGift(
-      unsave: unsave,
-      stargift: stargift,
-    );
+    final request = PaymentsSaveStarGift(unsave: unsave, stargift: stargift);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12199,9 +11629,7 @@ class ClientPayments {
     required InputSavedStarGiftBase stargift,
   }) async {
     // Preparing the request.
-    final request = PaymentsConvertStarGift(
-      stargift: stargift,
-    );
+    final request = PaymentsConvertStarGift(stargift: stargift);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12264,10 +11692,7 @@ class ClientPayments {
     required InputUserBase bot,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetConnectedStarRefBot(
-      peer: peer,
-      bot: bot,
-    );
+    final request = PaymentsGetConnectedStarRefBot(peer: peer, bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12310,10 +11735,7 @@ class ClientPayments {
     required InputUserBase bot,
   }) async {
     // Preparing the request.
-    final request = PaymentsConnectStarRefBot(
-      peer: peer,
-      bot: bot,
-    );
+    final request = PaymentsConnectStarRefBot(peer: peer, bot: bot);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12351,9 +11773,7 @@ class ClientPayments {
     required int giftId,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetStarGiftUpgradePreview(
-      giftId: giftId,
-    );
+    final request = PaymentsGetStarGiftUpgradePreview(giftId: giftId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12390,10 +11810,7 @@ class ClientPayments {
     required InputPeerBase toId,
   }) async {
     // Preparing the request.
-    final request = PaymentsTransferStarGift(
-      stargift: stargift,
-      toId: toId,
-    );
+    final request = PaymentsTransferStarGift(stargift: stargift, toId: toId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12409,9 +11826,7 @@ class ClientPayments {
     required String slug,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetUniqueStarGift(
-      slug: slug,
-    );
+    final request = PaymentsGetUniqueStarGift(slug: slug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12427,9 +11842,10 @@ class ClientPayments {
     required bool excludeUnsaved,
     required bool excludeSaved,
     required bool excludeUnlimited,
-    required bool excludeLimited,
     required bool excludeUnique,
     required bool sortByValue,
+    required bool excludeUpgradable,
+    required bool excludeUnupgradable,
     required InputPeerBase peer,
     int? collectionId,
     required String offset,
@@ -12440,9 +11856,10 @@ class ClientPayments {
       excludeUnsaved: excludeUnsaved,
       excludeSaved: excludeSaved,
       excludeUnlimited: excludeUnlimited,
-      excludeLimited: excludeLimited,
       excludeUnique: excludeUnique,
       sortByValue: sortByValue,
+      excludeUpgradable: excludeUpgradable,
+      excludeUnupgradable: excludeUnupgradable,
       peer: peer,
       collectionId: collectionId,
       offset: offset,
@@ -12463,9 +11880,7 @@ class ClientPayments {
     required List<InputSavedStarGiftBase> stargift,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetSavedStarGift(
-      stargift: stargift,
-    );
+    final request = PaymentsGetSavedStarGift(stargift: stargift);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12541,9 +11956,7 @@ class ClientPayments {
     required InputStorePaymentPurposeBase purpose,
   }) async {
     // Preparing the request.
-    final request = PaymentsCanPurchaseStore(
-      purpose: purpose,
-    );
+    final request = PaymentsCanPurchaseStore(purpose: purpose);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12700,16 +12113,44 @@ class ClientPayments {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = PaymentsGetStarGiftCollections(
-      peer: peer,
-      hash: hash,
-    );
+    final request = PaymentsGetStarGiftCollections(peer: peer, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
 
     // Return the result.
     return response._to<PaymentsStarGiftCollectionsBase>();
+  }
+
+  /// Get Unique Star Gift Value Info.
+  ///
+  /// ID: `4365af6b`.
+  Future<Result<PaymentsUniqueStarGiftValueInfoBase>>
+  getUniqueStarGiftValueInfo({required String slug}) async {
+    // Preparing the request.
+    final request = PaymentsGetUniqueStarGiftValueInfo(slug: slug);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsUniqueStarGiftValueInfoBase>();
+  }
+
+  /// Check Can Send Gift.
+  ///
+  /// ID: `c0c4edc9`.
+  Future<Result<PaymentsCheckCanSendGiftResultBase>> checkCanSendGift({
+    required int giftId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsCheckCanSendGift(giftId: giftId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsCheckCanSendGiftResultBase>();
   }
 }
 
@@ -12760,9 +12201,7 @@ class ClientStickers {
     required InputDocumentBase sticker,
   }) async {
     // Preparing the request.
-    final request = StickersRemoveStickerFromSet(
-      sticker: sticker,
-    );
+    final request = StickersRemoveStickerFromSet(sticker: sticker);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12836,13 +12275,9 @@ class ClientStickers {
   /// Check Short Name.
   ///
   /// ID: `284b3639`.
-  Future<Result<Boolean>> checkShortName({
-    required String shortName,
-  }) async {
+  Future<Result<Boolean>> checkShortName({required String shortName}) async {
     // Preparing the request.
-    final request = StickersCheckShortName(
-      shortName: shortName,
-    );
+    final request = StickersCheckShortName(shortName: shortName);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12858,9 +12293,7 @@ class ClientStickers {
     required String title,
   }) async {
     // Preparing the request.
-    final request = StickersSuggestShortName(
-      title: title,
-    );
+    final request = StickersSuggestShortName(title: title);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -12920,9 +12353,7 @@ class ClientStickers {
     required InputStickerSetBase stickerset,
   }) async {
     // Preparing the request.
-    final request = StickersDeleteStickerSet(
-      stickerset: stickerset,
-    );
+    final request = StickersDeleteStickerSet(stickerset: stickerset);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13007,11 +12438,7 @@ class ClientPhone {
     required PhoneCallProtocolBase protocol,
   }) async {
     // Preparing the request.
-    final request = PhoneAcceptCall(
-      peer: peer,
-      gB: gB,
-      protocol: protocol,
-    );
+    final request = PhoneAcceptCall(peer: peer, gB: gB, protocol: protocol);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13051,9 +12478,7 @@ class ClientPhone {
     required InputPhoneCallBase peer,
   }) async {
     // Preparing the request.
-    final request = PhoneReceivedCall(
-      peer: peer,
-    );
+    final request = PhoneReceivedCall(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13120,10 +12545,7 @@ class ClientPhone {
     required DataJSONBase debug,
   }) async {
     // Preparing the request.
-    final request = PhoneSaveCallDebug(
-      peer: peer,
-      debug: debug,
-    );
+    final request = PhoneSaveCallDebug(peer: peer, debug: debug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13140,10 +12562,7 @@ class ClientPhone {
     required Uint8List data,
   }) async {
     // Preparing the request.
-    final request = PhoneSendSignalingData(
-      peer: peer,
-      data: data,
-    );
+    final request = PhoneSendSignalingData(peer: peer, data: data);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13218,10 +12637,7 @@ class ClientPhone {
     required int source,
   }) async {
     // Preparing the request.
-    final request = PhoneLeaveGroupCall(
-      call: call,
-      source: source,
-    );
+    final request = PhoneLeaveGroupCall(call: call, source: source);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13238,10 +12654,7 @@ class ClientPhone {
     required List<InputUserBase> users,
   }) async {
     // Preparing the request.
-    final request = PhoneInviteToGroupCall(
-      call: call,
-      users: users,
-    );
+    final request = PhoneInviteToGroupCall(call: call, users: users);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13257,9 +12670,7 @@ class ClientPhone {
     required InputGroupCallBase call,
   }) async {
     // Preparing the request.
-    final request = PhoneDiscardGroupCall(
-      call: call,
-    );
+    final request = PhoneDiscardGroupCall(call: call);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13298,10 +12709,7 @@ class ClientPhone {
     required int limit,
   }) async {
     // Preparing the request.
-    final request = PhoneGetGroupCall(
-      call: call,
-      limit: limit,
-    );
+    final request = PhoneGetGroupCall(call: call, limit: limit);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13344,10 +12752,7 @@ class ClientPhone {
     required List<int> sources,
   }) async {
     // Preparing the request.
-    final request = PhoneCheckGroupCall(
-      call: call,
-      sources: sources,
-    );
+    final request = PhoneCheckGroupCall(call: call, sources: sources);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13422,10 +12827,7 @@ class ClientPhone {
     required String title,
   }) async {
     // Preparing the request.
-    final request = PhoneEditGroupCallTitle(
-      call: call,
-      title: title,
-    );
+    final request = PhoneEditGroupCallTitle(call: call, title: title);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13441,9 +12843,7 @@ class ClientPhone {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = PhoneGetGroupCallJoinAs(
-      peer: peer,
-    );
+    final request = PhoneGetGroupCallJoinAs(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13499,9 +12899,7 @@ class ClientPhone {
     required InputGroupCallBase call,
   }) async {
     // Preparing the request.
-    final request = PhoneStartScheduledGroupCall(
-      call: call,
-    );
+    final request = PhoneStartScheduledGroupCall(call: call);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13518,10 +12916,7 @@ class ClientPhone {
     required InputPeerBase joinAs,
   }) async {
     // Preparing the request.
-    final request = PhoneSaveDefaultGroupCallJoinAs(
-      peer: peer,
-      joinAs: joinAs,
-    );
+    final request = PhoneSaveDefaultGroupCallJoinAs(peer: peer, joinAs: joinAs);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13538,10 +12933,7 @@ class ClientPhone {
     required DataJSONBase params,
   }) async {
     // Preparing the request.
-    final request = PhoneJoinGroupCallPresentation(
-      call: call,
-      params: params,
-    );
+    final request = PhoneJoinGroupCallPresentation(call: call, params: params);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13557,9 +12949,7 @@ class ClientPhone {
     required InputGroupCallBase call,
   }) async {
     // Preparing the request.
-    final request = PhoneLeaveGroupCallPresentation(
-      call: call,
-    );
+    final request = PhoneLeaveGroupCallPresentation(call: call);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13575,9 +12965,7 @@ class ClientPhone {
     required InputGroupCallBase call,
   }) async {
     // Preparing the request.
-    final request = PhoneGetGroupCallStreamChannels(
-      call: call,
-    );
+    final request = PhoneGetGroupCallStreamChannels(call: call);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13594,10 +12982,7 @@ class ClientPhone {
     required bool revoke,
   }) async {
     // Preparing the request.
-    final request = PhoneGetGroupCallStreamRtmpUrl(
-      peer: peer,
-      revoke: revoke,
-    );
+    final request = PhoneGetGroupCallStreamRtmpUrl(peer: peer, revoke: revoke);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13614,10 +12999,7 @@ class ClientPhone {
     required InputFileBase file,
   }) async {
     // Preparing the request.
-    final request = PhoneSaveCallLog(
-      peer: peer,
-      file: file,
-    );
+    final request = PhoneSaveCallLog(peer: peer, file: file);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13690,10 +13072,7 @@ class ClientPhone {
     required Uint8List block,
   }) async {
     // Preparing the request.
-    final request = PhoneSendConferenceCallBroadcast(
-      call: call,
-      block: block,
-    );
+    final request = PhoneSendConferenceCallBroadcast(call: call, block: block);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13731,9 +13110,7 @@ class ClientPhone {
     required int msgId,
   }) async {
     // Preparing the request.
-    final request = PhoneDeclineConferenceCallInvite(
-      msgId: msgId,
-    );
+    final request = PhoneDeclineConferenceCallInvite(msgId: msgId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13781,10 +13158,7 @@ class ClientLangpack {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = LangpackGetLangPack(
-      langPack: langPack,
-      langCode: langCode,
-    );
+    final request = LangpackGetLangPack(langPack: langPack, langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13844,9 +13218,7 @@ class ClientLangpack {
     required String langPack,
   }) async {
     // Preparing the request.
-    final request = LangpackGetLanguages(
-      langPack: langPack,
-    );
+    final request = LangpackGetLanguages(langPack: langPack);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13863,10 +13235,7 @@ class ClientLangpack {
     required String langCode,
   }) async {
     // Preparing the request.
-    final request = LangpackGetLanguage(
-      langPack: langPack,
-      langCode: langCode,
-    );
+    final request = LangpackGetLanguage(langPack: langPack, langCode: langCode);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13889,9 +13258,7 @@ class ClientFolders {
     required List<InputFolderPeerBase> folderPeers,
   }) async {
     // Preparing the request.
-    final request = FoldersEditPeerFolders(
-      folderPeers: folderPeers,
-    );
+    final request = FoldersEditPeerFolders(folderPeers: folderPeers);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13915,10 +13282,7 @@ class ClientStats {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = StatsGetBroadcastStats(
-      dark: dark,
-      channel: channel,
-    );
+    final request = StatsGetBroadcastStats(dark: dark, channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13935,10 +13299,7 @@ class ClientStats {
     int? x,
   }) async {
     // Preparing the request.
-    final request = StatsLoadAsyncGraph(
-      token: token,
-      x: x,
-    );
+    final request = StatsLoadAsyncGraph(token: token, x: x);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13955,10 +13316,7 @@ class ClientStats {
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
-    final request = StatsGetMegagroupStats(
-      dark: dark,
-      channel: channel,
-    );
+    final request = StatsGetMegagroupStats(dark: dark, channel: channel);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14022,11 +13380,7 @@ class ClientStats {
     required int id,
   }) async {
     // Preparing the request.
-    final request = StatsGetStoryStats(
-      dark: dark,
-      peer: peer,
-      id: id,
-    );
+    final request = StatsGetStoryStats(dark: dark, peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14139,9 +13493,7 @@ class ClientChatlists {
     required InputChatlistBase chatlist,
   }) async {
     // Preparing the request.
-    final request = ChatlistsGetExportedInvites(
-      chatlist: chatlist,
-    );
+    final request = ChatlistsGetExportedInvites(chatlist: chatlist);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14157,9 +13509,7 @@ class ClientChatlists {
     required String slug,
   }) async {
     // Preparing the request.
-    final request = ChatlistsCheckChatlistInvite(
-      slug: slug,
-    );
+    final request = ChatlistsCheckChatlistInvite(slug: slug);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14176,10 +13526,7 @@ class ClientChatlists {
     required List<InputPeerBase> peers,
   }) async {
     // Preparing the request.
-    final request = ChatlistsJoinChatlistInvite(
-      slug: slug,
-      peers: peers,
-    );
+    final request = ChatlistsJoinChatlistInvite(slug: slug, peers: peers);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14195,9 +13542,7 @@ class ClientChatlists {
     required InputChatlistBase chatlist,
   }) async {
     // Preparing the request.
-    final request = ChatlistsGetChatlistUpdates(
-      chatlist: chatlist,
-    );
+    final request = ChatlistsGetChatlistUpdates(chatlist: chatlist);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14233,9 +13578,7 @@ class ClientChatlists {
     required InputChatlistBase chatlist,
   }) async {
     // Preparing the request.
-    final request = ChatlistsHideChatlistUpdates(
-      chatlist: chatlist,
-    );
+    final request = ChatlistsHideChatlistUpdates(chatlist: chatlist);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14251,9 +13594,7 @@ class ClientChatlists {
     required InputChatlistBase chatlist,
   }) async {
     // Preparing the request.
-    final request = ChatlistsGetLeaveChatlistSuggestions(
-      chatlist: chatlist,
-    );
+    final request = ChatlistsGetLeaveChatlistSuggestions(chatlist: chatlist);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14270,10 +13611,7 @@ class ClientChatlists {
     required List<InputPeerBase> peers,
   }) async {
     // Preparing the request.
-    final request = ChatlistsLeaveChatlist(
-      chatlist: chatlist,
-      peers: peers,
-    );
+    final request = ChatlistsLeaveChatlist(chatlist: chatlist, peers: peers);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14296,9 +13634,7 @@ class ClientStories {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = StoriesCanSendStory(
-      peer: peer,
-    );
+    final request = StoriesCanSendStory(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14389,10 +13725,7 @@ class ClientStories {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = StoriesDeleteStories(
-      peer: peer,
-      id: id,
-    );
+    final request = StoriesDeleteStories(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14410,11 +13743,7 @@ class ClientStories {
     required bool pinned,
   }) async {
     // Preparing the request.
-    final request = StoriesTogglePinned(
-      peer: peer,
-      id: id,
-      pinned: pinned,
-    );
+    final request = StoriesTogglePinned(peer: peer, id: id, pinned: pinned);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14497,10 +13826,7 @@ class ClientStories {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = StoriesGetStoriesByID(
-      peer: peer,
-      id: id,
-    );
+    final request = StoriesGetStoriesByID(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14512,13 +13838,9 @@ class ClientStories {
   /// Toggle All Stories Hidden.
   ///
   /// ID: `7c2557c4`.
-  Future<Result<Boolean>> toggleAllStoriesHidden({
-    required bool hidden,
-  }) async {
+  Future<Result<Boolean>> toggleAllStoriesHidden({required bool hidden}) async {
     // Preparing the request.
-    final request = StoriesToggleAllStoriesHidden(
-      hidden: hidden,
-    );
+    final request = StoriesToggleAllStoriesHidden(hidden: hidden);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14535,10 +13857,7 @@ class ClientStories {
     required int maxId,
   }) async {
     // Preparing the request.
-    final request = StoriesReadStories(
-      peer: peer,
-      maxId: maxId,
-    );
+    final request = StoriesReadStories(peer: peer, maxId: maxId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14555,10 +13874,7 @@ class ClientStories {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = StoriesIncrementStoryViews(
-      peer: peer,
-      id: id,
-    );
+    final request = StoriesIncrementStoryViews(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14607,10 +13923,7 @@ class ClientStories {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = StoriesGetStoriesViews(
-      peer: peer,
-      id: id,
-    );
+    final request = StoriesGetStoriesViews(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14627,10 +13940,7 @@ class ClientStories {
     required int id,
   }) async {
     // Preparing the request.
-    final request = StoriesExportStoryLink(
-      peer: peer,
-      id: id,
-    );
+    final request = StoriesExportStoryLink(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14671,10 +13981,7 @@ class ClientStories {
     required bool future,
   }) async {
     // Preparing the request.
-    final request = StoriesActivateStealthMode(
-      past: past,
-      future: future,
-    );
+    final request = StoriesActivateStealthMode(past: past, future: future);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14714,9 +14021,7 @@ class ClientStories {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = StoriesGetPeerStories(
-      peer: peer,
-    );
+    final request = StoriesGetPeerStories(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14746,9 +14051,7 @@ class ClientStories {
     required List<InputPeerBase> id,
   }) async {
     // Preparing the request.
-    final request = StoriesGetPeerMaxIDs(
-      id: id,
-    );
+    final request = StoriesGetPeerMaxIDs(id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14779,10 +14082,7 @@ class ClientStories {
     required bool hidden,
   }) async {
     // Preparing the request.
-    final request = StoriesTogglePeerStoriesHidden(
-      peer: peer,
-      hidden: hidden,
-    );
+    final request = StoriesTogglePeerStoriesHidden(peer: peer, hidden: hidden);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14827,10 +14127,7 @@ class ClientStories {
     required List<int> id,
   }) async {
     // Preparing the request.
-    final request = StoriesTogglePinnedToTop(
-      peer: peer,
-      id: id,
-    );
+    final request = StoriesTogglePinnedToTop(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14923,10 +14220,7 @@ class ClientStories {
     required List<int> order,
   }) async {
     // Preparing the request.
-    final request = StoriesReorderAlbums(
-      peer: peer,
-      order: order,
-    );
+    final request = StoriesReorderAlbums(peer: peer, order: order);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14943,10 +14237,7 @@ class ClientStories {
     required int albumId,
   }) async {
     // Preparing the request.
-    final request = StoriesDeleteAlbum(
-      peer: peer,
-      albumId: albumId,
-    );
+    final request = StoriesDeleteAlbum(peer: peer, albumId: albumId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14963,10 +14254,7 @@ class ClientStories {
     required int hash,
   }) async {
     // Preparing the request.
-    final request = StoriesGetAlbums(
-      peer: peer,
-      hash: hash,
-    );
+    final request = StoriesGetAlbums(peer: peer, hash: hash);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -15052,10 +14340,7 @@ class ClientPremium {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = PremiumApplyBoost(
-      slots: slots,
-      peer: peer,
-    );
+    final request = PremiumApplyBoost(slots: slots, peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -15071,9 +14356,7 @@ class ClientPremium {
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
-    final request = PremiumGetBoostsStatus(
-      peer: peer,
-    );
+    final request = PremiumGetBoostsStatus(peer: peer);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -15090,10 +14373,7 @@ class ClientPremium {
     required InputUserBase userId,
   }) async {
     // Preparing the request.
-    final request = PremiumGetUserBoosts(
-      peer: peer,
-      userId: userId,
-    );
+    final request = PremiumGetUserBoosts(peer: peer, userId: userId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -15186,13 +14466,9 @@ class ClientSmsjobs {
   /// Get Sms Job.
   ///
   /// ID: `778d902f`.
-  Future<Result<SmsJobBase>> getSmsJob({
-    required String jobId,
-  }) async {
+  Future<Result<SmsJobBase>> getSmsJob({required String jobId}) async {
     // Preparing the request.
-    final request = SmsjobsGetSmsJob(
-      jobId: jobId,
-    );
+    final request = SmsjobsGetSmsJob(jobId: jobId);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -15209,10 +14485,7 @@ class ClientSmsjobs {
     String? error,
   }) async {
     // Preparing the request.
-    final request = SmsjobsFinishJob(
-      jobId: jobId,
-      error: error,
-    );
+    final request = SmsjobsFinishJob(jobId: jobId, error: error);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -15235,9 +14508,7 @@ class ClientFragment {
     required InputCollectibleBase collectible,
   }) async {
     // Preparing the request.
-    final request = FragmentGetCollectibleInfo(
-      collectible: collectible,
-    );
+    final request = FragmentGetCollectibleInfo(collectible: collectible);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
