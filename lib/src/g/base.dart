@@ -3474,6 +3474,12 @@ abstract class InputChatThemeBase extends TlConstructor {
   const InputChatThemeBase._() : super._();
 }
 
+/// Predicate Star Gift Upgrade Price.
+abstract class StarGiftUpgradePriceBase extends TlConstructor {
+  /// Predicate Star Gift Upgrade Price constructor.
+  const StarGiftUpgradePriceBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.

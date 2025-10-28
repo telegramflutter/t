@@ -767,6 +767,28 @@ class ClientAuth {
     // Return the result.
     return response._to<Boolean>();
   }
+
+  /// Check Paid Auth.
+  ///
+  /// ID: `56e59f9c`.
+  Future<Result<AuthSentCodeBase>> checkPaidAuth({
+    required String phoneNumber,
+    required String phoneCodeHash,
+    required int formId,
+  }) async {
+    // Preparing the request.
+    final request = AuthCheckPaidAuth(
+      phoneNumber: phoneNumber,
+      phoneCodeHash: phoneCodeHash,
+      formId: formId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AuthSentCodeBase>();
+  }
 }
 
 /// Account.
@@ -2339,18 +2361,13 @@ class ClientAccount {
 
   /// Update Color.
   ///
-  /// ID: `7cefa15d`.
+  /// ID: `684d214e`.
   Future<Result<Boolean>> updateColor({
     required bool forProfile,
-    int? color,
-    int? backgroundEmojiId,
+    PeerColorBase? color,
   }) async {
     // Preparing the request.
-    final request = AccountUpdateColor(
-      forProfile: forProfile,
-      color: color,
-      backgroundEmojiId: backgroundEmojiId,
-    );
+    final request = AccountUpdateColor(forProfile: forProfile, color: color);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -2846,9 +2863,9 @@ class ClientAccount {
 
   /// Get Unique Gift Chat Themes.
   ///
-  /// ID: `fe74ef9f`.
+  /// ID: `e42ce9c9`.
   Future<Result<AccountChatThemesBase>> getUniqueGiftChatThemes({
-    required int offset,
+    required String offset,
     required int limit,
     required int hash,
   }) async {
@@ -2977,6 +2994,23 @@ class ClientUsers {
 
     // Return the result.
     return response._to<UsersSavedMusicBase>();
+  }
+
+  /// Suggest Birthday.
+  ///
+  /// ID: `fc533372`.
+  Future<Result<UpdatesBase>> suggestBirthday({
+    required InputUserBase id,
+    required BirthdayBase birthday,
+  }) async {
+    // Preparing the request.
+    final request = UsersSuggestBirthday(id: id, birthday: birthday);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
   }
 }
 
@@ -3268,13 +3302,14 @@ class ClientContacts {
 
   /// Add Contact.
   ///
-  /// ID: `e8f463d0`.
+  /// ID: `d9ba2e54`.
   Future<Result<UpdatesBase>> addContact({
     required bool addPhonePrivacyException,
     required InputUserBase id,
     required String firstName,
     required String lastName,
     required String phone,
+    TextWithEntitiesBase? note,
   }) async {
     // Preparing the request.
     final request = ContactsAddContact(
@@ -3283,6 +3318,7 @@ class ClientContacts {
       firstName: firstName,
       lastName: lastName,
       phone: phone,
+      note: note,
     );
 
     // Invoke and wait for response.
@@ -3460,6 +3496,23 @@ class ClientContacts {
 
     // Return the result.
     return response._to<ContactsSponsoredPeersBase>();
+  }
+
+  /// Update Contact Note.
+  ///
+  /// ID: `139f63fb`.
+  Future<Result<Boolean>> updateContactNote({
+    required InputUserBase id,
+    required TextWithEntitiesBase note,
+  }) async {
+    // Preparing the request.
+    final request = ContactsUpdateContactNote(id: id, note: note);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
   }
 }
 
@@ -8332,6 +8385,170 @@ class ClientMessages {
     // Return the result.
     return response._to<UpdatesBase>();
   }
+
+  /// Get Forum Topics.
+  ///
+  /// ID: `3ba47bff`.
+  Future<Result<MessagesForumTopicsBase>> getForumTopics({
+    required InputPeerBase peer,
+    String? q,
+    required DateTime offsetDate,
+    required int offsetId,
+    required int offsetTopic,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetForumTopics(
+      peer: peer,
+      q: q,
+      offsetDate: offsetDate,
+      offsetId: offsetId,
+      offsetTopic: offsetTopic,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesForumTopicsBase>();
+  }
+
+  /// Get Forum Topics By I D.
+  ///
+  /// ID: `af0a4a08`.
+  Future<Result<MessagesForumTopicsBase>> getForumTopicsByID({
+    required InputPeerBase peer,
+    required List<int> topics,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetForumTopicsByID(peer: peer, topics: topics);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesForumTopicsBase>();
+  }
+
+  /// Edit Forum Topic.
+  ///
+  /// ID: `cecc1134`.
+  Future<Result<UpdatesBase>> editForumTopic({
+    required InputPeerBase peer,
+    required int topicId,
+    String? title,
+    int? iconEmojiId,
+    bool? closed,
+    bool? hidden,
+  }) async {
+    // Preparing the request.
+    final request = MessagesEditForumTopic(
+      peer: peer,
+      topicId: topicId,
+      title: title,
+      iconEmojiId: iconEmojiId,
+      closed: closed,
+      hidden: hidden,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Update Pinned Forum Topic.
+  ///
+  /// ID: `175df251`.
+  Future<Result<UpdatesBase>> updatePinnedForumTopic({
+    required InputPeerBase peer,
+    required int topicId,
+    required bool pinned,
+  }) async {
+    // Preparing the request.
+    final request = MessagesUpdatePinnedForumTopic(
+      peer: peer,
+      topicId: topicId,
+      pinned: pinned,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Reorder Pinned Forum Topics.
+  ///
+  /// ID: `0e7841f0`.
+  Future<Result<UpdatesBase>> reorderPinnedForumTopics({
+    required bool force,
+    required InputPeerBase peer,
+    required List<int> order,
+  }) async {
+    // Preparing the request.
+    final request = MessagesReorderPinnedForumTopics(
+      force: force,
+      peer: peer,
+      order: order,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Create Forum Topic.
+  ///
+  /// ID: `2f98c3d5`.
+  Future<Result<UpdatesBase>> createForumTopic({
+    required bool titleMissing,
+    required InputPeerBase peer,
+    required String title,
+    int? iconColor,
+    int? iconEmojiId,
+    required int randomId,
+    InputPeerBase? sendAs,
+  }) async {
+    // Preparing the request.
+    final request = MessagesCreateForumTopic(
+      titleMissing: titleMissing,
+      peer: peer,
+      title: title,
+      iconColor: iconColor,
+      iconEmojiId: iconEmojiId,
+      randomId: randomId,
+      sendAs: sendAs,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Topic History.
+  ///
+  /// ID: `d2816f10`.
+  Future<Result<MessagesAffectedHistoryBase>> deleteTopicHistory({
+    required InputPeerBase peer,
+    required int topMsgId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeleteTopicHistory(peer: peer, topMsgId: topMsgId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesAffectedHistoryBase>();
+  }
 }
 
 /// Updates.
@@ -9950,174 +10167,6 @@ class ClientChannels {
       channel: channel,
       enabled: enabled,
       tabs: tabs,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<UpdatesBase>();
-  }
-
-  /// Create Forum Topic.
-  ///
-  /// ID: `f40c0224`.
-  Future<Result<UpdatesBase>> createForumTopic({
-    required InputChannelBase channel,
-    required String title,
-    int? iconColor,
-    int? iconEmojiId,
-    required int randomId,
-    InputPeerBase? sendAs,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsCreateForumTopic(
-      channel: channel,
-      title: title,
-      iconColor: iconColor,
-      iconEmojiId: iconEmojiId,
-      randomId: randomId,
-      sendAs: sendAs,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<UpdatesBase>();
-  }
-
-  /// Get Forum Topics.
-  ///
-  /// ID: `0de560d1`.
-  Future<Result<MessagesForumTopicsBase>> getForumTopics({
-    required InputChannelBase channel,
-    String? q,
-    required DateTime offsetDate,
-    required int offsetId,
-    required int offsetTopic,
-    required int limit,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsGetForumTopics(
-      channel: channel,
-      q: q,
-      offsetDate: offsetDate,
-      offsetId: offsetId,
-      offsetTopic: offsetTopic,
-      limit: limit,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<MessagesForumTopicsBase>();
-  }
-
-  /// Get Forum Topics By I D.
-  ///
-  /// ID: `b0831eb9`.
-  Future<Result<MessagesForumTopicsBase>> getForumTopicsByID({
-    required InputChannelBase channel,
-    required List<int> topics,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsGetForumTopicsByID(
-      channel: channel,
-      topics: topics,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<MessagesForumTopicsBase>();
-  }
-
-  /// Edit Forum Topic.
-  ///
-  /// ID: `f4dfa185`.
-  Future<Result<UpdatesBase>> editForumTopic({
-    required InputChannelBase channel,
-    required int topicId,
-    String? title,
-    int? iconEmojiId,
-    bool? closed,
-    bool? hidden,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsEditForumTopic(
-      channel: channel,
-      topicId: topicId,
-      title: title,
-      iconEmojiId: iconEmojiId,
-      closed: closed,
-      hidden: hidden,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<UpdatesBase>();
-  }
-
-  /// Update Pinned Forum Topic.
-  ///
-  /// ID: `6c2d9026`.
-  Future<Result<UpdatesBase>> updatePinnedForumTopic({
-    required InputChannelBase channel,
-    required int topicId,
-    required bool pinned,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsUpdatePinnedForumTopic(
-      channel: channel,
-      topicId: topicId,
-      pinned: pinned,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<UpdatesBase>();
-  }
-
-  /// Delete Topic History.
-  ///
-  /// ID: `34435f2d`.
-  Future<Result<MessagesAffectedHistoryBase>> deleteTopicHistory({
-    required InputChannelBase channel,
-    required int topMsgId,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsDeleteTopicHistory(
-      channel: channel,
-      topMsgId: topMsgId,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<MessagesAffectedHistoryBase>();
-  }
-
-  /// Reorder Pinned Forum Topics.
-  ///
-  /// ID: `2950a18f`.
-  Future<Result<UpdatesBase>> reorderPinnedForumTopics({
-    required bool force,
-    required InputChannelBase channel,
-    required List<int> order,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsReorderPinnedForumTopics(
-      force: force,
-      channel: channel,
-      order: order,
     );
 
     // Invoke and wait for response.
@@ -11846,6 +11895,8 @@ class ClientPayments {
     required bool sortByValue,
     required bool excludeUpgradable,
     required bool excludeUnupgradable,
+    required bool peerColorAvailable,
+    required bool excludeHosted,
     required InputPeerBase peer,
     int? collectionId,
     required String offset,
@@ -11860,6 +11911,8 @@ class ClientPayments {
       sortByValue: sortByValue,
       excludeUpgradable: excludeUpgradable,
       excludeUnupgradable: excludeUnupgradable,
+      peerColorAvailable: peerColorAvailable,
+      excludeHosted: excludeHosted,
       peer: peer,
       collectionId: collectionId,
       offset: offset,
@@ -12681,17 +12734,19 @@ class ClientPhone {
 
   /// Toggle Group Call Settings.
   ///
-  /// ID: `74bbb43d`.
+  /// ID: `e9723804`.
   Future<Result<UpdatesBase>> toggleGroupCallSettings({
     required bool resetInviteHash,
     required InputGroupCallBase call,
     bool? joinMuted,
+    bool? messagesEnabled,
   }) async {
     // Preparing the request.
     final request = PhoneToggleGroupCallSettings(
       resetInviteHash: resetInviteHash,
       call: call,
       joinMuted: joinMuted,
+      messagesEnabled: messagesEnabled,
     );
 
     // Invoke and wait for response.
@@ -13141,6 +13196,48 @@ class ClientPhone {
 
     // Return the result.
     return response._to<UpdatesBase>();
+  }
+
+  /// Send Group Call Message.
+  ///
+  /// ID: `87893014`.
+  Future<Result<Boolean>> sendGroupCallMessage({
+    required InputGroupCallBase call,
+    required int randomId,
+    required TextWithEntitiesBase message,
+  }) async {
+    // Preparing the request.
+    final request = PhoneSendGroupCallMessage(
+      call: call,
+      randomId: randomId,
+      message: message,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Send Group Call Encrypted Message.
+  ///
+  /// ID: `e5afa56d`.
+  Future<Result<Boolean>> sendGroupCallEncryptedMessage({
+    required InputGroupCallBase call,
+    required Uint8List encryptedMessage,
+  }) async {
+    // Preparing the request.
+    final request = PhoneSendGroupCallEncryptedMessage(
+      call: call,
+      encryptedMessage: encryptedMessage,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
   }
 }
 
