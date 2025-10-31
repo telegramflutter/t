@@ -1,5 +1,7 @@
 part of '../t.dart';
 
+const _vectorCtor = 0x1CB5C415;
+
 /// Read binary data and advance the position.
 class BinaryReader {
   /// Constructs a new binary reader.
