@@ -4,7 +4,7 @@ TlObject _readObject(BinaryReader reader) {
   final id = reader.readInt32();
   // From mtproto.tl
 
-  if (id == _vectorCtor) {
+  if (id == 0x1cb5c415) {
     return reader._readVectorObjectNoCtor();
   }
 
@@ -208,10 +208,6 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x3fedd339) {
     return True.deserialize(reader);
-  }
-
-  if (id == _vectorCtor) {
-    return reader._readVectorObjectNoCtor();
   }
 
   if (id == 0xc4b9f9bb) {

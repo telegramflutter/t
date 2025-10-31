@@ -877,7 +877,7 @@ class RpcResult extends RpcResultBase {
 class RpcError extends RpcErrorBase {
   /// Rpc Error constructor.
   const RpcError({required this.errorCode, required this.errorMessage})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory RpcError.deserialize(BinaryReader reader) {

@@ -182,13 +182,11 @@ class DecryptedMessage045 extends DecryptedMessageBase {
     final ttl = reader.readInt32();
     final message = reader.readString();
     final hasMediaField = (flags & 512) != 0;
-    final media = hasMediaField
-        ? reader.readObject() as DecryptedMessageMediaBase
-        : null;
+    final media =
+        hasMediaField ? reader.readObject() as DecryptedMessageMediaBase : null;
     final hasEntitiesField = (flags & 128) != 0;
-    final entities = hasEntitiesField
-        ? reader.readVectorObject<MessageEntityBase>()
-        : null;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
     final hasViaBotNameField = (flags & 2048) != 0;
     final viaBotName = hasViaBotNameField ? reader.readString() : null;
     final hasReplyToRandomIdField = (flags & 8) != 0;
@@ -322,13 +320,11 @@ class DecryptedMessage073 extends DecryptedMessageBase {
     final ttl = reader.readInt32();
     final message = reader.readString();
     final hasMediaField = (flags & 512) != 0;
-    final media = hasMediaField
-        ? reader.readObject() as DecryptedMessageMediaBase
-        : null;
+    final media =
+        hasMediaField ? reader.readObject() as DecryptedMessageMediaBase : null;
     final hasEntitiesField = (flags & 128) != 0;
-    final entities = hasEntitiesField
-        ? reader.readVectorObject<MessageEntityBase>()
-        : null;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
     final hasViaBotNameField = (flags & 2048) != 0;
     final viaBotName = hasViaBotNameField ? reader.readString() : null;
     final hasReplyToRandomIdField = (flags & 8) != 0;
@@ -2199,7 +2195,7 @@ class DecryptedMessageActionSetMessageTTL008
     extends DecryptedMessageActionBase {
   /// Decrypted Message Action Set Message T T L constructor.
   const DecryptedMessageActionSetMessageTTL008({required this.ttlSeconds})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionSetMessageTTL008.deserialize(
@@ -2254,7 +2250,7 @@ class DecryptedMessageActionSetMessageTTL008
 class DecryptedMessageActionReadMessages008 extends DecryptedMessageActionBase {
   /// Decrypted Message Action Read Messages constructor.
   const DecryptedMessageActionReadMessages008({required this.randomIds})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionReadMessages008.deserialize(
@@ -2308,7 +2304,7 @@ class DecryptedMessageActionDeleteMessages008
     extends DecryptedMessageActionBase {
   /// Decrypted Message Action Delete Messages constructor.
   const DecryptedMessageActionDeleteMessages008({required this.randomIds})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionDeleteMessages008.deserialize(
@@ -2362,7 +2358,7 @@ class DecryptedMessageActionScreenshotMessages008
     extends DecryptedMessageActionBase {
   /// Decrypted Message Action Screenshot Messages constructor.
   const DecryptedMessageActionScreenshotMessages008({required this.randomIds})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionScreenshotMessages008.deserialize(
@@ -2753,7 +2749,7 @@ class DecryptedMessageActionAcceptKey020 extends DecryptedMessageActionBase {
 class DecryptedMessageActionAbortKey020 extends DecryptedMessageActionBase {
   /// Decrypted Message Action Abort Key constructor.
   const DecryptedMessageActionAbortKey020({required this.exchangeId})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory DecryptedMessageActionAbortKey020.deserialize(BinaryReader reader) {
@@ -3454,7 +3450,7 @@ class SendMessageUploadRoundAction066 extends SendMessageActionBase {
 class DocumentAttributeImageSize023 extends DocumentAttributeBase {
   /// Document Attribute Image Size constructor.
   const DocumentAttributeImageSize023({required this.w, required this.h})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory DocumentAttributeImageSize023.deserialize(BinaryReader reader) {
@@ -4463,7 +4459,7 @@ class FileLocation023 extends FileLocationBase {
 class MessageEntityUnknown045 extends MessageEntityBase {
   /// Message Entity Unknown constructor.
   const MessageEntityUnknown045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUnknown045.deserialize(BinaryReader reader) {
@@ -4522,7 +4518,7 @@ class MessageEntityUnknown045 extends MessageEntityBase {
 class MessageEntityMention045 extends MessageEntityBase {
   /// Message Entity Mention constructor.
   const MessageEntityMention045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityMention045.deserialize(BinaryReader reader) {
@@ -4581,7 +4577,7 @@ class MessageEntityMention045 extends MessageEntityBase {
 class MessageEntityHashtag045 extends MessageEntityBase {
   /// Message Entity Hashtag constructor.
   const MessageEntityHashtag045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityHashtag045.deserialize(BinaryReader reader) {
@@ -4640,7 +4636,7 @@ class MessageEntityHashtag045 extends MessageEntityBase {
 class MessageEntityBotCommand045 extends MessageEntityBase {
   /// Message Entity Bot Command constructor.
   const MessageEntityBotCommand045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBotCommand045.deserialize(BinaryReader reader) {
@@ -4702,7 +4698,7 @@ class MessageEntityBotCommand045 extends MessageEntityBase {
 class MessageEntityUrl045 extends MessageEntityBase {
   /// Message Entity Url constructor.
   const MessageEntityUrl045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUrl045.deserialize(BinaryReader reader) {
@@ -4761,7 +4757,7 @@ class MessageEntityUrl045 extends MessageEntityBase {
 class MessageEntityEmail045 extends MessageEntityBase {
   /// Message Entity Email constructor.
   const MessageEntityEmail045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityEmail045.deserialize(BinaryReader reader) {
@@ -4820,7 +4816,7 @@ class MessageEntityEmail045 extends MessageEntityBase {
 class MessageEntityBold045 extends MessageEntityBase {
   /// Message Entity Bold constructor.
   const MessageEntityBold045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBold045.deserialize(BinaryReader reader) {
@@ -4879,7 +4875,7 @@ class MessageEntityBold045 extends MessageEntityBase {
 class MessageEntityItalic045 extends MessageEntityBase {
   /// Message Entity Italic constructor.
   const MessageEntityItalic045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityItalic045.deserialize(BinaryReader reader) {
@@ -4938,7 +4934,7 @@ class MessageEntityItalic045 extends MessageEntityBase {
 class MessageEntityCode045 extends MessageEntityBase {
   /// Message Entity Code constructor.
   const MessageEntityCode045({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityCode045.deserialize(BinaryReader reader) {
@@ -5141,7 +5137,7 @@ class MessageEntityTextUrl045 extends MessageEntityBase {
 class MessageEntityUnderline101 extends MessageEntityBase {
   /// Message Entity Underline constructor.
   const MessageEntityUnderline101({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityUnderline101.deserialize(BinaryReader reader) {
@@ -5203,7 +5199,7 @@ class MessageEntityUnderline101 extends MessageEntityBase {
 class MessageEntityStrike101 extends MessageEntityBase {
   /// Message Entity Strike constructor.
   const MessageEntityStrike101({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityStrike101.deserialize(BinaryReader reader) {
@@ -5262,7 +5258,7 @@ class MessageEntityStrike101 extends MessageEntityBase {
 class MessageEntityBlockquote101 extends MessageEntityBase {
   /// Message Entity Blockquote constructor.
   const MessageEntityBlockquote101({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntityBlockquote101.deserialize(BinaryReader reader) {
@@ -5324,7 +5320,7 @@ class MessageEntityBlockquote101 extends MessageEntityBase {
 class MessageEntitySpoiler144 extends MessageEntityBase {
   /// Message Entity Spoiler constructor.
   const MessageEntitySpoiler144({required this.offset, required this.length})
-    : super._();
+      : super._();
 
   /// Deserialize.
   factory MessageEntitySpoiler144.deserialize(BinaryReader reader) {

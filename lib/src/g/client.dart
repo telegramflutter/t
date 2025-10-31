@@ -1737,7 +1737,7 @@ class ClientAccount {
   ///
   /// ID: `56da0b3f`.
   Future<Result<AccountAutoDownloadSettingsBase>>
-  getAutoDownloadSettings() async {
+      getAutoDownloadSettings() async {
     // Preparing the request.
     final request = AccountGetAutoDownloadSettings();
 
@@ -2724,7 +2724,7 @@ class ClientAccount {
   ///
   /// ID: `06dd654c`.
   Future<Result<ReactionsNotifySettingsBase>>
-  getReactionsNotifySettings() async {
+      getReactionsNotifySettings() async {
     // Preparing the request.
     final request = AccountGetReactionsNotifySettings();
 
@@ -6071,7 +6071,7 @@ class ClientMessages {
   ///
   /// ID: `a29cd42c`.
   Future<Result<Vector<DialogFilterSuggestedBase>>>
-  getSuggestedDialogFilters() async {
+      getSuggestedDialogFilters() async {
     // Preparing the request.
     final request = MessagesGetSuggestedDialogFilters();
 
@@ -8146,7 +8146,7 @@ class ClientMessages {
   ///
   /// ID: `12cbf0c4`.
   Future<Result<ChannelsSponsoredMessageReportResultBase>>
-  reportSponsoredMessage({
+      reportSponsoredMessage({
     required Uint8List randomId,
     required Uint8List option,
   }) async {
@@ -8184,7 +8184,7 @@ class ClientMessages {
   ///
   /// ID: `f21f7f2f`.
   Future<Result<MessagesBotPreparedInlineMessageBase>>
-  savePreparedInlineMessage({
+      savePreparedInlineMessage({
     required InputBotInlineResultBase result,
     required InputUserBase userId,
     List<InlineQueryPeerTypeBase>? peerTypes,
@@ -11485,7 +11485,7 @@ class ClientPayments {
   ///
   /// ID: `2433dc92`.
   Future<Result<PaymentsStarsRevenueWithdrawalUrlBase>>
-  getStarsRevenueWithdrawalUrl({
+      getStarsRevenueWithdrawalUrl({
     required bool ton,
     required InputPeerBase peer,
     int? amount,
@@ -11510,7 +11510,7 @@ class ClientPayments {
   ///
   /// ID: `d1d7efc5`.
   Future<Result<PaymentsStarsRevenueAdsAccountUrlBase>>
-  getStarsRevenueAdsAccountUrl({required InputPeerBase peer}) async {
+      getStarsRevenueAdsAccountUrl({required InputPeerBase peer}) async {
     // Preparing the request.
     final request = PaymentsGetStarsRevenueAdsAccountUrl(peer: peer);
 
@@ -11627,7 +11627,7 @@ class ClientPayments {
   ///
   /// ID: `bd1efd3e`.
   Future<Result<Vector<StarsGiveawayOptionBase>>>
-  getStarsGiveawayOptions() async {
+      getStarsGiveawayOptions() async {
     // Preparing the request.
     final request = PaymentsGetStarsGiveawayOptions();
 
@@ -12179,7 +12179,7 @@ class ClientPayments {
   ///
   /// ID: `4365af6b`.
   Future<Result<PaymentsUniqueStarGiftValueInfoBase>>
-  getUniqueStarGiftValueInfo({required String slug}) async {
+      getUniqueStarGiftValueInfo({required String slug}) async {
     // Preparing the request.
     final request = PaymentsGetUniqueStarGiftValueInfo(slug: slug);
 
