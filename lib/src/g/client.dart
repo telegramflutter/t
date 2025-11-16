@@ -3748,7 +3748,7 @@ class ClientMessages {
 
   /// Send Message.
   ///
-  /// ID: `fe05dc9a`.
+  /// ID: `545cd15a`.
   Future<Result<UpdatesBase>> sendMessage({
     required bool noWebpage,
     required bool silent,
@@ -3765,6 +3765,7 @@ class ClientMessages {
     ReplyMarkupBase? replyMarkup,
     List<MessageEntityBase>? entities,
     DateTime? scheduleDate,
+    int? scheduleRepeatPeriod,
     InputPeerBase? sendAs,
     InputQuickReplyShortcutBase? quickReplyShortcut,
     int? effect,
@@ -3788,6 +3789,7 @@ class ClientMessages {
       replyMarkup: replyMarkup,
       entities: entities,
       scheduleDate: scheduleDate,
+      scheduleRepeatPeriod: scheduleRepeatPeriod,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
       effect: effect,
@@ -3804,7 +3806,7 @@ class ClientMessages {
 
   /// Send Media.
   ///
-  /// ID: `ac55d9c1`.
+  /// ID: `0330e77f`.
   Future<Result<UpdatesBase>> sendMedia({
     required bool silent,
     required bool background,
@@ -3821,6 +3823,7 @@ class ClientMessages {
     ReplyMarkupBase? replyMarkup,
     List<MessageEntityBase>? entities,
     DateTime? scheduleDate,
+    int? scheduleRepeatPeriod,
     InputPeerBase? sendAs,
     InputQuickReplyShortcutBase? quickReplyShortcut,
     int? effect,
@@ -3844,6 +3847,7 @@ class ClientMessages {
       replyMarkup: replyMarkup,
       entities: entities,
       scheduleDate: scheduleDate,
+      scheduleRepeatPeriod: scheduleRepeatPeriod,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
       effect: effect,
@@ -3860,7 +3864,7 @@ class ClientMessages {
 
   /// Forward Messages.
   ///
-  /// ID: `978928ca`.
+  /// ID: `41d41ade`.
   Future<Result<UpdatesBase>> forwardMessages({
     required bool silent,
     required bool background,
@@ -3876,6 +3880,7 @@ class ClientMessages {
     int? topMsgId,
     InputReplyToBase? replyTo,
     DateTime? scheduleDate,
+    int? scheduleRepeatPeriod,
     InputPeerBase? sendAs,
     InputQuickReplyShortcutBase? quickReplyShortcut,
     int? videoTimestamp,
@@ -3898,6 +3903,7 @@ class ClientMessages {
       topMsgId: topMsgId,
       replyTo: replyTo,
       scheduleDate: scheduleDate,
+      scheduleRepeatPeriod: scheduleRepeatPeriod,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
       videoTimestamp: videoTimestamp,
@@ -4814,7 +4820,7 @@ class ClientMessages {
 
   /// Edit Message.
   ///
-  /// ID: `dfd14005`.
+  /// ID: `51e842e1`.
   Future<Result<UpdatesBase>> editMessage({
     required bool noWebpage,
     required bool invertMedia,
@@ -4825,6 +4831,7 @@ class ClientMessages {
     ReplyMarkupBase? replyMarkup,
     List<MessageEntityBase>? entities,
     DateTime? scheduleDate,
+    int? scheduleRepeatPeriod,
     int? quickReplyShortcutId,
   }) async {
     // Preparing the request.
@@ -4838,6 +4845,7 @@ class ClientMessages {
       replyMarkup: replyMarkup,
       entities: entities,
       scheduleDate: scheduleDate,
+      scheduleRepeatPeriod: scheduleRepeatPeriod,
       quickReplyShortcutId: quickReplyShortcutId,
     );
 
@@ -10024,11 +10032,13 @@ class ClientChannels {
   /// ID: `e785a43f`.
   Future<Result<ChannelsSendAsPeersBase>> getSendAs({
     required bool forPaidReactions,
+    required bool forLiveStories,
     required InputPeerBase peer,
   }) async {
     // Preparing the request.
     final request = ChannelsGetSendAs(
       forPaidReactions: forPaidReactions,
+      forLiveStories: forLiveStories,
       peer: peer,
     );
 
@@ -12205,6 +12215,57 @@ class ClientPayments {
     // Return the result.
     return response._to<PaymentsCheckCanSendGiftResultBase>();
   }
+
+  /// Get Star Gift Auction State.
+  ///
+  /// ID: `5c9ff4d6`.
+  Future<Result<PaymentsStarGiftAuctionStateBase>> getStarGiftAuctionState({
+    required InputStarGiftAuctionBase auction,
+    required int version,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarGiftAuctionState(
+      auction: auction,
+      version: version,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarGiftAuctionStateBase>();
+  }
+
+  /// Get Star Gift Auction Acquired Gifts.
+  ///
+  /// ID: `6ba2cbec`.
+  Future<Result<PaymentsStarGiftAuctionAcquiredGiftsBase>>
+      getStarGiftAuctionAcquiredGifts({required int giftId}) async {
+    // Preparing the request.
+    final request = PaymentsGetStarGiftAuctionAcquiredGifts(giftId: giftId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarGiftAuctionAcquiredGiftsBase>();
+  }
+
+  /// Get Star Gift Active Auctions.
+  ///
+  /// ID: `a5d0514d`.
+  Future<Result<PaymentsStarGiftActiveAuctionsBase>> getStarGiftActiveAuctions({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetStarGiftActiveAuctions(hash: hash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarGiftActiveAuctionsBase>();
+  }
 }
 
 /// Stickers.
@@ -12734,12 +12795,13 @@ class ClientPhone {
 
   /// Toggle Group Call Settings.
   ///
-  /// ID: `e9723804`.
+  /// ID: `974392f2`.
   Future<Result<UpdatesBase>> toggleGroupCallSettings({
     required bool resetInviteHash,
     required InputGroupCallBase call,
     bool? joinMuted,
     bool? messagesEnabled,
+    int? sendPaidMessagesStars,
   }) async {
     // Preparing the request.
     final request = PhoneToggleGroupCallSettings(
@@ -12747,6 +12809,7 @@ class ClientPhone {
       call: call,
       joinMuted: joinMuted,
       messagesEnabled: messagesEnabled,
+      sendPaidMessagesStars: sendPaidMessagesStars,
     );
 
     // Invoke and wait for response.
@@ -13031,13 +13094,18 @@ class ClientPhone {
 
   /// Get Group Call Stream Rtmp Url.
   ///
-  /// ID: `deb3abbf`.
+  /// ID: `5af4c73a`.
   Future<Result<PhoneGroupCallStreamRtmpUrlBase>> getGroupCallStreamRtmpUrl({
+    required bool liveStory,
     required InputPeerBase peer,
     required bool revoke,
   }) async {
     // Preparing the request.
-    final request = PhoneGetGroupCallStreamRtmpUrl(peer: peer, revoke: revoke);
+    final request = PhoneGetGroupCallStreamRtmpUrl(
+      liveStory: liveStory,
+      peer: peer,
+      revoke: revoke,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13200,24 +13268,28 @@ class ClientPhone {
 
   /// Send Group Call Message.
   ///
-  /// ID: `87893014`.
-  Future<Result<Boolean>> sendGroupCallMessage({
+  /// ID: `b1d11410`.
+  Future<Result<UpdatesBase>> sendGroupCallMessage({
     required InputGroupCallBase call,
     required int randomId,
     required TextWithEntitiesBase message,
+    int? allowPaidStars,
+    InputPeerBase? sendAs,
   }) async {
     // Preparing the request.
     final request = PhoneSendGroupCallMessage(
       call: call,
       randomId: randomId,
       message: message,
+      allowPaidStars: allowPaidStars,
+      sendAs: sendAs,
     );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Boolean>();
+    return response._to<UpdatesBase>();
   }
 
   /// Send Group Call Encrypted Message.
@@ -13232,6 +13304,83 @@ class ClientPhone {
       call: call,
       encryptedMessage: encryptedMessage,
     );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Group Call Messages.
+  ///
+  /// ID: `f64f54f7`.
+  Future<Result<UpdatesBase>> deleteGroupCallMessages({
+    required bool reportSpam,
+    required InputGroupCallBase call,
+    required List<int> messages,
+  }) async {
+    // Preparing the request.
+    final request = PhoneDeleteGroupCallMessages(
+      reportSpam: reportSpam,
+      call: call,
+      messages: messages,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Group Call Participant Messages.
+  ///
+  /// ID: `1dbfeca0`.
+  Future<Result<UpdatesBase>> deleteGroupCallParticipantMessages({
+    required bool reportSpam,
+    required InputGroupCallBase call,
+    required InputPeerBase participant,
+  }) async {
+    // Preparing the request.
+    final request = PhoneDeleteGroupCallParticipantMessages(
+      reportSpam: reportSpam,
+      call: call,
+      participant: participant,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Group Call Stars.
+  ///
+  /// ID: `6f636302`.
+  Future<Result<PhoneGroupCallStarsBase>> getGroupCallStars({
+    required InputGroupCallBase call,
+  }) async {
+    // Preparing the request.
+    final request = PhoneGetGroupCallStars(call: call);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PhoneGroupCallStarsBase>();
+  }
+
+  /// Save Default Send As.
+  ///
+  /// ID: `4167add1`.
+  Future<Result<Boolean>> saveDefaultSendAs({
+    required InputGroupCallBase call,
+    required InputPeerBase sendAs,
+  }) async {
+    // Preparing the request.
+    final request = PhoneSaveDefaultSendAs(call: call, sendAs: sendAs);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -14143,8 +14292,8 @@ class ClientStories {
 
   /// Get Peer Max I Ds.
   ///
-  /// ID: `535983c3`.
-  Future<Result<Vector<int>>> getPeerMaxIDs({
+  /// ID: `78499170`.
+  Future<Result<Vector<RecentStoryBase>>> getPeerMaxIDs({
     required List<InputPeerBase> id,
   }) async {
     // Preparing the request.
@@ -14154,7 +14303,7 @@ class ClientStories {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._toVector<int>();
+    return response._toVector<RecentStoryBase>();
   }
 
   /// Get Chats To Send.
@@ -14382,6 +14531,42 @@ class ClientStories {
 
     // Return the result.
     return response._to<StoriesStoriesBase>();
+  }
+
+  /// Start Live.
+  ///
+  /// ID: `d069ccde`.
+  Future<Result<UpdatesBase>> startLive({
+    required bool pinned,
+    required bool noforwards,
+    required bool rtmpStream,
+    required InputPeerBase peer,
+    String? caption,
+    List<MessageEntityBase>? entities,
+    required List<InputPrivacyRuleBase> privacyRules,
+    required int randomId,
+    bool? messagesEnabled,
+    int? sendPaidMessagesStars,
+  }) async {
+    // Preparing the request.
+    final request = StoriesStartLive(
+      pinned: pinned,
+      noforwards: noforwards,
+      rtmpStream: rtmpStream,
+      peer: peer,
+      caption: caption,
+      entities: entities,
+      privacyRules: privacyRules,
+      randomId: randomId,
+      messagesEnabled: messagesEnabled,
+      sendPaidMessagesStars: sendPaidMessagesStars,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
   }
 }
 

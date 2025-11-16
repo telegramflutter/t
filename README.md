@@ -16,7 +16,7 @@ We keep this project on par with https://github.com/telegramdesktop/tdesktop/blo
 
 ## Features
 
-* Supports Telegram API Layer 216 (Oct 10, 2025).
+* Supports Telegram API Layer 218 (Nov 15, 2025).
 * Serialize/Deserialize MTProto objects to binary format to be sent/received throught the transport protocol (TCP, HTTP).
 * https://pub.dev/packages/tg which is also written in Dart, is a drop-in replacement for `tdlib` which is written in C/C++.
 

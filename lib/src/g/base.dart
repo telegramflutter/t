@@ -3480,6 +3480,84 @@ abstract class StarGiftUpgradePriceBase extends TlConstructor {
   const StarGiftUpgradePriceBase._() : super._();
 }
 
+/// Predicate Group Call Message.
+abstract class GroupCallMessageBase extends TlConstructor {
+  /// Predicate Group Call Message constructor.
+  const GroupCallMessageBase._() : super._();
+}
+
+/// Predicate Group Call Donor.
+abstract class GroupCallDonorBase extends TlConstructor {
+  /// Predicate Group Call Donor constructor.
+  const GroupCallDonorBase._() : super._();
+}
+
+/// Predicate Phone Group Call Stars.
+abstract class PhoneGroupCallStarsBase extends TlConstructor {
+  /// Predicate Phone Group Call Stars constructor.
+  const PhoneGroupCallStarsBase._() : super._();
+}
+
+/// Predicate Recent Story.
+abstract class RecentStoryBase extends TlConstructor {
+  /// Predicate Recent Story constructor.
+  const RecentStoryBase._() : super._();
+}
+
+/// Predicate Auction Bid Level.
+abstract class AuctionBidLevelBase extends TlConstructor {
+  /// Predicate Auction Bid Level constructor.
+  const AuctionBidLevelBase._() : super._();
+}
+
+/// Predicate Star Gift Auction State.
+abstract class StarGiftAuctionStateBase extends TlConstructor {
+  /// Predicate Star Gift Auction State constructor.
+  const StarGiftAuctionStateBase._() : super._();
+}
+
+/// Predicate Star Gift Auction User State.
+abstract class StarGiftAuctionUserStateBase extends TlConstructor {
+  /// Predicate Star Gift Auction User State constructor.
+  const StarGiftAuctionUserStateBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Auction State.
+abstract class PaymentsStarGiftAuctionStateBase extends TlConstructor {
+  /// Predicate Payments Star Gift Auction State constructor.
+  const PaymentsStarGiftAuctionStateBase._() : super._();
+}
+
+/// Predicate Star Gift Auction Acquired Gift.
+abstract class StarGiftAuctionAcquiredGiftBase extends TlConstructor {
+  /// Predicate Star Gift Auction Acquired Gift constructor.
+  const StarGiftAuctionAcquiredGiftBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Auction Acquired Gifts.
+abstract class PaymentsStarGiftAuctionAcquiredGiftsBase extends TlConstructor {
+  /// Predicate Payments Star Gift Auction Acquired Gifts constructor.
+  const PaymentsStarGiftAuctionAcquiredGiftsBase._() : super._();
+}
+
+/// Predicate Star Gift Active Auction State.
+abstract class StarGiftActiveAuctionStateBase extends TlConstructor {
+  /// Predicate Star Gift Active Auction State constructor.
+  const StarGiftActiveAuctionStateBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Active Auctions.
+abstract class PaymentsStarGiftActiveAuctionsBase extends TlConstructor {
+  /// Predicate Payments Star Gift Active Auctions constructor.
+  const PaymentsStarGiftActiveAuctionsBase._() : super._();
+}
+
+/// Predicate Input Star Gift Auction.
+abstract class InputStarGiftAuctionBase extends TlConstructor {
+  /// Predicate Input Star Gift Auction constructor.
+  const InputStarGiftAuctionBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.
