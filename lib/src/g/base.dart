@@ -3558,6 +3558,60 @@ abstract class InputStarGiftAuctionBase extends TlConstructor {
   const InputStarGiftAuctionBase._() : super._();
 }
 
+/// Predicate Passkey.
+abstract class PasskeyBase extends TlConstructor {
+  /// Predicate Passkey constructor.
+  const PasskeyBase._() : super._();
+}
+
+/// Predicate Account Passkeys.
+abstract class AccountPasskeysBase extends TlConstructor {
+  /// Predicate Account Passkeys constructor.
+  const AccountPasskeysBase._() : super._();
+}
+
+/// Predicate Account Passkey Registration Options.
+abstract class AccountPasskeyRegistrationOptionsBase extends TlConstructor {
+  /// Predicate Account Passkey Registration Options constructor.
+  const AccountPasskeyRegistrationOptionsBase._() : super._();
+}
+
+/// Predicate Auth Passkey Login Options.
+abstract class AuthPasskeyLoginOptionsBase extends TlConstructor {
+  /// Predicate Auth Passkey Login Options constructor.
+  const AuthPasskeyLoginOptionsBase._() : super._();
+}
+
+/// Predicate Input Passkey Response.
+abstract class InputPasskeyResponseBase extends TlConstructor {
+  /// Predicate Input Passkey Response constructor.
+  const InputPasskeyResponseBase._() : super._();
+}
+
+/// Predicate Input Passkey Credential.
+abstract class InputPasskeyCredentialBase extends TlConstructor {
+  /// Predicate Input Passkey Credential constructor.
+  const InputPasskeyCredentialBase._() : super._();
+}
+
+/// Predicate Star Gift Background.
+abstract class StarGiftBackgroundBase extends TlConstructor {
+  /// Predicate Star Gift Background constructor.
+  const StarGiftBackgroundBase._() : super._();
+}
+
+/// Predicate Star Gift Auction Round.
+abstract class StarGiftAuctionRoundBase extends TlConstructor {
+  /// Predicate Star Gift Auction Round constructor.
+  const StarGiftAuctionRoundBase._() : super._();
+}
+
+/// Predicate Payments Star Gift Upgrade Attributes.
+abstract class PaymentsStarGiftUpgradeAttributesBase extends TlConstructor {
+  /// Predicate Payments Star Gift Upgrade Attributes constructor.
+  const PaymentsStarGiftUpgradeAttributesBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.

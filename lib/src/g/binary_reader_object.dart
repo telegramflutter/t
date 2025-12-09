@@ -842,7 +842,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionPrizeStars.deserialize(reader);
   }
 
-  if (id == 0xdb596550) {
+  if (id == 0xea2c31d3) {
     return MessageActionStarGift.deserialize(reader);
   }
 
@@ -888,6 +888,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x2c8f2a25) {
     return MessageActionSuggestBirthday.deserialize(reader);
+  }
+
+  if (id == 0x774278d4) {
+    return MessageActionStarGiftPurchaseOffer.deserialize(reader);
+  }
+
+  if (id == 0x73ada76b) {
+    return MessageActionStarGiftPurchaseOfferDeclined.deserialize(reader);
   }
 
   if (id == 0xd58a08c6) {
@@ -4337,7 +4345,7 @@ TlObject _readObject(BinaryReader reader) {
     return WebPageAttributeStarGiftCollection.deserialize(reader);
   }
 
-  if (id == 0x034986ab) {
+  if (id == 0x01c641c2) {
     return WebPageAttributeStarGiftAuction.deserialize(reader);
   }
 
@@ -5845,11 +5853,11 @@ TlObject _readObject(BinaryReader reader) {
     return StarsGiveawayWinnersOption.deserialize(reader);
   }
 
-  if (id == 0x1b9a4d7f) {
+  if (id == 0x313a9547) {
     return StarGift.deserialize(reader);
   }
 
-  if (id == 0xb0bf741b) {
+  if (id == 0x569d64c9) {
     return StarGiftUnique.deserialize(reader);
   }
 
@@ -5965,7 +5973,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesWebPagePreview.deserialize(reader);
   }
 
-  if (id == 0x8983a452) {
+  if (id == 0xead6805e) {
     return SavedStarGift.deserialize(reader);
   }
 
@@ -6213,11 +6221,11 @@ TlObject _readObject(BinaryReader reader) {
     return StarGiftAuctionStateNotModified.deserialize(reader);
   }
 
-  if (id == 0x5db04f4b) {
+  if (id == 0x771a4e66) {
     return StarGiftAuctionState.deserialize(reader);
   }
 
-  if (id == 0x7d967c3a) {
+  if (id == 0x972dabbf) {
     return StarGiftAuctionStateFinished.deserialize(reader);
   }
 
@@ -6225,11 +6233,11 @@ TlObject _readObject(BinaryReader reader) {
     return StarGiftAuctionUserState.deserialize(reader);
   }
 
-  if (id == 0x0e98e474) {
+  if (id == 0x6b39f4ec) {
     return PaymentsStarGiftAuctionState.deserialize(reader);
   }
 
-  if (id == 0xab60e20b) {
+  if (id == 0x42b00348) {
     return StarGiftAuctionAcquiredGift.deserialize(reader);
   }
 
@@ -6245,7 +6253,7 @@ TlObject _readObject(BinaryReader reader) {
     return PaymentsStarGiftActiveAuctionsNotModified.deserialize(reader);
   }
 
-  if (id == 0x97f187d8) {
+  if (id == 0xaef6abbc) {
     return PaymentsStarGiftActiveAuctions.deserialize(reader);
   }
 
@@ -6255,6 +6263,50 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x7ab58308) {
     return InputStarGiftAuctionSlug.deserialize(reader);
+  }
+
+  if (id == 0x98613ebf) {
+    return Passkey.deserialize(reader);
+  }
+
+  if (id == 0xf8e0aa1c) {
+    return AccountPasskeys.deserialize(reader);
+  }
+
+  if (id == 0xe16b5ce1) {
+    return AccountPasskeyRegistrationOptions.deserialize(reader);
+  }
+
+  if (id == 0xe2037789) {
+    return AuthPasskeyLoginOptions.deserialize(reader);
+  }
+
+  if (id == 0x3e63935c) {
+    return InputPasskeyResponseRegister.deserialize(reader);
+  }
+
+  if (id == 0xc31fc14a) {
+    return InputPasskeyResponseLogin.deserialize(reader);
+  }
+
+  if (id == 0x3c27b78f) {
+    return InputPasskeyCredentialPublicKey.deserialize(reader);
+  }
+
+  if (id == 0xaff56398) {
+    return StarGiftBackground.deserialize(reader);
+  }
+
+  if (id == 0x3aae0528) {
+    return StarGiftAuctionRound.deserialize(reader);
+  }
+
+  if (id == 0x0aa021e5) {
+    return StarGiftAuctionRoundExtendable.deserialize(reader);
+  }
+
+  if (id == 0x46c6e36f) {
+    return PaymentsStarGiftUpgradeAttributes.deserialize(reader);
   }
 
   if (id == 0xcb9f372d) {
@@ -6395,6 +6447,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x56e59f9c) {
     return AuthCheckPaidAuth.deserialize(reader);
+  }
+
+  if (id == 0x518ad0b7) {
+    return AuthInitPasskeyLogin.deserialize(reader);
+  }
+
+  if (id == 0x9857ad07) {
+    return AuthFinishPasskeyLogin.deserialize(reader);
   }
 
   if (id == 0xec86017a) {
@@ -6873,6 +6933,22 @@ TlObject _readObject(BinaryReader reader) {
     return AccountGetUniqueGiftChatThemes.deserialize(reader);
   }
 
+  if (id == 0x429547e8) {
+    return AccountInitPasskeyRegistration.deserialize(reader);
+  }
+
+  if (id == 0x55b41fd6) {
+    return AccountRegisterPasskey.deserialize(reader);
+  }
+
+  if (id == 0xea1f0c52) {
+    return AccountGetPasskeys.deserialize(reader);
+  }
+
+  if (id == 0xf5b5563f) {
+    return AccountDeletePasskey.deserialize(reader);
+  }
+
   if (id == 0x0d91a548) {
     return UsersGetUsers.deserialize(reader);
   }
@@ -7057,7 +7133,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSendMedia.deserialize(reader);
   }
 
-  if (id == 0x41d41ade) {
+  if (id == 0x13704a7c) {
     return MessagesForwardMessages.deserialize(reader);
   }
 
@@ -8719,6 +8795,18 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xa5d0514d) {
     return PaymentsGetStarGiftActiveAuctions.deserialize(reader);
+  }
+
+  if (id == 0xe9ce781c) {
+    return PaymentsResolveStarGiftOffer.deserialize(reader);
+  }
+
+  if (id == 0x8fb86b41) {
+    return PaymentsSendStarGiftOffer.deserialize(reader);
+  }
+
+  if (id == 0x6d038b58) {
+    return PaymentsGetStarGiftUpgradeAttributes.deserialize(reader);
   }
 
   if (id == 0x9021ab67) {

@@ -789,6 +789,45 @@ class ClientAuth {
     // Return the result.
     return response._to<AuthSentCodeBase>();
   }
+
+  /// Init Passkey Login.
+  ///
+  /// ID: `518ad0b7`.
+  Future<Result<AuthPasskeyLoginOptionsBase>> initPasskeyLogin({
+    required int apiId,
+    required String apiHash,
+  }) async {
+    // Preparing the request.
+    final request = AuthInitPasskeyLogin(apiId: apiId, apiHash: apiHash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AuthPasskeyLoginOptionsBase>();
+  }
+
+  /// Finish Passkey Login.
+  ///
+  /// ID: `9857ad07`.
+  Future<Result<AuthAuthorizationBase>> finishPasskeyLogin({
+    required InputPasskeyCredentialBase credential,
+    int? fromDcId,
+    int? fromAuthKeyId,
+  }) async {
+    // Preparing the request.
+    final request = AuthFinishPasskeyLogin(
+      credential: credential,
+      fromDcId: fromDcId,
+      fromAuthKeyId: fromAuthKeyId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AuthAuthorizationBase>();
+  }
 }
 
 /// Account.
@@ -2882,6 +2921,65 @@ class ClientAccount {
     // Return the result.
     return response._to<AccountChatThemesBase>();
   }
+
+  /// Init Passkey Registration.
+  ///
+  /// ID: `429547e8`.
+  Future<Result<AccountPasskeyRegistrationOptionsBase>>
+      initPasskeyRegistration() async {
+    // Preparing the request.
+    final request = AccountInitPasskeyRegistration();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountPasskeyRegistrationOptionsBase>();
+  }
+
+  /// Register Passkey.
+  ///
+  /// ID: `55b41fd6`.
+  Future<Result<PasskeyBase>> registerPasskey({
+    required InputPasskeyCredentialBase credential,
+  }) async {
+    // Preparing the request.
+    final request = AccountRegisterPasskey(credential: credential);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PasskeyBase>();
+  }
+
+  /// Get Passkeys.
+  ///
+  /// ID: `ea1f0c52`.
+  Future<Result<AccountPasskeysBase>> getPasskeys() async {
+    // Preparing the request.
+    final request = AccountGetPasskeys();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountPasskeysBase>();
+  }
+
+  /// Delete Passkey.
+  ///
+  /// ID: `f5b5563f`.
+  Future<Result<Boolean>> deletePasskey({required String id}) async {
+    // Preparing the request.
+    final request = AccountDeletePasskey(id: id);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
 }
 
 /// Users.
@@ -3864,7 +3962,7 @@ class ClientMessages {
 
   /// Forward Messages.
   ///
-  /// ID: `41d41ade`.
+  /// ID: `13704a7c`.
   Future<Result<UpdatesBase>> forwardMessages({
     required bool silent,
     required bool background,
@@ -3883,6 +3981,7 @@ class ClientMessages {
     int? scheduleRepeatPeriod,
     InputPeerBase? sendAs,
     InputQuickReplyShortcutBase? quickReplyShortcut,
+    int? effect,
     int? videoTimestamp,
     int? allowPaidStars,
     SuggestedPostBase? suggestedPost,
@@ -3906,6 +4005,7 @@ class ClientMessages {
       scheduleRepeatPeriod: scheduleRepeatPeriod,
       sendAs: sendAs,
       quickReplyShortcut: quickReplyShortcut,
+      effect: effect,
       videoTimestamp: videoTimestamp,
       allowPaidStars: allowPaidStars,
       suggestedPost: suggestedPost,
@@ -12265,6 +12365,69 @@ class ClientPayments {
 
     // Return the result.
     return response._to<PaymentsStarGiftActiveAuctionsBase>();
+  }
+
+  /// Resolve Star Gift Offer.
+  ///
+  /// ID: `e9ce781c`.
+  Future<Result<UpdatesBase>> resolveStarGiftOffer({
+    required bool decline,
+    required int offerMsgId,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsResolveStarGiftOffer(
+      decline: decline,
+      offerMsgId: offerMsgId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Send Star Gift Offer.
+  ///
+  /// ID: `8fb86b41`.
+  Future<Result<UpdatesBase>> sendStarGiftOffer({
+    required InputPeerBase peer,
+    required String slug,
+    required StarsAmountBase price,
+    required int duration,
+    required int randomId,
+    int? allowPaidStars,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsSendStarGiftOffer(
+      peer: peer,
+      slug: slug,
+      price: price,
+      duration: duration,
+      randomId: randomId,
+      allowPaidStars: allowPaidStars,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Star Gift Upgrade Attributes.
+  ///
+  /// ID: `6d038b58`.
+  Future<Result<PaymentsStarGiftUpgradeAttributesBase>>
+      getStarGiftUpgradeAttributes({required int giftId}) async {
+    // Preparing the request.
+    final request = PaymentsGetStarGiftUpgradeAttributes(giftId: giftId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsStarGiftUpgradeAttributesBase>();
   }
 }
 
