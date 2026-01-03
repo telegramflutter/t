@@ -3612,6 +3612,18 @@ abstract class PaymentsStarGiftUpgradeAttributesBase extends TlConstructor {
   const PaymentsStarGiftUpgradeAttributesBase._() : super._();
 }
 
+/// Predicate Messages Emoji Game Outcome.
+abstract class MessagesEmojiGameOutcomeBase extends TlConstructor {
+  /// Predicate Messages Emoji Game Outcome constructor.
+  const MessagesEmojiGameOutcomeBase._() : super._();
+}
+
+/// Predicate Messages Emoji Game Info.
+abstract class MessagesEmojiGameInfoBase extends TlConstructor {
+  /// Predicate Messages Emoji Game Info constructor.
+  const MessagesEmojiGameInfoBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.

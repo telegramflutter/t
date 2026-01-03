@@ -8657,6 +8657,38 @@ class ClientMessages {
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>();
   }
+
+  /// Get Emoji Game Info.
+  ///
+  /// ID: `fb7e8ca7`.
+  Future<Result<MessagesEmojiGameInfoBase>> getEmojiGameInfo() async {
+    // Preparing the request.
+    final request = MessagesGetEmojiGameInfo();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesEmojiGameInfoBase>();
+  }
+
+  /// Summarize Text.
+  ///
+  /// ID: `9d4104e2`.
+  Future<Result<TextWithEntitiesBase>> summarizeText({
+    required InputPeerBase peer,
+    required int id,
+    String? toLang,
+  }) async {
+    // Preparing the request.
+    final request = MessagesSummarizeText(peer: peer, id: id, toLang: toLang);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<TextWithEntitiesBase>();
+  }
 }
 
 /// Updates.

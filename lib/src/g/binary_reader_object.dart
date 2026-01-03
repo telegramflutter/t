@@ -354,6 +354,10 @@ TlObject _readObject(BinaryReader reader) {
     return InputMediaTodo.deserialize(reader);
   }
 
+  if (id == 0xf3a9244a) {
+    return InputMediaStakeDice.deserialize(reader);
+  }
+
   if (id == 0x1ca48f57) {
     return InputChatPhotoEmpty.deserialize(reader);
   }
@@ -574,7 +578,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEmpty.deserialize(reader);
   }
 
-  if (id == 0xb92f76cf) {
+  if (id == 0x9cb490e9) {
     return Message.deserialize(reader);
   }
 
@@ -630,7 +634,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageMediaPoll.deserialize(reader);
   }
 
-  if (id == 0x3f7ee58b) {
+  if (id == 0x08cbec07) {
     return MessageMediaDice.deserialize(reader);
   }
 
@@ -1796,6 +1800,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xdc58f31e) {
     return UpdateStarGiftAuctionUserState.deserialize(reader);
+  }
+
+  if (id == 0xfb9c547a) {
+    return UpdateEmojiGameInfo.deserialize(reader);
   }
 
   if (id == 0xa56c2a3e) {
@@ -6293,6 +6301,10 @@ TlObject _readObject(BinaryReader reader) {
     return InputPasskeyCredentialPublicKey.deserialize(reader);
   }
 
+  if (id == 0x5b1ccb28) {
+    return InputPasskeyCredentialFirebasePNV.deserialize(reader);
+  }
+
   if (id == 0xaff56398) {
     return StarGiftBackground.deserialize(reader);
   }
@@ -6307,6 +6319,18 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x46c6e36f) {
     return PaymentsStarGiftUpgradeAttributes.deserialize(reader);
+  }
+
+  if (id == 0xda2ad647) {
+    return MessagesEmojiGameOutcome.deserialize(reader);
+  }
+
+  if (id == 0x59e65335) {
+    return MessagesEmojiGameUnavailable.deserialize(reader);
+  }
+
+  if (id == 0x44e56023) {
+    return MessagesEmojiGameDiceInfo.deserialize(reader);
   }
 
   if (id == 0xcb9f372d) {
@@ -8035,6 +8059,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xd2816f10) {
     return MessagesDeleteTopicHistory.deserialize(reader);
+  }
+
+  if (id == 0xfb7e8ca7) {
+    return MessagesGetEmojiGameInfo.deserialize(reader);
+  }
+
+  if (id == 0x9d4104e2) {
+    return MessagesSummarizeText.deserialize(reader);
   }
 
   if (id == 0xedd4882a) {

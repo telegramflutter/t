@@ -2565,6 +2565,75 @@ class InputMediaTodo extends InputMediaBase {
   }
 }
 
+/// Input Media Stake Dice.
+///
+/// ID: `f3a9244a`.
+class InputMediaStakeDice extends InputMediaBase {
+  /// Input Media Stake Dice constructor.
+  const InputMediaStakeDice({
+    required this.gameHash,
+    required this.tonAmount,
+    required this.clientSeed,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputMediaStakeDice.deserialize(BinaryReader reader) {
+    // Read [InputMediaStakeDice] fields.
+    final gameHash = reader.readString();
+    final tonAmount = reader.readInt64();
+    final clientSeed = reader.readBytes();
+
+    // Construct [InputMediaStakeDice] object.
+    final returnValue = InputMediaStakeDice(
+      gameHash: gameHash,
+      tonAmount: tonAmount,
+      clientSeed: clientSeed,
+    );
+
+    // Now return the deserialized [InputMediaStakeDice].
+    return returnValue;
+  }
+
+  /// Game Hash.
+  final String gameHash;
+
+  /// Ton Amount.
+  ///
+  /// Field type is Int64.
+  final int tonAmount;
+
+  /// Client Seed.
+  final Uint8List clientSeed;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf3a9244a.
+    buffer.writeInt32(0xf3a9244a);
+
+    // Write fields.
+    buffer.writeString(gameHash);
+    buffer.writeInt64(tonAmount);
+    buffer.writeBytes(clientSeed);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f3a9244a",
+      "\$name": "InputMediaStakeDice",
+      "gameHash": gameHash,
+      "tonAmount": tonAmount,
+      "clientSeed": clientSeed,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Input Chat Photo Empty.
 ///
 /// ID: `1ca48f57`.
@@ -7860,7 +7929,7 @@ class MessageEmpty extends MessageBase {
 
 /// Message.
 ///
-/// ID: `b92f76cf`.
+/// ID: `9cb490e9`.
 class Message extends MessageBase {
   /// Message constructor.
   const Message({
@@ -7909,6 +7978,7 @@ class Message extends MessageBase {
     this.paidMessageStars,
     this.suggestedPost,
     this.scheduleRepeatPeriod,
+    this.summaryFromLanguage,
   }) : super._();
 
   /// Deserialize.
@@ -8005,6 +8075,9 @@ class Message extends MessageBase {
     final hasScheduleRepeatPeriodField = (flags2 & 1024) != 0;
     final scheduleRepeatPeriod =
         hasScheduleRepeatPeriodField ? reader.readInt32() : null;
+    final hasSummaryFromLanguageField = (flags2 & 2048) != 0;
+    final summaryFromLanguage =
+        hasSummaryFromLanguageField ? reader.readString() : null;
 
     // Construct [Message] object.
     final returnValue = Message(
@@ -8053,6 +8126,7 @@ class Message extends MessageBase {
       paidMessageStars: paidMessageStars,
       suggestedPost: suggestedPost,
       scheduleRepeatPeriod: scheduleRepeatPeriod,
+      summaryFromLanguage: summaryFromLanguage,
     );
 
     // Now return the deserialized [Message].
@@ -8110,6 +8184,7 @@ class Message extends MessageBase {
       b06: paidMessageStars != null,
       b07: suggestedPost != null,
       b10: scheduleRepeatPeriod != null,
+      b11: summaryFromLanguage != null,
     );
 
     return v;
@@ -8252,11 +8327,14 @@ class Message extends MessageBase {
   /// Schedule Repeat Period.
   final int? scheduleRepeatPeriod;
 
+  /// Summary From Language.
+  final String? summaryFromLanguage;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb92f76cf.
-    buffer.writeInt32(0xb92f76cf);
+    // Write type-id 0x9cb490e9.
+    buffer.writeInt32(0x9cb490e9);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -8369,6 +8447,10 @@ class Message extends MessageBase {
     if (localScheduleRepeatPeriodCopy != null) {
       buffer.writeInt32(localScheduleRepeatPeriodCopy);
     }
+    final localSummaryFromLanguageCopy = summaryFromLanguage;
+    if (localSummaryFromLanguageCopy != null) {
+      buffer.writeString(localSummaryFromLanguageCopy);
+    }
 
     // Finished serialization.
   }
@@ -8376,7 +8458,7 @@ class Message extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b92f76cf",
+      "\$hash": "9cb490e9",
       "\$name": "Message",
       "flags": flags,
       "out": out,
@@ -8425,6 +8507,7 @@ class Message extends MessageBase {
       "paidMessageStars": paidMessageStars,
       "suggestedPost": suggestedPost,
       "scheduleRepeatPeriod": scheduleRepeatPeriod,
+      "summaryFromLanguage": summaryFromLanguage,
     };
 
     // Finished toJson.
@@ -9633,23 +9716,42 @@ class MessageMediaPoll extends MessageMediaBase {
 
 /// Message Media Dice.
 ///
-/// ID: `3f7ee58b`.
+/// ID: `08cbec07`.
 class MessageMediaDice extends MessageMediaBase {
   /// Message Media Dice constructor.
-  const MessageMediaDice({required this.value, required this.emoticon})
-      : super._();
+  const MessageMediaDice({
+    required this.value,
+    required this.emoticon,
+    this.gameOutcome,
+  }) : super._();
 
   /// Deserialize.
   factory MessageMediaDice.deserialize(BinaryReader reader) {
     // Read [MessageMediaDice] fields.
+    final flags = reader.readInt32();
     final value = reader.readInt32();
     final emoticon = reader.readString();
+    final hasGameOutcomeField = (flags & 1) != 0;
+    final gameOutcome = hasGameOutcomeField
+        ? reader.readObject() as MessagesEmojiGameOutcomeBase
+        : null;
 
     // Construct [MessageMediaDice] object.
-    final returnValue = MessageMediaDice(value: value, emoticon: emoticon);
+    final returnValue = MessageMediaDice(
+      value: value,
+      emoticon: emoticon,
+      gameOutcome: gameOutcome,
+    );
 
     // Now return the deserialized [MessageMediaDice].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: gameOutcome != null);
+
+    return v;
   }
 
   /// Value.
@@ -9660,15 +9762,23 @@ class MessageMediaDice extends MessageMediaBase {
   /// Emoticon.
   final String emoticon;
 
+  /// Game Outcome.
+  final MessagesEmojiGameOutcomeBase? gameOutcome;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x3f7ee58b.
-    buffer.writeInt32(0x3f7ee58b);
+    // Write type-id 0x08cbec07.
+    buffer.writeInt32(0x08cbec07);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt32(value);
     buffer.writeString(emoticon);
+    final localGameOutcomeCopy = gameOutcome;
+    if (localGameOutcomeCopy != null) {
+      buffer.writeObject(localGameOutcomeCopy);
+    }
 
     // Finished serialization.
   }
@@ -9676,10 +9786,12 @@ class MessageMediaDice extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "3f7ee58b",
+      "\$hash": "08cbec07",
       "\$name": "MessageMediaDice",
+      "flags": flags,
       "value": value,
       "emoticon": emoticon,
+      "gameOutcome": gameOutcome,
     };
 
     // Finished toJson.
@@ -30668,6 +30780,53 @@ class UpdateStarGiftAuctionUserState extends UpdateBase {
       "\$name": "UpdateStarGiftAuctionUserState",
       "giftId": giftId,
       "userState": userState,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Emoji Game Info.
+///
+/// ID: `fb9c547a`.
+class UpdateEmojiGameInfo extends UpdateBase {
+  /// Update Emoji Game Info constructor.
+  const UpdateEmojiGameInfo({required this.info}) : super._();
+
+  /// Deserialize.
+  factory UpdateEmojiGameInfo.deserialize(BinaryReader reader) {
+    // Read [UpdateEmojiGameInfo] fields.
+    final info = reader.readObject() as MessagesEmojiGameInfoBase;
+
+    // Construct [UpdateEmojiGameInfo] object.
+    final returnValue = UpdateEmojiGameInfo(info: info);
+
+    // Now return the deserialized [UpdateEmojiGameInfo].
+    return returnValue;
+  }
+
+  /// Info.
+  final MessagesEmojiGameInfoBase info;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfb9c547a.
+    buffer.writeInt32(0xfb9c547a);
+
+    // Write fields.
+    buffer.writeObject(info);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fb9c547a",
+      "\$name": "UpdateEmojiGameInfo",
+      "info": info,
     };
 
     // Finished toJson.
@@ -109988,6 +110147,53 @@ class InputPasskeyCredentialPublicKey extends InputPasskeyCredentialBase {
   }
 }
 
+/// Input Passkey Credential Firebase P N V.
+///
+/// ID: `5b1ccb28`.
+class InputPasskeyCredentialFirebasePNV extends InputPasskeyCredentialBase {
+  /// Input Passkey Credential Firebase P N V constructor.
+  const InputPasskeyCredentialFirebasePNV({required this.pnvToken}) : super._();
+
+  /// Deserialize.
+  factory InputPasskeyCredentialFirebasePNV.deserialize(BinaryReader reader) {
+    // Read [InputPasskeyCredentialFirebasePNV] fields.
+    final pnvToken = reader.readString();
+
+    // Construct [InputPasskeyCredentialFirebasePNV] object.
+    final returnValue = InputPasskeyCredentialFirebasePNV(pnvToken: pnvToken);
+
+    // Now return the deserialized [InputPasskeyCredentialFirebasePNV].
+    return returnValue;
+  }
+
+  /// Pnv Token.
+  final String pnvToken;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5b1ccb28.
+    buffer.writeInt32(0x5b1ccb28);
+
+    // Write fields.
+    buffer.writeString(pnvToken);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "5b1ccb28",
+      "\$name": "InputPasskeyCredentialFirebasePNV",
+      "pnvToken": pnvToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Star Gift Background.
 ///
 /// ID: `aff56398`.
@@ -110246,6 +110452,215 @@ class PaymentsStarGiftUpgradeAttributes
       "\$hash": "46c6e36f",
       "\$name": "PaymentsStarGiftUpgradeAttributes",
       "attributes": attributes,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Emoji Game Outcome.
+///
+/// ID: `da2ad647`.
+class MessagesEmojiGameOutcome extends MessagesEmojiGameOutcomeBase {
+  /// Messages Emoji Game Outcome constructor.
+  const MessagesEmojiGameOutcome({
+    required this.seed,
+    required this.stakeTonAmount,
+    required this.tonAmount,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesEmojiGameOutcome.deserialize(BinaryReader reader) {
+    // Read [MessagesEmojiGameOutcome] fields.
+    final seed = reader.readBytes();
+    final stakeTonAmount = reader.readInt64();
+    final tonAmount = reader.readInt64();
+
+    // Construct [MessagesEmojiGameOutcome] object.
+    final returnValue = MessagesEmojiGameOutcome(
+      seed: seed,
+      stakeTonAmount: stakeTonAmount,
+      tonAmount: tonAmount,
+    );
+
+    // Now return the deserialized [MessagesEmojiGameOutcome].
+    return returnValue;
+  }
+
+  /// Seed.
+  final Uint8List seed;
+
+  /// Stake Ton Amount.
+  ///
+  /// Field type is Int64.
+  final int stakeTonAmount;
+
+  /// Ton Amount.
+  ///
+  /// Field type is Int64.
+  final int tonAmount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xda2ad647.
+    buffer.writeInt32(0xda2ad647);
+
+    // Write fields.
+    buffer.writeBytes(seed);
+    buffer.writeInt64(stakeTonAmount);
+    buffer.writeInt64(tonAmount);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "da2ad647",
+      "\$name": "MessagesEmojiGameOutcome",
+      "seed": seed,
+      "stakeTonAmount": stakeTonAmount,
+      "tonAmount": tonAmount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Emoji Game Unavailable.
+///
+/// ID: `59e65335`.
+class MessagesEmojiGameUnavailable extends MessagesEmojiGameInfoBase {
+  /// Messages Emoji Game Unavailable constructor.
+  const MessagesEmojiGameUnavailable() : super._();
+
+  /// Deserialize.
+  factory MessagesEmojiGameUnavailable.deserialize(BinaryReader reader) {
+    // Construct [MessagesEmojiGameUnavailable] object.
+    final returnValue = MessagesEmojiGameUnavailable();
+
+    // Now return the deserialized [MessagesEmojiGameUnavailable].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x59e65335.
+    buffer.writeInt32(0x59e65335);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "59e65335",
+      "\$name": "MessagesEmojiGameUnavailable",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Emoji Game Dice Info.
+///
+/// ID: `44e56023`.
+class MessagesEmojiGameDiceInfo extends MessagesEmojiGameInfoBase {
+  /// Messages Emoji Game Dice Info constructor.
+  const MessagesEmojiGameDiceInfo({
+    required this.gameHash,
+    required this.prevStake,
+    required this.currentStreak,
+    required this.params,
+    this.playsLeft,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesEmojiGameDiceInfo.deserialize(BinaryReader reader) {
+    // Read [MessagesEmojiGameDiceInfo] fields.
+    final flags = reader.readInt32();
+    final gameHash = reader.readString();
+    final prevStake = reader.readInt64();
+    final currentStreak = reader.readInt32();
+    final params = reader.readVectorInt32();
+    final hasPlaysLeftField = (flags & 1) != 0;
+    final playsLeft = hasPlaysLeftField ? reader.readInt32() : null;
+
+    // Construct [MessagesEmojiGameDiceInfo] object.
+    final returnValue = MessagesEmojiGameDiceInfo(
+      gameHash: gameHash,
+      prevStake: prevStake,
+      currentStreak: currentStreak,
+      params: params.items,
+      playsLeft: playsLeft,
+    );
+
+    // Now return the deserialized [MessagesEmojiGameDiceInfo].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: playsLeft != null);
+
+    return v;
+  }
+
+  /// Game Hash.
+  final String gameHash;
+
+  /// Prev Stake.
+  ///
+  /// Field type is Int64.
+  final int prevStake;
+
+  /// Current Streak.
+  ///
+  /// Field type is Int32.
+  final int currentStreak;
+
+  /// Params.
+  final List<int> params;
+
+  /// Plays Left.
+  final int? playsLeft;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x44e56023.
+    buffer.writeInt32(0x44e56023);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(gameHash);
+    buffer.writeInt64(prevStake);
+    buffer.writeInt32(currentStreak);
+    buffer.writeVectorInt32(params);
+    final localPlaysLeftCopy = playsLeft;
+    if (localPlaysLeftCopy != null) {
+      buffer.writeInt32(localPlaysLeftCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "44e56023",
+      "\$name": "MessagesEmojiGameDiceInfo",
+      "flags": flags,
+      "gameHash": gameHash,
+      "prevStake": prevStake,
+      "currentStreak": currentStreak,
+      "params": params,
+      "playsLeft": playsLeft,
     };
 
     // Finished toJson.
@@ -140039,6 +140454,128 @@ class MessagesDeleteTopicHistory extends TlMethod {
       "\$name": "MessagesDeleteTopicHistory",
       "peer": peer,
       "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Emoji Game Info.
+///
+/// Return Type: `MessagesEmojiGameInfoBase`.
+/// ID: `fb7e8ca7`.
+class MessagesGetEmojiGameInfo extends TlMethod {
+  /// Messages Get Emoji Game Info constructor.
+  const MessagesGetEmojiGameInfo() : super._();
+
+  /// Deserialize.
+  factory MessagesGetEmojiGameInfo.deserialize(BinaryReader reader) {
+    // Construct [MessagesGetEmojiGameInfo] object.
+    final returnValue = MessagesGetEmojiGameInfo();
+
+    // Now return the deserialized [MessagesGetEmojiGameInfo].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfb7e8ca7.
+    buffer.writeInt32(0xfb7e8ca7);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fb7e8ca7",
+      "\$name": "MessagesGetEmojiGameInfo",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Summarize Text.
+///
+/// Return Type: `TextWithEntitiesBase`.
+/// ID: `9d4104e2`.
+class MessagesSummarizeText extends TlMethod {
+  /// Messages Summarize Text constructor.
+  const MessagesSummarizeText({
+    required this.peer,
+    required this.id,
+    this.toLang,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSummarizeText.deserialize(BinaryReader reader) {
+    // Read [MessagesSummarizeText] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final id = reader.readInt32();
+    final hasToLangField = (flags & 1) != 0;
+    final toLang = hasToLangField ? reader.readString() : null;
+
+    // Construct [MessagesSummarizeText] object.
+    final returnValue = MessagesSummarizeText(
+      peer: peer,
+      id: id,
+      toLang: toLang,
+    );
+
+    // Now return the deserialized [MessagesSummarizeText].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: toLang != null);
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Id.
+  ///
+  /// Field type is Int32.
+  final int id;
+
+  /// To Lang.
+  final String? toLang;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9d4104e2.
+    buffer.writeInt32(0x9d4104e2);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeInt32(id);
+    final localToLangCopy = toLang;
+    if (localToLangCopy != null) {
+      buffer.writeString(localToLangCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9d4104e2",
+      "\$name": "MessagesSummarizeText",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "toLang": toLang,
     };
 
     // Finished toJson.
