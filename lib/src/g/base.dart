@@ -3624,6 +3624,18 @@ abstract class MessagesEmojiGameInfoBase extends TlConstructor {
   const MessagesEmojiGameInfoBase._() : super._();
 }
 
+/// Predicate Star Gift Attribute Rarity.
+abstract class StarGiftAttributeRarityBase extends TlConstructor {
+  /// Predicate Star Gift Attribute Rarity constructor.
+  const StarGiftAttributeRarityBase._() : super._();
+}
+
+/// Predicate Keyboard Button Style.
+abstract class KeyboardButtonStyleBase extends TlConstructor {
+  /// Predicate Keyboard Button Style constructor.
+  const KeyboardButtonStyleBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.

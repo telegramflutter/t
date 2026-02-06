@@ -4389,6 +4389,7 @@ class User extends UserBase {
     required this.botBusiness,
     required this.botHasMainApp,
     required this.botForumView,
+    required this.botForumCanManageTopics,
     required this.id,
     this.accessHash,
     this.firstName,
@@ -4442,6 +4443,7 @@ class User extends UserBase {
     final botBusiness = (flags2 & 2048) != 0;
     final botHasMainApp = (flags2 & 8192) != 0;
     final botForumView = (flags2 & 65536) != 0;
+    final botForumCanManageTopics = (flags2 & 131072) != 0;
     final id = reader.readInt64();
     final hasAccessHashField = (flags & 1) != 0;
     final accessHash = hasAccessHashField ? reader.readInt64() : null;
@@ -4521,6 +4523,7 @@ class User extends UserBase {
       botBusiness: botBusiness,
       botHasMainApp: botHasMainApp,
       botForumView: botForumView,
+      botForumCanManageTopics: botForumCanManageTopics,
       id: id,
       accessHash: accessHash,
       firstName: firstName,
@@ -4594,6 +4597,7 @@ class User extends UserBase {
       b11: botBusiness,
       b13: botHasMainApp,
       b16: botForumView,
+      b17: botForumCanManageTopics,
       b00: usernames != null,
       b05: storiesMaxId != null,
       b08: color != null,
@@ -4683,6 +4687,9 @@ class User extends UserBase {
 
   /// bot_forum_view: bit 16 of flags2.16?true
   final bool botForumView;
+
+  /// bot_forum_can_manage_topics: bit 17 of flags2.17?true
+  final bool botForumCanManageTopics;
 
   /// Id.
   ///
@@ -4869,6 +4876,7 @@ class User extends UserBase {
       "botBusiness": botBusiness,
       "botHasMainApp": botHasMainApp,
       "botForumView": botForumView,
+      "botForumCanManageTopics": botForumCanManageTopics,
       "id": id,
       "accessHash": accessHash,
       "firstName": firstName,
@@ -6201,6 +6209,7 @@ class ChannelForbidden extends ChatBase {
   const ChannelForbidden({
     required this.broadcast,
     required this.megagroup,
+    required this.monoforum,
     required this.id,
     required this.accessHash,
     required this.title,
@@ -6213,6 +6222,7 @@ class ChannelForbidden extends ChatBase {
     final flags = reader.readInt32();
     final broadcast = (flags & 32) != 0;
     final megagroup = (flags & 256) != 0;
+    final monoforum = (flags & 1024) != 0;
     final id = reader.readInt64();
     final accessHash = reader.readInt64();
     final title = reader.readString();
@@ -6223,6 +6233,7 @@ class ChannelForbidden extends ChatBase {
     final returnValue = ChannelForbidden(
       broadcast: broadcast,
       megagroup: megagroup,
+      monoforum: monoforum,
       id: id,
       accessHash: accessHash,
       title: title,
@@ -6235,7 +6246,12 @@ class ChannelForbidden extends ChatBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b05: broadcast, b08: megagroup, b16: untilDate != null);
+    final v = _flag(
+      b05: broadcast,
+      b08: megagroup,
+      b10: monoforum,
+      b16: untilDate != null,
+    );
 
     return v;
   }
@@ -6245,6 +6261,9 @@ class ChannelForbidden extends ChatBase {
 
   /// megagroup: bit 8 of flags.8?true
   final bool megagroup;
+
+  /// monoforum: bit 10 of flags.10?true
+  final bool monoforum;
 
   /// Id.
   ///
@@ -6289,6 +6308,7 @@ class ChannelForbidden extends ChatBase {
       "flags": flags,
       "broadcast": broadcast,
       "megagroup": megagroup,
+      "monoforum": monoforum,
       "id": id,
       "accessHash": accessHash,
       "title": title,
@@ -13780,7 +13800,7 @@ class MessageActionStarGift extends MessageActionBase {
 
 /// Message Action Star Gift Unique.
 ///
-/// ID: `95728543`.
+/// ID: `e6c31522`.
 class MessageActionStarGiftUnique extends MessageActionBase {
   /// Message Action Star Gift Unique constructor.
   const MessageActionStarGiftUnique({
@@ -13791,6 +13811,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     required this.prepaidUpgrade,
     required this.assigned,
     required this.fromOffer,
+    required this.craft,
     required this.gift,
     this.canExportAt,
     this.transferStars,
@@ -13801,6 +13822,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     this.canTransferAt,
     this.canResellAt,
     this.dropOriginalDetailsStars,
+    this.canCraftAt,
   }) : super._();
 
   /// Deserialize.
@@ -13814,6 +13836,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     final prepaidUpgrade = (flags & 2048) != 0;
     final assigned = (flags & 8192) != 0;
     final fromOffer = (flags & 16384) != 0;
+    final craft = (flags & 65536) != 0;
     final gift = reader.readObject() as StarGiftBase;
     final hasCanExportAtField = (flags & 8) != 0;
     final canExportAt = hasCanExportAtField ? reader.readInt32() : null;
@@ -13835,6 +13858,8 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     final hasDropOriginalDetailsStarsField = (flags & 4096) != 0;
     final dropOriginalDetailsStars =
         hasDropOriginalDetailsStarsField ? reader.readInt64() : null;
+    final hasCanCraftAtField = (flags & 32768) != 0;
+    final canCraftAt = hasCanCraftAtField ? reader.readInt32() : null;
 
     // Construct [MessageActionStarGiftUnique] object.
     final returnValue = MessageActionStarGiftUnique(
@@ -13845,6 +13870,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       prepaidUpgrade: prepaidUpgrade,
       assigned: assigned,
       fromOffer: fromOffer,
+      craft: craft,
       gift: gift,
       canExportAt: canExportAt,
       transferStars: transferStars,
@@ -13855,6 +13881,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       canTransferAt: canTransferAt,
       canResellAt: canResellAt,
       dropOriginalDetailsStars: dropOriginalDetailsStars,
+      canCraftAt: canCraftAt,
     );
 
     // Now return the deserialized [MessageActionStarGiftUnique].
@@ -13871,6 +13898,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       b11: prepaidUpgrade,
       b13: assigned,
       b14: fromOffer,
+      b16: craft,
       b03: canExportAt != null,
       b04: transferStars != null,
       b06: fromId != null,
@@ -13879,6 +13907,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       b09: canTransferAt != null,
       b10: canResellAt != null,
       b12: dropOriginalDetailsStars != null,
+      b15: canCraftAt != null,
     );
 
     return v;
@@ -13904,6 +13933,9 @@ class MessageActionStarGiftUnique extends MessageActionBase {
 
   /// from_offer: bit 14 of flags.14?true
   final bool fromOffer;
+
+  /// craft: bit 16 of flags.16?true
+  final bool craft;
 
   /// Gift.
   final StarGiftBase gift;
@@ -13935,11 +13967,14 @@ class MessageActionStarGiftUnique extends MessageActionBase {
   /// Drop Original Details Stars.
   final int? dropOriginalDetailsStars;
 
+  /// Can Craft At.
+  final int? canCraftAt;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x95728543.
-    buffer.writeInt32(0x95728543);
+    // Write type-id 0xe6c31522.
+    buffer.writeInt32(0xe6c31522);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -13980,6 +14015,10 @@ class MessageActionStarGiftUnique extends MessageActionBase {
     if (localDropOriginalDetailsStarsCopy != null) {
       buffer.writeInt64(localDropOriginalDetailsStarsCopy);
     }
+    final localCanCraftAtCopy = canCraftAt;
+    if (localCanCraftAtCopy != null) {
+      buffer.writeInt32(localCanCraftAtCopy);
+    }
 
     // Finished serialization.
   }
@@ -13987,7 +14026,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "95728543",
+      "\$hash": "e6c31522",
       "\$name": "MessageActionStarGiftUnique",
       "flags": flags,
       "upgrade": upgrade,
@@ -13997,6 +14036,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       "prepaidUpgrade": prepaidUpgrade,
       "assigned": assigned,
       "fromOffer": fromOffer,
+      "craft": craft,
       "gift": gift,
       "canExportAt": canExportAt,
       "transferStars": transferStars,
@@ -14007,6 +14047,7 @@ class MessageActionStarGiftUnique extends MessageActionBase {
       "canTransferAt": canTransferAt,
       "canResellAt": canResellAt,
       "dropOriginalDetailsStars": dropOriginalDetailsStars,
+      "canCraftAt": canCraftAt,
     };
 
     // Finished toJson.
@@ -14893,6 +14934,107 @@ class MessageActionStarGiftPurchaseOfferDeclined extends MessageActionBase {
       "expired": expired,
       "gift": gift,
       "price": price,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action New Creator Pending.
+///
+/// ID: `b07ed085`.
+class MessageActionNewCreatorPending extends MessageActionBase {
+  /// Message Action New Creator Pending constructor.
+  const MessageActionNewCreatorPending({required this.newCreatorId})
+      : super._();
+
+  /// Deserialize.
+  factory MessageActionNewCreatorPending.deserialize(BinaryReader reader) {
+    // Read [MessageActionNewCreatorPending] fields.
+    final newCreatorId = reader.readInt64();
+
+    // Construct [MessageActionNewCreatorPending] object.
+    final returnValue = MessageActionNewCreatorPending(
+      newCreatorId: newCreatorId,
+    );
+
+    // Now return the deserialized [MessageActionNewCreatorPending].
+    return returnValue;
+  }
+
+  /// New Creator Id.
+  ///
+  /// Field type is Int64.
+  final int newCreatorId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb07ed085.
+    buffer.writeInt32(0xb07ed085);
+
+    // Write fields.
+    buffer.writeInt64(newCreatorId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "b07ed085",
+      "\$name": "MessageActionNewCreatorPending",
+      "newCreatorId": newCreatorId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Change Creator.
+///
+/// ID: `e188503b`.
+class MessageActionChangeCreator extends MessageActionBase {
+  /// Message Action Change Creator constructor.
+  const MessageActionChangeCreator({required this.newCreatorId}) : super._();
+
+  /// Deserialize.
+  factory MessageActionChangeCreator.deserialize(BinaryReader reader) {
+    // Read [MessageActionChangeCreator] fields.
+    final newCreatorId = reader.readInt64();
+
+    // Construct [MessageActionChangeCreator] object.
+    final returnValue = MessageActionChangeCreator(newCreatorId: newCreatorId);
+
+    // Now return the deserialized [MessageActionChangeCreator].
+    return returnValue;
+  }
+
+  /// New Creator Id.
+  ///
+  /// Field type is Int64.
+  final int newCreatorId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe188503b.
+    buffer.writeInt32(0xe188503b);
+
+    // Write fields.
+    buffer.writeInt64(newCreatorId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e188503b",
+      "\$name": "MessageActionChangeCreator",
+      "newCreatorId": newCreatorId,
     };
 
     // Finished toJson.
@@ -30834,6 +30976,43 @@ class UpdateEmojiGameInfo extends UpdateBase {
   }
 }
 
+/// Update Star Gift Craft Fail.
+///
+/// ID: `ac072444`.
+class UpdateStarGiftCraftFail extends UpdateBase {
+  /// Update Star Gift Craft Fail constructor.
+  const UpdateStarGiftCraftFail() : super._();
+
+  /// Deserialize.
+  factory UpdateStarGiftCraftFail.deserialize(BinaryReader reader) {
+    // Construct [UpdateStarGiftCraftFail] object.
+    final returnValue = UpdateStarGiftCraftFail();
+
+    // Now return the deserialized [UpdateStarGiftCraftFail].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xac072444.
+    buffer.writeInt32(0xac072444);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ac072444",
+      "\$name": "UpdateStarGiftCraftFail",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Updates State.
 ///
 /// ID: `a56c2a3e`.
@@ -42076,22 +42255,36 @@ class BotInfo extends BotInfoBase {
 
 /// Keyboard Button.
 ///
-/// ID: `a2fa4880`.
+/// ID: `7d170cff`.
 class KeyboardButton extends KeyboardButtonBase {
   /// Keyboard Button constructor.
-  const KeyboardButton({required this.text}) : super._();
+  const KeyboardButton({this.style, required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButton.deserialize(BinaryReader reader) {
     // Read [KeyboardButton] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
 
     // Construct [KeyboardButton] object.
-    final returnValue = KeyboardButton(text: text);
+    final returnValue = KeyboardButton(style: style, text: text);
 
     // Now return the deserialized [KeyboardButton].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42099,10 +42292,15 @@ class KeyboardButton extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa2fa4880.
-    buffer.writeInt32(0xa2fa4880);
+    // Write type-id 0x7d170cff.
+    buffer.writeInt32(0x7d170cff);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
 
     // Finished serialization.
@@ -42111,8 +42309,10 @@ class KeyboardButton extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "a2fa4880",
+      "\$hash": "7d170cff",
       "\$name": "KeyboardButton",
+      "flags": flags,
+      "style": style,
       "text": text,
     };
 
@@ -42123,23 +42323,38 @@ class KeyboardButton extends KeyboardButtonBase {
 
 /// Keyboard Button Url.
 ///
-/// ID: `258aff05`.
+/// ID: `d80c25ec`.
 class KeyboardButtonUrl extends KeyboardButtonBase {
   /// Keyboard Button Url constructor.
-  const KeyboardButtonUrl({required this.text, required this.url}) : super._();
+  const KeyboardButtonUrl({this.style, required this.text, required this.url})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonUrl.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonUrl] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final url = reader.readString();
 
     // Construct [KeyboardButtonUrl] object.
-    final returnValue = KeyboardButtonUrl(text: text, url: url);
+    final returnValue = KeyboardButtonUrl(style: style, text: text, url: url);
 
     // Now return the deserialized [KeyboardButtonUrl].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42150,10 +42365,15 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x258aff05.
-    buffer.writeInt32(0x258aff05);
+    // Write type-id 0xd80c25ec.
+    buffer.writeInt32(0xd80c25ec);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeString(url);
 
@@ -42163,8 +42383,10 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "258aff05",
+      "\$hash": "d80c25ec",
       "\$name": "KeyboardButtonUrl",
+      "flags": flags,
+      "style": style,
       "text": text,
       "url": url,
     };
@@ -42176,11 +42398,12 @@ class KeyboardButtonUrl extends KeyboardButtonBase {
 
 /// Keyboard Button Callback.
 ///
-/// ID: `35bbdb6b`.
+/// ID: `e62bc960`.
 class KeyboardButtonCallback extends KeyboardButtonBase {
   /// Keyboard Button Callback constructor.
   const KeyboardButtonCallback({
     required this.requiresPassword,
+    this.style,
     required this.text,
     required this.data,
   }) : super._();
@@ -42190,12 +42413,16 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
     // Read [KeyboardButtonCallback] fields.
     final flags = reader.readInt32();
     final requiresPassword = (flags & 1) != 0;
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final data = reader.readBytes();
 
     // Construct [KeyboardButtonCallback] object.
     final returnValue = KeyboardButtonCallback(
       requiresPassword: requiresPassword,
+      style: style,
       text: text,
       data: data,
     );
@@ -42206,13 +42433,16 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: requiresPassword);
+    final v = _flag(b00: requiresPassword, b10: style != null);
 
     return v;
   }
 
   /// requires_password: bit 0 of flags.0?true
   final bool requiresPassword;
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42223,11 +42453,15 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x35bbdb6b.
-    buffer.writeInt32(0x35bbdb6b);
+    // Write type-id 0xe62bc960.
+    buffer.writeInt32(0xe62bc960);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeBytes(data);
 
@@ -42237,10 +42471,11 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "35bbdb6b",
+      "\$hash": "e62bc960",
       "\$name": "KeyboardButtonCallback",
       "flags": flags,
       "requiresPassword": requiresPassword,
+      "style": style,
       "text": text,
       "data": data,
     };
@@ -42252,22 +42487,37 @@ class KeyboardButtonCallback extends KeyboardButtonBase {
 
 /// Keyboard Button Request Phone.
 ///
-/// ID: `b16a6c29`.
+/// ID: `417efd8f`.
 class KeyboardButtonRequestPhone extends KeyboardButtonBase {
   /// Keyboard Button Request Phone constructor.
-  const KeyboardButtonRequestPhone({required this.text}) : super._();
+  const KeyboardButtonRequestPhone({this.style, required this.text})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonRequestPhone.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonRequestPhone] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestPhone] object.
-    final returnValue = KeyboardButtonRequestPhone(text: text);
+    final returnValue = KeyboardButtonRequestPhone(style: style, text: text);
 
     // Now return the deserialized [KeyboardButtonRequestPhone].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42275,10 +42525,15 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb16a6c29.
-    buffer.writeInt32(0xb16a6c29);
+    // Write type-id 0x417efd8f.
+    buffer.writeInt32(0x417efd8f);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
 
     // Finished serialization.
@@ -42287,8 +42542,10 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b16a6c29",
+      "\$hash": "417efd8f",
       "\$name": "KeyboardButtonRequestPhone",
+      "flags": flags,
+      "style": style,
       "text": text,
     };
 
@@ -42299,22 +42556,40 @@ class KeyboardButtonRequestPhone extends KeyboardButtonBase {
 
 /// Keyboard Button Request Geo Location.
 ///
-/// ID: `fc796b3f`.
+/// ID: `aa40f94d`.
 class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
   /// Keyboard Button Request Geo Location constructor.
-  const KeyboardButtonRequestGeoLocation({required this.text}) : super._();
+  const KeyboardButtonRequestGeoLocation({this.style, required this.text})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonRequestGeoLocation.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonRequestGeoLocation] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestGeoLocation] object.
-    final returnValue = KeyboardButtonRequestGeoLocation(text: text);
+    final returnValue = KeyboardButtonRequestGeoLocation(
+      style: style,
+      text: text,
+    );
 
     // Now return the deserialized [KeyboardButtonRequestGeoLocation].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42322,10 +42597,15 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xfc796b3f.
-    buffer.writeInt32(0xfc796b3f);
+    // Write type-id 0xaa40f94d.
+    buffer.writeInt32(0xaa40f94d);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
 
     // Finished serialization.
@@ -42334,8 +42614,10 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "fc796b3f",
+      "\$hash": "aa40f94d",
       "\$name": "KeyboardButtonRequestGeoLocation",
+      "flags": flags,
+      "style": style,
       "text": text,
     };
 
@@ -42346,11 +42628,12 @@ class KeyboardButtonRequestGeoLocation extends KeyboardButtonBase {
 
 /// Keyboard Button Switch Inline.
 ///
-/// ID: `93b9fbb5`.
+/// ID: `991399fc`.
 class KeyboardButtonSwitchInline extends KeyboardButtonBase {
   /// Keyboard Button Switch Inline constructor.
   const KeyboardButtonSwitchInline({
     required this.samePeer,
+    this.style,
     required this.text,
     required this.query,
     this.peerTypes,
@@ -42361,6 +42644,9 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
     // Read [KeyboardButtonSwitchInline] fields.
     final flags = reader.readInt32();
     final samePeer = (flags & 1) != 0;
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final query = reader.readString();
     final hasPeerTypesField = (flags & 2) != 0;
@@ -42371,6 +42657,7 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
     // Construct [KeyboardButtonSwitchInline] object.
     final returnValue = KeyboardButtonSwitchInline(
       samePeer: samePeer,
+      style: style,
       text: text,
       query: query,
       peerTypes: peerTypes?.items,
@@ -42382,13 +42669,16 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: samePeer, b01: peerTypes != null);
+    final v = _flag(b00: samePeer, b10: style != null, b01: peerTypes != null);
 
     return v;
   }
 
   /// same_peer: bit 0 of flags.0?true
   final bool samePeer;
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42402,11 +42692,15 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x93b9fbb5.
-    buffer.writeInt32(0x93b9fbb5);
+    // Write type-id 0x991399fc.
+    buffer.writeInt32(0x991399fc);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeString(query);
     final localPeerTypesCopy = peerTypes;
@@ -42420,10 +42714,11 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "93b9fbb5",
+      "\$hash": "991399fc",
       "\$name": "KeyboardButtonSwitchInline",
       "flags": flags,
       "samePeer": samePeer,
+      "style": style,
       "text": text,
       "query": query,
       "peerTypes": peerTypes,
@@ -42436,22 +42731,36 @@ class KeyboardButtonSwitchInline extends KeyboardButtonBase {
 
 /// Keyboard Button Game.
 ///
-/// ID: `50f41ccf`.
+/// ID: `89c590f9`.
 class KeyboardButtonGame extends KeyboardButtonBase {
   /// Keyboard Button Game constructor.
-  const KeyboardButtonGame({required this.text}) : super._();
+  const KeyboardButtonGame({this.style, required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonGame.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonGame] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
 
     // Construct [KeyboardButtonGame] object.
-    final returnValue = KeyboardButtonGame(text: text);
+    final returnValue = KeyboardButtonGame(style: style, text: text);
 
     // Now return the deserialized [KeyboardButtonGame].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42459,10 +42768,15 @@ class KeyboardButtonGame extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x50f41ccf.
-    buffer.writeInt32(0x50f41ccf);
+    // Write type-id 0x89c590f9.
+    buffer.writeInt32(0x89c590f9);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
 
     // Finished serialization.
@@ -42471,8 +42785,10 @@ class KeyboardButtonGame extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "50f41ccf",
+      "\$hash": "89c590f9",
       "\$name": "KeyboardButtonGame",
+      "flags": flags,
+      "style": style,
       "text": text,
     };
 
@@ -42483,22 +42799,36 @@ class KeyboardButtonGame extends KeyboardButtonBase {
 
 /// Keyboard Button Buy.
 ///
-/// ID: `afd93fbb`.
+/// ID: `3fa53905`.
 class KeyboardButtonBuy extends KeyboardButtonBase {
   /// Keyboard Button Buy constructor.
-  const KeyboardButtonBuy({required this.text}) : super._();
+  const KeyboardButtonBuy({this.style, required this.text}) : super._();
 
   /// Deserialize.
   factory KeyboardButtonBuy.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonBuy] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
 
     // Construct [KeyboardButtonBuy] object.
-    final returnValue = KeyboardButtonBuy(text: text);
+    final returnValue = KeyboardButtonBuy(style: style, text: text);
 
     // Now return the deserialized [KeyboardButtonBuy].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42506,10 +42836,15 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xafd93fbb.
-    buffer.writeInt32(0xafd93fbb);
+    // Write type-id 0x3fa53905.
+    buffer.writeInt32(0x3fa53905);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
 
     // Finished serialization.
@@ -42518,8 +42853,10 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "afd93fbb",
+      "\$hash": "3fa53905",
       "\$name": "KeyboardButtonBuy",
+      "flags": flags,
+      "style": style,
       "text": text,
     };
 
@@ -42530,10 +42867,11 @@ class KeyboardButtonBuy extends KeyboardButtonBase {
 
 /// Keyboard Button Url Auth.
 ///
-/// ID: `10b78d29`.
+/// ID: `f51006f9`.
 class KeyboardButtonUrlAuth extends KeyboardButtonBase {
   /// Keyboard Button Url Auth constructor.
   const KeyboardButtonUrlAuth({
+    this.style,
     required this.text,
     this.fwdText,
     required this.url,
@@ -42544,6 +42882,9 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
   factory KeyboardButtonUrlAuth.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonUrlAuth] fields.
     final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final hasFwdTextField = (flags & 1) != 0;
     final fwdText = hasFwdTextField ? reader.readString() : null;
@@ -42552,6 +42893,7 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
 
     // Construct [KeyboardButtonUrlAuth] object.
     final returnValue = KeyboardButtonUrlAuth(
+      style: style,
       text: text,
       fwdText: fwdText,
       url: url,
@@ -42564,10 +42906,13 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: fwdText != null);
+    final v = _flag(b10: style != null, b00: fwdText != null);
 
     return v;
   }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42586,11 +42931,15 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x10b78d29.
-    buffer.writeInt32(0x10b78d29);
+    // Write type-id 0xf51006f9.
+    buffer.writeInt32(0xf51006f9);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     final localFwdTextCopy = fwdText;
     if (localFwdTextCopy != null) {
@@ -42605,9 +42954,10 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "10b78d29",
+      "\$hash": "f51006f9",
       "\$name": "KeyboardButtonUrlAuth",
       "flags": flags,
+      "style": style,
       "text": text,
       "fwdText": fwdText,
       "url": url,
@@ -42621,11 +42971,12 @@ class KeyboardButtonUrlAuth extends KeyboardButtonBase {
 
 /// Input Keyboard Button Url Auth.
 ///
-/// ID: `d02e7fd4`.
+/// ID: `68013e72`.
 class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
   /// Input Keyboard Button Url Auth constructor.
   const InputKeyboardButtonUrlAuth({
     required this.requestWriteAccess,
+    this.style,
     required this.text,
     this.fwdText,
     required this.url,
@@ -42637,6 +42988,9 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
     // Read [InputKeyboardButtonUrlAuth] fields.
     final flags = reader.readInt32();
     final requestWriteAccess = (flags & 1) != 0;
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final hasFwdTextField = (flags & 2) != 0;
     final fwdText = hasFwdTextField ? reader.readString() : null;
@@ -42646,6 +43000,7 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
     // Construct [InputKeyboardButtonUrlAuth] object.
     final returnValue = InputKeyboardButtonUrlAuth(
       requestWriteAccess: requestWriteAccess,
+      style: style,
       text: text,
       fwdText: fwdText,
       url: url,
@@ -42658,13 +43013,20 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: requestWriteAccess, b01: fwdText != null);
+    final v = _flag(
+      b00: requestWriteAccess,
+      b10: style != null,
+      b01: fwdText != null,
+    );
 
     return v;
   }
 
   /// request_write_access: bit 0 of flags.0?true
   final bool requestWriteAccess;
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42681,11 +43043,15 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd02e7fd4.
-    buffer.writeInt32(0xd02e7fd4);
+    // Write type-id 0x68013e72.
+    buffer.writeInt32(0x68013e72);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     final localFwdTextCopy = fwdText;
     if (localFwdTextCopy != null) {
@@ -42700,10 +43066,11 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "d02e7fd4",
+      "\$hash": "68013e72",
       "\$name": "InputKeyboardButtonUrlAuth",
       "flags": flags,
       "requestWriteAccess": requestWriteAccess,
+      "style": style,
       "text": text,
       "fwdText": fwdText,
       "url": url,
@@ -42717,20 +43084,28 @@ class InputKeyboardButtonUrlAuth extends KeyboardButtonBase {
 
 /// Keyboard Button Request Poll.
 ///
-/// ID: `bbc7515d`.
+/// ID: `7a11d782`.
 class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Keyboard Button Request Poll constructor.
-  const KeyboardButtonRequestPoll({this.quiz, required this.text}) : super._();
+  const KeyboardButtonRequestPoll({this.style, this.quiz, required this.text})
+      : super._();
 
   /// Deserialize.
   factory KeyboardButtonRequestPoll.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonRequestPoll] fields.
     final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final quiz = (flags & 1) != 0 ? reader.readBool() : null;
     final text = reader.readString();
 
     // Construct [KeyboardButtonRequestPoll] object.
-    final returnValue = KeyboardButtonRequestPoll(quiz: quiz, text: text);
+    final returnValue = KeyboardButtonRequestPoll(
+      style: style,
+      quiz: quiz,
+      text: text,
+    );
 
     // Now return the deserialized [KeyboardButtonRequestPoll].
     return returnValue;
@@ -42738,10 +43113,13 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: (quiz != null));
+    final v = _flag(b10: style != null, b00: (quiz != null));
 
     return v;
   }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// quiz: bit 0 of flags.0?Bool
   final bool? quiz;
@@ -42752,11 +43130,15 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xbbc7515d.
-    buffer.writeInt32(0xbbc7515d);
+    // Write type-id 0x7a11d782.
+    buffer.writeInt32(0x7a11d782);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     final localQuizCopy = quiz;
     if (localQuizCopy != null) {
       buffer.writeBool(localQuizCopy);
@@ -42769,9 +43151,10 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "bbc7515d",
+      "\$hash": "7a11d782",
       "\$name": "KeyboardButtonRequestPoll",
       "flags": flags,
+      "style": style,
       "quiz": quiz,
       "text": text,
     };
@@ -42783,10 +43166,11 @@ class KeyboardButtonRequestPoll extends KeyboardButtonBase {
 
 /// Input Keyboard Button User Profile.
 ///
-/// ID: `e988037b`.
+/// ID: `7d5e07c7`.
 class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Input Keyboard Button User Profile constructor.
   const InputKeyboardButtonUserProfile({
+    this.style,
     required this.text,
     required this.userId,
   }) : super._();
@@ -42794,11 +43178,16 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Deserialize.
   factory InputKeyboardButtonUserProfile.deserialize(BinaryReader reader) {
     // Read [InputKeyboardButtonUserProfile] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final userId = reader.readObject() as InputUserBase;
 
     // Construct [InputKeyboardButtonUserProfile] object.
     final returnValue = InputKeyboardButtonUserProfile(
+      style: style,
       text: text,
       userId: userId,
     );
@@ -42806,6 +43195,16 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
     // Now return the deserialized [InputKeyboardButtonUserProfile].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42816,10 +43215,15 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe988037b.
-    buffer.writeInt32(0xe988037b);
+    // Write type-id 0x7d5e07c7.
+    buffer.writeInt32(0x7d5e07c7);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeObject(userId);
 
@@ -42829,8 +43233,10 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "e988037b",
+      "\$hash": "7d5e07c7",
       "\$name": "InputKeyboardButtonUserProfile",
+      "flags": flags,
+      "style": style,
       "text": text,
       "userId": userId,
     };
@@ -42842,24 +43248,45 @@ class InputKeyboardButtonUserProfile extends KeyboardButtonBase {
 
 /// Keyboard Button User Profile.
 ///
-/// ID: `308660c1`.
+/// ID: `c0fd5d09`.
 class KeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Keyboard Button User Profile constructor.
-  const KeyboardButtonUserProfile({required this.text, required this.userId})
-      : super._();
+  const KeyboardButtonUserProfile({
+    this.style,
+    required this.text,
+    required this.userId,
+  }) : super._();
 
   /// Deserialize.
   factory KeyboardButtonUserProfile.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonUserProfile] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final userId = reader.readInt64();
 
     // Construct [KeyboardButtonUserProfile] object.
-    final returnValue = KeyboardButtonUserProfile(text: text, userId: userId);
+    final returnValue = KeyboardButtonUserProfile(
+      style: style,
+      text: text,
+      userId: userId,
+    );
 
     // Now return the deserialized [KeyboardButtonUserProfile].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42872,10 +43299,15 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x308660c1.
-    buffer.writeInt32(0x308660c1);
+    // Write type-id 0xc0fd5d09.
+    buffer.writeInt32(0xc0fd5d09);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeInt64(userId);
 
@@ -42885,8 +43317,10 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "308660c1",
+      "\$hash": "c0fd5d09",
       "\$name": "KeyboardButtonUserProfile",
+      "flags": flags,
+      "style": style,
       "text": text,
       "userId": userId,
     };
@@ -42898,24 +43332,45 @@ class KeyboardButtonUserProfile extends KeyboardButtonBase {
 
 /// Keyboard Button Web View.
 ///
-/// ID: `13767230`.
+/// ID: `e846b1a0`.
 class KeyboardButtonWebView extends KeyboardButtonBase {
   /// Keyboard Button Web View constructor.
-  const KeyboardButtonWebView({required this.text, required this.url})
-      : super._();
+  const KeyboardButtonWebView({
+    this.style,
+    required this.text,
+    required this.url,
+  }) : super._();
 
   /// Deserialize.
   factory KeyboardButtonWebView.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonWebView] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final url = reader.readString();
 
     // Construct [KeyboardButtonWebView] object.
-    final returnValue = KeyboardButtonWebView(text: text, url: url);
+    final returnValue = KeyboardButtonWebView(
+      style: style,
+      text: text,
+      url: url,
+    );
 
     // Now return the deserialized [KeyboardButtonWebView].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42926,10 +43381,15 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x13767230.
-    buffer.writeInt32(0x13767230);
+    // Write type-id 0xe846b1a0.
+    buffer.writeInt32(0xe846b1a0);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeString(url);
 
@@ -42939,8 +43399,10 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "13767230",
+      "\$hash": "e846b1a0",
       "\$name": "KeyboardButtonWebView",
+      "flags": flags,
+      "style": style,
       "text": text,
       "url": url,
     };
@@ -42952,24 +43414,45 @@ class KeyboardButtonWebView extends KeyboardButtonBase {
 
 /// Keyboard Button Simple Web View.
 ///
-/// ID: `a0c0505c`.
+/// ID: `e15c4370`.
 class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
   /// Keyboard Button Simple Web View constructor.
-  const KeyboardButtonSimpleWebView({required this.text, required this.url})
-      : super._();
+  const KeyboardButtonSimpleWebView({
+    this.style,
+    required this.text,
+    required this.url,
+  }) : super._();
 
   /// Deserialize.
   factory KeyboardButtonSimpleWebView.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonSimpleWebView] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final url = reader.readString();
 
     // Construct [KeyboardButtonSimpleWebView] object.
-    final returnValue = KeyboardButtonSimpleWebView(text: text, url: url);
+    final returnValue = KeyboardButtonSimpleWebView(
+      style: style,
+      text: text,
+      url: url,
+    );
 
     // Now return the deserialized [KeyboardButtonSimpleWebView].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -42980,10 +43463,15 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa0c0505c.
-    buffer.writeInt32(0xa0c0505c);
+    // Write type-id 0xe15c4370.
+    buffer.writeInt32(0xe15c4370);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeString(url);
 
@@ -42993,8 +43481,10 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "a0c0505c",
+      "\$hash": "e15c4370",
       "\$name": "KeyboardButtonSimpleWebView",
+      "flags": flags,
+      "style": style,
       "text": text,
       "url": url,
     };
@@ -43006,10 +43496,11 @@ class KeyboardButtonSimpleWebView extends KeyboardButtonBase {
 
 /// Keyboard Button Request Peer.
 ///
-/// ID: `53d7bfd8`.
+/// ID: `5b0f15f5`.
 class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   /// Keyboard Button Request Peer constructor.
   const KeyboardButtonRequestPeer({
+    this.style,
     required this.text,
     required this.buttonId,
     required this.peerType,
@@ -43019,6 +43510,10 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   /// Deserialize.
   factory KeyboardButtonRequestPeer.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonRequestPeer] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final buttonId = reader.readInt32();
     final peerType = reader.readObject() as RequestPeerTypeBase;
@@ -43026,6 +43521,7 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
 
     // Construct [KeyboardButtonRequestPeer] object.
     final returnValue = KeyboardButtonRequestPeer(
+      style: style,
       text: text,
       buttonId: buttonId,
       peerType: peerType,
@@ -43035,6 +43531,16 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
     // Now return the deserialized [KeyboardButtonRequestPeer].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -43055,10 +43561,15 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x53d7bfd8.
-    buffer.writeInt32(0x53d7bfd8);
+    // Write type-id 0x5b0f15f5.
+    buffer.writeInt32(0x5b0f15f5);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeInt32(buttonId);
     buffer.writeObject(peerType);
@@ -43070,8 +43581,10 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "53d7bfd8",
+      "\$hash": "5b0f15f5",
       "\$name": "KeyboardButtonRequestPeer",
+      "flags": flags,
+      "style": style,
       "text": text,
       "buttonId": buttonId,
       "peerType": peerType,
@@ -43085,13 +43598,14 @@ class KeyboardButtonRequestPeer extends KeyboardButtonBase {
 
 /// Input Keyboard Button Request Peer.
 ///
-/// ID: `c9662d05`.
+/// ID: `02b78156`.
 class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
   /// Input Keyboard Button Request Peer constructor.
   const InputKeyboardButtonRequestPeer({
     required this.nameRequested,
     required this.usernameRequested,
     required this.photoRequested,
+    this.style,
     required this.text,
     required this.buttonId,
     required this.peerType,
@@ -43105,6 +43619,9 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
     final nameRequested = (flags & 1) != 0;
     final usernameRequested = (flags & 2) != 0;
     final photoRequested = (flags & 4) != 0;
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final buttonId = reader.readInt32();
     final peerType = reader.readObject() as RequestPeerTypeBase;
@@ -43115,6 +43632,7 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
       nameRequested: nameRequested,
       usernameRequested: usernameRequested,
       photoRequested: photoRequested,
+      style: style,
       text: text,
       buttonId: buttonId,
       peerType: peerType,
@@ -43131,6 +43649,7 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
       b00: nameRequested,
       b01: usernameRequested,
       b02: photoRequested,
+      b10: style != null,
     );
 
     return v;
@@ -43144,6 +43663,9 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
 
   /// photo_requested: bit 2 of flags.2?true
   final bool photoRequested;
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -43164,11 +43686,15 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc9662d05.
-    buffer.writeInt32(0xc9662d05);
+    // Write type-id 0x02b78156.
+    buffer.writeInt32(0x02b78156);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeInt32(buttonId);
     buffer.writeObject(peerType);
@@ -43180,12 +43706,13 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "c9662d05",
+      "\$hash": "02b78156",
       "\$name": "InputKeyboardButtonRequestPeer",
       "flags": flags,
       "nameRequested": nameRequested,
       "usernameRequested": usernameRequested,
       "photoRequested": photoRequested,
+      "style": style,
       "text": text,
       "buttonId": buttonId,
       "peerType": peerType,
@@ -43199,24 +43726,45 @@ class InputKeyboardButtonRequestPeer extends KeyboardButtonBase {
 
 /// Keyboard Button Copy.
 ///
-/// ID: `75d2698e`.
+/// ID: `bcc4af10`.
 class KeyboardButtonCopy extends KeyboardButtonBase {
   /// Keyboard Button Copy constructor.
-  const KeyboardButtonCopy({required this.text, required this.copyText})
-      : super._();
+  const KeyboardButtonCopy({
+    this.style,
+    required this.text,
+    required this.copyText,
+  }) : super._();
 
   /// Deserialize.
   factory KeyboardButtonCopy.deserialize(BinaryReader reader) {
     // Read [KeyboardButtonCopy] fields.
+    final flags = reader.readInt32();
+    final hasStyleField = (flags & 1024) != 0;
+    final style =
+        hasStyleField ? reader.readObject() as KeyboardButtonStyleBase : null;
     final text = reader.readString();
     final copyText = reader.readString();
 
     // Construct [KeyboardButtonCopy] object.
-    final returnValue = KeyboardButtonCopy(text: text, copyText: copyText);
+    final returnValue = KeyboardButtonCopy(
+      style: style,
+      text: text,
+      copyText: copyText,
+    );
 
     // Now return the deserialized [KeyboardButtonCopy].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b10: style != null);
+
+    return v;
+  }
+
+  /// Style.
+  final KeyboardButtonStyleBase? style;
 
   /// Text.
   final String text;
@@ -43227,10 +43775,15 @@ class KeyboardButtonCopy extends KeyboardButtonBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x75d2698e.
-    buffer.writeInt32(0x75d2698e);
+    // Write type-id 0xbcc4af10.
+    buffer.writeInt32(0xbcc4af10);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localStyleCopy = style;
+    if (localStyleCopy != null) {
+      buffer.writeObject(localStyleCopy);
+    }
     buffer.writeString(text);
     buffer.writeString(copyText);
 
@@ -43240,8 +43793,10 @@ class KeyboardButtonCopy extends KeyboardButtonBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "75d2698e",
+      "\$hash": "bcc4af10",
       "\$name": "KeyboardButtonCopy",
+      "flags": flags,
+      "style": style,
       "text": text,
       "copyText": copyText,
     };
@@ -71477,13 +72032,18 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
 
 /// Url Auth Result Request.
 ///
-/// ID: `92d33a0e`.
+/// ID: `32fabf1a`.
 class UrlAuthResultRequest extends UrlAuthResultBase {
   /// Url Auth Result Request constructor.
   const UrlAuthResultRequest({
     required this.requestWriteAccess,
+    required this.requestPhoneNumber,
     required this.bot,
     required this.domain,
+    this.browser,
+    this.platform,
+    this.ip,
+    this.region,
   }) : super._();
 
   /// Deserialize.
@@ -71491,14 +72051,28 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     // Read [UrlAuthResultRequest] fields.
     final flags = reader.readInt32();
     final requestWriteAccess = (flags & 1) != 0;
+    final requestPhoneNumber = (flags & 2) != 0;
     final bot = reader.readObject() as UserBase;
     final domain = reader.readString();
+    final hasBrowserField = (flags & 4) != 0;
+    final browser = hasBrowserField ? reader.readString() : null;
+    final hasPlatformField = (flags & 4) != 0;
+    final platform = hasPlatformField ? reader.readString() : null;
+    final hasIpField = (flags & 4) != 0;
+    final ip = hasIpField ? reader.readString() : null;
+    final hasRegionField = (flags & 4) != 0;
+    final region = hasRegionField ? reader.readString() : null;
 
     // Construct [UrlAuthResultRequest] object.
     final returnValue = UrlAuthResultRequest(
       requestWriteAccess: requestWriteAccess,
+      requestPhoneNumber: requestPhoneNumber,
       bot: bot,
       domain: domain,
+      browser: browser,
+      platform: platform,
+      ip: ip,
+      region: region,
     );
 
     // Now return the deserialized [UrlAuthResultRequest].
@@ -71507,7 +72081,11 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: requestWriteAccess);
+    final v = _flag(
+      b00: requestWriteAccess,
+      b01: requestPhoneNumber,
+      b02: browser != null || platform != null || ip != null || region != null,
+    );
 
     return v;
   }
@@ -71515,22 +72093,53 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   /// request_write_access: bit 0 of flags.0?true
   final bool requestWriteAccess;
 
+  /// request_phone_number: bit 1 of flags.1?true
+  final bool requestPhoneNumber;
+
   /// Bot.
   final UserBase bot;
 
   /// Domain.
   final String domain;
 
+  /// Browser.
+  final String? browser;
+
+  /// Platform.
+  final String? platform;
+
+  /// Ip.
+  final String? ip;
+
+  /// Region.
+  final String? region;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x92d33a0e.
-    buffer.writeInt32(0x92d33a0e);
+    // Write type-id 0x32fabf1a.
+    buffer.writeInt32(0x32fabf1a);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(bot);
     buffer.writeString(domain);
+    final localBrowserCopy = browser;
+    if (localBrowserCopy != null) {
+      buffer.writeString(localBrowserCopy);
+    }
+    final localPlatformCopy = platform;
+    if (localPlatformCopy != null) {
+      buffer.writeString(localPlatformCopy);
+    }
+    final localIpCopy = ip;
+    if (localIpCopy != null) {
+      buffer.writeString(localIpCopy);
+    }
+    final localRegionCopy = region;
+    if (localRegionCopy != null) {
+      buffer.writeString(localRegionCopy);
+    }
 
     // Finished serialization.
   }
@@ -71538,12 +72147,17 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "92d33a0e",
+      "\$hash": "32fabf1a",
       "\$name": "UrlAuthResultRequest",
       "flags": flags,
       "requestWriteAccess": requestWriteAccess,
+      "requestPhoneNumber": requestPhoneNumber,
       "bot": bot,
       "domain": domain,
+      "browser": browser,
+      "platform": platform,
+      "ip": ip,
+      "region": region,
     };
 
     // Finished toJson.
@@ -71553,15 +72167,17 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 
 /// Url Auth Result Accepted.
 ///
-/// ID: `8f8c0e4e`.
+/// ID: `623a8fa0`.
 class UrlAuthResultAccepted extends UrlAuthResultBase {
   /// Url Auth Result Accepted constructor.
-  const UrlAuthResultAccepted({required this.url}) : super._();
+  const UrlAuthResultAccepted({this.url}) : super._();
 
   /// Deserialize.
   factory UrlAuthResultAccepted.deserialize(BinaryReader reader) {
     // Read [UrlAuthResultAccepted] fields.
-    final url = reader.readString();
+    final flags = reader.readInt32();
+    final hasUrlField = (flags & 1) != 0;
+    final url = hasUrlField ? reader.readString() : null;
 
     // Construct [UrlAuthResultAccepted] object.
     final returnValue = UrlAuthResultAccepted(url: url);
@@ -71570,17 +72186,28 @@ class UrlAuthResultAccepted extends UrlAuthResultBase {
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: url != null);
+
+    return v;
+  }
+
   /// Url.
-  final String url;
+  final String? url;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8f8c0e4e.
-    buffer.writeInt32(0x8f8c0e4e);
+    // Write type-id 0x623a8fa0.
+    buffer.writeInt32(0x623a8fa0);
 
     // Write fields.
-    buffer.writeString(url);
+    buffer.writeInt32(flags);
+    final localUrlCopy = url;
+    if (localUrlCopy != null) {
+      buffer.writeString(localUrlCopy);
+    }
 
     // Finished serialization.
   }
@@ -71588,8 +72215,9 @@ class UrlAuthResultAccepted extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "8f8c0e4e",
+      "\$hash": "623a8fa0",
       "\$name": "UrlAuthResultAccepted",
+      "flags": flags,
       "url": url,
     };
 
@@ -102213,13 +102841,15 @@ class StarGift extends StarGiftBase {
 
 /// Star Gift Unique.
 ///
-/// ID: `569d64c9`.
+/// ID: `85f0a9cd`.
 class StarGiftUnique extends StarGiftBase {
   /// Star Gift Unique constructor.
   const StarGiftUnique({
     required this.requirePremium,
     required this.resaleTonOnly,
     required this.themeAvailable,
+    required this.burned,
+    required this.crafted,
     required this.id,
     required this.giftId,
     required this.title,
@@ -102241,6 +102871,7 @@ class StarGiftUnique extends StarGiftBase {
     this.peerColor,
     this.hostId,
     this.offerMinStars,
+    this.craftChancePermille,
   }) : super._();
 
   /// Deserialize.
@@ -102250,6 +102881,8 @@ class StarGiftUnique extends StarGiftBase {
     final requirePremium = (flags & 64) != 0;
     final resaleTonOnly = (flags & 128) != 0;
     final themeAvailable = (flags & 512) != 0;
+    final burned = (flags & 16384) != 0;
+    final crafted = (flags & 32768) != 0;
     final id = reader.readInt64();
     final giftId = reader.readInt64();
     final title = reader.readString();
@@ -102289,12 +102922,17 @@ class StarGiftUnique extends StarGiftBase {
     final hostId = hasHostIdField ? reader.readObject() as PeerBase : null;
     final hasOfferMinStarsField = (flags & 8192) != 0;
     final offerMinStars = hasOfferMinStarsField ? reader.readInt32() : null;
+    final hasCraftChancePermilleField = (flags & 65536) != 0;
+    final craftChancePermille =
+        hasCraftChancePermilleField ? reader.readInt32() : null;
 
     // Construct [StarGiftUnique] object.
     final returnValue = StarGiftUnique(
       requirePremium: requirePremium,
       resaleTonOnly: resaleTonOnly,
       themeAvailable: themeAvailable,
+      burned: burned,
+      crafted: crafted,
       id: id,
       giftId: giftId,
       title: title,
@@ -102316,6 +102954,7 @@ class StarGiftUnique extends StarGiftBase {
       peerColor: peerColor,
       hostId: hostId,
       offerMinStars: offerMinStars,
+      craftChancePermille: craftChancePermille,
     );
 
     // Now return the deserialized [StarGiftUnique].
@@ -102328,6 +102967,8 @@ class StarGiftUnique extends StarGiftBase {
       b06: requirePremium,
       b07: resaleTonOnly,
       b09: themeAvailable,
+      b14: burned,
+      b15: crafted,
       b00: ownerId != null,
       b01: ownerName != null,
       b02: ownerAddress != null,
@@ -102341,6 +102982,7 @@ class StarGiftUnique extends StarGiftBase {
       b11: peerColor != null,
       b12: hostId != null,
       b13: offerMinStars != null,
+      b16: craftChancePermille != null,
     );
 
     return v;
@@ -102354,6 +102996,12 @@ class StarGiftUnique extends StarGiftBase {
 
   /// theme_available: bit 9 of flags.9?true
   final bool themeAvailable;
+
+  /// burned: bit 14 of flags.14?true
+  final bool burned;
+
+  /// crafted: bit 15 of flags.15?true
+  final bool crafted;
 
   /// Id.
   ///
@@ -102428,11 +103076,14 @@ class StarGiftUnique extends StarGiftBase {
   /// Offer Min Stars.
   final int? offerMinStars;
 
+  /// Craft Chance Permille.
+  final int? craftChancePermille;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x569d64c9.
-    buffer.writeInt32(0x569d64c9);
+    // Write type-id 0x85f0a9cd.
+    buffer.writeInt32(0x85f0a9cd);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -102496,6 +103147,10 @@ class StarGiftUnique extends StarGiftBase {
     if (localOfferMinStarsCopy != null) {
       buffer.writeInt32(localOfferMinStarsCopy);
     }
+    final localCraftChancePermilleCopy = craftChancePermille;
+    if (localCraftChancePermilleCopy != null) {
+      buffer.writeInt32(localCraftChancePermilleCopy);
+    }
 
     // Finished serialization.
   }
@@ -102503,12 +103158,14 @@ class StarGiftUnique extends StarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "569d64c9",
+      "\$hash": "85f0a9cd",
       "\$name": "StarGiftUnique",
       "flags": flags,
       "requirePremium": requirePremium,
       "resaleTonOnly": resaleTonOnly,
       "themeAvailable": themeAvailable,
+      "burned": burned,
+      "crafted": crafted,
       "id": id,
       "giftId": giftId,
       "title": title,
@@ -102530,6 +103187,7 @@ class StarGiftUnique extends StarGiftBase {
       "peerColor": peerColor,
       "hostId": hostId,
       "offerMinStars": offerMinStars,
+      "craftChancePermille": craftChancePermille,
     };
 
     // Finished toJson.
@@ -103954,32 +104612,46 @@ class BotVerification extends BotVerificationBase {
 
 /// Star Gift Attribute Model.
 ///
-/// ID: `39d99013`.
+/// ID: `565251e2`.
 class StarGiftAttributeModel extends StarGiftAttributeBase {
   /// Star Gift Attribute Model constructor.
   const StarGiftAttributeModel({
+    required this.crafted,
     required this.name,
     required this.document,
-    required this.rarityPermille,
+    required this.rarity,
   }) : super._();
 
   /// Deserialize.
   factory StarGiftAttributeModel.deserialize(BinaryReader reader) {
     // Read [StarGiftAttributeModel] fields.
+    final flags = reader.readInt32();
+    final crafted = (flags & 1) != 0;
     final name = reader.readString();
     final document = reader.readObject() as DocumentBase;
-    final rarityPermille = reader.readInt32();
+    final rarity = reader.readObject() as StarGiftAttributeRarityBase;
 
     // Construct [StarGiftAttributeModel] object.
     final returnValue = StarGiftAttributeModel(
+      crafted: crafted,
       name: name,
       document: document,
-      rarityPermille: rarityPermille,
+      rarity: rarity,
     );
 
     // Now return the deserialized [StarGiftAttributeModel].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: crafted);
+
+    return v;
+  }
+
+  /// crafted: bit 0 of flags.0?true
+  final bool crafted;
 
   /// Name.
   final String name;
@@ -103987,21 +104659,20 @@ class StarGiftAttributeModel extends StarGiftAttributeBase {
   /// Document.
   final DocumentBase document;
 
-  /// Rarity Permille.
-  ///
-  /// Field type is Int32.
-  final int rarityPermille;
+  /// Rarity.
+  final StarGiftAttributeRarityBase rarity;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x39d99013.
-    buffer.writeInt32(0x39d99013);
+    // Write type-id 0x565251e2.
+    buffer.writeInt32(0x565251e2);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeString(name);
     buffer.writeObject(document);
-    buffer.writeInt32(rarityPermille);
+    buffer.writeObject(rarity);
 
     // Finished serialization.
   }
@@ -104009,11 +104680,13 @@ class StarGiftAttributeModel extends StarGiftAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "39d99013",
+      "\$hash": "565251e2",
       "\$name": "StarGiftAttributeModel",
+      "flags": flags,
+      "crafted": crafted,
       "name": name,
       "document": document,
-      "rarityPermille": rarityPermille,
+      "rarity": rarity,
     };
 
     // Finished toJson.
@@ -104023,13 +104696,13 @@ class StarGiftAttributeModel extends StarGiftAttributeBase {
 
 /// Star Gift Attribute Pattern.
 ///
-/// ID: `13acff19`.
+/// ID: `4e7085ea`.
 class StarGiftAttributePattern extends StarGiftAttributeBase {
   /// Star Gift Attribute Pattern constructor.
   const StarGiftAttributePattern({
     required this.name,
     required this.document,
-    required this.rarityPermille,
+    required this.rarity,
   }) : super._();
 
   /// Deserialize.
@@ -104037,13 +104710,13 @@ class StarGiftAttributePattern extends StarGiftAttributeBase {
     // Read [StarGiftAttributePattern] fields.
     final name = reader.readString();
     final document = reader.readObject() as DocumentBase;
-    final rarityPermille = reader.readInt32();
+    final rarity = reader.readObject() as StarGiftAttributeRarityBase;
 
     // Construct [StarGiftAttributePattern] object.
     final returnValue = StarGiftAttributePattern(
       name: name,
       document: document,
-      rarityPermille: rarityPermille,
+      rarity: rarity,
     );
 
     // Now return the deserialized [StarGiftAttributePattern].
@@ -104056,21 +104729,19 @@ class StarGiftAttributePattern extends StarGiftAttributeBase {
   /// Document.
   final DocumentBase document;
 
-  /// Rarity Permille.
-  ///
-  /// Field type is Int32.
-  final int rarityPermille;
+  /// Rarity.
+  final StarGiftAttributeRarityBase rarity;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x13acff19.
-    buffer.writeInt32(0x13acff19);
+    // Write type-id 0x4e7085ea.
+    buffer.writeInt32(0x4e7085ea);
 
     // Write fields.
     buffer.writeString(name);
     buffer.writeObject(document);
-    buffer.writeInt32(rarityPermille);
+    buffer.writeObject(rarity);
 
     // Finished serialization.
   }
@@ -104078,11 +104749,11 @@ class StarGiftAttributePattern extends StarGiftAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "13acff19",
+      "\$hash": "4e7085ea",
       "\$name": "StarGiftAttributePattern",
       "name": name,
       "document": document,
-      "rarityPermille": rarityPermille,
+      "rarity": rarity,
     };
 
     // Finished toJson.
@@ -104092,7 +104763,7 @@ class StarGiftAttributePattern extends StarGiftAttributeBase {
 
 /// Star Gift Attribute Backdrop.
 ///
-/// ID: `d93d859c`.
+/// ID: `9f2504e4`.
 class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
   /// Star Gift Attribute Backdrop constructor.
   const StarGiftAttributeBackdrop({
@@ -104102,7 +104773,7 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
     required this.edgeColor,
     required this.patternColor,
     required this.textColor,
-    required this.rarityPermille,
+    required this.rarity,
   }) : super._();
 
   /// Deserialize.
@@ -104114,7 +104785,7 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
     final edgeColor = reader.readInt32();
     final patternColor = reader.readInt32();
     final textColor = reader.readInt32();
-    final rarityPermille = reader.readInt32();
+    final rarity = reader.readObject() as StarGiftAttributeRarityBase;
 
     // Construct [StarGiftAttributeBackdrop] object.
     final returnValue = StarGiftAttributeBackdrop(
@@ -104124,7 +104795,7 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
       edgeColor: edgeColor,
       patternColor: patternColor,
       textColor: textColor,
-      rarityPermille: rarityPermille,
+      rarity: rarity,
     );
 
     // Now return the deserialized [StarGiftAttributeBackdrop].
@@ -104159,16 +104830,14 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
   /// Field type is Int32.
   final int textColor;
 
-  /// Rarity Permille.
-  ///
-  /// Field type is Int32.
-  final int rarityPermille;
+  /// Rarity.
+  final StarGiftAttributeRarityBase rarity;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd93d859c.
-    buffer.writeInt32(0xd93d859c);
+    // Write type-id 0x9f2504e4.
+    buffer.writeInt32(0x9f2504e4);
 
     // Write fields.
     buffer.writeString(name);
@@ -104177,7 +104846,7 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
     buffer.writeInt32(edgeColor);
     buffer.writeInt32(patternColor);
     buffer.writeInt32(textColor);
-    buffer.writeInt32(rarityPermille);
+    buffer.writeObject(rarity);
 
     // Finished serialization.
   }
@@ -104185,7 +104854,7 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "d93d859c",
+      "\$hash": "9f2504e4",
       "\$name": "StarGiftAttributeBackdrop",
       "name": name,
       "backdropId": backdropId,
@@ -104193,7 +104862,7 @@ class StarGiftAttributeBackdrop extends StarGiftAttributeBase {
       "edgeColor": edgeColor,
       "patternColor": patternColor,
       "textColor": textColor,
-      "rarityPermille": rarityPermille,
+      "rarity": rarity,
     };
 
     // Finished toJson.
@@ -104601,7 +105270,7 @@ class MessagesWebPagePreview extends MessagesWebPagePreviewBase {
 
 /// Saved Star Gift.
 ///
-/// ID: `ead6805e`.
+/// ID: `41df43fc`.
 class SavedStarGift extends SavedStarGiftBase {
   /// Saved Star Gift constructor.
   const SavedStarGift({
@@ -104627,6 +105296,7 @@ class SavedStarGift extends SavedStarGiftBase {
     this.prepaidUpgradeHash,
     this.dropOriginalDetailsStars,
     this.giftNum,
+    this.canCraftAt,
   }) : super._();
 
   /// Deserialize.
@@ -104672,6 +105342,8 @@ class SavedStarGift extends SavedStarGiftBase {
         hasDropOriginalDetailsStarsField ? reader.readInt64() : null;
     final hasGiftNumField = (flags & 524288) != 0;
     final giftNum = hasGiftNumField ? reader.readInt32() : null;
+    final hasCanCraftAtField = (flags & 1048576) != 0;
+    final canCraftAt = hasCanCraftAtField ? reader.readInt32() : null;
 
     // Construct [SavedStarGift] object.
     final returnValue = SavedStarGift(
@@ -104697,6 +105369,7 @@ class SavedStarGift extends SavedStarGiftBase {
       prepaidUpgradeHash: prepaidUpgradeHash,
       dropOriginalDetailsStars: dropOriginalDetailsStars,
       giftNum: giftNum,
+      canCraftAt: canCraftAt,
     );
 
     // Now return the deserialized [SavedStarGift].
@@ -104726,6 +105399,7 @@ class SavedStarGift extends SavedStarGiftBase {
       b16: prepaidUpgradeHash != null,
       b18: dropOriginalDetailsStars != null,
       b19: giftNum != null,
+      b20: canCraftAt != null,
     );
 
     return v;
@@ -104797,11 +105471,14 @@ class SavedStarGift extends SavedStarGiftBase {
   /// Gift Num.
   final int? giftNum;
 
+  /// Can Craft At.
+  final int? canCraftAt;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xead6805e.
-    buffer.writeInt32(0xead6805e);
+    // Write type-id 0x41df43fc.
+    buffer.writeInt32(0x41df43fc);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -104863,6 +105540,10 @@ class SavedStarGift extends SavedStarGiftBase {
     if (localGiftNumCopy != null) {
       buffer.writeInt32(localGiftNumCopy);
     }
+    final localCanCraftAtCopy = canCraftAt;
+    if (localCanCraftAtCopy != null) {
+      buffer.writeInt32(localCanCraftAtCopy);
+    }
 
     // Finished serialization.
   }
@@ -104870,7 +105551,7 @@ class SavedStarGift extends SavedStarGiftBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "ead6805e",
+      "\$hash": "41df43fc",
       "\$name": "SavedStarGift",
       "flags": flags,
       "nameHidden": nameHidden,
@@ -104895,6 +105576,7 @@ class SavedStarGift extends SavedStarGiftBase {
       "prepaidUpgradeHash": prepaidUpgradeHash,
       "dropOriginalDetailsStars": dropOriginalDetailsStars,
       "giftNum": giftNum,
+      "canCraftAt": canCraftAt,
     };
 
     // Finished toJson.
@@ -110661,6 +111343,294 @@ class MessagesEmojiGameDiceInfo extends MessagesEmojiGameInfoBase {
       "currentStreak": currentStreak,
       "params": params,
       "playsLeft": playsLeft,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Gift Attribute Rarity.
+///
+/// ID: `36437737`.
+class StarGiftAttributeRarity extends StarGiftAttributeRarityBase {
+  /// Star Gift Attribute Rarity constructor.
+  const StarGiftAttributeRarity({required this.permille}) : super._();
+
+  /// Deserialize.
+  factory StarGiftAttributeRarity.deserialize(BinaryReader reader) {
+    // Read [StarGiftAttributeRarity] fields.
+    final permille = reader.readInt32();
+
+    // Construct [StarGiftAttributeRarity] object.
+    final returnValue = StarGiftAttributeRarity(permille: permille);
+
+    // Now return the deserialized [StarGiftAttributeRarity].
+    return returnValue;
+  }
+
+  /// Permille.
+  ///
+  /// Field type is Int32.
+  final int permille;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x36437737.
+    buffer.writeInt32(0x36437737);
+
+    // Write fields.
+    buffer.writeInt32(permille);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "36437737",
+      "\$name": "StarGiftAttributeRarity",
+      "permille": permille,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Gift Attribute Rarity Uncommon.
+///
+/// ID: `dbce6389`.
+class StarGiftAttributeRarityUncommon extends StarGiftAttributeRarityBase {
+  /// Star Gift Attribute Rarity Uncommon constructor.
+  const StarGiftAttributeRarityUncommon() : super._();
+
+  /// Deserialize.
+  factory StarGiftAttributeRarityUncommon.deserialize(BinaryReader reader) {
+    // Construct [StarGiftAttributeRarityUncommon] object.
+    final returnValue = StarGiftAttributeRarityUncommon();
+
+    // Now return the deserialized [StarGiftAttributeRarityUncommon].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdbce6389.
+    buffer.writeInt32(0xdbce6389);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "dbce6389",
+      "\$name": "StarGiftAttributeRarityUncommon",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Gift Attribute Rarity Rare.
+///
+/// ID: `f08d516b`.
+class StarGiftAttributeRarityRare extends StarGiftAttributeRarityBase {
+  /// Star Gift Attribute Rarity Rare constructor.
+  const StarGiftAttributeRarityRare() : super._();
+
+  /// Deserialize.
+  factory StarGiftAttributeRarityRare.deserialize(BinaryReader reader) {
+    // Construct [StarGiftAttributeRarityRare] object.
+    final returnValue = StarGiftAttributeRarityRare();
+
+    // Now return the deserialized [StarGiftAttributeRarityRare].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf08d516b.
+    buffer.writeInt32(0xf08d516b);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f08d516b",
+      "\$name": "StarGiftAttributeRarityRare",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Gift Attribute Rarity Epic.
+///
+/// ID: `78fbf3a8`.
+class StarGiftAttributeRarityEpic extends StarGiftAttributeRarityBase {
+  /// Star Gift Attribute Rarity Epic constructor.
+  const StarGiftAttributeRarityEpic() : super._();
+
+  /// Deserialize.
+  factory StarGiftAttributeRarityEpic.deserialize(BinaryReader reader) {
+    // Construct [StarGiftAttributeRarityEpic] object.
+    final returnValue = StarGiftAttributeRarityEpic();
+
+    // Now return the deserialized [StarGiftAttributeRarityEpic].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x78fbf3a8.
+    buffer.writeInt32(0x78fbf3a8);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "78fbf3a8",
+      "\$name": "StarGiftAttributeRarityEpic",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Star Gift Attribute Rarity Legendary.
+///
+/// ID: `cef7e7a8`.
+class StarGiftAttributeRarityLegendary extends StarGiftAttributeRarityBase {
+  /// Star Gift Attribute Rarity Legendary constructor.
+  const StarGiftAttributeRarityLegendary() : super._();
+
+  /// Deserialize.
+  factory StarGiftAttributeRarityLegendary.deserialize(BinaryReader reader) {
+    // Construct [StarGiftAttributeRarityLegendary] object.
+    final returnValue = StarGiftAttributeRarityLegendary();
+
+    // Now return the deserialized [StarGiftAttributeRarityLegendary].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcef7e7a8.
+    buffer.writeInt32(0xcef7e7a8);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "cef7e7a8",
+      "\$name": "StarGiftAttributeRarityLegendary",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Keyboard Button Style.
+///
+/// ID: `4fdd3430`.
+class KeyboardButtonStyle extends KeyboardButtonStyleBase {
+  /// Keyboard Button Style constructor.
+  const KeyboardButtonStyle({
+    required this.bgPrimary,
+    required this.bgDanger,
+    required this.bgSuccess,
+    this.icon,
+  }) : super._();
+
+  /// Deserialize.
+  factory KeyboardButtonStyle.deserialize(BinaryReader reader) {
+    // Read [KeyboardButtonStyle] fields.
+    final flags = reader.readInt32();
+    final bgPrimary = (flags & 1) != 0;
+    final bgDanger = (flags & 2) != 0;
+    final bgSuccess = (flags & 4) != 0;
+    final hasIconField = (flags & 8) != 0;
+    final icon = hasIconField ? reader.readInt64() : null;
+
+    // Construct [KeyboardButtonStyle] object.
+    final returnValue = KeyboardButtonStyle(
+      bgPrimary: bgPrimary,
+      bgDanger: bgDanger,
+      bgSuccess: bgSuccess,
+      icon: icon,
+    );
+
+    // Now return the deserialized [KeyboardButtonStyle].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: bgPrimary,
+      b01: bgDanger,
+      b02: bgSuccess,
+      b03: icon != null,
+    );
+
+    return v;
+  }
+
+  /// bg_primary: bit 0 of flags.0?true
+  final bool bgPrimary;
+
+  /// bg_danger: bit 1 of flags.1?true
+  final bool bgDanger;
+
+  /// bg_success: bit 2 of flags.2?true
+  final bool bgSuccess;
+
+  /// Icon.
+  final int? icon;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4fdd3430.
+    buffer.writeInt32(0x4fdd3430);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localIconCopy = icon;
+    if (localIconCopy != null) {
+      buffer.writeInt64(localIconCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4fdd3430",
+      "\$name": "KeyboardButtonStyle",
+      "flags": flags,
+      "bgPrimary": bgPrimary,
+      "bgDanger": bgDanger,
+      "bgSuccess": bgSuccess,
+      "icon": icon,
     };
 
     // Finished toJson.
@@ -131010,6 +131980,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
   /// Messages Accept Url Auth constructor.
   const MessagesAcceptUrlAuth({
     required this.writeAllowed,
+    required this.sharePhoneNumber,
     this.peer,
     this.msgId,
     this.buttonId,
@@ -131021,6 +131992,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
     // Read [MessagesAcceptUrlAuth] fields.
     final flags = reader.readInt32();
     final writeAllowed = (flags & 1) != 0;
+    final sharePhoneNumber = (flags & 8) != 0;
     final hasPeerField = (flags & 2) != 0;
     final peer = hasPeerField ? reader.readObject() as InputPeerBase : null;
     final hasMsgIdField = (flags & 2) != 0;
@@ -131033,6 +132005,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
     // Construct [MessagesAcceptUrlAuth] object.
     final returnValue = MessagesAcceptUrlAuth(
       writeAllowed: writeAllowed,
+      sharePhoneNumber: sharePhoneNumber,
       peer: peer,
       msgId: msgId,
       buttonId: buttonId,
@@ -131047,6 +132020,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
   int get flags {
     final v = _flag(
       b00: writeAllowed,
+      b03: sharePhoneNumber,
       b01: peer != null || msgId != null || buttonId != null,
       b02: url != null,
     );
@@ -131056,6 +132030,9 @@ class MessagesAcceptUrlAuth extends TlMethod {
 
   /// write_allowed: bit 0 of flags.0?true
   final bool writeAllowed;
+
+  /// share_phone_number: bit 3 of flags.3?true
+  final bool sharePhoneNumber;
 
   /// Peer.
   final InputPeerBase? peer;
@@ -131104,6 +132081,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
       "\$name": "MessagesAcceptUrlAuth",
       "flags": flags,
       "writeAllowed": writeAllowed,
+      "sharePhoneNumber": sharePhoneNumber,
       "peer": peer,
       "msgId": msgId,
       "buttonId": buttonId,
@@ -146886,6 +147864,54 @@ class ChannelsSetMainProfileTab extends TlMethod {
   }
 }
 
+/// Channels Get Future Creator After Leave.
+///
+/// Return Type: `UserBase`.
+/// ID: `a00918af`.
+class ChannelsGetFutureCreatorAfterLeave extends TlMethod {
+  /// Channels Get Future Creator After Leave constructor.
+  const ChannelsGetFutureCreatorAfterLeave({required this.channel}) : super._();
+
+  /// Deserialize.
+  factory ChannelsGetFutureCreatorAfterLeave.deserialize(BinaryReader reader) {
+    // Read [ChannelsGetFutureCreatorAfterLeave] fields.
+    final channel = reader.readObject() as InputChannelBase;
+
+    // Construct [ChannelsGetFutureCreatorAfterLeave] object.
+    final returnValue = ChannelsGetFutureCreatorAfterLeave(channel: channel);
+
+    // Now return the deserialized [ChannelsGetFutureCreatorAfterLeave].
+    return returnValue;
+  }
+
+  /// Channel.
+  final InputChannelBase channel;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa00918af.
+    buffer.writeInt32(0xa00918af);
+
+    // Write fields.
+    buffer.writeObject(channel);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a00918af",
+      "\$name": "ChannelsGetFutureCreatorAfterLeave",
+      "channel": channel,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Bots Send Custom Request.
 ///
 /// Return Type: `DataJSONBase`.
@@ -151955,6 +152981,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
   const PaymentsGetResaleStarGifts({
     required this.sortByPrice,
     required this.sortByNum,
+    required this.forCraft,
     this.attributesHash,
     required this.giftId,
     this.attributes,
@@ -151968,6 +152995,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
     final flags = reader.readInt32();
     final sortByPrice = (flags & 2) != 0;
     final sortByNum = (flags & 4) != 0;
+    final forCraft = (flags & 16) != 0;
     final hasAttributesHashField = (flags & 1) != 0;
     final attributesHash = hasAttributesHashField ? reader.readInt64() : null;
     final giftId = reader.readInt64();
@@ -151982,6 +153010,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
     final returnValue = PaymentsGetResaleStarGifts(
       sortByPrice: sortByPrice,
       sortByNum: sortByNum,
+      forCraft: forCraft,
       attributesHash: attributesHash,
       giftId: giftId,
       attributes: attributes?.items,
@@ -151998,6 +153027,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
     final v = _flag(
       b01: sortByPrice,
       b02: sortByNum,
+      b04: forCraft,
       b00: attributesHash != null,
       b03: attributes != null,
     );
@@ -152010,6 +153040,9 @@ class PaymentsGetResaleStarGifts extends TlMethod {
 
   /// sort_by_num: bit 2 of flags.2?true
   final bool sortByNum;
+
+  /// for_craft: bit 4 of flags.4?true
+  final bool forCraft;
 
   /// Attributes Hash.
   final int? attributesHash;
@@ -152061,6 +153094,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
       "flags": flags,
       "sortByPrice": sortByPrice,
       "sortByNum": sortByNum,
+      "forCraft": forCraft,
       "attributesHash": attributesHash,
       "giftId": giftId,
       "attributes": attributes,
@@ -153001,6 +154035,126 @@ class PaymentsGetStarGiftUpgradeAttributes extends TlMethod {
       "\$hash": "6d038b58",
       "\$name": "PaymentsGetStarGiftUpgradeAttributes",
       "giftId": giftId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Craft Star Gifts.
+///
+/// Return Type: `PaymentsSavedStarGiftsBase`.
+/// ID: `fd05dd00`.
+class PaymentsGetCraftStarGifts extends TlMethod {
+  /// Payments Get Craft Star Gifts constructor.
+  const PaymentsGetCraftStarGifts({
+    required this.giftId,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetCraftStarGifts.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetCraftStarGifts] fields.
+    final giftId = reader.readInt64();
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [PaymentsGetCraftStarGifts] object.
+    final returnValue = PaymentsGetCraftStarGifts(
+      giftId: giftId,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [PaymentsGetCraftStarGifts].
+    return returnValue;
+  }
+
+  /// Gift Id.
+  ///
+  /// Field type is Int64.
+  final int giftId;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfd05dd00.
+    buffer.writeInt32(0xfd05dd00);
+
+    // Write fields.
+    buffer.writeInt64(giftId);
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fd05dd00",
+      "\$name": "PaymentsGetCraftStarGifts",
+      "giftId": giftId,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Craft Star Gift.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `b0f9684f`.
+class PaymentsCraftStarGift extends TlMethod {
+  /// Payments Craft Star Gift constructor.
+  const PaymentsCraftStarGift({required this.stargift}) : super._();
+
+  /// Deserialize.
+  factory PaymentsCraftStarGift.deserialize(BinaryReader reader) {
+    // Read [PaymentsCraftStarGift] fields.
+    final stargift = reader.readVectorObject<InputSavedStarGiftBase>();
+
+    // Construct [PaymentsCraftStarGift] object.
+    final returnValue = PaymentsCraftStarGift(stargift: stargift.items);
+
+    // Now return the deserialized [PaymentsCraftStarGift].
+    return returnValue;
+  }
+
+  /// Stargift.
+  final List<InputSavedStarGiftBase> stargift;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb0f9684f.
+    buffer.writeInt32(0xb0f9684f);
+
+    // Write fields.
+    buffer.writeVectorObject(stargift);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "b0f9684f",
+      "\$name": "PaymentsCraftStarGift",
+      "stargift": stargift,
     };
 
     // Finished toJson.

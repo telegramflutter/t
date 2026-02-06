@@ -6006,6 +6006,7 @@ class ClientMessages {
   /// ID: `b12c7125`.
   Future<Result<UrlAuthResultBase>> acceptUrlAuth({
     required bool writeAllowed,
+    required bool sharePhoneNumber,
     InputPeerBase? peer,
     int? msgId,
     int? buttonId,
@@ -6014,6 +6015,7 @@ class ClientMessages {
     // Preparing the request.
     final request = MessagesAcceptUrlAuth(
       writeAllowed: writeAllowed,
+      sharePhoneNumber: sharePhoneNumber,
       peer: peer,
       msgId: msgId,
       buttonId: buttonId,
@@ -10636,6 +10638,22 @@ class ClientChannels {
     // Return the result.
     return response._to<Boolean>();
   }
+
+  /// Get Future Creator After Leave.
+  ///
+  /// ID: `a00918af`.
+  Future<Result<UserBase>> getFutureCreatorAfterLeave({
+    required InputChannelBase channel,
+  }) async {
+    // Preparing the request.
+    final request = ChannelsGetFutureCreatorAfterLeave(channel: channel);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UserBase>();
+  }
 }
 
 /// Bots.
@@ -12166,6 +12184,7 @@ class ClientPayments {
   Future<Result<PaymentsResaleStarGiftsBase>> getResaleStarGifts({
     required bool sortByPrice,
     required bool sortByNum,
+    required bool forCraft,
     int? attributesHash,
     required int giftId,
     List<StarGiftAttributeIdBase>? attributes,
@@ -12176,6 +12195,7 @@ class ClientPayments {
     final request = PaymentsGetResaleStarGifts(
       sortByPrice: sortByPrice,
       sortByNum: sortByNum,
+      forCraft: forCraft,
       attributesHash: attributesHash,
       giftId: giftId,
       attributes: attributes,
@@ -12460,6 +12480,44 @@ class ClientPayments {
 
     // Return the result.
     return response._to<PaymentsStarGiftUpgradeAttributesBase>();
+  }
+
+  /// Get Craft Star Gifts.
+  ///
+  /// ID: `fd05dd00`.
+  Future<Result<PaymentsSavedStarGiftsBase>> getCraftStarGifts({
+    required int giftId,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetCraftStarGifts(
+      giftId: giftId,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsSavedStarGiftsBase>();
+  }
+
+  /// Craft Star Gift.
+  ///
+  /// ID: `b0f9684f`.
+  Future<Result<UpdatesBase>> craftStarGift({
+    required List<InputSavedStarGiftBase> stargift,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsCraftStarGift(stargift: stargift);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
   }
 }
 
