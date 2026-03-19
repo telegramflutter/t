@@ -7414,31 +7414,43 @@ class ChannelFull extends ChatFullBase {
 
 /// Chat Participant.
 ///
-/// ID: `c02d4007`.
+/// ID: `38e79fde`.
 class ChatParticipant extends ChatParticipantBase {
   /// Chat Participant constructor.
   const ChatParticipant({
     required this.userId,
     required this.inviterId,
     required this.date,
+    this.rank,
   }) : super._();
 
   /// Deserialize.
   factory ChatParticipant.deserialize(BinaryReader reader) {
     // Read [ChatParticipant] fields.
+    final flags = reader.readInt32();
     final userId = reader.readInt64();
     final inviterId = reader.readInt64();
     final date = reader.readDateTime();
+    final hasRankField = (flags & 1) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChatParticipant] object.
     final returnValue = ChatParticipant(
       userId: userId,
       inviterId: inviterId,
       date: date,
+      rank: rank,
     );
 
     // Now return the deserialized [ChatParticipant].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: rank != null);
+
+    return v;
   }
 
   /// User Id.
@@ -7454,16 +7466,24 @@ class ChatParticipant extends ChatParticipantBase {
   /// Date.
   final DateTime date;
 
+  /// Rank.
+  final String? rank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc02d4007.
-    buffer.writeInt32(0xc02d4007);
+    // Write type-id 0x38e79fde.
+    buffer.writeInt32(0x38e79fde);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -7471,11 +7491,13 @@ class ChatParticipant extends ChatParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "c02d4007",
+      "\$hash": "38e79fde",
       "\$name": "ChatParticipant",
+      "flags": flags,
       "userId": userId,
       "inviterId": inviterId,
       "date": date.toIso8601String(),
+      "rank": rank,
     };
 
     // Finished toJson.
@@ -7485,21 +7507,31 @@ class ChatParticipant extends ChatParticipantBase {
 
 /// Chat Participant Creator.
 ///
-/// ID: `e46bcee4`.
+/// ID: `e1f867b8`.
 class ChatParticipantCreator extends ChatParticipantBase {
   /// Chat Participant Creator constructor.
-  const ChatParticipantCreator({required this.userId}) : super._();
+  const ChatParticipantCreator({required this.userId, this.rank}) : super._();
 
   /// Deserialize.
   factory ChatParticipantCreator.deserialize(BinaryReader reader) {
     // Read [ChatParticipantCreator] fields.
+    final flags = reader.readInt32();
     final userId = reader.readInt64();
+    final hasRankField = (flags & 1) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChatParticipantCreator] object.
-    final returnValue = ChatParticipantCreator(userId: userId);
+    final returnValue = ChatParticipantCreator(userId: userId, rank: rank);
 
     // Now return the deserialized [ChatParticipantCreator].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: rank != null);
+
+    return v;
   }
 
   /// User Id.
@@ -7507,14 +7539,22 @@ class ChatParticipantCreator extends ChatParticipantBase {
   /// Field type is Int64.
   final int userId;
 
+  /// Rank.
+  final String? rank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe46bcee4.
-    buffer.writeInt32(0xe46bcee4);
+    // Write type-id 0xe1f867b8.
+    buffer.writeInt32(0xe1f867b8);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt64(userId);
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -7522,9 +7562,11 @@ class ChatParticipantCreator extends ChatParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "e46bcee4",
+      "\$hash": "e1f867b8",
       "\$name": "ChatParticipantCreator",
+      "flags": flags,
       "userId": userId,
+      "rank": rank,
     };
 
     // Finished toJson.
@@ -7534,31 +7576,43 @@ class ChatParticipantCreator extends ChatParticipantBase {
 
 /// Chat Participant Admin.
 ///
-/// ID: `a0933f5b`.
+/// ID: `0360d5d2`.
 class ChatParticipantAdmin extends ChatParticipantBase {
   /// Chat Participant Admin constructor.
   const ChatParticipantAdmin({
     required this.userId,
     required this.inviterId,
     required this.date,
+    this.rank,
   }) : super._();
 
   /// Deserialize.
   factory ChatParticipantAdmin.deserialize(BinaryReader reader) {
     // Read [ChatParticipantAdmin] fields.
+    final flags = reader.readInt32();
     final userId = reader.readInt64();
     final inviterId = reader.readInt64();
     final date = reader.readDateTime();
+    final hasRankField = (flags & 1) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChatParticipantAdmin] object.
     final returnValue = ChatParticipantAdmin(
       userId: userId,
       inviterId: inviterId,
       date: date,
+      rank: rank,
     );
 
     // Now return the deserialized [ChatParticipantAdmin].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: rank != null);
+
+    return v;
   }
 
   /// User Id.
@@ -7574,16 +7628,24 @@ class ChatParticipantAdmin extends ChatParticipantBase {
   /// Date.
   final DateTime date;
 
+  /// Rank.
+  final String? rank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa0933f5b.
-    buffer.writeInt32(0xa0933f5b);
+    // Write type-id 0x0360d5d2.
+    buffer.writeInt32(0x0360d5d2);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeInt64(userId);
     buffer.writeInt64(inviterId);
     buffer.writeDateTime(date);
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -7591,11 +7653,13 @@ class ChatParticipantAdmin extends ChatParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "a0933f5b",
+      "\$hash": "0360d5d2",
       "\$name": "ChatParticipantAdmin",
+      "flags": flags,
       "userId": userId,
       "inviterId": inviterId,
       "date": date.toIso8601String(),
+      "rank": rank,
     };
 
     // Finished toJson.
@@ -7949,7 +8013,7 @@ class MessageEmpty extends MessageBase {
 
 /// Message.
 ///
-/// ID: `9cb490e9`.
+/// ID: `3ae56482`.
 class Message extends MessageBase {
   /// Message constructor.
   const Message({
@@ -7971,6 +8035,7 @@ class Message extends MessageBase {
     required this.id,
     this.fromId,
     this.fromBoostsApplied,
+    this.fromRank,
     required this.peerId,
     this.savedPeerId,
     this.fwdFrom,
@@ -8027,6 +8092,8 @@ class Message extends MessageBase {
     final hasFromBoostsAppliedField = (flags & 536870912) != 0;
     final fromBoostsApplied =
         hasFromBoostsAppliedField ? reader.readInt32() : null;
+    final hasFromRankField = (flags2 & 4096) != 0;
+    final fromRank = hasFromRankField ? reader.readString() : null;
     final peerId = reader.readObject() as PeerBase;
     final hasSavedPeerIdField = (flags & 268435456) != 0;
     final savedPeerId =
@@ -8119,6 +8186,7 @@ class Message extends MessageBase {
       id: id,
       fromId: fromId,
       fromBoostsApplied: fromBoostsApplied,
+      fromRank: fromRank,
       peerId: peerId,
       savedPeerId: savedPeerId,
       fwdFrom: fwdFrom,
@@ -8197,6 +8265,7 @@ class Message extends MessageBase {
       b04: videoProcessingPending,
       b08: paidSuggestedPostStars,
       b09: paidSuggestedPostTon,
+      b12: fromRank != null,
       b00: viaBusinessBotId != null,
       b02: effect != null,
       b03: factcheck != null,
@@ -8265,6 +8334,9 @@ class Message extends MessageBase {
 
   /// From Boosts Applied.
   final int? fromBoostsApplied;
+
+  /// From Rank.
+  final String? fromRank;
 
   /// Peer Id.
   final PeerBase peerId;
@@ -8353,8 +8425,8 @@ class Message extends MessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x9cb490e9.
-    buffer.writeInt32(0x9cb490e9);
+    // Write type-id 0x3ae56482.
+    buffer.writeInt32(0x3ae56482);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -8367,6 +8439,10 @@ class Message extends MessageBase {
     final localFromBoostsAppliedCopy = fromBoostsApplied;
     if (localFromBoostsAppliedCopy != null) {
       buffer.writeInt32(localFromBoostsAppliedCopy);
+    }
+    final localFromRankCopy = fromRank;
+    if (localFromRankCopy != null) {
+      buffer.writeString(localFromRankCopy);
     }
     buffer.writeObject(peerId);
     final localSavedPeerIdCopy = savedPeerId;
@@ -8478,7 +8554,7 @@ class Message extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "9cb490e9",
+      "\$hash": "3ae56482",
       "\$name": "Message",
       "flags": flags,
       "out": out,
@@ -8500,6 +8576,7 @@ class Message extends MessageBase {
       "id": id,
       "fromId": fromId,
       "fromBoostsApplied": fromBoostsApplied,
+      "fromRank": fromRank,
       "peerId": peerId,
       "savedPeerId": savedPeerId,
       "fwdFrom": fwdFrom,
@@ -15042,6 +15119,141 @@ class MessageActionChangeCreator extends MessageActionBase {
   }
 }
 
+/// Message Action No Forwards Toggle.
+///
+/// ID: `bf7d6572`.
+class MessageActionNoForwardsToggle extends MessageActionBase {
+  /// Message Action No Forwards Toggle constructor.
+  const MessageActionNoForwardsToggle({
+    required this.prevValue,
+    required this.newValue,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionNoForwardsToggle.deserialize(BinaryReader reader) {
+    // Read [MessageActionNoForwardsToggle] fields.
+    final prevValue = reader.readBool();
+    final newValue = reader.readBool();
+
+    // Construct [MessageActionNoForwardsToggle] object.
+    final returnValue = MessageActionNoForwardsToggle(
+      prevValue: prevValue,
+      newValue: newValue,
+    );
+
+    // Now return the deserialized [MessageActionNoForwardsToggle].
+    return returnValue;
+  }
+
+  /// Prev Value.
+  final bool prevValue;
+
+  /// New Value.
+  final bool newValue;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbf7d6572.
+    buffer.writeInt32(0xbf7d6572);
+
+    // Write fields.
+    buffer.writeBool(prevValue);
+    buffer.writeBool(newValue);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bf7d6572",
+      "\$name": "MessageActionNoForwardsToggle",
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action No Forwards Request.
+///
+/// ID: `3e2793ba`.
+class MessageActionNoForwardsRequest extends MessageActionBase {
+  /// Message Action No Forwards Request constructor.
+  const MessageActionNoForwardsRequest({
+    required this.expired,
+    required this.prevValue,
+    required this.newValue,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionNoForwardsRequest.deserialize(BinaryReader reader) {
+    // Read [MessageActionNoForwardsRequest] fields.
+    final flags = reader.readInt32();
+    final expired = (flags & 1) != 0;
+    final prevValue = reader.readBool();
+    final newValue = reader.readBool();
+
+    // Construct [MessageActionNoForwardsRequest] object.
+    final returnValue = MessageActionNoForwardsRequest(
+      expired: expired,
+      prevValue: prevValue,
+      newValue: newValue,
+    );
+
+    // Now return the deserialized [MessageActionNoForwardsRequest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: expired);
+
+    return v;
+  }
+
+  /// expired: bit 0 of flags.0?true
+  final bool expired;
+
+  /// Prev Value.
+  final bool prevValue;
+
+  /// New Value.
+  final bool newValue;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3e2793ba.
+    buffer.writeInt32(0x3e2793ba);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeBool(prevValue);
+    buffer.writeBool(newValue);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3e2793ba",
+      "\$name": "MessageActionNoForwardsRequest",
+      "flags": flags,
+      "expired": expired,
+      "prevValue": prevValue,
+      "newValue": newValue,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Dialog.
 ///
 /// ID: `d58a08c6`.
@@ -17984,6 +18196,8 @@ class UserFull extends UserFullBase {
     required this.canViewRevenue,
     required this.botCanManageEmojiStatus,
     required this.displayGiftsButton,
+    required this.noforwardsMyEnabled,
+    required this.noforwardsPeerEnabled,
     required this.id,
     this.about,
     required this.settings,
@@ -18045,6 +18259,8 @@ class UserFull extends UserFullBase {
     final canViewRevenue = (flags2 & 512) != 0;
     final botCanManageEmojiStatus = (flags2 & 1024) != 0;
     final displayGiftsButton = (flags2 & 65536) != 0;
+    final noforwardsMyEnabled = (flags2 & 8388608) != 0;
+    final noforwardsPeerEnabled = (flags2 & 16777216) != 0;
     final id = reader.readInt64();
     final hasAboutField = (flags & 2) != 0;
     final about = hasAboutField ? reader.readString() : null;
@@ -18171,6 +18387,8 @@ class UserFull extends UserFullBase {
       canViewRevenue: canViewRevenue,
       botCanManageEmojiStatus: botCanManageEmojiStatus,
       displayGiftsButton: displayGiftsButton,
+      noforwardsMyEnabled: noforwardsMyEnabled,
+      noforwardsPeerEnabled: noforwardsPeerEnabled,
       id: id,
       about: about,
       settings: settings,
@@ -18256,6 +18474,8 @@ class UserFull extends UserFullBase {
       b09: canViewRevenue,
       b10: botCanManageEmojiStatus,
       b16: displayGiftsButton,
+      b23: noforwardsMyEnabled,
+      b24: noforwardsPeerEnabled,
       b00: businessWorkHours != null,
       b01: businessLocation != null,
       b02: businessGreetingMessage != null,
@@ -18328,6 +18548,12 @@ class UserFull extends UserFullBase {
 
   /// display_gifts_button: bit 16 of flags2.16?true
   final bool displayGiftsButton;
+
+  /// noforwards_my_enabled: bit 23 of flags2.23?true
+  final bool noforwardsMyEnabled;
+
+  /// noforwards_peer_enabled: bit 24 of flags2.24?true
+  final bool noforwardsPeerEnabled;
 
   /// Id.
   ///
@@ -18617,6 +18843,8 @@ class UserFull extends UserFullBase {
       "canViewRevenue": canViewRevenue,
       "botCanManageEmojiStatus": botCanManageEmojiStatus,
       "displayGiftsButton": displayGiftsButton,
+      "noforwardsMyEnabled": noforwardsMyEnabled,
+      "noforwardsPeerEnabled": noforwardsPeerEnabled,
       "id": id,
       "about": about,
       "settings": settings,
@@ -31006,6 +31234,87 @@ class UpdateStarGiftCraftFail extends UpdateBase {
     final returnValue = <String, dynamic>{
       "\$hash": "ac072444",
       "\$name": "UpdateStarGiftCraftFail",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Chat Participant Rank.
+///
+/// ID: `bd8367b9`.
+class UpdateChatParticipantRank extends UpdateBase {
+  /// Update Chat Participant Rank constructor.
+  const UpdateChatParticipantRank({
+    required this.chatId,
+    required this.userId,
+    required this.rank,
+    required this.version,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateChatParticipantRank.deserialize(BinaryReader reader) {
+    // Read [UpdateChatParticipantRank] fields.
+    final chatId = reader.readInt64();
+    final userId = reader.readInt64();
+    final rank = reader.readString();
+    final version = reader.readInt32();
+
+    // Construct [UpdateChatParticipantRank] object.
+    final returnValue = UpdateChatParticipantRank(
+      chatId: chatId,
+      userId: userId,
+      rank: rank,
+      version: version,
+    );
+
+    // Now return the deserialized [UpdateChatParticipantRank].
+    return returnValue;
+  }
+
+  /// Chat Id.
+  ///
+  /// Field type is Int64.
+  final int chatId;
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Rank.
+  final String rank;
+
+  /// Version.
+  ///
+  /// Field type is Int32.
+  final int version;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbd8367b9.
+    buffer.writeInt32(0xbd8367b9);
+
+    // Write fields.
+    buffer.writeInt64(chatId);
+    buffer.writeInt64(userId);
+    buffer.writeString(rank);
+    buffer.writeInt32(version);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bd8367b9",
+      "\$name": "UpdateChatParticipantRank",
+      "chatId": chatId,
+      "userId": userId,
+      "rank": rank,
+      "version": version,
     };
 
     // Finished toJson.
@@ -45451,6 +45760,136 @@ class MessageEntityBlockquote extends MessageEntityBase {
   }
 }
 
+/// Message Entity Formatted Date.
+///
+/// ID: `904ac7c7`.
+class MessageEntityFormattedDate extends MessageEntityBase {
+  /// Message Entity Formatted Date constructor.
+  const MessageEntityFormattedDate({
+    required this.relative,
+    required this.shortTime,
+    required this.longTime,
+    required this.shortDate,
+    required this.longDate,
+    required this.dayOfWeek,
+    required this.offset,
+    required this.length,
+    required this.date,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageEntityFormattedDate.deserialize(BinaryReader reader) {
+    // Read [MessageEntityFormattedDate] fields.
+    final flags = reader.readInt32();
+    final relative = (flags & 1) != 0;
+    final shortTime = (flags & 2) != 0;
+    final longTime = (flags & 4) != 0;
+    final shortDate = (flags & 8) != 0;
+    final longDate = (flags & 16) != 0;
+    final dayOfWeek = (flags & 32) != 0;
+    final offset = reader.readInt32();
+    final length = reader.readInt32();
+    final date = reader.readDateTime();
+
+    // Construct [MessageEntityFormattedDate] object.
+    final returnValue = MessageEntityFormattedDate(
+      relative: relative,
+      shortTime: shortTime,
+      longTime: longTime,
+      shortDate: shortDate,
+      longDate: longDate,
+      dayOfWeek: dayOfWeek,
+      offset: offset,
+      length: length,
+      date: date,
+    );
+
+    // Now return the deserialized [MessageEntityFormattedDate].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: relative,
+      b01: shortTime,
+      b02: longTime,
+      b03: shortDate,
+      b04: longDate,
+      b05: dayOfWeek,
+    );
+
+    return v;
+  }
+
+  /// relative: bit 0 of flags.0?true
+  final bool relative;
+
+  /// short_time: bit 1 of flags.1?true
+  final bool shortTime;
+
+  /// long_time: bit 2 of flags.2?true
+  final bool longTime;
+
+  /// short_date: bit 3 of flags.3?true
+  final bool shortDate;
+
+  /// long_date: bit 4 of flags.4?true
+  final bool longDate;
+
+  /// day_of_week: bit 5 of flags.5?true
+  final bool dayOfWeek;
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Length.
+  ///
+  /// Field type is Int32.
+  final int length;
+
+  /// Date.
+  final DateTime date;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x904ac7c7.
+    buffer.writeInt32(0x904ac7c7);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(offset);
+    buffer.writeInt32(length);
+    buffer.writeDateTime(date);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "904ac7c7",
+      "\$name": "MessageEntityFormattedDate",
+      "flags": flags,
+      "relative": relative,
+      "shortTime": shortTime,
+      "longTime": longTime,
+      "shortDate": shortDate,
+      "longDate": longDate,
+      "dayOfWeek": dayOfWeek,
+      "offset": offset,
+      "length": length,
+      "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Input Channel Empty.
 ///
 /// ID: `ee8c1e86`.
@@ -46151,13 +46590,14 @@ class ChannelMessagesFilter extends ChannelMessagesFilterBase {
 
 /// Channel Participant.
 ///
-/// ID: `cb397619`.
+/// ID: `1bd54456`.
 class ChannelParticipant extends ChannelParticipantBase {
   /// Channel Participant constructor.
   const ChannelParticipant({
     required this.userId,
     required this.date,
     this.subscriptionUntilDate,
+    this.rank,
   }) : super._();
 
   /// Deserialize.
@@ -46169,12 +46609,15 @@ class ChannelParticipant extends ChannelParticipantBase {
     final hasSubscriptionUntilDateField = (flags & 1) != 0;
     final subscriptionUntilDate =
         hasSubscriptionUntilDateField ? reader.readDateTime() : null;
+    final hasRankField = (flags & 4) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChannelParticipant] object.
     final returnValue = ChannelParticipant(
       userId: userId,
       date: date,
       subscriptionUntilDate: subscriptionUntilDate,
+      rank: rank,
     );
 
     // Now return the deserialized [ChannelParticipant].
@@ -46183,7 +46626,7 @@ class ChannelParticipant extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: subscriptionUntilDate != null);
+    final v = _flag(b00: subscriptionUntilDate != null, b02: rank != null);
 
     return v;
   }
@@ -46199,11 +46642,14 @@ class ChannelParticipant extends ChannelParticipantBase {
   /// Subscription Until Date.
   final DateTime? subscriptionUntilDate;
 
+  /// Rank.
+  final String? rank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xcb397619.
-    buffer.writeInt32(0xcb397619);
+    // Write type-id 0x1bd54456.
+    buffer.writeInt32(0x1bd54456);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -46213,6 +46659,10 @@ class ChannelParticipant extends ChannelParticipantBase {
     if (localSubscriptionUntilDateCopy != null) {
       buffer.writeDateTime(localSubscriptionUntilDateCopy);
     }
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -46220,12 +46670,13 @@ class ChannelParticipant extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "cb397619",
+      "\$hash": "1bd54456",
       "\$name": "ChannelParticipant",
       "flags": flags,
       "userId": userId,
       "date": date.toIso8601String(),
       "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
+      "rank": rank,
     };
 
     // Finished toJson.
@@ -46235,7 +46686,7 @@ class ChannelParticipant extends ChannelParticipantBase {
 
 /// Channel Participant Self.
 ///
-/// ID: `4f607bef`.
+/// ID: `a9478a1a`.
 class ChannelParticipantSelf extends ChannelParticipantBase {
   /// Channel Participant Self constructor.
   const ChannelParticipantSelf({
@@ -46244,6 +46695,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
     required this.inviterId,
     required this.date,
     this.subscriptionUntilDate,
+    this.rank,
   }) : super._();
 
   /// Deserialize.
@@ -46257,6 +46709,8 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
     final hasSubscriptionUntilDateField = (flags & 2) != 0;
     final subscriptionUntilDate =
         hasSubscriptionUntilDateField ? reader.readDateTime() : null;
+    final hasRankField = (flags & 4) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChannelParticipantSelf] object.
     final returnValue = ChannelParticipantSelf(
@@ -46265,6 +46719,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
       inviterId: inviterId,
       date: date,
       subscriptionUntilDate: subscriptionUntilDate,
+      rank: rank,
     );
 
     // Now return the deserialized [ChannelParticipantSelf].
@@ -46273,7 +46728,11 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: viaRequest, b01: subscriptionUntilDate != null);
+    final v = _flag(
+      b00: viaRequest,
+      b01: subscriptionUntilDate != null,
+      b02: rank != null,
+    );
 
     return v;
   }
@@ -46297,11 +46756,14 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   /// Subscription Until Date.
   final DateTime? subscriptionUntilDate;
 
+  /// Rank.
+  final String? rank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x4f607bef.
-    buffer.writeInt32(0x4f607bef);
+    // Write type-id 0xa9478a1a.
+    buffer.writeInt32(0xa9478a1a);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -46312,6 +46774,10 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
     if (localSubscriptionUntilDateCopy != null) {
       buffer.writeDateTime(localSubscriptionUntilDateCopy);
     }
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -46319,7 +46785,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "4f607bef",
+      "\$hash": "a9478a1a",
       "\$name": "ChannelParticipantSelf",
       "flags": flags,
       "viaRequest": viaRequest,
@@ -46327,6 +46793,7 @@ class ChannelParticipantSelf extends ChannelParticipantBase {
       "inviterId": inviterId,
       "date": date.toIso8601String(),
       "subscriptionUntilDate": subscriptionUntilDate?.toIso8601String(),
+      "rank": rank,
     };
 
     // Finished toJson.
@@ -46550,7 +47017,7 @@ class ChannelParticipantAdmin extends ChannelParticipantBase {
 
 /// Channel Participant Banned.
 ///
-/// ID: `6df8014e`.
+/// ID: `d5f0ad91`.
 class ChannelParticipantBanned extends ChannelParticipantBase {
   /// Channel Participant Banned constructor.
   const ChannelParticipantBanned({
@@ -46559,6 +47026,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
     required this.kickedBy,
     required this.date,
     required this.bannedRights,
+    this.rank,
   }) : super._();
 
   /// Deserialize.
@@ -46570,6 +47038,8 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
     final kickedBy = reader.readInt64();
     final date = reader.readDateTime();
     final bannedRights = reader.readObject() as ChatBannedRightsBase;
+    final hasRankField = (flags & 4) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChannelParticipantBanned] object.
     final returnValue = ChannelParticipantBanned(
@@ -46578,6 +47048,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
       kickedBy: kickedBy,
       date: date,
       bannedRights: bannedRights,
+      rank: rank,
     );
 
     // Now return the deserialized [ChannelParticipantBanned].
@@ -46586,7 +47057,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: left);
+    final v = _flag(b00: left, b02: rank != null);
 
     return v;
   }
@@ -46608,11 +47079,14 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
   /// Banned Rights.
   final ChatBannedRightsBase bannedRights;
 
+  /// Rank.
+  final String? rank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x6df8014e.
-    buffer.writeInt32(0x6df8014e);
+    // Write type-id 0xd5f0ad91.
+    buffer.writeInt32(0xd5f0ad91);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -46620,6 +47094,10 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
     buffer.writeInt64(kickedBy);
     buffer.writeDateTime(date);
     buffer.writeObject(bannedRights);
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -46627,7 +47105,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "6df8014e",
+      "\$hash": "d5f0ad91",
       "\$name": "ChannelParticipantBanned",
       "flags": flags,
       "left": left,
@@ -46635,6 +47113,7 @@ class ChannelParticipantBanned extends ChannelParticipantBase {
       "kickedBy": kickedBy,
       "date": date.toIso8601String(),
       "bannedRights": bannedRights,
+      "rank": rank,
     };
 
     // Finished toJson.
@@ -63641,6 +64120,78 @@ class ChannelAdminLogEventActionToggleAutotranslation
   }
 }
 
+/// Channel Admin Log Event Action Participant Edit Rank.
+///
+/// ID: `5806b4ec`.
+class ChannelAdminLogEventActionParticipantEditRank
+    extends ChannelAdminLogEventActionBase {
+  /// Channel Admin Log Event Action Participant Edit Rank constructor.
+  const ChannelAdminLogEventActionParticipantEditRank({
+    required this.userId,
+    required this.prevRank,
+    required this.newRank,
+  }) : super._();
+
+  /// Deserialize.
+  factory ChannelAdminLogEventActionParticipantEditRank.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [ChannelAdminLogEventActionParticipantEditRank] fields.
+    final userId = reader.readInt64();
+    final prevRank = reader.readString();
+    final newRank = reader.readString();
+
+    // Construct [ChannelAdminLogEventActionParticipantEditRank] object.
+    final returnValue = ChannelAdminLogEventActionParticipantEditRank(
+      userId: userId,
+      prevRank: prevRank,
+      newRank: newRank,
+    );
+
+    // Now return the deserialized [ChannelAdminLogEventActionParticipantEditRank].
+    return returnValue;
+  }
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Prev Rank.
+  final String prevRank;
+
+  /// New Rank.
+  final String newRank;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5806b4ec.
+    buffer.writeInt32(0x5806b4ec);
+
+    // Write fields.
+    buffer.writeInt64(userId);
+    buffer.writeString(prevRank);
+    buffer.writeString(newRank);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "5806b4ec",
+      "\$name": "ChannelAdminLogEventActionParticipantEditRank",
+      "userId": userId,
+      "prevRank": prevRank,
+      "newRank": newRank,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Channel Admin Log Event.
 ///
 /// ID: `1fad68cd`.
@@ -63812,6 +64363,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
     required this.send,
     required this.forums,
     required this.subExtend,
+    required this.editRank,
   }) : super._();
 
   /// Deserialize.
@@ -63837,6 +64389,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
     final send = (flags & 65536) != 0;
     final forums = (flags & 131072) != 0;
     final subExtend = (flags & 262144) != 0;
+    final editRank = (flags & 524288) != 0;
 
     // Construct [ChannelAdminLogEventsFilter] object.
     final returnValue = ChannelAdminLogEventsFilter(
@@ -63859,6 +64412,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
       send: send,
       forums: forums,
       subExtend: subExtend,
+      editRank: editRank,
     );
 
     // Now return the deserialized [ChannelAdminLogEventsFilter].
@@ -63887,6 +64441,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
       b16: send,
       b17: forums,
       b18: subExtend,
+      b19: editRank,
     );
 
     return v;
@@ -63949,6 +64504,9 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
   /// sub_extend: bit 18 of flags.18?true
   final bool subExtend;
 
+  /// edit_rank: bit 19 of flags.19?true
+  final bool editRank;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
@@ -63986,6 +64544,7 @@ class ChannelAdminLogEventsFilter extends ChannelAdminLogEventsFilterBase {
       "send": send,
       "forums": forums,
       "subExtend": subExtend,
+      "editRank": editRank,
     };
 
     // Finished toJson.
@@ -70290,6 +70849,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
     required this.editStories,
     required this.deleteStories,
     required this.manageDirectMessages,
+    required this.manageRanks,
   }) : super._();
 
   /// Deserialize.
@@ -70312,6 +70872,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
     final editStories = (flags & 32768) != 0;
     final deleteStories = (flags & 65536) != 0;
     final manageDirectMessages = (flags & 131072) != 0;
+    final manageRanks = (flags & 262144) != 0;
 
     // Construct [ChatAdminRights] object.
     final returnValue = ChatAdminRights(
@@ -70331,6 +70892,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
       editStories: editStories,
       deleteStories: deleteStories,
       manageDirectMessages: manageDirectMessages,
+      manageRanks: manageRanks,
     );
 
     // Now return the deserialized [ChatAdminRights].
@@ -70356,6 +70918,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
       b15: editStories,
       b16: deleteStories,
       b17: manageDirectMessages,
+      b18: manageRanks,
     );
 
     return v;
@@ -70409,6 +70972,9 @@ class ChatAdminRights extends ChatAdminRightsBase {
   /// manage_direct_messages: bit 17 of flags.17?true
   final bool manageDirectMessages;
 
+  /// manage_ranks: bit 18 of flags.18?true
+  final bool manageRanks;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
@@ -70443,6 +71009,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
       "editStories": editStories,
       "deleteStories": deleteStories,
       "manageDirectMessages": manageDirectMessages,
+      "manageRanks": manageRanks,
     };
 
     // Finished toJson.
@@ -70476,6 +71043,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
     required this.sendVoices,
     required this.sendDocs,
     required this.sendPlain,
+    required this.editRank,
     required this.untilDate,
   }) : super._();
 
@@ -70503,6 +71071,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
     final sendVoices = (flags & 8388608) != 0;
     final sendDocs = (flags & 16777216) != 0;
     final sendPlain = (flags & 33554432) != 0;
+    final editRank = (flags & 67108864) != 0;
     final untilDate = reader.readDateTime();
 
     // Construct [ChatBannedRights] object.
@@ -70527,6 +71096,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       sendVoices: sendVoices,
       sendDocs: sendDocs,
       sendPlain: sendPlain,
+      editRank: editRank,
       untilDate: untilDate,
     );
 
@@ -70557,6 +71127,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       b23: sendVoices,
       b24: sendDocs,
       b25: sendPlain,
+      b26: editRank,
     );
 
     return v;
@@ -70622,6 +71193,9 @@ class ChatBannedRights extends ChatBannedRightsBase {
   /// send_plain: bit 25 of flags.25?true
   final bool sendPlain;
 
+  /// edit_rank: bit 26 of flags.26?true
+  final bool editRank;
+
   /// Until Date.
   final DateTime untilDate;
 
@@ -70664,6 +71238,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       "sendVoices": sendVoices,
       "sendDocs": sendDocs,
       "sendPlain": sendPlain,
+      "editRank": editRank,
       "untilDate": untilDate.toIso8601String(),
     };
 
@@ -72032,18 +72607,21 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
 
 /// Url Auth Result Request.
 ///
-/// ID: `32fabf1a`.
+/// ID: `f8f8eb1e`.
 class UrlAuthResultRequest extends UrlAuthResultBase {
   /// Url Auth Result Request constructor.
   const UrlAuthResultRequest({
     required this.requestWriteAccess,
     required this.requestPhoneNumber,
+    required this.matchCodesFirst,
     required this.bot,
     required this.domain,
     this.browser,
     this.platform,
     this.ip,
     this.region,
+    this.matchCodes,
+    this.userIdHint,
   }) : super._();
 
   /// Deserialize.
@@ -72052,6 +72630,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     final flags = reader.readInt32();
     final requestWriteAccess = (flags & 1) != 0;
     final requestPhoneNumber = (flags & 2) != 0;
+    final matchCodesFirst = (flags & 32) != 0;
     final bot = reader.readObject() as UserBase;
     final domain = reader.readString();
     final hasBrowserField = (flags & 4) != 0;
@@ -72062,17 +72641,24 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     final ip = hasIpField ? reader.readString() : null;
     final hasRegionField = (flags & 4) != 0;
     final region = hasRegionField ? reader.readString() : null;
+    final hasMatchCodesField = (flags & 8) != 0;
+    final matchCodes = hasMatchCodesField ? reader.readVectorString() : null;
+    final hasUserIdHintField = (flags & 16) != 0;
+    final userIdHint = hasUserIdHintField ? reader.readInt64() : null;
 
     // Construct [UrlAuthResultRequest] object.
     final returnValue = UrlAuthResultRequest(
       requestWriteAccess: requestWriteAccess,
       requestPhoneNumber: requestPhoneNumber,
+      matchCodesFirst: matchCodesFirst,
       bot: bot,
       domain: domain,
       browser: browser,
       platform: platform,
       ip: ip,
       region: region,
+      matchCodes: matchCodes?.items,
+      userIdHint: userIdHint,
     );
 
     // Now return the deserialized [UrlAuthResultRequest].
@@ -72084,7 +72670,10 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     final v = _flag(
       b00: requestWriteAccess,
       b01: requestPhoneNumber,
+      b05: matchCodesFirst,
       b02: browser != null || platform != null || ip != null || region != null,
+      b03: matchCodes != null,
+      b04: userIdHint != null,
     );
 
     return v;
@@ -72095,6 +72684,9 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 
   /// request_phone_number: bit 1 of flags.1?true
   final bool requestPhoneNumber;
+
+  /// match_codes_first: bit 5 of flags.5?true
+  final bool matchCodesFirst;
 
   /// Bot.
   final UserBase bot;
@@ -72114,11 +72706,17 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   /// Region.
   final String? region;
 
+  /// Match Codes.
+  final List<String>? matchCodes;
+
+  /// User Id Hint.
+  final int? userIdHint;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x32fabf1a.
-    buffer.writeInt32(0x32fabf1a);
+    // Write type-id 0xf8f8eb1e.
+    buffer.writeInt32(0xf8f8eb1e);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -72140,6 +72738,14 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     if (localRegionCopy != null) {
       buffer.writeString(localRegionCopy);
     }
+    final localMatchCodesCopy = matchCodes;
+    if (localMatchCodesCopy != null) {
+      buffer.writeVectorString(localMatchCodesCopy);
+    }
+    final localUserIdHintCopy = userIdHint;
+    if (localUserIdHintCopy != null) {
+      buffer.writeInt64(localUserIdHintCopy);
+    }
 
     // Finished serialization.
   }
@@ -72147,17 +72753,20 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "32fabf1a",
+      "\$hash": "f8f8eb1e",
       "\$name": "UrlAuthResultRequest",
       "flags": flags,
       "requestWriteAccess": requestWriteAccess,
       "requestPhoneNumber": requestPhoneNumber,
+      "matchCodesFirst": matchCodesFirst,
       "bot": bot,
       "domain": domain,
       "browser": browser,
       "platform": platform,
       "ip": ip,
       "region": region,
+      "matchCodes": matchCodes,
+      "userIdHint": userIdHint,
     };
 
     // Finished toJson.
@@ -131874,11 +132483,16 @@ class MessagesGetSearchCounters extends TlMethod {
 /// Messages Request Url Auth.
 ///
 /// Return Type: `UrlAuthResultBase`.
-/// ID: `198fb446`.
+/// ID: `894cc99c`.
 class MessagesRequestUrlAuth extends TlMethod {
   /// Messages Request Url Auth constructor.
-  const MessagesRequestUrlAuth({this.peer, this.msgId, this.buttonId, this.url})
-      : super._();
+  const MessagesRequestUrlAuth({
+    this.peer,
+    this.msgId,
+    this.buttonId,
+    this.url,
+    this.inAppOrigin,
+  }) : super._();
 
   /// Deserialize.
   factory MessagesRequestUrlAuth.deserialize(BinaryReader reader) {
@@ -131892,6 +132506,8 @@ class MessagesRequestUrlAuth extends TlMethod {
     final buttonId = hasButtonIdField ? reader.readInt32() : null;
     final hasUrlField = (flags & 4) != 0;
     final url = hasUrlField ? reader.readString() : null;
+    final hasInAppOriginField = (flags & 8) != 0;
+    final inAppOrigin = hasInAppOriginField ? reader.readString() : null;
 
     // Construct [MessagesRequestUrlAuth] object.
     final returnValue = MessagesRequestUrlAuth(
@@ -131899,6 +132515,7 @@ class MessagesRequestUrlAuth extends TlMethod {
       msgId: msgId,
       buttonId: buttonId,
       url: url,
+      inAppOrigin: inAppOrigin,
     );
 
     // Now return the deserialized [MessagesRequestUrlAuth].
@@ -131910,6 +132527,7 @@ class MessagesRequestUrlAuth extends TlMethod {
     final v = _flag(
       b01: peer != null || msgId != null || buttonId != null,
       b02: url != null,
+      b03: inAppOrigin != null,
     );
 
     return v;
@@ -131927,11 +132545,14 @@ class MessagesRequestUrlAuth extends TlMethod {
   /// Url.
   final String? url;
 
+  /// In App Origin.
+  final String? inAppOrigin;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x198fb446.
-    buffer.writeInt32(0x198fb446);
+    // Write type-id 0x894cc99c.
+    buffer.writeInt32(0x894cc99c);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -131951,6 +132572,10 @@ class MessagesRequestUrlAuth extends TlMethod {
     if (localUrlCopy != null) {
       buffer.writeString(localUrlCopy);
     }
+    final localInAppOriginCopy = inAppOrigin;
+    if (localInAppOriginCopy != null) {
+      buffer.writeString(localInAppOriginCopy);
+    }
 
     // Finished serialization.
   }
@@ -131958,13 +132583,14 @@ class MessagesRequestUrlAuth extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "198fb446",
+      "\$hash": "894cc99c",
       "\$name": "MessagesRequestUrlAuth",
       "flags": flags,
       "peer": peer,
       "msgId": msgId,
       "buttonId": buttonId,
       "url": url,
+      "inAppOrigin": inAppOrigin,
     };
 
     // Finished toJson.
@@ -131975,7 +132601,7 @@ class MessagesRequestUrlAuth extends TlMethod {
 /// Messages Accept Url Auth.
 ///
 /// Return Type: `UrlAuthResultBase`.
-/// ID: `b12c7125`.
+/// ID: `67a3f0de`.
 class MessagesAcceptUrlAuth extends TlMethod {
   /// Messages Accept Url Auth constructor.
   const MessagesAcceptUrlAuth({
@@ -131985,6 +132611,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
     this.msgId,
     this.buttonId,
     this.url,
+    this.matchCode,
   }) : super._();
 
   /// Deserialize.
@@ -132001,6 +132628,8 @@ class MessagesAcceptUrlAuth extends TlMethod {
     final buttonId = hasButtonIdField ? reader.readInt32() : null;
     final hasUrlField = (flags & 4) != 0;
     final url = hasUrlField ? reader.readString() : null;
+    final hasMatchCodeField = (flags & 16) != 0;
+    final matchCode = hasMatchCodeField ? reader.readString() : null;
 
     // Construct [MessagesAcceptUrlAuth] object.
     final returnValue = MessagesAcceptUrlAuth(
@@ -132010,6 +132639,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
       msgId: msgId,
       buttonId: buttonId,
       url: url,
+      matchCode: matchCode,
     );
 
     // Now return the deserialized [MessagesAcceptUrlAuth].
@@ -132023,6 +132653,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
       b03: sharePhoneNumber,
       b01: peer != null || msgId != null || buttonId != null,
       b02: url != null,
+      b04: matchCode != null,
     );
 
     return v;
@@ -132046,11 +132677,14 @@ class MessagesAcceptUrlAuth extends TlMethod {
   /// Url.
   final String? url;
 
+  /// Match Code.
+  final String? matchCode;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb12c7125.
-    buffer.writeInt32(0xb12c7125);
+    // Write type-id 0x67a3f0de.
+    buffer.writeInt32(0x67a3f0de);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -132070,6 +132704,10 @@ class MessagesAcceptUrlAuth extends TlMethod {
     if (localUrlCopy != null) {
       buffer.writeString(localUrlCopy);
     }
+    final localMatchCodeCopy = matchCode;
+    if (localMatchCodeCopy != null) {
+      buffer.writeString(localMatchCodeCopy);
+    }
 
     // Finished serialization.
   }
@@ -132077,7 +132715,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b12c7125",
+      "\$hash": "67a3f0de",
       "\$name": "MessagesAcceptUrlAuth",
       "flags": flags,
       "writeAllowed": writeAllowed,
@@ -132086,6 +132724,7 @@ class MessagesAcceptUrlAuth extends TlMethod {
       "msgId": msgId,
       "buttonId": buttonId,
       "url": url,
+      "matchCode": matchCode,
     };
 
     // Finished toJson.
@@ -134720,23 +135359,40 @@ class MessagesHideAllChatJoinRequests extends TlMethod {
 /// Messages Toggle No Forwards.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `b11eafa2`.
+/// ID: `b2081a35`.
 class MessagesToggleNoForwards extends TlMethod {
   /// Messages Toggle No Forwards constructor.
-  const MessagesToggleNoForwards({required this.peer, required this.enabled})
-      : super._();
+  const MessagesToggleNoForwards({
+    required this.peer,
+    required this.enabled,
+    this.requestMsgId,
+  }) : super._();
 
   /// Deserialize.
   factory MessagesToggleNoForwards.deserialize(BinaryReader reader) {
     // Read [MessagesToggleNoForwards] fields.
+    final flags = reader.readInt32();
     final peer = reader.readObject() as InputPeerBase;
     final enabled = reader.readBool();
+    final hasRequestMsgIdField = (flags & 1) != 0;
+    final requestMsgId = hasRequestMsgIdField ? reader.readInt32() : null;
 
     // Construct [MessagesToggleNoForwards] object.
-    final returnValue = MessagesToggleNoForwards(peer: peer, enabled: enabled);
+    final returnValue = MessagesToggleNoForwards(
+      peer: peer,
+      enabled: enabled,
+      requestMsgId: requestMsgId,
+    );
 
     // Now return the deserialized [MessagesToggleNoForwards].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: requestMsgId != null);
+
+    return v;
   }
 
   /// Peer.
@@ -134745,15 +135401,23 @@ class MessagesToggleNoForwards extends TlMethod {
   /// Enabled.
   final bool enabled;
 
+  /// Request Msg Id.
+  final int? requestMsgId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb11eafa2.
-    buffer.writeInt32(0xb11eafa2);
+    // Write type-id 0xb2081a35.
+    buffer.writeInt32(0xb2081a35);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(peer);
     buffer.writeBool(enabled);
+    final localRequestMsgIdCopy = requestMsgId;
+    if (localRequestMsgIdCopy != null) {
+      buffer.writeInt32(localRequestMsgIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -134761,10 +135425,12 @@ class MessagesToggleNoForwards extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b11eafa2",
+      "\$hash": "b2081a35",
       "\$name": "MessagesToggleNoForwards",
+      "flags": flags,
       "peer": peer,
       "enabled": enabled,
+      "requestMsgId": requestMsgId,
     };
 
     // Finished toJson.
@@ -141561,6 +142227,301 @@ class MessagesSummarizeText extends TlMethod {
   }
 }
 
+/// Messages Edit Chat Creator.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `f743b857`.
+class MessagesEditChatCreator extends TlMethod {
+  /// Messages Edit Chat Creator constructor.
+  const MessagesEditChatCreator({
+    required this.peer,
+    required this.userId,
+    required this.password,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesEditChatCreator.deserialize(BinaryReader reader) {
+    // Read [MessagesEditChatCreator] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final userId = reader.readObject() as InputUserBase;
+    final password = reader.readObject() as InputCheckPasswordSRPBase;
+
+    // Construct [MessagesEditChatCreator] object.
+    final returnValue = MessagesEditChatCreator(
+      peer: peer,
+      userId: userId,
+      password: password,
+    );
+
+    // Now return the deserialized [MessagesEditChatCreator].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Password.
+  final InputCheckPasswordSRPBase password;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf743b857.
+    buffer.writeInt32(0xf743b857);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(userId);
+    buffer.writeObject(password);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f743b857",
+      "\$name": "MessagesEditChatCreator",
+      "peer": peer,
+      "userId": userId,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Future Chat Creator After Leave.
+///
+/// Return Type: `UserBase`.
+/// ID: `3b7d0ea6`.
+class MessagesGetFutureChatCreatorAfterLeave extends TlMethod {
+  /// Messages Get Future Chat Creator After Leave constructor.
+  const MessagesGetFutureChatCreatorAfterLeave({required this.peer})
+      : super._();
+
+  /// Deserialize.
+  factory MessagesGetFutureChatCreatorAfterLeave.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [MessagesGetFutureChatCreatorAfterLeave] fields.
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [MessagesGetFutureChatCreatorAfterLeave] object.
+    final returnValue = MessagesGetFutureChatCreatorAfterLeave(peer: peer);
+
+    // Now return the deserialized [MessagesGetFutureChatCreatorAfterLeave].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3b7d0ea6.
+    buffer.writeInt32(0x3b7d0ea6);
+
+    // Write fields.
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3b7d0ea6",
+      "\$name": "MessagesGetFutureChatCreatorAfterLeave",
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Edit Chat Participant Rank.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `a00f32b0`.
+class MessagesEditChatParticipantRank extends TlMethod {
+  /// Messages Edit Chat Participant Rank constructor.
+  const MessagesEditChatParticipantRank({
+    required this.peer,
+    required this.participant,
+    required this.rank,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesEditChatParticipantRank.deserialize(BinaryReader reader) {
+    // Read [MessagesEditChatParticipantRank] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final participant = reader.readObject() as InputPeerBase;
+    final rank = reader.readString();
+
+    // Construct [MessagesEditChatParticipantRank] object.
+    final returnValue = MessagesEditChatParticipantRank(
+      peer: peer,
+      participant: participant,
+      rank: rank,
+    );
+
+    // Now return the deserialized [MessagesEditChatParticipantRank].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Participant.
+  final InputPeerBase participant;
+
+  /// Rank.
+  final String rank;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa00f32b0.
+    buffer.writeInt32(0xa00f32b0);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(participant);
+    buffer.writeString(rank);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a00f32b0",
+      "\$name": "MessagesEditChatParticipantRank",
+      "peer": peer,
+      "participant": participant,
+      "rank": rank,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Decline Url Auth.
+///
+/// Return Type: `bool`.
+/// ID: `35436bbc`.
+class MessagesDeclineUrlAuth extends TlMethod {
+  /// Messages Decline Url Auth constructor.
+  const MessagesDeclineUrlAuth({required this.url}) : super._();
+
+  /// Deserialize.
+  factory MessagesDeclineUrlAuth.deserialize(BinaryReader reader) {
+    // Read [MessagesDeclineUrlAuth] fields.
+    final url = reader.readString();
+
+    // Construct [MessagesDeclineUrlAuth] object.
+    final returnValue = MessagesDeclineUrlAuth(url: url);
+
+    // Now return the deserialized [MessagesDeclineUrlAuth].
+    return returnValue;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x35436bbc.
+    buffer.writeInt32(0x35436bbc);
+
+    // Write fields.
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "35436bbc",
+      "\$name": "MessagesDeclineUrlAuth",
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Check Url Auth Match Code.
+///
+/// Return Type: `bool`.
+/// ID: `c9a47b0b`.
+class MessagesCheckUrlAuthMatchCode extends TlMethod {
+  /// Messages Check Url Auth Match Code constructor.
+  const MessagesCheckUrlAuthMatchCode({
+    required this.url,
+    required this.matchCode,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesCheckUrlAuthMatchCode.deserialize(BinaryReader reader) {
+    // Read [MessagesCheckUrlAuthMatchCode] fields.
+    final url = reader.readString();
+    final matchCode = reader.readString();
+
+    // Construct [MessagesCheckUrlAuthMatchCode] object.
+    final returnValue = MessagesCheckUrlAuthMatchCode(
+      url: url,
+      matchCode: matchCode,
+    );
+
+    // Now return the deserialized [MessagesCheckUrlAuthMatchCode].
+    return returnValue;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Match Code.
+  final String matchCode;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc9a47b0b.
+    buffer.writeInt32(0xc9a47b0b);
+
+    // Write fields.
+    buffer.writeString(url);
+    buffer.writeString(matchCode);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c9a47b0b",
+      "\$name": "MessagesCheckUrlAuthMatchCode",
+      "url": url,
+      "matchCode": matchCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Updates Get State.
 ///
 /// Return Type: `UpdatesStateBase`.
@@ -144660,23 +145621,25 @@ class ChannelsCreateChannel extends TlMethod {
 /// Channels Edit Admin.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `d33c8902`.
+/// ID: `9a98ad68`.
 class ChannelsEditAdmin extends TlMethod {
   /// Channels Edit Admin constructor.
   const ChannelsEditAdmin({
     required this.channel,
     required this.userId,
     required this.adminRights,
-    required this.rank,
+    this.rank,
   }) : super._();
 
   /// Deserialize.
   factory ChannelsEditAdmin.deserialize(BinaryReader reader) {
     // Read [ChannelsEditAdmin] fields.
+    final flags = reader.readInt32();
     final channel = reader.readObject() as InputChannelBase;
     final userId = reader.readObject() as InputUserBase;
     final adminRights = reader.readObject() as ChatAdminRightsBase;
-    final rank = reader.readString();
+    final hasRankField = (flags & 1) != 0;
+    final rank = hasRankField ? reader.readString() : null;
 
     // Construct [ChannelsEditAdmin] object.
     final returnValue = ChannelsEditAdmin(
@@ -144690,6 +145653,13 @@ class ChannelsEditAdmin extends TlMethod {
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: rank != null);
+
+    return v;
+  }
+
   /// Channel.
   final InputChannelBase channel;
 
@@ -144700,19 +145670,23 @@ class ChannelsEditAdmin extends TlMethod {
   final ChatAdminRightsBase adminRights;
 
   /// Rank.
-  final String rank;
+  final String? rank;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd33c8902.
-    buffer.writeInt32(0xd33c8902);
+    // Write type-id 0x9a98ad68.
+    buffer.writeInt32(0x9a98ad68);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(channel);
     buffer.writeObject(userId);
     buffer.writeObject(adminRights);
-    buffer.writeString(rank);
+    final localRankCopy = rank;
+    if (localRankCopy != null) {
+      buffer.writeString(localRankCopy);
+    }
 
     // Finished serialization.
   }
@@ -144720,8 +145694,9 @@ class ChannelsEditAdmin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "d33c8902",
+      "\$hash": "9a98ad68",
       "\$name": "ChannelsEditAdmin",
+      "flags": flags,
       "channel": channel,
       "userId": userId,
       "adminRights": adminRights,
@@ -145989,74 +146964,6 @@ class ChannelsSetDiscussionGroup extends TlMethod {
       "\$name": "ChannelsSetDiscussionGroup",
       "broadcast": broadcast,
       "group": group,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
-/// Channels Edit Creator.
-///
-/// Return Type: `UpdatesBase`.
-/// ID: `8f38cd1f`.
-class ChannelsEditCreator extends TlMethod {
-  /// Channels Edit Creator constructor.
-  const ChannelsEditCreator({
-    required this.channel,
-    required this.userId,
-    required this.password,
-  }) : super._();
-
-  /// Deserialize.
-  factory ChannelsEditCreator.deserialize(BinaryReader reader) {
-    // Read [ChannelsEditCreator] fields.
-    final channel = reader.readObject() as InputChannelBase;
-    final userId = reader.readObject() as InputUserBase;
-    final password = reader.readObject() as InputCheckPasswordSRPBase;
-
-    // Construct [ChannelsEditCreator] object.
-    final returnValue = ChannelsEditCreator(
-      channel: channel,
-      userId: userId,
-      password: password,
-    );
-
-    // Now return the deserialized [ChannelsEditCreator].
-    return returnValue;
-  }
-
-  /// Channel.
-  final InputChannelBase channel;
-
-  /// User Id.
-  final InputUserBase userId;
-
-  /// Password.
-  final InputCheckPasswordSRPBase password;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0x8f38cd1f.
-    buffer.writeInt32(0x8f38cd1f);
-
-    // Write fields.
-    buffer.writeObject(channel);
-    buffer.writeObject(userId);
-    buffer.writeObject(password);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$hash": "8f38cd1f",
-      "\$name": "ChannelsEditCreator",
-      "channel": channel,
-      "userId": userId,
-      "password": password,
     };
 
     // Finished toJson.
@@ -147857,54 +148764,6 @@ class ChannelsSetMainProfileTab extends TlMethod {
       "\$name": "ChannelsSetMainProfileTab",
       "channel": channel,
       "tab": tab,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
-/// Channels Get Future Creator After Leave.
-///
-/// Return Type: `UserBase`.
-/// ID: `a00918af`.
-class ChannelsGetFutureCreatorAfterLeave extends TlMethod {
-  /// Channels Get Future Creator After Leave constructor.
-  const ChannelsGetFutureCreatorAfterLeave({required this.channel}) : super._();
-
-  /// Deserialize.
-  factory ChannelsGetFutureCreatorAfterLeave.deserialize(BinaryReader reader) {
-    // Read [ChannelsGetFutureCreatorAfterLeave] fields.
-    final channel = reader.readObject() as InputChannelBase;
-
-    // Construct [ChannelsGetFutureCreatorAfterLeave] object.
-    final returnValue = ChannelsGetFutureCreatorAfterLeave(channel: channel);
-
-    // Now return the deserialized [ChannelsGetFutureCreatorAfterLeave].
-    return returnValue;
-  }
-
-  /// Channel.
-  final InputChannelBase channel;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0xa00918af.
-    buffer.writeInt32(0xa00918af);
-
-    // Write fields.
-    buffer.writeObject(channel);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$hash": "a00918af",
-      "\$name": "ChannelsGetFutureCreatorAfterLeave",
-      "channel": channel,
     };
 
     // Finished toJson.

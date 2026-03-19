@@ -5979,12 +5979,13 @@ class ClientMessages {
 
   /// Request Url Auth.
   ///
-  /// ID: `198fb446`.
+  /// ID: `894cc99c`.
   Future<Result<UrlAuthResultBase>> requestUrlAuth({
     InputPeerBase? peer,
     int? msgId,
     int? buttonId,
     String? url,
+    String? inAppOrigin,
   }) async {
     // Preparing the request.
     final request = MessagesRequestUrlAuth(
@@ -5992,6 +5993,7 @@ class ClientMessages {
       msgId: msgId,
       buttonId: buttonId,
       url: url,
+      inAppOrigin: inAppOrigin,
     );
 
     // Invoke and wait for response.
@@ -6003,7 +6005,7 @@ class ClientMessages {
 
   /// Accept Url Auth.
   ///
-  /// ID: `b12c7125`.
+  /// ID: `67a3f0de`.
   Future<Result<UrlAuthResultBase>> acceptUrlAuth({
     required bool writeAllowed,
     required bool sharePhoneNumber,
@@ -6011,6 +6013,7 @@ class ClientMessages {
     int? msgId,
     int? buttonId,
     String? url,
+    String? matchCode,
   }) async {
     // Preparing the request.
     final request = MessagesAcceptUrlAuth(
@@ -6020,6 +6023,7 @@ class ClientMessages {
       msgId: msgId,
       buttonId: buttonId,
       url: url,
+      matchCode: matchCode,
     );
 
     // Invoke and wait for response.
@@ -6779,13 +6783,18 @@ class ClientMessages {
 
   /// Toggle No Forwards.
   ///
-  /// ID: `b11eafa2`.
+  /// ID: `b2081a35`.
   Future<Result<UpdatesBase>> toggleNoForwards({
     required InputPeerBase peer,
     required bool enabled,
+    int? requestMsgId,
   }) async {
     // Preparing the request.
-    final request = MessagesToggleNoForwards(peer: peer, enabled: enabled);
+    final request = MessagesToggleNoForwards(
+      peer: peer,
+      enabled: enabled,
+      requestMsgId: requestMsgId,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8691,6 +8700,100 @@ class ClientMessages {
     // Return the result.
     return response._to<TextWithEntitiesBase>();
   }
+
+  /// Edit Chat Creator.
+  ///
+  /// ID: `f743b857`.
+  Future<Result<UpdatesBase>> editChatCreator({
+    required InputPeerBase peer,
+    required InputUserBase userId,
+    required InputCheckPasswordSRPBase password,
+  }) async {
+    // Preparing the request.
+    final request = MessagesEditChatCreator(
+      peer: peer,
+      userId: userId,
+      password: password,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Future Chat Creator After Leave.
+  ///
+  /// ID: `3b7d0ea6`.
+  Future<Result<UserBase>> getFutureChatCreatorAfterLeave({
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetFutureChatCreatorAfterLeave(peer: peer);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UserBase>();
+  }
+
+  /// Edit Chat Participant Rank.
+  ///
+  /// ID: `a00f32b0`.
+  Future<Result<UpdatesBase>> editChatParticipantRank({
+    required InputPeerBase peer,
+    required InputPeerBase participant,
+    required String rank,
+  }) async {
+    // Preparing the request.
+    final request = MessagesEditChatParticipantRank(
+      peer: peer,
+      participant: participant,
+      rank: rank,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Decline Url Auth.
+  ///
+  /// ID: `35436bbc`.
+  Future<Result<Boolean>> declineUrlAuth({required String url}) async {
+    // Preparing the request.
+    final request = MessagesDeclineUrlAuth(url: url);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Check Url Auth Match Code.
+  ///
+  /// ID: `c9a47b0b`.
+  Future<Result<Boolean>> checkUrlAuthMatchCode({
+    required String url,
+    required String matchCode,
+  }) async {
+    // Preparing the request.
+    final request = MessagesCheckUrlAuthMatchCode(
+      url: url,
+      matchCode: matchCode,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
 }
 
 /// Updates.
@@ -9663,12 +9766,12 @@ class ClientChannels {
 
   /// Edit Admin.
   ///
-  /// ID: `d33c8902`.
+  /// ID: `9a98ad68`.
   Future<Result<UpdatesBase>> editAdmin({
     required InputChannelBase channel,
     required InputUserBase userId,
     required ChatAdminRightsBase adminRights,
-    required String rank,
+    String? rank,
   }) async {
     // Preparing the request.
     final request = ChannelsEditAdmin(
@@ -10068,28 +10171,6 @@ class ClientChannels {
 
     // Return the result.
     return response._to<Boolean>();
-  }
-
-  /// Edit Creator.
-  ///
-  /// ID: `8f38cd1f`.
-  Future<Result<UpdatesBase>> editCreator({
-    required InputChannelBase channel,
-    required InputUserBase userId,
-    required InputCheckPasswordSRPBase password,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsEditCreator(
-      channel: channel,
-      userId: userId,
-      password: password,
-    );
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<UpdatesBase>();
   }
 
   /// Edit Location.
@@ -10637,22 +10718,6 @@ class ClientChannels {
 
     // Return the result.
     return response._to<Boolean>();
-  }
-
-  /// Get Future Creator After Leave.
-  ///
-  /// ID: `a00918af`.
-  Future<Result<UserBase>> getFutureCreatorAfterLeave({
-    required InputChannelBase channel,
-  }) async {
-    // Preparing the request.
-    final request = ChannelsGetFutureCreatorAfterLeave(channel: channel);
-
-    // Invoke and wait for response.
-    final response = await _c.invoke(request);
-
-    // Return the result.
-    return response._to<UserBase>();
   }
 }
 
