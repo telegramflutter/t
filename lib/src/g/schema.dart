@@ -973,14 +973,16 @@ class InputMediaEmpty extends InputMediaBase {
 
 /// Input Media Uploaded Photo.
 ///
-/// ID: `1e287d04`.
+/// ID: `7d8375da`.
 class InputMediaUploadedPhoto extends InputMediaBase {
   /// Input Media Uploaded Photo constructor.
   const InputMediaUploadedPhoto({
     required this.spoiler,
+    required this.livePhoto,
     required this.file,
     this.stickers,
     this.ttlSeconds,
+    this.video,
   }) : super._();
 
   /// Deserialize.
@@ -988,19 +990,25 @@ class InputMediaUploadedPhoto extends InputMediaBase {
     // Read [InputMediaUploadedPhoto] fields.
     final flags = reader.readInt32();
     final spoiler = (flags & 4) != 0;
+    final livePhoto = (flags & 8) != 0;
     final file = reader.readObject() as InputFileBase;
     final hasStickersField = (flags & 1) != 0;
     final stickers =
         hasStickersField ? reader.readVectorObject<InputDocumentBase>() : null;
     final hasTtlSecondsField = (flags & 2) != 0;
     final ttlSeconds = hasTtlSecondsField ? reader.readInt32() : null;
+    final hasVideoField = (flags & 8) != 0;
+    final video =
+        hasVideoField ? reader.readObject() as InputDocumentBase : null;
 
     // Construct [InputMediaUploadedPhoto] object.
     final returnValue = InputMediaUploadedPhoto(
       spoiler: spoiler,
+      livePhoto: livePhoto,
       file: file,
       stickers: stickers?.items,
       ttlSeconds: ttlSeconds,
+      video: video,
     );
 
     // Now return the deserialized [InputMediaUploadedPhoto].
@@ -1011,6 +1019,7 @@ class InputMediaUploadedPhoto extends InputMediaBase {
   int get flags {
     final v = _flag(
       b02: spoiler,
+      b03: livePhoto || video != null,
       b00: stickers != null,
       b01: ttlSeconds != null,
     );
@@ -1021,6 +1030,9 @@ class InputMediaUploadedPhoto extends InputMediaBase {
   /// spoiler: bit 2 of flags.2?true
   final bool spoiler;
 
+  /// live_photo: bit 3 of flags.3?true
+  final bool livePhoto;
+
   /// File.
   final InputFileBase file;
 
@@ -1030,11 +1042,14 @@ class InputMediaUploadedPhoto extends InputMediaBase {
   /// Ttl Seconds.
   final int? ttlSeconds;
 
+  /// Video.
+  final InputDocumentBase? video;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x1e287d04.
-    buffer.writeInt32(0x1e287d04);
+    // Write type-id 0x7d8375da.
+    buffer.writeInt32(0x7d8375da);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -1047,6 +1062,10 @@ class InputMediaUploadedPhoto extends InputMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+    final localVideoCopy = video;
+    if (localVideoCopy != null) {
+      buffer.writeObject(localVideoCopy);
+    }
 
     // Finished serialization.
   }
@@ -1054,13 +1073,15 @@ class InputMediaUploadedPhoto extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "1e287d04",
+      "\$hash": "7d8375da",
       "\$name": "InputMediaUploadedPhoto",
       "flags": flags,
       "spoiler": spoiler,
+      "livePhoto": livePhoto,
       "file": file,
       "stickers": stickers,
       "ttlSeconds": ttlSeconds,
+      "video": video,
     };
 
     // Finished toJson.
@@ -1070,13 +1091,15 @@ class InputMediaUploadedPhoto extends InputMediaBase {
 
 /// Input Media Photo.
 ///
-/// ID: `b3ba0635`.
+/// ID: `e3af4434`.
 class InputMediaPhoto extends InputMediaBase {
   /// Input Media Photo constructor.
   const InputMediaPhoto({
     required this.spoiler,
+    required this.livePhoto,
     required this.id,
     this.ttlSeconds,
+    this.video,
   }) : super._();
 
   /// Deserialize.
@@ -1084,15 +1107,21 @@ class InputMediaPhoto extends InputMediaBase {
     // Read [InputMediaPhoto] fields.
     final flags = reader.readInt32();
     final spoiler = (flags & 2) != 0;
+    final livePhoto = (flags & 4) != 0;
     final id = reader.readObject() as InputPhotoBase;
     final hasTtlSecondsField = (flags & 1) != 0;
     final ttlSeconds = hasTtlSecondsField ? reader.readInt32() : null;
+    final hasVideoField = (flags & 4) != 0;
+    final video =
+        hasVideoField ? reader.readObject() as InputDocumentBase : null;
 
     // Construct [InputMediaPhoto] object.
     final returnValue = InputMediaPhoto(
       spoiler: spoiler,
+      livePhoto: livePhoto,
       id: id,
       ttlSeconds: ttlSeconds,
+      video: video,
     );
 
     // Now return the deserialized [InputMediaPhoto].
@@ -1101,7 +1130,11 @@ class InputMediaPhoto extends InputMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b01: spoiler, b00: ttlSeconds != null);
+    final v = _flag(
+      b01: spoiler,
+      b02: livePhoto || video != null,
+      b00: ttlSeconds != null,
+    );
 
     return v;
   }
@@ -1109,17 +1142,23 @@ class InputMediaPhoto extends InputMediaBase {
   /// spoiler: bit 1 of flags.1?true
   final bool spoiler;
 
+  /// live_photo: bit 2 of flags.2?true
+  final bool livePhoto;
+
   /// Id.
   final InputPhotoBase id;
 
   /// Ttl Seconds.
   final int? ttlSeconds;
 
+  /// Video.
+  final InputDocumentBase? video;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb3ba0635.
-    buffer.writeInt32(0xb3ba0635);
+    // Write type-id 0xe3af4434.
+    buffer.writeInt32(0xe3af4434);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -1128,6 +1167,10 @@ class InputMediaPhoto extends InputMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+    final localVideoCopy = video;
+    if (localVideoCopy != null) {
+      buffer.writeObject(localVideoCopy);
+    }
 
     // Finished serialization.
   }
@@ -1135,12 +1178,14 @@ class InputMediaPhoto extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b3ba0635",
+      "\$hash": "e3af4434",
       "\$name": "InputMediaPhoto",
       "flags": flags,
       "spoiler": spoiler,
+      "livePhoto": livePhoto,
       "id": id,
       "ttlSeconds": ttlSeconds,
+      "video": video,
     };
 
     // Finished toJson.
@@ -2150,14 +2195,16 @@ class InputMediaGeoLive extends InputMediaBase {
 
 /// Input Media Poll.
 ///
-/// ID: `0f94e5f1`.
+/// ID: `883a4108`.
 class InputMediaPoll extends InputMediaBase {
   /// Input Media Poll constructor.
   const InputMediaPoll({
     required this.poll,
     this.correctAnswers,
+    this.attachedMedia,
     this.solution,
     this.solutionEntities,
+    this.solutionMedia,
   }) : super._();
 
   /// Deserialize.
@@ -2167,20 +2214,28 @@ class InputMediaPoll extends InputMediaBase {
     final poll = reader.readObject() as PollBase;
     final hasCorrectAnswersField = (flags & 1) != 0;
     final correctAnswers =
-        hasCorrectAnswersField ? reader.readVectorBytes() : null;
+        hasCorrectAnswersField ? reader.readVectorInt32() : null;
+    final hasAttachedMediaField = (flags & 8) != 0;
+    final attachedMedia =
+        hasAttachedMediaField ? reader.readObject() as InputMediaBase : null;
     final hasSolutionField = (flags & 2) != 0;
     final solution = hasSolutionField ? reader.readString() : null;
     final hasSolutionEntitiesField = (flags & 2) != 0;
     final solutionEntities = hasSolutionEntitiesField
         ? reader.readVectorObject<MessageEntityBase>()
         : null;
+    final hasSolutionMediaField = (flags & 4) != 0;
+    final solutionMedia =
+        hasSolutionMediaField ? reader.readObject() as InputMediaBase : null;
 
     // Construct [InputMediaPoll] object.
     final returnValue = InputMediaPoll(
       poll: poll,
       correctAnswers: correctAnswers?.items,
+      attachedMedia: attachedMedia,
       solution: solution,
       solutionEntities: solutionEntities?.items,
+      solutionMedia: solutionMedia,
     );
 
     // Now return the deserialized [InputMediaPoll].
@@ -2191,7 +2246,9 @@ class InputMediaPoll extends InputMediaBase {
   int get flags {
     final v = _flag(
       b00: correctAnswers != null,
+      b03: attachedMedia != null,
       b01: solution != null || solutionEntities != null,
+      b02: solutionMedia != null,
     );
 
     return v;
@@ -2201,7 +2258,10 @@ class InputMediaPoll extends InputMediaBase {
   final PollBase poll;
 
   /// Correct Answers.
-  final List<Uint8List>? correctAnswers;
+  final List<int>? correctAnswers;
+
+  /// Attached Media.
+  final InputMediaBase? attachedMedia;
 
   /// Solution.
   final String? solution;
@@ -2209,18 +2269,25 @@ class InputMediaPoll extends InputMediaBase {
   /// Solution Entities.
   final List<MessageEntityBase>? solutionEntities;
 
+  /// Solution Media.
+  final InputMediaBase? solutionMedia;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x0f94e5f1.
-    buffer.writeInt32(0x0f94e5f1);
+    // Write type-id 0x883a4108.
+    buffer.writeInt32(0x883a4108);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeObject(poll);
     final localCorrectAnswersCopy = correctAnswers;
     if (localCorrectAnswersCopy != null) {
-      buffer.writeVectorBytes(localCorrectAnswersCopy);
+      buffer.writeVectorInt32(localCorrectAnswersCopy);
+    }
+    final localAttachedMediaCopy = attachedMedia;
+    if (localAttachedMediaCopy != null) {
+      buffer.writeObject(localAttachedMediaCopy);
     }
     final localSolutionCopy = solution;
     if (localSolutionCopy != null) {
@@ -2230,6 +2297,10 @@ class InputMediaPoll extends InputMediaBase {
     if (localSolutionEntitiesCopy != null) {
       buffer.writeVectorObject(localSolutionEntitiesCopy);
     }
+    final localSolutionMediaCopy = solutionMedia;
+    if (localSolutionMediaCopy != null) {
+      buffer.writeObject(localSolutionMediaCopy);
+    }
 
     // Finished serialization.
   }
@@ -2237,13 +2308,15 @@ class InputMediaPoll extends InputMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "0f94e5f1",
+      "\$hash": "883a4108",
       "\$name": "InputMediaPoll",
       "flags": flags,
       "poll": poll,
       "correctAnswers": correctAnswers,
+      "attachedMedia": attachedMedia,
       "solution": solution,
       "solutionEntities": solutionEntities,
+      "solutionMedia": solutionMedia,
     };
 
     // Finished toJson.
@@ -4390,6 +4463,7 @@ class User extends UserBase {
     required this.botHasMainApp,
     required this.botForumView,
     required this.botForumCanManageTopics,
+    required this.botCanManageBots,
     required this.id,
     this.accessHash,
     this.firstName,
@@ -4444,6 +4518,7 @@ class User extends UserBase {
     final botHasMainApp = (flags2 & 8192) != 0;
     final botForumView = (flags2 & 65536) != 0;
     final botForumCanManageTopics = (flags2 & 131072) != 0;
+    final botCanManageBots = (flags2 & 262144) != 0;
     final id = reader.readInt64();
     final hasAccessHashField = (flags & 1) != 0;
     final accessHash = hasAccessHashField ? reader.readInt64() : null;
@@ -4524,6 +4599,7 @@ class User extends UserBase {
       botHasMainApp: botHasMainApp,
       botForumView: botForumView,
       botForumCanManageTopics: botForumCanManageTopics,
+      botCanManageBots: botCanManageBots,
       id: id,
       accessHash: accessHash,
       firstName: firstName,
@@ -4598,6 +4674,7 @@ class User extends UserBase {
       b13: botHasMainApp,
       b16: botForumView,
       b17: botForumCanManageTopics,
+      b18: botCanManageBots,
       b00: usernames != null,
       b05: storiesMaxId != null,
       b08: color != null,
@@ -4690,6 +4767,9 @@ class User extends UserBase {
 
   /// bot_forum_can_manage_topics: bit 17 of flags2.17?true
   final bool botForumCanManageTopics;
+
+  /// bot_can_manage_bots: bit 18 of flags2.18?true
+  final bool botCanManageBots;
 
   /// Id.
   ///
@@ -4877,6 +4957,7 @@ class User extends UserBase {
       "botHasMainApp": botHasMainApp,
       "botForumView": botForumView,
       "botForumCanManageTopics": botForumCanManageTopics,
+      "botCanManageBots": botCanManageBots,
       "id": id,
       "accessHash": accessHash,
       "firstName": firstName,
@@ -8863,27 +8944,37 @@ class MessageMediaEmpty extends MessageMediaBase {
 
 /// Message Media Photo.
 ///
-/// ID: `695150d7`.
+/// ID: `e216eb63`.
 class MessageMediaPhoto extends MessageMediaBase {
   /// Message Media Photo constructor.
-  const MessageMediaPhoto({required this.spoiler, this.photo, this.ttlSeconds})
-      : super._();
+  const MessageMediaPhoto({
+    required this.spoiler,
+    required this.livePhoto,
+    this.photo,
+    this.ttlSeconds,
+    this.video,
+  }) : super._();
 
   /// Deserialize.
   factory MessageMediaPhoto.deserialize(BinaryReader reader) {
     // Read [MessageMediaPhoto] fields.
     final flags = reader.readInt32();
     final spoiler = (flags & 8) != 0;
+    final livePhoto = (flags & 16) != 0;
     final hasPhotoField = (flags & 1) != 0;
     final photo = hasPhotoField ? reader.readObject() as PhotoBase : null;
     final hasTtlSecondsField = (flags & 4) != 0;
     final ttlSeconds = hasTtlSecondsField ? reader.readInt32() : null;
+    final hasVideoField = (flags & 16) != 0;
+    final video = hasVideoField ? reader.readObject() as DocumentBase : null;
 
     // Construct [MessageMediaPhoto] object.
     final returnValue = MessageMediaPhoto(
       spoiler: spoiler,
+      livePhoto: livePhoto,
       photo: photo,
       ttlSeconds: ttlSeconds,
+      video: video,
     );
 
     // Now return the deserialized [MessageMediaPhoto].
@@ -8892,7 +8983,12 @@ class MessageMediaPhoto extends MessageMediaBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b03: spoiler, b00: photo != null, b02: ttlSeconds != null);
+    final v = _flag(
+      b03: spoiler,
+      b04: livePhoto || video != null,
+      b00: photo != null,
+      b02: ttlSeconds != null,
+    );
 
     return v;
   }
@@ -8900,17 +8996,23 @@ class MessageMediaPhoto extends MessageMediaBase {
   /// spoiler: bit 3 of flags.3?true
   final bool spoiler;
 
+  /// live_photo: bit 4 of flags.4?true
+  final bool livePhoto;
+
   /// Photo.
   final PhotoBase? photo;
 
   /// Ttl Seconds.
   final int? ttlSeconds;
 
+  /// Video.
+  final DocumentBase? video;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x695150d7.
-    buffer.writeInt32(0x695150d7);
+    // Write type-id 0xe216eb63.
+    buffer.writeInt32(0xe216eb63);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -8922,6 +9024,10 @@ class MessageMediaPhoto extends MessageMediaBase {
     if (localTtlSecondsCopy != null) {
       buffer.writeInt32(localTtlSecondsCopy);
     }
+    final localVideoCopy = video;
+    if (localVideoCopy != null) {
+      buffer.writeObject(localVideoCopy);
+    }
 
     // Finished serialization.
   }
@@ -8929,12 +9035,14 @@ class MessageMediaPhoto extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "695150d7",
+      "\$hash": "e216eb63",
       "\$name": "MessageMediaPhoto",
       "flags": flags,
       "spoiler": spoiler,
+      "livePhoto": livePhoto,
       "photo": photo,
       "ttlSeconds": ttlSeconds,
+      "video": video,
     };
 
     // Finished toJson.
@@ -9759,23 +9867,41 @@ class MessageMediaGeoLive extends MessageMediaBase {
 
 /// Message Media Poll.
 ///
-/// ID: `4bd6e798`.
+/// ID: `773f4e66`.
 class MessageMediaPoll extends MessageMediaBase {
   /// Message Media Poll constructor.
-  const MessageMediaPoll({required this.poll, required this.results})
-      : super._();
+  const MessageMediaPoll({
+    required this.poll,
+    required this.results,
+    this.attachedMedia,
+  }) : super._();
 
   /// Deserialize.
   factory MessageMediaPoll.deserialize(BinaryReader reader) {
     // Read [MessageMediaPoll] fields.
+    final flags = reader.readInt32();
     final poll = reader.readObject() as PollBase;
     final results = reader.readObject() as PollResultsBase;
+    final hasAttachedMediaField = (flags & 1) != 0;
+    final attachedMedia =
+        hasAttachedMediaField ? reader.readObject() as MessageMediaBase : null;
 
     // Construct [MessageMediaPoll] object.
-    final returnValue = MessageMediaPoll(poll: poll, results: results);
+    final returnValue = MessageMediaPoll(
+      poll: poll,
+      results: results,
+      attachedMedia: attachedMedia,
+    );
 
     // Now return the deserialized [MessageMediaPoll].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: attachedMedia != null);
+
+    return v;
   }
 
   /// Poll.
@@ -9784,15 +9910,23 @@ class MessageMediaPoll extends MessageMediaBase {
   /// Results.
   final PollResultsBase results;
 
+  /// Attached Media.
+  final MessageMediaBase? attachedMedia;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x4bd6e798.
-    buffer.writeInt32(0x4bd6e798);
+    // Write type-id 0x773f4e66.
+    buffer.writeInt32(0x773f4e66);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(poll);
     buffer.writeObject(results);
+    final localAttachedMediaCopy = attachedMedia;
+    if (localAttachedMediaCopy != null) {
+      buffer.writeObject(localAttachedMediaCopy);
+    }
 
     // Finished serialization.
   }
@@ -9800,10 +9934,12 @@ class MessageMediaPoll extends MessageMediaBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "4bd6e798",
+      "\$hash": "773f4e66",
       "\$name": "MessageMediaPoll",
+      "flags": flags,
       "poll": poll,
       "results": results,
+      "attachedMedia": attachedMedia,
     };
 
     // Finished toJson.
@@ -15254,9 +15390,152 @@ class MessageActionNoForwardsRequest extends MessageActionBase {
   }
 }
 
+/// Message Action Poll Append Answer.
+///
+/// ID: `9da1cd6c`.
+class MessageActionPollAppendAnswer extends MessageActionBase {
+  /// Message Action Poll Append Answer constructor.
+  const MessageActionPollAppendAnswer({required this.answer}) : super._();
+
+  /// Deserialize.
+  factory MessageActionPollAppendAnswer.deserialize(BinaryReader reader) {
+    // Read [MessageActionPollAppendAnswer] fields.
+    final answer = reader.readObject() as PollAnswerBase;
+
+    // Construct [MessageActionPollAppendAnswer] object.
+    final returnValue = MessageActionPollAppendAnswer(answer: answer);
+
+    // Now return the deserialized [MessageActionPollAppendAnswer].
+    return returnValue;
+  }
+
+  /// Answer.
+  final PollAnswerBase answer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9da1cd6c.
+    buffer.writeInt32(0x9da1cd6c);
+
+    // Write fields.
+    buffer.writeObject(answer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9da1cd6c",
+      "\$name": "MessageActionPollAppendAnswer",
+      "answer": answer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Poll Delete Answer.
+///
+/// ID: `399674dc`.
+class MessageActionPollDeleteAnswer extends MessageActionBase {
+  /// Message Action Poll Delete Answer constructor.
+  const MessageActionPollDeleteAnswer({required this.answer}) : super._();
+
+  /// Deserialize.
+  factory MessageActionPollDeleteAnswer.deserialize(BinaryReader reader) {
+    // Read [MessageActionPollDeleteAnswer] fields.
+    final answer = reader.readObject() as PollAnswerBase;
+
+    // Construct [MessageActionPollDeleteAnswer] object.
+    final returnValue = MessageActionPollDeleteAnswer(answer: answer);
+
+    // Now return the deserialized [MessageActionPollDeleteAnswer].
+    return returnValue;
+  }
+
+  /// Answer.
+  final PollAnswerBase answer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x399674dc.
+    buffer.writeInt32(0x399674dc);
+
+    // Write fields.
+    buffer.writeObject(answer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "399674dc",
+      "\$name": "MessageActionPollDeleteAnswer",
+      "answer": answer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Managed Bot Created.
+///
+/// ID: `16605e3e`.
+class MessageActionManagedBotCreated extends MessageActionBase {
+  /// Message Action Managed Bot Created constructor.
+  const MessageActionManagedBotCreated({required this.botId}) : super._();
+
+  /// Deserialize.
+  factory MessageActionManagedBotCreated.deserialize(BinaryReader reader) {
+    // Read [MessageActionManagedBotCreated] fields.
+    final botId = reader.readInt64();
+
+    // Construct [MessageActionManagedBotCreated] object.
+    final returnValue = MessageActionManagedBotCreated(botId: botId);
+
+    // Now return the deserialized [MessageActionManagedBotCreated].
+    return returnValue;
+  }
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x16605e3e.
+    buffer.writeInt32(0x16605e3e);
+
+    // Write fields.
+    buffer.writeInt64(botId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "16605e3e",
+      "\$name": "MessageActionManagedBotCreated",
+      "botId": botId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Dialog.
 ///
-/// ID: `d58a08c6`.
+/// ID: `fc89f7f3`.
 class Dialog extends DialogBase {
   /// Dialog constructor.
   const Dialog({
@@ -15270,6 +15549,7 @@ class Dialog extends DialogBase {
     required this.unreadCount,
     required this.unreadMentionsCount,
     required this.unreadReactionsCount,
+    required this.unreadPollVotesCount,
     required this.notifySettings,
     this.pts,
     this.draft,
@@ -15291,6 +15571,7 @@ class Dialog extends DialogBase {
     final unreadCount = reader.readInt32();
     final unreadMentionsCount = reader.readInt32();
     final unreadReactionsCount = reader.readInt32();
+    final unreadPollVotesCount = reader.readInt32();
     final notifySettings = reader.readObject() as PeerNotifySettingsBase;
     final hasPtsField = (flags & 1) != 0;
     final pts = hasPtsField ? reader.readInt32() : null;
@@ -15314,6 +15595,7 @@ class Dialog extends DialogBase {
       unreadCount: unreadCount,
       unreadMentionsCount: unreadMentionsCount,
       unreadReactionsCount: unreadReactionsCount,
+      unreadPollVotesCount: unreadPollVotesCount,
       notifySettings: notifySettings,
       pts: pts,
       draft: draft,
@@ -15382,6 +15664,11 @@ class Dialog extends DialogBase {
   /// Field type is Int32.
   final int unreadReactionsCount;
 
+  /// Unread Poll Votes Count.
+  ///
+  /// Field type is Int32.
+  final int unreadPollVotesCount;
+
   /// Notify Settings.
   final PeerNotifySettingsBase notifySettings;
 
@@ -15400,8 +15687,8 @@ class Dialog extends DialogBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd58a08c6.
-    buffer.writeInt32(0xd58a08c6);
+    // Write type-id 0xfc89f7f3.
+    buffer.writeInt32(0xfc89f7f3);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -15412,6 +15699,7 @@ class Dialog extends DialogBase {
     buffer.writeInt32(unreadCount);
     buffer.writeInt32(unreadMentionsCount);
     buffer.writeInt32(unreadReactionsCount);
+    buffer.writeInt32(unreadPollVotesCount);
     buffer.writeObject(notifySettings);
     final localPtsCopy = pts;
     if (localPtsCopy != null) {
@@ -15436,7 +15724,7 @@ class Dialog extends DialogBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "d58a08c6",
+      "\$hash": "fc89f7f3",
       "\$name": "Dialog",
       "flags": flags,
       "pinned": pinned,
@@ -15449,6 +15737,7 @@ class Dialog extends DialogBase {
       "unreadCount": unreadCount,
       "unreadMentionsCount": unreadMentionsCount,
       "unreadReactionsCount": unreadReactionsCount,
+      "unreadPollVotesCount": unreadPollVotesCount,
       "notifySettings": notifySettings,
       "pts": pts,
       "draft": draft,
@@ -18175,7 +18464,7 @@ class InputReportReasonPersonalDetails extends ReportReasonBase {
 
 /// User Full.
 ///
-/// ID: `a02bc13e`.
+/// ID: `06cbe645`.
 class UserFull extends UserFullBase {
   /// User Full constructor.
   const UserFull({
@@ -18198,6 +18487,7 @@ class UserFull extends UserFullBase {
     required this.displayGiftsButton,
     required this.noforwardsMyEnabled,
     required this.noforwardsPeerEnabled,
+    required this.unofficialSecurityRisk,
     required this.id,
     this.about,
     required this.settings,
@@ -18235,6 +18525,7 @@ class UserFull extends UserFullBase {
     this.mainTab,
     this.savedMusic,
     this.note,
+    this.botManagerId,
   }) : super._();
 
   /// Deserialize.
@@ -18261,6 +18552,7 @@ class UserFull extends UserFullBase {
     final displayGiftsButton = (flags2 & 65536) != 0;
     final noforwardsMyEnabled = (flags2 & 8388608) != 0;
     final noforwardsPeerEnabled = (flags2 & 16777216) != 0;
+    final unofficialSecurityRisk = (flags2 & 67108864) != 0;
     final id = reader.readInt64();
     final hasAboutField = (flags & 2) != 0;
     final about = hasAboutField ? reader.readString() : null;
@@ -18367,6 +18659,8 @@ class UserFull extends UserFullBase {
     final hasNoteField = (flags2 & 4194304) != 0;
     final note =
         hasNoteField ? reader.readObject() as TextWithEntitiesBase : null;
+    final hasBotManagerIdField = (flags2 & 33554432) != 0;
+    final botManagerId = hasBotManagerIdField ? reader.readInt64() : null;
 
     // Construct [UserFull] object.
     final returnValue = UserFull(
@@ -18389,6 +18683,7 @@ class UserFull extends UserFullBase {
       displayGiftsButton: displayGiftsButton,
       noforwardsMyEnabled: noforwardsMyEnabled,
       noforwardsPeerEnabled: noforwardsPeerEnabled,
+      unofficialSecurityRisk: unofficialSecurityRisk,
       id: id,
       about: about,
       settings: settings,
@@ -18426,6 +18721,7 @@ class UserFull extends UserFullBase {
       mainTab: mainTab,
       savedMusic: savedMusic,
       note: note,
+      botManagerId: botManagerId,
     );
 
     // Now return the deserialized [UserFull].
@@ -18476,6 +18772,7 @@ class UserFull extends UserFullBase {
       b16: displayGiftsButton,
       b23: noforwardsMyEnabled,
       b24: noforwardsPeerEnabled,
+      b26: unofficialSecurityRisk,
       b00: businessWorkHours != null,
       b01: businessLocation != null,
       b02: businessGreetingMessage != null,
@@ -18493,6 +18790,7 @@ class UserFull extends UserFullBase {
       b20: mainTab != null,
       b21: savedMusic != null,
       b22: note != null,
+      b25: botManagerId != null,
     );
 
     return v;
@@ -18554,6 +18852,9 @@ class UserFull extends UserFullBase {
 
   /// noforwards_peer_enabled: bit 24 of flags2.24?true
   final bool noforwardsPeerEnabled;
+
+  /// unofficial_security_risk: bit 26 of flags2.26?true
+  final bool unofficialSecurityRisk;
 
   /// Id.
   ///
@@ -18670,11 +18971,14 @@ class UserFull extends UserFullBase {
   /// Note.
   final TextWithEntitiesBase? note;
 
+  /// Bot Manager Id.
+  final int? botManagerId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xa02bc13e.
-    buffer.writeInt32(0xa02bc13e);
+    // Write type-id 0x06cbe645.
+    buffer.writeInt32(0x06cbe645);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -18815,6 +19119,10 @@ class UserFull extends UserFullBase {
     if (localNoteCopy != null) {
       buffer.writeObject(localNoteCopy);
     }
+    final localBotManagerIdCopy = botManagerId;
+    if (localBotManagerIdCopy != null) {
+      buffer.writeInt64(localBotManagerIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -18822,7 +19130,7 @@ class UserFull extends UserFullBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "a02bc13e",
+      "\$hash": "06cbe645",
       "\$name": "UserFull",
       "flags": flags,
       "blocked": blocked,
@@ -18845,6 +19153,7 @@ class UserFull extends UserFullBase {
       "displayGiftsButton": displayGiftsButton,
       "noforwardsMyEnabled": noforwardsMyEnabled,
       "noforwardsPeerEnabled": noforwardsPeerEnabled,
+      "unofficialSecurityRisk": unofficialSecurityRisk,
       "id": id,
       "about": about,
       "settings": settings,
@@ -18882,6 +19191,7 @@ class UserFull extends UserFullBase {
       "mainTab": mainTab,
       "savedMusic": savedMusic,
       "note": note,
+      "botManagerId": botManagerId,
     };
 
     // Finished toJson.
@@ -20868,6 +21178,43 @@ class InputMessagesFilterPinned extends MessagesFilterBase {
     final returnValue = <String, dynamic>{
       "\$hash": "1bb00451",
       "\$name": "InputMessagesFilterPinned",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Messages Filter Poll.
+///
+/// ID: `fa2bc90a`.
+class InputMessagesFilterPoll extends MessagesFilterBase {
+  /// Input Messages Filter Poll constructor.
+  const InputMessagesFilterPoll() : super._();
+
+  /// Deserialize.
+  factory InputMessagesFilterPoll.deserialize(BinaryReader reader) {
+    // Construct [InputMessagesFilterPoll] object.
+    final returnValue = InputMessagesFilterPoll();
+
+    // Now return the deserialized [InputMessagesFilterPoll].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfa2bc90a.
+    buffer.writeInt32(0xfa2bc90a);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fa2bc90a",
+      "\$name": "InputMessagesFilterPoll",
     };
 
     // Finished toJson.
@@ -25269,10 +25616,13 @@ class UpdateDialogUnreadMark extends UpdateBase {
 
 /// Update Message Poll.
 ///
-/// ID: `aca1657b`.
+/// ID: `d64c522b`.
 class UpdateMessagePoll extends UpdateBase {
   /// Update Message Poll constructor.
   const UpdateMessagePoll({
+    this.peer,
+    this.msgId,
+    this.topMsgId,
     required this.pollId,
     this.poll,
     required this.results,
@@ -25282,6 +25632,12 @@ class UpdateMessagePoll extends UpdateBase {
   factory UpdateMessagePoll.deserialize(BinaryReader reader) {
     // Read [UpdateMessagePoll] fields.
     final flags = reader.readInt32();
+    final hasPeerField = (flags & 2) != 0;
+    final peer = hasPeerField ? reader.readObject() as PeerBase : null;
+    final hasMsgIdField = (flags & 2) != 0;
+    final msgId = hasMsgIdField ? reader.readInt32() : null;
+    final hasTopMsgIdField = (flags & 4) != 0;
+    final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
     final pollId = reader.readInt64();
     final hasPollField = (flags & 1) != 0;
     final poll = hasPollField ? reader.readObject() as PollBase : null;
@@ -25289,6 +25645,9 @@ class UpdateMessagePoll extends UpdateBase {
 
     // Construct [UpdateMessagePoll] object.
     final returnValue = UpdateMessagePoll(
+      peer: peer,
+      msgId: msgId,
+      topMsgId: topMsgId,
       pollId: pollId,
       poll: poll,
       results: results,
@@ -25300,10 +25659,23 @@ class UpdateMessagePoll extends UpdateBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: poll != null);
+    final v = _flag(
+      b01: peer != null || msgId != null,
+      b02: topMsgId != null,
+      b00: poll != null,
+    );
 
     return v;
   }
+
+  /// Peer.
+  final PeerBase? peer;
+
+  /// Msg Id.
+  final int? msgId;
+
+  /// Top Msg Id.
+  final int? topMsgId;
 
   /// Poll Id.
   ///
@@ -25319,11 +25691,23 @@ class UpdateMessagePoll extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xaca1657b.
-    buffer.writeInt32(0xaca1657b);
+    // Write type-id 0xd64c522b.
+    buffer.writeInt32(0xd64c522b);
 
     // Write fields.
     buffer.writeInt32(flags);
+    final localPeerCopy = peer;
+    if (localPeerCopy != null) {
+      buffer.writeObject(localPeerCopy);
+    }
+    final localMsgIdCopy = msgId;
+    if (localMsgIdCopy != null) {
+      buffer.writeInt32(localMsgIdCopy);
+    }
+    final localTopMsgIdCopy = topMsgId;
+    if (localTopMsgIdCopy != null) {
+      buffer.writeInt32(localTopMsgIdCopy);
+    }
     buffer.writeInt64(pollId);
     final localPollCopy = poll;
     if (localPollCopy != null) {
@@ -25337,9 +25721,12 @@ class UpdateMessagePoll extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "aca1657b",
+      "\$hash": "d64c522b",
       "\$name": "UpdateMessagePoll",
       "flags": flags,
+      "peer": peer,
+      "msgId": msgId,
+      "topMsgId": topMsgId,
       "pollId": pollId,
       "poll": poll,
       "results": results,
@@ -25861,13 +26248,14 @@ class UpdateLoginToken extends UpdateBase {
 
 /// Update Message Poll Vote.
 ///
-/// ID: `24f40e77`.
+/// ID: `7699f014`.
 class UpdateMessagePollVote extends UpdateBase {
   /// Update Message Poll Vote constructor.
   const UpdateMessagePollVote({
     required this.pollId,
     required this.peer,
     required this.options,
+    required this.positions,
     required this.qts,
   }) : super._();
 
@@ -25877,6 +26265,7 @@ class UpdateMessagePollVote extends UpdateBase {
     final pollId = reader.readInt64();
     final peer = reader.readObject() as PeerBase;
     final options = reader.readVectorBytes();
+    final positions = reader.readVectorInt32();
     final qts = reader.readInt32();
 
     // Construct [UpdateMessagePollVote] object.
@@ -25884,6 +26273,7 @@ class UpdateMessagePollVote extends UpdateBase {
       pollId: pollId,
       peer: peer,
       options: options.items,
+      positions: positions.items,
       qts: qts,
     );
 
@@ -25902,6 +26292,9 @@ class UpdateMessagePollVote extends UpdateBase {
   /// Options.
   final List<Uint8List> options;
 
+  /// Positions.
+  final List<int> positions;
+
   /// Qts.
   ///
   /// Field type is Int32.
@@ -25910,13 +26303,14 @@ class UpdateMessagePollVote extends UpdateBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x24f40e77.
-    buffer.writeInt32(0x24f40e77);
+    // Write type-id 0x7699f014.
+    buffer.writeInt32(0x7699f014);
 
     // Write fields.
     buffer.writeInt64(pollId);
     buffer.writeObject(peer);
     buffer.writeVectorBytes(options);
+    buffer.writeVectorInt32(positions);
     buffer.writeInt32(qts);
 
     // Finished serialization.
@@ -25925,11 +26319,12 @@ class UpdateMessagePollVote extends UpdateBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "24f40e77",
+      "\$hash": "7699f014",
       "\$name": "UpdateMessagePollVote",
       "pollId": pollId,
       "peer": peer,
       "options": options,
+      "positions": positions,
       "qts": qts,
     };
 
@@ -31315,6 +31710,79 @@ class UpdateChatParticipantRank extends UpdateBase {
       "userId": userId,
       "rank": rank,
       "version": version,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Managed Bot.
+///
+/// ID: `4880ed9a`.
+class UpdateManagedBot extends UpdateBase {
+  /// Update Managed Bot constructor.
+  const UpdateManagedBot({
+    required this.userId,
+    required this.botId,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateManagedBot.deserialize(BinaryReader reader) {
+    // Read [UpdateManagedBot] fields.
+    final userId = reader.readInt64();
+    final botId = reader.readInt64();
+    final qts = reader.readInt32();
+
+    // Construct [UpdateManagedBot] object.
+    final returnValue = UpdateManagedBot(
+      userId: userId,
+      botId: botId,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateManagedBot].
+    return returnValue;
+  }
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Bot Id.
+  ///
+  /// Field type is Int64.
+  final int botId;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4880ed9a.
+    buffer.writeInt32(0x4880ed9a);
+
+    // Write fields.
+    buffer.writeInt64(userId);
+    buffer.writeInt64(botId);
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4880ed9a",
+      "\$name": "UpdateManagedBot",
+      "userId": userId,
+      "botId": botId,
+      "qts": qts,
     };
 
     // Finished toJson.
@@ -45883,6 +46351,193 @@ class MessageEntityFormattedDate extends MessageEntityBase {
       "offset": offset,
       "length": length,
       "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Entity Diff Insert.
+///
+/// ID: `71777116`.
+class MessageEntityDiffInsert extends MessageEntityBase {
+  /// Message Entity Diff Insert constructor.
+  const MessageEntityDiffInsert({required this.offset, required this.length})
+      : super._();
+
+  /// Deserialize.
+  factory MessageEntityDiffInsert.deserialize(BinaryReader reader) {
+    // Read [MessageEntityDiffInsert] fields.
+    final offset = reader.readInt32();
+    final length = reader.readInt32();
+
+    // Construct [MessageEntityDiffInsert] object.
+    final returnValue = MessageEntityDiffInsert(offset: offset, length: length);
+
+    // Now return the deserialized [MessageEntityDiffInsert].
+    return returnValue;
+  }
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Length.
+  ///
+  /// Field type is Int32.
+  final int length;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x71777116.
+    buffer.writeInt32(0x71777116);
+
+    // Write fields.
+    buffer.writeInt32(offset);
+    buffer.writeInt32(length);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "71777116",
+      "\$name": "MessageEntityDiffInsert",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Entity Diff Replace.
+///
+/// ID: `c6c1e5a7`.
+class MessageEntityDiffReplace extends MessageEntityBase {
+  /// Message Entity Diff Replace constructor.
+  const MessageEntityDiffReplace({
+    required this.offset,
+    required this.length,
+    required this.oldText,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageEntityDiffReplace.deserialize(BinaryReader reader) {
+    // Read [MessageEntityDiffReplace] fields.
+    final offset = reader.readInt32();
+    final length = reader.readInt32();
+    final oldText = reader.readString();
+
+    // Construct [MessageEntityDiffReplace] object.
+    final returnValue = MessageEntityDiffReplace(
+      offset: offset,
+      length: length,
+      oldText: oldText,
+    );
+
+    // Now return the deserialized [MessageEntityDiffReplace].
+    return returnValue;
+  }
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Length.
+  ///
+  /// Field type is Int32.
+  final int length;
+
+  /// Old Text.
+  final String oldText;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc6c1e5a7.
+    buffer.writeInt32(0xc6c1e5a7);
+
+    // Write fields.
+    buffer.writeInt32(offset);
+    buffer.writeInt32(length);
+    buffer.writeString(oldText);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c6c1e5a7",
+      "\$name": "MessageEntityDiffReplace",
+      "offset": offset,
+      "length": length,
+      "oldText": oldText,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Entity Diff Delete.
+///
+/// ID: `0652c1c5`.
+class MessageEntityDiffDelete extends MessageEntityBase {
+  /// Message Entity Diff Delete constructor.
+  const MessageEntityDiffDelete({required this.offset, required this.length})
+      : super._();
+
+  /// Deserialize.
+  factory MessageEntityDiffDelete.deserialize(BinaryReader reader) {
+    // Read [MessageEntityDiffDelete] fields.
+    final offset = reader.readInt32();
+    final length = reader.readInt32();
+
+    // Construct [MessageEntityDiffDelete] object.
+    final returnValue = MessageEntityDiffDelete(offset: offset, length: length);
+
+    // Now return the deserialized [MessageEntityDiffDelete].
+    return returnValue;
+  }
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Length.
+  ///
+  /// Field type is Int32.
+  final int length;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0652c1c5.
+    buffer.writeInt32(0x0652c1c5);
+
+    // Write fields.
+    buffer.writeInt32(offset);
+    buffer.writeInt32(length);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "0652c1c5",
+      "\$name": "MessageEntityDiffDelete",
+      "offset": offset,
+      "length": length,
     };
 
     // Finished toJson.
@@ -70326,22 +70981,49 @@ class HelpUserInfo extends HelpUserInfoBase {
 
 /// Poll Answer.
 ///
-/// ID: `ff16e2ca`.
+/// ID: `4b7d786a`.
 class PollAnswer extends PollAnswerBase {
   /// Poll Answer constructor.
-  const PollAnswer({required this.text, required this.option}) : super._();
+  const PollAnswer({
+    required this.text,
+    required this.option,
+    this.media,
+    this.addedBy,
+    this.date,
+  }) : super._();
 
   /// Deserialize.
   factory PollAnswer.deserialize(BinaryReader reader) {
     // Read [PollAnswer] fields.
+    final flags = reader.readInt32();
     final text = reader.readObject() as TextWithEntitiesBase;
     final option = reader.readBytes();
+    final hasMediaField = (flags & 1) != 0;
+    final media =
+        hasMediaField ? reader.readObject() as MessageMediaBase : null;
+    final hasAddedByField = (flags & 2) != 0;
+    final addedBy = hasAddedByField ? reader.readObject() as PeerBase : null;
+    final hasDateField = (flags & 2) != 0;
+    final date = hasDateField ? reader.readDateTime() : null;
 
     // Construct [PollAnswer] object.
-    final returnValue = PollAnswer(text: text, option: option);
+    final returnValue = PollAnswer(
+      text: text,
+      option: option,
+      media: media,
+      addedBy: addedBy,
+      date: date,
+    );
 
     // Now return the deserialized [PollAnswer].
     return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: media != null, b01: addedBy != null || date != null);
+
+    return v;
   }
 
   /// Text.
@@ -70350,15 +71032,37 @@ class PollAnswer extends PollAnswerBase {
   /// Option.
   final Uint8List option;
 
+  /// Media.
+  final MessageMediaBase? media;
+
+  /// Added By.
+  final PeerBase? addedBy;
+
+  /// Date.
+  final DateTime? date;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xff16e2ca.
-    buffer.writeInt32(0xff16e2ca);
+    // Write type-id 0x4b7d786a.
+    buffer.writeInt32(0x4b7d786a);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(text);
     buffer.writeBytes(option);
+    final localMediaCopy = media;
+    if (localMediaCopy != null) {
+      buffer.writeObject(localMediaCopy);
+    }
+    final localAddedByCopy = addedBy;
+    if (localAddedByCopy != null) {
+      buffer.writeObject(localAddedByCopy);
+    }
+    final localDateCopy = date;
+    if (localDateCopy != null) {
+      buffer.writeDateTime(localDateCopy);
+    }
 
     // Finished serialization.
   }
@@ -70366,10 +71070,81 @@ class PollAnswer extends PollAnswerBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "ff16e2ca",
+      "\$hash": "4b7d786a",
       "\$name": "PollAnswer",
+      "flags": flags,
       "text": text,
       "option": option,
+      "media": media,
+      "addedBy": addedBy,
+      "date": date?.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Poll Answer.
+///
+/// ID: `199fed96`.
+class InputPollAnswer extends PollAnswerBase {
+  /// Input Poll Answer constructor.
+  const InputPollAnswer({required this.text, this.media}) : super._();
+
+  /// Deserialize.
+  factory InputPollAnswer.deserialize(BinaryReader reader) {
+    // Read [InputPollAnswer] fields.
+    final flags = reader.readInt32();
+    final text = reader.readObject() as TextWithEntitiesBase;
+    final hasMediaField = (flags & 1) != 0;
+    final media = hasMediaField ? reader.readObject() as InputMediaBase : null;
+
+    // Construct [InputPollAnswer] object.
+    final returnValue = InputPollAnswer(text: text, media: media);
+
+    // Now return the deserialized [InputPollAnswer].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: media != null);
+
+    return v;
+  }
+
+  /// Text.
+  final TextWithEntitiesBase text;
+
+  /// Media.
+  final InputMediaBase? media;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x199fed96.
+    buffer.writeInt32(0x199fed96);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(text);
+    final localMediaCopy = media;
+    if (localMediaCopy != null) {
+      buffer.writeObject(localMediaCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "199fed96",
+      "\$name": "InputPollAnswer",
+      "flags": flags,
+      "text": text,
+      "media": media,
     };
 
     // Finished toJson.
@@ -70379,7 +71154,7 @@ class PollAnswer extends PollAnswerBase {
 
 /// Poll.
 ///
-/// ID: `58747131`.
+/// ID: `b8425be9`.
 class Poll extends PollBase {
   /// Poll constructor.
   const Poll({
@@ -70388,10 +71163,16 @@ class Poll extends PollBase {
     required this.publicVoters,
     required this.multipleChoice,
     required this.quiz,
+    required this.openAnswers,
+    required this.revotingDisabled,
+    required this.shuffleAnswers,
+    required this.hideResultsUntilClose,
+    required this.creator,
     required this.question,
     required this.answers,
     this.closePeriod,
     this.closeDate,
+    required this.hash,
   }) : super._();
 
   /// Deserialize.
@@ -70403,12 +71184,18 @@ class Poll extends PollBase {
     final publicVoters = (flags & 2) != 0;
     final multipleChoice = (flags & 4) != 0;
     final quiz = (flags & 8) != 0;
+    final openAnswers = (flags & 64) != 0;
+    final revotingDisabled = (flags & 128) != 0;
+    final shuffleAnswers = (flags & 256) != 0;
+    final hideResultsUntilClose = (flags & 512) != 0;
+    final creator = (flags & 1024) != 0;
     final question = reader.readObject() as TextWithEntitiesBase;
     final answers = reader.readVectorObject<PollAnswerBase>();
     final hasClosePeriodField = (flags & 16) != 0;
     final closePeriod = hasClosePeriodField ? reader.readInt32() : null;
     final hasCloseDateField = (flags & 32) != 0;
     final closeDate = hasCloseDateField ? reader.readDateTime() : null;
+    final hash = reader.readInt64();
 
     // Construct [Poll] object.
     final returnValue = Poll(
@@ -70417,10 +71204,16 @@ class Poll extends PollBase {
       publicVoters: publicVoters,
       multipleChoice: multipleChoice,
       quiz: quiz,
+      openAnswers: openAnswers,
+      revotingDisabled: revotingDisabled,
+      shuffleAnswers: shuffleAnswers,
+      hideResultsUntilClose: hideResultsUntilClose,
+      creator: creator,
       question: question,
       answers: answers.items,
       closePeriod: closePeriod,
       closeDate: closeDate,
+      hash: hash,
     );
 
     // Now return the deserialized [Poll].
@@ -70434,6 +71227,11 @@ class Poll extends PollBase {
       b01: publicVoters,
       b02: multipleChoice,
       b03: quiz,
+      b06: openAnswers,
+      b07: revotingDisabled,
+      b08: shuffleAnswers,
+      b09: hideResultsUntilClose,
+      b10: creator,
       b04: closePeriod != null,
       b05: closeDate != null,
     );
@@ -70458,6 +71256,21 @@ class Poll extends PollBase {
   /// quiz: bit 3 of flags.3?true
   final bool quiz;
 
+  /// open_answers: bit 6 of flags.6?true
+  final bool openAnswers;
+
+  /// revoting_disabled: bit 7 of flags.7?true
+  final bool revotingDisabled;
+
+  /// shuffle_answers: bit 8 of flags.8?true
+  final bool shuffleAnswers;
+
+  /// hide_results_until_close: bit 9 of flags.9?true
+  final bool hideResultsUntilClose;
+
+  /// creator: bit 10 of flags.10?true
+  final bool creator;
+
   /// Question.
   final TextWithEntitiesBase question;
 
@@ -70470,11 +71283,16 @@ class Poll extends PollBase {
   /// Close Date.
   final DateTime? closeDate;
 
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x58747131.
-    buffer.writeInt32(0x58747131);
+    // Write type-id 0xb8425be9.
+    buffer.writeInt32(0xb8425be9);
 
     // Write fields.
     buffer.writeInt64(id);
@@ -70489,6 +71307,7 @@ class Poll extends PollBase {
     if (localCloseDateCopy != null) {
       buffer.writeDateTime(localCloseDateCopy);
     }
+    buffer.writeInt64(hash);
 
     // Finished serialization.
   }
@@ -70496,7 +71315,7 @@ class Poll extends PollBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "58747131",
+      "\$hash": "b8425be9",
       "\$name": "Poll",
       "id": id,
       "flags": flags,
@@ -70504,10 +71323,16 @@ class Poll extends PollBase {
       "publicVoters": publicVoters,
       "multipleChoice": multipleChoice,
       "quiz": quiz,
+      "openAnswers": openAnswers,
+      "revotingDisabled": revotingDisabled,
+      "shuffleAnswers": shuffleAnswers,
+      "hideResultsUntilClose": hideResultsUntilClose,
+      "creator": creator,
       "question": question,
       "answers": answers,
       "closePeriod": closePeriod,
       "closeDate": closeDate?.toIso8601String(),
+      "hash": hash,
     };
 
     // Finished toJson.
@@ -70517,14 +71342,15 @@ class Poll extends PollBase {
 
 /// Poll Answer Voters.
 ///
-/// ID: `3b6ddad2`.
+/// ID: `3645230a`.
 class PollAnswerVoters extends PollAnswerVotersBase {
   /// Poll Answer Voters constructor.
   const PollAnswerVoters({
     required this.chosen,
     required this.correct,
     required this.option,
-    required this.voters,
+    this.voters,
+    this.recentVoters,
   }) : super._();
 
   /// Deserialize.
@@ -70534,7 +71360,11 @@ class PollAnswerVoters extends PollAnswerVotersBase {
     final chosen = (flags & 1) != 0;
     final correct = (flags & 2) != 0;
     final option = reader.readBytes();
-    final voters = reader.readInt32();
+    final hasVotersField = (flags & 4) != 0;
+    final voters = hasVotersField ? reader.readInt32() : null;
+    final hasRecentVotersField = (flags & 4) != 0;
+    final recentVoters =
+        hasRecentVotersField ? reader.readVectorObject<PeerBase>() : null;
 
     // Construct [PollAnswerVoters] object.
     final returnValue = PollAnswerVoters(
@@ -70542,6 +71372,7 @@ class PollAnswerVoters extends PollAnswerVotersBase {
       correct: correct,
       option: option,
       voters: voters,
+      recentVoters: recentVoters?.items,
     );
 
     // Now return the deserialized [PollAnswerVoters].
@@ -70550,7 +71381,11 @@ class PollAnswerVoters extends PollAnswerVotersBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: chosen, b01: correct);
+    final v = _flag(
+      b00: chosen,
+      b01: correct,
+      b02: voters != null || recentVoters != null,
+    );
 
     return v;
   }
@@ -70565,20 +71400,28 @@ class PollAnswerVoters extends PollAnswerVotersBase {
   final Uint8List option;
 
   /// Voters.
-  ///
-  /// Field type is Int32.
-  final int voters;
+  final int? voters;
+
+  /// Recent Voters.
+  final List<PeerBase>? recentVoters;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x3b6ddad2.
-    buffer.writeInt32(0x3b6ddad2);
+    // Write type-id 0x3645230a.
+    buffer.writeInt32(0x3645230a);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeBytes(option);
-    buffer.writeInt32(voters);
+    final localVotersCopy = voters;
+    if (localVotersCopy != null) {
+      buffer.writeInt32(localVotersCopy);
+    }
+    final localRecentVotersCopy = recentVoters;
+    if (localRecentVotersCopy != null) {
+      buffer.writeVectorObject(localRecentVotersCopy);
+    }
 
     // Finished serialization.
   }
@@ -70586,13 +71429,14 @@ class PollAnswerVoters extends PollAnswerVotersBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "3b6ddad2",
+      "\$hash": "3645230a",
       "\$name": "PollAnswerVoters",
       "flags": flags,
       "chosen": chosen,
       "correct": correct,
       "option": option,
       "voters": voters,
+      "recentVoters": recentVoters,
     };
 
     // Finished toJson.
@@ -70602,16 +71446,18 @@ class PollAnswerVoters extends PollAnswerVotersBase {
 
 /// Poll Results.
 ///
-/// ID: `7adf2420`.
+/// ID: `ba7bb15e`.
 class PollResults extends PollResultsBase {
   /// Poll Results constructor.
   const PollResults({
     required this.min,
+    required this.hasUnreadVotes,
     this.results,
     this.totalVoters,
     this.recentVoters,
     this.solution,
     this.solutionEntities,
+    this.solutionMedia,
   }) : super._();
 
   /// Deserialize.
@@ -70619,6 +71465,7 @@ class PollResults extends PollResultsBase {
     // Read [PollResults] fields.
     final flags = reader.readInt32();
     final min = (flags & 1) != 0;
+    final hasUnreadVotes = (flags & 64) != 0;
     final hasResultsField = (flags & 2) != 0;
     final results = hasResultsField
         ? reader.readVectorObject<PollAnswerVotersBase>()
@@ -70634,15 +71481,20 @@ class PollResults extends PollResultsBase {
     final solutionEntities = hasSolutionEntitiesField
         ? reader.readVectorObject<MessageEntityBase>()
         : null;
+    final hasSolutionMediaField = (flags & 32) != 0;
+    final solutionMedia =
+        hasSolutionMediaField ? reader.readObject() as MessageMediaBase : null;
 
     // Construct [PollResults] object.
     final returnValue = PollResults(
       min: min,
+      hasUnreadVotes: hasUnreadVotes,
       results: results?.items,
       totalVoters: totalVoters,
       recentVoters: recentVoters?.items,
       solution: solution,
       solutionEntities: solutionEntities?.items,
+      solutionMedia: solutionMedia,
     );
 
     // Now return the deserialized [PollResults].
@@ -70653,10 +71505,12 @@ class PollResults extends PollResultsBase {
   int get flags {
     final v = _flag(
       b00: min,
+      b06: hasUnreadVotes,
       b01: results != null,
       b02: totalVoters != null,
       b03: recentVoters != null,
       b04: solution != null || solutionEntities != null,
+      b05: solutionMedia != null,
     );
 
     return v;
@@ -70664,6 +71518,9 @@ class PollResults extends PollResultsBase {
 
   /// min: bit 0 of flags.0?true
   final bool min;
+
+  /// has_unread_votes: bit 6 of flags.6?true
+  final bool hasUnreadVotes;
 
   /// Results.
   final List<PollAnswerVotersBase>? results;
@@ -70680,11 +71537,14 @@ class PollResults extends PollResultsBase {
   /// Solution Entities.
   final List<MessageEntityBase>? solutionEntities;
 
+  /// Solution Media.
+  final MessageMediaBase? solutionMedia;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x7adf2420.
-    buffer.writeInt32(0x7adf2420);
+    // Write type-id 0xba7bb15e.
+    buffer.writeInt32(0xba7bb15e);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -70708,6 +71568,10 @@ class PollResults extends PollResultsBase {
     if (localSolutionEntitiesCopy != null) {
       buffer.writeVectorObject(localSolutionEntitiesCopy);
     }
+    final localSolutionMediaCopy = solutionMedia;
+    if (localSolutionMediaCopy != null) {
+      buffer.writeObject(localSolutionMediaCopy);
+    }
 
     // Finished serialization.
   }
@@ -70715,15 +71579,17 @@ class PollResults extends PollResultsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "7adf2420",
+      "\$hash": "ba7bb15e",
       "\$name": "PollResults",
       "flags": flags,
       "min": min,
+      "hasUnreadVotes": hasUnreadVotes,
       "results": results,
       "totalVoters": totalVoters,
       "recentVoters": recentVoters,
       "solution": solution,
       "solutionEntities": solutionEntities,
+      "solutionMedia": solutionMedia,
     };
 
     // Finished toJson.
@@ -72607,13 +73473,14 @@ class MessagesSearchCounter extends MessagesSearchCounterBase {
 
 /// Url Auth Result Request.
 ///
-/// ID: `f8f8eb1e`.
+/// ID: `3cd623ec`.
 class UrlAuthResultRequest extends UrlAuthResultBase {
   /// Url Auth Result Request constructor.
   const UrlAuthResultRequest({
     required this.requestWriteAccess,
     required this.requestPhoneNumber,
     required this.matchCodesFirst,
+    required this.isApp,
     required this.bot,
     required this.domain,
     this.browser,
@@ -72622,6 +73489,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     this.region,
     this.matchCodes,
     this.userIdHint,
+    this.verifiedAppName,
   }) : super._();
 
   /// Deserialize.
@@ -72631,6 +73499,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     final requestWriteAccess = (flags & 1) != 0;
     final requestPhoneNumber = (flags & 2) != 0;
     final matchCodesFirst = (flags & 32) != 0;
+    final isApp = (flags & 64) != 0;
     final bot = reader.readObject() as UserBase;
     final domain = reader.readString();
     final hasBrowserField = (flags & 4) != 0;
@@ -72645,12 +73514,16 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     final matchCodes = hasMatchCodesField ? reader.readVectorString() : null;
     final hasUserIdHintField = (flags & 16) != 0;
     final userIdHint = hasUserIdHintField ? reader.readInt64() : null;
+    final hasVerifiedAppNameField = (flags & 128) != 0;
+    final verifiedAppName =
+        hasVerifiedAppNameField ? reader.readString() : null;
 
     // Construct [UrlAuthResultRequest] object.
     final returnValue = UrlAuthResultRequest(
       requestWriteAccess: requestWriteAccess,
       requestPhoneNumber: requestPhoneNumber,
       matchCodesFirst: matchCodesFirst,
+      isApp: isApp,
       bot: bot,
       domain: domain,
       browser: browser,
@@ -72659,6 +73532,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
       region: region,
       matchCodes: matchCodes?.items,
       userIdHint: userIdHint,
+      verifiedAppName: verifiedAppName,
     );
 
     // Now return the deserialized [UrlAuthResultRequest].
@@ -72671,9 +73545,11 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
       b00: requestWriteAccess,
       b01: requestPhoneNumber,
       b05: matchCodesFirst,
+      b06: isApp,
       b02: browser != null || platform != null || ip != null || region != null,
       b03: matchCodes != null,
       b04: userIdHint != null,
+      b07: verifiedAppName != null,
     );
 
     return v;
@@ -72687,6 +73563,9 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
 
   /// match_codes_first: bit 5 of flags.5?true
   final bool matchCodesFirst;
+
+  /// is_app: bit 6 of flags.6?true
+  final bool isApp;
 
   /// Bot.
   final UserBase bot;
@@ -72712,11 +73591,14 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   /// User Id Hint.
   final int? userIdHint;
 
+  /// Verified App Name.
+  final String? verifiedAppName;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xf8f8eb1e.
-    buffer.writeInt32(0xf8f8eb1e);
+    // Write type-id 0x3cd623ec.
+    buffer.writeInt32(0x3cd623ec);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -72746,6 +73628,10 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
     if (localUserIdHintCopy != null) {
       buffer.writeInt64(localUserIdHintCopy);
     }
+    final localVerifiedAppNameCopy = verifiedAppName;
+    if (localVerifiedAppNameCopy != null) {
+      buffer.writeString(localVerifiedAppNameCopy);
+    }
 
     // Finished serialization.
   }
@@ -72753,12 +73639,13 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "f8f8eb1e",
+      "\$hash": "3cd623ec",
       "\$name": "UrlAuthResultRequest",
       "flags": flags,
       "requestWriteAccess": requestWriteAccess,
       "requestPhoneNumber": requestPhoneNumber,
       "matchCodesFirst": matchCodesFirst,
+      "isApp": isApp,
       "bot": bot,
       "domain": domain,
       "browser": browser,
@@ -72767,6 +73654,7 @@ class UrlAuthResultRequest extends UrlAuthResultBase {
       "region": region,
       "matchCodes": matchCodes,
       "userIdHint": userIdHint,
+      "verifiedAppName": verifiedAppName,
     };
 
     // Finished toJson.
@@ -77326,7 +78214,7 @@ class MessagesDiscussionMessage extends MessagesDiscussionMessageBase {
 
 /// Message Reply Header.
 ///
-/// ID: `6917560b`.
+/// ID: `1b97dd66`.
 class MessageReplyHeader extends MessageReplyHeaderBase {
   /// Message Reply Header constructor.
   const MessageReplyHeader({
@@ -77342,6 +78230,7 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
     this.quoteEntities,
     this.quoteOffset,
     this.todoItemId,
+    this.pollOption,
   }) : super._();
 
   /// Deserialize.
@@ -77374,6 +78263,8 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
     final quoteOffset = hasQuoteOffsetField ? reader.readInt32() : null;
     final hasTodoItemIdField = (flags & 2048) != 0;
     final todoItemId = hasTodoItemIdField ? reader.readInt32() : null;
+    final hasPollOptionField = (flags & 4096) != 0;
+    final pollOption = hasPollOptionField ? reader.readBytes() : null;
 
     // Construct [MessageReplyHeader] object.
     final returnValue = MessageReplyHeader(
@@ -77389,6 +78280,7 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
       quoteEntities: quoteEntities?.items,
       quoteOffset: quoteOffset,
       todoItemId: todoItemId,
+      pollOption: pollOption,
     );
 
     // Now return the deserialized [MessageReplyHeader].
@@ -77410,6 +78302,7 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
       b07: quoteEntities != null,
       b10: quoteOffset != null,
       b11: todoItemId != null,
+      b12: pollOption != null,
     );
 
     return v;
@@ -77451,11 +78344,14 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
   /// Todo Item Id.
   final int? todoItemId;
 
+  /// Poll Option.
+  final Uint8List? pollOption;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x6917560b.
-    buffer.writeInt32(0x6917560b);
+    // Write type-id 0x1b97dd66.
+    buffer.writeInt32(0x1b97dd66);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -77495,6 +78391,10 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
     if (localTodoItemIdCopy != null) {
       buffer.writeInt32(localTodoItemIdCopy);
     }
+    final localPollOptionCopy = pollOption;
+    if (localPollOptionCopy != null) {
+      buffer.writeBytes(localPollOptionCopy);
+    }
 
     // Finished serialization.
   }
@@ -77502,7 +78402,7 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "6917560b",
+      "\$hash": "1b97dd66",
       "\$name": "MessageReplyHeader",
       "flags": flags,
       "replyToScheduled": replyToScheduled,
@@ -77517,6 +78417,7 @@ class MessageReplyHeader extends MessageReplyHeaderBase {
       "quoteEntities": quoteEntities,
       "quoteOffset": quoteOffset,
       "todoItemId": todoItemId,
+      "pollOption": pollOption,
     };
 
     // Finished toJson.
@@ -87699,7 +88600,7 @@ class ForumTopicDeleted extends ForumTopicBase {
 
 /// Forum Topic.
 ///
-/// ID: `cdff0eca`.
+/// ID: `fcdad815`.
 class ForumTopic extends ForumTopicBase {
   /// Forum Topic constructor.
   const ForumTopic({
@@ -87721,6 +88622,7 @@ class ForumTopic extends ForumTopicBase {
     required this.unreadCount,
     required this.unreadMentionsCount,
     required this.unreadReactionsCount,
+    required this.unreadPollVotesCount,
     required this.fromId,
     required this.notifySettings,
     this.draft,
@@ -87749,6 +88651,7 @@ class ForumTopic extends ForumTopicBase {
     final unreadCount = reader.readInt32();
     final unreadMentionsCount = reader.readInt32();
     final unreadReactionsCount = reader.readInt32();
+    final unreadPollVotesCount = reader.readInt32();
     final fromId = reader.readObject() as PeerBase;
     final notifySettings = reader.readObject() as PeerNotifySettingsBase;
     final hasDraftField = (flags & 16) != 0;
@@ -87775,6 +88678,7 @@ class ForumTopic extends ForumTopicBase {
       unreadCount: unreadCount,
       unreadMentionsCount: unreadMentionsCount,
       unreadReactionsCount: unreadReactionsCount,
+      unreadPollVotesCount: unreadPollVotesCount,
       fromId: fromId,
       notifySettings: notifySettings,
       draft: draft,
@@ -87870,6 +88774,11 @@ class ForumTopic extends ForumTopicBase {
   /// Field type is Int32.
   final int unreadReactionsCount;
 
+  /// Unread Poll Votes Count.
+  ///
+  /// Field type is Int32.
+  final int unreadPollVotesCount;
+
   /// From Id.
   final PeerBase fromId;
 
@@ -87882,8 +88791,8 @@ class ForumTopic extends ForumTopicBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xcdff0eca.
-    buffer.writeInt32(0xcdff0eca);
+    // Write type-id 0xfcdad815.
+    buffer.writeInt32(0xfcdad815);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -87902,6 +88811,7 @@ class ForumTopic extends ForumTopicBase {
     buffer.writeInt32(unreadCount);
     buffer.writeInt32(unreadMentionsCount);
     buffer.writeInt32(unreadReactionsCount);
+    buffer.writeInt32(unreadPollVotesCount);
     buffer.writeObject(fromId);
     buffer.writeObject(notifySettings);
     final localDraftCopy = draft;
@@ -87915,7 +88825,7 @@ class ForumTopic extends ForumTopicBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "cdff0eca",
+      "\$hash": "fcdad815",
       "\$name": "ForumTopic",
       "flags": flags,
       "my": my,
@@ -87936,6 +88846,7 @@ class ForumTopic extends ForumTopicBase {
       "unreadCount": unreadCount,
       "unreadMentionsCount": unreadMentionsCount,
       "unreadReactionsCount": unreadReactionsCount,
+      "unreadPollVotesCount": unreadPollVotesCount,
       "fromId": fromId,
       "notifySettings": notifySettings,
       "draft": draft,
@@ -88451,6 +89362,95 @@ class RequestPeerTypeBroadcast extends RequestPeerTypeBase {
       "hasUsername": hasUsername,
       "userAdminRights": userAdminRights,
       "botAdminRights": botAdminRights,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Request Peer Type Create Bot.
+///
+/// ID: `3e81e078`.
+class RequestPeerTypeCreateBot extends RequestPeerTypeBase {
+  /// Request Peer Type Create Bot constructor.
+  const RequestPeerTypeCreateBot({
+    required this.botManaged,
+    this.suggestedName,
+    this.suggestedUsername,
+  }) : super._();
+
+  /// Deserialize.
+  factory RequestPeerTypeCreateBot.deserialize(BinaryReader reader) {
+    // Read [RequestPeerTypeCreateBot] fields.
+    final flags = reader.readInt32();
+    final botManaged = (flags & 1) != 0;
+    final hasSuggestedNameField = (flags & 2) != 0;
+    final suggestedName = hasSuggestedNameField ? reader.readString() : null;
+    final hasSuggestedUsernameField = (flags & 4) != 0;
+    final suggestedUsername =
+        hasSuggestedUsernameField ? reader.readString() : null;
+
+    // Construct [RequestPeerTypeCreateBot] object.
+    final returnValue = RequestPeerTypeCreateBot(
+      botManaged: botManaged,
+      suggestedName: suggestedName,
+      suggestedUsername: suggestedUsername,
+    );
+
+    // Now return the deserialized [RequestPeerTypeCreateBot].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: botManaged,
+      b01: suggestedName != null,
+      b02: suggestedUsername != null,
+    );
+
+    return v;
+  }
+
+  /// bot_managed: bit 0 of flags.0?true
+  final bool botManaged;
+
+  /// Suggested Name.
+  final String? suggestedName;
+
+  /// Suggested Username.
+  final String? suggestedUsername;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3e81e078.
+    buffer.writeInt32(0x3e81e078);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localSuggestedNameCopy = suggestedName;
+    if (localSuggestedNameCopy != null) {
+      buffer.writeString(localSuggestedNameCopy);
+    }
+    final localSuggestedUsernameCopy = suggestedUsername;
+    if (localSuggestedUsernameCopy != null) {
+      buffer.writeString(localSuggestedUsernameCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3e81e078",
+      "\$name": "RequestPeerTypeCreateBot",
+      "flags": flags,
+      "botManaged": botManaged,
+      "suggestedName": suggestedName,
+      "suggestedUsername": suggestedUsername,
     };
 
     // Finished toJson.
@@ -90757,7 +91757,7 @@ class StoryItemSkipped extends StoryItemBase {
 
 /// Story Item.
 ///
-/// ID: `edf164f1`.
+/// ID: `16a4b93c`.
 class StoryItem extends StoryItemBase {
   /// Story Item constructor.
   const StoryItem({
@@ -90783,6 +91783,7 @@ class StoryItem extends StoryItemBase {
     this.views,
     this.sentReaction,
     this.albums,
+    this.music,
   }) : super._();
 
   /// Deserialize.
@@ -90825,6 +91826,8 @@ class StoryItem extends StoryItemBase {
         hasSentReactionField ? reader.readObject() as ReactionBase : null;
     final hasAlbumsField = (flags & 524288) != 0;
     final albums = hasAlbumsField ? reader.readVectorInt32() : null;
+    final hasMusicField = (flags & 1048576) != 0;
+    final music = hasMusicField ? reader.readObject() as DocumentBase : null;
 
     // Construct [StoryItem] object.
     final returnValue = StoryItem(
@@ -90850,6 +91853,7 @@ class StoryItem extends StoryItemBase {
       views: views,
       sentReaction: sentReaction,
       albums: albums?.items,
+      music: music,
     );
 
     // Now return the deserialized [StoryItem].
@@ -90877,6 +91881,7 @@ class StoryItem extends StoryItemBase {
       b03: views != null,
       b15: sentReaction != null,
       b19: albums != null,
+      b20: music != null,
     );
 
     return v;
@@ -90950,11 +91955,14 @@ class StoryItem extends StoryItemBase {
   /// Albums.
   final List<int>? albums;
 
+  /// Music.
+  final DocumentBase? music;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xedf164f1.
-    buffer.writeInt32(0xedf164f1);
+    // Write type-id 0x16a4b93c.
+    buffer.writeInt32(0x16a4b93c);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -90998,6 +92006,10 @@ class StoryItem extends StoryItemBase {
     if (localAlbumsCopy != null) {
       buffer.writeVectorInt32(localAlbumsCopy);
     }
+    final localMusicCopy = music;
+    if (localMusicCopy != null) {
+      buffer.writeObject(localMusicCopy);
+    }
 
     // Finished serialization.
   }
@@ -91005,7 +92017,7 @@ class StoryItem extends StoryItemBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "edf164f1",
+      "\$hash": "16a4b93c",
       "\$name": "StoryItem",
       "flags": flags,
       "pinned": pinned,
@@ -91030,6 +92042,7 @@ class StoryItem extends StoryItemBase {
       "views": views,
       "sentReaction": sentReaction,
       "albums": albums,
+      "music": music,
     };
 
     // Finished toJson.
@@ -91763,7 +92776,7 @@ class StoriesStoryViews extends StoriesStoryViewsBase {
 
 /// Input Reply To Message.
 ///
-/// ID: `869fbe10`.
+/// ID: `3bd4b7c2`.
 class InputReplyToMessage extends InputReplyToBase {
   /// Input Reply To Message constructor.
   const InputReplyToMessage({
@@ -91775,6 +92788,7 @@ class InputReplyToMessage extends InputReplyToBase {
     this.quoteOffset,
     this.monoforumPeerId,
     this.todoItemId,
+    this.pollOption,
   }) : super._();
 
   /// Deserialize.
@@ -91800,6 +92814,8 @@ class InputReplyToMessage extends InputReplyToBase {
         hasMonoforumPeerIdField ? reader.readObject() as InputPeerBase : null;
     final hasTodoItemIdField = (flags & 64) != 0;
     final todoItemId = hasTodoItemIdField ? reader.readInt32() : null;
+    final hasPollOptionField = (flags & 128) != 0;
+    final pollOption = hasPollOptionField ? reader.readBytes() : null;
 
     // Construct [InputReplyToMessage] object.
     final returnValue = InputReplyToMessage(
@@ -91811,6 +92827,7 @@ class InputReplyToMessage extends InputReplyToBase {
       quoteOffset: quoteOffset,
       monoforumPeerId: monoforumPeerId,
       todoItemId: todoItemId,
+      pollOption: pollOption,
     );
 
     // Now return the deserialized [InputReplyToMessage].
@@ -91827,6 +92844,7 @@ class InputReplyToMessage extends InputReplyToBase {
       b04: quoteOffset != null,
       b05: monoforumPeerId != null,
       b06: todoItemId != null,
+      b07: pollOption != null,
     );
 
     return v;
@@ -91858,11 +92876,14 @@ class InputReplyToMessage extends InputReplyToBase {
   /// Todo Item Id.
   final int? todoItemId;
 
+  /// Poll Option.
+  final Uint8List? pollOption;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x869fbe10.
-    buffer.writeInt32(0x869fbe10);
+    // Write type-id 0x3bd4b7c2.
+    buffer.writeInt32(0x3bd4b7c2);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -91895,6 +92916,10 @@ class InputReplyToMessage extends InputReplyToBase {
     if (localTodoItemIdCopy != null) {
       buffer.writeInt32(localTodoItemIdCopy);
     }
+    final localPollOptionCopy = pollOption;
+    if (localPollOptionCopy != null) {
+      buffer.writeBytes(localPollOptionCopy);
+    }
 
     // Finished serialization.
   }
@@ -91902,7 +92927,7 @@ class InputReplyToMessage extends InputReplyToBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "869fbe10",
+      "\$hash": "3bd4b7c2",
       "\$name": "InputReplyToMessage",
       "flags": flags,
       "replyToMsgId": replyToMsgId,
@@ -91913,6 +92938,7 @@ class InputReplyToMessage extends InputReplyToBase {
       "quoteOffset": quoteOffset,
       "monoforumPeerId": monoforumPeerId,
       "todoItemId": todoItemId,
+      "pollOption": pollOption,
     };
 
     // Finished toJson.
@@ -100247,12 +101273,13 @@ class ReactionNotificationsFromAll extends ReactionNotificationsFromBase {
 
 /// Reactions Notify Settings.
 ///
-/// ID: `56e34970`.
+/// ID: `71e4ea58`.
 class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
   /// Reactions Notify Settings constructor.
   const ReactionsNotifySettings({
     this.messagesNotifyFrom,
     this.storiesNotifyFrom,
+    this.pollVotesNotifyFrom,
     required this.sound,
     required this.showPreviews,
   }) : super._();
@@ -100269,6 +101296,10 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
     final storiesNotifyFrom = hasStoriesNotifyFromField
         ? reader.readObject() as ReactionNotificationsFromBase
         : null;
+    final hasPollVotesNotifyFromField = (flags & 4) != 0;
+    final pollVotesNotifyFrom = hasPollVotesNotifyFromField
+        ? reader.readObject() as ReactionNotificationsFromBase
+        : null;
     final sound = reader.readObject() as NotificationSoundBase;
     final showPreviews = reader.readBool();
 
@@ -100276,6 +101307,7 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
     final returnValue = ReactionsNotifySettings(
       messagesNotifyFrom: messagesNotifyFrom,
       storiesNotifyFrom: storiesNotifyFrom,
+      pollVotesNotifyFrom: pollVotesNotifyFrom,
       sound: sound,
       showPreviews: showPreviews,
     );
@@ -100289,6 +101321,7 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
     final v = _flag(
       b00: messagesNotifyFrom != null,
       b01: storiesNotifyFrom != null,
+      b02: pollVotesNotifyFrom != null,
     );
 
     return v;
@@ -100300,6 +101333,9 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
   /// Stories Notify From.
   final ReactionNotificationsFromBase? storiesNotifyFrom;
 
+  /// Poll Votes Notify From.
+  final ReactionNotificationsFromBase? pollVotesNotifyFrom;
+
   /// Sound.
   final NotificationSoundBase sound;
 
@@ -100309,8 +101345,8 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x56e34970.
-    buffer.writeInt32(0x56e34970);
+    // Write type-id 0x71e4ea58.
+    buffer.writeInt32(0x71e4ea58);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -100322,6 +101358,10 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
     if (localStoriesNotifyFromCopy != null) {
       buffer.writeObject(localStoriesNotifyFromCopy);
     }
+    final localPollVotesNotifyFromCopy = pollVotesNotifyFrom;
+    if (localPollVotesNotifyFromCopy != null) {
+      buffer.writeObject(localPollVotesNotifyFromCopy);
+    }
     buffer.writeObject(sound);
     buffer.writeBool(showPreviews);
 
@@ -100331,11 +101371,12 @@ class ReactionsNotifySettings extends ReactionsNotifySettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "56e34970",
+      "\$hash": "71e4ea58",
       "\$name": "ReactionsNotifySettings",
       "flags": flags,
       "messagesNotifyFrom": messagesNotifyFrom,
       "storiesNotifyFrom": storiesNotifyFrom,
+      "pollVotesNotifyFrom": pollVotesNotifyFrom,
       "sound": sound,
       "showPreviews": showPreviews,
     };
@@ -112240,6 +113281,275 @@ class KeyboardButtonStyle extends KeyboardButtonStyleBase {
       "bgDanger": bgDanger,
       "bgSuccess": bgSuccess,
       "icon": icon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Message Read Metric.
+///
+/// ID: `402b4495`.
+class InputMessageReadMetric extends InputMessageReadMetricBase {
+  /// Input Message Read Metric constructor.
+  const InputMessageReadMetric({
+    required this.msgId,
+    required this.viewId,
+    required this.timeInViewMs,
+    required this.activeTimeInViewMs,
+    required this.heightToViewportRatioPermille,
+    required this.seenRangeRatioPermille,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputMessageReadMetric.deserialize(BinaryReader reader) {
+    // Read [InputMessageReadMetric] fields.
+    final msgId = reader.readInt32();
+    final viewId = reader.readInt64();
+    final timeInViewMs = reader.readInt32();
+    final activeTimeInViewMs = reader.readInt32();
+    final heightToViewportRatioPermille = reader.readInt32();
+    final seenRangeRatioPermille = reader.readInt32();
+
+    // Construct [InputMessageReadMetric] object.
+    final returnValue = InputMessageReadMetric(
+      msgId: msgId,
+      viewId: viewId,
+      timeInViewMs: timeInViewMs,
+      activeTimeInViewMs: activeTimeInViewMs,
+      heightToViewportRatioPermille: heightToViewportRatioPermille,
+      seenRangeRatioPermille: seenRangeRatioPermille,
+    );
+
+    // Now return the deserialized [InputMessageReadMetric].
+    return returnValue;
+  }
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// View Id.
+  ///
+  /// Field type is Int64.
+  final int viewId;
+
+  /// Time In View Ms.
+  ///
+  /// Field type is Int32.
+  final int timeInViewMs;
+
+  /// Active Time In View Ms.
+  ///
+  /// Field type is Int32.
+  final int activeTimeInViewMs;
+
+  /// Height To Viewport Ratio Permille.
+  ///
+  /// Field type is Int32.
+  final int heightToViewportRatioPermille;
+
+  /// Seen Range Ratio Permille.
+  ///
+  /// Field type is Int32.
+  final int seenRangeRatioPermille;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x402b4495.
+    buffer.writeInt32(0x402b4495);
+
+    // Write fields.
+    buffer.writeInt32(msgId);
+    buffer.writeInt64(viewId);
+    buffer.writeInt32(timeInViewMs);
+    buffer.writeInt32(activeTimeInViewMs);
+    buffer.writeInt32(heightToViewportRatioPermille);
+    buffer.writeInt32(seenRangeRatioPermille);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "402b4495",
+      "\$name": "InputMessageReadMetric",
+      "msgId": msgId,
+      "viewId": viewId,
+      "timeInViewMs": timeInViewMs,
+      "activeTimeInViewMs": activeTimeInViewMs,
+      "heightToViewportRatioPermille": heightToViewportRatioPermille,
+      "seenRangeRatioPermille": seenRangeRatioPermille,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Exported Bot Token.
+///
+/// ID: `3c60b621`.
+class BotsExportedBotToken extends BotsExportedBotTokenBase {
+  /// Bots Exported Bot Token constructor.
+  const BotsExportedBotToken({required this.token}) : super._();
+
+  /// Deserialize.
+  factory BotsExportedBotToken.deserialize(BinaryReader reader) {
+    // Read [BotsExportedBotToken] fields.
+    final token = reader.readString();
+
+    // Construct [BotsExportedBotToken] object.
+    final returnValue = BotsExportedBotToken(token: token);
+
+    // Now return the deserialized [BotsExportedBotToken].
+    return returnValue;
+  }
+
+  /// Token.
+  final String token;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3c60b621.
+    buffer.writeInt32(0x3c60b621);
+
+    // Write fields.
+    buffer.writeString(token);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3c60b621",
+      "\$name": "BotsExportedBotToken",
+      "token": token,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Requested Button.
+///
+/// ID: `f13bbcd7`.
+class BotsRequestedButton extends BotsRequestedButtonBase {
+  /// Bots Requested Button constructor.
+  const BotsRequestedButton({required this.webappReqId}) : super._();
+
+  /// Deserialize.
+  factory BotsRequestedButton.deserialize(BinaryReader reader) {
+    // Read [BotsRequestedButton] fields.
+    final webappReqId = reader.readString();
+
+    // Construct [BotsRequestedButton] object.
+    final returnValue = BotsRequestedButton(webappReqId: webappReqId);
+
+    // Now return the deserialized [BotsRequestedButton].
+    return returnValue;
+  }
+
+  /// Webapp Req Id.
+  final String webappReqId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf13bbcd7.
+    buffer.writeInt32(0xf13bbcd7);
+
+    // Write fields.
+    buffer.writeString(webappReqId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f13bbcd7",
+      "\$name": "BotsRequestedButton",
+      "webappReqId": webappReqId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Composed Message With A I.
+///
+/// ID: `90d7adfa`.
+class MessagesComposedMessageWithAI extends MessagesComposedMessageWithAIBase {
+  /// Messages Composed Message With A I constructor.
+  const MessagesComposedMessageWithAI({required this.resultText, this.diffText})
+      : super._();
+
+  /// Deserialize.
+  factory MessagesComposedMessageWithAI.deserialize(BinaryReader reader) {
+    // Read [MessagesComposedMessageWithAI] fields.
+    final flags = reader.readInt32();
+    final resultText = reader.readObject() as TextWithEntitiesBase;
+    final hasDiffTextField = (flags & 1) != 0;
+    final diffText =
+        hasDiffTextField ? reader.readObject() as TextWithEntitiesBase : null;
+
+    // Construct [MessagesComposedMessageWithAI] object.
+    final returnValue = MessagesComposedMessageWithAI(
+      resultText: resultText,
+      diffText: diffText,
+    );
+
+    // Now return the deserialized [MessagesComposedMessageWithAI].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: diffText != null);
+
+    return v;
+  }
+
+  /// Result Text.
+  final TextWithEntitiesBase resultText;
+
+  /// Diff Text.
+  final TextWithEntitiesBase? diffText;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x90d7adfa.
+    buffer.writeInt32(0x90d7adfa);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(resultText);
+    final localDiffTextCopy = diffText;
+    if (localDiffTextCopy != null) {
+      buffer.writeObject(localDiffTextCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "90d7adfa",
+      "\$name": "MessagesComposedMessageWithAI",
+      "flags": flags,
+      "resultText": resultText,
+      "diffText": diffText,
     };
 
     // Finished toJson.
@@ -131959,20 +133269,28 @@ class MessagesSendVote extends TlMethod {
 /// Messages Get Poll Results.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `73bb643b`.
+/// ID: `eda3e33b`.
 class MessagesGetPollResults extends TlMethod {
   /// Messages Get Poll Results constructor.
-  const MessagesGetPollResults({required this.peer, required this.msgId})
-      : super._();
+  const MessagesGetPollResults({
+    required this.peer,
+    required this.msgId,
+    required this.pollHash,
+  }) : super._();
 
   /// Deserialize.
   factory MessagesGetPollResults.deserialize(BinaryReader reader) {
     // Read [MessagesGetPollResults] fields.
     final peer = reader.readObject() as InputPeerBase;
     final msgId = reader.readInt32();
+    final pollHash = reader.readInt64();
 
     // Construct [MessagesGetPollResults] object.
-    final returnValue = MessagesGetPollResults(peer: peer, msgId: msgId);
+    final returnValue = MessagesGetPollResults(
+      peer: peer,
+      msgId: msgId,
+      pollHash: pollHash,
+    );
 
     // Now return the deserialized [MessagesGetPollResults].
     return returnValue;
@@ -131986,15 +133304,21 @@ class MessagesGetPollResults extends TlMethod {
   /// Field type is Int32.
   final int msgId;
 
+  /// Poll Hash.
+  ///
+  /// Field type is Int64.
+  final int pollHash;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x73bb643b.
-    buffer.writeInt32(0x73bb643b);
+    // Write type-id 0xeda3e33b.
+    buffer.writeInt32(0xeda3e33b);
 
     // Write fields.
     buffer.writeObject(peer);
     buffer.writeInt32(msgId);
+    buffer.writeInt64(pollHash);
 
     // Finished serialization.
   }
@@ -132002,10 +133326,11 @@ class MessagesGetPollResults extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "73bb643b",
+      "\$hash": "eda3e33b",
       "\$name": "MessagesGetPollResults",
       "peer": peer,
       "msgId": msgId,
+      "pollHash": pollHash,
     };
 
     // Finished toJson.
@@ -135948,7 +137273,7 @@ class MessagesSetDefaultReaction extends TlMethod {
 /// Messages Translate Text.
 ///
 /// Return Type: `MessagesTranslatedTextBase`.
-/// ID: `63183030`.
+/// ID: `a5eec345`.
 class MessagesTranslateText extends TlMethod {
   /// Messages Translate Text constructor.
   const MessagesTranslateText({
@@ -135956,6 +137281,7 @@ class MessagesTranslateText extends TlMethod {
     this.id,
     this.text,
     required this.toLang,
+    this.tone,
   }) : super._();
 
   /// Deserialize.
@@ -135970,6 +137296,8 @@ class MessagesTranslateText extends TlMethod {
     final text =
         hasTextField ? reader.readVectorObject<TextWithEntitiesBase>() : null;
     final toLang = reader.readString();
+    final hasToneField = (flags & 4) != 0;
+    final tone = hasToneField ? reader.readString() : null;
 
     // Construct [MessagesTranslateText] object.
     final returnValue = MessagesTranslateText(
@@ -135977,6 +137305,7 @@ class MessagesTranslateText extends TlMethod {
       id: id?.items,
       text: text?.items,
       toLang: toLang,
+      tone: tone,
     );
 
     // Now return the deserialized [MessagesTranslateText].
@@ -135985,7 +137314,11 @@ class MessagesTranslateText extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: peer != null || id != null, b01: text != null);
+    final v = _flag(
+      b00: peer != null || id != null,
+      b01: text != null,
+      b02: tone != null,
+    );
 
     return v;
   }
@@ -136002,11 +137335,14 @@ class MessagesTranslateText extends TlMethod {
   /// To Lang.
   final String toLang;
 
+  /// Tone.
+  final String? tone;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x63183030.
-    buffer.writeInt32(0x63183030);
+    // Write type-id 0xa5eec345.
+    buffer.writeInt32(0xa5eec345);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -136023,6 +137359,10 @@ class MessagesTranslateText extends TlMethod {
       buffer.writeVectorObject(localTextCopy);
     }
     buffer.writeString(toLang);
+    final localToneCopy = tone;
+    if (localToneCopy != null) {
+      buffer.writeString(localToneCopy);
+    }
 
     // Finished serialization.
   }
@@ -136030,13 +137370,14 @@ class MessagesTranslateText extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "63183030",
+      "\$hash": "a5eec345",
       "\$name": "MessagesTranslateText",
       "flags": flags,
       "peer": peer,
       "id": id,
       "text": text,
       "toLang": toLang,
+      "tone": tone,
     };
 
     // Finished toJson.
@@ -137743,12 +139084,13 @@ class MessagesGetDefaultHistoryTTL extends TlMethod {
 /// Messages Send Bot Requested Peer.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `91b2d060`.
+/// ID: `6c5cf2a7`.
 class MessagesSendBotRequestedPeer extends TlMethod {
   /// Messages Send Bot Requested Peer constructor.
   const MessagesSendBotRequestedPeer({
     required this.peer,
-    required this.msgId,
+    this.msgId,
+    this.webappReqId,
     required this.buttonId,
     required this.requestedPeers,
   }) : super._();
@@ -137756,8 +139098,12 @@ class MessagesSendBotRequestedPeer extends TlMethod {
   /// Deserialize.
   factory MessagesSendBotRequestedPeer.deserialize(BinaryReader reader) {
     // Read [MessagesSendBotRequestedPeer] fields.
+    final flags = reader.readInt32();
     final peer = reader.readObject() as InputPeerBase;
-    final msgId = reader.readInt32();
+    final hasMsgIdField = (flags & 1) != 0;
+    final msgId = hasMsgIdField ? reader.readInt32() : null;
+    final hasWebappReqIdField = (flags & 2) != 0;
+    final webappReqId = hasWebappReqIdField ? reader.readString() : null;
     final buttonId = reader.readInt32();
     final requestedPeers = reader.readVectorObject<InputPeerBase>();
 
@@ -137765,6 +139111,7 @@ class MessagesSendBotRequestedPeer extends TlMethod {
     final returnValue = MessagesSendBotRequestedPeer(
       peer: peer,
       msgId: msgId,
+      webappReqId: webappReqId,
       buttonId: buttonId,
       requestedPeers: requestedPeers.items,
     );
@@ -137773,13 +139120,21 @@ class MessagesSendBotRequestedPeer extends TlMethod {
     return returnValue;
   }
 
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: msgId != null, b01: webappReqId != null);
+
+    return v;
+  }
+
   /// Peer.
   final InputPeerBase peer;
 
   /// Msg Id.
-  ///
-  /// Field type is Int32.
-  final int msgId;
+  final int? msgId;
+
+  /// Webapp Req Id.
+  final String? webappReqId;
 
   /// Button Id.
   ///
@@ -137792,12 +139147,20 @@ class MessagesSendBotRequestedPeer extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x91b2d060.
-    buffer.writeInt32(0x91b2d060);
+    // Write type-id 0x6c5cf2a7.
+    buffer.writeInt32(0x6c5cf2a7);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeObject(peer);
-    buffer.writeInt32(msgId);
+    final localMsgIdCopy = msgId;
+    if (localMsgIdCopy != null) {
+      buffer.writeInt32(localMsgIdCopy);
+    }
+    final localWebappReqIdCopy = webappReqId;
+    if (localWebappReqIdCopy != null) {
+      buffer.writeString(localWebappReqIdCopy);
+    }
     buffer.writeInt32(buttonId);
     buffer.writeVectorObject(requestedPeers);
 
@@ -137807,10 +139170,12 @@ class MessagesSendBotRequestedPeer extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "91b2d060",
+      "\$hash": "6c5cf2a7",
       "\$name": "MessagesSendBotRequestedPeer",
+      "flags": flags,
       "peer": peer,
       "msgId": msgId,
+      "webappReqId": webappReqId,
       "buttonId": buttonId,
       "requestedPeers": requestedPeers,
     };
@@ -142146,13 +143511,14 @@ class MessagesGetEmojiGameInfo extends TlMethod {
 /// Messages Summarize Text.
 ///
 /// Return Type: `TextWithEntitiesBase`.
-/// ID: `9d4104e2`.
+/// ID: `abbbd346`.
 class MessagesSummarizeText extends TlMethod {
   /// Messages Summarize Text constructor.
   const MessagesSummarizeText({
     required this.peer,
     required this.id,
     this.toLang,
+    this.tone,
   }) : super._();
 
   /// Deserialize.
@@ -142163,12 +143529,15 @@ class MessagesSummarizeText extends TlMethod {
     final id = reader.readInt32();
     final hasToLangField = (flags & 1) != 0;
     final toLang = hasToLangField ? reader.readString() : null;
+    final hasToneField = (flags & 4) != 0;
+    final tone = hasToneField ? reader.readString() : null;
 
     // Construct [MessagesSummarizeText] object.
     final returnValue = MessagesSummarizeText(
       peer: peer,
       id: id,
       toLang: toLang,
+      tone: tone,
     );
 
     // Now return the deserialized [MessagesSummarizeText].
@@ -142177,7 +143546,7 @@ class MessagesSummarizeText extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: toLang != null);
+    final v = _flag(b00: toLang != null, b02: tone != null);
 
     return v;
   }
@@ -142193,11 +143562,14 @@ class MessagesSummarizeText extends TlMethod {
   /// To Lang.
   final String? toLang;
 
+  /// Tone.
+  final String? tone;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x9d4104e2.
-    buffer.writeInt32(0x9d4104e2);
+    // Write type-id 0xabbbd346.
+    buffer.writeInt32(0xabbbd346);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -142207,6 +143579,10 @@ class MessagesSummarizeText extends TlMethod {
     if (localToLangCopy != null) {
       buffer.writeString(localToLangCopy);
     }
+    final localToneCopy = tone;
+    if (localToneCopy != null) {
+      buffer.writeString(localToneCopy);
+    }
 
     // Finished serialization.
   }
@@ -142214,12 +143590,13 @@ class MessagesSummarizeText extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "9d4104e2",
+      "\$hash": "abbbd346",
       "\$name": "MessagesSummarizeText",
       "flags": flags,
       "peer": peer,
       "id": id,
       "toLang": toLang,
+      "tone": tone,
     };
 
     // Finished toJson.
@@ -142515,6 +143892,564 @@ class MessagesCheckUrlAuthMatchCode extends TlMethod {
       "\$name": "MessagesCheckUrlAuthMatchCode",
       "url": url,
       "matchCode": matchCode,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Compose Message With A I.
+///
+/// Return Type: `MessagesComposedMessageWithAIBase`.
+/// ID: `fd426afe`.
+class MessagesComposeMessageWithAI extends TlMethod {
+  /// Messages Compose Message With A I constructor.
+  const MessagesComposeMessageWithAI({
+    required this.proofread,
+    required this.emojify,
+    required this.text,
+    this.translateToLang,
+    this.changeTone,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesComposeMessageWithAI.deserialize(BinaryReader reader) {
+    // Read [MessagesComposeMessageWithAI] fields.
+    final flags = reader.readInt32();
+    final proofread = (flags & 1) != 0;
+    final emojify = (flags & 8) != 0;
+    final text = reader.readObject() as TextWithEntitiesBase;
+    final hasTranslateToLangField = (flags & 2) != 0;
+    final translateToLang =
+        hasTranslateToLangField ? reader.readString() : null;
+    final hasChangeToneField = (flags & 4) != 0;
+    final changeTone = hasChangeToneField ? reader.readString() : null;
+
+    // Construct [MessagesComposeMessageWithAI] object.
+    final returnValue = MessagesComposeMessageWithAI(
+      proofread: proofread,
+      emojify: emojify,
+      text: text,
+      translateToLang: translateToLang,
+      changeTone: changeTone,
+    );
+
+    // Now return the deserialized [MessagesComposeMessageWithAI].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: proofread,
+      b03: emojify,
+      b01: translateToLang != null,
+      b02: changeTone != null,
+    );
+
+    return v;
+  }
+
+  /// proofread: bit 0 of flags.0?true
+  final bool proofread;
+
+  /// emojify: bit 3 of flags.3?true
+  final bool emojify;
+
+  /// Text.
+  final TextWithEntitiesBase text;
+
+  /// Translate To Lang.
+  final String? translateToLang;
+
+  /// Change Tone.
+  final String? changeTone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfd426afe.
+    buffer.writeInt32(0xfd426afe);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(text);
+    final localTranslateToLangCopy = translateToLang;
+    if (localTranslateToLangCopy != null) {
+      buffer.writeString(localTranslateToLangCopy);
+    }
+    final localChangeToneCopy = changeTone;
+    if (localChangeToneCopy != null) {
+      buffer.writeString(localChangeToneCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fd426afe",
+      "\$name": "MessagesComposeMessageWithAI",
+      "flags": flags,
+      "proofread": proofread,
+      "emojify": emojify,
+      "text": text,
+      "translateToLang": translateToLang,
+      "changeTone": changeTone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Report Read Metrics.
+///
+/// Return Type: `bool`.
+/// ID: `4067c5e6`.
+class MessagesReportReadMetrics extends TlMethod {
+  /// Messages Report Read Metrics constructor.
+  const MessagesReportReadMetrics({required this.peer, required this.metrics})
+      : super._();
+
+  /// Deserialize.
+  factory MessagesReportReadMetrics.deserialize(BinaryReader reader) {
+    // Read [MessagesReportReadMetrics] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final metrics = reader.readVectorObject<InputMessageReadMetricBase>();
+
+    // Construct [MessagesReportReadMetrics] object.
+    final returnValue = MessagesReportReadMetrics(
+      peer: peer,
+      metrics: metrics.items,
+    );
+
+    // Now return the deserialized [MessagesReportReadMetrics].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Metrics.
+  final List<InputMessageReadMetricBase> metrics;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4067c5e6.
+    buffer.writeInt32(0x4067c5e6);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeVectorObject(metrics);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4067c5e6",
+      "\$name": "MessagesReportReadMetrics",
+      "peer": peer,
+      "metrics": metrics,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Report Music Listen.
+///
+/// Return Type: `bool`.
+/// ID: `ddbcd819`.
+class MessagesReportMusicListen extends TlMethod {
+  /// Messages Report Music Listen constructor.
+  const MessagesReportMusicListen({
+    required this.id,
+    required this.listenedDuration,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesReportMusicListen.deserialize(BinaryReader reader) {
+    // Read [MessagesReportMusicListen] fields.
+    final id = reader.readObject() as InputDocumentBase;
+    final listenedDuration = reader.readInt32();
+
+    // Construct [MessagesReportMusicListen] object.
+    final returnValue = MessagesReportMusicListen(
+      id: id,
+      listenedDuration: listenedDuration,
+    );
+
+    // Now return the deserialized [MessagesReportMusicListen].
+    return returnValue;
+  }
+
+  /// Id.
+  final InputDocumentBase id;
+
+  /// Listened Duration.
+  ///
+  /// Field type is Int32.
+  final int listenedDuration;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xddbcd819.
+    buffer.writeInt32(0xddbcd819);
+
+    // Write fields.
+    buffer.writeObject(id);
+    buffer.writeInt32(listenedDuration);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ddbcd819",
+      "\$name": "MessagesReportMusicListen",
+      "id": id,
+      "listenedDuration": listenedDuration,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Add Poll Answer.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `19bc4b6d`.
+class MessagesAddPollAnswer extends TlMethod {
+  /// Messages Add Poll Answer constructor.
+  const MessagesAddPollAnswer({
+    required this.peer,
+    required this.msgId,
+    required this.answer,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesAddPollAnswer.deserialize(BinaryReader reader) {
+    // Read [MessagesAddPollAnswer] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+    final answer = reader.readObject() as PollAnswerBase;
+
+    // Construct [MessagesAddPollAnswer] object.
+    final returnValue = MessagesAddPollAnswer(
+      peer: peer,
+      msgId: msgId,
+      answer: answer,
+    );
+
+    // Now return the deserialized [MessagesAddPollAnswer].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Answer.
+  final PollAnswerBase answer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x19bc4b6d.
+    buffer.writeInt32(0x19bc4b6d);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+    buffer.writeObject(answer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "19bc4b6d",
+      "\$name": "MessagesAddPollAnswer",
+      "peer": peer,
+      "msgId": msgId,
+      "answer": answer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Delete Poll Answer.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `ac8505a5`.
+class MessagesDeletePollAnswer extends TlMethod {
+  /// Messages Delete Poll Answer constructor.
+  const MessagesDeletePollAnswer({
+    required this.peer,
+    required this.msgId,
+    required this.option,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDeletePollAnswer.deserialize(BinaryReader reader) {
+    // Read [MessagesDeletePollAnswer] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+    final option = reader.readBytes();
+
+    // Construct [MessagesDeletePollAnswer] object.
+    final returnValue = MessagesDeletePollAnswer(
+      peer: peer,
+      msgId: msgId,
+      option: option,
+    );
+
+    // Now return the deserialized [MessagesDeletePollAnswer].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Option.
+  final Uint8List option;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xac8505a5.
+    buffer.writeInt32(0xac8505a5);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+    buffer.writeBytes(option);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ac8505a5",
+      "\$name": "MessagesDeletePollAnswer",
+      "peer": peer,
+      "msgId": msgId,
+      "option": option,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Unread Poll Votes.
+///
+/// Return Type: `MessagesMessagesBase`.
+/// ID: `43286cf2`.
+class MessagesGetUnreadPollVotes extends TlMethod {
+  /// Messages Get Unread Poll Votes constructor.
+  const MessagesGetUnreadPollVotes({
+    required this.peer,
+    this.topMsgId,
+    required this.offsetId,
+    required this.addOffset,
+    required this.limit,
+    required this.maxId,
+    required this.minId,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetUnreadPollVotes.deserialize(BinaryReader reader) {
+    // Read [MessagesGetUnreadPollVotes] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final hasTopMsgIdField = (flags & 1) != 0;
+    final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
+    final offsetId = reader.readInt32();
+    final addOffset = reader.readInt32();
+    final limit = reader.readInt32();
+    final maxId = reader.readInt32();
+    final minId = reader.readInt32();
+
+    // Construct [MessagesGetUnreadPollVotes] object.
+    final returnValue = MessagesGetUnreadPollVotes(
+      peer: peer,
+      topMsgId: topMsgId,
+      offsetId: offsetId,
+      addOffset: addOffset,
+      limit: limit,
+      maxId: maxId,
+      minId: minId,
+    );
+
+    // Now return the deserialized [MessagesGetUnreadPollVotes].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: topMsgId != null);
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Top Msg Id.
+  final int? topMsgId;
+
+  /// Offset Id.
+  ///
+  /// Field type is Int32.
+  final int offsetId;
+
+  /// Add Offset.
+  ///
+  /// Field type is Int32.
+  final int addOffset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Max Id.
+  ///
+  /// Field type is Int32.
+  final int maxId;
+
+  /// Min Id.
+  ///
+  /// Field type is Int32.
+  final int minId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x43286cf2.
+    buffer.writeInt32(0x43286cf2);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    final localTopMsgIdCopy = topMsgId;
+    if (localTopMsgIdCopy != null) {
+      buffer.writeInt32(localTopMsgIdCopy);
+    }
+    buffer.writeInt32(offsetId);
+    buffer.writeInt32(addOffset);
+    buffer.writeInt32(limit);
+    buffer.writeInt32(maxId);
+    buffer.writeInt32(minId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "43286cf2",
+      "\$name": "MessagesGetUnreadPollVotes",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
+      "offsetId": offsetId,
+      "addOffset": addOffset,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Read Poll Votes.
+///
+/// Return Type: `MessagesAffectedHistoryBase`.
+/// ID: `1720b4d8`.
+class MessagesReadPollVotes extends TlMethod {
+  /// Messages Read Poll Votes constructor.
+  const MessagesReadPollVotes({required this.peer, this.topMsgId}) : super._();
+
+  /// Deserialize.
+  factory MessagesReadPollVotes.deserialize(BinaryReader reader) {
+    // Read [MessagesReadPollVotes] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final hasTopMsgIdField = (flags & 1) != 0;
+    final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
+
+    // Construct [MessagesReadPollVotes] object.
+    final returnValue = MessagesReadPollVotes(peer: peer, topMsgId: topMsgId);
+
+    // Now return the deserialized [MessagesReadPollVotes].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: topMsgId != null);
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Top Msg Id.
+  final int? topMsgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1720b4d8.
+    buffer.writeInt32(0x1720b4d8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    final localTopMsgIdCopy = topMsgId;
+    if (localTopMsgIdCopy != null) {
+      buffer.writeInt32(localTopMsgIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "1720b4d8",
+      "\$name": "MessagesReadPollVotes",
+      "flags": flags,
+      "peer": peer,
+      "topMsgId": topMsgId,
     };
 
     // Finished toJson.
@@ -150642,6 +152577,312 @@ class BotsGetBotRecommendations extends TlMethod {
   }
 }
 
+/// Bots Check Username.
+///
+/// Return Type: `bool`.
+/// ID: `87f2219b`.
+class BotsCheckUsername extends TlMethod {
+  /// Bots Check Username constructor.
+  const BotsCheckUsername({required this.username}) : super._();
+
+  /// Deserialize.
+  factory BotsCheckUsername.deserialize(BinaryReader reader) {
+    // Read [BotsCheckUsername] fields.
+    final username = reader.readString();
+
+    // Construct [BotsCheckUsername] object.
+    final returnValue = BotsCheckUsername(username: username);
+
+    // Now return the deserialized [BotsCheckUsername].
+    return returnValue;
+  }
+
+  /// Username.
+  final String username;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x87f2219b.
+    buffer.writeInt32(0x87f2219b);
+
+    // Write fields.
+    buffer.writeString(username);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "87f2219b",
+      "\$name": "BotsCheckUsername",
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Create Bot.
+///
+/// Return Type: `UserBase`.
+/// ID: `e5b17f2b`.
+class BotsCreateBot extends TlMethod {
+  /// Bots Create Bot constructor.
+  const BotsCreateBot({
+    required this.viaDeeplink,
+    required this.name,
+    required this.username,
+    required this.managerId,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsCreateBot.deserialize(BinaryReader reader) {
+    // Read [BotsCreateBot] fields.
+    final flags = reader.readInt32();
+    final viaDeeplink = (flags & 1) != 0;
+    final name = reader.readString();
+    final username = reader.readString();
+    final managerId = reader.readObject() as InputUserBase;
+
+    // Construct [BotsCreateBot] object.
+    final returnValue = BotsCreateBot(
+      viaDeeplink: viaDeeplink,
+      name: name,
+      username: username,
+      managerId: managerId,
+    );
+
+    // Now return the deserialized [BotsCreateBot].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: viaDeeplink);
+
+    return v;
+  }
+
+  /// via_deeplink: bit 0 of flags.0?true
+  final bool viaDeeplink;
+
+  /// Name.
+  final String name;
+
+  /// Username.
+  final String username;
+
+  /// Manager Id.
+  final InputUserBase managerId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe5b17f2b.
+    buffer.writeInt32(0xe5b17f2b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(name);
+    buffer.writeString(username);
+    buffer.writeObject(managerId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e5b17f2b",
+      "\$name": "BotsCreateBot",
+      "flags": flags,
+      "viaDeeplink": viaDeeplink,
+      "name": name,
+      "username": username,
+      "managerId": managerId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Export Bot Token.
+///
+/// Return Type: `BotsExportedBotTokenBase`.
+/// ID: `bd0d99eb`.
+class BotsExportBotToken extends TlMethod {
+  /// Bots Export Bot Token constructor.
+  const BotsExportBotToken({required this.bot, required this.revoke})
+      : super._();
+
+  /// Deserialize.
+  factory BotsExportBotToken.deserialize(BinaryReader reader) {
+    // Read [BotsExportBotToken] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final revoke = reader.readBool();
+
+    // Construct [BotsExportBotToken] object.
+    final returnValue = BotsExportBotToken(bot: bot, revoke: revoke);
+
+    // Now return the deserialized [BotsExportBotToken].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Revoke.
+  final bool revoke;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbd0d99eb.
+    buffer.writeInt32(0xbd0d99eb);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeBool(revoke);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bd0d99eb",
+      "\$name": "BotsExportBotToken",
+      "bot": bot,
+      "revoke": revoke,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Request Web View Button.
+///
+/// Return Type: `BotsRequestedButtonBase`.
+/// ID: `31a2a35e`.
+class BotsRequestWebViewButton extends TlMethod {
+  /// Bots Request Web View Button constructor.
+  const BotsRequestWebViewButton({required this.userId, required this.button})
+      : super._();
+
+  /// Deserialize.
+  factory BotsRequestWebViewButton.deserialize(BinaryReader reader) {
+    // Read [BotsRequestWebViewButton] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final button = reader.readObject() as KeyboardButtonBase;
+
+    // Construct [BotsRequestWebViewButton] object.
+    final returnValue = BotsRequestWebViewButton(
+      userId: userId,
+      button: button,
+    );
+
+    // Now return the deserialized [BotsRequestWebViewButton].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Button.
+  final KeyboardButtonBase button;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x31a2a35e.
+    buffer.writeInt32(0x31a2a35e);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeObject(button);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "31a2a35e",
+      "\$name": "BotsRequestWebViewButton",
+      "userId": userId,
+      "button": button,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Get Requested Web View Button.
+///
+/// Return Type: `KeyboardButtonBase`.
+/// ID: `bf25b7f3`.
+class BotsGetRequestedWebViewButton extends TlMethod {
+  /// Bots Get Requested Web View Button constructor.
+  const BotsGetRequestedWebViewButton({
+    required this.bot,
+    required this.webappReqId,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsGetRequestedWebViewButton.deserialize(BinaryReader reader) {
+    // Read [BotsGetRequestedWebViewButton] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final webappReqId = reader.readString();
+
+    // Construct [BotsGetRequestedWebViewButton] object.
+    final returnValue = BotsGetRequestedWebViewButton(
+      bot: bot,
+      webappReqId: webappReqId,
+    );
+
+    // Now return the deserialized [BotsGetRequestedWebViewButton].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Webapp Req Id.
+  final String webappReqId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbf25b7f3.
+    buffer.writeInt32(0xbf25b7f3);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(webappReqId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bf25b7f3",
+      "\$name": "BotsGetRequestedWebViewButton",
+      "bot": bot,
+      "webappReqId": webappReqId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Payments Get Payment Form.
 ///
 /// Return Type: `PaymentsPaymentFormBase`.
@@ -153841,6 +156082,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
     required this.sortByPrice,
     required this.sortByNum,
     required this.forCraft,
+    required this.starsOnly,
     this.attributesHash,
     required this.giftId,
     this.attributes,
@@ -153855,6 +156097,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
     final sortByPrice = (flags & 2) != 0;
     final sortByNum = (flags & 4) != 0;
     final forCraft = (flags & 16) != 0;
+    final starsOnly = (flags & 32) != 0;
     final hasAttributesHashField = (flags & 1) != 0;
     final attributesHash = hasAttributesHashField ? reader.readInt64() : null;
     final giftId = reader.readInt64();
@@ -153870,6 +156113,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
       sortByPrice: sortByPrice,
       sortByNum: sortByNum,
       forCraft: forCraft,
+      starsOnly: starsOnly,
       attributesHash: attributesHash,
       giftId: giftId,
       attributes: attributes?.items,
@@ -153887,6 +156131,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
       b01: sortByPrice,
       b02: sortByNum,
       b04: forCraft,
+      b05: starsOnly,
       b00: attributesHash != null,
       b03: attributes != null,
     );
@@ -153902,6 +156147,9 @@ class PaymentsGetResaleStarGifts extends TlMethod {
 
   /// for_craft: bit 4 of flags.4?true
   final bool forCraft;
+
+  /// stars_only: bit 5 of flags.5?true
+  final bool starsOnly;
 
   /// Attributes Hash.
   final int? attributesHash;
@@ -153954,6 +156202,7 @@ class PaymentsGetResaleStarGifts extends TlMethod {
       "sortByPrice": sortByPrice,
       "sortByNum": sortByNum,
       "forCraft": forCraft,
+      "starsOnly": starsOnly,
       "attributesHash": attributesHash,
       "giftId": giftId,
       "attributes": attributes,
@@ -160451,7 +162700,7 @@ class StoriesCanSendStory extends TlMethod {
 /// Stories Send Story.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `737fc2ec`.
+/// ID: `8f9e6898`.
 class StoriesSendStory extends TlMethod {
   /// Stories Send Story constructor.
   const StoriesSendStory({
@@ -160469,6 +162718,7 @@ class StoriesSendStory extends TlMethod {
     this.fwdFromId,
     this.fwdFromStory,
     this.albums,
+    this.music,
   }) : super._();
 
   /// Deserialize.
@@ -160499,6 +162749,9 @@ class StoriesSendStory extends TlMethod {
     final fwdFromStory = hasFwdFromStoryField ? reader.readInt32() : null;
     final hasAlbumsField = (flags & 256) != 0;
     final albums = hasAlbumsField ? reader.readVectorInt32() : null;
+    final hasMusicField = (flags & 512) != 0;
+    final music =
+        hasMusicField ? reader.readObject() as InputDocumentBase : null;
 
     // Construct [StoriesSendStory] object.
     final returnValue = StoriesSendStory(
@@ -160516,6 +162769,7 @@ class StoriesSendStory extends TlMethod {
       fwdFromId: fwdFromId,
       fwdFromStory: fwdFromStory,
       albums: albums?.items,
+      music: music,
     );
 
     // Now return the deserialized [StoriesSendStory].
@@ -160534,6 +162788,7 @@ class StoriesSendStory extends TlMethod {
       b03: period != null,
       b06: fwdFromId != null || fwdFromStory != null,
       b08: albums != null,
+      b09: music != null,
     );
 
     return v;
@@ -160583,11 +162838,14 @@ class StoriesSendStory extends TlMethod {
   /// Albums.
   final List<int>? albums;
 
+  /// Music.
+  final InputDocumentBase? music;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x737fc2ec.
-    buffer.writeInt32(0x737fc2ec);
+    // Write type-id 0x8f9e6898.
+    buffer.writeInt32(0x8f9e6898);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -160623,6 +162881,10 @@ class StoriesSendStory extends TlMethod {
     if (localAlbumsCopy != null) {
       buffer.writeVectorInt32(localAlbumsCopy);
     }
+    final localMusicCopy = music;
+    if (localMusicCopy != null) {
+      buffer.writeObject(localMusicCopy);
+    }
 
     // Finished serialization.
   }
@@ -160630,7 +162892,7 @@ class StoriesSendStory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "737fc2ec",
+      "\$hash": "8f9e6898",
       "\$name": "StoriesSendStory",
       "flags": flags,
       "pinned": pinned,
@@ -160647,6 +162909,7 @@ class StoriesSendStory extends TlMethod {
       "fwdFromId": fwdFromId,
       "fwdFromStory": fwdFromStory,
       "albums": albums,
+      "music": music,
     };
 
     // Finished toJson.
@@ -160657,7 +162920,7 @@ class StoriesSendStory extends TlMethod {
 /// Stories Edit Story.
 ///
 /// Return Type: `UpdatesBase`.
-/// ID: `b583ba46`.
+/// ID: `2c63a72b`.
 class StoriesEditStory extends TlMethod {
   /// Stories Edit Story constructor.
   const StoriesEditStory({
@@ -160668,6 +162931,7 @@ class StoriesEditStory extends TlMethod {
     this.caption,
     this.entities,
     this.privacyRules,
+    this.music,
   }) : super._();
 
   /// Deserialize.
@@ -160690,6 +162954,9 @@ class StoriesEditStory extends TlMethod {
     final privacyRules = hasPrivacyRulesField
         ? reader.readVectorObject<InputPrivacyRuleBase>()
         : null;
+    final hasMusicField = (flags & 16) != 0;
+    final music =
+        hasMusicField ? reader.readObject() as InputDocumentBase : null;
 
     // Construct [StoriesEditStory] object.
     final returnValue = StoriesEditStory(
@@ -160700,6 +162967,7 @@ class StoriesEditStory extends TlMethod {
       caption: caption,
       entities: entities?.items,
       privacyRules: privacyRules?.items,
+      music: music,
     );
 
     // Now return the deserialized [StoriesEditStory].
@@ -160713,6 +162981,7 @@ class StoriesEditStory extends TlMethod {
       b03: mediaAreas != null,
       b01: caption != null || entities != null,
       b02: privacyRules != null,
+      b04: music != null,
     );
 
     return v;
@@ -160741,11 +163010,14 @@ class StoriesEditStory extends TlMethod {
   /// Privacy Rules.
   final List<InputPrivacyRuleBase>? privacyRules;
 
+  /// Music.
+  final InputDocumentBase? music;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb583ba46.
-    buffer.writeInt32(0xb583ba46);
+    // Write type-id 0x2c63a72b.
+    buffer.writeInt32(0x2c63a72b);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -160771,6 +163043,10 @@ class StoriesEditStory extends TlMethod {
     if (localPrivacyRulesCopy != null) {
       buffer.writeVectorObject(localPrivacyRulesCopy);
     }
+    final localMusicCopy = music;
+    if (localMusicCopy != null) {
+      buffer.writeObject(localMusicCopy);
+    }
 
     // Finished serialization.
   }
@@ -160778,7 +163054,7 @@ class StoriesEditStory extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b583ba46",
+      "\$hash": "2c63a72b",
       "\$name": "StoriesEditStory",
       "flags": flags,
       "peer": peer,
@@ -160788,6 +163064,7 @@ class StoriesEditStory extends TlMethod {
       "caption": caption,
       "entities": entities,
       "privacyRules": privacyRules,
+      "music": music,
     };
 
     // Finished toJson.

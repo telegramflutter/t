@@ -5819,13 +5819,18 @@ class ClientMessages {
 
   /// Get Poll Results.
   ///
-  /// ID: `73bb643b`.
+  /// ID: `eda3e33b`.
   Future<Result<UpdatesBase>> getPollResults({
     required InputPeerBase peer,
     required int msgId,
+    required int pollHash,
   }) async {
     // Preparing the request.
-    final request = MessagesGetPollResults(peer: peer, msgId: msgId);
+    final request = MessagesGetPollResults(
+      peer: peer,
+      msgId: msgId,
+      pollHash: pollHash,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -6947,12 +6952,13 @@ class ClientMessages {
 
   /// Translate Text.
   ///
-  /// ID: `63183030`.
+  /// ID: `a5eec345`.
   Future<Result<MessagesTranslatedTextBase>> translateText({
     InputPeerBase? peer,
     List<int>? id,
     List<TextWithEntitiesBase>? text,
     required String toLang,
+    String? tone,
   }) async {
     // Preparing the request.
     final request = MessagesTranslateText(
@@ -6960,6 +6966,7 @@ class ClientMessages {
       id: id,
       text: text,
       toLang: toLang,
+      tone: tone,
     );
 
     // Invoke and wait for response.
@@ -7447,10 +7454,11 @@ class ClientMessages {
 
   /// Send Bot Requested Peer.
   ///
-  /// ID: `91b2d060`.
+  /// ID: `6c5cf2a7`.
   Future<Result<UpdatesBase>> sendBotRequestedPeer({
     required InputPeerBase peer,
-    required int msgId,
+    int? msgId,
+    String? webappReqId,
     required int buttonId,
     required List<InputPeerBase> requestedPeers,
   }) async {
@@ -7458,6 +7466,7 @@ class ClientMessages {
     final request = MessagesSendBotRequestedPeer(
       peer: peer,
       msgId: msgId,
+      webappReqId: webappReqId,
       buttonId: buttonId,
       requestedPeers: requestedPeers,
     );
@@ -8685,14 +8694,20 @@ class ClientMessages {
 
   /// Summarize Text.
   ///
-  /// ID: `9d4104e2`.
+  /// ID: `abbbd346`.
   Future<Result<TextWithEntitiesBase>> summarizeText({
     required InputPeerBase peer,
     required int id,
     String? toLang,
+    String? tone,
   }) async {
     // Preparing the request.
-    final request = MessagesSummarizeText(peer: peer, id: id, toLang: toLang);
+    final request = MessagesSummarizeText(
+      peer: peer,
+      id: id,
+      toLang: toLang,
+      tone: tone,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -8793,6 +8808,160 @@ class ClientMessages {
 
     // Return the result.
     return response._to<Boolean>();
+  }
+
+  /// Compose Message With A I.
+  ///
+  /// ID: `fd426afe`.
+  Future<Result<MessagesComposedMessageWithAIBase>> composeMessageWithAI({
+    required bool proofread,
+    required bool emojify,
+    required TextWithEntitiesBase text,
+    String? translateToLang,
+    String? changeTone,
+  }) async {
+    // Preparing the request.
+    final request = MessagesComposeMessageWithAI(
+      proofread: proofread,
+      emojify: emojify,
+      text: text,
+      translateToLang: translateToLang,
+      changeTone: changeTone,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesComposedMessageWithAIBase>();
+  }
+
+  /// Report Read Metrics.
+  ///
+  /// ID: `4067c5e6`.
+  Future<Result<Boolean>> reportReadMetrics({
+    required InputPeerBase peer,
+    required List<InputMessageReadMetricBase> metrics,
+  }) async {
+    // Preparing the request.
+    final request = MessagesReportReadMetrics(peer: peer, metrics: metrics);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Report Music Listen.
+  ///
+  /// ID: `ddbcd819`.
+  Future<Result<Boolean>> reportMusicListen({
+    required InputDocumentBase id,
+    required int listenedDuration,
+  }) async {
+    // Preparing the request.
+    final request = MessagesReportMusicListen(
+      id: id,
+      listenedDuration: listenedDuration,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Add Poll Answer.
+  ///
+  /// ID: `19bc4b6d`.
+  Future<Result<UpdatesBase>> addPollAnswer({
+    required InputPeerBase peer,
+    required int msgId,
+    required PollAnswerBase answer,
+  }) async {
+    // Preparing the request.
+    final request = MessagesAddPollAnswer(
+      peer: peer,
+      msgId: msgId,
+      answer: answer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Poll Answer.
+  ///
+  /// ID: `ac8505a5`.
+  Future<Result<UpdatesBase>> deletePollAnswer({
+    required InputPeerBase peer,
+    required int msgId,
+    required Uint8List option,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeletePollAnswer(
+      peer: peer,
+      msgId: msgId,
+      option: option,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Unread Poll Votes.
+  ///
+  /// ID: `43286cf2`.
+  Future<Result<MessagesMessagesBase>> getUnreadPollVotes({
+    required InputPeerBase peer,
+    int? topMsgId,
+    required int offsetId,
+    required int addOffset,
+    required int limit,
+    required int maxId,
+    required int minId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetUnreadPollVotes(
+      peer: peer,
+      topMsgId: topMsgId,
+      offsetId: offsetId,
+      addOffset: addOffset,
+      limit: limit,
+      maxId: maxId,
+      minId: minId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesMessagesBase>();
+  }
+
+  /// Read Poll Votes.
+  ///
+  /// ID: `1720b4d8`.
+  Future<Result<MessagesAffectedHistoryBase>> readPollVotes({
+    required InputPeerBase peer,
+    int? topMsgId,
+  }) async {
+    // Preparing the request.
+    final request = MessagesReadPollVotes(peer: peer, topMsgId: topMsgId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesAffectedHistoryBase>();
   }
 }
 
@@ -11298,6 +11467,98 @@ class ClientBots {
     // Return the result.
     return response._to<UsersUsersBase>();
   }
+
+  /// Check Username.
+  ///
+  /// ID: `87f2219b`.
+  Future<Result<Boolean>> checkUsername({required String username}) async {
+    // Preparing the request.
+    final request = BotsCheckUsername(username: username);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Create Bot.
+  ///
+  /// ID: `e5b17f2b`.
+  Future<Result<UserBase>> createBot({
+    required bool viaDeeplink,
+    required String name,
+    required String username,
+    required InputUserBase managerId,
+  }) async {
+    // Preparing the request.
+    final request = BotsCreateBot(
+      viaDeeplink: viaDeeplink,
+      name: name,
+      username: username,
+      managerId: managerId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UserBase>();
+  }
+
+  /// Export Bot Token.
+  ///
+  /// ID: `bd0d99eb`.
+  Future<Result<BotsExportedBotTokenBase>> exportBotToken({
+    required InputUserBase bot,
+    required bool revoke,
+  }) async {
+    // Preparing the request.
+    final request = BotsExportBotToken(bot: bot, revoke: revoke);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotsExportedBotTokenBase>();
+  }
+
+  /// Request Web View Button.
+  ///
+  /// ID: `31a2a35e`.
+  Future<Result<BotsRequestedButtonBase>> requestWebViewButton({
+    required InputUserBase userId,
+    required KeyboardButtonBase button,
+  }) async {
+    // Preparing the request.
+    final request = BotsRequestWebViewButton(userId: userId, button: button);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotsRequestedButtonBase>();
+  }
+
+  /// Get Requested Web View Button.
+  ///
+  /// ID: `bf25b7f3`.
+  Future<Result<KeyboardButtonBase>> getRequestedWebViewButton({
+    required InputUserBase bot,
+    required String webappReqId,
+  }) async {
+    // Preparing the request.
+    final request = BotsGetRequestedWebViewButton(
+      bot: bot,
+      webappReqId: webappReqId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<KeyboardButtonBase>();
+  }
 }
 
 /// Payments.
@@ -12250,6 +12511,7 @@ class ClientPayments {
     required bool sortByPrice,
     required bool sortByNum,
     required bool forCraft,
+    required bool starsOnly,
     int? attributesHash,
     required int giftId,
     List<StarGiftAttributeIdBase>? attributes,
@@ -12261,6 +12523,7 @@ class ClientPayments {
       sortByPrice: sortByPrice,
       sortByNum: sortByNum,
       forCraft: forCraft,
+      starsOnly: starsOnly,
       attributesHash: attributesHash,
       giftId: giftId,
       attributes: attributes,
@@ -14209,7 +14472,7 @@ class ClientStories {
 
   /// Send Story.
   ///
-  /// ID: `737fc2ec`.
+  /// ID: `8f9e6898`.
   Future<Result<UpdatesBase>> sendStory({
     required bool pinned,
     required bool noforwards,
@@ -14225,6 +14488,7 @@ class ClientStories {
     InputPeerBase? fwdFromId,
     int? fwdFromStory,
     List<int>? albums,
+    InputDocumentBase? music,
   }) async {
     // Preparing the request.
     final request = StoriesSendStory(
@@ -14242,6 +14506,7 @@ class ClientStories {
       fwdFromId: fwdFromId,
       fwdFromStory: fwdFromStory,
       albums: albums,
+      music: music,
     );
 
     // Invoke and wait for response.
@@ -14253,7 +14518,7 @@ class ClientStories {
 
   /// Edit Story.
   ///
-  /// ID: `b583ba46`.
+  /// ID: `2c63a72b`.
   Future<Result<UpdatesBase>> editStory({
     required InputPeerBase peer,
     required int id,
@@ -14262,6 +14527,7 @@ class ClientStories {
     String? caption,
     List<MessageEntityBase>? entities,
     List<InputPrivacyRuleBase>? privacyRules,
+    InputDocumentBase? music,
   }) async {
     // Preparing the request.
     final request = StoriesEditStory(
@@ -14272,6 +14538,7 @@ class ClientStories {
       caption: caption,
       entities: entities,
       privacyRules: privacyRules,
+      music: music,
     );
 
     // Invoke and wait for response.

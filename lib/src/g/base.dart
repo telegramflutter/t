@@ -3636,6 +3636,30 @@ abstract class KeyboardButtonStyleBase extends TlConstructor {
   const KeyboardButtonStyleBase._() : super._();
 }
 
+/// Predicate Input Message Read Metric.
+abstract class InputMessageReadMetricBase extends TlConstructor {
+  /// Predicate Input Message Read Metric constructor.
+  const InputMessageReadMetricBase._() : super._();
+}
+
+/// Predicate Bots Exported Bot Token.
+abstract class BotsExportedBotTokenBase extends TlConstructor {
+  /// Predicate Bots Exported Bot Token constructor.
+  const BotsExportedBotTokenBase._() : super._();
+}
+
+/// Predicate Bots Requested Button.
+abstract class BotsRequestedButtonBase extends TlConstructor {
+  /// Predicate Bots Requested Button constructor.
+  const BotsRequestedButtonBase._() : super._();
+}
+
+/// Predicate Messages Composed Message With A I.
+abstract class MessagesComposedMessageWithAIBase extends TlConstructor {
+  /// Predicate Messages Composed Message With A I constructor.
+  const MessagesComposedMessageWithAIBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.
