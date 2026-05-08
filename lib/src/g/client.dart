@@ -26,6 +26,7 @@ abstract class Client {
     premium = ClientPremium._(this);
     smsjobs = ClientSmsjobs._(this);
     fragment = ClientFragment._(this);
+    aicompose = ClientAicompose._(this);
   }
 
   /// Call the specified RPC [method] on the server.
@@ -96,6 +97,9 @@ abstract class Client {
 
   /// Fragment part.
   late final ClientFragment fragment;
+
+  /// Aicompose part.
+  late final ClientAicompose aicompose;
 
   /// Invoke After Msg.
   ///
@@ -3312,6 +3316,7 @@ class ClientContacts {
     required bool groups,
     required bool channels,
     required bool botsApp,
+    required bool botsGuestchat,
     required int offset,
     required int limit,
     required int hash,
@@ -3327,6 +3332,7 @@ class ClientContacts {
       groups: groups,
       channels: channels,
       botsApp: botsApp,
+      botsGuestchat: botsGuestchat,
       offset: offset,
       limit: limit,
       hash: hash,
@@ -8812,13 +8818,13 @@ class ClientMessages {
 
   /// Compose Message With A I.
   ///
-  /// ID: `fd426afe`.
+  /// ID: `daecc589`.
   Future<Result<MessagesComposedMessageWithAIBase>> composeMessageWithAI({
     required bool proofread,
     required bool emojify,
     required TextWithEntitiesBase text,
     String? translateToLang,
-    String? changeTone,
+    InputAiComposeToneBase? tone,
   }) async {
     // Preparing the request.
     final request = MessagesComposeMessageWithAI(
@@ -8826,7 +8832,7 @@ class ClientMessages {
       emojify: emojify,
       text: text,
       translateToLang: translateToLang,
-      changeTone: changeTone,
+      tone: tone,
     );
 
     // Invoke and wait for response.
@@ -8962,6 +8968,94 @@ class ClientMessages {
 
     // Return the result.
     return response._to<MessagesAffectedHistoryBase>();
+  }
+
+  /// Set Bot Guest Chat Result.
+  ///
+  /// ID: `052b08db`.
+  Future<Result<Boolean>> setBotGuestChatResult({
+    required int queryId,
+    required InputBotInlineResultBase result,
+  }) async {
+    // Preparing the request.
+    final request = MessagesSetBotGuestChatResult(
+      queryId: queryId,
+      result: result,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Participant Reactions.
+  ///
+  /// ID: `a0b80cf8`.
+  Future<Result<Boolean>> deleteParticipantReactions({
+    required InputPeerBase peer,
+    required InputPeerBase participant,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeleteParticipantReactions(
+      peer: peer,
+      participant: participant,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Participant Reaction.
+  ///
+  /// ID: `e3b7f82c`.
+  Future<Result<UpdatesBase>> deleteParticipantReaction({
+    required InputPeerBase peer,
+    required int msgId,
+    required InputPeerBase participant,
+  }) async {
+    // Preparing the request.
+    final request = MessagesDeleteParticipantReaction(
+      peer: peer,
+      msgId: msgId,
+      participant: participant,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Personal Channel History.
+  ///
+  /// ID: `55fb0996`.
+  Future<Result<MessagesMessagesBase>> getPersonalChannelHistory({
+    required InputUserBase userId,
+    required int limit,
+    required int maxId,
+    required int minId,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetPersonalChannelHistory(
+      userId: userId,
+      limit: limit,
+      maxId: maxId,
+      minId: minId,
+      hash: hash,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesMessagesBase>();
   }
 }
 
@@ -11558,6 +11652,44 @@ class ClientBots {
 
     // Return the result.
     return response._to<KeyboardButtonBase>();
+  }
+
+  /// Get Access Settings.
+  ///
+  /// ID: `213853a3`.
+  Future<Result<BotsAccessSettingsBase>> getAccessSettings({
+    required InputUserBase bot,
+  }) async {
+    // Preparing the request.
+    final request = BotsGetAccessSettings(bot: bot);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<BotsAccessSettingsBase>();
+  }
+
+  /// Edit Access Settings.
+  ///
+  /// ID: `31813cd8`.
+  Future<Result<Boolean>> editAccessSettings({
+    required bool restricted,
+    required InputUserBase bot,
+    List<InputUserBase>? addUsers,
+  }) async {
+    // Preparing the request.
+    final request = BotsEditAccessSettings(
+      restricted: restricted,
+      bot: bot,
+      addUsers: addUsers,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
   }
 }
 
@@ -14239,6 +14371,24 @@ class ClientStats {
     // Return the result.
     return response._to<StatsPublicForwardsBase>();
   }
+
+  /// Get Poll Stats.
+  ///
+  /// ID: `c27dfa68`.
+  Future<Result<StatsPollStatsBase>> getPollStats({
+    required bool dark,
+    required InputPeerBase peer,
+    required int msgId,
+  }) async {
+    // Preparing the request.
+    final request = StatsGetPollStats(dark: dark, peer: peer, msgId: msgId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<StatsPollStatsBase>();
+  }
 }
 
 /// Chatlists.
@@ -15382,5 +15532,142 @@ class ClientFragment {
 
     // Return the result.
     return response._to<FragmentCollectibleInfoBase>();
+  }
+}
+
+/// Aicompose.
+class ClientAicompose {
+  /// Constructor.
+  const ClientAicompose._(this._c);
+  final Client _c;
+
+  /// Create Tone.
+  ///
+  /// ID: `4aa83913`.
+  Future<Result<AiComposeToneBase>> createTone({
+    required bool displayAuthor,
+    required int emojiId,
+    required String title,
+    required String prompt,
+  }) async {
+    // Preparing the request.
+    final request = AicomposeCreateTone(
+      displayAuthor: displayAuthor,
+      emojiId: emojiId,
+      title: title,
+      prompt: prompt,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AiComposeToneBase>();
+  }
+
+  /// Update Tone.
+  ///
+  /// ID: `903bcf59`.
+  Future<Result<AiComposeToneBase>> updateTone({
+    required InputAiComposeToneBase tone,
+    bool? displayAuthor,
+    int? emojiId,
+    String? title,
+    String? prompt,
+  }) async {
+    // Preparing the request.
+    final request = AicomposeUpdateTone(
+      tone: tone,
+      displayAuthor: displayAuthor,
+      emojiId: emojiId,
+      title: title,
+      prompt: prompt,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AiComposeToneBase>();
+  }
+
+  /// Save Tone.
+  ///
+  /// ID: `1782cbb1`.
+  Future<Result<Boolean>> saveTone({
+    required InputAiComposeToneBase tone,
+    required bool unsave,
+  }) async {
+    // Preparing the request.
+    final request = AicomposeSaveTone(tone: tone, unsave: unsave);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete Tone.
+  ///
+  /// ID: `dd39316a`.
+  Future<Result<Boolean>> deleteTone({
+    required InputAiComposeToneBase tone,
+  }) async {
+    // Preparing the request.
+    final request = AicomposeDeleteTone(tone: tone);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Tone.
+  ///
+  /// ID: `b2e8ba03`.
+  Future<Result<AicomposeTonesBase>> getTone({
+    required InputAiComposeToneBase tone,
+  }) async {
+    // Preparing the request.
+    final request = AicomposeGetTone(tone: tone);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AicomposeTonesBase>();
+  }
+
+  /// Get Tones.
+  ///
+  /// ID: `abd59201`.
+  Future<Result<AicomposeTonesBase>> getTones({required int hash}) async {
+    // Preparing the request.
+    final request = AicomposeGetTones(hash: hash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AicomposeTonesBase>();
+  }
+
+  /// Get Tone Example.
+  ///
+  /// ID: `d1b4ab14`.
+  Future<Result<AiComposeToneExampleBase>> getToneExample({
+    required InputAiComposeToneBase tone,
+    required int num,
+  }) async {
+    // Preparing the request.
+    final request = AicomposeGetToneExample(tone: tone, num: num);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AiComposeToneExampleBase>();
   }
 }

@@ -4464,6 +4464,7 @@ class User extends UserBase {
     required this.botForumView,
     required this.botForumCanManageTopics,
     required this.botCanManageBots,
+    required this.botGuestchat,
     required this.id,
     this.accessHash,
     this.firstName,
@@ -4519,6 +4520,7 @@ class User extends UserBase {
     final botForumView = (flags2 & 65536) != 0;
     final botForumCanManageTopics = (flags2 & 131072) != 0;
     final botCanManageBots = (flags2 & 262144) != 0;
+    final botGuestchat = (flags2 & 524288) != 0;
     final id = reader.readInt64();
     final hasAccessHashField = (flags & 1) != 0;
     final accessHash = hasAccessHashField ? reader.readInt64() : null;
@@ -4600,6 +4602,7 @@ class User extends UserBase {
       botForumView: botForumView,
       botForumCanManageTopics: botForumCanManageTopics,
       botCanManageBots: botCanManageBots,
+      botGuestchat: botGuestchat,
       id: id,
       accessHash: accessHash,
       firstName: firstName,
@@ -4675,6 +4678,7 @@ class User extends UserBase {
       b16: botForumView,
       b17: botForumCanManageTopics,
       b18: botCanManageBots,
+      b19: botGuestchat,
       b00: usernames != null,
       b05: storiesMaxId != null,
       b08: color != null,
@@ -4770,6 +4774,9 @@ class User extends UserBase {
 
   /// bot_can_manage_bots: bit 18 of flags2.18?true
   final bool botCanManageBots;
+
+  /// bot_guestchat: bit 19 of flags2.19?true
+  final bool botGuestchat;
 
   /// Id.
   ///
@@ -4958,6 +4965,7 @@ class User extends UserBase {
       "botForumView": botForumView,
       "botForumCanManageTopics": botForumCanManageTopics,
       "botCanManageBots": botCanManageBots,
+      "botGuestchat": botGuestchat,
       "id": id,
       "accessHash": accessHash,
       "firstName": firstName,
@@ -8094,7 +8102,7 @@ class MessageEmpty extends MessageBase {
 
 /// Message.
 ///
-/// ID: `3ae56482`.
+/// ID: `95ef6f2b`.
 class Message extends MessageBase {
   /// Message constructor.
   const Message({
@@ -8122,6 +8130,7 @@ class Message extends MessageBase {
     this.fwdFrom,
     this.viaBotId,
     this.viaBusinessBotId,
+    this.guestchatViaFrom,
     this.replyTo,
     required this.date,
     required this.message,
@@ -8187,6 +8196,9 @@ class Message extends MessageBase {
     final hasViaBusinessBotIdField = (flags2 & 1) != 0;
     final viaBusinessBotId =
         hasViaBusinessBotIdField ? reader.readInt64() : null;
+    final hasGuestchatViaFromField = (flags2 & 524288) != 0;
+    final guestchatViaFrom =
+        hasGuestchatViaFromField ? reader.readObject() as PeerBase : null;
     final hasReplyToField = (flags & 8) != 0;
     final replyTo =
         hasReplyToField ? reader.readObject() as MessageReplyHeaderBase : null;
@@ -8273,6 +8285,7 @@ class Message extends MessageBase {
       fwdFrom: fwdFrom,
       viaBotId: viaBotId,
       viaBusinessBotId: viaBusinessBotId,
+      guestchatViaFrom: guestchatViaFrom,
       replyTo: replyTo,
       date: date,
       message: message,
@@ -8348,6 +8361,7 @@ class Message extends MessageBase {
       b09: paidSuggestedPostTon,
       b12: fromRank != null,
       b00: viaBusinessBotId != null,
+      b19: guestchatViaFrom != null,
       b02: effect != null,
       b03: factcheck != null,
       b05: reportDeliveryUntilDate != null,
@@ -8434,6 +8448,9 @@ class Message extends MessageBase {
   /// Via Business Bot Id.
   final int? viaBusinessBotId;
 
+  /// Guestchat Via From.
+  final PeerBase? guestchatViaFrom;
+
   /// Reply To.
   final MessageReplyHeaderBase? replyTo;
 
@@ -8506,8 +8523,8 @@ class Message extends MessageBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x3ae56482.
-    buffer.writeInt32(0x3ae56482);
+    // Write type-id 0x95ef6f2b.
+    buffer.writeInt32(0x95ef6f2b);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -8541,6 +8558,10 @@ class Message extends MessageBase {
     final localViaBusinessBotIdCopy = viaBusinessBotId;
     if (localViaBusinessBotIdCopy != null) {
       buffer.writeInt64(localViaBusinessBotIdCopy);
+    }
+    final localGuestchatViaFromCopy = guestchatViaFrom;
+    if (localGuestchatViaFromCopy != null) {
+      buffer.writeObject(localGuestchatViaFromCopy);
     }
     final localReplyToCopy = replyTo;
     if (localReplyToCopy != null) {
@@ -8635,7 +8656,7 @@ class Message extends MessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "3ae56482",
+      "\$hash": "95ef6f2b",
       "\$name": "Message",
       "flags": flags,
       "out": out,
@@ -8663,6 +8684,7 @@ class Message extends MessageBase {
       "fwdFrom": fwdFrom,
       "viaBotId": viaBotId,
       "viaBusinessBotId": viaBusinessBotId,
+      "guestchatViaFrom": guestchatViaFrom,
       "replyTo": replyTo,
       "date": date.toIso8601String(),
       "message": message,
@@ -16706,7 +16728,7 @@ class AuthSentCodeSuccess extends AuthSentCodeBase {
 
 /// Auth Sent Code Payment Required.
 ///
-/// ID: `e0955a3c`.
+/// ID: `f8827ebf`.
 class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   /// Auth Sent Code Payment Required constructor.
   const AuthSentCodePaymentRequired({
@@ -16714,6 +16736,7 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
     required this.phoneCodeHash,
     required this.supportEmailAddress,
     required this.supportEmailSubject,
+    required this.premiumDays,
     required this.currency,
     required this.amount,
   }) : super._();
@@ -16725,6 +16748,7 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
     final phoneCodeHash = reader.readString();
     final supportEmailAddress = reader.readString();
     final supportEmailSubject = reader.readString();
+    final premiumDays = reader.readInt32();
     final currency = reader.readString();
     final amount = reader.readInt64();
 
@@ -16734,6 +16758,7 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
       phoneCodeHash: phoneCodeHash,
       supportEmailAddress: supportEmailAddress,
       supportEmailSubject: supportEmailSubject,
+      premiumDays: premiumDays,
       currency: currency,
       amount: amount,
     );
@@ -16754,6 +16779,11 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   /// Support Email Subject.
   final String supportEmailSubject;
 
+  /// Premium Days.
+  ///
+  /// Field type is Int32.
+  final int premiumDays;
+
   /// Currency.
   final String currency;
 
@@ -16765,14 +16795,15 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xe0955a3c.
-    buffer.writeInt32(0xe0955a3c);
+    // Write type-id 0xf8827ebf.
+    buffer.writeInt32(0xf8827ebf);
 
     // Write fields.
     buffer.writeString(storeProduct);
     buffer.writeString(phoneCodeHash);
     buffer.writeString(supportEmailAddress);
     buffer.writeString(supportEmailSubject);
+    buffer.writeInt32(premiumDays);
     buffer.writeString(currency);
     buffer.writeInt64(amount);
 
@@ -16782,12 +16813,13 @@ class AuthSentCodePaymentRequired extends AuthSentCodeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "e0955a3c",
+      "\$hash": "f8827ebf",
       "\$name": "AuthSentCodePaymentRequired",
       "storeProduct": storeProduct,
       "phoneCodeHash": phoneCodeHash,
       "supportEmailAddress": supportEmailAddress,
       "supportEmailSubject": supportEmailSubject,
+      "premiumDays": premiumDays,
       "currency": currency,
       "amount": amount,
     };
@@ -31783,6 +31815,138 @@ class UpdateManagedBot extends UpdateBase {
       "userId": userId,
       "botId": botId,
       "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot Guest Chat Query.
+///
+/// ID: `cdd4093d`.
+class UpdateBotGuestChatQuery extends UpdateBase {
+  /// Update Bot Guest Chat Query constructor.
+  const UpdateBotGuestChatQuery({
+    required this.queryId,
+    required this.message,
+    this.referenceMessages,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotGuestChatQuery.deserialize(BinaryReader reader) {
+    // Read [UpdateBotGuestChatQuery] fields.
+    final flags = reader.readInt32();
+    final queryId = reader.readInt64();
+    final message = reader.readObject() as MessageBase;
+    final hasReferenceMessagesField = (flags & 1) != 0;
+    final referenceMessages = hasReferenceMessagesField
+        ? reader.readVectorObject<MessageBase>()
+        : null;
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotGuestChatQuery] object.
+    final returnValue = UpdateBotGuestChatQuery(
+      queryId: queryId,
+      message: message,
+      referenceMessages: referenceMessages?.items,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotGuestChatQuery].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: referenceMessages != null);
+
+    return v;
+  }
+
+  /// Query Id.
+  ///
+  /// Field type is Int64.
+  final int queryId;
+
+  /// Message.
+  final MessageBase message;
+
+  /// Reference Messages.
+  final List<MessageBase>? referenceMessages;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcdd4093d.
+    buffer.writeInt32(0xcdd4093d);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(queryId);
+    buffer.writeObject(message);
+    final localReferenceMessagesCopy = referenceMessages;
+    if (localReferenceMessagesCopy != null) {
+      buffer.writeVectorObject(localReferenceMessagesCopy);
+    }
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "cdd4093d",
+      "\$name": "UpdateBotGuestChatQuery",
+      "flags": flags,
+      "queryId": queryId,
+      "message": message,
+      "referenceMessages": referenceMessages,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Ai Compose Tones.
+///
+/// ID: `8c0f91fb`.
+class UpdateAiComposeTones extends UpdateBase {
+  /// Update Ai Compose Tones constructor.
+  const UpdateAiComposeTones() : super._();
+
+  /// Deserialize.
+  factory UpdateAiComposeTones.deserialize(BinaryReader reader) {
+    // Construct [UpdateAiComposeTones] object.
+    final returnValue = UpdateAiComposeTones();
+
+    // Now return the deserialized [UpdateAiComposeTones].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8c0f91fb.
+    buffer.writeInt32(0x8c0f91fb);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8c0f91fb",
+      "\$name": "UpdateAiComposeTones",
     };
 
     // Finished toJson.
@@ -53068,6 +53232,43 @@ class TopPeerCategoryBotsApp extends TopPeerCategoryBase {
   }
 }
 
+/// Top Peer Category Bots Guest Chat.
+///
+/// ID: `6c24f3dd`.
+class TopPeerCategoryBotsGuestChat extends TopPeerCategoryBase {
+  /// Top Peer Category Bots Guest Chat constructor.
+  const TopPeerCategoryBotsGuestChat() : super._();
+
+  /// Deserialize.
+  factory TopPeerCategoryBotsGuestChat.deserialize(BinaryReader reader) {
+    // Construct [TopPeerCategoryBotsGuestChat] object.
+    final returnValue = TopPeerCategoryBotsGuestChat();
+
+    // Now return the deserialized [TopPeerCategoryBotsGuestChat].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6c24f3dd.
+    buffer.writeInt32(0x6c24f3dd);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "6c24f3dd",
+      "\$name": "TopPeerCategoryBotsGuestChat",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Top Peer Category Peers.
 ///
 /// ID: `fb834291`.
@@ -71154,7 +71355,7 @@ class InputPollAnswer extends PollAnswerBase {
 
 /// Poll.
 ///
-/// ID: `b8425be9`.
+/// ID: `966e2dbf`.
 class Poll extends PollBase {
   /// Poll constructor.
   const Poll({
@@ -71168,10 +71369,12 @@ class Poll extends PollBase {
     required this.shuffleAnswers,
     required this.hideResultsUntilClose,
     required this.creator,
+    required this.subscribersOnly,
     required this.question,
     required this.answers,
     this.closePeriod,
     this.closeDate,
+    this.countriesIso2,
     required this.hash,
   }) : super._();
 
@@ -71189,12 +71392,16 @@ class Poll extends PollBase {
     final shuffleAnswers = (flags & 256) != 0;
     final hideResultsUntilClose = (flags & 512) != 0;
     final creator = (flags & 1024) != 0;
+    final subscribersOnly = (flags & 2048) != 0;
     final question = reader.readObject() as TextWithEntitiesBase;
     final answers = reader.readVectorObject<PollAnswerBase>();
     final hasClosePeriodField = (flags & 16) != 0;
     final closePeriod = hasClosePeriodField ? reader.readInt32() : null;
     final hasCloseDateField = (flags & 32) != 0;
     final closeDate = hasCloseDateField ? reader.readDateTime() : null;
+    final hasCountriesIso2Field = (flags & 4096) != 0;
+    final countriesIso2 =
+        hasCountriesIso2Field ? reader.readVectorString() : null;
     final hash = reader.readInt64();
 
     // Construct [Poll] object.
@@ -71209,10 +71416,12 @@ class Poll extends PollBase {
       shuffleAnswers: shuffleAnswers,
       hideResultsUntilClose: hideResultsUntilClose,
       creator: creator,
+      subscribersOnly: subscribersOnly,
       question: question,
       answers: answers.items,
       closePeriod: closePeriod,
       closeDate: closeDate,
+      countriesIso2: countriesIso2?.items,
       hash: hash,
     );
 
@@ -71232,8 +71441,10 @@ class Poll extends PollBase {
       b08: shuffleAnswers,
       b09: hideResultsUntilClose,
       b10: creator,
+      b11: subscribersOnly,
       b04: closePeriod != null,
       b05: closeDate != null,
+      b12: countriesIso2 != null,
     );
 
     return v;
@@ -71271,6 +71482,9 @@ class Poll extends PollBase {
   /// creator: bit 10 of flags.10?true
   final bool creator;
 
+  /// subscribers_only: bit 11 of flags.11?true
+  final bool subscribersOnly;
+
   /// Question.
   final TextWithEntitiesBase question;
 
@@ -71283,6 +71497,9 @@ class Poll extends PollBase {
   /// Close Date.
   final DateTime? closeDate;
 
+  /// Countries Iso2.
+  final List<String>? countriesIso2;
+
   /// Hash.
   ///
   /// Field type is Int64.
@@ -71291,8 +71508,8 @@ class Poll extends PollBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb8425be9.
-    buffer.writeInt32(0xb8425be9);
+    // Write type-id 0x966e2dbf.
+    buffer.writeInt32(0x966e2dbf);
 
     // Write fields.
     buffer.writeInt64(id);
@@ -71307,6 +71524,10 @@ class Poll extends PollBase {
     if (localCloseDateCopy != null) {
       buffer.writeDateTime(localCloseDateCopy);
     }
+    final localCountriesIso2Copy = countriesIso2;
+    if (localCountriesIso2Copy != null) {
+      buffer.writeVectorString(localCountriesIso2Copy);
+    }
     buffer.writeInt64(hash);
 
     // Finished serialization.
@@ -71315,7 +71536,7 @@ class Poll extends PollBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b8425be9",
+      "\$hash": "966e2dbf",
       "\$name": "Poll",
       "id": id,
       "flags": flags,
@@ -71328,10 +71549,12 @@ class Poll extends PollBase {
       "shuffleAnswers": shuffleAnswers,
       "hideResultsUntilClose": hideResultsUntilClose,
       "creator": creator,
+      "subscribersOnly": subscribersOnly,
       "question": question,
       "answers": answers,
       "closePeriod": closePeriod,
       "closeDate": closeDate?.toIso8601String(),
+      "countriesIso2": countriesIso2,
       "hash": hash,
     };
 
@@ -71452,6 +71675,7 @@ class PollResults extends PollResultsBase {
   const PollResults({
     required this.min,
     required this.hasUnreadVotes,
+    required this.canViewStats,
     this.results,
     this.totalVoters,
     this.recentVoters,
@@ -71466,6 +71690,7 @@ class PollResults extends PollResultsBase {
     final flags = reader.readInt32();
     final min = (flags & 1) != 0;
     final hasUnreadVotes = (flags & 64) != 0;
+    final canViewStats = (flags & 128) != 0;
     final hasResultsField = (flags & 2) != 0;
     final results = hasResultsField
         ? reader.readVectorObject<PollAnswerVotersBase>()
@@ -71489,6 +71714,7 @@ class PollResults extends PollResultsBase {
     final returnValue = PollResults(
       min: min,
       hasUnreadVotes: hasUnreadVotes,
+      canViewStats: canViewStats,
       results: results?.items,
       totalVoters: totalVoters,
       recentVoters: recentVoters?.items,
@@ -71506,6 +71732,7 @@ class PollResults extends PollResultsBase {
     final v = _flag(
       b00: min,
       b06: hasUnreadVotes,
+      b07: canViewStats,
       b01: results != null,
       b02: totalVoters != null,
       b03: recentVoters != null,
@@ -71521,6 +71748,9 @@ class PollResults extends PollResultsBase {
 
   /// has_unread_votes: bit 6 of flags.6?true
   final bool hasUnreadVotes;
+
+  /// can_view_stats: bit 7 of flags.7?true
+  final bool canViewStats;
 
   /// Results.
   final List<PollAnswerVotersBase>? results;
@@ -71584,6 +71814,7 @@ class PollResults extends PollResultsBase {
       "flags": flags,
       "min": min,
       "hasUnreadVotes": hasUnreadVotes,
+      "canViewStats": canViewStats,
       "results": results,
       "totalVoters": totalVoters,
       "recentVoters": recentVoters,
@@ -71910,6 +72141,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
     required this.sendDocs,
     required this.sendPlain,
     required this.editRank,
+    required this.sendReactions,
     required this.untilDate,
   }) : super._();
 
@@ -71938,6 +72170,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
     final sendDocs = (flags & 16777216) != 0;
     final sendPlain = (flags & 33554432) != 0;
     final editRank = (flags & 67108864) != 0;
+    final sendReactions = (flags & 134217728) != 0;
     final untilDate = reader.readDateTime();
 
     // Construct [ChatBannedRights] object.
@@ -71963,6 +72196,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       sendDocs: sendDocs,
       sendPlain: sendPlain,
       editRank: editRank,
+      sendReactions: sendReactions,
       untilDate: untilDate,
     );
 
@@ -71994,6 +72228,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       b24: sendDocs,
       b25: sendPlain,
       b26: editRank,
+      b27: sendReactions,
     );
 
     return v;
@@ -72062,6 +72297,9 @@ class ChatBannedRights extends ChatBannedRightsBase {
   /// edit_rank: bit 26 of flags.26?true
   final bool editRank;
 
+  /// send_reactions: bit 27 of flags.27?true
+  final bool sendReactions;
+
   /// Until Date.
   final DateTime untilDate;
 
@@ -72105,6 +72343,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       "sendDocs": sendDocs,
       "sendPlain": sendPlain,
       "editRank": editRank,
+      "sendReactions": sendReactions,
       "untilDate": untilDate.toIso8601String(),
     };
 
@@ -75508,6 +75747,55 @@ class WebPageAttributeStarGiftAuction extends WebPageAttributeBase {
       "\$name": "WebPageAttributeStarGiftAuction",
       "gift": gift,
       "endDate": endDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Web Page Attribute Ai Compose Tone.
+///
+/// ID: `7781fe18`.
+class WebPageAttributeAiComposeTone extends WebPageAttributeBase {
+  /// Web Page Attribute Ai Compose Tone constructor.
+  const WebPageAttributeAiComposeTone({required this.emojiId}) : super._();
+
+  /// Deserialize.
+  factory WebPageAttributeAiComposeTone.deserialize(BinaryReader reader) {
+    // Read [WebPageAttributeAiComposeTone] fields.
+    final emojiId = reader.readInt64();
+
+    // Construct [WebPageAttributeAiComposeTone] object.
+    final returnValue = WebPageAttributeAiComposeTone(emojiId: emojiId);
+
+    // Now return the deserialized [WebPageAttributeAiComposeTone].
+    return returnValue;
+  }
+
+  /// Emoji Id.
+  ///
+  /// Field type is Int64.
+  final int emojiId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7781fe18.
+    buffer.writeInt32(0x7781fe18);
+
+    // Write fields.
+    buffer.writeInt64(emojiId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "7781fe18",
+      "\$name": "WebPageAttributeAiComposeTone",
+      "emojiId": emojiId,
     };
 
     // Finished toJson.
@@ -86710,13 +86998,14 @@ class InputStorePaymentStarsGiveaway extends InputStorePaymentPurposeBase {
 
 /// Input Store Payment Auth Code.
 ///
-/// ID: `9bb2636d`.
+/// ID: `3fc18057`.
 class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
   /// Input Store Payment Auth Code constructor.
   const InputStorePaymentAuthCode({
     required this.restore,
     required this.phoneNumber,
     required this.phoneCodeHash,
+    required this.premiumDays,
     required this.currency,
     required this.amount,
   }) : super._();
@@ -86728,6 +87017,7 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
     final restore = (flags & 1) != 0;
     final phoneNumber = reader.readString();
     final phoneCodeHash = reader.readString();
+    final premiumDays = reader.readInt32();
     final currency = reader.readString();
     final amount = reader.readInt64();
 
@@ -86736,6 +87026,7 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
       restore: restore,
       phoneNumber: phoneNumber,
       phoneCodeHash: phoneCodeHash,
+      premiumDays: premiumDays,
       currency: currency,
       amount: amount,
     );
@@ -86760,6 +87051,11 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
   /// Phone Code Hash.
   final String phoneCodeHash;
 
+  /// Premium Days.
+  ///
+  /// Field type is Int32.
+  final int premiumDays;
+
   /// Currency.
   final String currency;
 
@@ -86771,13 +87067,14 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x9bb2636d.
-    buffer.writeInt32(0x9bb2636d);
+    // Write type-id 0x3fc18057.
+    buffer.writeInt32(0x3fc18057);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(phoneNumber);
     buffer.writeString(phoneCodeHash);
+    buffer.writeInt32(premiumDays);
     buffer.writeString(currency);
     buffer.writeInt64(amount);
 
@@ -86787,12 +87084,13 @@ class InputStorePaymentAuthCode extends InputStorePaymentPurposeBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "9bb2636d",
+      "\$hash": "3fc18057",
       "\$name": "InputStorePaymentAuthCode",
       "flags": flags,
       "restore": restore,
       "phoneNumber": phoneNumber,
       "phoneCodeHash": phoneCodeHash,
+      "premiumDays": premiumDays,
       "currency": currency,
       "amount": amount,
     };
@@ -113557,6 +113855,670 @@ class MessagesComposedMessageWithAI extends MessagesComposedMessageWithAIBase {
   }
 }
 
+/// Stats Poll Stats.
+///
+/// ID: `2999beed`.
+class StatsPollStats extends StatsPollStatsBase {
+  /// Stats Poll Stats constructor.
+  const StatsPollStats({required this.votesGraph}) : super._();
+
+  /// Deserialize.
+  factory StatsPollStats.deserialize(BinaryReader reader) {
+    // Read [StatsPollStats] fields.
+    final votesGraph = reader.readObject() as StatsGraphBase;
+
+    // Construct [StatsPollStats] object.
+    final returnValue = StatsPollStats(votesGraph: votesGraph);
+
+    // Now return the deserialized [StatsPollStats].
+    return returnValue;
+  }
+
+  /// Votes Graph.
+  final StatsGraphBase votesGraph;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2999beed.
+    buffer.writeInt32(0x2999beed);
+
+    // Write fields.
+    buffer.writeObject(votesGraph);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "2999beed",
+      "\$name": "StatsPollStats",
+      "votesGraph": votesGraph,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Ai Compose Tone Default.
+///
+/// ID: `1fe9a9bf`.
+class InputAiComposeToneDefault extends InputAiComposeToneBase {
+  /// Input Ai Compose Tone Default constructor.
+  const InputAiComposeToneDefault({required this.tone}) : super._();
+
+  /// Deserialize.
+  factory InputAiComposeToneDefault.deserialize(BinaryReader reader) {
+    // Read [InputAiComposeToneDefault] fields.
+    final tone = reader.readString();
+
+    // Construct [InputAiComposeToneDefault] object.
+    final returnValue = InputAiComposeToneDefault(tone: tone);
+
+    // Now return the deserialized [InputAiComposeToneDefault].
+    return returnValue;
+  }
+
+  /// Tone.
+  final String tone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1fe9a9bf.
+    buffer.writeInt32(0x1fe9a9bf);
+
+    // Write fields.
+    buffer.writeString(tone);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "1fe9a9bf",
+      "\$name": "InputAiComposeToneDefault",
+      "tone": tone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Ai Compose Tone I D.
+///
+/// ID: `0773c080`.
+class InputAiComposeToneID extends InputAiComposeToneBase {
+  /// Input Ai Compose Tone I D constructor.
+  const InputAiComposeToneID({required this.id, required this.accessHash})
+      : super._();
+
+  /// Deserialize.
+  factory InputAiComposeToneID.deserialize(BinaryReader reader) {
+    // Read [InputAiComposeToneID] fields.
+    final id = reader.readInt64();
+    final accessHash = reader.readInt64();
+
+    // Construct [InputAiComposeToneID] object.
+    final returnValue = InputAiComposeToneID(id: id, accessHash: accessHash);
+
+    // Now return the deserialized [InputAiComposeToneID].
+    return returnValue;
+  }
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Access Hash.
+  ///
+  /// Field type is Int64.
+  final int accessHash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0773c080.
+    buffer.writeInt32(0x0773c080);
+
+    // Write fields.
+    buffer.writeInt64(id);
+    buffer.writeInt64(accessHash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "0773c080",
+      "\$name": "InputAiComposeToneID",
+      "id": id,
+      "accessHash": accessHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Ai Compose Tone Slug.
+///
+/// ID: `1fa01357`.
+class InputAiComposeToneSlug extends InputAiComposeToneBase {
+  /// Input Ai Compose Tone Slug constructor.
+  const InputAiComposeToneSlug({required this.slug}) : super._();
+
+  /// Deserialize.
+  factory InputAiComposeToneSlug.deserialize(BinaryReader reader) {
+    // Read [InputAiComposeToneSlug] fields.
+    final slug = reader.readString();
+
+    // Construct [InputAiComposeToneSlug] object.
+    final returnValue = InputAiComposeToneSlug(slug: slug);
+
+    // Now return the deserialized [InputAiComposeToneSlug].
+    return returnValue;
+  }
+
+  /// Slug.
+  final String slug;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1fa01357.
+    buffer.writeInt32(0x1fa01357);
+
+    // Write fields.
+    buffer.writeString(slug);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "1fa01357",
+      "\$name": "InputAiComposeToneSlug",
+      "slug": slug,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ai Compose Tone.
+///
+/// ID: `cff63ea9`.
+class AiComposeTone extends AiComposeToneBase {
+  /// Ai Compose Tone constructor.
+  const AiComposeTone({
+    required this.creator,
+    required this.id,
+    required this.accessHash,
+    required this.slug,
+    required this.title,
+    this.emojiId,
+    this.prompt,
+    this.installsCount,
+    this.authorId,
+    this.exampleEnglish,
+  }) : super._();
+
+  /// Deserialize.
+  factory AiComposeTone.deserialize(BinaryReader reader) {
+    // Read [AiComposeTone] fields.
+    final flags = reader.readInt32();
+    final creator = (flags & 1) != 0;
+    final id = reader.readInt64();
+    final accessHash = reader.readInt64();
+    final slug = reader.readString();
+    final title = reader.readString();
+    final hasEmojiIdField = (flags & 2) != 0;
+    final emojiId = hasEmojiIdField ? reader.readInt64() : null;
+    final hasPromptField = (flags & 16) != 0;
+    final prompt = hasPromptField ? reader.readString() : null;
+    final hasInstallsCountField = (flags & 4) != 0;
+    final installsCount = hasInstallsCountField ? reader.readInt32() : null;
+    final hasAuthorIdField = (flags & 8) != 0;
+    final authorId = hasAuthorIdField ? reader.readInt64() : null;
+    final hasExampleEnglishField = (flags & 32) != 0;
+    final exampleEnglish = hasExampleEnglishField
+        ? reader.readObject() as AiComposeToneExampleBase
+        : null;
+
+    // Construct [AiComposeTone] object.
+    final returnValue = AiComposeTone(
+      creator: creator,
+      id: id,
+      accessHash: accessHash,
+      slug: slug,
+      title: title,
+      emojiId: emojiId,
+      prompt: prompt,
+      installsCount: installsCount,
+      authorId: authorId,
+      exampleEnglish: exampleEnglish,
+    );
+
+    // Now return the deserialized [AiComposeTone].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: creator,
+      b01: emojiId != null,
+      b04: prompt != null,
+      b02: installsCount != null,
+      b03: authorId != null,
+      b05: exampleEnglish != null,
+    );
+
+    return v;
+  }
+
+  /// creator: bit 0 of flags.0?true
+  final bool creator;
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Access Hash.
+  ///
+  /// Field type is Int64.
+  final int accessHash;
+
+  /// Slug.
+  final String slug;
+
+  /// Title.
+  final String title;
+
+  /// Emoji Id.
+  final int? emojiId;
+
+  /// Prompt.
+  final String? prompt;
+
+  /// Installs Count.
+  final int? installsCount;
+
+  /// Author Id.
+  final int? authorId;
+
+  /// Example English.
+  final AiComposeToneExampleBase? exampleEnglish;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcff63ea9.
+    buffer.writeInt32(0xcff63ea9);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(id);
+    buffer.writeInt64(accessHash);
+    buffer.writeString(slug);
+    buffer.writeString(title);
+    final localEmojiIdCopy = emojiId;
+    if (localEmojiIdCopy != null) {
+      buffer.writeInt64(localEmojiIdCopy);
+    }
+    final localPromptCopy = prompt;
+    if (localPromptCopy != null) {
+      buffer.writeString(localPromptCopy);
+    }
+    final localInstallsCountCopy = installsCount;
+    if (localInstallsCountCopy != null) {
+      buffer.writeInt32(localInstallsCountCopy);
+    }
+    final localAuthorIdCopy = authorId;
+    if (localAuthorIdCopy != null) {
+      buffer.writeInt64(localAuthorIdCopy);
+    }
+    final localExampleEnglishCopy = exampleEnglish;
+    if (localExampleEnglishCopy != null) {
+      buffer.writeObject(localExampleEnglishCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "cff63ea9",
+      "\$name": "AiComposeTone",
+      "flags": flags,
+      "creator": creator,
+      "id": id,
+      "accessHash": accessHash,
+      "slug": slug,
+      "title": title,
+      "emojiId": emojiId,
+      "prompt": prompt,
+      "installsCount": installsCount,
+      "authorId": authorId,
+      "exampleEnglish": exampleEnglish,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ai Compose Tone Default.
+///
+/// ID: `9bad6414`.
+class AiComposeToneDefault extends AiComposeToneBase {
+  /// Ai Compose Tone Default constructor.
+  const AiComposeToneDefault({
+    required this.tone,
+    required this.emojiId,
+    required this.title,
+  }) : super._();
+
+  /// Deserialize.
+  factory AiComposeToneDefault.deserialize(BinaryReader reader) {
+    // Read [AiComposeToneDefault] fields.
+    final tone = reader.readString();
+    final emojiId = reader.readInt64();
+    final title = reader.readString();
+
+    // Construct [AiComposeToneDefault] object.
+    final returnValue = AiComposeToneDefault(
+      tone: tone,
+      emojiId: emojiId,
+      title: title,
+    );
+
+    // Now return the deserialized [AiComposeToneDefault].
+    return returnValue;
+  }
+
+  /// Tone.
+  final String tone;
+
+  /// Emoji Id.
+  ///
+  /// Field type is Int64.
+  final int emojiId;
+
+  /// Title.
+  final String title;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9bad6414.
+    buffer.writeInt32(0x9bad6414);
+
+    // Write fields.
+    buffer.writeString(tone);
+    buffer.writeInt64(emojiId);
+    buffer.writeString(title);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9bad6414",
+      "\$name": "AiComposeToneDefault",
+      "tone": tone,
+      "emojiId": emojiId,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Tones Not Modified.
+///
+/// ID: `c1f46103`.
+class AicomposeTonesNotModified extends AicomposeTonesBase {
+  /// Aicompose Tones Not Modified constructor.
+  const AicomposeTonesNotModified() : super._();
+
+  /// Deserialize.
+  factory AicomposeTonesNotModified.deserialize(BinaryReader reader) {
+    // Construct [AicomposeTonesNotModified] object.
+    final returnValue = AicomposeTonesNotModified();
+
+    // Now return the deserialized [AicomposeTonesNotModified].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc1f46103.
+    buffer.writeInt32(0xc1f46103);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c1f46103",
+      "\$name": "AicomposeTonesNotModified",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Tones.
+///
+/// ID: `6c9d0efe`.
+class AicomposeTones extends AicomposeTonesBase {
+  /// Aicompose Tones constructor.
+  const AicomposeTones({
+    required this.hash,
+    required this.tones,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory AicomposeTones.deserialize(BinaryReader reader) {
+    // Read [AicomposeTones] fields.
+    final hash = reader.readInt64();
+    final tones = reader.readVectorObject<AiComposeToneBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [AicomposeTones] object.
+    final returnValue = AicomposeTones(
+      hash: hash,
+      tones: tones.items,
+      users: users.items,
+    );
+
+    // Now return the deserialized [AicomposeTones].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Tones.
+  final List<AiComposeToneBase> tones;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6c9d0efe.
+    buffer.writeInt32(0x6c9d0efe);
+
+    // Write fields.
+    buffer.writeInt64(hash);
+    buffer.writeVectorObject(tones);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "6c9d0efe",
+      "\$name": "AicomposeTones",
+      "hash": hash,
+      "tones": tones,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ai Compose Tone Example.
+///
+/// ID: `f1d628ec`.
+class AiComposeToneExample extends AiComposeToneExampleBase {
+  /// Ai Compose Tone Example constructor.
+  const AiComposeToneExample({required this.from, required this.to})
+      : super._();
+
+  /// Deserialize.
+  factory AiComposeToneExample.deserialize(BinaryReader reader) {
+    // Read [AiComposeToneExample] fields.
+    final from = reader.readObject() as TextWithEntitiesBase;
+    final to = reader.readObject() as TextWithEntitiesBase;
+
+    // Construct [AiComposeToneExample] object.
+    final returnValue = AiComposeToneExample(from: from, to: to);
+
+    // Now return the deserialized [AiComposeToneExample].
+    return returnValue;
+  }
+
+  /// From.
+  final TextWithEntitiesBase from;
+
+  /// To.
+  final TextWithEntitiesBase to;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf1d628ec.
+    buffer.writeInt32(0xf1d628ec);
+
+    // Write fields.
+    buffer.writeObject(from);
+    buffer.writeObject(to);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f1d628ec",
+      "\$name": "AiComposeToneExample",
+      "from": from,
+      "to": to,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Access Settings.
+///
+/// ID: `dd1fbf93`.
+class BotsAccessSettings extends BotsAccessSettingsBase {
+  /// Bots Access Settings constructor.
+  const BotsAccessSettings({required this.restricted, this.addUsers})
+      : super._();
+
+  /// Deserialize.
+  factory BotsAccessSettings.deserialize(BinaryReader reader) {
+    // Read [BotsAccessSettings] fields.
+    final flags = reader.readInt32();
+    final restricted = (flags & 1) != 0;
+    final hasAddUsersField = (flags & 2) != 0;
+    final addUsers =
+        hasAddUsersField ? reader.readVectorObject<UserBase>() : null;
+
+    // Construct [BotsAccessSettings] object.
+    final returnValue = BotsAccessSettings(
+      restricted: restricted,
+      addUsers: addUsers?.items,
+    );
+
+    // Now return the deserialized [BotsAccessSettings].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: restricted, b01: addUsers != null);
+
+    return v;
+  }
+
+  /// restricted: bit 0 of flags.0?true
+  final bool restricted;
+
+  /// Add Users.
+  final List<UserBase>? addUsers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdd1fbf93.
+    buffer.writeInt32(0xdd1fbf93);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localAddUsersCopy = addUsers;
+    if (localAddUsersCopy != null) {
+      buffer.writeVectorObject(localAddUsersCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "dd1fbf93",
+      "\$name": "BotsAccessSettings",
+      "flags": flags,
+      "restricted": restricted,
+      "addUsers": addUsers,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Invoke After Msg.
 ///
 /// Return Type: `X`.
@@ -124047,6 +125009,7 @@ class ContactsGetTopPeers extends TlMethod {
     required this.groups,
     required this.channels,
     required this.botsApp,
+    required this.botsGuestchat,
     required this.offset,
     required this.limit,
     required this.hash,
@@ -124065,6 +125028,7 @@ class ContactsGetTopPeers extends TlMethod {
     final groups = (flags & 1024) != 0;
     final channels = (flags & 32768) != 0;
     final botsApp = (flags & 65536) != 0;
+    final botsGuestchat = (flags & 131072) != 0;
     final offset = reader.readInt32();
     final limit = reader.readInt32();
     final hash = reader.readInt64();
@@ -124080,6 +125044,7 @@ class ContactsGetTopPeers extends TlMethod {
       groups: groups,
       channels: channels,
       botsApp: botsApp,
+      botsGuestchat: botsGuestchat,
       offset: offset,
       limit: limit,
       hash: hash,
@@ -124101,6 +125066,7 @@ class ContactsGetTopPeers extends TlMethod {
       b10: groups,
       b15: channels,
       b16: botsApp,
+      b17: botsGuestchat,
     );
 
     return v;
@@ -124132,6 +125098,9 @@ class ContactsGetTopPeers extends TlMethod {
 
   /// bots_app: bit 16 of flags.16?true
   final bool botsApp;
+
+  /// bots_guestchat: bit 17 of flags.17?true
+  final bool botsGuestchat;
 
   /// Offset.
   ///
@@ -124178,6 +125147,7 @@ class ContactsGetTopPeers extends TlMethod {
       "groups": groups,
       "channels": channels,
       "botsApp": botsApp,
+      "botsGuestchat": botsGuestchat,
       "offset": offset,
       "limit": limit,
       "hash": hash,
@@ -143902,7 +144872,7 @@ class MessagesCheckUrlAuthMatchCode extends TlMethod {
 /// Messages Compose Message With A I.
 ///
 /// Return Type: `MessagesComposedMessageWithAIBase`.
-/// ID: `fd426afe`.
+/// ID: `daecc589`.
 class MessagesComposeMessageWithAI extends TlMethod {
   /// Messages Compose Message With A I constructor.
   const MessagesComposeMessageWithAI({
@@ -143910,7 +144880,7 @@ class MessagesComposeMessageWithAI extends TlMethod {
     required this.emojify,
     required this.text,
     this.translateToLang,
-    this.changeTone,
+    this.tone,
   }) : super._();
 
   /// Deserialize.
@@ -143923,8 +144893,9 @@ class MessagesComposeMessageWithAI extends TlMethod {
     final hasTranslateToLangField = (flags & 2) != 0;
     final translateToLang =
         hasTranslateToLangField ? reader.readString() : null;
-    final hasChangeToneField = (flags & 4) != 0;
-    final changeTone = hasChangeToneField ? reader.readString() : null;
+    final hasToneField = (flags & 4) != 0;
+    final tone =
+        hasToneField ? reader.readObject() as InputAiComposeToneBase : null;
 
     // Construct [MessagesComposeMessageWithAI] object.
     final returnValue = MessagesComposeMessageWithAI(
@@ -143932,7 +144903,7 @@ class MessagesComposeMessageWithAI extends TlMethod {
       emojify: emojify,
       text: text,
       translateToLang: translateToLang,
-      changeTone: changeTone,
+      tone: tone,
     );
 
     // Now return the deserialized [MessagesComposeMessageWithAI].
@@ -143945,7 +144916,7 @@ class MessagesComposeMessageWithAI extends TlMethod {
       b00: proofread,
       b03: emojify,
       b01: translateToLang != null,
-      b02: changeTone != null,
+      b02: tone != null,
     );
 
     return v;
@@ -143963,14 +144934,14 @@ class MessagesComposeMessageWithAI extends TlMethod {
   /// Translate To Lang.
   final String? translateToLang;
 
-  /// Change Tone.
-  final String? changeTone;
+  /// Tone.
+  final InputAiComposeToneBase? tone;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xfd426afe.
-    buffer.writeInt32(0xfd426afe);
+    // Write type-id 0xdaecc589.
+    buffer.writeInt32(0xdaecc589);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -143979,9 +144950,9 @@ class MessagesComposeMessageWithAI extends TlMethod {
     if (localTranslateToLangCopy != null) {
       buffer.writeString(localTranslateToLangCopy);
     }
-    final localChangeToneCopy = changeTone;
-    if (localChangeToneCopy != null) {
-      buffer.writeString(localChangeToneCopy);
+    final localToneCopy = tone;
+    if (localToneCopy != null) {
+      buffer.writeObject(localToneCopy);
     }
 
     // Finished serialization.
@@ -143990,14 +144961,14 @@ class MessagesComposeMessageWithAI extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "fd426afe",
+      "\$hash": "daecc589",
       "\$name": "MessagesComposeMessageWithAI",
       "flags": flags,
       "proofread": proofread,
       "emojify": emojify,
       "text": text,
       "translateToLang": translateToLang,
-      "changeTone": changeTone,
+      "tone": tone,
     };
 
     // Finished toJson.
@@ -144450,6 +145421,290 @@ class MessagesReadPollVotes extends TlMethod {
       "flags": flags,
       "peer": peer,
       "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Set Bot Guest Chat Result.
+///
+/// Return Type: `bool`.
+/// ID: `052b08db`.
+class MessagesSetBotGuestChatResult extends TlMethod {
+  /// Messages Set Bot Guest Chat Result constructor.
+  const MessagesSetBotGuestChatResult({
+    required this.queryId,
+    required this.result,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesSetBotGuestChatResult.deserialize(BinaryReader reader) {
+    // Read [MessagesSetBotGuestChatResult] fields.
+    final queryId = reader.readInt64();
+    final result = reader.readObject() as InputBotInlineResultBase;
+
+    // Construct [MessagesSetBotGuestChatResult] object.
+    final returnValue = MessagesSetBotGuestChatResult(
+      queryId: queryId,
+      result: result,
+    );
+
+    // Now return the deserialized [MessagesSetBotGuestChatResult].
+    return returnValue;
+  }
+
+  /// Query Id.
+  ///
+  /// Field type is Int64.
+  final int queryId;
+
+  /// Result.
+  final InputBotInlineResultBase result;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x052b08db.
+    buffer.writeInt32(0x052b08db);
+
+    // Write fields.
+    buffer.writeInt64(queryId);
+    buffer.writeObject(result);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "052b08db",
+      "\$name": "MessagesSetBotGuestChatResult",
+      "queryId": queryId,
+      "result": result,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Delete Participant Reactions.
+///
+/// Return Type: `bool`.
+/// ID: `a0b80cf8`.
+class MessagesDeleteParticipantReactions extends TlMethod {
+  /// Messages Delete Participant Reactions constructor.
+  const MessagesDeleteParticipantReactions({
+    required this.peer,
+    required this.participant,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDeleteParticipantReactions.deserialize(BinaryReader reader) {
+    // Read [MessagesDeleteParticipantReactions] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final participant = reader.readObject() as InputPeerBase;
+
+    // Construct [MessagesDeleteParticipantReactions] object.
+    final returnValue = MessagesDeleteParticipantReactions(
+      peer: peer,
+      participant: participant,
+    );
+
+    // Now return the deserialized [MessagesDeleteParticipantReactions].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Participant.
+  final InputPeerBase participant;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa0b80cf8.
+    buffer.writeInt32(0xa0b80cf8);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(participant);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a0b80cf8",
+      "\$name": "MessagesDeleteParticipantReactions",
+      "peer": peer,
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Delete Participant Reaction.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `e3b7f82c`.
+class MessagesDeleteParticipantReaction extends TlMethod {
+  /// Messages Delete Participant Reaction constructor.
+  const MessagesDeleteParticipantReaction({
+    required this.peer,
+    required this.msgId,
+    required this.participant,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesDeleteParticipantReaction.deserialize(BinaryReader reader) {
+    // Read [MessagesDeleteParticipantReaction] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+    final participant = reader.readObject() as InputPeerBase;
+
+    // Construct [MessagesDeleteParticipantReaction] object.
+    final returnValue = MessagesDeleteParticipantReaction(
+      peer: peer,
+      msgId: msgId,
+      participant: participant,
+    );
+
+    // Now return the deserialized [MessagesDeleteParticipantReaction].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Participant.
+  final InputPeerBase participant;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe3b7f82c.
+    buffer.writeInt32(0xe3b7f82c);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+    buffer.writeObject(participant);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e3b7f82c",
+      "\$name": "MessagesDeleteParticipantReaction",
+      "peer": peer,
+      "msgId": msgId,
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Get Personal Channel History.
+///
+/// Return Type: `MessagesMessagesBase`.
+/// ID: `55fb0996`.
+class MessagesGetPersonalChannelHistory extends TlMethod {
+  /// Messages Get Personal Channel History constructor.
+  const MessagesGetPersonalChannelHistory({
+    required this.userId,
+    required this.limit,
+    required this.maxId,
+    required this.minId,
+    required this.hash,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesGetPersonalChannelHistory.deserialize(BinaryReader reader) {
+    // Read [MessagesGetPersonalChannelHistory] fields.
+    final userId = reader.readObject() as InputUserBase;
+    final limit = reader.readInt32();
+    final maxId = reader.readInt32();
+    final minId = reader.readInt32();
+    final hash = reader.readInt64();
+
+    // Construct [MessagesGetPersonalChannelHistory] object.
+    final returnValue = MessagesGetPersonalChannelHistory(
+      userId: userId,
+      limit: limit,
+      maxId: maxId,
+      minId: minId,
+      hash: hash,
+    );
+
+    // Now return the deserialized [MessagesGetPersonalChannelHistory].
+    return returnValue;
+  }
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Max Id.
+  ///
+  /// Field type is Int32.
+  final int maxId;
+
+  /// Min Id.
+  ///
+  /// Field type is Int32.
+  final int minId;
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x55fb0996.
+    buffer.writeInt32(0x55fb0996);
+
+    // Write fields.
+    buffer.writeObject(userId);
+    buffer.writeInt32(limit);
+    buffer.writeInt32(maxId);
+    buffer.writeInt32(minId);
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "55fb0996",
+      "\$name": "MessagesGetPersonalChannelHistory",
+      "userId": userId,
+      "limit": limit,
+      "maxId": maxId,
+      "minId": minId,
+      "hash": hash,
     };
 
     // Finished toJson.
@@ -152876,6 +154131,136 @@ class BotsGetRequestedWebViewButton extends TlMethod {
       "\$name": "BotsGetRequestedWebViewButton",
       "bot": bot,
       "webappReqId": webappReqId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Get Access Settings.
+///
+/// Return Type: `BotsAccessSettingsBase`.
+/// ID: `213853a3`.
+class BotsGetAccessSettings extends TlMethod {
+  /// Bots Get Access Settings constructor.
+  const BotsGetAccessSettings({required this.bot}) : super._();
+
+  /// Deserialize.
+  factory BotsGetAccessSettings.deserialize(BinaryReader reader) {
+    // Read [BotsGetAccessSettings] fields.
+    final bot = reader.readObject() as InputUserBase;
+
+    // Construct [BotsGetAccessSettings] object.
+    final returnValue = BotsGetAccessSettings(bot: bot);
+
+    // Now return the deserialized [BotsGetAccessSettings].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x213853a3.
+    buffer.writeInt32(0x213853a3);
+
+    // Write fields.
+    buffer.writeObject(bot);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "213853a3",
+      "\$name": "BotsGetAccessSettings",
+      "bot": bot,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Edit Access Settings.
+///
+/// Return Type: `bool`.
+/// ID: `31813cd8`.
+class BotsEditAccessSettings extends TlMethod {
+  /// Bots Edit Access Settings constructor.
+  const BotsEditAccessSettings({
+    required this.restricted,
+    required this.bot,
+    this.addUsers,
+  }) : super._();
+
+  /// Deserialize.
+  factory BotsEditAccessSettings.deserialize(BinaryReader reader) {
+    // Read [BotsEditAccessSettings] fields.
+    final flags = reader.readInt32();
+    final restricted = (flags & 1) != 0;
+    final bot = reader.readObject() as InputUserBase;
+    final hasAddUsersField = (flags & 2) != 0;
+    final addUsers =
+        hasAddUsersField ? reader.readVectorObject<InputUserBase>() : null;
+
+    // Construct [BotsEditAccessSettings] object.
+    final returnValue = BotsEditAccessSettings(
+      restricted: restricted,
+      bot: bot,
+      addUsers: addUsers?.items,
+    );
+
+    // Now return the deserialized [BotsEditAccessSettings].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: restricted, b01: addUsers != null);
+
+    return v;
+  }
+
+  /// restricted: bit 0 of flags.0?true
+  final bool restricted;
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Add Users.
+  final List<InputUserBase>? addUsers;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x31813cd8.
+    buffer.writeInt32(0x31813cd8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(bot);
+    final localAddUsersCopy = addUsers;
+    if (localAddUsersCopy != null) {
+      buffer.writeVectorObject(localAddUsersCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "31813cd8",
+      "\$name": "BotsEditAccessSettings",
+      "flags": flags,
+      "restricted": restricted,
+      "bot": bot,
+      "addUsers": addUsers,
     };
 
     // Finished toJson.
@@ -162005,6 +163390,81 @@ class StatsGetStoryPublicForwards extends TlMethod {
   }
 }
 
+/// Stats Get Poll Stats.
+///
+/// Return Type: `StatsPollStatsBase`.
+/// ID: `c27dfa68`.
+class StatsGetPollStats extends TlMethod {
+  /// Stats Get Poll Stats constructor.
+  const StatsGetPollStats({
+    required this.dark,
+    required this.peer,
+    required this.msgId,
+  }) : super._();
+
+  /// Deserialize.
+  factory StatsGetPollStats.deserialize(BinaryReader reader) {
+    // Read [StatsGetPollStats] fields.
+    final flags = reader.readInt32();
+    final dark = (flags & 1) != 0;
+    final peer = reader.readObject() as InputPeerBase;
+    final msgId = reader.readInt32();
+
+    // Construct [StatsGetPollStats] object.
+    final returnValue = StatsGetPollStats(dark: dark, peer: peer, msgId: msgId);
+
+    // Now return the deserialized [StatsGetPollStats].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: dark);
+
+    return v;
+  }
+
+  /// dark: bit 0 of flags.0?true
+  final bool dark;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc27dfa68.
+    buffer.writeInt32(0xc27dfa68);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeInt32(msgId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c27dfa68",
+      "\$name": "StatsGetPollStats",
+      "flags": flags,
+      "dark": dark,
+      "peer": peer,
+      "msgId": msgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Chatlists Export Chatlist Invite.
 ///
 /// Return Type: `ChatlistsExportedChatlistInviteBase`.
@@ -165879,6 +167339,465 @@ class FragmentGetCollectibleInfo extends TlMethod {
       "\$hash": "be1e85ba",
       "\$name": "FragmentGetCollectibleInfo",
       "collectible": collectible,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Create Tone.
+///
+/// Return Type: `AiComposeToneBase`.
+/// ID: `4aa83913`.
+class AicomposeCreateTone extends TlMethod {
+  /// Aicompose Create Tone constructor.
+  const AicomposeCreateTone({
+    required this.displayAuthor,
+    required this.emojiId,
+    required this.title,
+    required this.prompt,
+  }) : super._();
+
+  /// Deserialize.
+  factory AicomposeCreateTone.deserialize(BinaryReader reader) {
+    // Read [AicomposeCreateTone] fields.
+    final flags = reader.readInt32();
+    final displayAuthor = (flags & 1) != 0;
+    final emojiId = reader.readInt64();
+    final title = reader.readString();
+    final prompt = reader.readString();
+
+    // Construct [AicomposeCreateTone] object.
+    final returnValue = AicomposeCreateTone(
+      displayAuthor: displayAuthor,
+      emojiId: emojiId,
+      title: title,
+      prompt: prompt,
+    );
+
+    // Now return the deserialized [AicomposeCreateTone].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: displayAuthor);
+
+    return v;
+  }
+
+  /// display_author: bit 0 of flags.0?true
+  final bool displayAuthor;
+
+  /// Emoji Id.
+  ///
+  /// Field type is Int64.
+  final int emojiId;
+
+  /// Title.
+  final String title;
+
+  /// Prompt.
+  final String prompt;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4aa83913.
+    buffer.writeInt32(0x4aa83913);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(emojiId);
+    buffer.writeString(title);
+    buffer.writeString(prompt);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4aa83913",
+      "\$name": "AicomposeCreateTone",
+      "flags": flags,
+      "displayAuthor": displayAuthor,
+      "emojiId": emojiId,
+      "title": title,
+      "prompt": prompt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Update Tone.
+///
+/// Return Type: `AiComposeToneBase`.
+/// ID: `903bcf59`.
+class AicomposeUpdateTone extends TlMethod {
+  /// Aicompose Update Tone constructor.
+  const AicomposeUpdateTone({
+    required this.tone,
+    this.displayAuthor,
+    this.emojiId,
+    this.title,
+    this.prompt,
+  }) : super._();
+
+  /// Deserialize.
+  factory AicomposeUpdateTone.deserialize(BinaryReader reader) {
+    // Read [AicomposeUpdateTone] fields.
+    final flags = reader.readInt32();
+    final tone = reader.readObject() as InputAiComposeToneBase;
+    final displayAuthor = (flags & 1) != 0 ? reader.readBool() : null;
+    final hasEmojiIdField = (flags & 2) != 0;
+    final emojiId = hasEmojiIdField ? reader.readInt64() : null;
+    final hasTitleField = (flags & 4) != 0;
+    final title = hasTitleField ? reader.readString() : null;
+    final hasPromptField = (flags & 8) != 0;
+    final prompt = hasPromptField ? reader.readString() : null;
+
+    // Construct [AicomposeUpdateTone] object.
+    final returnValue = AicomposeUpdateTone(
+      tone: tone,
+      displayAuthor: displayAuthor,
+      emojiId: emojiId,
+      title: title,
+      prompt: prompt,
+    );
+
+    // Now return the deserialized [AicomposeUpdateTone].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: (displayAuthor != null),
+      b01: emojiId != null,
+      b02: title != null,
+      b03: prompt != null,
+    );
+
+    return v;
+  }
+
+  /// Tone.
+  final InputAiComposeToneBase tone;
+
+  /// display_author: bit 0 of flags.0?Bool
+  final bool? displayAuthor;
+
+  /// Emoji Id.
+  final int? emojiId;
+
+  /// Title.
+  final String? title;
+
+  /// Prompt.
+  final String? prompt;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x903bcf59.
+    buffer.writeInt32(0x903bcf59);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(tone);
+    final localDisplayAuthorCopy = displayAuthor;
+    if (localDisplayAuthorCopy != null) {
+      buffer.writeBool(localDisplayAuthorCopy);
+    }
+    final localEmojiIdCopy = emojiId;
+    if (localEmojiIdCopy != null) {
+      buffer.writeInt64(localEmojiIdCopy);
+    }
+    final localTitleCopy = title;
+    if (localTitleCopy != null) {
+      buffer.writeString(localTitleCopy);
+    }
+    final localPromptCopy = prompt;
+    if (localPromptCopy != null) {
+      buffer.writeString(localPromptCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "903bcf59",
+      "\$name": "AicomposeUpdateTone",
+      "flags": flags,
+      "tone": tone,
+      "displayAuthor": displayAuthor,
+      "emojiId": emojiId,
+      "title": title,
+      "prompt": prompt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Save Tone.
+///
+/// Return Type: `bool`.
+/// ID: `1782cbb1`.
+class AicomposeSaveTone extends TlMethod {
+  /// Aicompose Save Tone constructor.
+  const AicomposeSaveTone({required this.tone, required this.unsave})
+      : super._();
+
+  /// Deserialize.
+  factory AicomposeSaveTone.deserialize(BinaryReader reader) {
+    // Read [AicomposeSaveTone] fields.
+    final tone = reader.readObject() as InputAiComposeToneBase;
+    final unsave = reader.readBool();
+
+    // Construct [AicomposeSaveTone] object.
+    final returnValue = AicomposeSaveTone(tone: tone, unsave: unsave);
+
+    // Now return the deserialized [AicomposeSaveTone].
+    return returnValue;
+  }
+
+  /// Tone.
+  final InputAiComposeToneBase tone;
+
+  /// Unsave.
+  final bool unsave;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1782cbb1.
+    buffer.writeInt32(0x1782cbb1);
+
+    // Write fields.
+    buffer.writeObject(tone);
+    buffer.writeBool(unsave);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "1782cbb1",
+      "\$name": "AicomposeSaveTone",
+      "tone": tone,
+      "unsave": unsave,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Delete Tone.
+///
+/// Return Type: `bool`.
+/// ID: `dd39316a`.
+class AicomposeDeleteTone extends TlMethod {
+  /// Aicompose Delete Tone constructor.
+  const AicomposeDeleteTone({required this.tone}) : super._();
+
+  /// Deserialize.
+  factory AicomposeDeleteTone.deserialize(BinaryReader reader) {
+    // Read [AicomposeDeleteTone] fields.
+    final tone = reader.readObject() as InputAiComposeToneBase;
+
+    // Construct [AicomposeDeleteTone] object.
+    final returnValue = AicomposeDeleteTone(tone: tone);
+
+    // Now return the deserialized [AicomposeDeleteTone].
+    return returnValue;
+  }
+
+  /// Tone.
+  final InputAiComposeToneBase tone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xdd39316a.
+    buffer.writeInt32(0xdd39316a);
+
+    // Write fields.
+    buffer.writeObject(tone);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "dd39316a",
+      "\$name": "AicomposeDeleteTone",
+      "tone": tone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Get Tone.
+///
+/// Return Type: `AicomposeTonesBase`.
+/// ID: `b2e8ba03`.
+class AicomposeGetTone extends TlMethod {
+  /// Aicompose Get Tone constructor.
+  const AicomposeGetTone({required this.tone}) : super._();
+
+  /// Deserialize.
+  factory AicomposeGetTone.deserialize(BinaryReader reader) {
+    // Read [AicomposeGetTone] fields.
+    final tone = reader.readObject() as InputAiComposeToneBase;
+
+    // Construct [AicomposeGetTone] object.
+    final returnValue = AicomposeGetTone(tone: tone);
+
+    // Now return the deserialized [AicomposeGetTone].
+    return returnValue;
+  }
+
+  /// Tone.
+  final InputAiComposeToneBase tone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb2e8ba03.
+    buffer.writeInt32(0xb2e8ba03);
+
+    // Write fields.
+    buffer.writeObject(tone);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "b2e8ba03",
+      "\$name": "AicomposeGetTone",
+      "tone": tone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Get Tones.
+///
+/// Return Type: `AicomposeTonesBase`.
+/// ID: `abd59201`.
+class AicomposeGetTones extends TlMethod {
+  /// Aicompose Get Tones constructor.
+  const AicomposeGetTones({required this.hash}) : super._();
+
+  /// Deserialize.
+  factory AicomposeGetTones.deserialize(BinaryReader reader) {
+    // Read [AicomposeGetTones] fields.
+    final hash = reader.readInt64();
+
+    // Construct [AicomposeGetTones] object.
+    final returnValue = AicomposeGetTones(hash: hash);
+
+    // Now return the deserialized [AicomposeGetTones].
+    return returnValue;
+  }
+
+  /// Hash.
+  ///
+  /// Field type is Int64.
+  final int hash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xabd59201.
+    buffer.writeInt32(0xabd59201);
+
+    // Write fields.
+    buffer.writeInt64(hash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "abd59201",
+      "\$name": "AicomposeGetTones",
+      "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Aicompose Get Tone Example.
+///
+/// Return Type: `AiComposeToneExampleBase`.
+/// ID: `d1b4ab14`.
+class AicomposeGetToneExample extends TlMethod {
+  /// Aicompose Get Tone Example constructor.
+  const AicomposeGetToneExample({required this.tone, required this.num})
+      : super._();
+
+  /// Deserialize.
+  factory AicomposeGetToneExample.deserialize(BinaryReader reader) {
+    // Read [AicomposeGetToneExample] fields.
+    final tone = reader.readObject() as InputAiComposeToneBase;
+    final num = reader.readInt32();
+
+    // Construct [AicomposeGetToneExample] object.
+    final returnValue = AicomposeGetToneExample(tone: tone, num: num);
+
+    // Now return the deserialized [AicomposeGetToneExample].
+    return returnValue;
+  }
+
+  /// Tone.
+  final InputAiComposeToneBase tone;
+
+  /// Num.
+  ///
+  /// Field type is Int32.
+  final int num;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1b4ab14.
+    buffer.writeInt32(0xd1b4ab14);
+
+    // Write fields.
+    buffer.writeObject(tone);
+    buffer.writeInt32(num);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d1b4ab14",
+      "\$name": "AicomposeGetToneExample",
+      "tone": tone,
+      "num": num,
     };
 
     // Finished toJson.

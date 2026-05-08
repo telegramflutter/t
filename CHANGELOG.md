@@ -1,3 +1,8 @@
+## 225.0.0
+
+- Updated to layer 225.
+- Added AI Compose.
+
 ## 224.0.0
 
 - Updated to layer 224.

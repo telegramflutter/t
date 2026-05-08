@@ -3660,6 +3660,42 @@ abstract class MessagesComposedMessageWithAIBase extends TlConstructor {
   const MessagesComposedMessageWithAIBase._() : super._();
 }
 
+/// Predicate Stats Poll Stats.
+abstract class StatsPollStatsBase extends TlConstructor {
+  /// Predicate Stats Poll Stats constructor.
+  const StatsPollStatsBase._() : super._();
+}
+
+/// Predicate Input Ai Compose Tone.
+abstract class InputAiComposeToneBase extends TlConstructor {
+  /// Predicate Input Ai Compose Tone constructor.
+  const InputAiComposeToneBase._() : super._();
+}
+
+/// Predicate Ai Compose Tone.
+abstract class AiComposeToneBase extends TlConstructor {
+  /// Predicate Ai Compose Tone constructor.
+  const AiComposeToneBase._() : super._();
+}
+
+/// Predicate Aicompose Tones.
+abstract class AicomposeTonesBase extends TlConstructor {
+  /// Predicate Aicompose Tones constructor.
+  const AicomposeTonesBase._() : super._();
+}
+
+/// Predicate Ai Compose Tone Example.
+abstract class AiComposeToneExampleBase extends TlConstructor {
+  /// Predicate Ai Compose Tone Example constructor.
+  const AiComposeToneExampleBase._() : super._();
+}
+
+/// Predicate Bots Access Settings.
+abstract class BotsAccessSettingsBase extends TlConstructor {
+  /// Predicate Bots Access Settings constructor.
+  const BotsAccessSettingsBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.
