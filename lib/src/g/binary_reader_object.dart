@@ -542,7 +542,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChatFull.deserialize(reader);
   }
 
-  if (id == 0xe4e0b29d) {
+  if (id == 0xa04e8d3a) {
     return ChannelFull.deserialize(reader);
   }
 
@@ -578,7 +578,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEmpty.deserialize(reader);
   }
 
-  if (id == 0x95ef6f2b) {
+  if (id == 0x7600b9d3) {
     return Message.deserialize(reader);
   }
 
@@ -1610,7 +1610,7 @@ TlObject _readObject(BinaryReader reader) {
     return UpdatePendingJoinRequests.deserialize(reader);
   }
 
-  if (id == 0x11dfa986) {
+  if (id == 0x7cb34d79) {
     return UpdateBotChatInviteRequester.deserialize(reader);
   }
 
@@ -1856,6 +1856,22 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x8c0f91fb) {
     return UpdateAiComposeTones.deserialize(reader);
+  }
+
+  if (id == 0xbdac7e70) {
+    return UpdateJoinChatWebViewDecision.deserialize(reader);
+  }
+
+  if (id == 0xb22083a6) {
+    return UpdateNewBotConnection.deserialize(reader);
+  }
+
+  if (id == 0xc39a2ade) {
+    return UpdateWebBrowserSettings.deserialize(reader);
+  }
+
+  if (id == 0x140502d1) {
+    return UpdateWebBrowserException.deserialize(reader);
   }
 
   if (id == 0xa56c2a3e) {
@@ -2136,6 +2152,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x376d975c) {
     return SendMessageTextDraftAction.deserialize(reader);
+  }
+
+  if (id == 0xe2b23b51) {
+    return InputSendMessageRichMessageDraftAction.deserialize(reader);
+  }
+
+  if (id == 0xa2cb24f9) {
+    return SendMessageRichMessageDraftAction.deserialize(reader);
   }
 
   if (id == 0xb3134d9d) {
@@ -2890,6 +2914,10 @@ TlObject _readObject(BinaryReader reader) {
     return InputBotInlineMessageMediaWebPage.deserialize(reader);
   }
 
+  if (id == 0xb43df56c) {
+    return InputBotInlineMessageRichMessage.deserialize(reader);
+  }
+
   if (id == 0x88bf9319) {
     return InputBotInlineResult.deserialize(reader);
   }
@@ -2932,6 +2960,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x809ad9a6) {
     return BotInlineMessageMediaWebPage.deserialize(reader);
+  }
+
+  if (id == 0x0a617e7b) {
+    return BotInlineMessageRichMessage.deserialize(reader);
   }
 
   if (id == 0x11965f3a) {
@@ -3106,7 +3138,7 @@ TlObject _readObject(BinaryReader reader) {
     return DraftMessageEmpty.deserialize(reader);
   }
 
-  if (id == 0x96eaa5eb) {
+  if (id == 0x60fe3294) {
     return DraftMessage.deserialize(reader);
   }
 
@@ -3250,6 +3282,58 @@ TlObject _readObject(BinaryReader reader) {
     return TextAnchor.deserialize(reader);
   }
 
+  if (id == 0x9d2eac97) {
+    return TextMath.deserialize(reader);
+  }
+
+  if (id == 0xa26156c0) {
+    return TextCustomEmoji.deserialize(reader);
+  }
+
+  if (id == 0x4c2a5d62) {
+    return TextSpoiler.deserialize(reader);
+  }
+
+  if (id == 0xcd24cf44) {
+    return TextMention.deserialize(reader);
+  }
+
+  if (id == 0x519524ea) {
+    return TextHashtag.deserialize(reader);
+  }
+
+  if (id == 0x02ff29d3) {
+    return TextBotCommand.deserialize(reader);
+  }
+
+  if (id == 0x7b9e1801) {
+    return TextCashtag.deserialize(reader);
+  }
+
+  if (id == 0xac6a83aa) {
+    return TextAutoUrl.deserialize(reader);
+  }
+
+  if (id == 0xc556a45d) {
+    return TextAutoEmail.deserialize(reader);
+  }
+
+  if (id == 0x24c26789) {
+    return TextAutoPhone.deserialize(reader);
+  }
+
+  if (id == 0xb956812d) {
+    return TextBankCard.deserialize(reader);
+  }
+
+  if (id == 0x01a9fbfc) {
+    return TextMentionName.deserialize(reader);
+  }
+
+  if (id == 0xa5b45e2b) {
+    return TextDate.deserialize(reader);
+  }
+
   if (id == 0x13567e8a) {
     return PageBlockUnsupported.deserialize(reader);
   }
@@ -3350,7 +3434,7 @@ TlObject _readObject(BinaryReader reader) {
     return PageBlockTable.deserialize(reader);
   }
 
-  if (id == 0x9a8ae1e1) {
+  if (id == 0x1fd6f6c1) {
     return PageBlockOrderedList.deserialize(reader);
   }
 
@@ -3364,6 +3448,46 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xa44f3ef6) {
     return PageBlockMap.deserialize(reader);
+  }
+
+  if (id == 0xbaff072f) {
+    return PageBlockHeading1.deserialize(reader);
+  }
+
+  if (id == 0x096b2aec) {
+    return PageBlockHeading2.deserialize(reader);
+  }
+
+  if (id == 0x67e731ad) {
+    return PageBlockHeading3.deserialize(reader);
+  }
+
+  if (id == 0xb532772b) {
+    return PageBlockHeading4.deserialize(reader);
+  }
+
+  if (id == 0xdbbe6c6a) {
+    return PageBlockHeading5.deserialize(reader);
+  }
+
+  if (id == 0x682a41a9) {
+    return PageBlockHeading6.deserialize(reader);
+  }
+
+  if (id == 0x59080c20) {
+    return PageBlockMath.deserialize(reader);
+  }
+
+  if (id == 0x3c29a3e2) {
+    return PageBlockThinking.deserialize(reader);
+  }
+
+  if (id == 0x574b617f) {
+    return InputPageBlockMap.deserialize(reader);
+  }
+
+  if (id == 0x0e6e47c4) {
+    return PageBlockBlockquoteBlocks.deserialize(reader);
   }
 
   if (id == 0x85e42301) {
@@ -4169,19 +4293,19 @@ TlObject _readObject(BinaryReader reader) {
     return PageCaption.deserialize(reader);
   }
 
-  if (id == 0xb92fb6cd) {
+  if (id == 0x2f58683c) {
     return PageListItemText.deserialize(reader);
   }
 
-  if (id == 0x25e073fc) {
+  if (id == 0x63ca67aa) {
     return PageListItemBlocks.deserialize(reader);
   }
 
-  if (id == 0x5e068047) {
+  if (id == 0x15031189) {
     return PageListOrderedItemText.deserialize(reader);
   }
 
-  if (id == 0x98dd8936) {
+  if (id == 0x8ff2d5f0) {
     return PageListOrderedItemBlocks.deserialize(reader);
   }
 
@@ -5697,7 +5821,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesQuickRepliesNotModified.deserialize(reader);
   }
 
-  if (id == 0xcd64636c) {
+  if (id == 0x033ed001) {
     return ConnectedBot.deserialize(reader);
   }
 
@@ -6501,6 +6625,58 @@ TlObject _readObject(BinaryReader reader) {
     return BotsAccessSettings.deserialize(reader);
   }
 
+  if (id == 0x445663a7) {
+    return MessagesChatInviteJoinResultOk.deserialize(reader);
+  }
+
+  if (id == 0x2f51c337) {
+    return MessagesChatInviteJoinResultWebView.deserialize(reader);
+  }
+
+  if (id == 0xae152a69) {
+    return JoinChatBotResultApproved.deserialize(reader);
+  }
+
+  if (id == 0x0efa0194) {
+    return JoinChatBotResultDeclined.deserialize(reader);
+  }
+
+  if (id == 0x98a3a840) {
+    return JoinChatBotResultQueued.deserialize(reader);
+  }
+
+  if (id == 0xd6e3b813) {
+    return JoinChatBotResultWebView.deserialize(reader);
+  }
+
+  if (id == 0x933ca597) {
+    return WebDomainException.deserialize(reader);
+  }
+
+  if (id == 0xc31c8f4e) {
+    return AccountWebBrowserSettingsNotModified.deserialize(reader);
+  }
+
+  if (id == 0x79eb8cb3) {
+    return AccountWebBrowserSettings.deserialize(reader);
+  }
+
+  if (id == 0xbaf39d8b) {
+    return RichMessage.deserialize(reader);
+  }
+
+  if (id == 0xe4c449fc) {
+    return InputRichMessage.deserialize(reader);
+  }
+
+  if (id == 0xd4eab551) {
+    return InputRichMessageHTML.deserialize(reader);
+  }
+
+  if (id == 0x09ac8186) {
+    return InputRichMessageMarkdown.deserialize(reader);
+  }
+
   if (id == 0xcb9f372d) {
     return InvokeAfterMsg.deserialize(reader);
   }
@@ -7141,6 +7317,26 @@ TlObject _readObject(BinaryReader reader) {
     return AccountDeletePasskey.deserialize(reader);
   }
 
+  if (id == 0x67ed1f68) {
+    return AccountConfirmBotConnection.deserialize(reader);
+  }
+
+  if (id == 0x56655768) {
+    return AccountGetWebBrowserSettings.deserialize(reader);
+  }
+
+  if (id == 0x9adf82fe) {
+    return AccountUpdateWebBrowserSettings.deserialize(reader);
+  }
+
+  if (id == 0x60ed4229) {
+    return AccountToggleWebBrowserSettingsException.deserialize(reader);
+  }
+
+  if (id == 0x86a0765d) {
+    return AccountDeleteWebBrowserSettingsExceptions.deserialize(reader);
+  }
+
   if (id == 0x0d91a548) {
     return UsersGetUsers.deserialize(reader);
   }
@@ -7205,7 +7401,7 @@ TlObject _readObject(BinaryReader reader) {
     return ContactsGetBlocked.deserialize(reader);
   }
 
-  if (id == 0x11f812d8) {
+  if (id == 0x05f58d0f) {
     return ContactsSearch.deserialize(reader);
   }
 
@@ -7317,7 +7513,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesSetTyping.deserialize(reader);
   }
 
-  if (id == 0x545cd15a) {
+  if (id == 0xfef48f62) {
     return MessagesSendMessage.deserialize(reader);
   }
 
@@ -7437,7 +7633,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesCheckChatInvite.deserialize(reader);
   }
 
-  if (id == 0x6c50051c) {
+  if (id == 0xde91436e) {
     return MessagesImportChatInvite.deserialize(reader);
   }
 
@@ -7505,11 +7701,11 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesGetMessageEditData.deserialize(reader);
   }
 
-  if (id == 0x51e842e1) {
+  if (id == 0xb106e66c) {
     return MessagesEditMessage.deserialize(reader);
   }
 
-  if (id == 0x83557dba) {
+  if (id == 0xa423bb51) {
     return MessagesEditInlineBotMessage.deserialize(reader);
   }
 
@@ -7525,7 +7721,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesGetPeerDialogs.deserialize(reader);
   }
 
-  if (id == 0x54ae308e) {
+  if (id == 0xad0fa15c) {
     return MessagesSaveDraft.deserialize(reader);
   }
 
@@ -8285,7 +8481,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesReadPollVotes.deserialize(reader);
   }
 
-  if (id == 0x052b08db) {
+  if (id == 0xb8f106e3) {
     return MessagesSetBotGuestChatResult.deserialize(reader);
   }
 
@@ -8299,6 +8495,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x55fb0996) {
     return MessagesGetPersonalChannelHistory.deserialize(reader);
+  }
+
+  if (id == 0x501569cf) {
+    return MessagesGetRichMessage.deserialize(reader);
   }
 
   if (id == 0xedd4882a) {
@@ -8521,7 +8721,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsUpdateUsername.deserialize(reader);
   }
 
-  if (id == 0x24b524c5) {
+  if (id == 0x7f6a1e22) {
     return ChannelsJoinChannel.deserialize(reader);
   }
 
@@ -8613,7 +8813,7 @@ TlObject _readObject(BinaryReader reader) {
     return ChannelsToggleJoinToSend.deserialize(reader);
   }
 
-  if (id == 0x4c2985b6) {
+  if (id == 0x0ecc2618) {
     return ChannelsToggleJoinRequest.deserialize(reader);
   }
 
@@ -8843,6 +9043,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x31813cd8) {
     return BotsEditAccessSettings.deserialize(reader);
+  }
+
+  if (id == 0xe71a4810) {
+    return BotsSetJoinChatResults.deserialize(reader);
   }
 
   if (id == 0x37148dbb) {

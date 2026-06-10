@@ -3696,6 +3696,42 @@ abstract class BotsAccessSettingsBase extends TlConstructor {
   const BotsAccessSettingsBase._() : super._();
 }
 
+/// Predicate Messages Chat Invite Join Result.
+abstract class MessagesChatInviteJoinResultBase extends TlConstructor {
+  /// Predicate Messages Chat Invite Join Result constructor.
+  const MessagesChatInviteJoinResultBase._() : super._();
+}
+
+/// Predicate Join Chat Bot Result.
+abstract class JoinChatBotResultBase extends TlConstructor {
+  /// Predicate Join Chat Bot Result constructor.
+  const JoinChatBotResultBase._() : super._();
+}
+
+/// Predicate Web Domain Exception.
+abstract class WebDomainExceptionBase extends TlConstructor {
+  /// Predicate Web Domain Exception constructor.
+  const WebDomainExceptionBase._() : super._();
+}
+
+/// Predicate Account Web Browser Settings.
+abstract class AccountWebBrowserSettingsBase extends TlConstructor {
+  /// Predicate Account Web Browser Settings constructor.
+  const AccountWebBrowserSettingsBase._() : super._();
+}
+
+/// Predicate Rich Message.
+abstract class RichMessageBase extends TlConstructor {
+  /// Predicate Rich Message constructor.
+  const RichMessageBase._() : super._();
+}
+
+/// Predicate Input Rich Message.
+abstract class InputRichMessageBase extends TlConstructor {
+  /// Predicate Input Rich Message constructor.
+  const InputRichMessageBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.

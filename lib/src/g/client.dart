@@ -2984,6 +2984,95 @@ class ClientAccount {
     // Return the result.
     return response._to<Boolean>();
   }
+
+  /// Confirm Bot Connection.
+  ///
+  /// ID: `67ed1f68`.
+  Future<Result<Boolean>> confirmBotConnection({
+    required InputUserBase botId,
+  }) async {
+    // Preparing the request.
+    final request = AccountConfirmBotConnection(botId: botId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Web Browser Settings.
+  ///
+  /// ID: `56655768`.
+  Future<Result<AccountWebBrowserSettingsBase>> getWebBrowserSettings({
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = AccountGetWebBrowserSettings(hash: hash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountWebBrowserSettingsBase>();
+  }
+
+  /// Update Web Browser Settings.
+  ///
+  /// ID: `9adf82fe`.
+  Future<Result<AccountWebBrowserSettingsBase>> updateWebBrowserSettings({
+    required bool openExternalBrowser,
+    required bool displayCloseButton,
+  }) async {
+    // Preparing the request.
+    final request = AccountUpdateWebBrowserSettings(
+      openExternalBrowser: openExternalBrowser,
+      displayCloseButton: displayCloseButton,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountWebBrowserSettingsBase>();
+  }
+
+  /// Toggle Web Browser Settings Exception.
+  ///
+  /// ID: `60ed4229`.
+  Future<Result<UpdatesBase>> toggleWebBrowserSettingsException({
+    required bool delete,
+    bool? openExternalBrowser,
+    required String url,
+  }) async {
+    // Preparing the request.
+    final request = AccountToggleWebBrowserSettingsException(
+      delete: delete,
+      openExternalBrowser: openExternalBrowser,
+      url: url,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Web Browser Settings Exceptions.
+  ///
+  /// ID: `86a0765d`.
+  Future<Result<AccountWebBrowserSettingsBase>>
+      deleteWebBrowserSettingsExceptions() async {
+    // Preparing the request.
+    final request = AccountDeleteWebBrowserSettingsExceptions();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AccountWebBrowserSettingsBase>();
+  }
 }
 
 /// Users.
@@ -3268,13 +3357,20 @@ class ClientContacts {
 
   /// Search.
   ///
-  /// ID: `11f812d8`.
+  /// ID: `05f58d0f`.
   Future<Result<ContactsFoundBase>> search({
+    required bool broadcasts,
+    required bool bots,
     required String q,
     required int limit,
   }) async {
     // Preparing the request.
-    final request = ContactsSearch(q: q, limit: limit);
+    final request = ContactsSearch(
+      broadcasts: broadcasts,
+      bots: bots,
+      q: q,
+      limit: limit,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -3852,7 +3948,7 @@ class ClientMessages {
 
   /// Send Message.
   ///
-  /// ID: `545cd15a`.
+  /// ID: `fef48f62`.
   Future<Result<UpdatesBase>> sendMessage({
     required bool noWebpage,
     required bool silent,
@@ -3875,6 +3971,7 @@ class ClientMessages {
     int? effect,
     int? allowPaidStars,
     SuggestedPostBase? suggestedPost,
+    InputRichMessageBase? richMessage,
   }) async {
     // Preparing the request.
     final request = MessagesSendMessage(
@@ -3899,6 +3996,7 @@ class ClientMessages {
       effect: effect,
       allowPaidStars: allowPaidStars,
       suggestedPost: suggestedPost,
+      richMessage: richMessage,
     );
 
     // Invoke and wait for response.
@@ -4543,8 +4641,10 @@ class ClientMessages {
 
   /// Import Chat Invite.
   ///
-  /// ID: `6c50051c`.
-  Future<Result<UpdatesBase>> importChatInvite({required String hash}) async {
+  /// ID: `de91436e`.
+  Future<Result<MessagesChatInviteJoinResultBase>> importChatInvite({
+    required String hash,
+  }) async {
     // Preparing the request.
     final request = MessagesImportChatInvite(hash: hash);
 
@@ -4552,7 +4652,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<UpdatesBase>();
+    return response._to<MessagesChatInviteJoinResultBase>();
   }
 
   /// Get Sticker Set.
@@ -4926,7 +5026,7 @@ class ClientMessages {
 
   /// Edit Message.
   ///
-  /// ID: `51e842e1`.
+  /// ID: `b106e66c`.
   Future<Result<UpdatesBase>> editMessage({
     required bool noWebpage,
     required bool invertMedia,
@@ -4939,6 +5039,7 @@ class ClientMessages {
     DateTime? scheduleDate,
     int? scheduleRepeatPeriod,
     int? quickReplyShortcutId,
+    InputRichMessageBase? richMessage,
   }) async {
     // Preparing the request.
     final request = MessagesEditMessage(
@@ -4953,6 +5054,7 @@ class ClientMessages {
       scheduleDate: scheduleDate,
       scheduleRepeatPeriod: scheduleRepeatPeriod,
       quickReplyShortcutId: quickReplyShortcutId,
+      richMessage: richMessage,
     );
 
     // Invoke and wait for response.
@@ -4964,7 +5066,7 @@ class ClientMessages {
 
   /// Edit Inline Bot Message.
   ///
-  /// ID: `83557dba`.
+  /// ID: `a423bb51`.
   Future<Result<Boolean>> editInlineBotMessage({
     required bool noWebpage,
     required bool invertMedia,
@@ -4973,6 +5075,7 @@ class ClientMessages {
     InputMediaBase? media,
     ReplyMarkupBase? replyMarkup,
     List<MessageEntityBase>? entities,
+    InputRichMessageBase? richMessage,
   }) async {
     // Preparing the request.
     final request = MessagesEditInlineBotMessage(
@@ -4983,6 +5086,7 @@ class ClientMessages {
       media: media,
       replyMarkup: replyMarkup,
       entities: entities,
+      richMessage: richMessage,
     );
 
     // Invoke and wait for response.
@@ -5062,7 +5166,7 @@ class ClientMessages {
 
   /// Save Draft.
   ///
-  /// ID: `54ae308e`.
+  /// ID: `ad0fa15c`.
   Future<Result<Boolean>> saveDraft({
     required bool noWebpage,
     required bool invertMedia,
@@ -5073,6 +5177,7 @@ class ClientMessages {
     InputMediaBase? media,
     int? effect,
     SuggestedPostBase? suggestedPost,
+    InputRichMessageBase? richMessage,
   }) async {
     // Preparing the request.
     final request = MessagesSaveDraft(
@@ -5085,6 +5190,7 @@ class ClientMessages {
       media: media,
       effect: effect,
       suggestedPost: suggestedPost,
+      richMessage: richMessage,
     );
 
     // Invoke and wait for response.
@@ -8972,8 +9078,8 @@ class ClientMessages {
 
   /// Set Bot Guest Chat Result.
   ///
-  /// ID: `052b08db`.
-  Future<Result<Boolean>> setBotGuestChatResult({
+  /// ID: `b8f106e3`.
+  Future<Result<InputBotInlineMessageIDBase>> setBotGuestChatResult({
     required int queryId,
     required InputBotInlineResultBase result,
   }) async {
@@ -8987,7 +9093,7 @@ class ClientMessages {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<Boolean>();
+    return response._to<InputBotInlineMessageIDBase>();
   }
 
   /// Delete Participant Reactions.
@@ -9050,6 +9156,23 @@ class ClientMessages {
       minId: minId,
       hash: hash,
     );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesMessagesBase>();
+  }
+
+  /// Get Rich Message.
+  ///
+  /// ID: `501569cf`.
+  Future<Result<MessagesMessagesBase>> getRichMessage({
+    required InputPeerBase peer,
+    required int id,
+  }) async {
+    // Preparing the request.
+    final request = MessagesGetRichMessage(peer: peer, id: id);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -10124,8 +10247,8 @@ class ClientChannels {
 
   /// Join Channel.
   ///
-  /// ID: `24b524c5`.
-  Future<Result<UpdatesBase>> joinChannel({
+  /// ID: `7f6a1e22`.
+  Future<Result<MessagesChatInviteJoinResultBase>> joinChannel({
     required InputChannelBase channel,
   }) async {
     // Preparing the request.
@@ -10135,7 +10258,7 @@ class ClientChannels {
     final response = await _c.invoke(request);
 
     // Return the result.
-    return response._to<UpdatesBase>();
+    return response._to<MessagesChatInviteJoinResultBase>();
   }
 
   /// Leave Channel.
@@ -10569,15 +10692,19 @@ class ClientChannels {
 
   /// Toggle Join Request.
   ///
-  /// ID: `4c2985b6`.
+  /// ID: `0ecc2618`.
   Future<Result<UpdatesBase>> toggleJoinRequest({
+    required bool applyToInvites,
     required InputChannelBase channel,
     required bool enabled,
+    InputUserBase? guardBot,
   }) async {
     // Preparing the request.
     final request = ChannelsToggleJoinRequest(
+      applyToInvites: applyToInvites,
       channel: channel,
       enabled: enabled,
+      guardBot: guardBot,
     );
 
     // Invoke and wait for response.
@@ -11684,6 +11811,23 @@ class ClientBots {
       bot: bot,
       addUsers: addUsers,
     );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Set Join Chat Results.
+  ///
+  /// ID: `e71a4810`.
+  Future<Result<Boolean>> setJoinChatResults({
+    required int queryId,
+    required JoinChatBotResultBase result,
+  }) async {
+    // Preparing the request.
+    final request = BotsSetJoinChatResults(queryId: queryId, result: result);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
