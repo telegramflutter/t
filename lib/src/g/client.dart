@@ -27,6 +27,8 @@ abstract class Client {
     smsjobs = ClientSmsjobs._(this);
     fragment = ClientFragment._(this);
     aicompose = ClientAicompose._(this);
+    communities = ClientCommunities._(this);
+    ephemeral = ClientEphemeral._(this);
   }
 
   /// Call the specified RPC [method] on the server.
@@ -100,6 +102,12 @@ abstract class Client {
 
   /// Aicompose part.
   late final ClientAicompose aicompose;
+
+  /// Communities part.
+  late final ClientCommunities communities;
+
+  /// Ephemeral part.
+  late final ClientEphemeral ephemeral;
 
   /// Invoke After Msg.
   ///
@@ -4792,12 +4800,13 @@ class ClientMessages {
 
   /// Search Global.
   ///
-  /// ID: `4bc6589a`.
+  /// ID: `6126a43c`.
   Future<Result<MessagesMessagesBase>> searchGlobal({
     required bool broadcastsOnly,
     required bool groupsOnly,
     required bool usersOnly,
     int? folderId,
+    InputChannelBase? community,
     required String q,
     required MessagesFilterBase filter,
     required DateTime minDate,
@@ -4813,6 +4822,7 @@ class ClientMessages {
       groupsOnly: groupsOnly,
       usersOnly: usersOnly,
       folderId: folderId,
+      community: community,
       q: q,
       filter: filter,
       minDate: minDate,
@@ -9180,6 +9190,81 @@ class ClientMessages {
     // Return the result.
     return response._to<MessagesMessagesBase>();
   }
+
+  /// Translate Rich Message.
+  ///
+  /// ID: `1a542004`.
+  Future<Result<MessagesTranslatedRichMessageBase>> translateRichMessage({
+    InputPeerBase? peer,
+    List<int>? id,
+    List<InputRichMessageBase>? text,
+    required String toLang,
+    String? tone,
+  }) async {
+    // Preparing the request.
+    final request = MessagesTranslateRichMessage(
+      peer: peer,
+      id: id,
+      text: text,
+      toLang: toLang,
+      tone: tone,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesTranslatedRichMessageBase>();
+  }
+
+  /// Compose Rich Message With A I.
+  ///
+  /// ID: `8d7ae6af`.
+  Future<Result<MessagesComposedRichMessageWithAIBase>>
+      composeRichMessageWithAI({
+    required bool proofread,
+    required bool emojify,
+    InputRichMessageBase? text,
+    String? translateToLang,
+    InputAiComposeToneBase? tone,
+  }) async {
+    // Preparing the request.
+    final request = MessagesComposeRichMessageWithAI(
+      proofread: proofread,
+      emojify: emojify,
+      text: text,
+      translateToLang: translateToLang,
+      tone: tone,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesComposedRichMessageWithAIBase>();
+  }
+
+  /// Request Chat Join Web View.
+  ///
+  /// ID: `ba9ee679`.
+  Future<Result<WebViewResultBase>> requestChatJoinWebView({
+    required int queryId,
+    DataJSONBase? themeParams,
+    required String platform,
+  }) async {
+    // Preparing the request.
+    final request = MessagesRequestChatJoinWebView(
+      queryId: queryId,
+      themeParams: themeParams,
+      platform: platform,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WebViewResultBase>();
+  }
 }
 
 /// Updates.
@@ -10363,12 +10448,14 @@ class ClientChannels {
     required bool byLocation,
     required bool checkLimit,
     required bool forPersonal,
+    required bool forCommunityPeer,
   }) async {
     // Preparing the request.
     final request = ChannelsGetAdminedPublicChannels(
       byLocation: byLocation,
       checkLimit: checkLimit,
       forPersonal: forPersonal,
+      forCommunityPeer: forCommunityPeer,
     );
 
     // Invoke and wait for response.
@@ -15813,5 +15900,310 @@ class ClientAicompose {
 
     // Return the result.
     return response._to<AiComposeToneExampleBase>();
+  }
+}
+
+/// Communities.
+class ClientCommunities {
+  /// Constructor.
+  const ClientCommunities._(this._c);
+  final Client _c;
+
+  /// Create.
+  ///
+  /// ID: `a63859ec`.
+  Future<Result<UpdatesBase>> create({
+    required bool hidden,
+    required String title,
+    String? about,
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesCreate(
+      hidden: hidden,
+      title: title,
+      about: about,
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Toggle Peer Link.
+  ///
+  /// ID: `736dcfea`.
+  Future<Result<Boolean>> togglePeerLink({
+    required bool visible,
+    required bool hidden,
+    required bool deleted,
+    required InputChannelBase community,
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesTogglePeerLink(
+      visible: visible,
+      hidden: hidden,
+      deleted: deleted,
+      community: community,
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Joined Communities.
+  ///
+  /// ID: `a663e830`.
+  Future<Result<MessagesChatsBase>> getJoinedCommunities() async {
+    // Preparing the request.
+    final request = CommunitiesGetJoinedCommunities();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesChatsBase>();
+  }
+
+  /// Toggle Community Collapsed In Dialogs.
+  ///
+  /// ID: `d766e3ea`.
+  Future<Result<UpdatesBase>> toggleCommunityCollapsedInDialogs({
+    required bool collapsed,
+    required InputChannelBase community,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesToggleCommunityCollapsedInDialogs(
+      collapsed: collapsed,
+      community: community,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Peer Link Requests.
+  ///
+  /// ID: `93773344`.
+  Future<Result<CommunitiesPeerLinkRequestsBase>> getPeerLinkRequests({
+    required InputChannelBase community,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesGetPeerLinkRequests(
+      community: community,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<CommunitiesPeerLinkRequestsBase>();
+  }
+
+  /// Toggle Peer Link Request Approval.
+  ///
+  /// ID: `8c8219a8`.
+  Future<Result<Boolean>> togglePeerLinkRequestApproval({
+    required bool reject,
+    required InputChannelBase community,
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesTogglePeerLinkRequestApproval(
+      reject: reject,
+      community: community,
+      peer: peer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Toggle All Peer Link Request Approval.
+  ///
+  /// ID: `bfe3dd3d`.
+  Future<Result<Boolean>> toggleAllPeerLinkRequestApproval({
+    required bool reject,
+    required InputChannelBase community,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesToggleAllPeerLinkRequestApproval(
+      reject: reject,
+      community: community,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Toggle Participant Banned.
+  ///
+  /// ID: `9967ad0f`.
+  Future<Result<Boolean>> toggleParticipantBanned({
+    required bool unban,
+    required InputChannelBase community,
+    required InputPeerBase participant,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesToggleParticipantBanned(
+      unban: unban,
+      community: community,
+      participant: participant,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Participant Joined Chats.
+  ///
+  /// ID: `f87eabab`.
+  Future<Result<CommunitiesParticipantJoinedChatsBase>>
+      getParticipantJoinedChats({
+    required InputChannelBase community,
+    required InputPeerBase participant,
+  }) async {
+    // Preparing the request.
+    final request = CommunitiesGetParticipantJoinedChats(
+      community: community,
+      participant: participant,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<CommunitiesParticipantJoinedChatsBase>();
+  }
+}
+
+/// Ephemeral.
+class ClientEphemeral {
+  /// Constructor.
+  const ClientEphemeral._(this._c);
+  final Client _c;
+
+  /// Send Message.
+  ///
+  /// ID: `68cbd09f`.
+  Future<Result<UpdatesBase>> sendMessage({
+    required InputPeerBase peer,
+    required InputUserBase receiverId,
+    int? queryId,
+    required String message,
+    List<MessageEntityBase>? entities,
+    InputMediaBase? media,
+    ReplyMarkupBase? replyMarkup,
+    InputRichMessageBase? richMessage,
+    required int randomId,
+    InputReplyToBase? replyTo,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralSendMessage(
+      peer: peer,
+      receiverId: receiverId,
+      queryId: queryId,
+      message: message,
+      entities: entities,
+      media: media,
+      replyMarkup: replyMarkup,
+      richMessage: richMessage,
+      randomId: randomId,
+      replyTo: replyTo,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Message.
+  ///
+  /// ID: `a3c0d511`.
+  Future<Result<Boolean>> deleteMessage({
+    required InputPeerBase peer,
+    required InputUserBase receiverId,
+    required int id,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralDeleteMessage(
+      peer: peer,
+      receiverId: receiverId,
+      id: id,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Report Message.
+  ///
+  /// ID: `8704f2bf`.
+  Future<Result<ReportResultBase>> reportMessage({
+    required InputPeerBase peer,
+    required int id,
+    required Uint8List option,
+    required String message,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralReportMessage(
+      peer: peer,
+      id: id,
+      option: option,
+      message: message,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ReportResultBase>();
+  }
+
+  /// Get Callback Answer.
+  ///
+  /// ID: `3fa464c8`.
+  Future<Result<MessagesBotCallbackAnswerBase>> getCallbackAnswer({
+    required InputPeerBase peer,
+    required int id,
+    Uint8List? data,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralGetCallbackAnswer(peer: peer, id: id, data: data);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<MessagesBotCallbackAnswerBase>();
   }
 }

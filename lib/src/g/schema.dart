@@ -4432,7 +4432,7 @@ class UserEmpty extends UserBase {
 
 /// User.
 ///
-/// ID: `31774388`.
+/// ID: `b1b8cc83`.
 class User extends UserBase {
   /// User constructor.
   const User({
@@ -4486,6 +4486,7 @@ class User extends UserBase {
     this.botActiveUsers,
     this.botVerificationIcon,
     this.sendPaidMessagesStars,
+    this.linkedCommunityId,
   }) : super._();
 
   /// Deserialize.
@@ -4573,6 +4574,9 @@ class User extends UserBase {
     final hasSendPaidMessagesStarsField = (flags2 & 32768) != 0;
     final sendPaidMessagesStars =
         hasSendPaidMessagesStarsField ? reader.readInt64() : null;
+    final hasLinkedCommunityIdField = (flags2 & 2097152) != 0;
+    final linkedCommunityId =
+        hasLinkedCommunityIdField ? reader.readInt64() : null;
 
     // Construct [User] object.
     final returnValue = User(
@@ -4626,6 +4630,7 @@ class User extends UserBase {
       botActiveUsers: botActiveUsers,
       botVerificationIcon: botVerificationIcon,
       sendPaidMessagesStars: sendPaidMessagesStars,
+      linkedCommunityId: linkedCommunityId,
     );
 
     // Now return the deserialized [User].
@@ -4690,6 +4695,7 @@ class User extends UserBase {
       b12: botActiveUsers != null,
       b14: botVerificationIcon != null,
       b15: sendPaidMessagesStars != null,
+      b21: linkedCommunityId != null,
     );
 
     return v;
@@ -4847,11 +4853,14 @@ class User extends UserBase {
   /// Send Paid Messages Stars.
   final int? sendPaidMessagesStars;
 
+  /// Linked Community Id.
+  final int? linkedCommunityId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x31774388.
-    buffer.writeInt32(0x31774388);
+    // Write type-id 0xb1b8cc83.
+    buffer.writeInt32(0xb1b8cc83);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -4933,6 +4942,10 @@ class User extends UserBase {
     if (localSendPaidMessagesStarsCopy != null) {
       buffer.writeInt64(localSendPaidMessagesStarsCopy);
     }
+    final localLinkedCommunityIdCopy = linkedCommunityId;
+    if (localLinkedCommunityIdCopy != null) {
+      buffer.writeInt64(localLinkedCommunityIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -4940,7 +4953,7 @@ class User extends UserBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "31774388",
+      "\$hash": "b1b8cc83",
       "\$name": "User",
       "flags": flags,
       "self": self,
@@ -4994,6 +5007,7 @@ class User extends UserBase {
       "botActiveUsers": botActiveUsers,
       "botVerificationIcon": botVerificationIcon,
       "sendPaidMessagesStars": sendPaidMessagesStars,
+      "linkedCommunityId": linkedCommunityId,
     };
 
     // Finished toJson.
@@ -5741,7 +5755,7 @@ class ChatForbidden extends ChatBase {
 
 /// Channel.
 ///
-/// ID: `1c32b11c`.
+/// ID: `d49f34c6`.
 class Channel extends ChatBase {
   /// Channel constructor.
   const Channel({
@@ -5794,6 +5808,7 @@ class Channel extends ChatBase {
     this.botVerificationIcon,
     this.sendPaidMessagesStars,
     this.linkedMonoforumId,
+    this.linkedCommunityId,
   }) : super._();
 
   /// Deserialize.
@@ -5883,6 +5898,9 @@ class Channel extends ChatBase {
     final hasLinkedMonoforumIdField = (flags2 & 262144) != 0;
     final linkedMonoforumId =
         hasLinkedMonoforumIdField ? reader.readInt64() : null;
+    final hasLinkedCommunityIdField = (flags2 & 1048576) != 0;
+    final linkedCommunityId =
+        hasLinkedCommunityIdField ? reader.readInt64() : null;
 
     // Construct [Channel] object.
     final returnValue = Channel(
@@ -5935,6 +5953,7 @@ class Channel extends ChatBase {
       botVerificationIcon: botVerificationIcon,
       sendPaidMessagesStars: sendPaidMessagesStars,
       linkedMonoforumId: linkedMonoforumId,
+      linkedCommunityId: linkedCommunityId,
     );
 
     // Now return the deserialized [Channel].
@@ -5996,6 +6015,7 @@ class Channel extends ChatBase {
       b13: botVerificationIcon != null,
       b14: sendPaidMessagesStars != null,
       b18: linkedMonoforumId != null,
+      b20: linkedCommunityId != null,
     );
 
     return v;
@@ -6150,11 +6170,14 @@ class Channel extends ChatBase {
   /// Linked Monoforum Id.
   final int? linkedMonoforumId;
 
+  /// Linked Community Id.
+  final int? linkedCommunityId;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x1c32b11c.
-    buffer.writeInt32(0x1c32b11c);
+    // Write type-id 0xd49f34c6.
+    buffer.writeInt32(0xd49f34c6);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -6231,6 +6254,10 @@ class Channel extends ChatBase {
     if (localLinkedMonoforumIdCopy != null) {
       buffer.writeInt64(localLinkedMonoforumIdCopy);
     }
+    final localLinkedCommunityIdCopy = linkedCommunityId;
+    if (localLinkedCommunityIdCopy != null) {
+      buffer.writeInt64(localLinkedCommunityIdCopy);
+    }
 
     // Finished serialization.
   }
@@ -6238,7 +6265,7 @@ class Channel extends ChatBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "1c32b11c",
+      "\$hash": "d49f34c6",
       "\$name": "Channel",
       "flags": flags,
       "creator": creator,
@@ -6291,6 +6318,7 @@ class Channel extends ChatBase {
       "botVerificationIcon": botVerificationIcon,
       "sendPaidMessagesStars": sendPaidMessagesStars,
       "linkedMonoforumId": linkedMonoforumId,
+      "linkedCommunityId": linkedCommunityId,
     };
 
     // Finished toJson.
@@ -6410,6 +6438,260 @@ class ChannelForbidden extends ChatBase {
       "accessHash": accessHash,
       "title": title,
       "untilDate": untilDate?.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Community Forbidden.
+///
+/// ID: `fd3cdab8`.
+class CommunityForbidden extends ChatBase {
+  /// Community Forbidden constructor.
+  const CommunityForbidden({
+    required this.id,
+    this.accessHash,
+    required this.title,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunityForbidden.deserialize(BinaryReader reader) {
+    // Read [CommunityForbidden] fields.
+    final flags = reader.readInt32();
+    final id = reader.readInt64();
+    final hasAccessHashField = (flags & 8192) != 0;
+    final accessHash = hasAccessHashField ? reader.readInt64() : null;
+    final title = reader.readString();
+
+    // Construct [CommunityForbidden] object.
+    final returnValue = CommunityForbidden(
+      id: id,
+      accessHash: accessHash,
+      title: title,
+    );
+
+    // Now return the deserialized [CommunityForbidden].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b13: accessHash != null);
+
+    return v;
+  }
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Access Hash.
+  final int? accessHash;
+
+  /// Title.
+  final String title;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfd3cdab8.
+    buffer.writeInt32(0xfd3cdab8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(id);
+    final localAccessHashCopy = accessHash;
+    if (localAccessHashCopy != null) {
+      buffer.writeInt64(localAccessHashCopy);
+    }
+    buffer.writeString(title);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fd3cdab8",
+      "\$name": "CommunityForbidden",
+      "flags": flags,
+      "id": id,
+      "accessHash": accessHash,
+      "title": title,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Community.
+///
+/// ID: `65efe954`.
+class Community extends ChatBase {
+  /// Community constructor.
+  const Community({
+    required this.creator,
+    required this.left,
+    required this.min,
+    required this.collapsedInDialogs,
+    required this.id,
+    this.accessHash,
+    required this.title,
+    required this.photo,
+    required this.date,
+    this.adminRights,
+    this.defaultBannedRights,
+  }) : super._();
+
+  /// Deserialize.
+  factory Community.deserialize(BinaryReader reader) {
+    // Read [Community] fields.
+    final flags = reader.readInt32();
+    final creator = (flags & 1) != 0;
+    final left = (flags & 4) != 0;
+    final min = (flags & 4096) != 0;
+    final flags2 = reader.readInt32();
+    final collapsedInDialogs = (flags2 & 1048576) != 0;
+    final id = reader.readInt64();
+    final hasAccessHashField = (flags & 8192) != 0;
+    final accessHash = hasAccessHashField ? reader.readInt64() : null;
+    final title = reader.readString();
+    final photo = reader.readObject() as ChatPhotoBase;
+    final date = reader.readDateTime();
+    final hasAdminRightsField = (flags & 16384) != 0;
+    final adminRights =
+        hasAdminRightsField ? reader.readObject() as ChatAdminRightsBase : null;
+    final hasDefaultBannedRightsField = (flags & 262144) != 0;
+    final defaultBannedRights = hasDefaultBannedRightsField
+        ? reader.readObject() as ChatBannedRightsBase
+        : null;
+
+    // Construct [Community] object.
+    final returnValue = Community(
+      creator: creator,
+      left: left,
+      min: min,
+      collapsedInDialogs: collapsedInDialogs,
+      id: id,
+      accessHash: accessHash,
+      title: title,
+      photo: photo,
+      date: date,
+      adminRights: adminRights,
+      defaultBannedRights: defaultBannedRights,
+    );
+
+    // Now return the deserialized [Community].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: creator,
+      b02: left,
+      b12: min,
+      b13: accessHash != null,
+      b14: adminRights != null,
+      b18: defaultBannedRights != null,
+    );
+
+    return v;
+  }
+
+  /// Flags2.
+  int get flags2 {
+    final v = _flag(b20: collapsedInDialogs);
+
+    return v;
+  }
+
+  /// creator: bit 0 of flags.0?true
+  final bool creator;
+
+  /// left: bit 2 of flags.2?true
+  final bool left;
+
+  /// min: bit 12 of flags.12?true
+  final bool min;
+
+  /// collapsed_in_dialogs: bit 20 of flags2.20?true
+  final bool collapsedInDialogs;
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Access Hash.
+  final int? accessHash;
+
+  /// Title.
+  final String title;
+
+  /// Photo.
+  final ChatPhotoBase photo;
+
+  /// Date.
+  final DateTime date;
+
+  /// Admin Rights.
+  final ChatAdminRightsBase? adminRights;
+
+  /// Default Banned Rights.
+  final ChatBannedRightsBase? defaultBannedRights;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x65efe954.
+    buffer.writeInt32(0x65efe954);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(flags2);
+    buffer.writeInt64(id);
+    final localAccessHashCopy = accessHash;
+    if (localAccessHashCopy != null) {
+      buffer.writeInt64(localAccessHashCopy);
+    }
+    buffer.writeString(title);
+    buffer.writeObject(photo);
+    buffer.writeDateTime(date);
+    final localAdminRightsCopy = adminRights;
+    if (localAdminRightsCopy != null) {
+      buffer.writeObject(localAdminRightsCopy);
+    }
+    final localDefaultBannedRightsCopy = defaultBannedRights;
+    if (localDefaultBannedRightsCopy != null) {
+      buffer.writeObject(localDefaultBannedRightsCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "65efe954",
+      "\$name": "Community",
+      "flags": flags,
+      "creator": creator,
+      "left": left,
+      "min": min,
+      "flags2": flags2,
+      "collapsedInDialogs": collapsedInDialogs,
+      "id": id,
+      "accessHash": accessHash,
+      "title": title,
+      "photo": photo,
+      "date": date.toIso8601String(),
+      "adminRights": adminRights,
+      "defaultBannedRights": defaultBannedRights,
     };
 
     // Finished toJson.
@@ -7515,6 +7797,134 @@ class ChannelFull extends ChatFullBase {
       "sendPaidMessagesStars": sendPaidMessagesStars,
       "mainTab": mainTab,
       "guardBotId": guardBotId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Community Full.
+///
+/// ID: `cbb7a507`.
+class CommunityFull extends ChatFullBase {
+  /// Community Full constructor.
+  const CommunityFull({
+    required this.id,
+    required this.about,
+    required this.chatPhoto,
+    required this.linkedPeers,
+    this.adminsCount,
+    this.kickedCount,
+    this.peerLinkRequestsPending,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunityFull.deserialize(BinaryReader reader) {
+    // Read [CommunityFull] fields.
+    final flags = reader.readInt32();
+    final id = reader.readInt64();
+    final about = reader.readString();
+    final chatPhoto = reader.readObject() as PhotoBase;
+    final linkedPeers = reader.readVectorObject<CommunityPeerBase>();
+    final hasAdminsCountField = (flags & 2) != 0;
+    final adminsCount = hasAdminsCountField ? reader.readInt32() : null;
+    final hasKickedCountField = (flags & 4) != 0;
+    final kickedCount = hasKickedCountField ? reader.readInt32() : null;
+    final hasPeerLinkRequestsPendingField = (flags & 1) != 0;
+    final peerLinkRequestsPending =
+        hasPeerLinkRequestsPendingField ? reader.readInt32() : null;
+
+    // Construct [CommunityFull] object.
+    final returnValue = CommunityFull(
+      id: id,
+      about: about,
+      chatPhoto: chatPhoto,
+      linkedPeers: linkedPeers.items,
+      adminsCount: adminsCount,
+      kickedCount: kickedCount,
+      peerLinkRequestsPending: peerLinkRequestsPending,
+    );
+
+    // Now return the deserialized [CommunityFull].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b01: adminsCount != null,
+      b02: kickedCount != null,
+      b00: peerLinkRequestsPending != null,
+    );
+
+    return v;
+  }
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// About.
+  final String about;
+
+  /// Chat Photo.
+  final PhotoBase chatPhoto;
+
+  /// Linked Peers.
+  final List<CommunityPeerBase> linkedPeers;
+
+  /// Admins Count.
+  final int? adminsCount;
+
+  /// Kicked Count.
+  final int? kickedCount;
+
+  /// Peer Link Requests Pending.
+  final int? peerLinkRequestsPending;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcbb7a507.
+    buffer.writeInt32(0xcbb7a507);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(id);
+    buffer.writeString(about);
+    buffer.writeObject(chatPhoto);
+    buffer.writeVectorObject(linkedPeers);
+    final localAdminsCountCopy = adminsCount;
+    if (localAdminsCountCopy != null) {
+      buffer.writeInt32(localAdminsCountCopy);
+    }
+    final localKickedCountCopy = kickedCount;
+    if (localKickedCountCopy != null) {
+      buffer.writeInt32(localKickedCountCopy);
+    }
+    final localPeerLinkRequestsPendingCopy = peerLinkRequestsPending;
+    if (localPeerLinkRequestsPendingCopy != null) {
+      buffer.writeInt32(localPeerLinkRequestsPendingCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "cbb7a507",
+      "\$name": "CommunityFull",
+      "flags": flags,
+      "id": id,
+      "about": about,
+      "chatPhoto": chatPhoto,
+      "linkedPeers": linkedPeers,
+      "adminsCount": adminsCount,
+      "kickedCount": kickedCount,
+      "peerLinkRequestsPending": peerLinkRequestsPending,
     };
 
     // Finished toJson.
@@ -15590,6 +16000,67 @@ class MessageActionManagedBotCreated extends MessageActionBase {
   }
 }
 
+/// Message Action Change Community.
+///
+/// ID: `5d20bae8`.
+class MessageActionChangeCommunity extends MessageActionBase {
+  /// Message Action Change Community constructor.
+  const MessageActionChangeCommunity({this.communityId}) : super._();
+
+  /// Deserialize.
+  factory MessageActionChangeCommunity.deserialize(BinaryReader reader) {
+    // Read [MessageActionChangeCommunity] fields.
+    final flags = reader.readInt32();
+    final hasCommunityIdField = (flags & 1) != 0;
+    final communityId = hasCommunityIdField ? reader.readInt64() : null;
+
+    // Construct [MessageActionChangeCommunity] object.
+    final returnValue = MessageActionChangeCommunity(communityId: communityId);
+
+    // Now return the deserialized [MessageActionChangeCommunity].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: communityId != null);
+
+    return v;
+  }
+
+  /// Community Id.
+  final int? communityId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5d20bae8.
+    buffer.writeInt32(0x5d20bae8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localCommunityIdCopy = communityId;
+    if (localCommunityIdCopy != null) {
+      buffer.writeInt64(localCommunityIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "5d20bae8",
+      "\$name": "MessageActionChangeCommunity",
+      "flags": flags,
+      "communityId": communityId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Dialog.
 ///
 /// ID: `fc89f7f3`.
@@ -15926,6 +16397,84 @@ class DialogFolder extends DialogBase {
       "unreadUnmutedPeersCount": unreadUnmutedPeersCount,
       "unreadMutedMessagesCount": unreadMutedMessagesCount,
       "unreadUnmutedMessagesCount": unreadUnmutedMessagesCount,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Dialog Community.
+///
+/// ID: `f78a0973`.
+class DialogCommunity extends DialogBase {
+  /// Dialog Community constructor.
+  const DialogCommunity({
+    required this.pinned,
+    required this.communityId,
+    required this.notifySettings,
+  }) : super._();
+
+  /// Deserialize.
+  factory DialogCommunity.deserialize(BinaryReader reader) {
+    // Read [DialogCommunity] fields.
+    final flags = reader.readInt32();
+    final pinned = (flags & 4) != 0;
+    final communityId = reader.readInt64();
+    final notifySettings = reader.readObject() as PeerNotifySettingsBase;
+
+    // Construct [DialogCommunity] object.
+    final returnValue = DialogCommunity(
+      pinned: pinned,
+      communityId: communityId,
+      notifySettings: notifySettings,
+    );
+
+    // Now return the deserialized [DialogCommunity].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b02: pinned);
+
+    return v;
+  }
+
+  /// pinned: bit 2 of flags.2?true
+  final bool pinned;
+
+  /// Community Id.
+  ///
+  /// Field type is Int64.
+  final int communityId;
+
+  /// Notify Settings.
+  final PeerNotifySettingsBase notifySettings;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf78a0973.
+    buffer.writeInt32(0xf78a0973);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(communityId);
+    buffer.writeObject(notifySettings);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f78a0973",
+      "\$name": "DialogCommunity",
+      "flags": flags,
+      "pinned": pinned,
+      "communityId": communityId,
+      "notifySettings": notifySettings,
     };
 
     // Finished toJson.
@@ -17301,6 +17850,53 @@ class InputNotifyForumTopic extends InputNotifyPeerBase {
       "\$name": "InputNotifyForumTopic",
       "peer": peer,
       "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Notify Community.
+///
+/// ID: `27bb1adc`.
+class InputNotifyCommunity extends InputNotifyPeerBase {
+  /// Input Notify Community constructor.
+  const InputNotifyCommunity({required this.community}) : super._();
+
+  /// Deserialize.
+  factory InputNotifyCommunity.deserialize(BinaryReader reader) {
+    // Read [InputNotifyCommunity] fields.
+    final community = reader.readObject() as InputChannelBase;
+
+    // Construct [InputNotifyCommunity] object.
+    final returnValue = InputNotifyCommunity(community: community);
+
+    // Now return the deserialized [InputNotifyCommunity].
+    return returnValue;
+  }
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x27bb1adc.
+    buffer.writeInt32(0x27bb1adc);
+
+    // Write fields.
+    buffer.writeObject(community);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "27bb1adc",
+      "\$name": "InputNotifyCommunity",
+      "community": community,
     };
 
     // Finished toJson.
@@ -32335,6 +32931,259 @@ class UpdateWebBrowserException extends UpdateBase {
   }
 }
 
+/// Update New Ephemeral Message.
+///
+/// ID: `20bcbba1`.
+class UpdateNewEphemeralMessage extends UpdateBase {
+  /// Update New Ephemeral Message constructor.
+  const UpdateNewEphemeralMessage({required this.message}) : super._();
+
+  /// Deserialize.
+  factory UpdateNewEphemeralMessage.deserialize(BinaryReader reader) {
+    // Read [UpdateNewEphemeralMessage] fields.
+    final message = reader.readObject() as EphemeralMessageBase;
+
+    // Construct [UpdateNewEphemeralMessage] object.
+    final returnValue = UpdateNewEphemeralMessage(message: message);
+
+    // Now return the deserialized [UpdateNewEphemeralMessage].
+    return returnValue;
+  }
+
+  /// Message.
+  final EphemeralMessageBase message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x20bcbba1.
+    buffer.writeInt32(0x20bcbba1);
+
+    // Write fields.
+    buffer.writeObject(message);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "20bcbba1",
+      "\$name": "UpdateNewEphemeralMessage",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Delete Ephemeral Messages.
+///
+/// ID: `56dbfcf8`.
+class UpdateDeleteEphemeralMessages extends UpdateBase {
+  /// Update Delete Ephemeral Messages constructor.
+  const UpdateDeleteEphemeralMessages({required this.peer, required this.ids})
+      : super._();
+
+  /// Deserialize.
+  factory UpdateDeleteEphemeralMessages.deserialize(BinaryReader reader) {
+    // Read [UpdateDeleteEphemeralMessages] fields.
+    final peer = reader.readObject() as PeerBase;
+    final ids = reader.readVectorInt32();
+
+    // Construct [UpdateDeleteEphemeralMessages] object.
+    final returnValue = UpdateDeleteEphemeralMessages(
+      peer: peer,
+      ids: ids.items,
+    );
+
+    // Now return the deserialized [UpdateDeleteEphemeralMessages].
+    return returnValue;
+  }
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Ids.
+  final List<int> ids;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x56dbfcf8.
+    buffer.writeInt32(0x56dbfcf8);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeVectorInt32(ids);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "56dbfcf8",
+      "\$name": "UpdateDeleteEphemeralMessages",
+      "peer": peer,
+      "ids": ids,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Edit Ephemeral Message.
+///
+/// ID: `4bbb8f01`.
+class UpdateEditEphemeralMessage extends UpdateBase {
+  /// Update Edit Ephemeral Message constructor.
+  const UpdateEditEphemeralMessage({required this.message}) : super._();
+
+  /// Deserialize.
+  factory UpdateEditEphemeralMessage.deserialize(BinaryReader reader) {
+    // Read [UpdateEditEphemeralMessage] fields.
+    final message = reader.readObject() as EphemeralMessageBase;
+
+    // Construct [UpdateEditEphemeralMessage] object.
+    final returnValue = UpdateEditEphemeralMessage(message: message);
+
+    // Now return the deserialized [UpdateEditEphemeralMessage].
+    return returnValue;
+  }
+
+  /// Message.
+  final EphemeralMessageBase message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4bbb8f01.
+    buffer.writeInt32(0x4bbb8f01);
+
+    // Write fields.
+    buffer.writeObject(message);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4bbb8f01",
+      "\$name": "UpdateEditEphemeralMessage",
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Bot Stars Subscription.
+///
+/// ID: `6c0d8e23`.
+class UpdateBotStarsSubscription extends UpdateBase {
+  /// Update Bot Stars Subscription constructor.
+  const UpdateBotStarsSubscription({
+    required this.canceled,
+    required this.paymentFailed,
+    required this.restored,
+    required this.userId,
+    required this.payload,
+    required this.qts,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateBotStarsSubscription.deserialize(BinaryReader reader) {
+    // Read [UpdateBotStarsSubscription] fields.
+    final flags = reader.readInt32();
+    final canceled = (flags & 1) != 0;
+    final paymentFailed = (flags & 2) != 0;
+    final restored = (flags & 4) != 0;
+    final userId = reader.readInt64();
+    final payload = reader.readBytes();
+    final qts = reader.readInt32();
+
+    // Construct [UpdateBotStarsSubscription] object.
+    final returnValue = UpdateBotStarsSubscription(
+      canceled: canceled,
+      paymentFailed: paymentFailed,
+      restored: restored,
+      userId: userId,
+      payload: payload,
+      qts: qts,
+    );
+
+    // Now return the deserialized [UpdateBotStarsSubscription].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: canceled, b01: paymentFailed, b02: restored);
+
+    return v;
+  }
+
+  /// canceled: bit 0 of flags.0?true
+  final bool canceled;
+
+  /// payment_failed: bit 1 of flags.1?true
+  final bool paymentFailed;
+
+  /// restored: bit 2 of flags.2?true
+  final bool restored;
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Payload.
+  final Uint8List payload;
+
+  /// Qts.
+  ///
+  /// Field type is Int32.
+  final int qts;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6c0d8e23.
+    buffer.writeInt32(0x6c0d8e23);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(userId);
+    buffer.writeBytes(payload);
+    buffer.writeInt32(qts);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "6c0d8e23",
+      "\$name": "UpdateBotStarsSubscription",
+      "flags": flags,
+      "canceled": canceled,
+      "paymentFailed": paymentFailed,
+      "restored": restored,
+      "userId": userId,
+      "payload": payload,
+      "qts": qts,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Updates State.
 ///
 /// ID: `a56c2a3e`.
@@ -36699,6 +37548,55 @@ class NotifyForumTopic extends NotifyPeerBase {
       "\$name": "NotifyForumTopic",
       "peer": peer,
       "topMsgId": topMsgId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Notify Community.
+///
+/// ID: `be376999`.
+class NotifyCommunity extends NotifyPeerBase {
+  /// Notify Community constructor.
+  const NotifyCommunity({required this.communityId}) : super._();
+
+  /// Deserialize.
+  factory NotifyCommunity.deserialize(BinaryReader reader) {
+    // Read [NotifyCommunity] fields.
+    final communityId = reader.readInt64();
+
+    // Construct [NotifyCommunity] object.
+    final returnValue = NotifyCommunity(communityId: communityId);
+
+    // Now return the deserialized [NotifyCommunity].
+    return returnValue;
+  }
+
+  /// Community Id.
+  ///
+  /// Field type is Int64.
+  final int communityId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbe376999.
+    buffer.writeInt32(0xbe376999);
+
+    // Write fields.
+    buffer.writeInt64(communityId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "be376999",
+      "\$name": "NotifyCommunity",
+      "communityId": communityId,
     };
 
     // Finished toJson.
@@ -43459,24 +44357,43 @@ class MessagesStickerSetNotModified extends MessagesStickerSetBase {
 
 /// Bot Command.
 ///
-/// ID: `c27ac8c7`.
+/// ID: `9852d6d2`.
 class BotCommand extends BotCommandBase {
   /// Bot Command constructor.
-  const BotCommand({required this.command, required this.description})
-      : super._();
+  const BotCommand({
+    required this.ephemeral,
+    required this.command,
+    required this.description,
+  }) : super._();
 
   /// Deserialize.
   factory BotCommand.deserialize(BinaryReader reader) {
     // Read [BotCommand] fields.
+    final flags = reader.readInt32();
+    final ephemeral = (flags & 1) != 0;
     final command = reader.readString();
     final description = reader.readString();
 
     // Construct [BotCommand] object.
-    final returnValue = BotCommand(command: command, description: description);
+    final returnValue = BotCommand(
+      ephemeral: ephemeral,
+      command: command,
+      description: description,
+    );
 
     // Now return the deserialized [BotCommand].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: ephemeral);
+
+    return v;
+  }
+
+  /// ephemeral: bit 0 of flags.0?true
+  final bool ephemeral;
 
   /// Command.
   final String command;
@@ -43487,10 +44404,11 @@ class BotCommand extends BotCommandBase {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xc27ac8c7.
-    buffer.writeInt32(0xc27ac8c7);
+    // Write type-id 0x9852d6d2.
+    buffer.writeInt32(0x9852d6d2);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeString(command);
     buffer.writeString(description);
 
@@ -43500,8 +44418,10 @@ class BotCommand extends BotCommandBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "c27ac8c7",
+      "\$hash": "9852d6d2",
       "\$name": "BotCommand",
+      "flags": flags,
+      "ephemeral": ephemeral,
       "command": command,
       "description": description,
     };
@@ -57018,6 +57938,59 @@ class TextDate extends RichTextBase {
   }
 }
 
+/// Text Diff.
+///
+/// ID: `9686cb50`.
+class TextDiff extends RichTextBase {
+  /// Text Diff constructor.
+  const TextDiff({required this.text, required this.oldText}) : super._();
+
+  /// Deserialize.
+  factory TextDiff.deserialize(BinaryReader reader) {
+    // Read [TextDiff] fields.
+    final text = reader.readObject() as RichTextBase;
+    final oldText = reader.readObject() as RichTextBase;
+
+    // Construct [TextDiff] object.
+    final returnValue = TextDiff(text: text, oldText: oldText);
+
+    // Now return the deserialized [TextDiff].
+    return returnValue;
+  }
+
+  /// Text.
+  final RichTextBase text;
+
+  /// Old Text.
+  final RichTextBase oldText;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9686cb50.
+    buffer.writeInt32(0x9686cb50);
+
+    // Write fields.
+    buffer.writeObject(text);
+    buffer.writeObject(oldText);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9686cb50",
+      "\$name": "TextDiff",
+      "text": text,
+      "oldText": oldText,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Page Block Unsupported.
 ///
 /// ID: `13567e8a`.
@@ -68413,6 +69386,53 @@ class InputDialogPeerFolder extends InputDialogPeerBase {
   }
 }
 
+/// Input Dialog Peer Community.
+///
+/// ID: `69ef72c4`.
+class InputDialogPeerCommunity extends InputDialogPeerBase {
+  /// Input Dialog Peer Community constructor.
+  const InputDialogPeerCommunity({required this.community}) : super._();
+
+  /// Deserialize.
+  factory InputDialogPeerCommunity.deserialize(BinaryReader reader) {
+    // Read [InputDialogPeerCommunity] fields.
+    final community = reader.readObject() as InputChannelBase;
+
+    // Construct [InputDialogPeerCommunity] object.
+    final returnValue = InputDialogPeerCommunity(community: community);
+
+    // Now return the deserialized [InputDialogPeerCommunity].
+    return returnValue;
+  }
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x69ef72c4.
+    buffer.writeInt32(0x69ef72c4);
+
+    // Write fields.
+    buffer.writeObject(community);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "69ef72c4",
+      "\$name": "InputDialogPeerCommunity",
+      "community": community,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Dialog Peer.
 ///
 /// ID: `e56dbf05`.
@@ -68502,6 +69522,55 @@ class DialogPeerFolder extends DialogPeerBase {
       "\$hash": "514519e2",
       "\$name": "DialogPeerFolder",
       "folderId": folderId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Dialog Peer Community.
+///
+/// ID: `2f65c8e4`.
+class DialogPeerCommunity extends DialogPeerBase {
+  /// Dialog Peer Community constructor.
+  const DialogPeerCommunity({required this.communityId}) : super._();
+
+  /// Deserialize.
+  factory DialogPeerCommunity.deserialize(BinaryReader reader) {
+    // Read [DialogPeerCommunity] fields.
+    final communityId = reader.readInt64();
+
+    // Construct [DialogPeerCommunity] object.
+    final returnValue = DialogPeerCommunity(communityId: communityId);
+
+    // Now return the deserialized [DialogPeerCommunity].
+    return returnValue;
+  }
+
+  /// Community Id.
+  ///
+  /// Field type is Int64.
+  final int communityId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2f65c8e4.
+    buffer.writeInt32(0x2f65c8e4);
+
+    // Write fields.
+    buffer.writeInt64(communityId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "2f65c8e4",
+      "\$name": "DialogPeerCommunity",
+      "communityId": communityId,
     };
 
     // Finished toJson.
@@ -74073,6 +75142,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
     required this.deleteStories,
     required this.manageDirectMessages,
     required this.manageRanks,
+    required this.manageLinkedPeers,
   }) : super._();
 
   /// Deserialize.
@@ -74096,6 +75166,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
     final deleteStories = (flags & 65536) != 0;
     final manageDirectMessages = (flags & 131072) != 0;
     final manageRanks = (flags & 262144) != 0;
+    final manageLinkedPeers = (flags & 524288) != 0;
 
     // Construct [ChatAdminRights] object.
     final returnValue = ChatAdminRights(
@@ -74116,6 +75187,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
       deleteStories: deleteStories,
       manageDirectMessages: manageDirectMessages,
       manageRanks: manageRanks,
+      manageLinkedPeers: manageLinkedPeers,
     );
 
     // Now return the deserialized [ChatAdminRights].
@@ -74142,6 +75214,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
       b16: deleteStories,
       b17: manageDirectMessages,
       b18: manageRanks,
+      b19: manageLinkedPeers,
     );
 
     return v;
@@ -74198,6 +75271,9 @@ class ChatAdminRights extends ChatAdminRightsBase {
   /// manage_ranks: bit 18 of flags.18?true
   final bool manageRanks;
 
+  /// manage_linked_peers: bit 19 of flags.19?true
+  final bool manageLinkedPeers;
+
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
@@ -74233,6 +75309,7 @@ class ChatAdminRights extends ChatAdminRightsBase {
       "deleteStories": deleteStories,
       "manageDirectMessages": manageDirectMessages,
       "manageRanks": manageRanks,
+      "manageLinkedPeers": manageLinkedPeers,
     };
 
     // Finished toJson.
@@ -74268,6 +75345,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
     required this.sendPlain,
     required this.editRank,
     required this.sendReactions,
+    required this.manageLinkedPeers,
     required this.untilDate,
   }) : super._();
 
@@ -74297,6 +75375,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
     final sendPlain = (flags & 33554432) != 0;
     final editRank = (flags & 67108864) != 0;
     final sendReactions = (flags & 134217728) != 0;
+    final manageLinkedPeers = (flags & 268435456) != 0;
     final untilDate = reader.readDateTime();
 
     // Construct [ChatBannedRights] object.
@@ -74323,6 +75402,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       sendPlain: sendPlain,
       editRank: editRank,
       sendReactions: sendReactions,
+      manageLinkedPeers: manageLinkedPeers,
       untilDate: untilDate,
     );
 
@@ -74355,6 +75435,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       b25: sendPlain,
       b26: editRank,
       b27: sendReactions,
+      b28: manageLinkedPeers,
     );
 
     return v;
@@ -74426,6 +75507,9 @@ class ChatBannedRights extends ChatBannedRightsBase {
   /// send_reactions: bit 27 of flags.27?true
   final bool sendReactions;
 
+  /// manage_linked_peers: bit 28 of flags.28?true
+  final bool manageLinkedPeers;
+
   /// Until Date.
   final DateTime untilDate;
 
@@ -74470,6 +75554,7 @@ class ChatBannedRights extends ChatBannedRightsBase {
       "sendPlain": sendPlain,
       "editRank": editRank,
       "sendReactions": sendReactions,
+      "manageLinkedPeers": manageLinkedPeers,
       "untilDate": untilDate.toIso8601String(),
     };
 
@@ -95493,6 +96578,55 @@ class InputReplyToMonoForum extends InputReplyToBase {
   }
 }
 
+/// Input Reply To Ephemeral Message.
+///
+/// ID: `4119b95e`.
+class InputReplyToEphemeralMessage extends InputReplyToBase {
+  /// Input Reply To Ephemeral Message constructor.
+  const InputReplyToEphemeralMessage({required this.id}) : super._();
+
+  /// Deserialize.
+  factory InputReplyToEphemeralMessage.deserialize(BinaryReader reader) {
+    // Read [InputReplyToEphemeralMessage] fields.
+    final id = reader.readInt32();
+
+    // Construct [InputReplyToEphemeralMessage] object.
+    final returnValue = InputReplyToEphemeralMessage(id: id);
+
+    // Now return the deserialized [InputReplyToEphemeralMessage].
+    return returnValue;
+  }
+
+  /// Id.
+  ///
+  /// Field type is Int32.
+  final int id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4119b95e.
+    buffer.writeInt32(0x4119b95e);
+
+    // Write fields.
+    buffer.writeInt32(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4119b95e",
+      "\$name": "InputReplyToEphemeralMessage",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Exported Story Link.
 ///
 /// ID: `3fc9053b`.
@@ -116240,6 +117374,53 @@ class InputAiComposeToneSlug extends InputAiComposeToneBase {
   }
 }
 
+/// Input Ai Compose Tone Single Use.
+///
+/// ID: `0e0c35af`.
+class InputAiComposeToneSingleUse extends InputAiComposeToneBase {
+  /// Input Ai Compose Tone Single Use constructor.
+  const InputAiComposeToneSingleUse({required this.customPrompt}) : super._();
+
+  /// Deserialize.
+  factory InputAiComposeToneSingleUse.deserialize(BinaryReader reader) {
+    // Read [InputAiComposeToneSingleUse] fields.
+    final customPrompt = reader.readString();
+
+    // Construct [InputAiComposeToneSingleUse] object.
+    final returnValue = InputAiComposeToneSingleUse(customPrompt: customPrompt);
+
+    // Now return the deserialized [InputAiComposeToneSingleUse].
+    return returnValue;
+  }
+
+  /// Custom Prompt.
+  final String customPrompt;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0e0c35af.
+    buffer.writeInt32(0x0e0c35af);
+
+    // Write fields.
+    buffer.writeString(customPrompt);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "0e0c35af",
+      "\$name": "InputAiComposeToneSingleUse",
+      "customPrompt": customPrompt,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Ai Compose Tone.
 ///
 /// ID: `cff63ea9`.
@@ -116754,13 +117935,13 @@ class MessagesChatInviteJoinResultOk extends MessagesChatInviteJoinResultBase {
 
 /// Messages Chat Invite Join Result Web View.
 ///
-/// ID: `2f51c337`.
+/// ID: `61ca29d3`.
 class MessagesChatInviteJoinResultWebView
     extends MessagesChatInviteJoinResultBase {
   /// Messages Chat Invite Join Result Web View constructor.
   const MessagesChatInviteJoinResultWebView({
     required this.botId,
-    required this.webview,
+    required this.queryId,
     required this.users,
   }) : super._();
 
@@ -116768,13 +117949,13 @@ class MessagesChatInviteJoinResultWebView
   factory MessagesChatInviteJoinResultWebView.deserialize(BinaryReader reader) {
     // Read [MessagesChatInviteJoinResultWebView] fields.
     final botId = reader.readInt64();
-    final webview = reader.readObject() as WebViewResultBase;
+    final queryId = reader.readInt64();
     final users = reader.readVectorObject<UserBase>();
 
     // Construct [MessagesChatInviteJoinResultWebView] object.
     final returnValue = MessagesChatInviteJoinResultWebView(
       botId: botId,
-      webview: webview,
+      queryId: queryId,
       users: users.items,
     );
 
@@ -116787,8 +117968,10 @@ class MessagesChatInviteJoinResultWebView
   /// Field type is Int64.
   final int botId;
 
-  /// Webview.
-  final WebViewResultBase webview;
+  /// Query Id.
+  ///
+  /// Field type is Int64.
+  final int queryId;
 
   /// Users.
   final List<UserBase> users;
@@ -116796,12 +117979,12 @@ class MessagesChatInviteJoinResultWebView
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x2f51c337.
-    buffer.writeInt32(0x2f51c337);
+    // Write type-id 0x61ca29d3.
+    buffer.writeInt32(0x61ca29d3);
 
     // Write fields.
     buffer.writeInt64(botId);
-    buffer.writeObject(webview);
+    buffer.writeInt64(queryId);
     buffer.writeVectorObject(users);
 
     // Finished serialization.
@@ -116810,10 +117993,10 @@ class MessagesChatInviteJoinResultWebView
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "2f51c337",
+      "\$hash": "61ca29d3",
       "\$name": "MessagesChatInviteJoinResultWebView",
       "botId": botId,
-      "webview": webview,
+      "queryId": queryId,
       "users": users,
     };
 
@@ -117203,75 +118386,41 @@ class AccountWebBrowserSettings extends AccountWebBrowserSettingsBase {
   }
 }
 
-/// Rich Message.
+/// Input Rich File Photo.
 ///
-/// ID: `baf39d8b`.
-class RichMessage extends RichMessageBase {
-  /// Rich Message constructor.
-  const RichMessage({
-    required this.rtl,
-    required this.part,
-    required this.blocks,
-    required this.photos,
-    required this.documents,
-  }) : super._();
+/// ID: `9b00622b`.
+class InputRichFilePhoto extends InputRichFileBase {
+  /// Input Rich File Photo constructor.
+  const InputRichFilePhoto({required this.id, required this.photo}) : super._();
 
   /// Deserialize.
-  factory RichMessage.deserialize(BinaryReader reader) {
-    // Read [RichMessage] fields.
-    final flags = reader.readInt32();
-    final rtl = (flags & 1) != 0;
-    final part = (flags & 2) != 0;
-    final blocks = reader.readVectorObject<PageBlockBase>();
-    final photos = reader.readVectorObject<PhotoBase>();
-    final documents = reader.readVectorObject<DocumentBase>();
+  factory InputRichFilePhoto.deserialize(BinaryReader reader) {
+    // Read [InputRichFilePhoto] fields.
+    final id = reader.readString();
+    final photo = reader.readObject() as InputPhotoBase;
 
-    // Construct [RichMessage] object.
-    final returnValue = RichMessage(
-      rtl: rtl,
-      part: part,
-      blocks: blocks.items,
-      photos: photos.items,
-      documents: documents.items,
-    );
+    // Construct [InputRichFilePhoto] object.
+    final returnValue = InputRichFilePhoto(id: id, photo: photo);
 
-    // Now return the deserialized [RichMessage].
+    // Now return the deserialized [InputRichFilePhoto].
     return returnValue;
   }
 
-  /// Flags.
-  int get flags {
-    final v = _flag(b00: rtl, b01: part);
+  /// Id.
+  final String id;
 
-    return v;
-  }
-
-  /// rtl: bit 0 of flags.0?true
-  final bool rtl;
-
-  /// part: bit 1 of flags.1?true
-  final bool part;
-
-  /// Blocks.
-  final List<PageBlockBase> blocks;
-
-  /// Photos.
-  final List<PhotoBase> photos;
-
-  /// Documents.
-  final List<DocumentBase> documents;
+  /// Photo.
+  final InputPhotoBase photo;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xbaf39d8b.
-    buffer.writeInt32(0xbaf39d8b);
+    // Write type-id 0x9b00622b.
+    buffer.writeInt32(0x9b00622b);
 
     // Write fields.
-    buffer.writeInt32(flags);
-    buffer.writeVectorObject(blocks);
-    buffer.writeVectorObject(photos);
-    buffer.writeVectorObject(documents);
+    buffer.writeString(id);
+    buffer.writeObject(photo);
 
     // Finished serialization.
   }
@@ -117279,14 +118428,64 @@ class RichMessage extends RichMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "baf39d8b",
-      "\$name": "RichMessage",
-      "flags": flags,
-      "rtl": rtl,
-      "part": part,
-      "blocks": blocks,
-      "photos": photos,
-      "documents": documents,
+      "\$hash": "9b00622b",
+      "\$name": "InputRichFilePhoto",
+      "id": id,
+      "photo": photo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Rich File Document.
+///
+/// ID: `83281dbd`.
+class InputRichFileDocument extends InputRichFileBase {
+  /// Input Rich File Document constructor.
+  const InputRichFileDocument({required this.id, required this.document})
+      : super._();
+
+  /// Deserialize.
+  factory InputRichFileDocument.deserialize(BinaryReader reader) {
+    // Read [InputRichFileDocument] fields.
+    final id = reader.readString();
+    final document = reader.readObject() as InputDocumentBase;
+
+    // Construct [InputRichFileDocument] object.
+    final returnValue = InputRichFileDocument(id: id, document: document);
+
+    // Now return the deserialized [InputRichFileDocument].
+    return returnValue;
+  }
+
+  /// Id.
+  final String id;
+
+  /// Document.
+  final InputDocumentBase document;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x83281dbd.
+    buffer.writeInt32(0x83281dbd);
+
+    // Write fields.
+    buffer.writeString(id);
+    buffer.writeObject(document);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "83281dbd",
+      "\$name": "InputRichFileDocument",
+      "id": id,
+      "document": document,
     };
 
     // Finished toJson.
@@ -117416,16 +118615,14 @@ class InputRichMessage extends InputRichMessageBase {
 
 /// Input Rich Message H T M L.
 ///
-/// ID: `d4eab551`.
+/// ID: `dacb836a`.
 class InputRichMessageHTML extends InputRichMessageBase {
   /// Input Rich Message H T M L constructor.
   const InputRichMessageHTML({
     required this.rtl,
     required this.noautolink,
     required this.html,
-    this.photos,
-    this.documents,
-    this.users,
+    this.files,
   }) : super._();
 
   /// Deserialize.
@@ -117435,24 +118632,16 @@ class InputRichMessageHTML extends InputRichMessageBase {
     final rtl = (flags & 1) != 0;
     final noautolink = (flags & 2) != 0;
     final html = reader.readString();
-    final hasPhotosField = (flags & 4) != 0;
-    final photos =
-        hasPhotosField ? reader.readVectorObject<InputPhotoBase>() : null;
-    final hasDocumentsField = (flags & 8) != 0;
-    final documents =
-        hasDocumentsField ? reader.readVectorObject<InputDocumentBase>() : null;
-    final hasUsersField = (flags & 16) != 0;
-    final users =
-        hasUsersField ? reader.readVectorObject<InputUserBase>() : null;
+    final hasFilesField = (flags & 4) != 0;
+    final files =
+        hasFilesField ? reader.readVectorObject<InputRichFileBase>() : null;
 
     // Construct [InputRichMessageHTML] object.
     final returnValue = InputRichMessageHTML(
       rtl: rtl,
       noautolink: noautolink,
       html: html,
-      photos: photos?.items,
-      documents: documents?.items,
-      users: users?.items,
+      files: files?.items,
     );
 
     // Now return the deserialized [InputRichMessageHTML].
@@ -117461,13 +118650,7 @@ class InputRichMessageHTML extends InputRichMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: rtl,
-      b01: noautolink,
-      b02: photos != null,
-      b03: documents != null,
-      b04: users != null,
-    );
+    final v = _flag(b00: rtl, b01: noautolink, b02: files != null);
 
     return v;
   }
@@ -117481,35 +118664,21 @@ class InputRichMessageHTML extends InputRichMessageBase {
   /// Html.
   final String html;
 
-  /// Photos.
-  final List<InputPhotoBase>? photos;
-
-  /// Documents.
-  final List<InputDocumentBase>? documents;
-
-  /// Users.
-  final List<InputUserBase>? users;
+  /// Files.
+  final List<InputRichFileBase>? files;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xd4eab551.
-    buffer.writeInt32(0xd4eab551);
+    // Write type-id 0xdacb836a.
+    buffer.writeInt32(0xdacb836a);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(html);
-    final localPhotosCopy = photos;
-    if (localPhotosCopy != null) {
-      buffer.writeVectorObject(localPhotosCopy);
-    }
-    final localDocumentsCopy = documents;
-    if (localDocumentsCopy != null) {
-      buffer.writeVectorObject(localDocumentsCopy);
-    }
-    final localUsersCopy = users;
-    if (localUsersCopy != null) {
-      buffer.writeVectorObject(localUsersCopy);
+    final localFilesCopy = files;
+    if (localFilesCopy != null) {
+      buffer.writeVectorObject(localFilesCopy);
     }
 
     // Finished serialization.
@@ -117518,15 +118687,13 @@ class InputRichMessageHTML extends InputRichMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "d4eab551",
+      "\$hash": "dacb836a",
       "\$name": "InputRichMessageHTML",
       "flags": flags,
       "rtl": rtl,
       "noautolink": noautolink,
       "html": html,
-      "photos": photos,
-      "documents": documents,
-      "users": users,
+      "files": files,
     };
 
     // Finished toJson.
@@ -117536,16 +118703,14 @@ class InputRichMessageHTML extends InputRichMessageBase {
 
 /// Input Rich Message Markdown.
 ///
-/// ID: `09ac8186`.
+/// ID: `004b572c`.
 class InputRichMessageMarkdown extends InputRichMessageBase {
   /// Input Rich Message Markdown constructor.
   const InputRichMessageMarkdown({
     required this.rtl,
     required this.noautolink,
     required this.markdown,
-    this.photos,
-    this.documents,
-    this.users,
+    this.files,
   }) : super._();
 
   /// Deserialize.
@@ -117555,24 +118720,16 @@ class InputRichMessageMarkdown extends InputRichMessageBase {
     final rtl = (flags & 1) != 0;
     final noautolink = (flags & 2) != 0;
     final markdown = reader.readString();
-    final hasPhotosField = (flags & 4) != 0;
-    final photos =
-        hasPhotosField ? reader.readVectorObject<InputPhotoBase>() : null;
-    final hasDocumentsField = (flags & 8) != 0;
-    final documents =
-        hasDocumentsField ? reader.readVectorObject<InputDocumentBase>() : null;
-    final hasUsersField = (flags & 16) != 0;
-    final users =
-        hasUsersField ? reader.readVectorObject<InputUserBase>() : null;
+    final hasFilesField = (flags & 4) != 0;
+    final files =
+        hasFilesField ? reader.readVectorObject<InputRichFileBase>() : null;
 
     // Construct [InputRichMessageMarkdown] object.
     final returnValue = InputRichMessageMarkdown(
       rtl: rtl,
       noautolink: noautolink,
       markdown: markdown,
-      photos: photos?.items,
-      documents: documents?.items,
-      users: users?.items,
+      files: files?.items,
     );
 
     // Now return the deserialized [InputRichMessageMarkdown].
@@ -117581,13 +118738,7 @@ class InputRichMessageMarkdown extends InputRichMessageBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(
-      b00: rtl,
-      b01: noautolink,
-      b02: photos != null,
-      b03: documents != null,
-      b04: users != null,
-    );
+    final v = _flag(b00: rtl, b01: noautolink, b02: files != null);
 
     return v;
   }
@@ -117601,35 +118752,21 @@ class InputRichMessageMarkdown extends InputRichMessageBase {
   /// Markdown.
   final String markdown;
 
-  /// Photos.
-  final List<InputPhotoBase>? photos;
-
-  /// Documents.
-  final List<InputDocumentBase>? documents;
-
-  /// Users.
-  final List<InputUserBase>? users;
+  /// Files.
+  final List<InputRichFileBase>? files;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x09ac8186.
-    buffer.writeInt32(0x09ac8186);
+    // Write type-id 0x004b572c.
+    buffer.writeInt32(0x004b572c);
 
     // Write fields.
     buffer.writeInt32(flags);
     buffer.writeString(markdown);
-    final localPhotosCopy = photos;
-    if (localPhotosCopy != null) {
-      buffer.writeVectorObject(localPhotosCopy);
-    }
-    final localDocumentsCopy = documents;
-    if (localDocumentsCopy != null) {
-      buffer.writeVectorObject(localDocumentsCopy);
-    }
-    final localUsersCopy = users;
-    if (localUsersCopy != null) {
-      buffer.writeVectorObject(localUsersCopy);
+    final localFilesCopy = files;
+    if (localFilesCopy != null) {
+      buffer.writeVectorObject(localFilesCopy);
     }
 
     // Finished serialization.
@@ -117638,15 +118775,722 @@ class InputRichMessageMarkdown extends InputRichMessageBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "09ac8186",
+      "\$hash": "004b572c",
       "\$name": "InputRichMessageMarkdown",
       "flags": flags,
       "rtl": rtl,
       "noautolink": noautolink,
       "markdown": markdown,
+      "files": files,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Rich Message.
+///
+/// ID: `baf39d8b`.
+class RichMessage extends RichMessageBase {
+  /// Rich Message constructor.
+  const RichMessage({
+    required this.rtl,
+    required this.part,
+    required this.blocks,
+    required this.photos,
+    required this.documents,
+  }) : super._();
+
+  /// Deserialize.
+  factory RichMessage.deserialize(BinaryReader reader) {
+    // Read [RichMessage] fields.
+    final flags = reader.readInt32();
+    final rtl = (flags & 1) != 0;
+    final part = (flags & 2) != 0;
+    final blocks = reader.readVectorObject<PageBlockBase>();
+    final photos = reader.readVectorObject<PhotoBase>();
+    final documents = reader.readVectorObject<DocumentBase>();
+
+    // Construct [RichMessage] object.
+    final returnValue = RichMessage(
+      rtl: rtl,
+      part: part,
+      blocks: blocks.items,
+      photos: photos.items,
+      documents: documents.items,
+    );
+
+    // Now return the deserialized [RichMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: rtl, b01: part);
+
+    return v;
+  }
+
+  /// rtl: bit 0 of flags.0?true
+  final bool rtl;
+
+  /// part: bit 1 of flags.1?true
+  final bool part;
+
+  /// Blocks.
+  final List<PageBlockBase> blocks;
+
+  /// Photos.
+  final List<PhotoBase> photos;
+
+  /// Documents.
+  final List<DocumentBase> documents;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbaf39d8b.
+    buffer.writeInt32(0xbaf39d8b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeVectorObject(blocks);
+    buffer.writeVectorObject(photos);
+    buffer.writeVectorObject(documents);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "baf39d8b",
+      "\$name": "RichMessage",
+      "flags": flags,
+      "rtl": rtl,
+      "part": part,
+      "blocks": blocks,
       "photos": photos,
       "documents": documents,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Community Peer.
+///
+/// ID: `76141ebd`.
+class CommunityPeer extends CommunityPeerBase {
+  /// Community Peer constructor.
+  const CommunityPeer({
+    required this.canViewHistory,
+    this.visible,
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunityPeer.deserialize(BinaryReader reader) {
+    // Read [CommunityPeer] fields.
+    final flags = reader.readInt32();
+    final canViewHistory = (flags & 4) != 0;
+    final visible = (flags & 1) != 0 ? reader.readBool() : null;
+    final peer = reader.readObject() as PeerBase;
+
+    // Construct [CommunityPeer] object.
+    final returnValue = CommunityPeer(
+      canViewHistory: canViewHistory,
+      visible: visible,
+      peer: peer,
+    );
+
+    // Now return the deserialized [CommunityPeer].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b02: canViewHistory, b00: (visible != null));
+
+    return v;
+  }
+
+  /// can_view_history: bit 2 of flags.2?true
+  final bool canViewHistory;
+
+  /// visible: bit 0 of flags.0?Bool
+  final bool? visible;
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x76141ebd.
+    buffer.writeInt32(0x76141ebd);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localVisibleCopy = visible;
+    if (localVisibleCopy != null) {
+      buffer.writeBool(localVisibleCopy);
+    }
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "76141ebd",
+      "\$name": "CommunityPeer",
+      "flags": flags,
+      "canViewHistory": canViewHistory,
+      "visible": visible,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Community Peer Request.
+///
+/// ID: `7beafa85`.
+class CommunityPeerRequest extends CommunityPeerRequestBase {
+  /// Community Peer Request constructor.
+  const CommunityPeerRequest({
+    required this.visible,
+    required this.peer,
+    required this.requestedBy,
+    required this.date,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunityPeerRequest.deserialize(BinaryReader reader) {
+    // Read [CommunityPeerRequest] fields.
+    final flags = reader.readInt32();
+    final visible = (flags & 1) != 0;
+    final peer = reader.readObject() as PeerBase;
+    final requestedBy = reader.readInt64();
+    final date = reader.readDateTime();
+
+    // Construct [CommunityPeerRequest] object.
+    final returnValue = CommunityPeerRequest(
+      visible: visible,
+      peer: peer,
+      requestedBy: requestedBy,
+      date: date,
+    );
+
+    // Now return the deserialized [CommunityPeerRequest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: visible);
+
+    return v;
+  }
+
+  /// visible: bit 0 of flags.0?true
+  final bool visible;
+
+  /// Peer.
+  final PeerBase peer;
+
+  /// Requested By.
+  ///
+  /// Field type is Int64.
+  final int requestedBy;
+
+  /// Date.
+  final DateTime date;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7beafa85.
+    buffer.writeInt32(0x7beafa85);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeInt64(requestedBy);
+    buffer.writeDateTime(date);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "7beafa85",
+      "\$name": "CommunityPeerRequest",
+      "flags": flags,
+      "visible": visible,
+      "peer": peer,
+      "requestedBy": requestedBy,
+      "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Peer Link Requests.
+///
+/// ID: `2244afad`.
+class CommunitiesPeerLinkRequests extends CommunitiesPeerLinkRequestsBase {
+  /// Communities Peer Link Requests constructor.
+  const CommunitiesPeerLinkRequests({
+    required this.totalCount,
+    required this.requests,
+    this.nextOffset,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesPeerLinkRequests.deserialize(BinaryReader reader) {
+    // Read [CommunitiesPeerLinkRequests] fields.
+    final flags = reader.readInt32();
+    final totalCount = reader.readInt32();
+    final requests = reader.readVectorObject<CommunityPeerRequestBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [CommunitiesPeerLinkRequests] object.
+    final returnValue = CommunitiesPeerLinkRequests(
+      totalCount: totalCount,
+      requests: requests.items,
+      nextOffset: nextOffset,
+      chats: chats.items,
+      users: users.items,
+    );
+
+    // Now return the deserialized [CommunitiesPeerLinkRequests].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: nextOffset != null);
+
+    return v;
+  }
+
+  /// Total Count.
+  ///
+  /// Field type is Int32.
+  final int totalCount;
+
+  /// Requests.
+  final List<CommunityPeerRequestBase> requests;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2244afad.
+    buffer.writeInt32(0x2244afad);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(totalCount);
+    buffer.writeVectorObject(requests);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "2244afad",
+      "\$name": "CommunitiesPeerLinkRequests",
+      "flags": flags,
+      "totalCount": totalCount,
+      "requests": requests,
+      "nextOffset": nextOffset,
+      "chats": chats,
       "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ephemeral Message.
+///
+/// ID: `d9c6dc1a`.
+class EphemeralMessage extends EphemeralMessageBase {
+  /// Ephemeral Message constructor.
+  const EphemeralMessage({
+    required this.out,
+    required this.id,
+    required this.fromId,
+    required this.peerId,
+    required this.receiverId,
+    this.topMsgId,
+    required this.date,
+    required this.message,
+    this.entities,
+    this.media,
+    this.replyMarkup,
+    this.replyTo,
+  }) : super._();
+
+  /// Deserialize.
+  factory EphemeralMessage.deserialize(BinaryReader reader) {
+    // Read [EphemeralMessage] fields.
+    final flags = reader.readInt32();
+    final out = (flags & 1) != 0;
+    final id = reader.readInt32();
+    final fromId = reader.readObject() as PeerBase;
+    final peerId = reader.readObject() as PeerBase;
+    final receiverId = reader.readInt64();
+    final hasTopMsgIdField = (flags & 2) != 0;
+    final topMsgId = hasTopMsgIdField ? reader.readInt32() : null;
+    final date = reader.readDateTime();
+    final message = reader.readString();
+    final hasEntitiesField = (flags & 4) != 0;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
+    final hasMediaField = (flags & 8) != 0;
+    final media =
+        hasMediaField ? reader.readObject() as MessageMediaBase : null;
+    final hasReplyMarkupField = (flags & 16) != 0;
+    final replyMarkup =
+        hasReplyMarkupField ? reader.readObject() as ReplyMarkupBase : null;
+    final hasReplyToField = (flags & 64) != 0;
+    final replyTo =
+        hasReplyToField ? reader.readObject() as MessageReplyHeaderBase : null;
+
+    // Construct [EphemeralMessage] object.
+    final returnValue = EphemeralMessage(
+      out: out,
+      id: id,
+      fromId: fromId,
+      peerId: peerId,
+      receiverId: receiverId,
+      topMsgId: topMsgId,
+      date: date,
+      message: message,
+      entities: entities?.items,
+      media: media,
+      replyMarkup: replyMarkup,
+      replyTo: replyTo,
+    );
+
+    // Now return the deserialized [EphemeralMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: out,
+      b01: topMsgId != null,
+      b02: entities != null,
+      b03: media != null,
+      b04: replyMarkup != null,
+      b06: replyTo != null,
+    );
+
+    return v;
+  }
+
+  /// out: bit 0 of flags.0?true
+  final bool out;
+
+  /// Id.
+  ///
+  /// Field type is Int32.
+  final int id;
+
+  /// From Id.
+  final PeerBase fromId;
+
+  /// Peer Id.
+  final PeerBase peerId;
+
+  /// Receiver Id.
+  ///
+  /// Field type is Int64.
+  final int receiverId;
+
+  /// Top Msg Id.
+  final int? topMsgId;
+
+  /// Date.
+  final DateTime date;
+
+  /// Message.
+  final String message;
+
+  /// Entities.
+  final List<MessageEntityBase>? entities;
+
+  /// Media.
+  final MessageMediaBase? media;
+
+  /// Reply Markup.
+  final ReplyMarkupBase? replyMarkup;
+
+  /// Reply To.
+  final MessageReplyHeaderBase? replyTo;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd9c6dc1a.
+    buffer.writeInt32(0xd9c6dc1a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(id);
+    buffer.writeObject(fromId);
+    buffer.writeObject(peerId);
+    buffer.writeInt64(receiverId);
+    final localTopMsgIdCopy = topMsgId;
+    if (localTopMsgIdCopy != null) {
+      buffer.writeInt32(localTopMsgIdCopy);
+    }
+    buffer.writeDateTime(date);
+    buffer.writeString(message);
+    final localEntitiesCopy = entities;
+    if (localEntitiesCopy != null) {
+      buffer.writeVectorObject(localEntitiesCopy);
+    }
+    final localMediaCopy = media;
+    if (localMediaCopy != null) {
+      buffer.writeObject(localMediaCopy);
+    }
+    final localReplyMarkupCopy = replyMarkup;
+    if (localReplyMarkupCopy != null) {
+      buffer.writeObject(localReplyMarkupCopy);
+    }
+    final localReplyToCopy = replyTo;
+    if (localReplyToCopy != null) {
+      buffer.writeObject(localReplyToCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d9c6dc1a",
+      "\$name": "EphemeralMessage",
+      "flags": flags,
+      "out": out,
+      "id": id,
+      "fromId": fromId,
+      "peerId": peerId,
+      "receiverId": receiverId,
+      "topMsgId": topMsgId,
+      "date": date.toIso8601String(),
+      "message": message,
+      "entities": entities,
+      "media": media,
+      "replyMarkup": replyMarkup,
+      "replyTo": replyTo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Participant Joined Chats.
+///
+/// ID: `8d78512a`.
+class CommunitiesParticipantJoinedChats
+    extends CommunitiesParticipantJoinedChatsBase {
+  /// Communities Participant Joined Chats constructor.
+  const CommunitiesParticipantJoinedChats({
+    required this.creatorChatIds,
+    required this.joinedChatIds,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesParticipantJoinedChats.deserialize(BinaryReader reader) {
+    // Read [CommunitiesParticipantJoinedChats] fields.
+    final creatorChatIds = reader.readVectorInt64();
+    final joinedChatIds = reader.readVectorInt64();
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [CommunitiesParticipantJoinedChats] object.
+    final returnValue = CommunitiesParticipantJoinedChats(
+      creatorChatIds: creatorChatIds.items,
+      joinedChatIds: joinedChatIds.items,
+      chats: chats.items,
+      users: users.items,
+    );
+
+    // Now return the deserialized [CommunitiesParticipantJoinedChats].
+    return returnValue;
+  }
+
+  /// Creator Chat Ids.
+  final List<int> creatorChatIds;
+
+  /// Joined Chat Ids.
+  final List<int> joinedChatIds;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8d78512a.
+    buffer.writeInt32(0x8d78512a);
+
+    // Write fields.
+    buffer.writeVectorInt64(creatorChatIds);
+    buffer.writeVectorInt64(joinedChatIds);
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8d78512a",
+      "\$name": "CommunitiesParticipantJoinedChats",
+      "creatorChatIds": creatorChatIds,
+      "joinedChatIds": joinedChatIds,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Translated Rich Message.
+///
+/// ID: `4203998f`.
+class MessagesTranslatedRichMessage extends MessagesTranslatedRichMessageBase {
+  /// Messages Translated Rich Message constructor.
+  const MessagesTranslatedRichMessage({required this.result}) : super._();
+
+  /// Deserialize.
+  factory MessagesTranslatedRichMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesTranslatedRichMessage] fields.
+    final result = reader.readVectorObject<RichMessageBase>();
+
+    // Construct [MessagesTranslatedRichMessage] object.
+    final returnValue = MessagesTranslatedRichMessage(result: result.items);
+
+    // Now return the deserialized [MessagesTranslatedRichMessage].
+    return returnValue;
+  }
+
+  /// Result.
+  final List<RichMessageBase> result;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4203998f.
+    buffer.writeInt32(0x4203998f);
+
+    // Write fields.
+    buffer.writeVectorObject(result);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4203998f",
+      "\$name": "MessagesTranslatedRichMessage",
+      "result": result,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Composed Rich Message With A I.
+///
+/// ID: `4c4537c8`.
+class MessagesComposedRichMessageWithAI
+    extends MessagesComposedRichMessageWithAIBase {
+  /// Messages Composed Rich Message With A I constructor.
+  const MessagesComposedRichMessageWithAI({required this.result}) : super._();
+
+  /// Deserialize.
+  factory MessagesComposedRichMessageWithAI.deserialize(BinaryReader reader) {
+    // Read [MessagesComposedRichMessageWithAI] fields.
+    final result = reader.readObject() as RichMessageBase;
+
+    // Construct [MessagesComposedRichMessageWithAI] object.
+    final returnValue = MessagesComposedRichMessageWithAI(result: result);
+
+    // Now return the deserialized [MessagesComposedRichMessageWithAI].
+    return returnValue;
+  }
+
+  /// Result.
+  final RichMessageBase result;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4c4537c8.
+    buffer.writeInt32(0x4c4537c8);
+
+    // Write fields.
+    buffer.writeObject(result);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4c4537c8",
+      "\$name": "MessagesComposedRichMessageWithAI",
+      "result": result,
     };
 
     // Finished toJson.
@@ -133485,7 +135329,7 @@ class MessagesMigrateChat extends TlMethod {
 /// Messages Search Global.
 ///
 /// Return Type: `MessagesMessagesBase`.
-/// ID: `4bc6589a`.
+/// ID: `6126a43c`.
 class MessagesSearchGlobal extends TlMethod {
   /// Messages Search Global constructor.
   const MessagesSearchGlobal({
@@ -133493,6 +135337,7 @@ class MessagesSearchGlobal extends TlMethod {
     required this.groupsOnly,
     required this.usersOnly,
     this.folderId,
+    this.community,
     required this.q,
     required this.filter,
     required this.minDate,
@@ -133512,6 +135357,9 @@ class MessagesSearchGlobal extends TlMethod {
     final usersOnly = (flags & 8) != 0;
     final hasFolderIdField = (flags & 1) != 0;
     final folderId = hasFolderIdField ? reader.readInt32() : null;
+    final hasCommunityField = (flags & 16) != 0;
+    final community =
+        hasCommunityField ? reader.readObject() as InputChannelBase : null;
     final q = reader.readString();
     final filter = reader.readObject() as MessagesFilterBase;
     final minDate = reader.readDateTime();
@@ -133527,6 +135375,7 @@ class MessagesSearchGlobal extends TlMethod {
       groupsOnly: groupsOnly,
       usersOnly: usersOnly,
       folderId: folderId,
+      community: community,
       q: q,
       filter: filter,
       minDate: minDate,
@@ -133548,6 +135397,7 @@ class MessagesSearchGlobal extends TlMethod {
       b02: groupsOnly,
       b03: usersOnly,
       b00: folderId != null,
+      b04: community != null,
     );
 
     return v;
@@ -133564,6 +135414,9 @@ class MessagesSearchGlobal extends TlMethod {
 
   /// Folder Id.
   final int? folderId;
+
+  /// Community.
+  final InputChannelBase? community;
 
   /// Q.
   final String q;
@@ -133598,14 +135451,18 @@ class MessagesSearchGlobal extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x4bc6589a.
-    buffer.writeInt32(0x4bc6589a);
+    // Write type-id 0x6126a43c.
+    buffer.writeInt32(0x6126a43c);
 
     // Write fields.
     buffer.writeInt32(flags);
     final localFolderIdCopy = folderId;
     if (localFolderIdCopy != null) {
       buffer.writeInt32(localFolderIdCopy);
+    }
+    final localCommunityCopy = community;
+    if (localCommunityCopy != null) {
+      buffer.writeObject(localCommunityCopy);
     }
     buffer.writeString(q);
     buffer.writeObject(filter);
@@ -133622,13 +135479,14 @@ class MessagesSearchGlobal extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "4bc6589a",
+      "\$hash": "6126a43c",
       "\$name": "MessagesSearchGlobal",
       "flags": flags,
       "broadcastsOnly": broadcastsOnly,
       "groupsOnly": groupsOnly,
       "usersOnly": usersOnly,
       "folderId": folderId,
+      "community": community,
       "q": q,
       "filter": filter,
       "minDate": minDate.toIso8601String(),
@@ -149282,6 +151140,319 @@ class MessagesGetRichMessage extends TlMethod {
   }
 }
 
+/// Messages Translate Rich Message.
+///
+/// Return Type: `MessagesTranslatedRichMessageBase`.
+/// ID: `1a542004`.
+class MessagesTranslateRichMessage extends TlMethod {
+  /// Messages Translate Rich Message constructor.
+  const MessagesTranslateRichMessage({
+    this.peer,
+    this.id,
+    this.text,
+    required this.toLang,
+    this.tone,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesTranslateRichMessage.deserialize(BinaryReader reader) {
+    // Read [MessagesTranslateRichMessage] fields.
+    final flags = reader.readInt32();
+    final hasPeerField = (flags & 1) != 0;
+    final peer = hasPeerField ? reader.readObject() as InputPeerBase : null;
+    final hasIdField = (flags & 1) != 0;
+    final id = hasIdField ? reader.readVectorInt32() : null;
+    final hasTextField = (flags & 2) != 0;
+    final text =
+        hasTextField ? reader.readVectorObject<InputRichMessageBase>() : null;
+    final toLang = reader.readString();
+    final hasToneField = (flags & 4) != 0;
+    final tone = hasToneField ? reader.readString() : null;
+
+    // Construct [MessagesTranslateRichMessage] object.
+    final returnValue = MessagesTranslateRichMessage(
+      peer: peer,
+      id: id?.items,
+      text: text?.items,
+      toLang: toLang,
+      tone: tone,
+    );
+
+    // Now return the deserialized [MessagesTranslateRichMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: peer != null || id != null,
+      b01: text != null,
+      b02: tone != null,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase? peer;
+
+  /// Id.
+  final List<int>? id;
+
+  /// Text.
+  final List<InputRichMessageBase>? text;
+
+  /// To Lang.
+  final String toLang;
+
+  /// Tone.
+  final String? tone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1a542004.
+    buffer.writeInt32(0x1a542004);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localPeerCopy = peer;
+    if (localPeerCopy != null) {
+      buffer.writeObject(localPeerCopy);
+    }
+    final localIdCopy = id;
+    if (localIdCopy != null) {
+      buffer.writeVectorInt32(localIdCopy);
+    }
+    final localTextCopy = text;
+    if (localTextCopy != null) {
+      buffer.writeVectorObject(localTextCopy);
+    }
+    buffer.writeString(toLang);
+    final localToneCopy = tone;
+    if (localToneCopy != null) {
+      buffer.writeString(localToneCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "1a542004",
+      "\$name": "MessagesTranslateRichMessage",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "text": text,
+      "toLang": toLang,
+      "tone": tone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Compose Rich Message With A I.
+///
+/// Return Type: `MessagesComposedRichMessageWithAIBase`.
+/// ID: `8d7ae6af`.
+class MessagesComposeRichMessageWithAI extends TlMethod {
+  /// Messages Compose Rich Message With A I constructor.
+  const MessagesComposeRichMessageWithAI({
+    required this.proofread,
+    required this.emojify,
+    this.text,
+    this.translateToLang,
+    this.tone,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesComposeRichMessageWithAI.deserialize(BinaryReader reader) {
+    // Read [MessagesComposeRichMessageWithAI] fields.
+    final flags = reader.readInt32();
+    final proofread = (flags & 1) != 0;
+    final emojify = (flags & 8) != 0;
+    final hasTextField = (flags & 16) != 0;
+    final text =
+        hasTextField ? reader.readObject() as InputRichMessageBase : null;
+    final hasTranslateToLangField = (flags & 2) != 0;
+    final translateToLang =
+        hasTranslateToLangField ? reader.readString() : null;
+    final hasToneField = (flags & 4) != 0;
+    final tone =
+        hasToneField ? reader.readObject() as InputAiComposeToneBase : null;
+
+    // Construct [MessagesComposeRichMessageWithAI] object.
+    final returnValue = MessagesComposeRichMessageWithAI(
+      proofread: proofread,
+      emojify: emojify,
+      text: text,
+      translateToLang: translateToLang,
+      tone: tone,
+    );
+
+    // Now return the deserialized [MessagesComposeRichMessageWithAI].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: proofread,
+      b03: emojify,
+      b04: text != null,
+      b01: translateToLang != null,
+      b02: tone != null,
+    );
+
+    return v;
+  }
+
+  /// proofread: bit 0 of flags.0?true
+  final bool proofread;
+
+  /// emojify: bit 3 of flags.3?true
+  final bool emojify;
+
+  /// Text.
+  final InputRichMessageBase? text;
+
+  /// Translate To Lang.
+  final String? translateToLang;
+
+  /// Tone.
+  final InputAiComposeToneBase? tone;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8d7ae6af.
+    buffer.writeInt32(0x8d7ae6af);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localTextCopy = text;
+    if (localTextCopy != null) {
+      buffer.writeObject(localTextCopy);
+    }
+    final localTranslateToLangCopy = translateToLang;
+    if (localTranslateToLangCopy != null) {
+      buffer.writeString(localTranslateToLangCopy);
+    }
+    final localToneCopy = tone;
+    if (localToneCopy != null) {
+      buffer.writeObject(localToneCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8d7ae6af",
+      "\$name": "MessagesComposeRichMessageWithAI",
+      "flags": flags,
+      "proofread": proofread,
+      "emojify": emojify,
+      "text": text,
+      "translateToLang": translateToLang,
+      "tone": tone,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Messages Request Chat Join Web View.
+///
+/// Return Type: `WebViewResultBase`.
+/// ID: `ba9ee679`.
+class MessagesRequestChatJoinWebView extends TlMethod {
+  /// Messages Request Chat Join Web View constructor.
+  const MessagesRequestChatJoinWebView({
+    required this.queryId,
+    this.themeParams,
+    required this.platform,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessagesRequestChatJoinWebView.deserialize(BinaryReader reader) {
+    // Read [MessagesRequestChatJoinWebView] fields.
+    final flags = reader.readInt32();
+    final queryId = reader.readInt64();
+    final hasThemeParamsField = (flags & 1) != 0;
+    final themeParams =
+        hasThemeParamsField ? reader.readObject() as DataJSONBase : null;
+    final platform = reader.readString();
+
+    // Construct [MessagesRequestChatJoinWebView] object.
+    final returnValue = MessagesRequestChatJoinWebView(
+      queryId: queryId,
+      themeParams: themeParams,
+      platform: platform,
+    );
+
+    // Now return the deserialized [MessagesRequestChatJoinWebView].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: themeParams != null);
+
+    return v;
+  }
+
+  /// Query Id.
+  ///
+  /// Field type is Int64.
+  final int queryId;
+
+  /// Theme Params.
+  final DataJSONBase? themeParams;
+
+  /// Platform.
+  final String platform;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xba9ee679.
+    buffer.writeInt32(0xba9ee679);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(queryId);
+    final localThemeParamsCopy = themeParams;
+    if (localThemeParamsCopy != null) {
+      buffer.writeObject(localThemeParamsCopy);
+    }
+    buffer.writeString(platform);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ba9ee679",
+      "\$name": "MessagesRequestChatJoinWebView",
+      "flags": flags,
+      "queryId": queryId,
+      "themeParams": themeParams,
+      "platform": platform,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Updates Get State.
 ///
 /// Return Type: `UpdatesStateBase`.
@@ -153068,6 +155239,7 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
     required this.byLocation,
     required this.checkLimit,
     required this.forPersonal,
+    required this.forCommunityPeer,
   }) : super._();
 
   /// Deserialize.
@@ -153077,12 +155249,14 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
     final byLocation = (flags & 1) != 0;
     final checkLimit = (flags & 2) != 0;
     final forPersonal = (flags & 4) != 0;
+    final forCommunityPeer = (flags & 8) != 0;
 
     // Construct [ChannelsGetAdminedPublicChannels] object.
     final returnValue = ChannelsGetAdminedPublicChannels(
       byLocation: byLocation,
       checkLimit: checkLimit,
       forPersonal: forPersonal,
+      forCommunityPeer: forCommunityPeer,
     );
 
     // Now return the deserialized [ChannelsGetAdminedPublicChannels].
@@ -153091,7 +155265,12 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: byLocation, b01: checkLimit, b02: forPersonal);
+    final v = _flag(
+      b00: byLocation,
+      b01: checkLimit,
+      b02: forPersonal,
+      b03: forCommunityPeer,
+    );
 
     return v;
   }
@@ -153104,6 +155283,9 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
 
   /// for_personal: bit 2 of flags.2?true
   final bool forPersonal;
+
+  /// for_community_peer: bit 3 of flags.3?true
+  final bool forCommunityPeer;
 
   /// Serialize.
   @override
@@ -153126,6 +155308,7 @@ class ChannelsGetAdminedPublicChannels extends TlMethod {
       "byLocation": byLocation,
       "checkLimit": checkLimit,
       "forPersonal": forPersonal,
+      "forCommunityPeer": forCommunityPeer,
     };
 
     // Finished toJson.
@@ -171458,6 +173641,1058 @@ class AicomposeGetToneExample extends TlMethod {
       "\$name": "AicomposeGetToneExample",
       "tone": tone,
       "num": num,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Create.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `a63859ec`.
+class CommunitiesCreate extends TlMethod {
+  /// Communities Create constructor.
+  const CommunitiesCreate({
+    required this.hidden,
+    required this.title,
+    this.about,
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesCreate.deserialize(BinaryReader reader) {
+    // Read [CommunitiesCreate] fields.
+    final flags = reader.readInt32();
+    final hidden = (flags & 2) != 0;
+    final title = reader.readString();
+    final hasAboutField = (flags & 1) != 0;
+    final about = hasAboutField ? reader.readString() : null;
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [CommunitiesCreate] object.
+    final returnValue = CommunitiesCreate(
+      hidden: hidden,
+      title: title,
+      about: about,
+      peer: peer,
+    );
+
+    // Now return the deserialized [CommunitiesCreate].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b01: hidden, b00: about != null);
+
+    return v;
+  }
+
+  /// hidden: bit 1 of flags.1?true
+  final bool hidden;
+
+  /// Title.
+  final String title;
+
+  /// About.
+  final String? about;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa63859ec.
+    buffer.writeInt32(0xa63859ec);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(title);
+    final localAboutCopy = about;
+    if (localAboutCopy != null) {
+      buffer.writeString(localAboutCopy);
+    }
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a63859ec",
+      "\$name": "CommunitiesCreate",
+      "flags": flags,
+      "hidden": hidden,
+      "title": title,
+      "about": about,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Toggle Peer Link.
+///
+/// Return Type: `bool`.
+/// ID: `736dcfea`.
+class CommunitiesTogglePeerLink extends TlMethod {
+  /// Communities Toggle Peer Link constructor.
+  const CommunitiesTogglePeerLink({
+    required this.visible,
+    required this.hidden,
+    required this.deleted,
+    required this.community,
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesTogglePeerLink.deserialize(BinaryReader reader) {
+    // Read [CommunitiesTogglePeerLink] fields.
+    final flags = reader.readInt32();
+    final visible = (flags & 1) != 0;
+    final hidden = (flags & 2) != 0;
+    final deleted = (flags & 4) != 0;
+    final community = reader.readObject() as InputChannelBase;
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [CommunitiesTogglePeerLink] object.
+    final returnValue = CommunitiesTogglePeerLink(
+      visible: visible,
+      hidden: hidden,
+      deleted: deleted,
+      community: community,
+      peer: peer,
+    );
+
+    // Now return the deserialized [CommunitiesTogglePeerLink].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: visible, b01: hidden, b02: deleted);
+
+    return v;
+  }
+
+  /// visible: bit 0 of flags.0?true
+  final bool visible;
+
+  /// hidden: bit 1 of flags.1?true
+  final bool hidden;
+
+  /// deleted: bit 2 of flags.2?true
+  final bool deleted;
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x736dcfea.
+    buffer.writeInt32(0x736dcfea);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(community);
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "736dcfea",
+      "\$name": "CommunitiesTogglePeerLink",
+      "flags": flags,
+      "visible": visible,
+      "hidden": hidden,
+      "deleted": deleted,
+      "community": community,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Get Joined Communities.
+///
+/// Return Type: `MessagesChatsBase`.
+/// ID: `a663e830`.
+class CommunitiesGetJoinedCommunities extends TlMethod {
+  /// Communities Get Joined Communities constructor.
+  const CommunitiesGetJoinedCommunities() : super._();
+
+  /// Deserialize.
+  factory CommunitiesGetJoinedCommunities.deserialize(BinaryReader reader) {
+    // Construct [CommunitiesGetJoinedCommunities] object.
+    final returnValue = CommunitiesGetJoinedCommunities();
+
+    // Now return the deserialized [CommunitiesGetJoinedCommunities].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa663e830.
+    buffer.writeInt32(0xa663e830);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a663e830",
+      "\$name": "CommunitiesGetJoinedCommunities",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Toggle Community Collapsed In Dialogs.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `d766e3ea`.
+class CommunitiesToggleCommunityCollapsedInDialogs extends TlMethod {
+  /// Communities Toggle Community Collapsed In Dialogs constructor.
+  const CommunitiesToggleCommunityCollapsedInDialogs({
+    required this.collapsed,
+    required this.community,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesToggleCommunityCollapsedInDialogs.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [CommunitiesToggleCommunityCollapsedInDialogs] fields.
+    final flags = reader.readInt32();
+    final collapsed = (flags & 1) != 0;
+    final community = reader.readObject() as InputChannelBase;
+
+    // Construct [CommunitiesToggleCommunityCollapsedInDialogs] object.
+    final returnValue = CommunitiesToggleCommunityCollapsedInDialogs(
+      collapsed: collapsed,
+      community: community,
+    );
+
+    // Now return the deserialized [CommunitiesToggleCommunityCollapsedInDialogs].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: collapsed);
+
+    return v;
+  }
+
+  /// collapsed: bit 0 of flags.0?true
+  final bool collapsed;
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd766e3ea.
+    buffer.writeInt32(0xd766e3ea);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(community);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d766e3ea",
+      "\$name": "CommunitiesToggleCommunityCollapsedInDialogs",
+      "flags": flags,
+      "collapsed": collapsed,
+      "community": community,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Get Peer Link Requests.
+///
+/// Return Type: `CommunitiesPeerLinkRequestsBase`.
+/// ID: `93773344`.
+class CommunitiesGetPeerLinkRequests extends TlMethod {
+  /// Communities Get Peer Link Requests constructor.
+  const CommunitiesGetPeerLinkRequests({
+    required this.community,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesGetPeerLinkRequests.deserialize(BinaryReader reader) {
+    // Read [CommunitiesGetPeerLinkRequests] fields.
+    final community = reader.readObject() as InputChannelBase;
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [CommunitiesGetPeerLinkRequests] object.
+    final returnValue = CommunitiesGetPeerLinkRequests(
+      community: community,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [CommunitiesGetPeerLinkRequests].
+    return returnValue;
+  }
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x93773344.
+    buffer.writeInt32(0x93773344);
+
+    // Write fields.
+    buffer.writeObject(community);
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "93773344",
+      "\$name": "CommunitiesGetPeerLinkRequests",
+      "community": community,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Toggle Peer Link Request Approval.
+///
+/// Return Type: `bool`.
+/// ID: `8c8219a8`.
+class CommunitiesTogglePeerLinkRequestApproval extends TlMethod {
+  /// Communities Toggle Peer Link Request Approval constructor.
+  const CommunitiesTogglePeerLinkRequestApproval({
+    required this.reject,
+    required this.community,
+    required this.peer,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesTogglePeerLinkRequestApproval.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [CommunitiesTogglePeerLinkRequestApproval] fields.
+    final flags = reader.readInt32();
+    final reject = (flags & 1) != 0;
+    final community = reader.readObject() as InputChannelBase;
+    final peer = reader.readObject() as InputPeerBase;
+
+    // Construct [CommunitiesTogglePeerLinkRequestApproval] object.
+    final returnValue = CommunitiesTogglePeerLinkRequestApproval(
+      reject: reject,
+      community: community,
+      peer: peer,
+    );
+
+    // Now return the deserialized [CommunitiesTogglePeerLinkRequestApproval].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: reject);
+
+    return v;
+  }
+
+  /// reject: bit 0 of flags.0?true
+  final bool reject;
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8c8219a8.
+    buffer.writeInt32(0x8c8219a8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(community);
+    buffer.writeObject(peer);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8c8219a8",
+      "\$name": "CommunitiesTogglePeerLinkRequestApproval",
+      "flags": flags,
+      "reject": reject,
+      "community": community,
+      "peer": peer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Toggle All Peer Link Request Approval.
+///
+/// Return Type: `bool`.
+/// ID: `bfe3dd3d`.
+class CommunitiesToggleAllPeerLinkRequestApproval extends TlMethod {
+  /// Communities Toggle All Peer Link Request Approval constructor.
+  const CommunitiesToggleAllPeerLinkRequestApproval({
+    required this.reject,
+    required this.community,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesToggleAllPeerLinkRequestApproval.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [CommunitiesToggleAllPeerLinkRequestApproval] fields.
+    final flags = reader.readInt32();
+    final reject = (flags & 1) != 0;
+    final community = reader.readObject() as InputChannelBase;
+
+    // Construct [CommunitiesToggleAllPeerLinkRequestApproval] object.
+    final returnValue = CommunitiesToggleAllPeerLinkRequestApproval(
+      reject: reject,
+      community: community,
+    );
+
+    // Now return the deserialized [CommunitiesToggleAllPeerLinkRequestApproval].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: reject);
+
+    return v;
+  }
+
+  /// reject: bit 0 of flags.0?true
+  final bool reject;
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbfe3dd3d.
+    buffer.writeInt32(0xbfe3dd3d);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(community);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bfe3dd3d",
+      "\$name": "CommunitiesToggleAllPeerLinkRequestApproval",
+      "flags": flags,
+      "reject": reject,
+      "community": community,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Toggle Participant Banned.
+///
+/// Return Type: `bool`.
+/// ID: `9967ad0f`.
+class CommunitiesToggleParticipantBanned extends TlMethod {
+  /// Communities Toggle Participant Banned constructor.
+  const CommunitiesToggleParticipantBanned({
+    required this.unban,
+    required this.community,
+    required this.participant,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesToggleParticipantBanned.deserialize(BinaryReader reader) {
+    // Read [CommunitiesToggleParticipantBanned] fields.
+    final flags = reader.readInt32();
+    final unban = (flags & 1) != 0;
+    final community = reader.readObject() as InputChannelBase;
+    final participant = reader.readObject() as InputPeerBase;
+
+    // Construct [CommunitiesToggleParticipantBanned] object.
+    final returnValue = CommunitiesToggleParticipantBanned(
+      unban: unban,
+      community: community,
+      participant: participant,
+    );
+
+    // Now return the deserialized [CommunitiesToggleParticipantBanned].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: unban);
+
+    return v;
+  }
+
+  /// unban: bit 0 of flags.0?true
+  final bool unban;
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Participant.
+  final InputPeerBase participant;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9967ad0f.
+    buffer.writeInt32(0x9967ad0f);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(community);
+    buffer.writeObject(participant);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9967ad0f",
+      "\$name": "CommunitiesToggleParticipantBanned",
+      "flags": flags,
+      "unban": unban,
+      "community": community,
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Communities Get Participant Joined Chats.
+///
+/// Return Type: `CommunitiesParticipantJoinedChatsBase`.
+/// ID: `f87eabab`.
+class CommunitiesGetParticipantJoinedChats extends TlMethod {
+  /// Communities Get Participant Joined Chats constructor.
+  const CommunitiesGetParticipantJoinedChats({
+    required this.community,
+    required this.participant,
+  }) : super._();
+
+  /// Deserialize.
+  factory CommunitiesGetParticipantJoinedChats.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [CommunitiesGetParticipantJoinedChats] fields.
+    final community = reader.readObject() as InputChannelBase;
+    final participant = reader.readObject() as InputPeerBase;
+
+    // Construct [CommunitiesGetParticipantJoinedChats] object.
+    final returnValue = CommunitiesGetParticipantJoinedChats(
+      community: community,
+      participant: participant,
+    );
+
+    // Now return the deserialized [CommunitiesGetParticipantJoinedChats].
+    return returnValue;
+  }
+
+  /// Community.
+  final InputChannelBase community;
+
+  /// Participant.
+  final InputPeerBase participant;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf87eabab.
+    buffer.writeInt32(0xf87eabab);
+
+    // Write fields.
+    buffer.writeObject(community);
+    buffer.writeObject(participant);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f87eabab",
+      "\$name": "CommunitiesGetParticipantJoinedChats",
+      "community": community,
+      "participant": participant,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ephemeral Send Message.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `68cbd09f`.
+class EphemeralSendMessage extends TlMethod {
+  /// Ephemeral Send Message constructor.
+  const EphemeralSendMessage({
+    required this.peer,
+    required this.receiverId,
+    this.queryId,
+    required this.message,
+    this.entities,
+    this.media,
+    this.replyMarkup,
+    this.richMessage,
+    required this.randomId,
+    this.replyTo,
+  }) : super._();
+
+  /// Deserialize.
+  factory EphemeralSendMessage.deserialize(BinaryReader reader) {
+    // Read [EphemeralSendMessage] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final receiverId = reader.readObject() as InputUserBase;
+    final hasQueryIdField = (flags & 1) != 0;
+    final queryId = hasQueryIdField ? reader.readInt64() : null;
+    final message = reader.readString();
+    final hasEntitiesField = (flags & 2) != 0;
+    final entities =
+        hasEntitiesField ? reader.readVectorObject<MessageEntityBase>() : null;
+    final hasMediaField = (flags & 4) != 0;
+    final media = hasMediaField ? reader.readObject() as InputMediaBase : null;
+    final hasReplyMarkupField = (flags & 8) != 0;
+    final replyMarkup =
+        hasReplyMarkupField ? reader.readObject() as ReplyMarkupBase : null;
+    final hasRichMessageField = (flags & 16) != 0;
+    final richMessage = hasRichMessageField
+        ? reader.readObject() as InputRichMessageBase
+        : null;
+    final randomId = reader.readInt64();
+    final hasReplyToField = (flags & 32) != 0;
+    final replyTo =
+        hasReplyToField ? reader.readObject() as InputReplyToBase : null;
+
+    // Construct [EphemeralSendMessage] object.
+    final returnValue = EphemeralSendMessage(
+      peer: peer,
+      receiverId: receiverId,
+      queryId: queryId,
+      message: message,
+      entities: entities?.items,
+      media: media,
+      replyMarkup: replyMarkup,
+      richMessage: richMessage,
+      randomId: randomId,
+      replyTo: replyTo,
+    );
+
+    // Now return the deserialized [EphemeralSendMessage].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: queryId != null,
+      b01: entities != null,
+      b02: media != null,
+      b03: replyMarkup != null,
+      b04: richMessage != null,
+      b05: replyTo != null,
+    );
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Receiver Id.
+  final InputUserBase receiverId;
+
+  /// Query Id.
+  final int? queryId;
+
+  /// Message.
+  final String message;
+
+  /// Entities.
+  final List<MessageEntityBase>? entities;
+
+  /// Media.
+  final InputMediaBase? media;
+
+  /// Reply Markup.
+  final ReplyMarkupBase? replyMarkup;
+
+  /// Rich Message.
+  final InputRichMessageBase? richMessage;
+
+  /// Random Id.
+  ///
+  /// Field type is Int64.
+  final int randomId;
+
+  /// Reply To.
+  final InputReplyToBase? replyTo;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x68cbd09f.
+    buffer.writeInt32(0x68cbd09f);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeObject(receiverId);
+    final localQueryIdCopy = queryId;
+    if (localQueryIdCopy != null) {
+      buffer.writeInt64(localQueryIdCopy);
+    }
+    buffer.writeString(message);
+    final localEntitiesCopy = entities;
+    if (localEntitiesCopy != null) {
+      buffer.writeVectorObject(localEntitiesCopy);
+    }
+    final localMediaCopy = media;
+    if (localMediaCopy != null) {
+      buffer.writeObject(localMediaCopy);
+    }
+    final localReplyMarkupCopy = replyMarkup;
+    if (localReplyMarkupCopy != null) {
+      buffer.writeObject(localReplyMarkupCopy);
+    }
+    final localRichMessageCopy = richMessage;
+    if (localRichMessageCopy != null) {
+      buffer.writeObject(localRichMessageCopy);
+    }
+    buffer.writeInt64(randomId);
+    final localReplyToCopy = replyTo;
+    if (localReplyToCopy != null) {
+      buffer.writeObject(localReplyToCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "68cbd09f",
+      "\$name": "EphemeralSendMessage",
+      "flags": flags,
+      "peer": peer,
+      "receiverId": receiverId,
+      "queryId": queryId,
+      "message": message,
+      "entities": entities,
+      "media": media,
+      "replyMarkup": replyMarkup,
+      "richMessage": richMessage,
+      "randomId": randomId,
+      "replyTo": replyTo,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ephemeral Delete Message.
+///
+/// Return Type: `bool`.
+/// ID: `a3c0d511`.
+class EphemeralDeleteMessage extends TlMethod {
+  /// Ephemeral Delete Message constructor.
+  const EphemeralDeleteMessage({
+    required this.peer,
+    required this.receiverId,
+    required this.id,
+  }) : super._();
+
+  /// Deserialize.
+  factory EphemeralDeleteMessage.deserialize(BinaryReader reader) {
+    // Read [EphemeralDeleteMessage] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final receiverId = reader.readObject() as InputUserBase;
+    final id = reader.readInt32();
+
+    // Construct [EphemeralDeleteMessage] object.
+    final returnValue = EphemeralDeleteMessage(
+      peer: peer,
+      receiverId: receiverId,
+      id: id,
+    );
+
+    // Now return the deserialized [EphemeralDeleteMessage].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Receiver Id.
+  final InputUserBase receiverId;
+
+  /// Id.
+  ///
+  /// Field type is Int32.
+  final int id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa3c0d511.
+    buffer.writeInt32(0xa3c0d511);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeObject(receiverId);
+    buffer.writeInt32(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a3c0d511",
+      "\$name": "EphemeralDeleteMessage",
+      "peer": peer,
+      "receiverId": receiverId,
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ephemeral Report Message.
+///
+/// Return Type: `ReportResultBase`.
+/// ID: `8704f2bf`.
+class EphemeralReportMessage extends TlMethod {
+  /// Ephemeral Report Message constructor.
+  const EphemeralReportMessage({
+    required this.peer,
+    required this.id,
+    required this.option,
+    required this.message,
+  }) : super._();
+
+  /// Deserialize.
+  factory EphemeralReportMessage.deserialize(BinaryReader reader) {
+    // Read [EphemeralReportMessage] fields.
+    final peer = reader.readObject() as InputPeerBase;
+    final id = reader.readInt32();
+    final option = reader.readBytes();
+    final message = reader.readString();
+
+    // Construct [EphemeralReportMessage] object.
+    final returnValue = EphemeralReportMessage(
+      peer: peer,
+      id: id,
+      option: option,
+      message: message,
+    );
+
+    // Now return the deserialized [EphemeralReportMessage].
+    return returnValue;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Id.
+  ///
+  /// Field type is Int32.
+  final int id;
+
+  /// Option.
+  final Uint8List option;
+
+  /// Message.
+  final String message;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8704f2bf.
+    buffer.writeInt32(0x8704f2bf);
+
+    // Write fields.
+    buffer.writeObject(peer);
+    buffer.writeInt32(id);
+    buffer.writeBytes(option);
+    buffer.writeString(message);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8704f2bf",
+      "\$name": "EphemeralReportMessage",
+      "peer": peer,
+      "id": id,
+      "option": option,
+      "message": message,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ephemeral Get Callback Answer.
+///
+/// Return Type: `MessagesBotCallbackAnswerBase`.
+/// ID: `3fa464c8`.
+class EphemeralGetCallbackAnswer extends TlMethod {
+  /// Ephemeral Get Callback Answer constructor.
+  const EphemeralGetCallbackAnswer({
+    required this.peer,
+    required this.id,
+    this.data,
+  }) : super._();
+
+  /// Deserialize.
+  factory EphemeralGetCallbackAnswer.deserialize(BinaryReader reader) {
+    // Read [EphemeralGetCallbackAnswer] fields.
+    final flags = reader.readInt32();
+    final peer = reader.readObject() as InputPeerBase;
+    final id = reader.readInt32();
+    final hasDataField = (flags & 2) != 0;
+    final data = hasDataField ? reader.readBytes() : null;
+
+    // Construct [EphemeralGetCallbackAnswer] object.
+    final returnValue = EphemeralGetCallbackAnswer(
+      peer: peer,
+      id: id,
+      data: data,
+    );
+
+    // Now return the deserialized [EphemeralGetCallbackAnswer].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b01: data != null);
+
+    return v;
+  }
+
+  /// Peer.
+  final InputPeerBase peer;
+
+  /// Id.
+  ///
+  /// Field type is Int32.
+  final int id;
+
+  /// Data.
+  final Uint8List? data;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3fa464c8.
+    buffer.writeInt32(0x3fa464c8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(peer);
+    buffer.writeInt32(id);
+    final localDataCopy = data;
+    if (localDataCopy != null) {
+      buffer.writeBytes(localDataCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3fa464c8",
+      "\$name": "EphemeralGetCallbackAnswer",
+      "flags": flags,
+      "peer": peer,
+      "id": id,
+      "data": data,
     };
 
     // Finished toJson.

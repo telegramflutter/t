@@ -3720,16 +3720,64 @@ abstract class AccountWebBrowserSettingsBase extends TlConstructor {
   const AccountWebBrowserSettingsBase._() : super._();
 }
 
-/// Predicate Rich Message.
-abstract class RichMessageBase extends TlConstructor {
-  /// Predicate Rich Message constructor.
-  const RichMessageBase._() : super._();
+/// Predicate Input Rich File.
+abstract class InputRichFileBase extends TlConstructor {
+  /// Predicate Input Rich File constructor.
+  const InputRichFileBase._() : super._();
 }
 
 /// Predicate Input Rich Message.
 abstract class InputRichMessageBase extends TlConstructor {
   /// Predicate Input Rich Message constructor.
   const InputRichMessageBase._() : super._();
+}
+
+/// Predicate Rich Message.
+abstract class RichMessageBase extends TlConstructor {
+  /// Predicate Rich Message constructor.
+  const RichMessageBase._() : super._();
+}
+
+/// Predicate Community Peer.
+abstract class CommunityPeerBase extends TlConstructor {
+  /// Predicate Community Peer constructor.
+  const CommunityPeerBase._() : super._();
+}
+
+/// Predicate Community Peer Request.
+abstract class CommunityPeerRequestBase extends TlConstructor {
+  /// Predicate Community Peer Request constructor.
+  const CommunityPeerRequestBase._() : super._();
+}
+
+/// Predicate Communities Peer Link Requests.
+abstract class CommunitiesPeerLinkRequestsBase extends TlConstructor {
+  /// Predicate Communities Peer Link Requests constructor.
+  const CommunitiesPeerLinkRequestsBase._() : super._();
+}
+
+/// Predicate Ephemeral Message.
+abstract class EphemeralMessageBase extends TlConstructor {
+  /// Predicate Ephemeral Message constructor.
+  const EphemeralMessageBase._() : super._();
+}
+
+/// Predicate Communities Participant Joined Chats.
+abstract class CommunitiesParticipantJoinedChatsBase extends TlConstructor {
+  /// Predicate Communities Participant Joined Chats constructor.
+  const CommunitiesParticipantJoinedChatsBase._() : super._();
+}
+
+/// Predicate Messages Translated Rich Message.
+abstract class MessagesTranslatedRichMessageBase extends TlConstructor {
+  /// Predicate Messages Translated Rich Message constructor.
+  const MessagesTranslatedRichMessageBase._() : super._();
+}
+
+/// Predicate Messages Composed Rich Message With A I.
+abstract class MessagesComposedRichMessageWithAIBase extends TlConstructor {
+  /// Predicate Messages Composed Rich Message With A I constructor.
+  const MessagesComposedRichMessageWithAIBase._() : super._();
 }
 
 /// Predicate Decrypted Message.
