@@ -862,7 +862,7 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionStarGift.deserialize(reader);
   }
 
-  if (id == 0xe6c31522) {
+  if (id == 0x7e1c1187) {
     return MessageActionStarGiftUnique.deserialize(reader);
   }
 
@@ -944,6 +944,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x5d20bae8) {
     return MessageActionChangeCommunity.deserialize(reader);
+  }
+
+  if (id == 0x4a8bfe80) {
+    return MessageActionChatJoinedViaCommunity.deserialize(reader);
   }
 
   if (id == 0xfc89f7f3) {
@@ -1910,6 +1914,10 @@ TlObject _readObject(BinaryReader reader) {
     return UpdateEditEphemeralMessage.deserialize(reader);
   }
 
+  if (id == 0x7c1079d6) {
+    return UpdateEphemeralBotCallbackQuery.deserialize(reader);
+  }
+
   if (id == 0x6c0d8e23) {
     return UpdateBotStarsSubscription.deserialize(reader);
   }
@@ -2194,16 +2202,20 @@ TlObject _readObject(BinaryReader reader) {
     return SendMessageEmojiInteractionSeen.deserialize(reader);
   }
 
-  if (id == 0x376d975c) {
+  if (id == 0x3630b85a) {
     return SendMessageTextDraftAction.deserialize(reader);
   }
 
-  if (id == 0xe2b23b51) {
+  if (id == 0xa937c7be) {
     return InputSendMessageRichMessageDraftAction.deserialize(reader);
   }
 
-  if (id == 0xa2cb24f9) {
+  if (id == 0x52564893) {
     return SendMessageRichMessageDraftAction.deserialize(reader);
+  }
+
+  if (id == 0xfbf902b0) {
+    return SendMessageStopDraftAction.deserialize(reader);
   }
 
   if (id == 0xb3134d9d) {
@@ -2614,76 +2626,8 @@ TlObject _readObject(BinaryReader reader) {
     return BotInfo.deserialize(reader);
   }
 
-  if (id == 0x7d170cff) {
+  if (id == 0x2f67a72f) {
     return KeyboardButton.deserialize(reader);
-  }
-
-  if (id == 0xd80c25ec) {
-    return KeyboardButtonUrl.deserialize(reader);
-  }
-
-  if (id == 0xe62bc960) {
-    return KeyboardButtonCallback.deserialize(reader);
-  }
-
-  if (id == 0x417efd8f) {
-    return KeyboardButtonRequestPhone.deserialize(reader);
-  }
-
-  if (id == 0xaa40f94d) {
-    return KeyboardButtonRequestGeoLocation.deserialize(reader);
-  }
-
-  if (id == 0x991399fc) {
-    return KeyboardButtonSwitchInline.deserialize(reader);
-  }
-
-  if (id == 0x89c590f9) {
-    return KeyboardButtonGame.deserialize(reader);
-  }
-
-  if (id == 0x3fa53905) {
-    return KeyboardButtonBuy.deserialize(reader);
-  }
-
-  if (id == 0xf51006f9) {
-    return KeyboardButtonUrlAuth.deserialize(reader);
-  }
-
-  if (id == 0x68013e72) {
-    return InputKeyboardButtonUrlAuth.deserialize(reader);
-  }
-
-  if (id == 0x7a11d782) {
-    return KeyboardButtonRequestPoll.deserialize(reader);
-  }
-
-  if (id == 0x7d5e07c7) {
-    return InputKeyboardButtonUserProfile.deserialize(reader);
-  }
-
-  if (id == 0xc0fd5d09) {
-    return KeyboardButtonUserProfile.deserialize(reader);
-  }
-
-  if (id == 0xe846b1a0) {
-    return KeyboardButtonWebView.deserialize(reader);
-  }
-
-  if (id == 0xe15c4370) {
-    return KeyboardButtonSimpleWebView.deserialize(reader);
-  }
-
-  if (id == 0x5b0f15f5) {
-    return KeyboardButtonRequestPeer.deserialize(reader);
-  }
-
-  if (id == 0x02b78156) {
-    return InputKeyboardButtonRequestPeer.deserialize(reader);
-  }
-
-  if (id == 0xbcc4af10) {
-    return KeyboardButtonCopy.deserialize(reader);
   }
 
   if (id == 0x77608b83) {
@@ -2702,7 +2646,7 @@ TlObject _readObject(BinaryReader reader) {
     return ReplyKeyboardMarkup.deserialize(reader);
   }
 
-  if (id == 0x48a30254) {
+  if (id == 0xb2b15770) {
     return ReplyInlineMarkup.deserialize(reader);
   }
 
@@ -3382,6 +3326,10 @@ TlObject _readObject(BinaryReader reader) {
     return TextDiff.deserialize(reader);
   }
 
+  if (id == 0xafc79cd6) {
+    return TextButton.deserialize(reader);
+  }
+
   if (id == 0x13567e8a) {
     return PageBlockUnsupported.deserialize(reader);
   }
@@ -3430,7 +3378,7 @@ TlObject _readObject(BinaryReader reader) {
     return PageBlockList.deserialize(reader);
   }
 
-  if (id == 0x263d7c26) {
+  if (id == 0x66d1670b) {
     return PageBlockBlockquote.deserialize(reader);
   }
 
@@ -3536,6 +3484,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x0e6e47c4) {
     return PageBlockBlockquoteBlocks.deserialize(reader);
+  }
+
+  if (id == 0x6d640318) {
+    return PageBlockButtonRow.deserialize(reader);
+  }
+
+  if (id == 0x38fa3ba3) {
+    return PageBlockDocument.deserialize(reader);
   }
 
   if (id == 0x85e42301) {
@@ -5161,7 +5117,7 @@ TlObject _readObject(BinaryReader reader) {
     return InputInvoiceBusinessBotTransferStars.deserialize(reader);
   }
 
-  if (id == 0xc39f5324) {
+  if (id == 0xe9b0c658) {
     return InputInvoiceStarGiftResale.deserialize(reader);
   }
 
@@ -6761,7 +6717,7 @@ TlObject _readObject(BinaryReader reader) {
     return CommunitiesPeerLinkRequests.deserialize(reader);
   }
 
-  if (id == 0xd9c6dc1a) {
+  if (id == 0xdd27bee9) {
     return EphemeralMessage.deserialize(reader);
   }
 
@@ -6775,6 +6731,110 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x4c4537c8) {
     return MessagesComposedRichMessageWithAI.deserialize(reader);
+  }
+
+  if (id == 0xc9dd90e9) {
+    return ButtonTypeDefault.deserialize(reader);
+  }
+
+  if (id == 0xdf3d36f9) {
+    return ButtonTypeRequestPhone.deserialize(reader);
+  }
+
+  if (id == 0x9beee140) {
+    return ButtonTypeRequestGeoLocation.deserialize(reader);
+  }
+
+  if (id == 0xaacfff84) {
+    return ButtonTypeRequestPoll.deserialize(reader);
+  }
+
+  if (id == 0x4f58a237) {
+    return ButtonTypeRequestPeer.deserialize(reader);
+  }
+
+  if (id == 0x3fe268fe) {
+    return InputButtonTypeRequestPeer.deserialize(reader);
+  }
+
+  if (id == 0xc01a597a) {
+    return ButtonTypeSimpleWebView.deserialize(reader);
+  }
+
+  if (id == 0xeca4f8d4) {
+    return InlineButtonTypeUrl.deserialize(reader);
+  }
+
+  if (id == 0xbfd02da2) {
+    return InlineButtonTypeUrlAuth.deserialize(reader);
+  }
+
+  if (id == 0x9961bcb4) {
+    return InputInlineButtonTypeUrlAuth.deserialize(reader);
+  }
+
+  if (id == 0x3bcab5b4) {
+    return InlineButtonTypeWebView.deserialize(reader);
+  }
+
+  if (id == 0x2955bc38) {
+    return InlineButtonTypeCallback.deserialize(reader);
+  }
+
+  if (id == 0x5cd3709d) {
+    return InlineButtonTypeGame.deserialize(reader);
+  }
+
+  if (id == 0x48bad7a5) {
+    return InlineButtonTypeBuy.deserialize(reader);
+  }
+
+  if (id == 0x93773ff5) {
+    return InlineButtonTypeSwitchInline.deserialize(reader);
+  }
+
+  if (id == 0x3fa33fcf) {
+    return InlineButtonTypeUserProfile.deserialize(reader);
+  }
+
+  if (id == 0x53f3ce5a) {
+    return InputInlineButtonTypeUserProfile.deserialize(reader);
+  }
+
+  if (id == 0xb41d3272) {
+    return InlineButtonTypeCopy.deserialize(reader);
+  }
+
+  if (id == 0xa438619d) {
+    return InlineButtonTypeDisabled.deserialize(reader);
+  }
+
+  if (id == 0x11c1a322) {
+    return KeyboardInlineButton.deserialize(reader);
+  }
+
+  if (id == 0x19420af6) {
+    return KeyboardInlineButtonRow.deserialize(reader);
+  }
+
+  if (id == 0x03c610bd) {
+    return RichButtonStyle.deserialize(reader);
+  }
+
+  if (id == 0x692a5488) {
+    return PageButton.deserialize(reader);
+  }
+
+  if (id == 0x59ffdb31) {
+    return EphemeralWelcomeMessagesNotModified.deserialize(reader);
+  }
+
+  if (id == 0x104fc872) {
+    return EphemeralWelcomeMessages.deserialize(reader);
+  }
+
+  if (id == 0xdf5ac00c) {
+    return AuthFirebasePnvIntent.deserialize(reader);
   }
 
   if (id == 0xcb9f372d) {
@@ -6923,6 +6983,18 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x9857ad07) {
     return AuthFinishPasskeyLogin.deserialize(reader);
+  }
+
+  if (id == 0x777df37a) {
+    return AuthInitFirebasePnvLogin.deserialize(reader);
+  }
+
+  if (id == 0x2c85094c) {
+    return AuthFinishFirebasePnvLogin.deserialize(reader);
+  }
+
+  if (id == 0x783f6b56) {
+    return AuthFirebasePnvSignUp.deserialize(reader);
   }
 
   if (id == 0xec86017a) {
@@ -9985,11 +10057,11 @@ TlObject _readObject(BinaryReader reader) {
     return CommunitiesGetParticipantJoinedChats.deserialize(reader);
   }
 
-  if (id == 0x68cbd09f) {
+  if (id == 0xba8d5f35) {
     return EphemeralSendMessage.deserialize(reader);
   }
 
-  if (id == 0xa3c0d511) {
+  if (id == 0x92f6e797) {
     return EphemeralDeleteMessage.deserialize(reader);
   }
 
@@ -9999,6 +10071,22 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0x3fa464c8) {
     return EphemeralGetCallbackAnswer.deserialize(reader);
+  }
+
+  if (id == 0xcf9c725b) {
+    return EphemeralEditMessage.deserialize(reader);
+  }
+
+  if (id == 0xe882a9e1) {
+    return EphemeralDeleteWelcomeMessage.deserialize(reader);
+  }
+
+  if (id == 0x734f9721) {
+    return EphemeralDeleteAllWelcomeMessages.deserialize(reader);
+  }
+
+  if (id == 0xdb9ac18d) {
+    return EphemeralGetWelcomeMessages.deserialize(reader);
   }
 
   // From end-to-end.tl

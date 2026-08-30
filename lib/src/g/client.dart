@@ -840,6 +840,61 @@ class ClientAuth {
     // Return the result.
     return response._to<AuthAuthorizationBase>();
   }
+
+  /// Init Firebase Pnv Login.
+  ///
+  /// ID: `777df37a`.
+  Future<Result<AuthFirebasePnvIntentBase>> initFirebasePnvLogin({
+    required int apiId,
+    required String apiHash,
+  }) async {
+    // Preparing the request.
+    final request = AuthInitFirebasePnvLogin(apiId: apiId, apiHash: apiHash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AuthFirebasePnvIntentBase>();
+  }
+
+  /// Finish Firebase Pnv Login.
+  ///
+  /// ID: `2c85094c`.
+  Future<Result<AuthAuthorizationBase>> finishFirebasePnvLogin({
+    required String googleToken,
+  }) async {
+    // Preparing the request.
+    final request = AuthFinishFirebasePnvLogin(googleToken: googleToken);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AuthAuthorizationBase>();
+  }
+
+  /// Firebase Pnv Sign Up.
+  ///
+  /// ID: `783f6b56`.
+  Future<Result<AuthAuthorizationBase>> firebasePnvSignUp({
+    required bool noJoinedNotifications,
+    required String firstName,
+    required String lastName,
+  }) async {
+    // Preparing the request.
+    final request = AuthFirebasePnvSignUp(
+      noJoinedNotifications: noJoinedNotifications,
+      firstName: firstName,
+      lastName: lastName,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<AuthAuthorizationBase>();
+  }
 }
 
 /// Account.
@@ -4083,6 +4138,7 @@ class ClientMessages {
     required bool dropMediaCaptions,
     required bool noforwards,
     required bool allowPaidFloodskip,
+    required bool fromEphemeral,
     required InputPeerBase fromPeer,
     required List<int> id,
     required List<int> randomId,
@@ -4107,6 +4163,7 @@ class ClientMessages {
       dropMediaCaptions: dropMediaCaptions,
       noforwards: noforwards,
       allowPaidFloodskip: allowPaidFloodskip,
+      fromEphemeral: fromEphemeral,
       fromPeer: fromPeer,
       id: id,
       randomId: randomId,
@@ -16109,9 +16166,13 @@ class ClientEphemeral {
 
   /// Send Message.
   ///
-  /// ID: `68cbd09f`.
+  /// ID: `ba8d5f35`.
   Future<Result<UpdatesBase>> sendMessage({
-    required InputPeerBase peer,
+    required bool invertMedia,
+    required bool welcome,
+    required bool anchor,
+    required bool noforwards,
+    InputPeerBase? peer,
     required InputUserBase receiverId,
     int? queryId,
     required String message,
@@ -16124,6 +16185,10 @@ class ClientEphemeral {
   }) async {
     // Preparing the request.
     final request = EphemeralSendMessage(
+      invertMedia: invertMedia,
+      welcome: welcome,
+      anchor: anchor,
+      noforwards: noforwards,
       peer: peer,
       receiverId: receiverId,
       queryId: queryId,
@@ -16145,9 +16210,9 @@ class ClientEphemeral {
 
   /// Delete Message.
   ///
-  /// ID: `a3c0d511`.
+  /// ID: `92f6e797`.
   Future<Result<Boolean>> deleteMessage({
-    required InputPeerBase peer,
+    InputPeerBase? peer,
     required InputUserBase receiverId,
     required int id,
   }) async {
@@ -16205,5 +16270,91 @@ class ClientEphemeral {
 
     // Return the result.
     return response._to<MessagesBotCallbackAnswerBase>();
+  }
+
+  /// Edit Message.
+  ///
+  /// ID: `cf9c725b`.
+  Future<Result<UpdatesBase>> editMessage({
+    required bool invertMedia,
+    required bool welcome,
+    InputPeerBase? peer,
+    required InputUserBase receiverId,
+    required int id,
+    String? message,
+    InputMediaBase? media,
+    List<MessageEntityBase>? entities,
+    ReplyMarkupBase? replyMarkup,
+    InputRichMessageBase? richMessage,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralEditMessage(
+      invertMedia: invertMedia,
+      welcome: welcome,
+      peer: peer,
+      receiverId: receiverId,
+      id: id,
+      message: message,
+      media: media,
+      entities: entities,
+      replyMarkup: replyMarkup,
+      richMessage: richMessage,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Delete Welcome Message.
+  ///
+  /// ID: `e882a9e1`.
+  Future<Result<Boolean>> deleteWelcomeMessage({
+    required InputPeerBase peer,
+    required int id,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralDeleteWelcomeMessage(peer: peer, id: id);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Delete All Welcome Messages.
+  ///
+  /// ID: `734f9721`.
+  Future<Result<Boolean>> deleteAllWelcomeMessages({
+    required InputPeerBase peer,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralDeleteAllWelcomeMessages(peer: peer);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Get Welcome Messages.
+  ///
+  /// ID: `db9ac18d`.
+  Future<Result<EphemeralWelcomeMessagesBase>> getWelcomeMessages({
+    required InputPeerBase peer,
+    required int hash,
+  }) async {
+    // Preparing the request.
+    final request = EphemeralGetWelcomeMessages(peer: peer, hash: hash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<EphemeralWelcomeMessagesBase>();
   }
 }

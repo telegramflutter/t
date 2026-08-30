@@ -3780,6 +3780,54 @@ abstract class MessagesComposedRichMessageWithAIBase extends TlConstructor {
   const MessagesComposedRichMessageWithAIBase._() : super._();
 }
 
+/// Predicate Button Type.
+abstract class ButtonTypeBase extends TlConstructor {
+  /// Predicate Button Type constructor.
+  const ButtonTypeBase._() : super._();
+}
+
+/// Predicate Inline Button Type.
+abstract class InlineButtonTypeBase extends TlConstructor {
+  /// Predicate Inline Button Type constructor.
+  const InlineButtonTypeBase._() : super._();
+}
+
+/// Predicate Keyboard Inline Button.
+abstract class KeyboardInlineButtonBase extends TlConstructor {
+  /// Predicate Keyboard Inline Button constructor.
+  const KeyboardInlineButtonBase._() : super._();
+}
+
+/// Predicate Keyboard Inline Button Row.
+abstract class KeyboardInlineButtonRowBase extends TlConstructor {
+  /// Predicate Keyboard Inline Button Row constructor.
+  const KeyboardInlineButtonRowBase._() : super._();
+}
+
+/// Predicate Rich Button Style.
+abstract class RichButtonStyleBase extends TlConstructor {
+  /// Predicate Rich Button Style constructor.
+  const RichButtonStyleBase._() : super._();
+}
+
+/// Predicate Page Button.
+abstract class PageButtonBase extends TlConstructor {
+  /// Predicate Page Button constructor.
+  const PageButtonBase._() : super._();
+}
+
+/// Predicate Ephemeral Welcome Messages.
+abstract class EphemeralWelcomeMessagesBase extends TlConstructor {
+  /// Predicate Ephemeral Welcome Messages constructor.
+  const EphemeralWelcomeMessagesBase._() : super._();
+}
+
+/// Predicate Auth Firebase Pnv Intent.
+abstract class AuthFirebasePnvIntentBase extends TlConstructor {
+  /// Predicate Auth Firebase Pnv Intent constructor.
+  const AuthFirebasePnvIntentBase._() : super._();
+}
+
 /// Predicate Decrypted Message.
 abstract class DecryptedMessageBase extends TlConstructor {
   /// Predicate Decrypted Message constructor.
