@@ -950,6 +950,14 @@ TlObject _readObject(BinaryReader reader) {
     return MessageActionChatJoinedViaCommunity.deserialize(reader);
   }
 
+  if (id == 0x9329ea33) {
+    return MessageActionGramTransfer.deserialize(reader);
+  }
+
+  if (id == 0x69b8c4bf) {
+    return MessageActionWalletTonConnectRequest.deserialize(reader);
+  }
+
   if (id == 0xfc89f7f3) {
     return Dialog.deserialize(reader);
   }
@@ -1922,6 +1930,26 @@ TlObject _readObject(BinaryReader reader) {
     return UpdateBotStarsSubscription.deserialize(reader);
   }
 
+  if (id == 0x6ac3f2aa) {
+    return UpdateWalletState.deserialize(reader);
+  }
+
+  if (id == 0xb1434d4a) {
+    return UpdateSentWalletTransaction.deserialize(reader);
+  }
+
+  if (id == 0xa8ae1cac) {
+    return UpdateWalletGaslessInfo.deserialize(reader);
+  }
+
+  if (id == 0x50a38e0e) {
+    return UpdateWalletTonConnectSession.deserialize(reader);
+  }
+
+  if (id == 0xd1ee8199) {
+    return UpdateWalletTonConnectPendingDisconnect.deserialize(reader);
+  }
+
   if (id == 0xa56c2a3e) {
     return UpdatesState.deserialize(reader);
   }
@@ -2750,6 +2778,10 @@ TlObject _readObject(BinaryReader reader) {
     return MessageEntityDiffDelete.deserialize(reader);
   }
 
+  if (id == 0xfdabbfcd) {
+    return MessageEntityTonAddress.deserialize(reader);
+  }
+
   if (id == 0xee8c1e86) {
     return InputChannelEmpty.deserialize(reader);
   }
@@ -3328,6 +3360,10 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xafc79cd6) {
     return TextButton.deserialize(reader);
+  }
+
+  if (id == 0x3cd2a36a) {
+    return TextTonAddress.deserialize(reader);
   }
 
   if (id == 0x13567e8a) {
@@ -6165,11 +6201,11 @@ TlObject _readObject(BinaryReader reader) {
     return MessagesFoundStickers.deserialize(reader);
   }
 
-  if (id == 0xb0cd6617) {
+  if (id == 0xa12aefff) {
     return BotVerifierSettings.deserialize(reader);
   }
 
-  if (id == 0xf93cd45c) {
+  if (id == 0xf72e0ed9) {
     return BotVerification.deserialize(reader);
   }
 
@@ -6529,10 +6565,6 @@ TlObject _readObject(BinaryReader reader) {
     return InputPasskeyCredentialPublicKey.deserialize(reader);
   }
 
-  if (id == 0x5b1ccb28) {
-    return InputPasskeyCredentialFirebasePNV.deserialize(reader);
-  }
-
   if (id == 0xaff56398) {
     return StarGiftBackground.deserialize(reader);
   }
@@ -6833,6 +6865,158 @@ TlObject _readObject(BinaryReader reader) {
     return EphemeralWelcomeMessages.deserialize(reader);
   }
 
+  if (id == 0x30d9743c) {
+    return CurrencyRate.deserialize(reader);
+  }
+
+  if (id == 0xbbcce4c2) {
+    return PaymentsCurrencyRates.deserialize(reader);
+  }
+
+  if (id == 0xac8dfe19) {
+    return ToncenterApiResponse.deserialize(reader);
+  }
+
+  if (id == 0x19887601) {
+    return ToncenterStreamingUrl.deserialize(reader);
+  }
+
+  if (id == 0x9ec8c6a8) {
+    return OnrampMethodAvailability.deserialize(reader);
+  }
+
+  if (id == 0x0dc27582) {
+    return OnrampProviderInfo.deserialize(reader);
+  }
+
+  if (id == 0xf9c84973) {
+    return OnrampAvailability.deserialize(reader);
+  }
+
+  if (id == 0x7be2677e) {
+    return OnrampLimits.deserialize(reader);
+  }
+
+  if (id == 0x7a8011e9) {
+    return OnrampQuote.deserialize(reader);
+  }
+
+  if (id == 0xd1e42e24) {
+    return OnrampSession.deserialize(reader);
+  }
+
+  if (id == 0x9cb9b2ec) {
+    return WalletStateEmpty.deserialize(reader);
+  }
+
+  if (id == 0x95c5346b) {
+    return WalletState.deserialize(reader);
+  }
+
+  if (id == 0xfe78eecc) {
+    return WalletUserAddress.deserialize(reader);
+  }
+
+  if (id == 0x928e7b55) {
+    return WalletUserAddresses.deserialize(reader);
+  }
+
+  if (id == 0xd4ea706d) {
+    return WalletTransactionPeerUser.deserialize(reader);
+  }
+
+  if (id == 0x062cc1bc) {
+    return WalletTransactionPeerAddress.deserialize(reader);
+  }
+
+  if (id == 0xe595186e) {
+    return WalletTransactionPeerOnramp.deserialize(reader);
+  }
+
+  if (id == 0x728bed5a) {
+    return WalletTransactionPeerUnsupported.deserialize(reader);
+  }
+
+  if (id == 0x952dc143) {
+    return WalletTransaction.deserialize(reader);
+  }
+
+  if (id == 0x4322d5a5) {
+    return WalletTransactions.deserialize(reader);
+  }
+
+  if (id == 0xe6d0ef01) {
+    return WalletSecretPhraseParts.deserialize(reader);
+  }
+
+  if (id == 0x18e82537) {
+    return WalletEncryptedSecretPhrasePart.deserialize(reader);
+  }
+
+  if (id == 0xf9d612ef) {
+    return WalletHolderDc.deserialize(reader);
+  }
+
+  if (id == 0x99e41707) {
+    return WalletProofChallenge.deserialize(reader);
+  }
+
+  if (id == 0x60bccb0d) {
+    return WalletOwnershipProof.deserialize(reader);
+  }
+
+  if (id == 0x63a440dc) {
+    return InputWalletNew.deserialize(reader);
+  }
+
+  if (id == 0x66a66a3b) {
+    return InputWalletImported.deserialize(reader);
+  }
+
+  if (id == 0x12229264) {
+    return TonConnectManifest.deserialize(reader);
+  }
+
+  if (id == 0x126556c6) {
+    return TonConnectSession.deserialize(reader);
+  }
+
+  if (id == 0x4bc89693) {
+    return WalletTonConnectChallenge.deserialize(reader);
+  }
+
+  if (id == 0x582464e3) {
+    return TonConnectNextEventId.deserialize(reader);
+  }
+
+  if (id == 0xa15f8513) {
+    return TonConnectRequest.deserialize(reader);
+  }
+
+  if (id == 0x85c0f124) {
+    return WalletTonConnectPending.deserialize(reader);
+  }
+
+  if (id == 0x0e1f6896) {
+    return WalletTonConnectSessions.deserialize(reader);
+  }
+
+  if (id == 0xbde90a8d) {
+    return WalletExistingBalance.deserialize(reader);
+  }
+
+  if (id == 0x4c1ef10e) {
+    return WalletNftAttribute.deserialize(reader);
+  }
+
+  if (id == 0x3441fd1c) {
+    return WalletNftItem.deserialize(reader);
+  }
+
+  if (id == 0x794d486f) {
+    return WalletNftItems.deserialize(reader);
+  }
+
   if (id == 0xdf5ac00c) {
     return AuthFirebasePnvIntent.deserialize(reader);
   }
@@ -6985,7 +7169,11 @@ TlObject _readObject(BinaryReader reader) {
     return AuthFinishPasskeyLogin.deserialize(reader);
   }
 
-  if (id == 0x777df37a) {
+  if (id == 0x490dada1) {
+    return AuthCancelWebTokenAuthorization.deserialize(reader);
+  }
+
+  if (id == 0x644f15c0) {
     return AuthInitFirebasePnvLogin.deserialize(reader);
   }
 
@@ -9193,7 +9381,7 @@ TlObject _readObject(BinaryReader reader) {
     return BotsUpdateStarRefProgram.deserialize(reader);
   }
 
-  if (id == 0x8b89dfbd) {
+  if (id == 0xf4946757) {
     return BotsSetCustomVerification.deserialize(reader);
   }
 
@@ -9201,7 +9389,7 @@ TlObject _readObject(BinaryReader reader) {
     return BotsGetBotRecommendations.deserialize(reader);
   }
 
-  if (id == 0x87f2219b) {
+  if (id == 0xe3ac4c61) {
     return BotsCheckUsername.deserialize(reader);
   }
 
@@ -9231,6 +9419,14 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xe71a4810) {
     return BotsSetJoinChatResults.deserialize(reader);
+  }
+
+  if (id == 0x3501c08a) {
+    return BotsAddUsername.deserialize(reader);
+  }
+
+  if (id == 0xc704147d) {
+    return BotsRemoveUsername.deserialize(reader);
   }
 
   if (id == 0x37148dbb) {
@@ -9491,6 +9687,34 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xb0f9684f) {
     return PaymentsCraftStarGift.deserialize(reader);
+  }
+
+  if (id == 0xd35983e8) {
+    return PaymentsGetCurrencyRates.deserialize(reader);
+  }
+
+  if (id == 0x3f3e00dc) {
+    return PaymentsGetOnrampProviders.deserialize(reader);
+  }
+
+  if (id == 0x1c8bedf3) {
+    return PaymentsGetOnrampBaseCurrencies.deserialize(reader);
+  }
+
+  if (id == 0x2ec29951) {
+    return PaymentsGetOnrampAvailability.deserialize(reader);
+  }
+
+  if (id == 0x80e851fd) {
+    return PaymentsGetOnrampLimits.deserialize(reader);
+  }
+
+  if (id == 0xe06645fa) {
+    return PaymentsGetOnrampQuote.deserialize(reader);
+  }
+
+  if (id == 0xa2197cf6) {
+    return PaymentsCreateOnrampSession.deserialize(reader);
   }
 
   if (id == 0x9021ab67) {
@@ -10087,6 +10311,114 @@ TlObject _readObject(BinaryReader reader) {
 
   if (id == 0xdb9ac18d) {
     return EphemeralGetWelcomeMessages.deserialize(reader);
+  }
+
+  if (id == 0x8d7bdd61) {
+    return ToncenterPerformApiRequest.deserialize(reader);
+  }
+
+  if (id == 0xcdaf63c7) {
+    return ToncenterGetStreamingUrl.deserialize(reader);
+  }
+
+  if (id == 0xab83b33a) {
+    return WalletGetState.deserialize(reader);
+  }
+
+  if (id == 0x5275dfdd) {
+    return WalletGetUserAddresses.deserialize(reader);
+  }
+
+  if (id == 0xa8830a83) {
+    return WalletGetTransactions.deserialize(reader);
+  }
+
+  if (id == 0x811ceab6) {
+    return WalletGetTransactionsByIDs.deserialize(reader);
+  }
+
+  if (id == 0xa6bb795d) {
+    return WalletGetTransactionsByMsgHash.deserialize(reader);
+  }
+
+  if (id == 0x9077c9ac) {
+    return WalletExportSecretPhrase.deserialize(reader);
+  }
+
+  if (id == 0xf53925cf) {
+    return WalletFetchEncryptedSecretPhrasePart.deserialize(reader);
+  }
+
+  if (id == 0xd8c72eec) {
+    return WalletReplaceWallet.deserialize(reader);
+  }
+
+  if (id == 0x0b0bf0da) {
+    return WalletDisableBackup.deserialize(reader);
+  }
+
+  if (id == 0xd179d494) {
+    return WalletGetBackupHolderDcs.deserialize(reader);
+  }
+
+  if (id == 0x4500c525) {
+    return WalletEnableBackup.deserialize(reader);
+  }
+
+  if (id == 0x2025e697) {
+    return WalletGetProofChallenge.deserialize(reader);
+  }
+
+  if (id == 0xd9e5d9e2) {
+    return WalletSendTransfer.deserialize(reader);
+  }
+
+  if (id == 0x742df0a1) {
+    return WalletGetGaslessInfo.deserialize(reader);
+  }
+
+  if (id == 0x691f4360) {
+    return WalletGetExistingWaltBalance.deserialize(reader);
+  }
+
+  if (id == 0x8c12f3a4) {
+    return WalletGetNfts.deserialize(reader);
+  }
+
+  if (id == 0xcc931046) {
+    return WalletTonConnectCreateSession.deserialize(reader);
+  }
+
+  if (id == 0x338bcf1c) {
+    return WalletTonConnectRegisterKey.deserialize(reader);
+  }
+
+  if (id == 0xc2c00779) {
+    return WalletTonConnectSubmitConnectResult.deserialize(reader);
+  }
+
+  if (id == 0x11aee065) {
+    return WalletTonConnectGetPending.deserialize(reader);
+  }
+
+  if (id == 0x66b57b41) {
+    return WalletTonConnectClaimRequest.deserialize(reader);
+  }
+
+  if (id == 0xfac67d3c) {
+    return WalletTonConnectSubmitResponse.deserialize(reader);
+  }
+
+  if (id == 0x775d7244) {
+    return WalletTonConnectNextEventId.deserialize(reader);
+  }
+
+  if (id == 0xd63f61ce) {
+    return WalletTonConnectCloseSession.deserialize(reader);
+  }
+
+  if (id == 0xa7ffb56e) {
+    return WalletTonConnectGetSessions.deserialize(reader);
   }
 
   // From end-to-end.tl

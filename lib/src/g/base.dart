@@ -3822,6 +3822,204 @@ abstract class EphemeralWelcomeMessagesBase extends TlConstructor {
   const EphemeralWelcomeMessagesBase._() : super._();
 }
 
+/// Predicate Currency Rate.
+abstract class CurrencyRateBase extends TlConstructor {
+  /// Predicate Currency Rate constructor.
+  const CurrencyRateBase._() : super._();
+}
+
+/// Predicate Payments Currency Rates.
+abstract class PaymentsCurrencyRatesBase extends TlConstructor {
+  /// Predicate Payments Currency Rates constructor.
+  const PaymentsCurrencyRatesBase._() : super._();
+}
+
+/// Predicate Toncenter Api Response.
+abstract class ToncenterApiResponseBase extends TlConstructor {
+  /// Predicate Toncenter Api Response constructor.
+  const ToncenterApiResponseBase._() : super._();
+}
+
+/// Predicate Toncenter Streaming Url.
+abstract class ToncenterStreamingUrlBase extends TlConstructor {
+  /// Predicate Toncenter Streaming Url constructor.
+  const ToncenterStreamingUrlBase._() : super._();
+}
+
+/// Predicate Onramp Method Availability.
+abstract class OnrampMethodAvailabilityBase extends TlConstructor {
+  /// Predicate Onramp Method Availability constructor.
+  const OnrampMethodAvailabilityBase._() : super._();
+}
+
+/// Predicate Onramp Provider Info.
+abstract class OnrampProviderInfoBase extends TlConstructor {
+  /// Predicate Onramp Provider Info constructor.
+  const OnrampProviderInfoBase._() : super._();
+}
+
+/// Predicate Onramp Availability.
+abstract class OnrampAvailabilityBase extends TlConstructor {
+  /// Predicate Onramp Availability constructor.
+  const OnrampAvailabilityBase._() : super._();
+}
+
+/// Predicate Onramp Limits.
+abstract class OnrampLimitsBase extends TlConstructor {
+  /// Predicate Onramp Limits constructor.
+  const OnrampLimitsBase._() : super._();
+}
+
+/// Predicate Onramp Quote.
+abstract class OnrampQuoteBase extends TlConstructor {
+  /// Predicate Onramp Quote constructor.
+  const OnrampQuoteBase._() : super._();
+}
+
+/// Predicate Onramp Session.
+abstract class OnrampSessionBase extends TlConstructor {
+  /// Predicate Onramp Session constructor.
+  const OnrampSessionBase._() : super._();
+}
+
+/// Predicate Wallet State.
+abstract class WalletStateBase extends TlConstructor {
+  /// Predicate Wallet State constructor.
+  const WalletStateBase._() : super._();
+}
+
+/// Predicate Wallet User Address.
+abstract class WalletUserAddressBase extends TlConstructor {
+  /// Predicate Wallet User Address constructor.
+  const WalletUserAddressBase._() : super._();
+}
+
+/// Predicate Wallet User Addresses.
+abstract class WalletUserAddressesBase extends TlConstructor {
+  /// Predicate Wallet User Addresses constructor.
+  const WalletUserAddressesBase._() : super._();
+}
+
+/// Predicate Wallet Transaction Peer.
+abstract class WalletTransactionPeerBase extends TlConstructor {
+  /// Predicate Wallet Transaction Peer constructor.
+  const WalletTransactionPeerBase._() : super._();
+}
+
+/// Predicate Wallet Transaction.
+abstract class WalletTransactionBase extends TlConstructor {
+  /// Predicate Wallet Transaction constructor.
+  const WalletTransactionBase._() : super._();
+}
+
+/// Predicate Wallet Transactions.
+abstract class WalletTransactionsBase extends TlConstructor {
+  /// Predicate Wallet Transactions constructor.
+  const WalletTransactionsBase._() : super._();
+}
+
+/// Predicate Wallet Secret Phrase Parts.
+abstract class WalletSecretPhrasePartsBase extends TlConstructor {
+  /// Predicate Wallet Secret Phrase Parts constructor.
+  const WalletSecretPhrasePartsBase._() : super._();
+}
+
+/// Predicate Wallet Encrypted Secret Phrase Part.
+abstract class WalletEncryptedSecretPhrasePartBase extends TlConstructor {
+  /// Predicate Wallet Encrypted Secret Phrase Part constructor.
+  const WalletEncryptedSecretPhrasePartBase._() : super._();
+}
+
+/// Predicate Wallet Holder Dc.
+abstract class WalletHolderDcBase extends TlConstructor {
+  /// Predicate Wallet Holder Dc constructor.
+  const WalletHolderDcBase._() : super._();
+}
+
+/// Predicate Wallet Proof Challenge.
+abstract class WalletProofChallengeBase extends TlConstructor {
+  /// Predicate Wallet Proof Challenge constructor.
+  const WalletProofChallengeBase._() : super._();
+}
+
+/// Predicate Wallet Ownership Proof.
+abstract class WalletOwnershipProofBase extends TlConstructor {
+  /// Predicate Wallet Ownership Proof constructor.
+  const WalletOwnershipProofBase._() : super._();
+}
+
+/// Predicate Input Wallet Replacement.
+abstract class InputWalletReplacementBase extends TlConstructor {
+  /// Predicate Input Wallet Replacement constructor.
+  const InputWalletReplacementBase._() : super._();
+}
+
+/// Predicate Ton Connect Manifest.
+abstract class TonConnectManifestBase extends TlConstructor {
+  /// Predicate Ton Connect Manifest constructor.
+  const TonConnectManifestBase._() : super._();
+}
+
+/// Predicate Ton Connect Session.
+abstract class TonConnectSessionBase extends TlConstructor {
+  /// Predicate Ton Connect Session constructor.
+  const TonConnectSessionBase._() : super._();
+}
+
+/// Predicate Wallet Ton Connect Challenge.
+abstract class WalletTonConnectChallengeBase extends TlConstructor {
+  /// Predicate Wallet Ton Connect Challenge constructor.
+  const WalletTonConnectChallengeBase._() : super._();
+}
+
+/// Predicate Ton Connect Next Event Id.
+abstract class TonConnectNextEventIdBase extends TlConstructor {
+  /// Predicate Ton Connect Next Event Id constructor.
+  const TonConnectNextEventIdBase._() : super._();
+}
+
+/// Predicate Ton Connect Request.
+abstract class TonConnectRequestBase extends TlConstructor {
+  /// Predicate Ton Connect Request constructor.
+  const TonConnectRequestBase._() : super._();
+}
+
+/// Predicate Wallet Ton Connect Pending.
+abstract class WalletTonConnectPendingBase extends TlConstructor {
+  /// Predicate Wallet Ton Connect Pending constructor.
+  const WalletTonConnectPendingBase._() : super._();
+}
+
+/// Predicate Wallet Ton Connect Sessions.
+abstract class WalletTonConnectSessionsBase extends TlConstructor {
+  /// Predicate Wallet Ton Connect Sessions constructor.
+  const WalletTonConnectSessionsBase._() : super._();
+}
+
+/// Predicate Wallet Existing Balance.
+abstract class WalletExistingBalanceBase extends TlConstructor {
+  /// Predicate Wallet Existing Balance constructor.
+  const WalletExistingBalanceBase._() : super._();
+}
+
+/// Predicate Wallet Nft Attribute.
+abstract class WalletNftAttributeBase extends TlConstructor {
+  /// Predicate Wallet Nft Attribute constructor.
+  const WalletNftAttributeBase._() : super._();
+}
+
+/// Predicate Wallet Nft Item.
+abstract class WalletNftItemBase extends TlConstructor {
+  /// Predicate Wallet Nft Item constructor.
+  const WalletNftItemBase._() : super._();
+}
+
+/// Predicate Wallet Nft Items.
+abstract class WalletNftItemsBase extends TlConstructor {
+  /// Predicate Wallet Nft Items constructor.
+  const WalletNftItemsBase._() : super._();
+}
+
 /// Predicate Auth Firebase Pnv Intent.
 abstract class AuthFirebasePnvIntentBase extends TlConstructor {
   /// Predicate Auth Firebase Pnv Intent constructor.

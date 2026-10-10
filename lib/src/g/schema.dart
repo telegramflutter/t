@@ -16151,6 +16151,233 @@ class MessageActionChatJoinedViaCommunity extends MessageActionBase {
   }
 }
 
+/// Message Action Gram Transfer.
+///
+/// ID: `9329ea33`.
+class MessageActionGramTransfer extends MessageActionBase {
+  /// Message Action Gram Transfer constructor.
+  const MessageActionGramTransfer({
+    required this.commentEncrypted,
+    required this.amount,
+    required this.peerAddress,
+    required this.transactionId,
+    this.comment,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionGramTransfer.deserialize(BinaryReader reader) {
+    // Read [MessageActionGramTransfer] fields.
+    final flags = reader.readInt32();
+    final commentEncrypted = (flags & 2) != 0;
+    final amount = reader.readInt64();
+    final peerAddress = reader.readString();
+    final transactionId = reader.readString();
+    final hasCommentField = (flags & 1) != 0;
+    final comment = hasCommentField ? reader.readString() : null;
+
+    // Construct [MessageActionGramTransfer] object.
+    final returnValue = MessageActionGramTransfer(
+      commentEncrypted: commentEncrypted,
+      amount: amount,
+      peerAddress: peerAddress,
+      transactionId: transactionId,
+      comment: comment,
+    );
+
+    // Now return the deserialized [MessageActionGramTransfer].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b01: commentEncrypted, b00: comment != null);
+
+    return v;
+  }
+
+  /// comment_encrypted: bit 1 of flags.1?true
+  final bool commentEncrypted;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Peer Address.
+  final String peerAddress;
+
+  /// Transaction Id.
+  final String transactionId;
+
+  /// Comment.
+  final String? comment;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9329ea33.
+    buffer.writeInt32(0x9329ea33);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(amount);
+    buffer.writeString(peerAddress);
+    buffer.writeString(transactionId);
+    final localCommentCopy = comment;
+    if (localCommentCopy != null) {
+      buffer.writeString(localCommentCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9329ea33",
+      "\$name": "MessageActionGramTransfer",
+      "flags": flags,
+      "commentEncrypted": commentEncrypted,
+      "amount": amount,
+      "peerAddress": peerAddress,
+      "transactionId": transactionId,
+      "comment": comment,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Message Action Wallet Ton Connect Request.
+///
+/// ID: `69b8c4bf`.
+class MessageActionWalletTonConnectRequest extends MessageActionBase {
+  /// Message Action Wallet Ton Connect Request constructor.
+  const MessageActionWalletTonConnectRequest({
+    required this.accepted,
+    required this.declined,
+    required this.sessionId,
+    required this.expires,
+    this.topic,
+    this.traceId,
+    this.dappName,
+  }) : super._();
+
+  /// Deserialize.
+  factory MessageActionWalletTonConnectRequest.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [MessageActionWalletTonConnectRequest] fields.
+    final flags = reader.readInt32();
+    final accepted = (flags & 4) != 0;
+    final declined = (flags & 8) != 0;
+    final sessionId = reader.readInt64();
+    final expires = reader.readDateTime();
+    final hasTopicField = (flags & 1) != 0;
+    final topic = hasTopicField ? reader.readString() : null;
+    final hasTraceIdField = (flags & 2) != 0;
+    final traceId = hasTraceIdField ? reader.readString() : null;
+    final hasDappNameField = (flags & 16) != 0;
+    final dappName = hasDappNameField ? reader.readString() : null;
+
+    // Construct [MessageActionWalletTonConnectRequest] object.
+    final returnValue = MessageActionWalletTonConnectRequest(
+      accepted: accepted,
+      declined: declined,
+      sessionId: sessionId,
+      expires: expires,
+      topic: topic,
+      traceId: traceId,
+      dappName: dappName,
+    );
+
+    // Now return the deserialized [MessageActionWalletTonConnectRequest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b02: accepted,
+      b03: declined,
+      b00: topic != null,
+      b01: traceId != null,
+      b04: dappName != null,
+    );
+
+    return v;
+  }
+
+  /// accepted: bit 2 of flags.2?true
+  final bool accepted;
+
+  /// declined: bit 3 of flags.3?true
+  final bool declined;
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Expires.
+  final DateTime expires;
+
+  /// Topic.
+  final String? topic;
+
+  /// Trace Id.
+  final String? traceId;
+
+  /// Dapp Name.
+  final String? dappName;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x69b8c4bf.
+    buffer.writeInt32(0x69b8c4bf);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(sessionId);
+    buffer.writeDateTime(expires);
+    final localTopicCopy = topic;
+    if (localTopicCopy != null) {
+      buffer.writeString(localTopicCopy);
+    }
+    final localTraceIdCopy = traceId;
+    if (localTraceIdCopy != null) {
+      buffer.writeString(localTraceIdCopy);
+    }
+    final localDappNameCopy = dappName;
+    if (localDappNameCopy != null) {
+      buffer.writeString(localDappNameCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "69b8c4bf",
+      "\$name": "MessageActionWalletTonConnectRequest",
+      "flags": flags,
+      "accepted": accepted,
+      "declined": declined,
+      "sessionId": sessionId,
+      "expires": expires.toIso8601String(),
+      "topic": topic,
+      "traceId": traceId,
+      "dappName": dappName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Dialog.
 ///
 /// ID: `fc89f7f3`.
@@ -33397,6 +33624,332 @@ class UpdateBotStarsSubscription extends UpdateBase {
   }
 }
 
+/// Update Wallet State.
+///
+/// ID: `6ac3f2aa`.
+class UpdateWalletState extends UpdateBase {
+  /// Update Wallet State constructor.
+  const UpdateWalletState({required this.state}) : super._();
+
+  /// Deserialize.
+  factory UpdateWalletState.deserialize(BinaryReader reader) {
+    // Read [UpdateWalletState] fields.
+    final state = reader.readObject() as WalletStateBase;
+
+    // Construct [UpdateWalletState] object.
+    final returnValue = UpdateWalletState(state: state);
+
+    // Now return the deserialized [UpdateWalletState].
+    return returnValue;
+  }
+
+  /// State.
+  final WalletStateBase state;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x6ac3f2aa.
+    buffer.writeInt32(0x6ac3f2aa);
+
+    // Write fields.
+    buffer.writeObject(state);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "6ac3f2aa",
+      "\$name": "UpdateWalletState",
+      "state": state,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Sent Wallet Transaction.
+///
+/// ID: `b1434d4a`.
+class UpdateSentWalletTransaction extends UpdateBase {
+  /// Update Sent Wallet Transaction constructor.
+  const UpdateSentWalletTransaction({
+    required this.gasless,
+    required this.msgHash,
+    this.transaction,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateSentWalletTransaction.deserialize(BinaryReader reader) {
+    // Read [UpdateSentWalletTransaction] fields.
+    final flags = reader.readInt32();
+    final gasless = (flags & 1) != 0;
+    final msgHash = reader.readString();
+    final hasTransactionField = (flags & 2) != 0;
+    final transaction = hasTransactionField
+        ? reader.readObject() as WalletTransactionBase
+        : null;
+
+    // Construct [UpdateSentWalletTransaction] object.
+    final returnValue = UpdateSentWalletTransaction(
+      gasless: gasless,
+      msgHash: msgHash,
+      transaction: transaction,
+    );
+
+    // Now return the deserialized [UpdateSentWalletTransaction].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: gasless, b01: transaction != null);
+
+    return v;
+  }
+
+  /// gasless: bit 0 of flags.0?true
+  final bool gasless;
+
+  /// Msg Hash.
+  final String msgHash;
+
+  /// Transaction.
+  final WalletTransactionBase? transaction;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xb1434d4a.
+    buffer.writeInt32(0xb1434d4a);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(msgHash);
+    final localTransactionCopy = transaction;
+    if (localTransactionCopy != null) {
+      buffer.writeObject(localTransactionCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "b1434d4a",
+      "\$name": "UpdateSentWalletTransaction",
+      "flags": flags,
+      "gasless": gasless,
+      "msgHash": msgHash,
+      "transaction": transaction,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Wallet Gasless Info.
+///
+/// ID: `a8ae1cac`.
+class UpdateWalletGaslessInfo extends UpdateBase {
+  /// Update Wallet Gasless Info constructor.
+  const UpdateWalletGaslessInfo({
+    required this.available,
+    required this.left,
+    required this.resetAt,
+    required this.minAmount,
+    required this.relayerAddress,
+  }) : super._();
+
+  /// Deserialize.
+  factory UpdateWalletGaslessInfo.deserialize(BinaryReader reader) {
+    // Read [UpdateWalletGaslessInfo] fields.
+    final flags = reader.readInt32();
+    final available = (flags & 1) != 0;
+    final left = reader.readInt32();
+    final resetAt = reader.readInt32();
+    final minAmount = reader.readInt64();
+    final relayerAddress = reader.readString();
+
+    // Construct [UpdateWalletGaslessInfo] object.
+    final returnValue = UpdateWalletGaslessInfo(
+      available: available,
+      left: left,
+      resetAt: resetAt,
+      minAmount: minAmount,
+      relayerAddress: relayerAddress,
+    );
+
+    // Now return the deserialized [UpdateWalletGaslessInfo].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: available);
+
+    return v;
+  }
+
+  /// available: bit 0 of flags.0?true
+  final bool available;
+
+  /// Left.
+  ///
+  /// Field type is Int32.
+  final int left;
+
+  /// Reset At.
+  ///
+  /// Field type is Int32.
+  final int resetAt;
+
+  /// Min Amount.
+  ///
+  /// Field type is Int64.
+  final int minAmount;
+
+  /// Relayer Address.
+  final String relayerAddress;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa8ae1cac.
+    buffer.writeInt32(0xa8ae1cac);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt32(left);
+    buffer.writeInt32(resetAt);
+    buffer.writeInt64(minAmount);
+    buffer.writeString(relayerAddress);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a8ae1cac",
+      "\$name": "UpdateWalletGaslessInfo",
+      "flags": flags,
+      "available": available,
+      "left": left,
+      "resetAt": resetAt,
+      "minAmount": minAmount,
+      "relayerAddress": relayerAddress,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Wallet Ton Connect Session.
+///
+/// ID: `50a38e0e`.
+class UpdateWalletTonConnectSession extends UpdateBase {
+  /// Update Wallet Ton Connect Session constructor.
+  const UpdateWalletTonConnectSession({required this.session}) : super._();
+
+  /// Deserialize.
+  factory UpdateWalletTonConnectSession.deserialize(BinaryReader reader) {
+    // Read [UpdateWalletTonConnectSession] fields.
+    final session = reader.readObject() as TonConnectSessionBase;
+
+    // Construct [UpdateWalletTonConnectSession] object.
+    final returnValue = UpdateWalletTonConnectSession(session: session);
+
+    // Now return the deserialized [UpdateWalletTonConnectSession].
+    return returnValue;
+  }
+
+  /// Session.
+  final TonConnectSessionBase session;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x50a38e0e.
+    buffer.writeInt32(0x50a38e0e);
+
+    // Write fields.
+    buffer.writeObject(session);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "50a38e0e",
+      "\$name": "UpdateWalletTonConnectSession",
+      "session": session,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Update Wallet Ton Connect Pending Disconnect.
+///
+/// ID: `d1ee8199`.
+class UpdateWalletTonConnectPendingDisconnect extends UpdateBase {
+  /// Update Wallet Ton Connect Pending Disconnect constructor.
+  const UpdateWalletTonConnectPendingDisconnect({required this.sessionIds})
+      : super._();
+
+  /// Deserialize.
+  factory UpdateWalletTonConnectPendingDisconnect.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [UpdateWalletTonConnectPendingDisconnect] fields.
+    final sessionIds = reader.readVectorInt64();
+
+    // Construct [UpdateWalletTonConnectPendingDisconnect] object.
+    final returnValue = UpdateWalletTonConnectPendingDisconnect(
+      sessionIds: sessionIds.items,
+    );
+
+    // Now return the deserialized [UpdateWalletTonConnectPendingDisconnect].
+    return returnValue;
+  }
+
+  /// Session Ids.
+  final List<int> sessionIds;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1ee8199.
+    buffer.writeInt32(0xd1ee8199);
+
+    // Write fields.
+    buffer.writeVectorInt64(sessionIds);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d1ee8199",
+      "\$name": "UpdateWalletTonConnectPendingDisconnect",
+      "sessionIds": sessionIds,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Updates State.
 ///
 /// ID: `a56c2a3e`.
@@ -47019,6 +47572,64 @@ class MessageEntityDiffDelete extends MessageEntityBase {
   }
 }
 
+/// Message Entity Ton Address.
+///
+/// ID: `fdabbfcd`.
+class MessageEntityTonAddress extends MessageEntityBase {
+  /// Message Entity Ton Address constructor.
+  const MessageEntityTonAddress({required this.offset, required this.length})
+      : super._();
+
+  /// Deserialize.
+  factory MessageEntityTonAddress.deserialize(BinaryReader reader) {
+    // Read [MessageEntityTonAddress] fields.
+    final offset = reader.readInt32();
+    final length = reader.readInt32();
+
+    // Construct [MessageEntityTonAddress] object.
+    final returnValue = MessageEntityTonAddress(offset: offset, length: length);
+
+    // Now return the deserialized [MessageEntityTonAddress].
+    return returnValue;
+  }
+
+  /// Offset.
+  ///
+  /// Field type is Int32.
+  final int offset;
+
+  /// Length.
+  ///
+  /// Field type is Int32.
+  final int length;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfdabbfcd.
+    buffer.writeInt32(0xfdabbfcd);
+
+    // Write fields.
+    buffer.writeInt32(offset);
+    buffer.writeInt32(length);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fdabbfcd",
+      "\$name": "MessageEntityTonAddress",
+      "offset": offset,
+      "length": length,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Input Channel Empty.
 ///
 /// ID: `ee8c1e86`.
@@ -56944,6 +57555,53 @@ class TextButton extends RichTextBase {
       "text": text,
       "type": type,
       "style": style,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Text Ton Address.
+///
+/// ID: `3cd2a36a`.
+class TextTonAddress extends RichTextBase {
+  /// Text Ton Address constructor.
+  const TextTonAddress({required this.text}) : super._();
+
+  /// Deserialize.
+  factory TextTonAddress.deserialize(BinaryReader reader) {
+    // Read [TextTonAddress] fields.
+    final text = reader.readObject() as RichTextBase;
+
+    // Construct [TextTonAddress] object.
+    final returnValue = TextTonAddress(text: text);
+
+    // Now return the deserialized [TextTonAddress].
+    return returnValue;
+  }
+
+  /// Text.
+  final RichTextBase text;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3cd2a36a.
+    buffer.writeInt32(0x3cd2a36a);
+
+    // Write fields.
+    buffer.writeObject(text);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3cd2a36a",
+      "\$name": "TextTonAddress",
+      "text": text,
     };
 
     // Finished toJson.
@@ -91169,6 +91827,8 @@ class Username extends UsernameBase {
   const Username({
     required this.editable,
     required this.active,
+    required this.deletable,
+    required this.expired,
     required this.username,
   }) : super._();
 
@@ -91178,12 +91838,16 @@ class Username extends UsernameBase {
     final flags = reader.readInt32();
     final editable = (flags & 1) != 0;
     final active = (flags & 2) != 0;
+    final deletable = (flags & 4) != 0;
+    final expired = (flags & 8) != 0;
     final username = reader.readString();
 
     // Construct [Username] object.
     final returnValue = Username(
       editable: editable,
       active: active,
+      deletable: deletable,
+      expired: expired,
       username: username,
     );
 
@@ -91193,7 +91857,7 @@ class Username extends UsernameBase {
 
   /// Flags.
   int get flags {
-    final v = _flag(b00: editable, b01: active);
+    final v = _flag(b00: editable, b01: active, b02: deletable, b03: expired);
 
     return v;
   }
@@ -91203,6 +91867,12 @@ class Username extends UsernameBase {
 
   /// active: bit 1 of flags.1?true
   final bool active;
+
+  /// deletable: bit 2 of flags.2?true
+  final bool deletable;
+
+  /// expired: bit 3 of flags.3?true
+  final bool expired;
 
   /// Username.
   final String username;
@@ -91228,6 +91898,8 @@ class Username extends UsernameBase {
       "flags": flags,
       "editable": editable,
       "active": active,
+      "deletable": deletable,
+      "expired": expired,
       "username": username,
     };
 
@@ -108873,7 +109545,7 @@ class MessagesFoundStickers extends MessagesFoundStickersBase {
 
 /// Bot Verifier Settings.
 ///
-/// ID: `b0cd6617`.
+/// ID: `a12aefff`.
 class BotVerifierSettings extends BotVerifierSettingsBase {
   /// Bot Verifier Settings constructor.
   const BotVerifierSettings({
@@ -108891,8 +109563,9 @@ class BotVerifierSettings extends BotVerifierSettingsBase {
     final icon = reader.readInt64();
     final company = reader.readString();
     final hasCustomDescriptionField = (flags & 1) != 0;
-    final customDescription =
-        hasCustomDescriptionField ? reader.readString() : null;
+    final customDescription = hasCustomDescriptionField
+        ? reader.readObject() as TextWithEntitiesBase
+        : null;
 
     // Construct [BotVerifierSettings] object.
     final returnValue = BotVerifierSettings(
@@ -108928,13 +109601,13 @@ class BotVerifierSettings extends BotVerifierSettingsBase {
   final String company;
 
   /// Custom Description.
-  final String? customDescription;
+  final TextWithEntitiesBase? customDescription;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xb0cd6617.
-    buffer.writeInt32(0xb0cd6617);
+    // Write type-id 0xa12aefff.
+    buffer.writeInt32(0xa12aefff);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -108942,7 +109615,7 @@ class BotVerifierSettings extends BotVerifierSettingsBase {
     buffer.writeString(company);
     final localCustomDescriptionCopy = customDescription;
     if (localCustomDescriptionCopy != null) {
-      buffer.writeString(localCustomDescriptionCopy);
+      buffer.writeObject(localCustomDescriptionCopy);
     }
 
     // Finished serialization.
@@ -108951,7 +109624,7 @@ class BotVerifierSettings extends BotVerifierSettingsBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "b0cd6617",
+      "\$hash": "a12aefff",
       "\$name": "BotVerifierSettings",
       "flags": flags,
       "canModifyCustomDescription": canModifyCustomDescription,
@@ -108967,7 +109640,7 @@ class BotVerifierSettings extends BotVerifierSettingsBase {
 
 /// Bot Verification.
 ///
-/// ID: `f93cd45c`.
+/// ID: `f72e0ed9`.
 class BotVerification extends BotVerificationBase {
   /// Bot Verification constructor.
   const BotVerification({
@@ -108981,7 +109654,7 @@ class BotVerification extends BotVerificationBase {
     // Read [BotVerification] fields.
     final botId = reader.readInt64();
     final icon = reader.readInt64();
-    final description = reader.readString();
+    final description = reader.readObject() as TextWithEntitiesBase;
 
     // Construct [BotVerification] object.
     final returnValue = BotVerification(
@@ -109005,18 +109678,18 @@ class BotVerification extends BotVerificationBase {
   final int icon;
 
   /// Description.
-  final String description;
+  final TextWithEntitiesBase description;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0xf93cd45c.
-    buffer.writeInt32(0xf93cd45c);
+    // Write type-id 0xf72e0ed9.
+    buffer.writeInt32(0xf72e0ed9);
 
     // Write fields.
     buffer.writeInt64(botId);
     buffer.writeInt64(icon);
-    buffer.writeString(description);
+    buffer.writeObject(description);
 
     // Finished serialization.
   }
@@ -109024,7 +109697,7 @@ class BotVerification extends BotVerificationBase {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "f93cd45c",
+      "\$hash": "f72e0ed9",
       "\$name": "BotVerification",
       "botId": botId,
       "icon": icon,
@@ -115255,53 +115928,6 @@ class InputPasskeyCredentialPublicKey extends InputPasskeyCredentialBase {
   }
 }
 
-/// Input Passkey Credential Firebase P N V.
-///
-/// ID: `5b1ccb28`.
-class InputPasskeyCredentialFirebasePNV extends InputPasskeyCredentialBase {
-  /// Input Passkey Credential Firebase P N V constructor.
-  const InputPasskeyCredentialFirebasePNV({required this.pnvToken}) : super._();
-
-  /// Deserialize.
-  factory InputPasskeyCredentialFirebasePNV.deserialize(BinaryReader reader) {
-    // Read [InputPasskeyCredentialFirebasePNV] fields.
-    final pnvToken = reader.readString();
-
-    // Construct [InputPasskeyCredentialFirebasePNV] object.
-    final returnValue = InputPasskeyCredentialFirebasePNV(pnvToken: pnvToken);
-
-    // Now return the deserialized [InputPasskeyCredentialFirebasePNV].
-    return returnValue;
-  }
-
-  /// Pnv Token.
-  final String pnvToken;
-
-  /// Serialize.
-  @override
-  void serialize(List<int> buffer) {
-    // Write type-id 0x5b1ccb28.
-    buffer.writeInt32(0x5b1ccb28);
-
-    // Write fields.
-    buffer.writeString(pnvToken);
-
-    // Finished serialization.
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    final returnValue = <String, dynamic>{
-      "\$hash": "5b1ccb28",
-      "\$name": "InputPasskeyCredentialFirebasePNV",
-      "pnvToken": pnvToken,
-    };
-
-    // Finished toJson.
-    return returnValue;
-  }
-}
-
 /// Star Gift Background.
 ///
 /// ID: `aff56398`.
@@ -120188,6 +120814,2957 @@ class EphemeralWelcomeMessages extends EphemeralWelcomeMessagesBase {
   }
 }
 
+/// Currency Rate.
+///
+/// ID: `30d9743c`.
+class CurrencyRate extends CurrencyRateBase {
+  /// Currency Rate constructor.
+  const CurrencyRate({required this.currency, required this.rate}) : super._();
+
+  /// Deserialize.
+  factory CurrencyRate.deserialize(BinaryReader reader) {
+    // Read [CurrencyRate] fields.
+    final currency = reader.readString();
+    final rate = reader.readFloat64();
+
+    // Construct [CurrencyRate] object.
+    final returnValue = CurrencyRate(currency: currency, rate: rate);
+
+    // Now return the deserialized [CurrencyRate].
+    return returnValue;
+  }
+
+  /// Currency.
+  final String currency;
+
+  /// Rate.
+  final double rate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x30d9743c.
+    buffer.writeInt32(0x30d9743c);
+
+    // Write fields.
+    buffer.writeString(currency);
+    buffer.writeDouble(rate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "30d9743c",
+      "\$name": "CurrencyRate",
+      "currency": currency,
+      "rate": rate,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Currency Rates.
+///
+/// ID: `bbcce4c2`.
+class PaymentsCurrencyRates extends PaymentsCurrencyRatesBase {
+  /// Payments Currency Rates constructor.
+  const PaymentsCurrencyRates({required this.rates}) : super._();
+
+  /// Deserialize.
+  factory PaymentsCurrencyRates.deserialize(BinaryReader reader) {
+    // Read [PaymentsCurrencyRates] fields.
+    final rates = reader.readVectorObject<CurrencyRateBase>();
+
+    // Construct [PaymentsCurrencyRates] object.
+    final returnValue = PaymentsCurrencyRates(rates: rates.items);
+
+    // Now return the deserialized [PaymentsCurrencyRates].
+    return returnValue;
+  }
+
+  /// Rates.
+  final List<CurrencyRateBase> rates;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbbcce4c2.
+    buffer.writeInt32(0xbbcce4c2);
+
+    // Write fields.
+    buffer.writeVectorObject(rates);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bbcce4c2",
+      "\$name": "PaymentsCurrencyRates",
+      "rates": rates,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Toncenter Api Response.
+///
+/// ID: `ac8dfe19`.
+class ToncenterApiResponse extends ToncenterApiResponseBase {
+  /// Toncenter Api Response constructor.
+  const ToncenterApiResponse({required this.response}) : super._();
+
+  /// Deserialize.
+  factory ToncenterApiResponse.deserialize(BinaryReader reader) {
+    // Read [ToncenterApiResponse] fields.
+    final response = reader.readObject() as DataJSONBase;
+
+    // Construct [ToncenterApiResponse] object.
+    final returnValue = ToncenterApiResponse(response: response);
+
+    // Now return the deserialized [ToncenterApiResponse].
+    return returnValue;
+  }
+
+  /// Response.
+  final DataJSONBase response;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xac8dfe19.
+    buffer.writeInt32(0xac8dfe19);
+
+    // Write fields.
+    buffer.writeObject(response);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ac8dfe19",
+      "\$name": "ToncenterApiResponse",
+      "response": response,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Toncenter Streaming Url.
+///
+/// ID: `19887601`.
+class ToncenterStreamingUrl extends ToncenterStreamingUrlBase {
+  /// Toncenter Streaming Url constructor.
+  const ToncenterStreamingUrl({required this.url, required this.expires})
+      : super._();
+
+  /// Deserialize.
+  factory ToncenterStreamingUrl.deserialize(BinaryReader reader) {
+    // Read [ToncenterStreamingUrl] fields.
+    final url = reader.readString();
+    final expires = reader.readDateTime();
+
+    // Construct [ToncenterStreamingUrl] object.
+    final returnValue = ToncenterStreamingUrl(url: url, expires: expires);
+
+    // Now return the deserialized [ToncenterStreamingUrl].
+    return returnValue;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Expires.
+  final DateTime expires;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x19887601.
+    buffer.writeInt32(0x19887601);
+
+    // Write fields.
+    buffer.writeString(url);
+    buffer.writeDateTime(expires);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "19887601",
+      "\$name": "ToncenterStreamingUrl",
+      "url": url,
+      "expires": expires.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Onramp Method Availability.
+///
+/// ID: `9ec8c6a8`.
+class OnrampMethodAvailability extends OnrampMethodAvailabilityBase {
+  /// Onramp Method Availability constructor.
+  const OnrampMethodAvailability({
+    required this.available,
+    required this.paymentMethod,
+  }) : super._();
+
+  /// Deserialize.
+  factory OnrampMethodAvailability.deserialize(BinaryReader reader) {
+    // Read [OnrampMethodAvailability] fields.
+    final flags = reader.readInt32();
+    final available = (flags & 1) != 0;
+    final paymentMethod = reader.readString();
+
+    // Construct [OnrampMethodAvailability] object.
+    final returnValue = OnrampMethodAvailability(
+      available: available,
+      paymentMethod: paymentMethod,
+    );
+
+    // Now return the deserialized [OnrampMethodAvailability].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: available);
+
+    return v;
+  }
+
+  /// available: bit 0 of flags.0?true
+  final bool available;
+
+  /// Payment Method.
+  final String paymentMethod;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9ec8c6a8.
+    buffer.writeInt32(0x9ec8c6a8);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(paymentMethod);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9ec8c6a8",
+      "\$name": "OnrampMethodAvailability",
+      "flags": flags,
+      "available": available,
+      "paymentMethod": paymentMethod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Onramp Provider Info.
+///
+/// ID: `0dc27582`.
+class OnrampProviderInfo extends OnrampProviderInfoBase {
+  /// Onramp Provider Info constructor.
+  const OnrampProviderInfo({
+    required this.supportsBaseCurrencies,
+    required this.supportsLimits,
+    required this.supportsQuote,
+    required this.id,
+    required this.name,
+    required this.cryptoCurrencies,
+  }) : super._();
+
+  /// Deserialize.
+  factory OnrampProviderInfo.deserialize(BinaryReader reader) {
+    // Read [OnrampProviderInfo] fields.
+    final flags = reader.readInt32();
+    final supportsBaseCurrencies = (flags & 1) != 0;
+    final supportsLimits = (flags & 2) != 0;
+    final supportsQuote = (flags & 4) != 0;
+    final id = reader.readString();
+    final name = reader.readString();
+    final cryptoCurrencies = reader.readVectorString();
+
+    // Construct [OnrampProviderInfo] object.
+    final returnValue = OnrampProviderInfo(
+      supportsBaseCurrencies: supportsBaseCurrencies,
+      supportsLimits: supportsLimits,
+      supportsQuote: supportsQuote,
+      id: id,
+      name: name,
+      cryptoCurrencies: cryptoCurrencies.items,
+    );
+
+    // Now return the deserialized [OnrampProviderInfo].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: supportsBaseCurrencies,
+      b01: supportsLimits,
+      b02: supportsQuote,
+    );
+
+    return v;
+  }
+
+  /// supports_base_currencies: bit 0 of flags.0?true
+  final bool supportsBaseCurrencies;
+
+  /// supports_limits: bit 1 of flags.1?true
+  final bool supportsLimits;
+
+  /// supports_quote: bit 2 of flags.2?true
+  final bool supportsQuote;
+
+  /// Id.
+  final String id;
+
+  /// Name.
+  final String name;
+
+  /// Crypto Currencies.
+  final List<String> cryptoCurrencies;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0dc27582.
+    buffer.writeInt32(0x0dc27582);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(id);
+    buffer.writeString(name);
+    buffer.writeVectorString(cryptoCurrencies);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "0dc27582",
+      "\$name": "OnrampProviderInfo",
+      "flags": flags,
+      "supportsBaseCurrencies": supportsBaseCurrencies,
+      "supportsLimits": supportsLimits,
+      "supportsQuote": supportsQuote,
+      "id": id,
+      "name": name,
+      "cryptoCurrencies": cryptoCurrencies,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Onramp Availability.
+///
+/// ID: `f9c84973`.
+class OnrampAvailability extends OnrampAvailabilityBase {
+  /// Onramp Availability constructor.
+  const OnrampAvailability({
+    required this.allowed,
+    required this.buyAllowed,
+    required this.countryCode,
+    this.state,
+    required this.methods,
+  }) : super._();
+
+  /// Deserialize.
+  factory OnrampAvailability.deserialize(BinaryReader reader) {
+    // Read [OnrampAvailability] fields.
+    final flags = reader.readInt32();
+    final allowed = (flags & 1) != 0;
+    final buyAllowed = (flags & 2) != 0;
+    final countryCode = reader.readString();
+    final hasStateField = (flags & 4) != 0;
+    final state = hasStateField ? reader.readString() : null;
+    final methods = reader.readVectorObject<OnrampMethodAvailabilityBase>();
+
+    // Construct [OnrampAvailability] object.
+    final returnValue = OnrampAvailability(
+      allowed: allowed,
+      buyAllowed: buyAllowed,
+      countryCode: countryCode,
+      state: state,
+      methods: methods.items,
+    );
+
+    // Now return the deserialized [OnrampAvailability].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: allowed, b01: buyAllowed, b02: state != null);
+
+    return v;
+  }
+
+  /// allowed: bit 0 of flags.0?true
+  final bool allowed;
+
+  /// buy_allowed: bit 1 of flags.1?true
+  final bool buyAllowed;
+
+  /// Country Code.
+  final String countryCode;
+
+  /// State.
+  final String? state;
+
+  /// Methods.
+  final List<OnrampMethodAvailabilityBase> methods;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf9c84973.
+    buffer.writeInt32(0xf9c84973);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(countryCode);
+    final localStateCopy = state;
+    if (localStateCopy != null) {
+      buffer.writeString(localStateCopy);
+    }
+    buffer.writeVectorObject(methods);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f9c84973",
+      "\$name": "OnrampAvailability",
+      "flags": flags,
+      "allowed": allowed,
+      "buyAllowed": buyAllowed,
+      "countryCode": countryCode,
+      "state": state,
+      "methods": methods,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Onramp Limits.
+///
+/// ID: `7be2677e`.
+class OnrampLimits extends OnrampLimitsBase {
+  /// Onramp Limits constructor.
+  const OnrampLimits({
+    required this.baseCurrency,
+    required this.baseMinAmount,
+    required this.baseMaxAmount,
+    required this.cryptoMinAmount,
+    required this.cryptoMaxAmount,
+    required this.paymentMethod,
+  }) : super._();
+
+  /// Deserialize.
+  factory OnrampLimits.deserialize(BinaryReader reader) {
+    // Read [OnrampLimits] fields.
+    final baseCurrency = reader.readString();
+    final baseMinAmount = reader.readString();
+    final baseMaxAmount = reader.readString();
+    final cryptoMinAmount = reader.readString();
+    final cryptoMaxAmount = reader.readString();
+    final paymentMethod = reader.readString();
+
+    // Construct [OnrampLimits] object.
+    final returnValue = OnrampLimits(
+      baseCurrency: baseCurrency,
+      baseMinAmount: baseMinAmount,
+      baseMaxAmount: baseMaxAmount,
+      cryptoMinAmount: cryptoMinAmount,
+      cryptoMaxAmount: cryptoMaxAmount,
+      paymentMethod: paymentMethod,
+    );
+
+    // Now return the deserialized [OnrampLimits].
+    return returnValue;
+  }
+
+  /// Base Currency.
+  final String baseCurrency;
+
+  /// Base Min Amount.
+  final String baseMinAmount;
+
+  /// Base Max Amount.
+  final String baseMaxAmount;
+
+  /// Crypto Min Amount.
+  final String cryptoMinAmount;
+
+  /// Crypto Max Amount.
+  final String cryptoMaxAmount;
+
+  /// Payment Method.
+  final String paymentMethod;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7be2677e.
+    buffer.writeInt32(0x7be2677e);
+
+    // Write fields.
+    buffer.writeString(baseCurrency);
+    buffer.writeString(baseMinAmount);
+    buffer.writeString(baseMaxAmount);
+    buffer.writeString(cryptoMinAmount);
+    buffer.writeString(cryptoMaxAmount);
+    buffer.writeString(paymentMethod);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "7be2677e",
+      "\$name": "OnrampLimits",
+      "baseCurrency": baseCurrency,
+      "baseMinAmount": baseMinAmount,
+      "baseMaxAmount": baseMaxAmount,
+      "cryptoMinAmount": cryptoMinAmount,
+      "cryptoMaxAmount": cryptoMaxAmount,
+      "paymentMethod": paymentMethod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Onramp Quote.
+///
+/// ID: `7a8011e9`.
+class OnrampQuote extends OnrampQuoteBase {
+  /// Onramp Quote constructor.
+  const OnrampQuote({
+    required this.baseCurrency,
+    required this.baseAmount,
+    required this.cryptoCurrency,
+    required this.cryptoAmount,
+    required this.cryptoPrice,
+    required this.feeAmount,
+    required this.extraFeeAmount,
+    required this.networkFeeAmount,
+    required this.totalAmount,
+    required this.paymentMethod,
+    required this.expiresDate,
+  }) : super._();
+
+  /// Deserialize.
+  factory OnrampQuote.deserialize(BinaryReader reader) {
+    // Read [OnrampQuote] fields.
+    final baseCurrency = reader.readString();
+    final baseAmount = reader.readString();
+    final cryptoCurrency = reader.readString();
+    final cryptoAmount = reader.readString();
+    final cryptoPrice = reader.readString();
+    final feeAmount = reader.readString();
+    final extraFeeAmount = reader.readString();
+    final networkFeeAmount = reader.readString();
+    final totalAmount = reader.readString();
+    final paymentMethod = reader.readString();
+    final expiresDate = reader.readDateTime();
+
+    // Construct [OnrampQuote] object.
+    final returnValue = OnrampQuote(
+      baseCurrency: baseCurrency,
+      baseAmount: baseAmount,
+      cryptoCurrency: cryptoCurrency,
+      cryptoAmount: cryptoAmount,
+      cryptoPrice: cryptoPrice,
+      feeAmount: feeAmount,
+      extraFeeAmount: extraFeeAmount,
+      networkFeeAmount: networkFeeAmount,
+      totalAmount: totalAmount,
+      paymentMethod: paymentMethod,
+      expiresDate: expiresDate,
+    );
+
+    // Now return the deserialized [OnrampQuote].
+    return returnValue;
+  }
+
+  /// Base Currency.
+  final String baseCurrency;
+
+  /// Base Amount.
+  final String baseAmount;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Crypto Amount.
+  final String cryptoAmount;
+
+  /// Crypto Price.
+  final String cryptoPrice;
+
+  /// Fee Amount.
+  final String feeAmount;
+
+  /// Extra Fee Amount.
+  final String extraFeeAmount;
+
+  /// Network Fee Amount.
+  final String networkFeeAmount;
+
+  /// Total Amount.
+  final String totalAmount;
+
+  /// Payment Method.
+  final String paymentMethod;
+
+  /// Expires Date.
+  final DateTime expiresDate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x7a8011e9.
+    buffer.writeInt32(0x7a8011e9);
+
+    // Write fields.
+    buffer.writeString(baseCurrency);
+    buffer.writeString(baseAmount);
+    buffer.writeString(cryptoCurrency);
+    buffer.writeString(cryptoAmount);
+    buffer.writeString(cryptoPrice);
+    buffer.writeString(feeAmount);
+    buffer.writeString(extraFeeAmount);
+    buffer.writeString(networkFeeAmount);
+    buffer.writeString(totalAmount);
+    buffer.writeString(paymentMethod);
+    buffer.writeDateTime(expiresDate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "7a8011e9",
+      "\$name": "OnrampQuote",
+      "baseCurrency": baseCurrency,
+      "baseAmount": baseAmount,
+      "cryptoCurrency": cryptoCurrency,
+      "cryptoAmount": cryptoAmount,
+      "cryptoPrice": cryptoPrice,
+      "feeAmount": feeAmount,
+      "extraFeeAmount": extraFeeAmount,
+      "networkFeeAmount": networkFeeAmount,
+      "totalAmount": totalAmount,
+      "paymentMethod": paymentMethod,
+      "expiresDate": expiresDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Onramp Session.
+///
+/// ID: `d1e42e24`.
+class OnrampSession extends OnrampSessionBase {
+  /// Onramp Session constructor.
+  const OnrampSession({
+    required this.provider,
+    required this.sessionId,
+    required this.url,
+    required this.expiresDate,
+  }) : super._();
+
+  /// Deserialize.
+  factory OnrampSession.deserialize(BinaryReader reader) {
+    // Read [OnrampSession] fields.
+    final provider = reader.readString();
+    final sessionId = reader.readString();
+    final url = reader.readString();
+    final expiresDate = reader.readDateTime();
+
+    // Construct [OnrampSession] object.
+    final returnValue = OnrampSession(
+      provider: provider,
+      sessionId: sessionId,
+      url: url,
+      expiresDate: expiresDate,
+    );
+
+    // Now return the deserialized [OnrampSession].
+    return returnValue;
+  }
+
+  /// Provider.
+  final String provider;
+
+  /// Session Id.
+  final String sessionId;
+
+  /// Url.
+  final String url;
+
+  /// Expires Date.
+  final DateTime expiresDate;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd1e42e24.
+    buffer.writeInt32(0xd1e42e24);
+
+    // Write fields.
+    buffer.writeString(provider);
+    buffer.writeString(sessionId);
+    buffer.writeString(url);
+    buffer.writeDateTime(expiresDate);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d1e42e24",
+      "\$name": "OnrampSession",
+      "provider": provider,
+      "sessionId": sessionId,
+      "url": url,
+      "expiresDate": expiresDate.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet State Empty.
+///
+/// ID: `9cb9b2ec`.
+class WalletStateEmpty extends WalletStateBase {
+  /// Wallet State Empty constructor.
+  const WalletStateEmpty({required this.creating}) : super._();
+
+  /// Deserialize.
+  factory WalletStateEmpty.deserialize(BinaryReader reader) {
+    // Read [WalletStateEmpty] fields.
+    final flags = reader.readInt32();
+    final creating = (flags & 1) != 0;
+
+    // Construct [WalletStateEmpty] object.
+    final returnValue = WalletStateEmpty(creating: creating);
+
+    // Now return the deserialized [WalletStateEmpty].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: creating);
+
+    return v;
+  }
+
+  /// creating: bit 0 of flags.0?true
+  final bool creating;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9cb9b2ec.
+    buffer.writeInt32(0x9cb9b2ec);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9cb9b2ec",
+      "\$name": "WalletStateEmpty",
+      "flags": flags,
+      "creating": creating,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet State.
+///
+/// ID: `95c5346b`.
+class WalletState extends WalletStateBase {
+  /// Wallet State constructor.
+  const WalletState({
+    required this.backupEnabled,
+    required this.canExportPhrase,
+    required this.canEnableBackup,
+    required this.address,
+    required this.publicKey,
+    required this.balance,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletState.deserialize(BinaryReader reader) {
+    // Read [WalletState] fields.
+    final flags = reader.readInt32();
+    final backupEnabled = (flags & 1) != 0;
+    final canExportPhrase = (flags & 2) != 0;
+    final canEnableBackup = (flags & 4) != 0;
+    final address = reader.readString();
+    final publicKey = reader.readBytes();
+    final balance = reader.readInt64();
+
+    // Construct [WalletState] object.
+    final returnValue = WalletState(
+      backupEnabled: backupEnabled,
+      canExportPhrase: canExportPhrase,
+      canEnableBackup: canEnableBackup,
+      address: address,
+      publicKey: publicKey,
+      balance: balance,
+    );
+
+    // Now return the deserialized [WalletState].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: backupEnabled,
+      b01: canExportPhrase,
+      b02: canEnableBackup,
+    );
+
+    return v;
+  }
+
+  /// backup_enabled: bit 0 of flags.0?true
+  final bool backupEnabled;
+
+  /// can_export_phrase: bit 1 of flags.1?true
+  final bool canExportPhrase;
+
+  /// can_enable_backup: bit 2 of flags.2?true
+  final bool canEnableBackup;
+
+  /// Address.
+  final String address;
+
+  /// Public Key.
+  final Uint8List publicKey;
+
+  /// Balance.
+  ///
+  /// Field type is Int64.
+  final int balance;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x95c5346b.
+    buffer.writeInt32(0x95c5346b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(address);
+    buffer.writeBytes(publicKey);
+    buffer.writeInt64(balance);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "95c5346b",
+      "\$name": "WalletState",
+      "flags": flags,
+      "backupEnabled": backupEnabled,
+      "canExportPhrase": canExportPhrase,
+      "canEnableBackup": canEnableBackup,
+      "address": address,
+      "publicKey": publicKey,
+      "balance": balance,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet User Address.
+///
+/// ID: `fe78eecc`.
+class WalletUserAddress extends WalletUserAddressBase {
+  /// Wallet User Address constructor.
+  const WalletUserAddress({
+    this.userId,
+    required this.address,
+    required this.publicKey,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletUserAddress.deserialize(BinaryReader reader) {
+    // Read [WalletUserAddress] fields.
+    final flags = reader.readInt32();
+    final hasUserIdField = (flags & 1) != 0;
+    final userId = hasUserIdField ? reader.readInt64() : null;
+    final address = reader.readString();
+    final publicKey = reader.readBytes();
+
+    // Construct [WalletUserAddress] object.
+    final returnValue = WalletUserAddress(
+      userId: userId,
+      address: address,
+      publicKey: publicKey,
+    );
+
+    // Now return the deserialized [WalletUserAddress].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: userId != null);
+
+    return v;
+  }
+
+  /// User Id.
+  final int? userId;
+
+  /// Address.
+  final String address;
+
+  /// Public Key.
+  final Uint8List publicKey;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfe78eecc.
+    buffer.writeInt32(0xfe78eecc);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localUserIdCopy = userId;
+    if (localUserIdCopy != null) {
+      buffer.writeInt64(localUserIdCopy);
+    }
+    buffer.writeString(address);
+    buffer.writeBytes(publicKey);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fe78eecc",
+      "\$name": "WalletUserAddress",
+      "flags": flags,
+      "userId": userId,
+      "address": address,
+      "publicKey": publicKey,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet User Addresses.
+///
+/// ID: `928e7b55`.
+class WalletUserAddresses extends WalletUserAddressesBase {
+  /// Wallet User Addresses constructor.
+  const WalletUserAddresses({required this.addresses, required this.users})
+      : super._();
+
+  /// Deserialize.
+  factory WalletUserAddresses.deserialize(BinaryReader reader) {
+    // Read [WalletUserAddresses] fields.
+    final addresses = reader.readVectorObject<WalletUserAddressBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [WalletUserAddresses] object.
+    final returnValue = WalletUserAddresses(
+      addresses: addresses.items,
+      users: users.items,
+    );
+
+    // Now return the deserialized [WalletUserAddresses].
+    return returnValue;
+  }
+
+  /// Addresses.
+  final List<WalletUserAddressBase> addresses;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x928e7b55.
+    buffer.writeInt32(0x928e7b55);
+
+    // Write fields.
+    buffer.writeVectorObject(addresses);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "928e7b55",
+      "\$name": "WalletUserAddresses",
+      "addresses": addresses,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Transaction Peer User.
+///
+/// ID: `d4ea706d`.
+class WalletTransactionPeerUser extends WalletTransactionPeerBase {
+  /// Wallet Transaction Peer User constructor.
+  const WalletTransactionPeerUser({
+    required this.userId,
+    required this.address,
+    this.domain,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTransactionPeerUser.deserialize(BinaryReader reader) {
+    // Read [WalletTransactionPeerUser] fields.
+    final flags = reader.readInt32();
+    final userId = reader.readInt64();
+    final address = reader.readString();
+    final hasDomainField = (flags & 1) != 0;
+    final domain = hasDomainField ? reader.readString() : null;
+
+    // Construct [WalletTransactionPeerUser] object.
+    final returnValue = WalletTransactionPeerUser(
+      userId: userId,
+      address: address,
+      domain: domain,
+    );
+
+    // Now return the deserialized [WalletTransactionPeerUser].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: domain != null);
+
+    return v;
+  }
+
+  /// User Id.
+  ///
+  /// Field type is Int64.
+  final int userId;
+
+  /// Address.
+  final String address;
+
+  /// Domain.
+  final String? domain;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd4ea706d.
+    buffer.writeInt32(0xd4ea706d);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(userId);
+    buffer.writeString(address);
+    final localDomainCopy = domain;
+    if (localDomainCopy != null) {
+      buffer.writeString(localDomainCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d4ea706d",
+      "\$name": "WalletTransactionPeerUser",
+      "flags": flags,
+      "userId": userId,
+      "address": address,
+      "domain": domain,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Transaction Peer Address.
+///
+/// ID: `062cc1bc`.
+class WalletTransactionPeerAddress extends WalletTransactionPeerBase {
+  /// Wallet Transaction Peer Address constructor.
+  const WalletTransactionPeerAddress({required this.address, this.domain})
+      : super._();
+
+  /// Deserialize.
+  factory WalletTransactionPeerAddress.deserialize(BinaryReader reader) {
+    // Read [WalletTransactionPeerAddress] fields.
+    final flags = reader.readInt32();
+    final address = reader.readString();
+    final hasDomainField = (flags & 1) != 0;
+    final domain = hasDomainField ? reader.readString() : null;
+
+    // Construct [WalletTransactionPeerAddress] object.
+    final returnValue = WalletTransactionPeerAddress(
+      address: address,
+      domain: domain,
+    );
+
+    // Now return the deserialized [WalletTransactionPeerAddress].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: domain != null);
+
+    return v;
+  }
+
+  /// Address.
+  final String address;
+
+  /// Domain.
+  final String? domain;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x062cc1bc.
+    buffer.writeInt32(0x062cc1bc);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(address);
+    final localDomainCopy = domain;
+    if (localDomainCopy != null) {
+      buffer.writeString(localDomainCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "062cc1bc",
+      "\$name": "WalletTransactionPeerAddress",
+      "flags": flags,
+      "address": address,
+      "domain": domain,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Transaction Peer Onramp.
+///
+/// ID: `e595186e`.
+class WalletTransactionPeerOnramp extends WalletTransactionPeerBase {
+  /// Wallet Transaction Peer Onramp constructor.
+  const WalletTransactionPeerOnramp({
+    required this.address,
+    this.domain,
+    required this.providerName,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTransactionPeerOnramp.deserialize(BinaryReader reader) {
+    // Read [WalletTransactionPeerOnramp] fields.
+    final flags = reader.readInt32();
+    final address = reader.readString();
+    final hasDomainField = (flags & 1) != 0;
+    final domain = hasDomainField ? reader.readString() : null;
+    final providerName = reader.readString();
+
+    // Construct [WalletTransactionPeerOnramp] object.
+    final returnValue = WalletTransactionPeerOnramp(
+      address: address,
+      domain: domain,
+      providerName: providerName,
+    );
+
+    // Now return the deserialized [WalletTransactionPeerOnramp].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: domain != null);
+
+    return v;
+  }
+
+  /// Address.
+  final String address;
+
+  /// Domain.
+  final String? domain;
+
+  /// Provider Name.
+  final String providerName;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe595186e.
+    buffer.writeInt32(0xe595186e);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(address);
+    final localDomainCopy = domain;
+    if (localDomainCopy != null) {
+      buffer.writeString(localDomainCopy);
+    }
+    buffer.writeString(providerName);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e595186e",
+      "\$name": "WalletTransactionPeerOnramp",
+      "flags": flags,
+      "address": address,
+      "domain": domain,
+      "providerName": providerName,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Transaction Peer Unsupported.
+///
+/// ID: `728bed5a`.
+class WalletTransactionPeerUnsupported extends WalletTransactionPeerBase {
+  /// Wallet Transaction Peer Unsupported constructor.
+  const WalletTransactionPeerUnsupported() : super._();
+
+  /// Deserialize.
+  factory WalletTransactionPeerUnsupported.deserialize(BinaryReader reader) {
+    // Construct [WalletTransactionPeerUnsupported] object.
+    final returnValue = WalletTransactionPeerUnsupported();
+
+    // Now return the deserialized [WalletTransactionPeerUnsupported].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x728bed5a.
+    buffer.writeInt32(0x728bed5a);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "728bed5a",
+      "\$name": "WalletTransactionPeerUnsupported",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Transaction.
+///
+/// ID: `952dc143`.
+class WalletTransaction extends WalletTransactionBase {
+  /// Wallet Transaction constructor.
+  const WalletTransaction({
+    required this.incoming,
+    required this.gasless,
+    required this.failed,
+    required this.keyChange,
+    required this.commentEncrypted,
+    required this.id,
+    required this.amount,
+    required this.fee,
+    required this.date,
+    required this.peer,
+    this.comment,
+    this.txHash,
+    this.nft,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTransaction.deserialize(BinaryReader reader) {
+    // Read [WalletTransaction] fields.
+    final flags = reader.readInt32();
+    final incoming = (flags & 1) != 0;
+    final gasless = (flags & 2) != 0;
+    final failed = (flags & 4) != 0;
+    final keyChange = (flags & 32) != 0;
+    final commentEncrypted = (flags & 64) != 0;
+    final id = reader.readString();
+    final amount = reader.readInt64();
+    final fee = reader.readInt64();
+    final date = reader.readDateTime();
+    final peer = reader.readObject() as WalletTransactionPeerBase;
+    final hasCommentField = (flags & 8) != 0;
+    final comment = hasCommentField ? reader.readString() : null;
+    final hasTxHashField = (flags & 16) != 0;
+    final txHash = hasTxHashField ? reader.readString() : null;
+    final hasNftField = (flags & 128) != 0;
+    final nft = hasNftField ? reader.readObject() as WalletNftItemBase : null;
+
+    // Construct [WalletTransaction] object.
+    final returnValue = WalletTransaction(
+      incoming: incoming,
+      gasless: gasless,
+      failed: failed,
+      keyChange: keyChange,
+      commentEncrypted: commentEncrypted,
+      id: id,
+      amount: amount,
+      fee: fee,
+      date: date,
+      peer: peer,
+      comment: comment,
+      txHash: txHash,
+      nft: nft,
+    );
+
+    // Now return the deserialized [WalletTransaction].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: incoming,
+      b01: gasless,
+      b02: failed,
+      b05: keyChange,
+      b06: commentEncrypted,
+      b03: comment != null,
+      b04: txHash != null,
+      b07: nft != null,
+    );
+
+    return v;
+  }
+
+  /// incoming: bit 0 of flags.0?true
+  final bool incoming;
+
+  /// gasless: bit 1 of flags.1?true
+  final bool gasless;
+
+  /// failed: bit 2 of flags.2?true
+  final bool failed;
+
+  /// key_change: bit 5 of flags.5?true
+  final bool keyChange;
+
+  /// comment_encrypted: bit 6 of flags.6?true
+  final bool commentEncrypted;
+
+  /// Id.
+  final String id;
+
+  /// Amount.
+  ///
+  /// Field type is Int64.
+  final int amount;
+
+  /// Fee.
+  ///
+  /// Field type is Int64.
+  final int fee;
+
+  /// Date.
+  final DateTime date;
+
+  /// Peer.
+  final WalletTransactionPeerBase peer;
+
+  /// Comment.
+  final String? comment;
+
+  /// Tx Hash.
+  final String? txHash;
+
+  /// Nft.
+  final WalletNftItemBase? nft;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x952dc143.
+    buffer.writeInt32(0x952dc143);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(id);
+    buffer.writeInt64(amount);
+    buffer.writeInt64(fee);
+    buffer.writeDateTime(date);
+    buffer.writeObject(peer);
+    final localCommentCopy = comment;
+    if (localCommentCopy != null) {
+      buffer.writeString(localCommentCopy);
+    }
+    final localTxHashCopy = txHash;
+    if (localTxHashCopy != null) {
+      buffer.writeString(localTxHashCopy);
+    }
+    final localNftCopy = nft;
+    if (localNftCopy != null) {
+      buffer.writeObject(localNftCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "952dc143",
+      "\$name": "WalletTransaction",
+      "flags": flags,
+      "incoming": incoming,
+      "gasless": gasless,
+      "failed": failed,
+      "keyChange": keyChange,
+      "commentEncrypted": commentEncrypted,
+      "id": id,
+      "amount": amount,
+      "fee": fee,
+      "date": date.toIso8601String(),
+      "peer": peer,
+      "comment": comment,
+      "txHash": txHash,
+      "nft": nft,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Transactions.
+///
+/// ID: `4322d5a5`.
+class WalletTransactions extends WalletTransactionsBase {
+  /// Wallet Transactions constructor.
+  const WalletTransactions({
+    required this.balance,
+    required this.transactions,
+    this.nextOffset,
+    required this.chats,
+    required this.users,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTransactions.deserialize(BinaryReader reader) {
+    // Read [WalletTransactions] fields.
+    final flags = reader.readInt32();
+    final balance = reader.readInt64();
+    final transactions = reader.readVectorObject<WalletTransactionBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+    final chats = reader.readVectorObject<ChatBase>();
+    final users = reader.readVectorObject<UserBase>();
+
+    // Construct [WalletTransactions] object.
+    final returnValue = WalletTransactions(
+      balance: balance,
+      transactions: transactions.items,
+      nextOffset: nextOffset,
+      chats: chats.items,
+      users: users.items,
+    );
+
+    // Now return the deserialized [WalletTransactions].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: nextOffset != null);
+
+    return v;
+  }
+
+  /// Balance.
+  ///
+  /// Field type is Int64.
+  final int balance;
+
+  /// Transactions.
+  final List<WalletTransactionBase> transactions;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Chats.
+  final List<ChatBase> chats;
+
+  /// Users.
+  final List<UserBase> users;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4322d5a5.
+    buffer.writeInt32(0x4322d5a5);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(balance);
+    buffer.writeVectorObject(transactions);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+    buffer.writeVectorObject(chats);
+    buffer.writeVectorObject(users);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4322d5a5",
+      "\$name": "WalletTransactions",
+      "flags": flags,
+      "balance": balance,
+      "transactions": transactions,
+      "nextOffset": nextOffset,
+      "chats": chats,
+      "users": users,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Secret Phrase Parts.
+///
+/// ID: `e6d0ef01`.
+class WalletSecretPhraseParts extends WalletSecretPhrasePartsBase {
+  /// Wallet Secret Phrase Parts constructor.
+  const WalletSecretPhraseParts({required this.token, required this.dcs})
+      : super._();
+
+  /// Deserialize.
+  factory WalletSecretPhraseParts.deserialize(BinaryReader reader) {
+    // Read [WalletSecretPhraseParts] fields.
+    final token = reader.readString();
+    final dcs = reader.readVectorInt32();
+
+    // Construct [WalletSecretPhraseParts] object.
+    final returnValue = WalletSecretPhraseParts(token: token, dcs: dcs.items);
+
+    // Now return the deserialized [WalletSecretPhraseParts].
+    return returnValue;
+  }
+
+  /// Token.
+  final String token;
+
+  /// Dcs.
+  final List<int> dcs;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe6d0ef01.
+    buffer.writeInt32(0xe6d0ef01);
+
+    // Write fields.
+    buffer.writeString(token);
+    buffer.writeVectorInt32(dcs);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e6d0ef01",
+      "\$name": "WalletSecretPhraseParts",
+      "token": token,
+      "dcs": dcs,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Encrypted Secret Phrase Part.
+///
+/// ID: `18e82537`.
+class WalletEncryptedSecretPhrasePart
+    extends WalletEncryptedSecretPhrasePartBase {
+  /// Wallet Encrypted Secret Phrase Part constructor.
+  const WalletEncryptedSecretPhrasePart({required this.data}) : super._();
+
+  /// Deserialize.
+  factory WalletEncryptedSecretPhrasePart.deserialize(BinaryReader reader) {
+    // Read [WalletEncryptedSecretPhrasePart] fields.
+    final data = reader.readBytes();
+
+    // Construct [WalletEncryptedSecretPhrasePart] object.
+    final returnValue = WalletEncryptedSecretPhrasePart(data: data);
+
+    // Now return the deserialized [WalletEncryptedSecretPhrasePart].
+    return returnValue;
+  }
+
+  /// Data.
+  final Uint8List data;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x18e82537.
+    buffer.writeInt32(0x18e82537);
+
+    // Write fields.
+    buffer.writeBytes(data);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "18e82537",
+      "\$name": "WalletEncryptedSecretPhrasePart",
+      "data": data,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Holder Dc.
+///
+/// ID: `f9d612ef`.
+class WalletHolderDc extends WalletHolderDcBase {
+  /// Wallet Holder Dc constructor.
+  const WalletHolderDc({required this.dc, required this.publicKey}) : super._();
+
+  /// Deserialize.
+  factory WalletHolderDc.deserialize(BinaryReader reader) {
+    // Read [WalletHolderDc] fields.
+    final dc = reader.readInt32();
+    final publicKey = reader.readBytes();
+
+    // Construct [WalletHolderDc] object.
+    final returnValue = WalletHolderDc(dc: dc, publicKey: publicKey);
+
+    // Now return the deserialized [WalletHolderDc].
+    return returnValue;
+  }
+
+  /// Dc.
+  ///
+  /// Field type is Int32.
+  final int dc;
+
+  /// Public Key.
+  final Uint8List publicKey;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf9d612ef.
+    buffer.writeInt32(0xf9d612ef);
+
+    // Write fields.
+    buffer.writeInt32(dc);
+    buffer.writeBytes(publicKey);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f9d612ef",
+      "\$name": "WalletHolderDc",
+      "dc": dc,
+      "publicKey": publicKey,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Proof Challenge.
+///
+/// ID: `99e41707`.
+class WalletProofChallenge extends WalletProofChallengeBase {
+  /// Wallet Proof Challenge constructor.
+  const WalletProofChallenge({
+    required this.payload,
+    required this.expires,
+    required this.domain,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletProofChallenge.deserialize(BinaryReader reader) {
+    // Read [WalletProofChallenge] fields.
+    final payload = reader.readString();
+    final expires = reader.readDateTime();
+    final domain = reader.readString();
+
+    // Construct [WalletProofChallenge] object.
+    final returnValue = WalletProofChallenge(
+      payload: payload,
+      expires: expires,
+      domain: domain,
+    );
+
+    // Now return the deserialized [WalletProofChallenge].
+    return returnValue;
+  }
+
+  /// Payload.
+  final String payload;
+
+  /// Expires.
+  final DateTime expires;
+
+  /// Domain.
+  final String domain;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x99e41707.
+    buffer.writeInt32(0x99e41707);
+
+    // Write fields.
+    buffer.writeString(payload);
+    buffer.writeDateTime(expires);
+    buffer.writeString(domain);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "99e41707",
+      "\$name": "WalletProofChallenge",
+      "payload": payload,
+      "expires": expires.toIso8601String(),
+      "domain": domain,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ownership Proof.
+///
+/// ID: `60bccb0d`.
+class WalletOwnershipProof extends WalletOwnershipProofBase {
+  /// Wallet Ownership Proof constructor.
+  const WalletOwnershipProof({required this.timestamp, required this.signature})
+      : super._();
+
+  /// Deserialize.
+  factory WalletOwnershipProof.deserialize(BinaryReader reader) {
+    // Read [WalletOwnershipProof] fields.
+    final timestamp = reader.readInt32();
+    final signature = reader.readBytes();
+
+    // Construct [WalletOwnershipProof] object.
+    final returnValue = WalletOwnershipProof(
+      timestamp: timestamp,
+      signature: signature,
+    );
+
+    // Now return the deserialized [WalletOwnershipProof].
+    return returnValue;
+  }
+
+  /// Timestamp.
+  ///
+  /// Field type is Int32.
+  final int timestamp;
+
+  /// Signature.
+  final Uint8List signature;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x60bccb0d.
+    buffer.writeInt32(0x60bccb0d);
+
+    // Write fields.
+    buffer.writeInt32(timestamp);
+    buffer.writeBytes(signature);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "60bccb0d",
+      "\$name": "WalletOwnershipProof",
+      "timestamp": timestamp,
+      "signature": signature,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Wallet New.
+///
+/// ID: `63a440dc`.
+class InputWalletNew extends InputWalletReplacementBase {
+  /// Input Wallet New constructor.
+  const InputWalletNew() : super._();
+
+  /// Deserialize.
+  factory InputWalletNew.deserialize(BinaryReader reader) {
+    // Construct [InputWalletNew] object.
+    final returnValue = InputWalletNew();
+
+    // Now return the deserialized [InputWalletNew].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x63a440dc.
+    buffer.writeInt32(0x63a440dc);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "63a440dc",
+      "\$name": "InputWalletNew",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Input Wallet Imported.
+///
+/// ID: `66a66a3b`.
+class InputWalletImported extends InputWalletReplacementBase {
+  /// Input Wallet Imported constructor.
+  const InputWalletImported({
+    required this.publicKey,
+    this.anchorPublicKey,
+    required this.proof,
+  }) : super._();
+
+  /// Deserialize.
+  factory InputWalletImported.deserialize(BinaryReader reader) {
+    // Read [InputWalletImported] fields.
+    final flags = reader.readInt32();
+    final publicKey = reader.readBytes();
+    final hasAnchorPublicKeyField = (flags & 1) != 0;
+    final anchorPublicKey = hasAnchorPublicKeyField ? reader.readBytes() : null;
+    final proof = reader.readObject() as WalletOwnershipProofBase;
+
+    // Construct [InputWalletImported] object.
+    final returnValue = InputWalletImported(
+      publicKey: publicKey,
+      anchorPublicKey: anchorPublicKey,
+      proof: proof,
+    );
+
+    // Now return the deserialized [InputWalletImported].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: anchorPublicKey != null);
+
+    return v;
+  }
+
+  /// Public Key.
+  final Uint8List publicKey;
+
+  /// Anchor Public Key.
+  final Uint8List? anchorPublicKey;
+
+  /// Proof.
+  final WalletOwnershipProofBase proof;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x66a66a3b.
+    buffer.writeInt32(0x66a66a3b);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeBytes(publicKey);
+    final localAnchorPublicKeyCopy = anchorPublicKey;
+    if (localAnchorPublicKeyCopy != null) {
+      buffer.writeBytes(localAnchorPublicKeyCopy);
+    }
+    buffer.writeObject(proof);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "66a66a3b",
+      "\$name": "InputWalletImported",
+      "flags": flags,
+      "publicKey": publicKey,
+      "anchorPublicKey": anchorPublicKey,
+      "proof": proof,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ton Connect Manifest.
+///
+/// ID: `12229264`.
+class TonConnectManifest extends TonConnectManifestBase {
+  /// Ton Connect Manifest constructor.
+  const TonConnectManifest({required this.url, required this.name, this.icon})
+      : super._();
+
+  /// Deserialize.
+  factory TonConnectManifest.deserialize(BinaryReader reader) {
+    // Read [TonConnectManifest] fields.
+    final flags = reader.readInt32();
+    final url = reader.readString();
+    final name = reader.readString();
+    final hasIconField = (flags & 1) != 0;
+    final icon = hasIconField ? reader.readObject() as WebDocumentBase : null;
+
+    // Construct [TonConnectManifest] object.
+    final returnValue = TonConnectManifest(url: url, name: name, icon: icon);
+
+    // Now return the deserialized [TonConnectManifest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: icon != null);
+
+    return v;
+  }
+
+  /// Url.
+  final String url;
+
+  /// Name.
+  final String name;
+
+  /// Icon.
+  final WebDocumentBase? icon;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x12229264.
+    buffer.writeInt32(0x12229264);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(url);
+    buffer.writeString(name);
+    final localIconCopy = icon;
+    if (localIconCopy != null) {
+      buffer.writeObject(localIconCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "12229264",
+      "\$name": "TonConnectManifest",
+      "flags": flags,
+      "url": url,
+      "name": name,
+      "icon": icon,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ton Connect Session.
+///
+/// ID: `126556c6`.
+class TonConnectSession extends TonConnectSessionBase {
+  /// Ton Connect Session constructor.
+  const TonConnectSession({
+    required this.pending,
+    required this.closing,
+    required this.closed,
+    required this.id,
+    required this.dappClientId,
+    this.clientId,
+    required this.nonce,
+    this.manifest,
+    this.manifestError,
+    required this.date,
+  }) : super._();
+
+  /// Deserialize.
+  factory TonConnectSession.deserialize(BinaryReader reader) {
+    // Read [TonConnectSession] fields.
+    final flags = reader.readInt32();
+    final pending = (flags & 1) != 0;
+    final closing = (flags & 2) != 0;
+    final closed = (flags & 4) != 0;
+    final id = reader.readInt64();
+    final dappClientId = reader.readString();
+    final hasClientIdField = (flags & 8) != 0;
+    final clientId = hasClientIdField ? reader.readString() : null;
+    final nonce = reader.readBytes();
+    final hasManifestField = (flags & 16) != 0;
+    final manifest =
+        hasManifestField ? reader.readObject() as TonConnectManifestBase : null;
+    final hasManifestErrorField = (flags & 32) != 0;
+    final manifestError = hasManifestErrorField ? reader.readInt32() : null;
+    final date = reader.readDateTime();
+
+    // Construct [TonConnectSession] object.
+    final returnValue = TonConnectSession(
+      pending: pending,
+      closing: closing,
+      closed: closed,
+      id: id,
+      dappClientId: dappClientId,
+      clientId: clientId,
+      nonce: nonce,
+      manifest: manifest,
+      manifestError: manifestError,
+      date: date,
+    );
+
+    // Now return the deserialized [TonConnectSession].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: pending,
+      b01: closing,
+      b02: closed,
+      b03: clientId != null,
+      b04: manifest != null,
+      b05: manifestError != null,
+    );
+
+    return v;
+  }
+
+  /// pending: bit 0 of flags.0?true
+  final bool pending;
+
+  /// closing: bit 1 of flags.1?true
+  final bool closing;
+
+  /// closed: bit 2 of flags.2?true
+  final bool closed;
+
+  /// Id.
+  ///
+  /// Field type is Int64.
+  final int id;
+
+  /// Dapp Client Id.
+  final String dappClientId;
+
+  /// Client Id.
+  final String? clientId;
+
+  /// Nonce.
+  final Uint8List nonce;
+
+  /// Manifest.
+  final TonConnectManifestBase? manifest;
+
+  /// Manifest Error.
+  final int? manifestError;
+
+  /// Date.
+  final DateTime date;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x126556c6.
+    buffer.writeInt32(0x126556c6);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(id);
+    buffer.writeString(dappClientId);
+    final localClientIdCopy = clientId;
+    if (localClientIdCopy != null) {
+      buffer.writeString(localClientIdCopy);
+    }
+    buffer.writeBytes(nonce);
+    final localManifestCopy = manifest;
+    if (localManifestCopy != null) {
+      buffer.writeObject(localManifestCopy);
+    }
+    final localManifestErrorCopy = manifestError;
+    if (localManifestErrorCopy != null) {
+      buffer.writeInt32(localManifestErrorCopy);
+    }
+    buffer.writeDateTime(date);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "126556c6",
+      "\$name": "TonConnectSession",
+      "flags": flags,
+      "pending": pending,
+      "closing": closing,
+      "closed": closed,
+      "id": id,
+      "dappClientId": dappClientId,
+      "clientId": clientId,
+      "nonce": nonce,
+      "manifest": manifest,
+      "manifestError": manifestError,
+      "date": date.toIso8601String(),
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Challenge.
+///
+/// ID: `4bc89693`.
+class WalletTonConnectChallenge extends WalletTonConnectChallengeBase {
+  /// Wallet Ton Connect Challenge constructor.
+  const WalletTonConnectChallenge({
+    required this.challenge,
+    required this.eventId,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectChallenge.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectChallenge] fields.
+    final challenge = reader.readBytes();
+    final eventId = reader.readInt64();
+
+    // Construct [WalletTonConnectChallenge] object.
+    final returnValue = WalletTonConnectChallenge(
+      challenge: challenge,
+      eventId: eventId,
+    );
+
+    // Now return the deserialized [WalletTonConnectChallenge].
+    return returnValue;
+  }
+
+  /// Challenge.
+  final Uint8List challenge;
+
+  /// Event Id.
+  ///
+  /// Field type is Int64.
+  final int eventId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4bc89693.
+    buffer.writeInt32(0x4bc89693);
+
+    // Write fields.
+    buffer.writeBytes(challenge);
+    buffer.writeInt64(eventId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4bc89693",
+      "\$name": "WalletTonConnectChallenge",
+      "challenge": challenge,
+      "eventId": eventId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ton Connect Next Event Id.
+///
+/// ID: `582464e3`.
+class TonConnectNextEventId extends TonConnectNextEventIdBase {
+  /// Ton Connect Next Event Id constructor.
+  const TonConnectNextEventId({required this.eventId}) : super._();
+
+  /// Deserialize.
+  factory TonConnectNextEventId.deserialize(BinaryReader reader) {
+    // Read [TonConnectNextEventId] fields.
+    final eventId = reader.readInt64();
+
+    // Construct [TonConnectNextEventId] object.
+    final returnValue = TonConnectNextEventId(eventId: eventId);
+
+    // Now return the deserialized [TonConnectNextEventId].
+    return returnValue;
+  }
+
+  /// Event Id.
+  ///
+  /// Field type is Int64.
+  final int eventId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x582464e3.
+    buffer.writeInt32(0x582464e3);
+
+    // Write fields.
+    buffer.writeInt64(eventId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "582464e3",
+      "\$name": "TonConnectNextEventId",
+      "eventId": eventId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Ton Connect Request.
+///
+/// ID: `a15f8513`.
+class TonConnectRequest extends TonConnectRequestBase {
+  /// Ton Connect Request constructor.
+  const TonConnectRequest({
+    required this.sessionId,
+    required this.msgId,
+    required this.body,
+    required this.expires,
+    this.topic,
+    this.traceId,
+  }) : super._();
+
+  /// Deserialize.
+  factory TonConnectRequest.deserialize(BinaryReader reader) {
+    // Read [TonConnectRequest] fields.
+    final flags = reader.readInt32();
+    final sessionId = reader.readInt64();
+    final msgId = reader.readInt32();
+    final body = reader.readBytes();
+    final expires = reader.readDateTime();
+    final hasTopicField = (flags & 1) != 0;
+    final topic = hasTopicField ? reader.readString() : null;
+    final hasTraceIdField = (flags & 2) != 0;
+    final traceId = hasTraceIdField ? reader.readString() : null;
+
+    // Construct [TonConnectRequest] object.
+    final returnValue = TonConnectRequest(
+      sessionId: sessionId,
+      msgId: msgId,
+      body: body,
+      expires: expires,
+      topic: topic,
+      traceId: traceId,
+    );
+
+    // Now return the deserialized [TonConnectRequest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: topic != null, b01: traceId != null);
+
+    return v;
+  }
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Body.
+  final Uint8List body;
+
+  /// Expires.
+  final DateTime expires;
+
+  /// Topic.
+  final String? topic;
+
+  /// Trace Id.
+  final String? traceId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa15f8513.
+    buffer.writeInt32(0xa15f8513);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(sessionId);
+    buffer.writeInt32(msgId);
+    buffer.writeBytes(body);
+    buffer.writeDateTime(expires);
+    final localTopicCopy = topic;
+    if (localTopicCopy != null) {
+      buffer.writeString(localTopicCopy);
+    }
+    final localTraceIdCopy = traceId;
+    if (localTraceIdCopy != null) {
+      buffer.writeString(localTraceIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a15f8513",
+      "\$name": "TonConnectRequest",
+      "flags": flags,
+      "sessionId": sessionId,
+      "msgId": msgId,
+      "body": body,
+      "expires": expires.toIso8601String(),
+      "topic": topic,
+      "traceId": traceId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Pending.
+///
+/// ID: `85c0f124`.
+class WalletTonConnectPending extends WalletTonConnectPendingBase {
+  /// Wallet Ton Connect Pending constructor.
+  const WalletTonConnectPending({required this.session, required this.requests})
+      : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectPending.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectPending] fields.
+    final session = reader.readObject() as TonConnectSessionBase;
+    final requests = reader.readVectorObject<TonConnectRequestBase>();
+
+    // Construct [WalletTonConnectPending] object.
+    final returnValue = WalletTonConnectPending(
+      session: session,
+      requests: requests.items,
+    );
+
+    // Now return the deserialized [WalletTonConnectPending].
+    return returnValue;
+  }
+
+  /// Session.
+  final TonConnectSessionBase session;
+
+  /// Requests.
+  final List<TonConnectRequestBase> requests;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x85c0f124.
+    buffer.writeInt32(0x85c0f124);
+
+    // Write fields.
+    buffer.writeObject(session);
+    buffer.writeVectorObject(requests);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "85c0f124",
+      "\$name": "WalletTonConnectPending",
+      "session": session,
+      "requests": requests,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Sessions.
+///
+/// ID: `0e1f6896`.
+class WalletTonConnectSessions extends WalletTonConnectSessionsBase {
+  /// Wallet Ton Connect Sessions constructor.
+  const WalletTonConnectSessions({required this.sessions}) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectSessions.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectSessions] fields.
+    final sessions = reader.readVectorObject<TonConnectSessionBase>();
+
+    // Construct [WalletTonConnectSessions] object.
+    final returnValue = WalletTonConnectSessions(sessions: sessions.items);
+
+    // Now return the deserialized [WalletTonConnectSessions].
+    return returnValue;
+  }
+
+  /// Sessions.
+  final List<TonConnectSessionBase> sessions;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0e1f6896.
+    buffer.writeInt32(0x0e1f6896);
+
+    // Write fields.
+    buffer.writeVectorObject(sessions);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "0e1f6896",
+      "\$name": "WalletTonConnectSessions",
+      "sessions": sessions,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Existing Balance.
+///
+/// ID: `bde90a8d`.
+class WalletExistingBalance extends WalletExistingBalanceBase {
+  /// Wallet Existing Balance constructor.
+  const WalletExistingBalance({required this.hasBalance, required this.url})
+      : super._();
+
+  /// Deserialize.
+  factory WalletExistingBalance.deserialize(BinaryReader reader) {
+    // Read [WalletExistingBalance] fields.
+    final flags = reader.readInt32();
+    final hasBalance = (flags & 1) != 0;
+    final url = reader.readString();
+
+    // Construct [WalletExistingBalance] object.
+    final returnValue = WalletExistingBalance(hasBalance: hasBalance, url: url);
+
+    // Now return the deserialized [WalletExistingBalance].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: hasBalance);
+
+    return v;
+  }
+
+  /// has_balance: bit 0 of flags.0?true
+  final bool hasBalance;
+
+  /// Url.
+  final String url;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xbde90a8d.
+    buffer.writeInt32(0xbde90a8d);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(url);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "bde90a8d",
+      "\$name": "WalletExistingBalance",
+      "flags": flags,
+      "hasBalance": hasBalance,
+      "url": url,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Nft Attribute.
+///
+/// ID: `4c1ef10e`.
+class WalletNftAttribute extends WalletNftAttributeBase {
+  /// Wallet Nft Attribute constructor.
+  const WalletNftAttribute({required this.traitType, required this.value})
+      : super._();
+
+  /// Deserialize.
+  factory WalletNftAttribute.deserialize(BinaryReader reader) {
+    // Read [WalletNftAttribute] fields.
+    final traitType = reader.readString();
+    final value = reader.readString();
+
+    // Construct [WalletNftAttribute] object.
+    final returnValue = WalletNftAttribute(traitType: traitType, value: value);
+
+    // Now return the deserialized [WalletNftAttribute].
+    return returnValue;
+  }
+
+  /// Trait Type.
+  final String traitType;
+
+  /// Value.
+  final String value;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4c1ef10e.
+    buffer.writeInt32(0x4c1ef10e);
+
+    // Write fields.
+    buffer.writeString(traitType);
+    buffer.writeString(value);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4c1ef10e",
+      "\$name": "WalletNftAttribute",
+      "traitType": traitType,
+      "value": value,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Nft Item.
+///
+/// ID: `3441fd1c`.
+class WalletNftItem extends WalletNftItemBase {
+  /// Wallet Nft Item constructor.
+  const WalletNftItem({
+    this.collectionAddress,
+    required this.address,
+    required this.ownerAddress,
+    required this.index,
+    this.name,
+    this.description,
+    this.image,
+    this.imageSmall,
+    this.contentUrl,
+    this.lottie,
+    this.attributes,
+    this.extra,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletNftItem.deserialize(BinaryReader reader) {
+    // Read [WalletNftItem] fields.
+    final flags = reader.readInt32();
+    final hasCollectionAddressField = (flags & 1) != 0;
+    final collectionAddress =
+        hasCollectionAddressField ? reader.readString() : null;
+    final address = reader.readString();
+    final ownerAddress = reader.readString();
+    final index = reader.readString();
+    final hasNameField = (flags & 2) != 0;
+    final name = hasNameField ? reader.readString() : null;
+    final hasDescriptionField = (flags & 4) != 0;
+    final description = hasDescriptionField ? reader.readString() : null;
+    final hasImageField = (flags & 8) != 0;
+    final image = hasImageField ? reader.readObject() as WebDocumentBase : null;
+    final hasImageSmallField = (flags & 16) != 0;
+    final imageSmall =
+        hasImageSmallField ? reader.readObject() as WebDocumentBase : null;
+    final hasContentUrlField = (flags & 32) != 0;
+    final contentUrl =
+        hasContentUrlField ? reader.readObject() as WebDocumentBase : null;
+    final hasLottieField = (flags & 64) != 0;
+    final lottie =
+        hasLottieField ? reader.readObject() as WebDocumentBase : null;
+    final hasAttributesField = (flags & 128) != 0;
+    final attributes = hasAttributesField
+        ? reader.readVectorObject<WalletNftAttributeBase>()
+        : null;
+    final hasExtraField = (flags & 256) != 0;
+    final extra = hasExtraField ? reader.readObject() as DataJSONBase : null;
+
+    // Construct [WalletNftItem] object.
+    final returnValue = WalletNftItem(
+      collectionAddress: collectionAddress,
+      address: address,
+      ownerAddress: ownerAddress,
+      index: index,
+      name: name,
+      description: description,
+      image: image,
+      imageSmall: imageSmall,
+      contentUrl: contentUrl,
+      lottie: lottie,
+      attributes: attributes?.items,
+      extra: extra,
+    );
+
+    // Now return the deserialized [WalletNftItem].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: collectionAddress != null,
+      b01: name != null,
+      b02: description != null,
+      b03: image != null,
+      b04: imageSmall != null,
+      b05: contentUrl != null,
+      b06: lottie != null,
+      b07: attributes != null,
+      b08: extra != null,
+    );
+
+    return v;
+  }
+
+  /// Collection Address.
+  final String? collectionAddress;
+
+  /// Address.
+  final String address;
+
+  /// Owner Address.
+  final String ownerAddress;
+
+  /// Index.
+  final String index;
+
+  /// Name.
+  final String? name;
+
+  /// Description.
+  final String? description;
+
+  /// Image.
+  final WebDocumentBase? image;
+
+  /// Image Small.
+  final WebDocumentBase? imageSmall;
+
+  /// Content Url.
+  final WebDocumentBase? contentUrl;
+
+  /// Lottie.
+  final WebDocumentBase? lottie;
+
+  /// Attributes.
+  final List<WalletNftAttributeBase>? attributes;
+
+  /// Extra.
+  final DataJSONBase? extra;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3441fd1c.
+    buffer.writeInt32(0x3441fd1c);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localCollectionAddressCopy = collectionAddress;
+    if (localCollectionAddressCopy != null) {
+      buffer.writeString(localCollectionAddressCopy);
+    }
+    buffer.writeString(address);
+    buffer.writeString(ownerAddress);
+    buffer.writeString(index);
+    final localNameCopy = name;
+    if (localNameCopy != null) {
+      buffer.writeString(localNameCopy);
+    }
+    final localDescriptionCopy = description;
+    if (localDescriptionCopy != null) {
+      buffer.writeString(localDescriptionCopy);
+    }
+    final localImageCopy = image;
+    if (localImageCopy != null) {
+      buffer.writeObject(localImageCopy);
+    }
+    final localImageSmallCopy = imageSmall;
+    if (localImageSmallCopy != null) {
+      buffer.writeObject(localImageSmallCopy);
+    }
+    final localContentUrlCopy = contentUrl;
+    if (localContentUrlCopy != null) {
+      buffer.writeObject(localContentUrlCopy);
+    }
+    final localLottieCopy = lottie;
+    if (localLottieCopy != null) {
+      buffer.writeObject(localLottieCopy);
+    }
+    final localAttributesCopy = attributes;
+    if (localAttributesCopy != null) {
+      buffer.writeVectorObject(localAttributesCopy);
+    }
+    final localExtraCopy = extra;
+    if (localExtraCopy != null) {
+      buffer.writeObject(localExtraCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3441fd1c",
+      "\$name": "WalletNftItem",
+      "flags": flags,
+      "collectionAddress": collectionAddress,
+      "address": address,
+      "ownerAddress": ownerAddress,
+      "index": index,
+      "name": name,
+      "description": description,
+      "image": image,
+      "imageSmall": imageSmall,
+      "contentUrl": contentUrl,
+      "lottie": lottie,
+      "attributes": attributes,
+      "extra": extra,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Nft Items.
+///
+/// ID: `794d486f`.
+class WalletNftItems extends WalletNftItemsBase {
+  /// Wallet Nft Items constructor.
+  const WalletNftItems({required this.items, this.nextOffset}) : super._();
+
+  /// Deserialize.
+  factory WalletNftItems.deserialize(BinaryReader reader) {
+    // Read [WalletNftItems] fields.
+    final flags = reader.readInt32();
+    final items = reader.readVectorObject<WalletNftItemBase>();
+    final hasNextOffsetField = (flags & 1) != 0;
+    final nextOffset = hasNextOffsetField ? reader.readString() : null;
+
+    // Construct [WalletNftItems] object.
+    final returnValue = WalletNftItems(
+      items: items.items,
+      nextOffset: nextOffset,
+    );
+
+    // Now return the deserialized [WalletNftItems].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: nextOffset != null);
+
+    return v;
+  }
+
+  /// Items.
+  final List<WalletNftItemBase> items;
+
+  /// Next Offset.
+  final String? nextOffset;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x794d486f.
+    buffer.writeInt32(0x794d486f);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeVectorObject(items);
+    final localNextOffsetCopy = nextOffset;
+    if (localNextOffsetCopy != null) {
+      buffer.writeString(localNextOffsetCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "794d486f",
+      "\$name": "WalletNftItems",
+      "flags": flags,
+      "items": items,
+      "nextOffset": nextOffset,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Auth Firebase Pnv Intent.
 ///
 /// ID: `df5ac00c`.
@@ -122665,23 +126242,81 @@ class AuthFinishPasskeyLogin extends TlMethod {
   }
 }
 
+/// Auth Cancel Web Token Authorization.
+///
+/// Return Type: `bool`.
+/// ID: `490dada1`.
+class AuthCancelWebTokenAuthorization extends TlMethod {
+  /// Auth Cancel Web Token Authorization constructor.
+  const AuthCancelWebTokenAuthorization({required this.webAuthToken})
+      : super._();
+
+  /// Deserialize.
+  factory AuthCancelWebTokenAuthorization.deserialize(BinaryReader reader) {
+    // Read [AuthCancelWebTokenAuthorization] fields.
+    final webAuthToken = reader.readString();
+
+    // Construct [AuthCancelWebTokenAuthorization] object.
+    final returnValue = AuthCancelWebTokenAuthorization(
+      webAuthToken: webAuthToken,
+    );
+
+    // Now return the deserialized [AuthCancelWebTokenAuthorization].
+    return returnValue;
+  }
+
+  /// Web Auth Token.
+  final String webAuthToken;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x490dada1.
+    buffer.writeInt32(0x490dada1);
+
+    // Write fields.
+    buffer.writeString(webAuthToken);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "490dada1",
+      "\$name": "AuthCancelWebTokenAuthorization",
+      "webAuthToken": webAuthToken,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
 /// Auth Init Firebase Pnv Login.
 ///
 /// Return Type: `AuthFirebasePnvIntentBase`.
-/// ID: `777df37a`.
+/// ID: `644f15c0`.
 class AuthInitFirebasePnvLogin extends TlMethod {
   /// Auth Init Firebase Pnv Login constructor.
-  const AuthInitFirebasePnvLogin({required this.apiId, required this.apiHash})
-      : super._();
+  const AuthInitFirebasePnvLogin({
+    this.exceptIds,
+    required this.apiId,
+    required this.apiHash,
+  }) : super._();
 
   /// Deserialize.
   factory AuthInitFirebasePnvLogin.deserialize(BinaryReader reader) {
     // Read [AuthInitFirebasePnvLogin] fields.
+    final flags = reader.readInt32();
+    final hasExceptIdsField = (flags & 1) != 0;
+    final exceptIds = hasExceptIdsField ? reader.readVectorInt64() : null;
     final apiId = reader.readInt32();
     final apiHash = reader.readString();
 
     // Construct [AuthInitFirebasePnvLogin] object.
     final returnValue = AuthInitFirebasePnvLogin(
+      exceptIds: exceptIds?.items,
       apiId: apiId,
       apiHash: apiHash,
     );
@@ -122689,6 +126324,16 @@ class AuthInitFirebasePnvLogin extends TlMethod {
     // Now return the deserialized [AuthInitFirebasePnvLogin].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: exceptIds != null);
+
+    return v;
+  }
+
+  /// Except Ids.
+  final List<int>? exceptIds;
 
   /// Api Id.
   ///
@@ -122701,10 +126346,15 @@ class AuthInitFirebasePnvLogin extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x777df37a.
-    buffer.writeInt32(0x777df37a);
+    // Write type-id 0x644f15c0.
+    buffer.writeInt32(0x644f15c0);
 
     // Write fields.
+    buffer.writeInt32(flags);
+    final localExceptIdsCopy = exceptIds;
+    if (localExceptIdsCopy != null) {
+      buffer.writeVectorInt64(localExceptIdsCopy);
+    }
     buffer.writeInt32(apiId);
     buffer.writeString(apiHash);
 
@@ -122714,8 +126364,10 @@ class AuthInitFirebasePnvLogin extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "777df37a",
+      "\$hash": "644f15c0",
       "\$name": "AuthInitFirebasePnvLogin",
+      "flags": flags,
+      "exceptIds": exceptIds,
       "apiId": apiId,
       "apiHash": apiHash,
     };
@@ -160414,7 +164066,7 @@ class BotsUpdateStarRefProgram extends TlMethod {
 /// Bots Set Custom Verification.
 ///
 /// Return Type: `bool`.
-/// ID: `8b89dfbd`.
+/// ID: `f4946757`.
 class BotsSetCustomVerification extends TlMethod {
   /// Bots Set Custom Verification constructor.
   const BotsSetCustomVerification({
@@ -160433,8 +164085,9 @@ class BotsSetCustomVerification extends TlMethod {
     final bot = hasBotField ? reader.readObject() as InputUserBase : null;
     final peer = reader.readObject() as InputPeerBase;
     final hasCustomDescriptionField = (flags & 4) != 0;
-    final customDescription =
-        hasCustomDescriptionField ? reader.readString() : null;
+    final customDescription = hasCustomDescriptionField
+        ? reader.readObject() as TextWithEntitiesBase
+        : null;
 
     // Construct [BotsSetCustomVerification] object.
     final returnValue = BotsSetCustomVerification(
@@ -160469,13 +164122,13 @@ class BotsSetCustomVerification extends TlMethod {
   final InputPeerBase peer;
 
   /// Custom Description.
-  final String? customDescription;
+  final TextWithEntitiesBase? customDescription;
 
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x8b89dfbd.
-    buffer.writeInt32(0x8b89dfbd);
+    // Write type-id 0xf4946757.
+    buffer.writeInt32(0xf4946757);
 
     // Write fields.
     buffer.writeInt32(flags);
@@ -160486,7 +164139,7 @@ class BotsSetCustomVerification extends TlMethod {
     buffer.writeObject(peer);
     final localCustomDescriptionCopy = customDescription;
     if (localCustomDescriptionCopy != null) {
-      buffer.writeString(localCustomDescriptionCopy);
+      buffer.writeObject(localCustomDescriptionCopy);
     }
 
     // Finished serialization.
@@ -160495,7 +164148,7 @@ class BotsSetCustomVerification extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "8b89dfbd",
+      "\$hash": "f4946757",
       "\$name": "BotsSetCustomVerification",
       "flags": flags,
       "enabled": enabled,
@@ -160560,22 +164213,38 @@ class BotsGetBotRecommendations extends TlMethod {
 /// Bots Check Username.
 ///
 /// Return Type: `bool`.
-/// ID: `87f2219b`.
+/// ID: `e3ac4c61`.
 class BotsCheckUsername extends TlMethod {
   /// Bots Check Username constructor.
-  const BotsCheckUsername({required this.username}) : super._();
+  const BotsCheckUsername({required this.additional, required this.username})
+      : super._();
 
   /// Deserialize.
   factory BotsCheckUsername.deserialize(BinaryReader reader) {
     // Read [BotsCheckUsername] fields.
+    final flags = reader.readInt32();
+    final additional = (flags & 1) != 0;
     final username = reader.readString();
 
     // Construct [BotsCheckUsername] object.
-    final returnValue = BotsCheckUsername(username: username);
+    final returnValue = BotsCheckUsername(
+      additional: additional,
+      username: username,
+    );
 
     // Now return the deserialized [BotsCheckUsername].
     return returnValue;
   }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: additional);
+
+    return v;
+  }
+
+  /// additional: bit 0 of flags.0?true
+  final bool additional;
 
   /// Username.
   final String username;
@@ -160583,10 +164252,11 @@ class BotsCheckUsername extends TlMethod {
   /// Serialize.
   @override
   void serialize(List<int> buffer) {
-    // Write type-id 0x87f2219b.
-    buffer.writeInt32(0x87f2219b);
+    // Write type-id 0xe3ac4c61.
+    buffer.writeInt32(0xe3ac4c61);
 
     // Write fields.
+    buffer.writeInt32(flags);
     buffer.writeString(username);
 
     // Finished serialization.
@@ -160595,8 +164265,10 @@ class BotsCheckUsername extends TlMethod {
   @override
   Map<String, dynamic> toJson() {
     final returnValue = <String, dynamic>{
-      "\$hash": "87f2219b",
+      "\$hash": "e3ac4c61",
       "\$name": "BotsCheckUsername",
+      "flags": flags,
+      "additional": additional,
       "username": username,
     };
 
@@ -161046,6 +164718,116 @@ class BotsSetJoinChatResults extends TlMethod {
       "\$name": "BotsSetJoinChatResults",
       "queryId": queryId,
       "result": result,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Add Username.
+///
+/// Return Type: `bool`.
+/// ID: `3501c08a`.
+class BotsAddUsername extends TlMethod {
+  /// Bots Add Username constructor.
+  const BotsAddUsername({required this.bot, required this.username})
+      : super._();
+
+  /// Deserialize.
+  factory BotsAddUsername.deserialize(BinaryReader reader) {
+    // Read [BotsAddUsername] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final username = reader.readString();
+
+    // Construct [BotsAddUsername] object.
+    final returnValue = BotsAddUsername(bot: bot, username: username);
+
+    // Now return the deserialized [BotsAddUsername].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Username.
+  final String username;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3501c08a.
+    buffer.writeInt32(0x3501c08a);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(username);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3501c08a",
+      "\$name": "BotsAddUsername",
+      "bot": bot,
+      "username": username,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Bots Remove Username.
+///
+/// Return Type: `bool`.
+/// ID: `c704147d`.
+class BotsRemoveUsername extends TlMethod {
+  /// Bots Remove Username constructor.
+  const BotsRemoveUsername({required this.bot, required this.username})
+      : super._();
+
+  /// Deserialize.
+  factory BotsRemoveUsername.deserialize(BinaryReader reader) {
+    // Read [BotsRemoveUsername] fields.
+    final bot = reader.readObject() as InputUserBase;
+    final username = reader.readString();
+
+    // Construct [BotsRemoveUsername] object.
+    final returnValue = BotsRemoveUsername(bot: bot, username: username);
+
+    // Now return the deserialized [BotsRemoveUsername].
+    return returnValue;
+  }
+
+  /// Bot.
+  final InputUserBase bot;
+
+  /// Username.
+  final String username;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc704147d.
+    buffer.writeInt32(0xc704147d);
+
+    // Write fields.
+    buffer.writeObject(bot);
+    buffer.writeString(username);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c704147d",
+      "\$name": "BotsRemoveUsername",
+      "bot": bot,
+      "username": username,
     };
 
     // Finished toJson.
@@ -165433,6 +169215,642 @@ class PaymentsCraftStarGift extends TlMethod {
       "\$hash": "b0f9684f",
       "\$name": "PaymentsCraftStarGift",
       "stargift": stargift,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Currency Rates.
+///
+/// Return Type: `PaymentsCurrencyRatesBase`.
+/// ID: `d35983e8`.
+class PaymentsGetCurrencyRates extends TlMethod {
+  /// Payments Get Currency Rates constructor.
+  const PaymentsGetCurrencyRates() : super._();
+
+  /// Deserialize.
+  factory PaymentsGetCurrencyRates.deserialize(BinaryReader reader) {
+    // Construct [PaymentsGetCurrencyRates] object.
+    final returnValue = PaymentsGetCurrencyRates();
+
+    // Now return the deserialized [PaymentsGetCurrencyRates].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd35983e8.
+    buffer.writeInt32(0xd35983e8);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d35983e8",
+      "\$name": "PaymentsGetCurrencyRates",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Onramp Providers.
+///
+/// Return Type: `List<OnrampProviderInfoBase>`.
+/// ID: `3f3e00dc`.
+class PaymentsGetOnrampProviders extends TlMethod {
+  /// Payments Get Onramp Providers constructor.
+  const PaymentsGetOnrampProviders({this.cryptoCurrency}) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetOnrampProviders.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetOnrampProviders] fields.
+    final flags = reader.readInt32();
+    final hasCryptoCurrencyField = (flags & 1) != 0;
+    final cryptoCurrency = hasCryptoCurrencyField ? reader.readString() : null;
+
+    // Construct [PaymentsGetOnrampProviders] object.
+    final returnValue = PaymentsGetOnrampProviders(
+      cryptoCurrency: cryptoCurrency,
+    );
+
+    // Now return the deserialized [PaymentsGetOnrampProviders].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: cryptoCurrency != null);
+
+    return v;
+  }
+
+  /// Crypto Currency.
+  final String? cryptoCurrency;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x3f3e00dc.
+    buffer.writeInt32(0x3f3e00dc);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localCryptoCurrencyCopy = cryptoCurrency;
+    if (localCryptoCurrencyCopy != null) {
+      buffer.writeString(localCryptoCurrencyCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "3f3e00dc",
+      "\$name": "PaymentsGetOnrampProviders",
+      "flags": flags,
+      "cryptoCurrency": cryptoCurrency,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Onramp Base Currencies.
+///
+/// Return Type: `List<String>`.
+/// ID: `1c8bedf3`.
+class PaymentsGetOnrampBaseCurrencies extends TlMethod {
+  /// Payments Get Onramp Base Currencies constructor.
+  const PaymentsGetOnrampBaseCurrencies({
+    required this.provider,
+    required this.cryptoCurrency,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetOnrampBaseCurrencies.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetOnrampBaseCurrencies] fields.
+    final provider = reader.readString();
+    final cryptoCurrency = reader.readString();
+
+    // Construct [PaymentsGetOnrampBaseCurrencies] object.
+    final returnValue = PaymentsGetOnrampBaseCurrencies(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+    );
+
+    // Now return the deserialized [PaymentsGetOnrampBaseCurrencies].
+    return returnValue;
+  }
+
+  /// Provider.
+  final String provider;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x1c8bedf3.
+    buffer.writeInt32(0x1c8bedf3);
+
+    // Write fields.
+    buffer.writeString(provider);
+    buffer.writeString(cryptoCurrency);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "1c8bedf3",
+      "\$name": "PaymentsGetOnrampBaseCurrencies",
+      "provider": provider,
+      "cryptoCurrency": cryptoCurrency,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Onramp Availability.
+///
+/// Return Type: `OnrampAvailabilityBase`.
+/// ID: `2ec29951`.
+class PaymentsGetOnrampAvailability extends TlMethod {
+  /// Payments Get Onramp Availability constructor.
+  const PaymentsGetOnrampAvailability({
+    required this.provider,
+    required this.cryptoCurrency,
+    this.baseCurrency,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetOnrampAvailability.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetOnrampAvailability] fields.
+    final flags = reader.readInt32();
+    final provider = reader.readString();
+    final cryptoCurrency = reader.readString();
+    final hasBaseCurrencyField = (flags & 1) != 0;
+    final baseCurrency = hasBaseCurrencyField ? reader.readString() : null;
+
+    // Construct [PaymentsGetOnrampAvailability] object.
+    final returnValue = PaymentsGetOnrampAvailability(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      baseCurrency: baseCurrency,
+    );
+
+    // Now return the deserialized [PaymentsGetOnrampAvailability].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: baseCurrency != null);
+
+    return v;
+  }
+
+  /// Provider.
+  final String provider;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Base Currency.
+  final String? baseCurrency;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2ec29951.
+    buffer.writeInt32(0x2ec29951);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(provider);
+    buffer.writeString(cryptoCurrency);
+    final localBaseCurrencyCopy = baseCurrency;
+    if (localBaseCurrencyCopy != null) {
+      buffer.writeString(localBaseCurrencyCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "2ec29951",
+      "\$name": "PaymentsGetOnrampAvailability",
+      "flags": flags,
+      "provider": provider,
+      "cryptoCurrency": cryptoCurrency,
+      "baseCurrency": baseCurrency,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Onramp Limits.
+///
+/// Return Type: `OnrampLimitsBase`.
+/// ID: `80e851fd`.
+class PaymentsGetOnrampLimits extends TlMethod {
+  /// Payments Get Onramp Limits constructor.
+  const PaymentsGetOnrampLimits({
+    required this.provider,
+    required this.cryptoCurrency,
+    required this.baseCurrency,
+    this.paymentMethod,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetOnrampLimits.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetOnrampLimits] fields.
+    final flags = reader.readInt32();
+    final provider = reader.readString();
+    final cryptoCurrency = reader.readString();
+    final baseCurrency = reader.readString();
+    final hasPaymentMethodField = (flags & 1) != 0;
+    final paymentMethod = hasPaymentMethodField ? reader.readString() : null;
+
+    // Construct [PaymentsGetOnrampLimits] object.
+    final returnValue = PaymentsGetOnrampLimits(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      baseCurrency: baseCurrency,
+      paymentMethod: paymentMethod,
+    );
+
+    // Now return the deserialized [PaymentsGetOnrampLimits].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: paymentMethod != null);
+
+    return v;
+  }
+
+  /// Provider.
+  final String provider;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Base Currency.
+  final String baseCurrency;
+
+  /// Payment Method.
+  final String? paymentMethod;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x80e851fd.
+    buffer.writeInt32(0x80e851fd);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(provider);
+    buffer.writeString(cryptoCurrency);
+    buffer.writeString(baseCurrency);
+    final localPaymentMethodCopy = paymentMethod;
+    if (localPaymentMethodCopy != null) {
+      buffer.writeString(localPaymentMethodCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "80e851fd",
+      "\$name": "PaymentsGetOnrampLimits",
+      "flags": flags,
+      "provider": provider,
+      "cryptoCurrency": cryptoCurrency,
+      "baseCurrency": baseCurrency,
+      "paymentMethod": paymentMethod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Get Onramp Quote.
+///
+/// Return Type: `OnrampQuoteBase`.
+/// ID: `e06645fa`.
+class PaymentsGetOnrampQuote extends TlMethod {
+  /// Payments Get Onramp Quote constructor.
+  const PaymentsGetOnrampQuote({
+    required this.provider,
+    required this.cryptoCurrency,
+    required this.baseCurrency,
+    this.baseAmount,
+    this.cryptoAmount,
+    this.paymentMethod,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsGetOnrampQuote.deserialize(BinaryReader reader) {
+    // Read [PaymentsGetOnrampQuote] fields.
+    final flags = reader.readInt32();
+    final provider = reader.readString();
+    final cryptoCurrency = reader.readString();
+    final baseCurrency = reader.readString();
+    final hasBaseAmountField = (flags & 1) != 0;
+    final baseAmount = hasBaseAmountField ? reader.readString() : null;
+    final hasCryptoAmountField = (flags & 2) != 0;
+    final cryptoAmount = hasCryptoAmountField ? reader.readString() : null;
+    final hasPaymentMethodField = (flags & 4) != 0;
+    final paymentMethod = hasPaymentMethodField ? reader.readString() : null;
+
+    // Construct [PaymentsGetOnrampQuote] object.
+    final returnValue = PaymentsGetOnrampQuote(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      baseCurrency: baseCurrency,
+      baseAmount: baseAmount,
+      cryptoAmount: cryptoAmount,
+      paymentMethod: paymentMethod,
+    );
+
+    // Now return the deserialized [PaymentsGetOnrampQuote].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: baseAmount != null,
+      b01: cryptoAmount != null,
+      b02: paymentMethod != null,
+    );
+
+    return v;
+  }
+
+  /// Provider.
+  final String provider;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Base Currency.
+  final String baseCurrency;
+
+  /// Base Amount.
+  final String? baseAmount;
+
+  /// Crypto Amount.
+  final String? cryptoAmount;
+
+  /// Payment Method.
+  final String? paymentMethod;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xe06645fa.
+    buffer.writeInt32(0xe06645fa);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(provider);
+    buffer.writeString(cryptoCurrency);
+    buffer.writeString(baseCurrency);
+    final localBaseAmountCopy = baseAmount;
+    if (localBaseAmountCopy != null) {
+      buffer.writeString(localBaseAmountCopy);
+    }
+    final localCryptoAmountCopy = cryptoAmount;
+    if (localCryptoAmountCopy != null) {
+      buffer.writeString(localCryptoAmountCopy);
+    }
+    final localPaymentMethodCopy = paymentMethod;
+    if (localPaymentMethodCopy != null) {
+      buffer.writeString(localPaymentMethodCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "e06645fa",
+      "\$name": "PaymentsGetOnrampQuote",
+      "flags": flags,
+      "provider": provider,
+      "cryptoCurrency": cryptoCurrency,
+      "baseCurrency": baseCurrency,
+      "baseAmount": baseAmount,
+      "cryptoAmount": cryptoAmount,
+      "paymentMethod": paymentMethod,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Payments Create Onramp Session.
+///
+/// Return Type: `OnrampSessionBase`.
+/// ID: `a2197cf6`.
+class PaymentsCreateOnrampSession extends TlMethod {
+  /// Payments Create Onramp Session constructor.
+  const PaymentsCreateOnrampSession({
+    required this.provider,
+    required this.cryptoCurrency,
+    required this.address,
+    this.paymentMethod,
+    this.baseCurrency,
+    this.baseAmount,
+    this.memo,
+    this.theme,
+    this.successReturnUrl,
+    this.failReturnUrl,
+    this.cryptoAmount,
+  }) : super._();
+
+  /// Deserialize.
+  factory PaymentsCreateOnrampSession.deserialize(BinaryReader reader) {
+    // Read [PaymentsCreateOnrampSession] fields.
+    final flags = reader.readInt32();
+    final provider = reader.readString();
+    final cryptoCurrency = reader.readString();
+    final address = reader.readString();
+    final hasPaymentMethodField = (flags & 1) != 0;
+    final paymentMethod = hasPaymentMethodField ? reader.readString() : null;
+    final hasBaseCurrencyField = (flags & 2) != 0;
+    final baseCurrency = hasBaseCurrencyField ? reader.readString() : null;
+    final hasBaseAmountField = (flags & 4) != 0;
+    final baseAmount = hasBaseAmountField ? reader.readString() : null;
+    final hasMemoField = (flags & 8) != 0;
+    final memo = hasMemoField ? reader.readString() : null;
+    final hasThemeField = (flags & 16) != 0;
+    final theme = hasThemeField ? reader.readString() : null;
+    final hasSuccessReturnUrlField = (flags & 32) != 0;
+    final successReturnUrl =
+        hasSuccessReturnUrlField ? reader.readString() : null;
+    final hasFailReturnUrlField = (flags & 64) != 0;
+    final failReturnUrl = hasFailReturnUrlField ? reader.readString() : null;
+    final hasCryptoAmountField = (flags & 128) != 0;
+    final cryptoAmount = hasCryptoAmountField ? reader.readString() : null;
+
+    // Construct [PaymentsCreateOnrampSession] object.
+    final returnValue = PaymentsCreateOnrampSession(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      address: address,
+      paymentMethod: paymentMethod,
+      baseCurrency: baseCurrency,
+      baseAmount: baseAmount,
+      memo: memo,
+      theme: theme,
+      successReturnUrl: successReturnUrl,
+      failReturnUrl: failReturnUrl,
+      cryptoAmount: cryptoAmount,
+    );
+
+    // Now return the deserialized [PaymentsCreateOnrampSession].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: paymentMethod != null,
+      b01: baseCurrency != null,
+      b02: baseAmount != null,
+      b03: memo != null,
+      b04: theme != null,
+      b05: successReturnUrl != null,
+      b06: failReturnUrl != null,
+      b07: cryptoAmount != null,
+    );
+
+    return v;
+  }
+
+  /// Provider.
+  final String provider;
+
+  /// Crypto Currency.
+  final String cryptoCurrency;
+
+  /// Address.
+  final String address;
+
+  /// Payment Method.
+  final String? paymentMethod;
+
+  /// Base Currency.
+  final String? baseCurrency;
+
+  /// Base Amount.
+  final String? baseAmount;
+
+  /// Memo.
+  final String? memo;
+
+  /// Theme.
+  final String? theme;
+
+  /// Success Return Url.
+  final String? successReturnUrl;
+
+  /// Fail Return Url.
+  final String? failReturnUrl;
+
+  /// Crypto Amount.
+  final String? cryptoAmount;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa2197cf6.
+    buffer.writeInt32(0xa2197cf6);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(provider);
+    buffer.writeString(cryptoCurrency);
+    buffer.writeString(address);
+    final localPaymentMethodCopy = paymentMethod;
+    if (localPaymentMethodCopy != null) {
+      buffer.writeString(localPaymentMethodCopy);
+    }
+    final localBaseCurrencyCopy = baseCurrency;
+    if (localBaseCurrencyCopy != null) {
+      buffer.writeString(localBaseCurrencyCopy);
+    }
+    final localBaseAmountCopy = baseAmount;
+    if (localBaseAmountCopy != null) {
+      buffer.writeString(localBaseAmountCopy);
+    }
+    final localMemoCopy = memo;
+    if (localMemoCopy != null) {
+      buffer.writeString(localMemoCopy);
+    }
+    final localThemeCopy = theme;
+    if (localThemeCopy != null) {
+      buffer.writeString(localThemeCopy);
+    }
+    final localSuccessReturnUrlCopy = successReturnUrl;
+    if (localSuccessReturnUrlCopy != null) {
+      buffer.writeString(localSuccessReturnUrlCopy);
+    }
+    final localFailReturnUrlCopy = failReturnUrl;
+    if (localFailReturnUrlCopy != null) {
+      buffer.writeString(localFailReturnUrlCopy);
+    }
+    final localCryptoAmountCopy = cryptoAmount;
+    if (localCryptoAmountCopy != null) {
+      buffer.writeString(localCryptoAmountCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a2197cf6",
+      "\$name": "PaymentsCreateOnrampSession",
+      "flags": flags,
+      "provider": provider,
+      "cryptoCurrency": cryptoCurrency,
+      "address": address,
+      "paymentMethod": paymentMethod,
+      "baseCurrency": baseCurrency,
+      "baseAmount": baseAmount,
+      "memo": memo,
+      "theme": theme,
+      "successReturnUrl": successReturnUrl,
+      "failReturnUrl": failReturnUrl,
+      "cryptoAmount": cryptoAmount,
     };
 
     // Finished toJson.
@@ -176019,6 +180437,1762 @@ class EphemeralGetWelcomeMessages extends TlMethod {
       "\$name": "EphemeralGetWelcomeMessages",
       "peer": peer,
       "hash": hash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Toncenter Perform Api Request.
+///
+/// Return Type: `ToncenterApiResponseBase`.
+/// ID: `8d7bdd61`.
+class ToncenterPerformApiRequest extends TlMethod {
+  /// Toncenter Perform Api Request constructor.
+  const ToncenterPerformApiRequest({
+    required this.post,
+    required this.endpoint,
+    this.query,
+    this.payload,
+  }) : super._();
+
+  /// Deserialize.
+  factory ToncenterPerformApiRequest.deserialize(BinaryReader reader) {
+    // Read [ToncenterPerformApiRequest] fields.
+    final flags = reader.readInt32();
+    final post = (flags & 1) != 0;
+    final endpoint = reader.readString();
+    final hasQueryField = (flags & 2) != 0;
+    final query = hasQueryField ? reader.readString() : null;
+    final hasPayloadField = (flags & 4) != 0;
+    final payload = hasPayloadField ? reader.readString() : null;
+
+    // Construct [ToncenterPerformApiRequest] object.
+    final returnValue = ToncenterPerformApiRequest(
+      post: post,
+      endpoint: endpoint,
+      query: query,
+      payload: payload,
+    );
+
+    // Now return the deserialized [ToncenterPerformApiRequest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: post, b01: query != null, b02: payload != null);
+
+    return v;
+  }
+
+  /// post: bit 0 of flags.0?true
+  final bool post;
+
+  /// Endpoint.
+  final String endpoint;
+
+  /// Query.
+  final String? query;
+
+  /// Payload.
+  final String? payload;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8d7bdd61.
+    buffer.writeInt32(0x8d7bdd61);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(endpoint);
+    final localQueryCopy = query;
+    if (localQueryCopy != null) {
+      buffer.writeString(localQueryCopy);
+    }
+    final localPayloadCopy = payload;
+    if (localPayloadCopy != null) {
+      buffer.writeString(localPayloadCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8d7bdd61",
+      "\$name": "ToncenterPerformApiRequest",
+      "flags": flags,
+      "post": post,
+      "endpoint": endpoint,
+      "query": query,
+      "payload": payload,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Toncenter Get Streaming Url.
+///
+/// Return Type: `ToncenterStreamingUrlBase`.
+/// ID: `cdaf63c7`.
+class ToncenterGetStreamingUrl extends TlMethod {
+  /// Toncenter Get Streaming Url constructor.
+  const ToncenterGetStreamingUrl() : super._();
+
+  /// Deserialize.
+  factory ToncenterGetStreamingUrl.deserialize(BinaryReader reader) {
+    // Construct [ToncenterGetStreamingUrl] object.
+    final returnValue = ToncenterGetStreamingUrl();
+
+    // Now return the deserialized [ToncenterGetStreamingUrl].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcdaf63c7.
+    buffer.writeInt32(0xcdaf63c7);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "cdaf63c7",
+      "\$name": "ToncenterGetStreamingUrl",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get State.
+///
+/// Return Type: `WalletStateBase`.
+/// ID: `ab83b33a`.
+class WalletGetState extends TlMethod {
+  /// Wallet Get State constructor.
+  const WalletGetState() : super._();
+
+  /// Deserialize.
+  factory WalletGetState.deserialize(BinaryReader reader) {
+    // Construct [WalletGetState] object.
+    final returnValue = WalletGetState();
+
+    // Now return the deserialized [WalletGetState].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xab83b33a.
+    buffer.writeInt32(0xab83b33a);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "ab83b33a",
+      "\$name": "WalletGetState",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get User Addresses.
+///
+/// Return Type: `WalletUserAddressesBase`.
+/// ID: `5275dfdd`.
+class WalletGetUserAddresses extends TlMethod {
+  /// Wallet Get User Addresses constructor.
+  const WalletGetUserAddresses({
+    required this.force,
+    required this.id,
+    required this.addresses,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletGetUserAddresses.deserialize(BinaryReader reader) {
+    // Read [WalletGetUserAddresses] fields.
+    final flags = reader.readInt32();
+    final force = (flags & 1) != 0;
+    final id = reader.readVectorObject<InputUserBase>();
+    final addresses = reader.readVectorString();
+
+    // Construct [WalletGetUserAddresses] object.
+    final returnValue = WalletGetUserAddresses(
+      force: force,
+      id: id.items,
+      addresses: addresses.items,
+    );
+
+    // Now return the deserialized [WalletGetUserAddresses].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: force);
+
+    return v;
+  }
+
+  /// force: bit 0 of flags.0?true
+  final bool force;
+
+  /// Id.
+  final List<InputUserBase> id;
+
+  /// Addresses.
+  final List<String> addresses;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x5275dfdd.
+    buffer.writeInt32(0x5275dfdd);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeVectorObject(id);
+    buffer.writeVectorString(addresses);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "5275dfdd",
+      "\$name": "WalletGetUserAddresses",
+      "flags": flags,
+      "force": force,
+      "id": id,
+      "addresses": addresses,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Transactions.
+///
+/// Return Type: `WalletTransactionsBase`.
+/// ID: `a8830a83`.
+class WalletGetTransactions extends TlMethod {
+  /// Wallet Get Transactions constructor.
+  const WalletGetTransactions({
+    required this.inbound,
+    required this.outbound,
+    required this.offset,
+    required this.limit,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletGetTransactions.deserialize(BinaryReader reader) {
+    // Read [WalletGetTransactions] fields.
+    final flags = reader.readInt32();
+    final inbound = (flags & 1) != 0;
+    final outbound = (flags & 2) != 0;
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [WalletGetTransactions] object.
+    final returnValue = WalletGetTransactions(
+      inbound: inbound,
+      outbound: outbound,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Now return the deserialized [WalletGetTransactions].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: inbound, b01: outbound);
+
+    return v;
+  }
+
+  /// inbound: bit 0 of flags.0?true
+  final bool inbound;
+
+  /// outbound: bit 1 of flags.1?true
+  final bool outbound;
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa8830a83.
+    buffer.writeInt32(0xa8830a83);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a8830a83",
+      "\$name": "WalletGetTransactions",
+      "flags": flags,
+      "inbound": inbound,
+      "outbound": outbound,
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Transactions By I Ds.
+///
+/// Return Type: `WalletTransactionsBase`.
+/// ID: `811ceab6`.
+class WalletGetTransactionsByIDs extends TlMethod {
+  /// Wallet Get Transactions By I Ds constructor.
+  const WalletGetTransactionsByIDs({required this.id}) : super._();
+
+  /// Deserialize.
+  factory WalletGetTransactionsByIDs.deserialize(BinaryReader reader) {
+    // Read [WalletGetTransactionsByIDs] fields.
+    final id = reader.readVectorString();
+
+    // Construct [WalletGetTransactionsByIDs] object.
+    final returnValue = WalletGetTransactionsByIDs(id: id.items);
+
+    // Now return the deserialized [WalletGetTransactionsByIDs].
+    return returnValue;
+  }
+
+  /// Id.
+  final List<String> id;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x811ceab6.
+    buffer.writeInt32(0x811ceab6);
+
+    // Write fields.
+    buffer.writeVectorString(id);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "811ceab6",
+      "\$name": "WalletGetTransactionsByIDs",
+      "id": id,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Transactions By Msg Hash.
+///
+/// Return Type: `WalletTransactionsBase`.
+/// ID: `a6bb795d`.
+class WalletGetTransactionsByMsgHash extends TlMethod {
+  /// Wallet Get Transactions By Msg Hash constructor.
+  const WalletGetTransactionsByMsgHash({required this.msgHash}) : super._();
+
+  /// Deserialize.
+  factory WalletGetTransactionsByMsgHash.deserialize(BinaryReader reader) {
+    // Read [WalletGetTransactionsByMsgHash] fields.
+    final msgHash = reader.readVectorString();
+
+    // Construct [WalletGetTransactionsByMsgHash] object.
+    final returnValue = WalletGetTransactionsByMsgHash(msgHash: msgHash.items);
+
+    // Now return the deserialized [WalletGetTransactionsByMsgHash].
+    return returnValue;
+  }
+
+  /// Msg Hash.
+  final List<String> msgHash;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa6bb795d.
+    buffer.writeInt32(0xa6bb795d);
+
+    // Write fields.
+    buffer.writeVectorString(msgHash);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a6bb795d",
+      "\$name": "WalletGetTransactionsByMsgHash",
+      "msgHash": msgHash,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Export Secret Phrase.
+///
+/// Return Type: `WalletSecretPhrasePartsBase`.
+/// ID: `9077c9ac`.
+class WalletExportSecretPhrase extends TlMethod {
+  /// Wallet Export Secret Phrase constructor.
+  const WalletExportSecretPhrase({this.password}) : super._();
+
+  /// Deserialize.
+  factory WalletExportSecretPhrase.deserialize(BinaryReader reader) {
+    // Read [WalletExportSecretPhrase] fields.
+    final flags = reader.readInt32();
+    final hasPasswordField = (flags & 1) != 0;
+    final password = hasPasswordField
+        ? reader.readObject() as InputCheckPasswordSRPBase
+        : null;
+
+    // Construct [WalletExportSecretPhrase] object.
+    final returnValue = WalletExportSecretPhrase(password: password);
+
+    // Now return the deserialized [WalletExportSecretPhrase].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: password != null);
+
+    return v;
+  }
+
+  /// Password.
+  final InputCheckPasswordSRPBase? password;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x9077c9ac.
+    buffer.writeInt32(0x9077c9ac);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localPasswordCopy = password;
+    if (localPasswordCopy != null) {
+      buffer.writeObject(localPasswordCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "9077c9ac",
+      "\$name": "WalletExportSecretPhrase",
+      "flags": flags,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Fetch Encrypted Secret Phrase Part.
+///
+/// Return Type: `WalletEncryptedSecretPhrasePartBase`.
+/// ID: `f53925cf`.
+class WalletFetchEncryptedSecretPhrasePart extends TlMethod {
+  /// Wallet Fetch Encrypted Secret Phrase Part constructor.
+  const WalletFetchEncryptedSecretPhrasePart({
+    required this.token,
+    required this.publicKey,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletFetchEncryptedSecretPhrasePart.deserialize(
+    BinaryReader reader,
+  ) {
+    // Read [WalletFetchEncryptedSecretPhrasePart] fields.
+    final token = reader.readString();
+    final publicKey = reader.readBytes();
+
+    // Construct [WalletFetchEncryptedSecretPhrasePart] object.
+    final returnValue = WalletFetchEncryptedSecretPhrasePart(
+      token: token,
+      publicKey: publicKey,
+    );
+
+    // Now return the deserialized [WalletFetchEncryptedSecretPhrasePart].
+    return returnValue;
+  }
+
+  /// Token.
+  final String token;
+
+  /// Public Key.
+  final Uint8List publicKey;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xf53925cf.
+    buffer.writeInt32(0xf53925cf);
+
+    // Write fields.
+    buffer.writeString(token);
+    buffer.writeBytes(publicKey);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "f53925cf",
+      "\$name": "WalletFetchEncryptedSecretPhrasePart",
+      "token": token,
+      "publicKey": publicKey,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Replace Wallet.
+///
+/// Return Type: `WalletStateBase`.
+/// ID: `d8c72eec`.
+class WalletReplaceWallet extends TlMethod {
+  /// Wallet Replace Wallet constructor.
+  const WalletReplaceWallet({required this.wallet, this.password}) : super._();
+
+  /// Deserialize.
+  factory WalletReplaceWallet.deserialize(BinaryReader reader) {
+    // Read [WalletReplaceWallet] fields.
+    final flags = reader.readInt32();
+    final wallet = reader.readObject() as InputWalletReplacementBase;
+    final hasPasswordField = (flags & 1) != 0;
+    final password = hasPasswordField
+        ? reader.readObject() as InputCheckPasswordSRPBase
+        : null;
+
+    // Construct [WalletReplaceWallet] object.
+    final returnValue = WalletReplaceWallet(wallet: wallet, password: password);
+
+    // Now return the deserialized [WalletReplaceWallet].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: password != null);
+
+    return v;
+  }
+
+  /// Wallet.
+  final InputWalletReplacementBase wallet;
+
+  /// Password.
+  final InputCheckPasswordSRPBase? password;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd8c72eec.
+    buffer.writeInt32(0xd8c72eec);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeObject(wallet);
+    final localPasswordCopy = password;
+    if (localPasswordCopy != null) {
+      buffer.writeObject(localPasswordCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d8c72eec",
+      "\$name": "WalletReplaceWallet",
+      "flags": flags,
+      "wallet": wallet,
+      "password": password,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Disable Backup.
+///
+/// Return Type: `WalletStateBase`.
+/// ID: `0b0bf0da`.
+class WalletDisableBackup extends TlMethod {
+  /// Wallet Disable Backup constructor.
+  const WalletDisableBackup({this.password, this.newPublicKey, this.proof})
+      : super._();
+
+  /// Deserialize.
+  factory WalletDisableBackup.deserialize(BinaryReader reader) {
+    // Read [WalletDisableBackup] fields.
+    final flags = reader.readInt32();
+    final hasPasswordField = (flags & 1) != 0;
+    final password = hasPasswordField
+        ? reader.readObject() as InputCheckPasswordSRPBase
+        : null;
+    final hasNewPublicKeyField = (flags & 2) != 0;
+    final newPublicKey = hasNewPublicKeyField ? reader.readBytes() : null;
+    final hasProofField = (flags & 4) != 0;
+    final proof =
+        hasProofField ? reader.readObject() as WalletOwnershipProofBase : null;
+
+    // Construct [WalletDisableBackup] object.
+    final returnValue = WalletDisableBackup(
+      password: password,
+      newPublicKey: newPublicKey,
+      proof: proof,
+    );
+
+    // Now return the deserialized [WalletDisableBackup].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(
+      b00: password != null,
+      b01: newPublicKey != null,
+      b02: proof != null,
+    );
+
+    return v;
+  }
+
+  /// Password.
+  final InputCheckPasswordSRPBase? password;
+
+  /// New Public Key.
+  final Uint8List? newPublicKey;
+
+  /// Proof.
+  final WalletOwnershipProofBase? proof;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x0b0bf0da.
+    buffer.writeInt32(0x0b0bf0da);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localPasswordCopy = password;
+    if (localPasswordCopy != null) {
+      buffer.writeObject(localPasswordCopy);
+    }
+    final localNewPublicKeyCopy = newPublicKey;
+    if (localNewPublicKeyCopy != null) {
+      buffer.writeBytes(localNewPublicKeyCopy);
+    }
+    final localProofCopy = proof;
+    if (localProofCopy != null) {
+      buffer.writeObject(localProofCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "0b0bf0da",
+      "\$name": "WalletDisableBackup",
+      "flags": flags,
+      "password": password,
+      "newPublicKey": newPublicKey,
+      "proof": proof,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Backup Holder Dcs.
+///
+/// Return Type: `List<WalletHolderDcBase>`.
+/// ID: `d179d494`.
+class WalletGetBackupHolderDcs extends TlMethod {
+  /// Wallet Get Backup Holder Dcs constructor.
+  const WalletGetBackupHolderDcs() : super._();
+
+  /// Deserialize.
+  factory WalletGetBackupHolderDcs.deserialize(BinaryReader reader) {
+    // Construct [WalletGetBackupHolderDcs] object.
+    final returnValue = WalletGetBackupHolderDcs();
+
+    // Now return the deserialized [WalletGetBackupHolderDcs].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd179d494.
+    buffer.writeInt32(0xd179d494);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d179d494",
+      "\$name": "WalletGetBackupHolderDcs",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Enable Backup.
+///
+/// Return Type: `WalletStateBase`.
+/// ID: `4500c525`.
+class WalletEnableBackup extends TlMethod {
+  /// Wallet Enable Backup constructor.
+  const WalletEnableBackup({required this.parts, this.newPublicKey, this.proof})
+      : super._();
+
+  /// Deserialize.
+  factory WalletEnableBackup.deserialize(BinaryReader reader) {
+    // Read [WalletEnableBackup] fields.
+    final flags = reader.readInt32();
+    final parts = reader.readVectorBytes();
+    final hasNewPublicKeyField = (flags & 2) != 0;
+    final newPublicKey = hasNewPublicKeyField ? reader.readBytes() : null;
+    final hasProofField = (flags & 4) != 0;
+    final proof =
+        hasProofField ? reader.readObject() as WalletOwnershipProofBase : null;
+
+    // Construct [WalletEnableBackup] object.
+    final returnValue = WalletEnableBackup(
+      parts: parts.items,
+      newPublicKey: newPublicKey,
+      proof: proof,
+    );
+
+    // Now return the deserialized [WalletEnableBackup].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b01: newPublicKey != null, b02: proof != null);
+
+    return v;
+  }
+
+  /// Parts.
+  final List<Uint8List> parts;
+
+  /// New Public Key.
+  final Uint8List? newPublicKey;
+
+  /// Proof.
+  final WalletOwnershipProofBase? proof;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x4500c525.
+    buffer.writeInt32(0x4500c525);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeVectorBytes(parts);
+    final localNewPublicKeyCopy = newPublicKey;
+    if (localNewPublicKeyCopy != null) {
+      buffer.writeBytes(localNewPublicKeyCopy);
+    }
+    final localProofCopy = proof;
+    if (localProofCopy != null) {
+      buffer.writeObject(localProofCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "4500c525",
+      "\$name": "WalletEnableBackup",
+      "flags": flags,
+      "parts": parts,
+      "newPublicKey": newPublicKey,
+      "proof": proof,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Proof Challenge.
+///
+/// Return Type: `WalletProofChallengeBase`.
+/// ID: `2025e697`.
+class WalletGetProofChallenge extends TlMethod {
+  /// Wallet Get Proof Challenge constructor.
+  const WalletGetProofChallenge() : super._();
+
+  /// Deserialize.
+  factory WalletGetProofChallenge.deserialize(BinaryReader reader) {
+    // Construct [WalletGetProofChallenge] object.
+    final returnValue = WalletGetProofChallenge();
+
+    // Now return the deserialized [WalletGetProofChallenge].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x2025e697.
+    buffer.writeInt32(0x2025e697);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "2025e697",
+      "\$name": "WalletGetProofChallenge",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Send Transfer.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `d9e5d9e2`.
+class WalletSendTransfer extends TlMethod {
+  /// Wallet Send Transfer constructor.
+  const WalletSendTransfer({
+    required this.dataNormal,
+    this.dataGasless,
+    required this.userId,
+    required this.randomId,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletSendTransfer.deserialize(BinaryReader reader) {
+    // Read [WalletSendTransfer] fields.
+    final flags = reader.readInt32();
+    final dataNormal = reader.readBytes();
+    final hasDataGaslessField = (flags & 1) != 0;
+    final dataGasless = hasDataGaslessField ? reader.readBytes() : null;
+    final userId = reader.readObject() as InputUserBase;
+    final randomId = reader.readInt64();
+
+    // Construct [WalletSendTransfer] object.
+    final returnValue = WalletSendTransfer(
+      dataNormal: dataNormal,
+      dataGasless: dataGasless,
+      userId: userId,
+      randomId: randomId,
+    );
+
+    // Now return the deserialized [WalletSendTransfer].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: dataGasless != null);
+
+    return v;
+  }
+
+  /// Data Normal.
+  final Uint8List dataNormal;
+
+  /// Data Gasless.
+  final Uint8List? dataGasless;
+
+  /// User Id.
+  final InputUserBase userId;
+
+  /// Random Id.
+  ///
+  /// Field type is Int64.
+  final int randomId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd9e5d9e2.
+    buffer.writeInt32(0xd9e5d9e2);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeBytes(dataNormal);
+    final localDataGaslessCopy = dataGasless;
+    if (localDataGaslessCopy != null) {
+      buffer.writeBytes(localDataGaslessCopy);
+    }
+    buffer.writeObject(userId);
+    buffer.writeInt64(randomId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d9e5d9e2",
+      "\$name": "WalletSendTransfer",
+      "flags": flags,
+      "dataNormal": dataNormal,
+      "dataGasless": dataGasless,
+      "userId": userId,
+      "randomId": randomId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Gasless Info.
+///
+/// Return Type: `UpdatesBase`.
+/// ID: `742df0a1`.
+class WalletGetGaslessInfo extends TlMethod {
+  /// Wallet Get Gasless Info constructor.
+  const WalletGetGaslessInfo() : super._();
+
+  /// Deserialize.
+  factory WalletGetGaslessInfo.deserialize(BinaryReader reader) {
+    // Construct [WalletGetGaslessInfo] object.
+    final returnValue = WalletGetGaslessInfo();
+
+    // Now return the deserialized [WalletGetGaslessInfo].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x742df0a1.
+    buffer.writeInt32(0x742df0a1);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "742df0a1",
+      "\$name": "WalletGetGaslessInfo",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Existing Walt Balance.
+///
+/// Return Type: `WalletExistingBalanceBase`.
+/// ID: `691f4360`.
+class WalletGetExistingWaltBalance extends TlMethod {
+  /// Wallet Get Existing Walt Balance constructor.
+  const WalletGetExistingWaltBalance() : super._();
+
+  /// Deserialize.
+  factory WalletGetExistingWaltBalance.deserialize(BinaryReader reader) {
+    // Construct [WalletGetExistingWaltBalance] object.
+    final returnValue = WalletGetExistingWaltBalance();
+
+    // Now return the deserialized [WalletGetExistingWaltBalance].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x691f4360.
+    buffer.writeInt32(0x691f4360);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "691f4360",
+      "\$name": "WalletGetExistingWaltBalance",
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Get Nfts.
+///
+/// Return Type: `WalletNftItemsBase`.
+/// ID: `8c12f3a4`.
+class WalletGetNfts extends TlMethod {
+  /// Wallet Get Nfts constructor.
+  const WalletGetNfts({required this.offset, required this.limit}) : super._();
+
+  /// Deserialize.
+  factory WalletGetNfts.deserialize(BinaryReader reader) {
+    // Read [WalletGetNfts] fields.
+    final offset = reader.readString();
+    final limit = reader.readInt32();
+
+    // Construct [WalletGetNfts] object.
+    final returnValue = WalletGetNfts(offset: offset, limit: limit);
+
+    // Now return the deserialized [WalletGetNfts].
+    return returnValue;
+  }
+
+  /// Offset.
+  final String offset;
+
+  /// Limit.
+  ///
+  /// Field type is Int32.
+  final int limit;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x8c12f3a4.
+    buffer.writeInt32(0x8c12f3a4);
+
+    // Write fields.
+    buffer.writeString(offset);
+    buffer.writeInt32(limit);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "8c12f3a4",
+      "\$name": "WalletGetNfts",
+      "offset": offset,
+      "limit": limit,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Create Session.
+///
+/// Return Type: `TonConnectSessionBase`.
+/// ID: `cc931046`.
+class WalletTonConnectCreateSession extends TlMethod {
+  /// Wallet Ton Connect Create Session constructor.
+  const WalletTonConnectCreateSession({
+    required this.dappClientId,
+    required this.manifestUrl,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectCreateSession.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectCreateSession] fields.
+    final dappClientId = reader.readString();
+    final manifestUrl = reader.readString();
+
+    // Construct [WalletTonConnectCreateSession] object.
+    final returnValue = WalletTonConnectCreateSession(
+      dappClientId: dappClientId,
+      manifestUrl: manifestUrl,
+    );
+
+    // Now return the deserialized [WalletTonConnectCreateSession].
+    return returnValue;
+  }
+
+  /// Dapp Client Id.
+  final String dappClientId;
+
+  /// Manifest Url.
+  final String manifestUrl;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xcc931046.
+    buffer.writeInt32(0xcc931046);
+
+    // Write fields.
+    buffer.writeString(dappClientId);
+    buffer.writeString(manifestUrl);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "cc931046",
+      "\$name": "WalletTonConnectCreateSession",
+      "dappClientId": dappClientId,
+      "manifestUrl": manifestUrl,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Register Key.
+///
+/// Return Type: `WalletTonConnectChallengeBase`.
+/// ID: `338bcf1c`.
+class WalletTonConnectRegisterKey extends TlMethod {
+  /// Wallet Ton Connect Register Key constructor.
+  const WalletTonConnectRegisterKey({
+    required this.sessionId,
+    required this.clientId,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectRegisterKey.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectRegisterKey] fields.
+    final sessionId = reader.readInt64();
+    final clientId = reader.readString();
+
+    // Construct [WalletTonConnectRegisterKey] object.
+    final returnValue = WalletTonConnectRegisterKey(
+      sessionId: sessionId,
+      clientId: clientId,
+    );
+
+    // Now return the deserialized [WalletTonConnectRegisterKey].
+    return returnValue;
+  }
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Client Id.
+  final String clientId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x338bcf1c.
+    buffer.writeInt32(0x338bcf1c);
+
+    // Write fields.
+    buffer.writeInt64(sessionId);
+    buffer.writeString(clientId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "338bcf1c",
+      "\$name": "WalletTonConnectRegisterKey",
+      "sessionId": sessionId,
+      "clientId": clientId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Submit Connect Result.
+///
+/// Return Type: `bool`.
+/// ID: `c2c00779`.
+class WalletTonConnectSubmitConnectResult extends TlMethod {
+  /// Wallet Ton Connect Submit Connect Result constructor.
+  const WalletTonConnectSubmitConnectResult({
+    required this.error,
+    required this.sessionId,
+    required this.challengeAnswer,
+    required this.body,
+    this.traceId,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectSubmitConnectResult.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectSubmitConnectResult] fields.
+    final flags = reader.readInt32();
+    final error = (flags & 1) != 0;
+    final sessionId = reader.readInt64();
+    final challengeAnswer = reader.readBytes();
+    final body = reader.readBytes();
+    final hasTraceIdField = (flags & 2) != 0;
+    final traceId = hasTraceIdField ? reader.readString() : null;
+
+    // Construct [WalletTonConnectSubmitConnectResult] object.
+    final returnValue = WalletTonConnectSubmitConnectResult(
+      error: error,
+      sessionId: sessionId,
+      challengeAnswer: challengeAnswer,
+      body: body,
+      traceId: traceId,
+    );
+
+    // Now return the deserialized [WalletTonConnectSubmitConnectResult].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: error, b01: traceId != null);
+
+    return v;
+  }
+
+  /// error: bit 0 of flags.0?true
+  final bool error;
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Challenge Answer.
+  final Uint8List challengeAnswer;
+
+  /// Body.
+  final Uint8List body;
+
+  /// Trace Id.
+  final String? traceId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xc2c00779.
+    buffer.writeInt32(0xc2c00779);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(sessionId);
+    buffer.writeBytes(challengeAnswer);
+    buffer.writeBytes(body);
+    final localTraceIdCopy = traceId;
+    if (localTraceIdCopy != null) {
+      buffer.writeString(localTraceIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "c2c00779",
+      "\$name": "WalletTonConnectSubmitConnectResult",
+      "flags": flags,
+      "error": error,
+      "sessionId": sessionId,
+      "challengeAnswer": challengeAnswer,
+      "body": body,
+      "traceId": traceId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Get Pending.
+///
+/// Return Type: `WalletTonConnectPendingBase`.
+/// ID: `11aee065`.
+class WalletTonConnectGetPending extends TlMethod {
+  /// Wallet Ton Connect Get Pending constructor.
+  const WalletTonConnectGetPending({this.dappClientId, this.sessionId})
+      : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectGetPending.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectGetPending] fields.
+    final flags = reader.readInt32();
+    final hasDappClientIdField = (flags & 1) != 0;
+    final dappClientId = hasDappClientIdField ? reader.readString() : null;
+    final hasSessionIdField = (flags & 2) != 0;
+    final sessionId = hasSessionIdField ? reader.readInt64() : null;
+
+    // Construct [WalletTonConnectGetPending] object.
+    final returnValue = WalletTonConnectGetPending(
+      dappClientId: dappClientId,
+      sessionId: sessionId,
+    );
+
+    // Now return the deserialized [WalletTonConnectGetPending].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: dappClientId != null, b01: sessionId != null);
+
+    return v;
+  }
+
+  /// Dapp Client Id.
+  final String? dappClientId;
+
+  /// Session Id.
+  final int? sessionId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x11aee065.
+    buffer.writeInt32(0x11aee065);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    final localDappClientIdCopy = dappClientId;
+    if (localDappClientIdCopy != null) {
+      buffer.writeString(localDappClientIdCopy);
+    }
+    final localSessionIdCopy = sessionId;
+    if (localSessionIdCopy != null) {
+      buffer.writeInt64(localSessionIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "11aee065",
+      "\$name": "WalletTonConnectGetPending",
+      "flags": flags,
+      "dappClientId": dappClientId,
+      "sessionId": sessionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Claim Request.
+///
+/// Return Type: `bool`.
+/// ID: `66b57b41`.
+class WalletTonConnectClaimRequest extends TlMethod {
+  /// Wallet Ton Connect Claim Request constructor.
+  const WalletTonConnectClaimRequest({
+    required this.declined,
+    required this.sessionId,
+    required this.msgId,
+    required this.appRequestId,
+    this.challengeAnswer,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectClaimRequest.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectClaimRequest] fields.
+    final flags = reader.readInt32();
+    final declined = (flags & 2) != 0;
+    final sessionId = reader.readInt64();
+    final msgId = reader.readInt32();
+    final appRequestId = reader.readString();
+    final hasChallengeAnswerField = (flags & 1) != 0;
+    final challengeAnswer = hasChallengeAnswerField ? reader.readBytes() : null;
+
+    // Construct [WalletTonConnectClaimRequest] object.
+    final returnValue = WalletTonConnectClaimRequest(
+      declined: declined,
+      sessionId: sessionId,
+      msgId: msgId,
+      appRequestId: appRequestId,
+      challengeAnswer: challengeAnswer,
+    );
+
+    // Now return the deserialized [WalletTonConnectClaimRequest].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b01: declined, b00: challengeAnswer != null);
+
+    return v;
+  }
+
+  /// declined: bit 1 of flags.1?true
+  final bool declined;
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// App Request Id.
+  final String appRequestId;
+
+  /// Challenge Answer.
+  final Uint8List? challengeAnswer;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x66b57b41.
+    buffer.writeInt32(0x66b57b41);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(sessionId);
+    buffer.writeInt32(msgId);
+    buffer.writeString(appRequestId);
+    final localChallengeAnswerCopy = challengeAnswer;
+    if (localChallengeAnswerCopy != null) {
+      buffer.writeBytes(localChallengeAnswerCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "66b57b41",
+      "\$name": "WalletTonConnectClaimRequest",
+      "flags": flags,
+      "declined": declined,
+      "sessionId": sessionId,
+      "msgId": msgId,
+      "appRequestId": appRequestId,
+      "challengeAnswer": challengeAnswer,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Submit Response.
+///
+/// Return Type: `bool`.
+/// ID: `fac67d3c`.
+class WalletTonConnectSubmitResponse extends TlMethod {
+  /// Wallet Ton Connect Submit Response constructor.
+  const WalletTonConnectSubmitResponse({
+    required this.sessionId,
+    required this.msgId,
+    required this.body,
+    this.traceId,
+  }) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectSubmitResponse.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectSubmitResponse] fields.
+    final flags = reader.readInt32();
+    final sessionId = reader.readInt64();
+    final msgId = reader.readInt32();
+    final body = reader.readBytes();
+    final hasTraceIdField = (flags & 1) != 0;
+    final traceId = hasTraceIdField ? reader.readString() : null;
+
+    // Construct [WalletTonConnectSubmitResponse] object.
+    final returnValue = WalletTonConnectSubmitResponse(
+      sessionId: sessionId,
+      msgId: msgId,
+      body: body,
+      traceId: traceId,
+    );
+
+    // Now return the deserialized [WalletTonConnectSubmitResponse].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: traceId != null);
+
+    return v;
+  }
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Msg Id.
+  ///
+  /// Field type is Int32.
+  final int msgId;
+
+  /// Body.
+  final Uint8List body;
+
+  /// Trace Id.
+  final String? traceId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xfac67d3c.
+    buffer.writeInt32(0xfac67d3c);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(sessionId);
+    buffer.writeInt32(msgId);
+    buffer.writeBytes(body);
+    final localTraceIdCopy = traceId;
+    if (localTraceIdCopy != null) {
+      buffer.writeString(localTraceIdCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "fac67d3c",
+      "\$name": "WalletTonConnectSubmitResponse",
+      "flags": flags,
+      "sessionId": sessionId,
+      "msgId": msgId,
+      "body": body,
+      "traceId": traceId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Next Event Id.
+///
+/// Return Type: `TonConnectNextEventIdBase`.
+/// ID: `775d7244`.
+class WalletTonConnectNextEventId extends TlMethod {
+  /// Wallet Ton Connect Next Event Id constructor.
+  const WalletTonConnectNextEventId({required this.sessionId}) : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectNextEventId.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectNextEventId] fields.
+    final sessionId = reader.readInt64();
+
+    // Construct [WalletTonConnectNextEventId] object.
+    final returnValue = WalletTonConnectNextEventId(sessionId: sessionId);
+
+    // Now return the deserialized [WalletTonConnectNextEventId].
+    return returnValue;
+  }
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0x775d7244.
+    buffer.writeInt32(0x775d7244);
+
+    // Write fields.
+    buffer.writeInt64(sessionId);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "775d7244",
+      "\$name": "WalletTonConnectNextEventId",
+      "sessionId": sessionId,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Close Session.
+///
+/// Return Type: `bool`.
+/// ID: `d63f61ce`.
+class WalletTonConnectCloseSession extends TlMethod {
+  /// Wallet Ton Connect Close Session constructor.
+  const WalletTonConnectCloseSession({required this.sessionId, this.body})
+      : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectCloseSession.deserialize(BinaryReader reader) {
+    // Read [WalletTonConnectCloseSession] fields.
+    final flags = reader.readInt32();
+    final sessionId = reader.readInt64();
+    final hasBodyField = (flags & 1) != 0;
+    final body = hasBodyField ? reader.readBytes() : null;
+
+    // Construct [WalletTonConnectCloseSession] object.
+    final returnValue = WalletTonConnectCloseSession(
+      sessionId: sessionId,
+      body: body,
+    );
+
+    // Now return the deserialized [WalletTonConnectCloseSession].
+    return returnValue;
+  }
+
+  /// Flags.
+  int get flags {
+    final v = _flag(b00: body != null);
+
+    return v;
+  }
+
+  /// Session Id.
+  ///
+  /// Field type is Int64.
+  final int sessionId;
+
+  /// Body.
+  final Uint8List? body;
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xd63f61ce.
+    buffer.writeInt32(0xd63f61ce);
+
+    // Write fields.
+    buffer.writeInt32(flags);
+    buffer.writeInt64(sessionId);
+    final localBodyCopy = body;
+    if (localBodyCopy != null) {
+      buffer.writeBytes(localBodyCopy);
+    }
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "d63f61ce",
+      "\$name": "WalletTonConnectCloseSession",
+      "flags": flags,
+      "sessionId": sessionId,
+      "body": body,
+    };
+
+    // Finished toJson.
+    return returnValue;
+  }
+}
+
+/// Wallet Ton Connect Get Sessions.
+///
+/// Return Type: `WalletTonConnectSessionsBase`.
+/// ID: `a7ffb56e`.
+class WalletTonConnectGetSessions extends TlMethod {
+  /// Wallet Ton Connect Get Sessions constructor.
+  const WalletTonConnectGetSessions() : super._();
+
+  /// Deserialize.
+  factory WalletTonConnectGetSessions.deserialize(BinaryReader reader) {
+    // Construct [WalletTonConnectGetSessions] object.
+    final returnValue = WalletTonConnectGetSessions();
+
+    // Now return the deserialized [WalletTonConnectGetSessions].
+    return returnValue;
+  }
+
+  /// Serialize.
+  @override
+  void serialize(List<int> buffer) {
+    // Write type-id 0xa7ffb56e.
+    buffer.writeInt32(0xa7ffb56e);
+
+    // Finished serialization.
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    final returnValue = <String, dynamic>{
+      "\$hash": "a7ffb56e",
+      "\$name": "WalletTonConnectGetSessions",
     };
 
     // Finished toJson.

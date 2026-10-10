@@ -29,6 +29,8 @@ abstract class Client {
     aicompose = ClientAicompose._(this);
     communities = ClientCommunities._(this);
     ephemeral = ClientEphemeral._(this);
+    toncenter = ClientToncenter._(this);
+    wallet = ClientWallet._(this);
   }
 
   /// Call the specified RPC [method] on the server.
@@ -108,6 +110,12 @@ abstract class Client {
 
   /// Ephemeral part.
   late final ClientEphemeral ephemeral;
+
+  /// Toncenter part.
+  late final ClientToncenter toncenter;
+
+  /// Wallet part.
+  late final ClientWallet wallet;
 
   /// Invoke After Msg.
   ///
@@ -841,15 +849,36 @@ class ClientAuth {
     return response._to<AuthAuthorizationBase>();
   }
 
+  /// Cancel Web Token Authorization.
+  ///
+  /// ID: `490dada1`.
+  Future<Result<Boolean>> cancelWebTokenAuthorization({
+    required String webAuthToken,
+  }) async {
+    // Preparing the request.
+    final request = AuthCancelWebTokenAuthorization(webAuthToken: webAuthToken);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
   /// Init Firebase Pnv Login.
   ///
-  /// ID: `777df37a`.
+  /// ID: `644f15c0`.
   Future<Result<AuthFirebasePnvIntentBase>> initFirebasePnvLogin({
+    List<int>? exceptIds,
     required int apiId,
     required String apiHash,
   }) async {
     // Preparing the request.
-    final request = AuthInitFirebasePnvLogin(apiId: apiId, apiHash: apiHash);
+    final request = AuthInitFirebasePnvLogin(
+      exceptIds: exceptIds,
+      apiId: apiId,
+      apiHash: apiHash,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11795,12 +11824,12 @@ class ClientBots {
 
   /// Set Custom Verification.
   ///
-  /// ID: `8b89dfbd`.
+  /// ID: `f4946757`.
   Future<Result<Boolean>> setCustomVerification({
     required bool enabled,
     InputUserBase? bot,
     required InputPeerBase peer,
-    String? customDescription,
+    TextWithEntitiesBase? customDescription,
   }) async {
     // Preparing the request.
     final request = BotsSetCustomVerification(
@@ -11835,10 +11864,16 @@ class ClientBots {
 
   /// Check Username.
   ///
-  /// ID: `87f2219b`.
-  Future<Result<Boolean>> checkUsername({required String username}) async {
+  /// ID: `e3ac4c61`.
+  Future<Result<Boolean>> checkUsername({
+    required bool additional,
+    required String username,
+  }) async {
     // Preparing the request.
-    final request = BotsCheckUsername(username: username);
+    final request = BotsCheckUsername(
+      additional: additional,
+      username: username,
+    );
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -11972,6 +12007,40 @@ class ClientBots {
   }) async {
     // Preparing the request.
     final request = BotsSetJoinChatResults(queryId: queryId, result: result);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Add Username.
+  ///
+  /// ID: `3501c08a`.
+  Future<Result<Boolean>> addUsername({
+    required InputUserBase bot,
+    required String username,
+  }) async {
+    // Preparing the request.
+    final request = BotsAddUsername(bot: bot, username: username);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Remove Username.
+  ///
+  /// ID: `c704147d`.
+  Future<Result<Boolean>> removeUsername({
+    required InputUserBase bot,
+    required String username,
+  }) async {
+    // Preparing the request.
+    final request = BotsRemoveUsername(bot: bot, username: username);
 
     // Invoke and wait for response.
     final response = await _c.invoke(request);
@@ -13266,6 +13335,168 @@ class ClientPayments {
 
     // Return the result.
     return response._to<UpdatesBase>();
+  }
+
+  /// Get Currency Rates.
+  ///
+  /// ID: `d35983e8`.
+  Future<Result<PaymentsCurrencyRatesBase>> getCurrencyRates() async {
+    // Preparing the request.
+    final request = PaymentsGetCurrencyRates();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<PaymentsCurrencyRatesBase>();
+  }
+
+  /// Get Onramp Providers.
+  ///
+  /// ID: `3f3e00dc`.
+  Future<Result<Vector<OnrampProviderInfoBase>>> getOnrampProviders({
+    String? cryptoCurrency,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetOnrampProviders(cryptoCurrency: cryptoCurrency);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._toVector<OnrampProviderInfoBase>();
+  }
+
+  /// Get Onramp Base Currencies.
+  ///
+  /// ID: `1c8bedf3`.
+  Future<Result<Vector<String>>> getOnrampBaseCurrencies({
+    required String provider,
+    required String cryptoCurrency,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetOnrampBaseCurrencies(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._toVector<String>();
+  }
+
+  /// Get Onramp Availability.
+  ///
+  /// ID: `2ec29951`.
+  Future<Result<OnrampAvailabilityBase>> getOnrampAvailability({
+    required String provider,
+    required String cryptoCurrency,
+    String? baseCurrency,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetOnrampAvailability(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      baseCurrency: baseCurrency,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<OnrampAvailabilityBase>();
+  }
+
+  /// Get Onramp Limits.
+  ///
+  /// ID: `80e851fd`.
+  Future<Result<OnrampLimitsBase>> getOnrampLimits({
+    required String provider,
+    required String cryptoCurrency,
+    required String baseCurrency,
+    String? paymentMethod,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetOnrampLimits(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      baseCurrency: baseCurrency,
+      paymentMethod: paymentMethod,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<OnrampLimitsBase>();
+  }
+
+  /// Get Onramp Quote.
+  ///
+  /// ID: `e06645fa`.
+  Future<Result<OnrampQuoteBase>> getOnrampQuote({
+    required String provider,
+    required String cryptoCurrency,
+    required String baseCurrency,
+    String? baseAmount,
+    String? cryptoAmount,
+    String? paymentMethod,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsGetOnrampQuote(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      baseCurrency: baseCurrency,
+      baseAmount: baseAmount,
+      cryptoAmount: cryptoAmount,
+      paymentMethod: paymentMethod,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<OnrampQuoteBase>();
+  }
+
+  /// Create Onramp Session.
+  ///
+  /// ID: `a2197cf6`.
+  Future<Result<OnrampSessionBase>> createOnrampSession({
+    required String provider,
+    required String cryptoCurrency,
+    required String address,
+    String? paymentMethod,
+    String? baseCurrency,
+    String? baseAmount,
+    String? memo,
+    String? theme,
+    String? successReturnUrl,
+    String? failReturnUrl,
+    String? cryptoAmount,
+  }) async {
+    // Preparing the request.
+    final request = PaymentsCreateOnrampSession(
+      provider: provider,
+      cryptoCurrency: cryptoCurrency,
+      address: address,
+      paymentMethod: paymentMethod,
+      baseCurrency: baseCurrency,
+      baseAmount: baseAmount,
+      memo: memo,
+      theme: theme,
+      successReturnUrl: successReturnUrl,
+      failReturnUrl: failReturnUrl,
+      cryptoAmount: cryptoAmount,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<OnrampSessionBase>();
   }
 }
 
@@ -16356,5 +16587,530 @@ class ClientEphemeral {
 
     // Return the result.
     return response._to<EphemeralWelcomeMessagesBase>();
+  }
+}
+
+/// Toncenter.
+class ClientToncenter {
+  /// Constructor.
+  const ClientToncenter._(this._c);
+  final Client _c;
+
+  /// Perform Api Request.
+  ///
+  /// ID: `8d7bdd61`.
+  Future<Result<ToncenterApiResponseBase>> performApiRequest({
+    required bool post,
+    required String endpoint,
+    String? query,
+    String? payload,
+  }) async {
+    // Preparing the request.
+    final request = ToncenterPerformApiRequest(
+      post: post,
+      endpoint: endpoint,
+      query: query,
+      payload: payload,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ToncenterApiResponseBase>();
+  }
+
+  /// Get Streaming Url.
+  ///
+  /// ID: `cdaf63c7`.
+  Future<Result<ToncenterStreamingUrlBase>> getStreamingUrl() async {
+    // Preparing the request.
+    final request = ToncenterGetStreamingUrl();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<ToncenterStreamingUrlBase>();
+  }
+}
+
+/// Wallet.
+class ClientWallet {
+  /// Constructor.
+  const ClientWallet._(this._c);
+  final Client _c;
+
+  /// Get State.
+  ///
+  /// ID: `ab83b33a`.
+  Future<Result<WalletStateBase>> getState() async {
+    // Preparing the request.
+    final request = WalletGetState();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletStateBase>();
+  }
+
+  /// Get User Addresses.
+  ///
+  /// ID: `5275dfdd`.
+  Future<Result<WalletUserAddressesBase>> getUserAddresses({
+    required bool force,
+    required List<InputUserBase> id,
+    required List<String> addresses,
+  }) async {
+    // Preparing the request.
+    final request = WalletGetUserAddresses(
+      force: force,
+      id: id,
+      addresses: addresses,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletUserAddressesBase>();
+  }
+
+  /// Get Transactions.
+  ///
+  /// ID: `a8830a83`.
+  Future<Result<WalletTransactionsBase>> getTransactions({
+    required bool inbound,
+    required bool outbound,
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = WalletGetTransactions(
+      inbound: inbound,
+      outbound: outbound,
+      offset: offset,
+      limit: limit,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletTransactionsBase>();
+  }
+
+  /// Get Transactions By I Ds.
+  ///
+  /// ID: `811ceab6`.
+  Future<Result<WalletTransactionsBase>> getTransactionsByIDs({
+    required List<String> id,
+  }) async {
+    // Preparing the request.
+    final request = WalletGetTransactionsByIDs(id: id);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletTransactionsBase>();
+  }
+
+  /// Get Transactions By Msg Hash.
+  ///
+  /// ID: `a6bb795d`.
+  Future<Result<WalletTransactionsBase>> getTransactionsByMsgHash({
+    required List<String> msgHash,
+  }) async {
+    // Preparing the request.
+    final request = WalletGetTransactionsByMsgHash(msgHash: msgHash);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletTransactionsBase>();
+  }
+
+  /// Export Secret Phrase.
+  ///
+  /// ID: `9077c9ac`.
+  Future<Result<WalletSecretPhrasePartsBase>> exportSecretPhrase({
+    InputCheckPasswordSRPBase? password,
+  }) async {
+    // Preparing the request.
+    final request = WalletExportSecretPhrase(password: password);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletSecretPhrasePartsBase>();
+  }
+
+  /// Fetch Encrypted Secret Phrase Part.
+  ///
+  /// ID: `f53925cf`.
+  Future<Result<WalletEncryptedSecretPhrasePartBase>>
+      fetchEncryptedSecretPhrasePart({
+    required String token,
+    required Uint8List publicKey,
+  }) async {
+    // Preparing the request.
+    final request = WalletFetchEncryptedSecretPhrasePart(
+      token: token,
+      publicKey: publicKey,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletEncryptedSecretPhrasePartBase>();
+  }
+
+  /// Replace Wallet.
+  ///
+  /// ID: `d8c72eec`.
+  Future<Result<WalletStateBase>> replaceWallet({
+    required InputWalletReplacementBase wallet,
+    InputCheckPasswordSRPBase? password,
+  }) async {
+    // Preparing the request.
+    final request = WalletReplaceWallet(wallet: wallet, password: password);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletStateBase>();
+  }
+
+  /// Disable Backup.
+  ///
+  /// ID: `0b0bf0da`.
+  Future<Result<WalletStateBase>> disableBackup({
+    InputCheckPasswordSRPBase? password,
+    Uint8List? newPublicKey,
+    WalletOwnershipProofBase? proof,
+  }) async {
+    // Preparing the request.
+    final request = WalletDisableBackup(
+      password: password,
+      newPublicKey: newPublicKey,
+      proof: proof,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletStateBase>();
+  }
+
+  /// Get Backup Holder Dcs.
+  ///
+  /// ID: `d179d494`.
+  Future<Result<Vector<WalletHolderDcBase>>> getBackupHolderDcs() async {
+    // Preparing the request.
+    final request = WalletGetBackupHolderDcs();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._toVector<WalletHolderDcBase>();
+  }
+
+  /// Enable Backup.
+  ///
+  /// ID: `4500c525`.
+  Future<Result<WalletStateBase>> enableBackup({
+    required List<Uint8List> parts,
+    Uint8List? newPublicKey,
+    WalletOwnershipProofBase? proof,
+  }) async {
+    // Preparing the request.
+    final request = WalletEnableBackup(
+      parts: parts,
+      newPublicKey: newPublicKey,
+      proof: proof,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletStateBase>();
+  }
+
+  /// Get Proof Challenge.
+  ///
+  /// ID: `2025e697`.
+  Future<Result<WalletProofChallengeBase>> getProofChallenge() async {
+    // Preparing the request.
+    final request = WalletGetProofChallenge();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletProofChallengeBase>();
+  }
+
+  /// Send Transfer.
+  ///
+  /// ID: `d9e5d9e2`.
+  Future<Result<UpdatesBase>> sendTransfer({
+    required Uint8List dataNormal,
+    Uint8List? dataGasless,
+    required InputUserBase userId,
+    required int randomId,
+  }) async {
+    // Preparing the request.
+    final request = WalletSendTransfer(
+      dataNormal: dataNormal,
+      dataGasless: dataGasless,
+      userId: userId,
+      randomId: randomId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Gasless Info.
+  ///
+  /// ID: `742df0a1`.
+  Future<Result<UpdatesBase>> getGaslessInfo() async {
+    // Preparing the request.
+    final request = WalletGetGaslessInfo();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<UpdatesBase>();
+  }
+
+  /// Get Existing Walt Balance.
+  ///
+  /// ID: `691f4360`.
+  Future<Result<WalletExistingBalanceBase>> getExistingWaltBalance() async {
+    // Preparing the request.
+    final request = WalletGetExistingWaltBalance();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletExistingBalanceBase>();
+  }
+
+  /// Get Nfts.
+  ///
+  /// ID: `8c12f3a4`.
+  Future<Result<WalletNftItemsBase>> getNfts({
+    required String offset,
+    required int limit,
+  }) async {
+    // Preparing the request.
+    final request = WalletGetNfts(offset: offset, limit: limit);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletNftItemsBase>();
+  }
+
+  /// Ton Connect Create Session.
+  ///
+  /// ID: `cc931046`.
+  Future<Result<TonConnectSessionBase>> tonConnectCreateSession({
+    required String dappClientId,
+    required String manifestUrl,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectCreateSession(
+      dappClientId: dappClientId,
+      manifestUrl: manifestUrl,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<TonConnectSessionBase>();
+  }
+
+  /// Ton Connect Register Key.
+  ///
+  /// ID: `338bcf1c`.
+  Future<Result<WalletTonConnectChallengeBase>> tonConnectRegisterKey({
+    required int sessionId,
+    required String clientId,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectRegisterKey(
+      sessionId: sessionId,
+      clientId: clientId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletTonConnectChallengeBase>();
+  }
+
+  /// Ton Connect Submit Connect Result.
+  ///
+  /// ID: `c2c00779`.
+  Future<Result<Boolean>> tonConnectSubmitConnectResult({
+    required bool error,
+    required int sessionId,
+    required Uint8List challengeAnswer,
+    required Uint8List body,
+    String? traceId,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectSubmitConnectResult(
+      error: error,
+      sessionId: sessionId,
+      challengeAnswer: challengeAnswer,
+      body: body,
+      traceId: traceId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Ton Connect Get Pending.
+  ///
+  /// ID: `11aee065`.
+  Future<Result<WalletTonConnectPendingBase>> tonConnectGetPending({
+    String? dappClientId,
+    int? sessionId,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectGetPending(
+      dappClientId: dappClientId,
+      sessionId: sessionId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletTonConnectPendingBase>();
+  }
+
+  /// Ton Connect Claim Request.
+  ///
+  /// ID: `66b57b41`.
+  Future<Result<Boolean>> tonConnectClaimRequest({
+    required bool declined,
+    required int sessionId,
+    required int msgId,
+    required String appRequestId,
+    Uint8List? challengeAnswer,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectClaimRequest(
+      declined: declined,
+      sessionId: sessionId,
+      msgId: msgId,
+      appRequestId: appRequestId,
+      challengeAnswer: challengeAnswer,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Ton Connect Submit Response.
+  ///
+  /// ID: `fac67d3c`.
+  Future<Result<Boolean>> tonConnectSubmitResponse({
+    required int sessionId,
+    required int msgId,
+    required Uint8List body,
+    String? traceId,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectSubmitResponse(
+      sessionId: sessionId,
+      msgId: msgId,
+      body: body,
+      traceId: traceId,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Ton Connect Next Event Id.
+  ///
+  /// ID: `775d7244`.
+  Future<Result<TonConnectNextEventIdBase>> tonConnectNextEventId({
+    required int sessionId,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectNextEventId(sessionId: sessionId);
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<TonConnectNextEventIdBase>();
+  }
+
+  /// Ton Connect Close Session.
+  ///
+  /// ID: `d63f61ce`.
+  Future<Result<Boolean>> tonConnectCloseSession({
+    required int sessionId,
+    Uint8List? body,
+  }) async {
+    // Preparing the request.
+    final request = WalletTonConnectCloseSession(
+      sessionId: sessionId,
+      body: body,
+    );
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<Boolean>();
+  }
+
+  /// Ton Connect Get Sessions.
+  ///
+  /// ID: `a7ffb56e`.
+  Future<Result<WalletTonConnectSessionsBase>> tonConnectGetSessions() async {
+    // Preparing the request.
+    final request = WalletTonConnectGetSessions();
+
+    // Invoke and wait for response.
+    final response = await _c.invoke(request);
+
+    // Return the result.
+    return response._to<WalletTonConnectSessionsBase>();
   }
 }
